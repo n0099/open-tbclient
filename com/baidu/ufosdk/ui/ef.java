@@ -15,7 +15,7 @@ public final class ef implements TextWatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f56958a;
+    public final /* synthetic */ FeedbackReportActivity f56957a;
 
     public ef(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class ef implements TextWatcher {
                 return;
             }
         }
-        this.f56958a = feedbackReportActivity;
+        this.f56957a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -48,28 +48,28 @@ public final class ef implements TextWatcher {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            z = this.f56958a.E;
+            z = this.f56957a.E;
             if (!z) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f56958a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f56957a);
                 dVar.b(dVar.b() + 1);
-                this.f56958a.E = true;
+                this.f56957a.E = true;
             }
-            editText = this.f56958a.u;
+            editText = this.f56957a.u;
             if (editText != null) {
-                editText4 = this.f56958a.u;
+                editText4 = this.f56957a.u;
                 if (editText4.getText().toString().trim().length() > 30) {
-                    editText5 = this.f56958a.u;
-                    str = this.f56958a.M;
+                    editText5 = this.f56957a.u;
+                    str = this.f56957a.M;
                     editText5.setText(str);
-                    Toast.makeText(this.f56958a, com.baidu.ufosdk.f.s.a("32"), 1).show();
-                    editText6 = this.f56958a.u;
-                    str2 = this.f56958a.M;
+                    Toast.makeText(this.f56957a, com.baidu.ufosdk.f.s.a("32"), 1).show();
+                    editText6 = this.f56957a.u;
+                    str2 = this.f56957a.M;
                     editText6.setSelection(str2.length());
                 }
             }
-            editText2 = this.f56958a.u;
+            editText2 = this.f56957a.u;
             if (editText2 != null) {
-                FeedbackReportActivity feedbackReportActivity = this.f56958a;
+                FeedbackReportActivity feedbackReportActivity = this.f56957a;
                 editText3 = feedbackReportActivity.u;
                 feedbackReportActivity.M = editText3.getText().toString();
             }

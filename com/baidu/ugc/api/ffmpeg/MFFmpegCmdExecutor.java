@@ -27,7 +27,7 @@ public class MFFmpegCmdExecutor implements b.a.x0.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1439a f57058a;
+        public final /* synthetic */ a.InterfaceC1439a f57057a;
 
         public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, a.InterfaceC1439a interfaceC1439a) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class MFFmpegCmdExecutor implements b.a.x0.s.a {
                     return;
                 }
             }
-            this.f57058a = interfaceC1439a;
+            this.f57057a = interfaceC1439a;
         }
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public void onCompletion() {
             a.InterfaceC1439a interfaceC1439a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (interfaceC1439a = this.f57058a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (interfaceC1439a = this.f57057a) == null) {
                 return;
             }
             interfaceC1439a.onCompletion();
@@ -62,7 +62,7 @@ public class MFFmpegCmdExecutor implements b.a.x0.s.a {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                a.InterfaceC1439a interfaceC1439a = this.f57058a;
+                a.InterfaceC1439a interfaceC1439a = this.f57057a;
                 if (interfaceC1439a != null) {
                     return interfaceC1439a.onError(i2, i3, obj);
                 }
@@ -76,7 +76,7 @@ public class MFFmpegCmdExecutor implements b.a.x0.s.a {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-                a.InterfaceC1439a interfaceC1439a = this.f57058a;
+                a.InterfaceC1439a interfaceC1439a = this.f57057a;
                 if (interfaceC1439a != null) {
                     return interfaceC1439a.onInfo(i2, i3, obj);
                 }

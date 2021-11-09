@@ -166,7 +166,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f62325a;
+        public static CameraCtrl f62324a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -182,7 +182,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f62325a = new CameraCtrl(null);
+            f62324a = new CameraCtrl(null);
         }
     }
 
@@ -251,7 +251,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f62325a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f62324a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {

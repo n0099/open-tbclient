@@ -50,16 +50,16 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f49490f;
+    public Context f49489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcernFragment f49491g;
+    public ConcernFragment f49490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalizeFragment f49492h;
+    public PersonalizeFragment f49491h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HotTopicTabFragment f49493i;
+    public HotTopicTabFragment f49492i;
     public BaseFragment j;
     public GameVideoFragment k;
     public VideoTabFragment l;
@@ -79,10 +79,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f49494a;
+        public final /* synthetic */ int f49493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewScrollFragmentAdapter f49495b;
+        public final /* synthetic */ NewScrollFragmentAdapter f49494b;
 
         public a(NewScrollFragmentAdapter newScrollFragmentAdapter, int i2) {
             Interceptable interceptable = $ic;
@@ -99,8 +99,8 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     return;
                 }
             }
-            this.f49495b = newScrollFragmentAdapter;
-            this.f49494a = i2;
+            this.f49494b = newScrollFragmentAdapter;
+            this.f49493a = i2;
         }
 
         @Override // b.a.q0.d1.i0
@@ -109,9 +109,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 b.a.q0.s.r.a.f();
-                l<String> h2 = b.a.q0.s.r.a.h(this.f49495b.n, TbadkCoreApplication.getCurrentAccount());
+                l<String> h2 = b.a.q0.s.r.a.h(this.f49494b.n, TbadkCoreApplication.getCurrentAccount());
                 if (h2 != null) {
-                    h2.e(this.f49495b.o, Integer.toString(this.f49494a), 43200000L);
+                    h2.e(this.f49494b.o, Integer.toString(this.f49493a), 43200000L);
                     return null;
                 }
                 return null;
@@ -145,28 +145,28 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.r = -1;
         this.t = new ArrayList();
         this.u = new ArrayList();
-        this.f49490f = context;
+        this.f49489f = context;
         if (this.s == null) {
             this.s = new b.a.r0.h1.d.f.a();
         }
         List<a0> f2 = this.s.f();
         this.u.clear();
-        if (this.f49491g == null) {
-            this.f49491g = new ConcernFragment(context);
+        if (this.f49490g == null) {
+            this.f49490g = new ConcernFragment(context);
             c(2);
         }
-        this.f49491g.setCallback(lVar);
+        this.f49490g.setCallback(lVar);
         if (d.i() && TbadkCoreApplication.isLogin() && b.a.q0.s.e0.b.j().k("key_home_concern_all_status", 0) == 1) {
-            this.u.add(newFragmentItem(this.f49491g, 0, e(R.string.attention_person)));
+            this.u.add(newFragmentItem(this.f49490g, 0, e(R.string.attention_person)));
         } else {
-            this.u.add(newFragmentItem(this.f49491g, 0, e(R.string.tab_name_concern)));
+            this.u.add(newFragmentItem(this.f49490g, 0, e(R.string.tab_name_concern)));
         }
-        if (this.f49492h == null) {
-            this.f49492h = new PersonalizeFragment(context);
+        if (this.f49491h == null) {
+            this.f49491h = new PersonalizeFragment(context);
             c(1);
         }
-        this.f49492h.setCallback(bVar);
-        this.u.add(newFragmentItem(this.f49492h, 1, e(R.string.tab_name_recommend)));
+        this.f49491h.setCallback(bVar);
+        this.u.add(newFragmentItem(this.f49491h, 1, e(R.string.tab_name_recommend)));
         for (a0 a0Var : f2) {
             int i4 = a0Var.f13735a;
             String str = a0Var.f13736b;
@@ -182,10 +182,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     homePageTabFeedFragment.setArguments(bundle);
                     this.u.add(newFragmentItem(homePageTabFeedFragment, a0Var));
                 } else if (i4 == 5) {
-                    if (this.f49493i == null) {
+                    if (this.f49492i == null) {
                         c(3);
                         HotTopicTabFragment hotTopicTabFragment = new HotTopicTabFragment(context);
-                        this.f49493i = hotTopicTabFragment;
+                        this.f49492i = hotTopicTabFragment;
                         this.u.add(newFragmentItem(hotTopicTabFragment, i4, str, z));
                     }
                 } else if (i4 == 8) {
@@ -241,11 +241,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            PersonalizeFragment personalizeFragment = this.f49492h;
+            PersonalizeFragment personalizeFragment = this.f49491h;
             if (personalizeFragment != null && this.m == personalizeFragment) {
                 personalizeFragment.completePullRefresh();
             }
-            ConcernFragment concernFragment = this.f49491g;
+            ConcernFragment concernFragment = this.f49490g;
             if (concernFragment == null || this.m != concernFragment) {
                 return;
             }
@@ -313,7 +313,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             for (int i2 = 0; i2 < this.t.size(); i2++) {
-                if (this.t.get(i2).f49500e == 5) {
+                if (this.t.get(i2).f49499e == 5) {
                     return i2;
                 }
             }
@@ -331,7 +331,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (list == null || i2 < 0 || i2 >= list.size() || this.t.get(i2) == null) {
                 return null;
             }
-            return this.t.get(i2).f49496a;
+            return this.t.get(i2).f49495a;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -348,7 +348,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             b bVar = (b) ListUtils.getItem(this.t, i2);
-            return bVar != null && bVar.f49498c;
+            return bVar != null && bVar.f49497c;
         }
         return invokeI.booleanValue;
     }
@@ -358,7 +358,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             b bVar = (b) ListUtils.getItem(this.t, i2);
-            return bVar != null ? bVar.f49499d : e(R.string.tab_name_recommend);
+            return bVar != null ? bVar.f49498d : e(R.string.tab_name_recommend);
         }
         return (String) invokeI.objValue;
     }
@@ -369,7 +369,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
             b bVar = (b) ListUtils.getItem(this.t, i2);
             if (bVar != null) {
-                return bVar.f49500e;
+                return bVar.f49499e;
             }
             return 1;
         }
@@ -394,7 +394,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (list == null || i2 < 0 || i2 >= list.size() || this.t.get(i2) == null) {
                 return null;
             }
-            return this.t.get(i2).f49497b;
+            return this.t.get(i2).f49496b;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -405,7 +405,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             for (int i2 = 0; i2 < this.t.size(); i2++) {
                 b bVar = this.t.get(i2);
-                if (!TextUtils.isEmpty(str) && str.equals(bVar.f49499d)) {
+                if (!TextUtils.isEmpty(str) && str.equals(bVar.f49498d)) {
                     return i2;
                 }
             }
@@ -419,7 +419,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             for (int i2 = 0; i2 < this.t.size(); i2++) {
-                if (this.t.get(i2).f49500e == 1) {
+                if (this.t.get(i2).f49499e == 1) {
                     return i2;
                 }
             }
@@ -431,13 +431,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public boolean isConcernFragmentCreate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f49491g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f49490g != null : invokeV.booleanValue;
     }
 
     public boolean isHotTopicFragmentCreate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f49493i != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f49492i != null : invokeV.booleanValue;
     }
 
     public b newFragmentItem(Fragment fragment, a0 a0Var) {
@@ -449,7 +449,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void notifyJumpToLastReadPosition(int i2) {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048600, this, i2) == null) && i2 == 1 && (personalizeFragment = this.f49492h) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i2) == null) && i2 == 1 && (personalizeFragment = this.f49491h) != null) {
             personalizeFragment.notifyJumpToLastReadPosition();
         }
     }
@@ -552,7 +552,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     ((BaseFragment) n0Var).setPrimary(false);
                 }
                 this.r = i2;
-                VoiceManager a2 = b.a.r0.l3.r0.b.a(this.f49490f);
+                VoiceManager a2 = b.a.r0.l3.r0.b.a(this.f49489f);
                 if (a2 != null) {
                     a2.stopPlay();
                 }
@@ -572,15 +572,15 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, scrollFragmentTabHost) == null) {
-            PersonalizeFragment personalizeFragment = this.f49492h;
+            PersonalizeFragment personalizeFragment = this.f49491h;
             if (personalizeFragment != null) {
                 personalizeFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
             }
-            HotTopicTabFragment hotTopicTabFragment = this.f49493i;
+            HotTopicTabFragment hotTopicTabFragment = this.f49492i;
             if (hotTopicTabFragment != null) {
                 hotTopicTabFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
             }
-            ConcernFragment concernFragment = this.f49491g;
+            ConcernFragment concernFragment = this.f49490g;
             if (concernFragment != null) {
                 concernFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
             }
@@ -607,7 +607,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void showLoadingView() {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (personalizeFragment = this.f49492h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (personalizeFragment = this.f49491h) == null) {
             return;
         }
         personalizeFragment.showLoadingView();
@@ -616,7 +616,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void startFirstLoad() {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (personalizeFragment = this.f49492h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (personalizeFragment = this.f49491h) == null) {
             return;
         }
         personalizeFragment.startFirstLoad();
@@ -625,7 +625,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void startRedDotConcernLoad() {
         ConcernFragment concernFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (concernFragment = this.f49491g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (concernFragment = this.f49490g) == null) {
             return;
         }
         concernFragment.startRedDotLoad();
@@ -634,7 +634,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void updateConcernData(DataRes dataRes, boolean z) {
         ConcernFragment concernFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048614, this, dataRes, z) == null) || (concernFragment = this.f49491g) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048614, this, dataRes, z) == null) || (concernFragment = this.f49490g) == null) {
             return;
         }
         concernFragment.updateData(dataRes, z);
@@ -645,10 +645,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048615, this, str, i2, i3) == null) {
-            if (i3 == 1 && (personalizeFragment = this.f49492h) != null && this.m == personalizeFragment) {
+            if (i3 == 1 && (personalizeFragment = this.f49491h) != null && this.m == personalizeFragment) {
                 personalizeFragment.updateError(str, i2);
             }
-            if (i3 != 0 || (concernFragment = this.f49491g) == null) {
+            if (i3 != 0 || (concernFragment = this.f49490g) == null) {
                 return;
             }
             concernFragment.updateError(str, i2);
@@ -662,8 +662,8 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             boolean d2 = c.d();
             for (b bVar : this.u) {
                 if (d2) {
-                    Fragment fragment = bVar.f49496a;
-                    if (fragment == this.f49491g || fragment == this.f49492h) {
+                    Fragment fragment = bVar.f49495a;
+                    if (fragment == this.f49490g || fragment == this.f49491h) {
                         this.t.add(bVar);
                     }
                 } else {
@@ -676,7 +676,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void updatePersonalizeData(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (personalizeFragment = this.f49492h) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (personalizeFragment = this.f49491h) == null) {
             return;
         }
         personalizeFragment.updateData(dataRes, z, z2);
@@ -685,7 +685,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void updatePersonalizePage() {
         PersonalizeFragment personalizeFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || (personalizeFragment = this.f49492h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || (personalizeFragment = this.f49491h) == null) {
             return;
         }
         personalizeFragment.forceReloadData();
@@ -697,7 +697,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             for (int i3 = 0; i3 < this.t.size(); i3++) {
-                if (this.t.get(i3).f49500e == i2) {
+                if (this.t.get(i3).f49499e == i2) {
                     return i3;
                 }
             }
@@ -724,19 +724,19 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f49496a;
+        public Fragment f49495a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49497b;
+        public String f49496b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f49498c;
+        public boolean f49497c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f49499d;
+        public String f49498d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49500e;
+        public int f49499e;
 
         public b(Fragment fragment, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -753,10 +753,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     return;
                 }
             }
-            this.f49496a = fragment;
-            this.f49500e = i2;
-            this.f49497b = str;
-            this.f49499d = str;
+            this.f49495a = fragment;
+            this.f49499e = i2;
+            this.f49496b = str;
+            this.f49498d = str;
         }
 
         public b(Fragment fragment, int i2, String str, boolean z) {
@@ -774,11 +774,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     return;
                 }
             }
-            this.f49496a = fragment;
-            this.f49500e = i2;
-            this.f49497b = str;
-            this.f49499d = str;
-            this.f49498c = z;
+            this.f49495a = fragment;
+            this.f49499e = i2;
+            this.f49496b = str;
+            this.f49498d = str;
+            this.f49497c = z;
         }
     }
 }

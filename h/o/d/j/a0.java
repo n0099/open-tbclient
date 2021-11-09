@@ -10,7 +10,7 @@ public abstract class a0<E> extends c0<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f72108i;
+    public long f72107i;
     public E[] j;
 
     public a0() {

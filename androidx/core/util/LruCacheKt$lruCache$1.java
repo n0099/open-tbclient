@@ -54,7 +54,7 @@ public final class LruCacheKt$lruCache$1 extends Lambda implements Function2<K, 
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
     /* JADX WARN: Can't rename method to resolve collision */
-    /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.functions.Function2
     public final Integer invoke(K k, V v) {
         InterceptResult invokeLL;

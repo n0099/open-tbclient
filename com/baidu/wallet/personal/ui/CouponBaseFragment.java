@@ -114,7 +114,7 @@ public abstract class CouponBaseFragment extends DialogFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CouponBaseFragment f60637a;
+                public final /* synthetic */ CouponBaseFragment f60636a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -131,7 +131,7 @@ public abstract class CouponBaseFragment extends DialogFragment {
                             return;
                         }
                     }
-                    this.f60637a = this;
+                    this.f60636a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -139,29 +139,29 @@ public abstract class CouponBaseFragment extends DialogFragment {
                     StringBuilder sb;
                     String str;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f60637a).mAct == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f60636a).mAct == null) {
                         return;
                     }
-                    int bottom = this.f60637a.mListView.getBottom();
-                    LogUtil.d("coupon", "footer listSize = " + this.f60637a.mListView.getChildCount() + " ; listAdapter.count = " + this.f60637a.mListView.getAdapter().getCount() + " ; listAdapter.footerViewCount = " + this.f60637a.mListView.getFooterViewsCount());
-                    int dip2px = DisplayUtils.dip2px(((BaseFragment) this.f60637a).mAct, 120.0f) + DisplayUtils.dip2px(((BaseFragment) this.f60637a).mAct, 25.0f) + this.f60637a.footerImage.getHeight();
-                    ListView listView = this.f60637a.mListView;
+                    int bottom = this.f60636a.mListView.getBottom();
+                    LogUtil.d("coupon", "footer listSize = " + this.f60636a.mListView.getChildCount() + " ; listAdapter.count = " + this.f60636a.mListView.getAdapter().getCount() + " ; listAdapter.footerViewCount = " + this.f60636a.mListView.getFooterViewsCount());
+                    int dip2px = DisplayUtils.dip2px(((BaseFragment) this.f60636a).mAct, 120.0f) + DisplayUtils.dip2px(((BaseFragment) this.f60636a).mAct, 25.0f) + this.f60636a.footerImage.getHeight();
+                    ListView listView = this.f60636a.mListView;
                     View childAt = listView.getChildAt(listView.getChildCount() - 1);
-                    AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f60637a.footer.getLayoutParams();
+                    AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f60636a.footer.getLayoutParams();
                     if (layoutParams == null) {
                         layoutParams = new AbsListView.LayoutParams(-1, -2);
                     }
-                    if (childAt == null || !childAt.equals(this.f60637a.footer)) {
+                    if (childAt == null || !childAt.equals(this.f60636a.footer)) {
                         layoutParams.height = dip2px;
                     } else {
                         LogUtil.d("coupon", "footer getChild.height = " + childAt.getHeight() + " ; currentBottomView.top = " + childAt.getTop() + " ; currentBottomView.bottom = " + childAt.getBottom());
-                        int height = this.f60637a.mListView.getHeight();
-                        int top = this.f60637a.footer.getTop();
-                        int height2 = this.f60637a.footer.getHeight();
+                        int height = this.f60636a.mListView.getHeight();
+                        int top = this.f60636a.footer.getTop();
+                        int height2 = this.f60636a.footer.getHeight();
                         int i2 = (height - height2) - top;
-                        LogUtil.d("coupon", "footer.height = " + this.f60637a.footer.getHeight() + " ; footer whole height = " + height2 + " ; footer.Top = " + this.f60637a.footer.getTop() + " ; listViewBottom = " + bottom + " ; listViewHeight = " + height + " ; footer.paddingTOp = " + this.f60637a.footer.getPaddingTop() + " ; footer.paddingBottom = " + this.f60637a.footer.getPaddingBottom() + " ; margin = " + i2);
-                        if (height - this.f60637a.footer.getTop() > dip2px) {
-                            layoutParams.height = height - this.f60637a.footer.getTop();
+                        LogUtil.d("coupon", "footer.height = " + this.f60636a.footer.getHeight() + " ; footer whole height = " + height2 + " ; footer.Top = " + this.f60636a.footer.getTop() + " ; listViewBottom = " + bottom + " ; listViewHeight = " + height + " ; footer.paddingTOp = " + this.f60636a.footer.getPaddingTop() + " ; footer.paddingBottom = " + this.f60636a.footer.getPaddingBottom() + " ; margin = " + i2);
+                        if (height - this.f60636a.footer.getTop() > dip2px) {
+                            layoutParams.height = height - this.f60636a.footer.getTop();
                             sb = new StringBuilder();
                             str = "footer change Height = ";
                         } else {
@@ -173,17 +173,17 @@ public abstract class CouponBaseFragment extends DialogFragment {
                         sb.append(layoutParams.height);
                         LogUtil.d("coupon", sb.toString());
                     }
-                    this.f60637a.footer.setLayoutParams(layoutParams);
-                    this.f60637a.footer.setVisibility(0);
+                    this.f60636a.footer.setLayoutParams(layoutParams);
+                    this.f60636a.footer.setVisibility(0);
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("footer GetFooter.visible = ");
-                    sb2.append(this.f60637a.footer.getVisibility() == 0);
+                    sb2.append(this.f60636a.footer.getVisibility() == 0);
                     sb2.append(" ; footer.visible = ");
-                    sb2.append(this.f60637a.footer.getVisibility() == 0);
+                    sb2.append(this.f60636a.footer.getVisibility() == 0);
                     sb2.append(" ； footer == ");
-                    sb2.append(this.f60637a.footer.equals(this.f60637a.footer));
+                    sb2.append(this.f60636a.footer.equals(this.f60636a.footer));
                     LogUtil.d("coupon", sb2.toString());
-                    LogUtil.d("coupon", "footer height = " + this.f60637a.footer.getHeight() + " ; listViewHeight = " + this.f60637a.mListView.getHeight() + " ; paddingTOp = " + this.f60637a.footer.getPaddingTop() + " ; paddingBottom = " + this.f60637a.footer.getPaddingBottom() + " ; footer.top = " + this.f60637a.footer.getTop() + " ; footer.bottom = " + this.f60637a.footer.getBottom() + " ; listView.bottom = " + this.f60637a.mListView.getBottom());
+                    LogUtil.d("coupon", "footer height = " + this.f60636a.footer.getHeight() + " ; listViewHeight = " + this.f60636a.mListView.getHeight() + " ; paddingTOp = " + this.f60636a.footer.getPaddingTop() + " ; paddingBottom = " + this.f60636a.footer.getPaddingBottom() + " ; footer.top = " + this.f60636a.footer.getTop() + " ; footer.bottom = " + this.f60636a.footer.getBottom() + " ; listView.bottom = " + this.f60636a.mListView.getBottom());
                 }
             });
         }
@@ -306,7 +306,7 @@ public abstract class CouponBaseFragment extends DialogFragment {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CouponBaseFragment f60636a;
+            public final /* synthetic */ CouponBaseFragment f60635a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -323,14 +323,14 @@ public abstract class CouponBaseFragment extends DialogFragment {
                         return;
                     }
                 }
-                this.f60636a = this;
+                this.f60635a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
             public void onBtnClick() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f60636a.reQueryCoupon();
+                    this.f60635a.reQueryCoupon();
                 }
             }
         });

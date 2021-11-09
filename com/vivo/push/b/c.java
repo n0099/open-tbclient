@@ -14,22 +14,22 @@ public class c extends com.vivo.push.y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70209a;
+    public String f70208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f70210b;
+    public String f70209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70211c;
+    public long f70210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f70212d;
+    public int f70211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f70213e;
+    public int f70212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f70214f;
+    public String f70213f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2, String str, String str2) {
@@ -49,23 +49,23 @@ public class c extends com.vivo.push.y {
                 return;
             }
         }
-        this.f70211c = -1L;
-        this.f70212d = -1;
-        this.f70209a = str;
-        this.f70210b = str2;
+        this.f70210c = -1L;
+        this.f70211d = -1;
+        this.f70208a = str;
+        this.f70209b = str2;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f70213e = i2;
+            this.f70212e = i2;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f70209a = str;
+            this.f70208a = str;
         }
     }
 
@@ -73,14 +73,14 @@ public class c extends com.vivo.push.y {
     public void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            aVar.a(IAdRequestParam.REQ_ID, this.f70209a);
-            aVar.a("package_name", this.f70210b);
+            aVar.a(IAdRequestParam.REQ_ID, this.f70208a);
+            aVar.a("package_name", this.f70209b);
             aVar.a("sdk_version", 293L);
-            aVar.a("PUSH_APP_STATUS", this.f70212d);
-            if (TextUtils.isEmpty(this.f70214f)) {
+            aVar.a("PUSH_APP_STATUS", this.f70211d);
+            if (TextUtils.isEmpty(this.f70213f)) {
                 return;
             }
-            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f70214f);
+            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f70213f);
         }
     }
 
@@ -88,31 +88,31 @@ public class c extends com.vivo.push.y {
     public void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f70209a = aVar.a(IAdRequestParam.REQ_ID);
-            this.f70210b = aVar.a("package_name");
-            this.f70211c = aVar.b("sdk_version", 0L);
-            this.f70212d = aVar.b("PUSH_APP_STATUS", 0);
-            this.f70214f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
+            this.f70208a = aVar.a(IAdRequestParam.REQ_ID);
+            this.f70209b = aVar.a("package_name");
+            this.f70210c = aVar.b("sdk_version", 0L);
+            this.f70211d = aVar.b("PUSH_APP_STATUS", 0);
+            this.f70213f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
         }
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70213e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70212e : invokeV.intValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f70214f = null;
+            this.f70213f = null;
         }
     }
 
     public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70209a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70208a : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.y

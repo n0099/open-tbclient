@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static C1805a f59023a;
+    public static C1805a f59022a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.lightapp.business.a$a  reason: collision with other inner class name */
@@ -34,16 +34,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f59030a;
+        public String f59029a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap f59031b;
+        public HashMap f59030b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String[] f59032c;
+        public String[] f59031c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f59033d;
+        public String[] f59032d;
 
         public C1805a() {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "hookUrl=" + this.f59030a + "\n\ttoAddKeyVauleMap=" + this.f59031b.toString() + "\n\ttoAddJsFilesName=" + Arrays.toString(this.f59032c) + "\n\ttoAddJsFilesContent=" + Arrays.toString(this.f59033d);
+                return "hookUrl=" + this.f59029a + "\n\ttoAddKeyVauleMap=" + this.f59030b.toString() + "\n\ttoAddJsFilesName=" + Arrays.toString(this.f59031c) + "\n\ttoAddJsFilesContent=" + Arrays.toString(this.f59032d);
             }
             return (String) invokeV.objValue;
         }
@@ -72,10 +72,10 @@ public class a {
         public void a(String str, HashMap hashMap, String[] strArr, String[] strArr2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(65539, this, str, hashMap, strArr, strArr2) == null) {
-                this.f59030a = str;
-                this.f59031b = hashMap;
-                this.f59032c = strArr;
-                this.f59033d = strArr2;
+                this.f59029a = str;
+                this.f59030b = hashMap;
+                this.f59031c = strArr;
+                this.f59032d = strArr2;
                 LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateImpact\n" + toString());
             }
         }
@@ -94,14 +94,14 @@ public class a {
                 return;
             }
         }
-        f59023a = new C1805a();
+        f59022a = new C1805a();
     }
 
     public static void a(Context context, String str, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, strArr, strArr2) == null) {
             LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "findConfigImpactJsFiles hookUrl=" + str + "; targetConfig=" + Arrays.toString(strArr) + " ; targetKeys=" + Arrays.toString(strArr2));
-            if (!TextUtils.isEmpty(str) && !str.equals(f59023a.f59030a)) {
+            if (!TextUtils.isEmpty(str) && !str.equals(f59022a.f59029a)) {
                 if (strArr == null || strArr.length <= 0 || strArr2 == null || strArr2.length <= 0) {
                     return;
                 }
@@ -110,16 +110,16 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String[] f59024a;
+                    public final /* synthetic */ String[] f59023a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ HashMap f59025b;
+                    public final /* synthetic */ HashMap f59024b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f59026c;
+                    public final /* synthetic */ Context f59025c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f59027d;
+                    public final /* synthetic */ String f59026d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -136,10 +136,10 @@ public class a {
                                 return;
                             }
                         }
-                        this.f59024a = strArr2;
-                        this.f59025b = r7;
-                        this.f59026c = context;
-                        this.f59027d = str;
+                        this.f59023a = strArr2;
+                        this.f59024b = r7;
+                        this.f59025c = context;
+                        this.f59026d = str;
                     }
 
                     @Override // com.baidu.wallet.lightapp.business.c.a
@@ -152,7 +152,7 @@ public class a {
                                 return;
                             }
                             HashSet hashSet = new HashSet();
-                            for (String str2 : this.f59024a) {
+                            for (String str2 : this.f59023a) {
                                 if (!TextUtils.isEmpty(str2)) {
                                     for (String str3 : strArr3) {
                                         if (!TextUtils.isEmpty(str3)) {
@@ -165,7 +165,7 @@ public class a {
                                                         strArr5[i2] = String.valueOf(optJSONArray.get(i2));
                                                     }
                                                     if (length > 0) {
-                                                        this.f59025b.put(str2, strArr5);
+                                                        this.f59024b.put(str2, strArr5);
                                                         hashSet.addAll(new HashSet(Arrays.asList(strArr5)));
                                                     }
                                                 }
@@ -183,15 +183,15 @@ public class a {
                                 String[] strArr6 = new String[size];
                                 hashSet.toArray(strArr6);
                                 if (size > 0) {
-                                    c.a(SdkInitResponse.getInstance().getJsHookURl(this.f59026c), this.f59026c, strArr6, new c.a(this, strArr6) { // from class: com.baidu.wallet.lightapp.business.a.1.1
+                                    c.a(SdkInitResponse.getInstance().getJsHookURl(this.f59025c), this.f59025c, strArr6, new c.a(this, strArr6) { // from class: com.baidu.wallet.lightapp.business.a.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ String[] f59028a;
+                                        public final /* synthetic */ String[] f59027a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass1 f59029b;
+                                        public final /* synthetic */ AnonymousClass1 f59028b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -208,8 +208,8 @@ public class a {
                                                     return;
                                                 }
                                             }
-                                            this.f59029b = this;
-                                            this.f59028a = strArr6;
+                                            this.f59028b = this;
+                                            this.f59027a = strArr6;
                                         }
 
                                         @Override // com.baidu.wallet.lightapp.business.c.a
@@ -221,9 +221,9 @@ public class a {
                                                     return;
                                                 }
                                                 LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "成功获取到js文件");
-                                                C1805a c1805a = a.f59023a;
-                                                AnonymousClass1 anonymousClass1 = this.f59029b;
-                                                c1805a.a(anonymousClass1.f59027d, anonymousClass1.f59025b, this.f59028a, strArr7);
+                                                C1805a c1805a = a.f59022a;
+                                                AnonymousClass1 anonymousClass1 = this.f59028b;
+                                                c1805a.a(anonymousClass1.f59026d, anonymousClass1.f59024b, this.f59027a, strArr7);
                                             }
                                         }
                                     });
@@ -242,10 +242,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || f59023a.f59031b == null || f59023a.f59031b.size() <= 0) {
+            if (TextUtils.isEmpty(str) || f59022a.f59030b == null || f59022a.f59030b.size() <= 0) {
                 return null;
             }
-            return (String[]) f59023a.f59031b.get(str);
+            return (String[]) f59022a.f59030b.get(str);
         }
         return (String[]) invokeL.objValue;
     }
@@ -254,10 +254,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && f59023a.f59032c != null && f59023a.f59033d != null && f59023a.f59032c.length == f59023a.f59033d.length && f59023a.f59032c != null && f59023a.f59032c.length > 0) {
-                for (int i2 = 0; i2 < f59023a.f59032c.length; i2++) {
-                    if (str.equals(f59023a.f59032c[i2])) {
-                        return f59023a.f59033d[i2];
+            if (!TextUtils.isEmpty(str) && f59022a.f59031c != null && f59022a.f59032d != null && f59022a.f59031c.length == f59022a.f59032d.length && f59022a.f59031c != null && f59022a.f59031c.length > 0) {
+                for (int i2 = 0; i2 < f59022a.f59031c.length; i2++) {
+                    if (str.equals(f59022a.f59031c[i2])) {
+                        return f59022a.f59032d[i2];
                     }
                 }
             }

@@ -19,19 +19,19 @@ public class EditorScrollView extends ScrollView {
     public View contentView;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52531e;
+    public boolean f52530e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52532f;
+    public int f52531f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f52533g;
+    public ViewTreeObserver.OnScrollChangedListener f52532g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f52534h;
+    public a f52533h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52535i;
+    public boolean f52534i;
     public boolean j;
 
     /* loaded from: classes9.dex */
@@ -61,7 +61,7 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f52532f = 50;
+        this.f52531f = 50;
     }
 
     public boolean isScrolledToBottom() {
@@ -73,7 +73,7 @@ public class EditorScrollView extends ScrollView {
     public boolean isScrolledToTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52535i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52534i : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -93,11 +93,11 @@ public class EditorScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             super.onOverScrolled(i2, i3, z, z2);
             if (i3 == 0) {
-                this.f52535i = z2;
+                this.f52534i = z2;
                 this.j = false;
                 return;
             }
-            this.f52535i = false;
+            this.f52534i = false;
             this.j = z2;
         }
     }
@@ -109,20 +109,20 @@ public class EditorScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar3 = this.f52534h;
+            a aVar3 = this.f52533h;
             if (aVar3 != null) {
                 aVar3.c(this, i2, i3, i4, i5);
             }
-            if (getHeight() + i3 >= this.contentView.getHeight() && (aVar2 = this.f52534h) != null) {
+            if (getHeight() + i3 >= this.contentView.getHeight() && (aVar2 = this.f52533h) != null) {
                 aVar2.a();
             }
-            if ((i3 == 0 || getHeight() + i3 > this.contentView.getHeight()) && (aVar = this.f52534h) != null) {
+            if ((i3 == 0 || getHeight() + i3 > this.contentView.getHeight()) && (aVar = this.f52533h) != null) {
                 aVar.b();
             }
-            if (this.f52533g == null || !this.f52531e || Math.abs(i4 - i3) < this.f52532f) {
+            if (this.f52532g == null || !this.f52530e || Math.abs(i4 - i3) < this.f52531f) {
                 return;
             }
-            this.f52533g.onScrollChanged();
+            this.f52532g.onScrollChanged();
         }
     }
 
@@ -143,10 +143,10 @@ public class EditorScrollView extends ScrollView {
                     if (action != 2) {
                     }
                 }
-                this.f52531e = false;
+                this.f52530e = false;
                 return super.onTouchEvent(motionEvent);
             }
-            this.f52531e = true;
+            this.f52530e = true;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -155,14 +155,14 @@ public class EditorScrollView extends ScrollView {
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onScrollChangedListener) == null) {
-            this.f52533g = onScrollChangedListener;
+            this.f52532g = onScrollChangedListener;
         }
     }
 
     public void setOnScrollChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f52534h = aVar;
+            this.f52533h = aVar;
         }
     }
 
@@ -185,7 +185,7 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f52532f = 50;
+        this.f52531f = 50;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -207,6 +207,6 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f52532f = 50;
+        this.f52531f = 50;
     }
 }

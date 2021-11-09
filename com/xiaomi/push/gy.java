@@ -12,7 +12,7 @@ public class gy extends bi.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gx f71062a;
+    public final /* synthetic */ gx f71061a;
 
     public gy(gx gxVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class gy extends bi.a {
                 return;
             }
         }
-        this.f71062a = gxVar;
+        this.f71061a = gxVar;
     }
 
     @Override // com.xiaomi.push.service.bi.a

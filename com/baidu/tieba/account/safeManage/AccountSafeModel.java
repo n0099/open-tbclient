@@ -19,13 +19,13 @@ public class AccountSafeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46638e;
+    public boolean f46637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f46639f;
+    public a f46638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46640g;
+    public String f46639g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -45,13 +45,13 @@ public class AccountSafeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f46638e = false;
+        this.f46637e = false;
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46638e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46637e : invokeV.booleanValue;
     }
 
     public final void B() {
@@ -62,17 +62,17 @@ public class AccountSafeModel extends BdBaseModel {
         }
         String str = z.secureemail;
         String str2 = z.securemobil;
-        this.f46640g = z.ahead_url;
+        this.f46639g = z.ahead_url;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f46638e) {
+            if (this.f46637e) {
                 return false;
             }
-            this.f46638e = true;
+            this.f46637e = true;
             sendMessage(w());
             return true;
         }
@@ -82,7 +82,7 @@ public class AccountSafeModel extends BdBaseModel {
     public void D(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f46639f = aVar;
+            this.f46638f = aVar;
             B();
         }
     }
@@ -90,7 +90,7 @@ public class AccountSafeModel extends BdBaseModel {
     public void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f46638e = z;
+            this.f46637e = z;
         }
     }
 
@@ -99,7 +99,7 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.f46638e = false;
+            this.f46637e = false;
             return false;
         }
         return invokeV.booleanValue;
@@ -124,24 +124,24 @@ public class AccountSafeModel extends BdBaseModel {
     public a x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f46639f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f46638f : (a) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f46640g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f46639g : (String) invokeV.objValue;
     }
 
     public final SimpleUser z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            a aVar = this.f46639f;
+            a aVar = this.f46638f;
             if (aVar == null || aVar.f() == null) {
                 return null;
             }
-            return this.f46639f.f();
+            return this.f46638f.f();
         }
         return (SimpleUser) invokeV.objValue;
     }

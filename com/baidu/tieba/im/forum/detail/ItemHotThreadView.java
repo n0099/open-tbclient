@@ -31,13 +31,13 @@ public class ItemHotThreadView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50417e;
+    public Context f50416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, View> f50418f;
+    public HashMap<String, View> f50417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<SimpleThreadInfo> f50419g;
+    public List<SimpleThreadInfo> f50418g;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -45,10 +45,10 @@ public class ItemHotThreadView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50420e;
+        public final /* synthetic */ String f50419e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ItemHotThreadView f50421f;
+        public final /* synthetic */ ItemHotThreadView f50420f;
 
         public a(ItemHotThreadView itemHotThreadView, String str) {
             Interceptable interceptable = $ic;
@@ -65,16 +65,16 @@ public class ItemHotThreadView extends LinearLayout {
                     return;
                 }
             }
-            this.f50421f = itemHotThreadView;
-            this.f50420e = str;
+            this.f50420f = itemHotThreadView;
+            this.f50419e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.eventStat(this.f50421f.f50417e, "detail_hot_thread", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f50421f.f50417e).createNormalCfg(this.f50420e, "", "")));
+                TiebaStatic.eventStat(this.f50420f.f50416e, "detail_hot_thread", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f50420f.f50416e).createNormalCfg(this.f50419e, "", "")));
             }
         }
     }
@@ -85,19 +85,19 @@ public class ItemHotThreadView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f50422a;
+        public LinearLayout f50421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f50423b;
+        public TextView f50422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f50424c;
+        public TextView f50423c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f50425d;
+        public TextView f50424d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f50426e;
+        public TextView f50425e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.f50418f = new HashMap<>();
+        this.f50417f = new HashMap<>();
         init(context);
     }
 
@@ -147,22 +147,22 @@ public class ItemHotThreadView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048576, this, simpleThreadInfo, z) == null) || simpleThreadInfo == null) {
             return;
         }
-        if (!this.f50418f.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view = LayoutInflater.from(this.f50417e).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
+        if (!this.f50417f.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            view = LayoutInflater.from(this.f50416e).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.f50422a = (LinearLayout) view.findViewById(R.id.thread_item_ll);
-            bVar.f50423b = (TextView) view.findViewById(R.id.ht_item_title);
-            bVar.f50424c = (TextView) view.findViewById(R.id.ht_item_content);
-            bVar.f50425d = (TextView) view.findViewById(R.id.ht_item_reply);
-            bVar.f50426e = (TextView) view.findViewById(R.id.ht_divider_line);
+            bVar.f50421a = (LinearLayout) view.findViewById(R.id.thread_item_ll);
+            bVar.f50422b = (TextView) view.findViewById(R.id.ht_item_title);
+            bVar.f50423c = (TextView) view.findViewById(R.id.ht_item_content);
+            bVar.f50424d = (TextView) view.findViewById(R.id.ht_item_reply);
+            bVar.f50425e = (TextView) view.findViewById(R.id.ht_divider_line);
             view.setTag(bVar);
-            this.f50418f.put(String.valueOf(simpleThreadInfo.tid), view);
+            this.f50417f.put(String.valueOf(simpleThreadInfo.tid), view);
             addView(view);
         } else {
-            view = this.f50418f.get(String.valueOf(simpleThreadInfo.tid));
+            view = this.f50417f.get(String.valueOf(simpleThreadInfo.tid));
             bVar = (b) view.getTag();
         }
-        bVar.f50423b.setText(simpleThreadInfo.title);
+        bVar.f50422b.setText(simpleThreadInfo.title);
         StringBuilder sb = new StringBuilder();
         List<Abstract> list = simpleThreadInfo._abstract;
         if (list != null && list.size() != 0) {
@@ -174,24 +174,24 @@ public class ItemHotThreadView extends LinearLayout {
             }
         }
         if (!k.isEmpty(sb.toString().trim())) {
-            bVar.f50424c.setText(sb.toString());
-            bVar.f50424c.setVisibility(0);
+            bVar.f50423c.setText(sb.toString());
+            bVar.f50423c.setVisibility(0);
         } else {
-            bVar.f50424c.setVisibility(8);
+            bVar.f50423c.setVisibility(8);
         }
-        bVar.f50425d.setText(String.valueOf(simpleThreadInfo.reply_num));
-        SkinManager.setBackgroundResource(bVar.f50422a, R.drawable.live_frs_list_item_bg);
-        SkinManager.setViewTextColor(bVar.f50423b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(bVar.f50424c, R.color.CAM_X0108, 1);
-        SkinManager.setViewTextColor(bVar.f50425d, R.color.CAM_X0304, 1);
+        bVar.f50424d.setText(String.valueOf(simpleThreadInfo.reply_num));
+        SkinManager.setBackgroundResource(bVar.f50421a, R.drawable.live_frs_list_item_bg);
+        SkinManager.setViewTextColor(bVar.f50422b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(bVar.f50423c, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(bVar.f50424d, R.color.CAM_X0304, 1);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_ba_comment);
         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        bVar.f50425d.setCompoundDrawables(bitmapDrawable, null, null, null);
-        SkinManager.setBackgroundResource(bVar.f50426e, R.color.CAM_X0204);
+        bVar.f50424d.setCompoundDrawables(bitmapDrawable, null, null, null);
+        SkinManager.setBackgroundResource(bVar.f50425e, R.color.CAM_X0204);
         if (z) {
-            bVar.f50426e.setVisibility(0);
+            bVar.f50425e.setVisibility(0);
         } else {
-            bVar.f50426e.setVisibility(8);
+            bVar.f50425e.setVisibility(8);
         }
         view.setOnClickListener(new a(this, String.valueOf(simpleThreadInfo.tid)));
     }
@@ -199,14 +199,14 @@ public class ItemHotThreadView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setData(this.f50419g);
+            setData(this.f50418g);
         }
     }
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f50417e = context;
+            this.f50416e = context;
             LayoutInflater.from(context).inflate(R.layout.forum_detail_hot_thread, (ViewGroup) this, true);
             setVisibility(8);
         }
@@ -224,7 +224,7 @@ public class ItemHotThreadView extends LinearLayout {
     public void setData(List<SimpleThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f50419g = list;
+            this.f50418g = list;
             if (list == null || list.size() == 0) {
                 return;
             }
@@ -258,7 +258,7 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.f50418f = new HashMap<>();
+        this.f50417f = new HashMap<>();
         init(context);
     }
 }

@@ -56,7 +56,7 @@ public final class k implements AudioProcessor {
                 return;
             }
         }
-        ByteBuffer byteBuffer = AudioProcessor.f62942a;
+        ByteBuffer byteBuffer = AudioProcessor.f62941a;
         this.f32877h = byteBuffer;
         this.f32878i = byteBuffer;
         this.f32874e = -1;
@@ -104,7 +104,7 @@ public final class k implements AudioProcessor {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l && this.f32878i == AudioProcessor.f62942a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l && this.f32878i == AudioProcessor.f62941a : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -143,7 +143,7 @@ public final class k implements AudioProcessor {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f32878i = AudioProcessor.f62942a;
+            this.f32878i = AudioProcessor.f62941a;
             this.l = false;
             this.f32876g = 0;
             this.k = 0;
@@ -156,7 +156,7 @@ public final class k implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ByteBuffer byteBuffer = this.f32878i;
-            this.f32878i = AudioProcessor.f62942a;
+            this.f32878i = AudioProcessor.f62941a;
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
@@ -205,7 +205,7 @@ public final class k implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             flush();
-            this.f32877h = AudioProcessor.f62942a;
+            this.f32877h = AudioProcessor.f62941a;
             this.f32874e = -1;
             this.f32875f = -1;
             this.j = null;

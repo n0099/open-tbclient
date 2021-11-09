@@ -51,9 +51,56 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f51880e;
+        public final /* synthetic */ SelectSingleForumActivity f51879e;
 
         public a(SelectSingleForumActivity selectSingleForumActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {selectSingleForumActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51879e = selectSingleForumActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
+                return;
+            }
+            if (view.getId() == this.f51879e.mTransmitConfirmButton.getId()) {
+                if (this.f51879e.getSelectedData() == null) {
+                    return;
+                }
+                Intent intent = new Intent();
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f51879e.getSelectedData());
+                this.f51879e.setResult(-1, intent);
+                this.f51879e.finish();
+            } else if (view.getId() == this.f51879e.mBackView.getId()) {
+                this.f51879e.setResult(0);
+                this.f51879e.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SelectSingleForumActivity f51880e;
+
+        public b(SelectSingleForumActivity selectSingleForumActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,68 +118,21 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             this.f51880e = selectSingleForumActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
-                return;
-            }
-            if (view.getId() == this.f51880e.mTransmitConfirmButton.getId()) {
-                if (this.f51880e.getSelectedData() == null) {
-                    return;
-                }
-                Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f51880e.getSelectedData());
-                this.f51880e.setResult(-1, intent);
-                this.f51880e.finish();
-            } else if (view.getId() == this.f51880e.mBackView.getId()) {
-                this.f51880e.setResult(0);
-                this.f51880e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f51881e;
-
-        public b(SelectSingleForumActivity selectSingleForumActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {selectSingleForumActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51881e = selectSingleForumActivity;
-        }
-
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f51881e.mDataList.get(i2);
+                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f51880e.mDataList.get(i2);
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 if (checkBox.isChecked()) {
                     return;
                 }
-                if (this.f51881e.getSelectedData() != null && this.f51881e.getSelectedData().isChecked) {
-                    this.f51881e.getSelectedData().isChecked = false;
+                if (this.f51880e.getSelectedData() != null && this.f51880e.getSelectedData().isChecked) {
+                    this.f51880e.getSelectedData().isChecked = false;
                 }
                 baInfo.isChecked = true;
                 checkBox.setChecked(!checkBox.isChecked());
-                this.f51881e.mAdapter.notifyDataSetChanged();
+                this.f51880e.mAdapter.notifyDataSetChanged();
             }
         }
     }

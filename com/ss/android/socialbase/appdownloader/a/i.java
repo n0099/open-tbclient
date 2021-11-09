@@ -17,10 +17,10 @@ public class i extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68902d;
+    public String f68901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68903e;
+    public String f68902e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str, String str2, String str3) {
@@ -41,8 +41,8 @@ public class i extends a {
                 return;
             }
         }
-        this.f68902d = str2;
-        this.f68903e = str3;
+        this.f68901d = str2;
+        this.f68902e = str3;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
@@ -51,28 +51,28 @@ public class i extends a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String c2 = this.f68899b.c("s");
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c(ContentUtil.RESULT_KEY_AK), c2);
-            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("am"), c2);
-            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c(com.alipay.sdk.sys.a.r), c2);
+            String c2 = this.f68898b.c("s");
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c(ContentUtil.RESULT_KEY_AK), c2);
+            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("am"), c2);
+            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c(com.alipay.sdk.sys.a.r), c2);
             String str2 = null;
             if (!TextUtils.isEmpty(a4) && a4.split(",").length == 2) {
                 String[] split = a4.split(",");
-                String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("al"), c2);
-                String a6 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("ao"), c2);
+                String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("al"), c2);
+                String a6 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("ao"), c2);
                 if (!TextUtils.isEmpty(a6) && a6.split(",").length == 2) {
                     String[] split2 = a6.split(",");
-                    JSONObject d2 = this.f68899b.d("download_dir");
+                    JSONObject d2 = this.f68898b.d("download_dir");
                     if (d2 != null) {
                         String optString = d2.optString("dir_name");
                         if (!TextUtils.isEmpty(optString) && optString.contains(FormattableUtils.SIMPLEST_FORMAT)) {
                             try {
-                                str = String.format(optString, this.f68903e);
+                                str = String.format(optString, this.f68902e);
                             } catch (Throwable unused) {
-                                str = this.f68903e;
+                                str = this.f68902e;
                             }
                         } else {
-                            str = this.f68903e;
+                            str = this.f68902e;
                         }
                         str2 = str;
                         if (str2.length() > 255) {
@@ -81,7 +81,7 @@ public class i extends a {
                     }
                     Intent intent = new Intent(a2);
                     intent.putExtra(split2[0], split2[1]);
-                    intent.putExtra(a3, this.f68902d);
+                    intent.putExtra(a3, this.f68901d);
                     intent.putExtra(a5, str2);
                     intent.putExtra(split[0], Integer.parseInt(split[1]));
                     intent.addFlags(268468224);

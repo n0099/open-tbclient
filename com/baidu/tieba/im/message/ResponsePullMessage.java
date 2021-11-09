@@ -104,9 +104,71 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f50506a;
+        public final /* synthetic */ ImMessageCenterPojo f50505a;
 
         public b(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {responsePullMessage, imMessageCenterPojo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50505a = imMessageCenterPojo;
+        }
+
+        @Override // b.a.r0.l1.f.l.a.b
+        public void a(String str, List<CommonMsgPojo> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
+                m.t().m(b.a.e.e.m.b.g(str, 0L), list, true);
+            }
+        }
+
+        @Override // b.a.r0.l1.f.l.a.b
+        public void b(ImMessageCenterPojo imMessageCenterPojo, int i2, boolean z) {
+            ImMessageCenterPojo imMessageCenterPojo2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || imMessageCenterPojo == null) {
+                return;
+            }
+            int i3 = 2;
+            j.f().k(imMessageCenterPojo, 2);
+            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f50505a) == null) {
+                return;
+            }
+            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
+            this.f50505a.setCustomGroupType(-7);
+            if (i2 == 0) {
+                this.f50505a.setUnread_count(0);
+            } else if (i2 == 1) {
+                this.f50505a.setUnread_count(1);
+            } else {
+                i3 = 1;
+            }
+            if (z) {
+                this.f50505a.setIs_hidden(0);
+            }
+            j.f().k(this.f50505a, i3);
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements a.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ImMessageCenterPojo f50506a;
+
+        public c(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,68 +190,6 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         public void a(String str, List<CommonMsgPojo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
-                m.t().m(b.a.e.e.m.b.g(str, 0L), list, true);
-            }
-        }
-
-        @Override // b.a.r0.l1.f.l.a.b
-        public void b(ImMessageCenterPojo imMessageCenterPojo, int i2, boolean z) {
-            ImMessageCenterPojo imMessageCenterPojo2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || imMessageCenterPojo == null) {
-                return;
-            }
-            int i3 = 2;
-            j.f().k(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f50506a) == null) {
-                return;
-            }
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            this.f50506a.setCustomGroupType(-7);
-            if (i2 == 0) {
-                this.f50506a.setUnread_count(0);
-            } else if (i2 == 1) {
-                this.f50506a.setUnread_count(1);
-            } else {
-                i3 = 1;
-            }
-            if (z) {
-                this.f50506a.setIs_hidden(0);
-            }
-            j.f().k(this.f50506a, i3);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f50507a;
-
-        public c(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {responsePullMessage, imMessageCenterPojo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50507a = imMessageCenterPojo;
-        }
-
-        @Override // b.a.r0.l1.f.l.a.b
-        public void a(String str, List<CommonMsgPojo> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
                 l.t().m(b.a.e.e.m.b.g(str, 0L), list, true);
             }
         }
@@ -203,21 +203,21 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             int i3 = 2;
             j.f().k(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
-            if (this.f50507a != null) {
+            if (this.f50506a != null) {
                 if (userType == 1 || userType == 3) {
-                    this.f50507a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-                    this.f50507a.setCustomGroupType(-8);
+                    this.f50506a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                    this.f50506a.setCustomGroupType(-8);
                     if (i2 == 0) {
-                        this.f50507a.setUnread_count(0);
+                        this.f50506a.setUnread_count(0);
                     } else if (i2 == 1) {
-                        this.f50507a.setUnread_count(1);
+                        this.f50506a.setUnread_count(1);
                     } else {
                         i3 = 1;
                     }
                     if (z) {
-                        this.f50507a.setIs_hidden(0);
+                        this.f50506a.setIs_hidden(0);
                     }
-                    j.f().k(this.f50507a, i3);
+                    j.f().k(this.f50506a, i3);
                 }
             }
         }

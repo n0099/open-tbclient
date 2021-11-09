@@ -20,13 +20,13 @@ public class em extends ep {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70883a;
+    public int f70882a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f70884b;
+    public Bitmap f70883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f70885c;
+    public Bitmap f70884c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public em(Context context, String str) {
@@ -47,7 +47,7 @@ public class em extends ep {
                 return;
             }
         }
-        this.f70883a = 16777216;
+        this.f70882a = 16777216;
     }
 
     @Override // com.xiaomi.push.ep
@@ -59,7 +59,7 @@ public class em extends ep {
                 if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
                     com.xiaomi.channel.commonutils.logger.b.m73a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
                 } else {
-                    this.f70884b = bitmap;
+                    this.f70883b = bitmap;
                 }
             }
             return this;
@@ -73,7 +73,7 @@ public class em extends ep {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (m298b() && !TextUtils.isEmpty(str)) {
                 try {
-                    this.f70883a = Color.parseColor(str);
+                    this.f70882a = Color.parseColor(str);
                 } catch (Exception unused) {
                     com.xiaomi.channel.commonutils.logger.b.m73a("parse banner notification image text color error");
                 }
@@ -105,7 +105,7 @@ public class em extends ep {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m298b() || this.f70884b == null) {
+            if (!m298b() || this.f70883b == null) {
                 m297b();
                 return;
             }
@@ -115,26 +115,26 @@ public class em extends ep {
             int a3 = a(resources, "bg", "id", packageName);
             if (l.a(a()) >= 10) {
                 a2 = a();
-                bitmap = a(this.f70884b, 30.0f);
+                bitmap = a(this.f70883b, 30.0f);
             } else {
                 a2 = a();
-                bitmap = this.f70884b;
+                bitmap = this.f70883b;
             }
             a2.setImageViewBitmap(a3, bitmap);
             int a4 = a(resources, "icon", "id", packageName);
-            if (this.f70885c != null) {
-                a().setImageViewBitmap(a4, this.f70885c);
+            if (this.f70884c != null) {
+                a().setImageViewBitmap(a4, this.f70884c);
             } else {
                 a(a4);
             }
             int a5 = a(resources, "title", "id", packageName);
             a().setTextViewText(a5, ((ep) this).f332a);
             Map<String, String> map = ((ep) this).f334a;
-            if (map != null && this.f70883a == 16777216) {
+            if (map != null && this.f70882a == 16777216) {
                 a(map.get("notification_image_text_color"));
             }
             RemoteViews a6 = a();
-            int i2 = this.f70883a;
+            int i2 = this.f70882a;
             a6.setTextColor(a5, (i2 == 16777216 || !m296a(i2)) ? -1 : -16777216);
             setCustomContentView(a());
             Bundle bundle = new Bundle();
@@ -163,7 +163,7 @@ public class em extends ep {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
             if (m298b() && bitmap != null) {
-                this.f70885c = bitmap;
+                this.f70884c = bitmap;
             }
             return this;
         }

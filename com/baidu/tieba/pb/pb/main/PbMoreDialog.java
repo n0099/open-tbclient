@@ -45,7 +45,7 @@ public class PbMoreDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f52427e;
+        public final /* synthetic */ PbMoreDialog f52426e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f52427e = pbMoreDialog;
+            this.f52426e = pbMoreDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f52427e.dismiss();
-                this.f52427e.A.onClick(view);
+                this.f52426e.dismiss();
+                this.f52426e.A.onClick(view);
             }
         }
     }

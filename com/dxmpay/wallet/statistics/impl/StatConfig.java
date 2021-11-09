@@ -38,7 +38,7 @@ public class StatConfig implements IStatConfig, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62679e;
+    public Context f62678e;
 
     /* loaded from: classes11.dex */
     public class a implements RestHttpRequestInterceptor {
@@ -75,7 +75,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatConfig f62680a;
+        public static StatConfig f62679a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -91,7 +91,7 @@ public class StatConfig implements IStatConfig, NoProguard {
                     return;
                 }
             }
-            f62680a = new StatConfig(null);
+            f62679a = new StatConfig(null);
         }
     }
 
@@ -103,8 +103,8 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            b.f62680a.setContext(context);
-            return b.f62680a;
+            b.f62679a.setContext(context);
+            return b.f62679a;
         }
         return (StatConfig) invokeL.objValue;
     }
@@ -145,14 +145,14 @@ public class StatConfig implements IStatConfig, NoProguard {
     public String getAppVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f62679e)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f62678e)) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public String getAppVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f62679e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f62678e) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
@@ -177,7 +177,7 @@ public class StatConfig implements IStatConfig, NoProguard {
             if (isLogin() && !TextUtils.isEmpty(WalletLoginHelper.getInstance().getUnionId())) {
                 return SecurePay.getInstance().encryptProxy(WalletLoginHelper.getInstance().getUnionId());
             }
-            return SecurePay.getInstance().encryptProxy(b.f.b.f.a.a.a().c(this.f62679e));
+            return SecurePay.getInstance().encryptProxy(b.f.b.f.a.a.a().c(this.f62678e));
         }
         return (String) invokeV.objValue;
     }
@@ -196,12 +196,12 @@ public class StatConfig implements IStatConfig, NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f62679e != null) {
+                if (this.f62678e != null) {
                     b.f.b.f.a.a a2 = b.f.b.f.a.a.a();
-                    jSONObject.putOpt("ua", a2.d(this.f62679e));
-                    jSONObject.putOpt(k.f37522b, a2.b(this.f62679e));
-                    jSONObject.putOpt("op", a2.e(this.f62679e));
-                    jSONObject.put(k.f37523c, a2.c(this.f62679e));
+                    jSONObject.putOpt("ua", a2.d(this.f62678e));
+                    jSONObject.putOpt(k.f37522b, a2.b(this.f62678e));
+                    jSONObject.putOpt("op", a2.e(this.f62678e));
+                    jSONObject.put(k.f37523c, a2.c(this.f62678e));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -254,7 +254,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return a(this.f62679e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
+            return a(this.f62678e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
         }
         return (String) invokeV.objValue;
     }
@@ -262,8 +262,8 @@ public class StatConfig implements IStatConfig, NoProguard {
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f62679e == null && context != null) {
-            this.f62679e = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f62678e == null && context != null) {
+            this.f62678e = context.getApplicationContext();
         }
     }
 

@@ -23,7 +23,7 @@ public class gx {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71060a;
+    public int f71059a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f466a;
@@ -45,7 +45,7 @@ public class gx {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final gx f71061a;
+        public static final gx f71060a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +61,7 @@ public class gx {
                     return;
                 }
             }
-            f71061a = new gx();
+            f71060a = new gx();
         }
     }
 
@@ -144,8 +144,8 @@ public class gx {
         gw gwVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (a.f71061a) {
-                gwVar = a.f71061a.f468a;
+            synchronized (a.f71060a) {
+                gwVar = a.f71060a.f468a;
             }
             return gwVar;
         }
@@ -156,13 +156,13 @@ public class gx {
     public static gx m366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f71061a : (gx) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f71060a : (gx) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private void m367a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f470a && System.currentTimeMillis() - this.f466a > this.f71060a) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f470a && System.currentTimeMillis() - this.f466a > this.f71059a) {
             this.f470a = false;
             this.f466a = 0L;
         }
@@ -213,12 +213,12 @@ public class gx {
         if (i3 > 604800000) {
             i3 = 604800000;
         }
-        if (this.f71060a == i3 && this.f470a) {
+        if (this.f71059a == i3 && this.f470a) {
             return;
         }
         this.f470a = true;
         this.f466a = System.currentTimeMillis();
-        this.f71060a = i3;
+        this.f71059a = i3;
         com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.f466a);
     }
 

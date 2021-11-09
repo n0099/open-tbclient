@@ -24,19 +24,19 @@ public class CronetLibraryLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f56421a;
+    public static final Object f56420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f56422b;
+    public static final HandlerThread f56421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f56423c;
+    public static volatile boolean f56422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f56424d;
+    public static boolean f56423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<Runnable> f56425e;
+    public static List<Runnable> f56424e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -45,7 +45,7 @@ public class CronetLibraryLoader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f56426e;
+        public final /* synthetic */ Context f56425e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public class CronetLibraryLoader {
                     return;
                 }
             }
-            this.f56426e = context;
+            this.f56425e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CronetLibraryLoader.b(this.f56426e);
+                CronetLibraryLoader.b(this.f56425e);
             }
         }
     }
@@ -87,11 +87,11 @@ public class CronetLibraryLoader {
                 return;
             }
         }
-        f56421a = new Object();
-        f56422b = new HandlerThread("TurboNetInit");
-        f56423c = false;
-        f56424d = false;
-        f56425e = new ArrayList();
+        f56420a = new Object();
+        f56421b = new HandlerThread("TurboNetInit");
+        f56422c = false;
+        f56423d = false;
+        f56424e = new ArrayList();
     }
 
     public CronetLibraryLoader() {
@@ -111,18 +111,18 @@ public class CronetLibraryLoader {
     public static void a(Context context, TurbonetEngine.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, builder) == null) {
-            synchronized (f56421a) {
-                if (f56423c) {
+            synchronized (f56420a) {
+                if (f56422c) {
                     return;
                 }
-                f56423c = true;
+                f56422c = true;
                 ContextUtils.b(context.getApplicationContext());
                 builder.m();
                 ContextUtils.c();
                 b.a.s0.a.a.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
-                if (!f56422b.isAlive()) {
-                    f56422b.start();
+                if (!f56421b.isAlive()) {
+                    f56421b.start();
                 }
                 e(new a(context));
             }
@@ -131,24 +131,24 @@ public class CronetLibraryLoader {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f56424d) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f56423d) {
             return;
         }
         NetworkChangeNotifier.init(context);
         NetworkChangeNotifier.n();
         nativeCronetInitOnInitThread();
-        for (Runnable runnable : f56425e) {
+        for (Runnable runnable : f56424e) {
             runnable.run();
         }
-        f56425e.clear();
-        f56424d = true;
+        f56424e.clear();
+        f56423d = true;
     }
 
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f56424d) {
+            if (f56423d) {
                 return nativeGetTurboNetHandler();
             }
             return 0L;
@@ -159,7 +159,7 @@ public class CronetLibraryLoader {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f56422b.getLooper() == Looper.myLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f56421b.getLooper() == Looper.myLooper() : invokeV.booleanValue;
     }
 
     public static void e(Runnable runnable) {
@@ -168,7 +168,7 @@ public class CronetLibraryLoader {
             if (d()) {
                 runnable.run();
             } else {
-                new Handler(f56422b.getLooper()).post(runnable);
+                new Handler(f56421b.getLooper()).post(runnable);
             }
         }
     }

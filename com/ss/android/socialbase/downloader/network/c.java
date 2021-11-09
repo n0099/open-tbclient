@@ -19,13 +19,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.h<String, b> f69684a;
+    public final com.ss.android.socialbase.downloader.i.h<String, b> f69683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f69685b;
+    public final Handler f69684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f69686c;
+    public final Handler f69685c;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -38,10 +38,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<InetAddress> f69695a;
+        public List<InetAddress> f69694a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f69696b;
+        public long f69695b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f69697a;
+        public static final c f69696a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -80,13 +80,13 @@ public class c {
                     return;
                 }
             }
-            f69697a = new c();
+            f69696a = new c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0089, code lost:
-        r10 = r2.f69695a;
+        r10 = r2.f69694a;
      */
     /* JADX WARN: Removed duplicated region for block: B:39:0x0092 A[Catch: all -> 0x0099, TRY_LEAVE, TryCatch #3 {all -> 0x0099, blocks: (B:4:0x0004, B:5:0x000e, B:9:0x001a, B:12:0x0038, B:14:0x003e, B:16:0x0056, B:23:0x0067, B:31:0x007c, B:34:0x0083, B:37:0x008b, B:39:0x0092, B:36:0x0089, B:25:0x006d, B:18:0x005c, B:26:0x0071, B:6:0x000f, B:7:0x0017), top: B:50:0x0004 }] */
     /* JADX WARN: Removed duplicated region for block: B:52:? A[RETURN, SYNTHETIC] */
@@ -102,12 +102,12 @@ public class c {
         }
         try {
             String host = Uri.parse(str).getHost();
-            synchronized (this.f69684a) {
-                bVar = this.f69684a.get(host);
+            synchronized (this.f69683a) {
+                bVar = this.f69683a.get(host);
             }
-            if (bVar != null && System.currentTimeMillis() - bVar.f69696b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
+            if (bVar != null && System.currentTimeMillis() - bVar.f69695b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
                 if (aVar != null) {
-                    aVar.a(str, bVar.f69695a);
+                    aVar.a(str, bVar.f69694a);
                     return;
                 }
                 return;
@@ -117,16 +117,16 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f69691a;
+                public final /* synthetic */ a f69690a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f69692b;
+                public final /* synthetic */ String f69691b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f69693c;
+                public final /* synthetic */ b f69692c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f69694d;
+                public final /* synthetic */ c f69693d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,25 +143,25 @@ public class c {
                             return;
                         }
                     }
-                    this.f69694d = this;
-                    this.f69691a = aVar;
-                    this.f69692b = str;
-                    this.f69693c = bVar;
+                    this.f69693d = this;
+                    this.f69690a = aVar;
+                    this.f69691b = str;
+                    this.f69692c = bVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = this.f69691a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = this.f69690a) == null) {
                         return;
                     }
-                    String str2 = this.f69692b;
-                    b bVar2 = this.f69693c;
-                    aVar2.a(str2, bVar2 == null ? null : bVar2.f69695a);
+                    String str2 = this.f69691b;
+                    b bVar2 = this.f69692c;
+                    aVar2.a(str2, bVar2 == null ? null : bVar2.f69694a);
                 }
             };
-            this.f69686c.postDelayed(runnable, j);
+            this.f69685c.postDelayed(runnable, j);
             List<InetAddress> list = null;
             if (com.ss.android.socialbase.downloader.g.a.c().a("use_host_dns", 1) == 1 && (u = com.ss.android.socialbase.downloader.downloader.c.u()) != null) {
                 list = u.a(host);
@@ -171,14 +171,14 @@ public class c {
             }
             if (list != null && !list.isEmpty()) {
                 a(host, list);
-                this.f69686c.removeCallbacks(runnable);
+                this.f69685c.removeCallbacks(runnable);
                 if (aVar == null) {
                     aVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f69686c.removeCallbacks(runnable);
+            this.f69685c.removeCallbacks(runnable);
             if (aVar == null) {
             }
         } catch (Throwable th) {
@@ -199,35 +199,35 @@ public class c {
                 return;
             }
         }
-        this.f69684a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
-        this.f69685b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
-        this.f69686c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
+        this.f69683a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
+        this.f69684b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
+        this.f69685c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2010c.f69697a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2010c.f69696a : (c) invokeV.objValue;
     }
 
     public void a(String str, a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, aVar, Long.valueOf(j)}) == null) {
-            this.f69685b.post(new Runnable(this, str, aVar, j) { // from class: com.ss.android.socialbase.downloader.network.c.1
+            this.f69684b.post(new Runnable(this, str, aVar, j) { // from class: com.ss.android.socialbase.downloader.network.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69687a;
+                public final /* synthetic */ String f69686a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f69688b;
+                public final /* synthetic */ a f69687b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f69689c;
+                public final /* synthetic */ long f69688c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f69690d;
+                public final /* synthetic */ c f69689d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -244,17 +244,17 @@ public class c {
                             return;
                         }
                     }
-                    this.f69690d = this;
-                    this.f69687a = str;
-                    this.f69688b = aVar;
-                    this.f69689c = j;
+                    this.f69689d = this;
+                    this.f69686a = str;
+                    this.f69687b = aVar;
+                    this.f69688c = j;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69690d.b(this.f69687a, this.f69688b, this.f69689c);
+                        this.f69689d.b(this.f69686a, this.f69687b, this.f69688c);
                     }
                 }
             });
@@ -264,14 +264,14 @@ public class c {
     private void a(String str, List<InetAddress> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, list) == null) {
-            synchronized (this.f69684a) {
-                b bVar = this.f69684a.get(str);
+            synchronized (this.f69683a) {
+                b bVar = this.f69683a.get(str);
                 if (bVar == null) {
                     bVar = new b();
-                    this.f69684a.put(str, bVar);
+                    this.f69683a.put(str, bVar);
                 }
-                bVar.f69695a = list;
-                bVar.f69696b = System.currentTimeMillis();
+                bVar.f69694a = list;
+                bVar.f69695b = System.currentTimeMillis();
             }
         }
     }

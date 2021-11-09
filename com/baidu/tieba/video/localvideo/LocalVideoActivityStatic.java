@@ -80,16 +80,16 @@ public class LocalVideoActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f54738a;
+            public String f54737a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f54739b;
+            public String f54738b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f54740c;
+            public String f54739c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f54741d;
+            public final /* synthetic */ CustomResponsedMessage f54740d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f54741d = customResponsedMessage;
+                this.f54740d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -134,16 +134,16 @@ public class LocalVideoActivityStatic {
                     return;
                 }
                 if ("libnama.so".equals(packageInfo.name)) {
-                    this.f54738a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
+                    this.f54737a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f54739b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f54738b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f54740c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f54739c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.f54738a) && !StringUtils.isNull(this.f54739b) && !StringUtils.isNull(this.f54740c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f54741d.getData()));
+                if (!StringUtils.isNull(this.f54737a) && !StringUtils.isNull(this.f54738b) && !StringUtils.isNull(this.f54739c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f54740d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }

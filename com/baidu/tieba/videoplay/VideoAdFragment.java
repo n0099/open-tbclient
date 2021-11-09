@@ -77,19 +77,19 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
     public a.j V;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureInterceptTouchFrameLayout f54883e;
+    public GestureInterceptTouchFrameLayout f54882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f54884f;
+    public FrameLayout f54883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f54885g;
+    public FrameLayout f54884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f54886h;
+    public LinearLayout f54885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f54887i;
+    public ImageView f54886i;
     public ImageView j;
     public ImageView k;
     public b.a.r0.b4.q.a l;
@@ -143,7 +143,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54888e;
+        public final /* synthetic */ VideoAdFragment f54887e;
 
         public b(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                     return;
                 }
             }
-            this.f54888e = videoAdFragment;
+            this.f54887e = videoAdFragment;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -174,8 +174,8 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f54888e.z.setVisibility(8);
-                this.f54888e.P = false;
+                this.f54887e.z.setVisibility(8);
+                this.f54887e.P = false;
             }
         }
 
@@ -200,13 +200,13 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f54889a;
+        public boolean f54888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f54890b;
+        public boolean f54889b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54891c;
+        public final /* synthetic */ VideoAdFragment f54890c;
 
         public c(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
@@ -223,9 +223,9 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                     return;
                 }
             }
-            this.f54891c = videoAdFragment;
-            this.f54889a = false;
-            this.f54890b = false;
+            this.f54890c = videoAdFragment;
+            this.f54888a = false;
+            this.f54889b = false;
         }
 
         @Override // b.a.r0.y0.a.j
@@ -233,13 +233,13 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 int i2 = ((int) j) / 1000;
-                if (i2 == 3 && !this.f54889a) {
-                    this.f54889a = true;
-                    this.f54891c.w.addView(this.f54891c.M);
-                } else if (i2 != 5 || this.f54890b) {
+                if (i2 == 3 && !this.f54888a) {
+                    this.f54888a = true;
+                    this.f54890c.w.addView(this.f54890c.M);
+                } else if (i2 != 5 || this.f54889b) {
                 } else {
-                    this.f54890b = true;
-                    this.f54891c.M.playStressAnimation();
+                    this.f54889b = true;
+                    this.f54890c.M.playStressAnimation();
                 }
             }
         }
@@ -251,7 +251,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54892a;
+        public final /* synthetic */ VideoAdFragment f54891a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(VideoAdFragment videoAdFragment, int i2) {
@@ -271,14 +271,14 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                     return;
                 }
             }
-            this.f54892a = videoAdFragment;
+            this.f54891a = videoAdFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921612 && this.f54892a.isResumed() && this.f54892a.isVisible()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921612 && this.f54891a.isResumed() && this.f54891a.isVisible()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
             }
         }
@@ -290,9 +290,45 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54893e;
+        public final /* synthetic */ VideoAdFragment f54892e;
 
         public e(VideoAdFragment videoAdFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoAdFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54892e = videoAdFragment;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54892e.getActivity() == null) {
+                return;
+            }
+            this.f54892e.getActivity().finish();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoAdFragment f54893e;
+
+        public f(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -313,22 +349,27 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54893e.getActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54893e.m == null) {
                 return;
             }
-            this.f54893e.getActivity().finish();
+            CustomMessage customMessage = new CustomMessage(2921566);
+            customMessage.setTag(this.f54893e.q);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921566, Integer.valueOf(this.f54893e.m.getHashCode()));
+            customResponsedMessage.setOrginalMessage(customMessage);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f54893e.n).param("obj_locate", 0));
         }
     }
 
     /* loaded from: classes9.dex */
-    public class f implements View.OnClickListener {
+    public class g implements a.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54894e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoAdFragment f54894a;
 
-        public f(VideoAdFragment videoAdFragment) {
+        public g(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -343,33 +384,57 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                     return;
                 }
             }
-            this.f54894e = videoAdFragment;
+            this.f54894a = videoAdFragment;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // b.a.r0.y0.a.i
+        public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54894e.m == null) {
-                return;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", this.f54894a.n).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM2, str3).param(TiebaStatic.Params.OBJ_TO, this.f54894a.r()).param(TiebaStatic.Params.AD_TITLE, this.f54894a.Q != null ? this.f54894a.Q.e() : "").param(TiebaStatic.Params.AD_DESC, this.f54894a.Q != null ? this.f54894a.Q.d() : "").param(TiebaStatic.Params.AD_SOURCE, str2));
             }
-            CustomMessage customMessage = new CustomMessage(2921566);
-            customMessage.setTag(this.f54894e.q);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921566, Integer.valueOf(this.f54894e.m.getHashCode()));
-            customResponsedMessage.setOrginalMessage(customMessage);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f54894e.n).param("obj_locate", 0));
+        }
+
+        @Override // b.a.r0.y0.a.i
+        public void onAdClose(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+
+        @Override // b.a.r0.y0.a.i
+        public void onAdError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.f54894a.x("", "", 1);
+            }
+        }
+
+        @Override // b.a.r0.y0.a.i
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                this.f54894a.x(str3, str2, 0);
+            }
+        }
+
+        @Override // b.a.r0.y0.a.i
+        public void onRewardedVideo(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class g implements a.i {
+    public class h implements a.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ VideoAdFragment f54895a;
 
-        public g(VideoAdFragment videoAdFragment) {
+        public h(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -391,7 +456,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", this.f54895a.n).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM2, str3).param(TiebaStatic.Params.OBJ_TO, this.f54895a.r()).param(TiebaStatic.Params.AD_TITLE, this.f54895a.Q != null ? this.f54895a.Q.e() : "").param(TiebaStatic.Params.AD_DESC, this.f54895a.Q != null ? this.f54895a.Q.d() : "").param(TiebaStatic.Params.AD_SOURCE, str2));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", this.f54895a.n).param("obj_locate", 0).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4").param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3));
             }
         }
 
@@ -406,7 +471,8 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f54895a.x("", "", 1);
+                this.f54895a.p = true;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", this.f54895a.n).param("obj_locate", 1).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4"));
             }
         }
 
@@ -414,76 +480,10 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                this.f54895a.x(str3, str2, 0);
-            }
-        }
-
-        @Override // b.a.r0.y0.a.i
-        public void onRewardedVideo(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class h implements a.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54896a;
-
-        public h(VideoAdFragment videoAdFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoAdFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54896a = videoAdFragment;
-        }
-
-        @Override // b.a.r0.y0.a.i
-        public void onAdClicked(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", this.f54896a.n).param("obj_locate", 0).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4").param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3));
-            }
-        }
-
-        @Override // b.a.r0.y0.a.i
-        public void onAdClose(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // b.a.r0.y0.a.i
-        public void onAdError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f54896a.p = true;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", this.f54896a.n).param("obj_locate", 1).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4"));
-            }
-        }
-
-        @Override // b.a.r0.y0.a.i
-        public void onAdShow(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                this.f54896a.p = false;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", this.f54896a.n).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM2, str3).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4").param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3));
-                if (this.f54896a.l != null) {
-                    this.f54896a.l.prefetch();
+                this.f54895a.p = false;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", this.f54895a.n).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM2, str3).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4").param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3));
+                if (this.f54895a.l != null) {
+                    this.f54895a.l.prefetch();
                 }
             }
         }
@@ -502,9 +502,50 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54897e;
+        public final /* synthetic */ VideoAdFragment f54896e;
 
         public i(VideoAdFragment videoAdFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoAdFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54896e = videoAdFragment;
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (motionEvent2.getX() - motionEvent.getX() > 50.0f) {
+                    this.f54896e.v();
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class j implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoAdFragment f54897e;
+
+        public j(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -522,30 +563,30 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
             this.f54897e = videoAdFragment;
         }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            InterceptResult invokeCommon;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (motionEvent2.getX() - motionEvent.getX() > 50.0f) {
-                    this.f54897e.v();
-                    return true;
-                }
-                return false;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54897e.m == null) {
+                return;
             }
-            return invokeCommon.booleanValue;
+            CustomMessage customMessage = new CustomMessage(2921566);
+            customMessage.setTag(this.f54897e.q);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921566, Integer.valueOf(this.f54897e.m.getHashCode()));
+            customResponsedMessage.setOrginalMessage(customMessage);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f54897e.n));
         }
     }
 
     /* loaded from: classes9.dex */
-    public class j implements View.OnClickListener {
+    public class k implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoAdFragment f54898e;
 
-        public j(VideoAdFragment videoAdFragment) {
+        public k(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -566,27 +607,21 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54898e.m == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f54898e.q(0);
             }
-            CustomMessage customMessage = new CustomMessage(2921566);
-            customMessage.setTag(this.f54898e.q);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921566, Integer.valueOf(this.f54898e.m.getHashCode()));
-            customResponsedMessage.setOrginalMessage(customMessage);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f54898e.n));
         }
     }
 
     /* loaded from: classes9.dex */
-    public class k implements View.OnClickListener {
+    public class l implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoAdFragment f54899e;
 
-        public k(VideoAdFragment videoAdFragment) {
+        public l(VideoAdFragment videoAdFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -608,42 +643,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54899e.q(0);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class l implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAdFragment f54900e;
-
-        public l(VideoAdFragment videoAdFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoAdFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54900e = videoAdFragment;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54900e.w();
+                this.f54899e.w();
             }
         }
     }
@@ -703,8 +703,8 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                 return;
             }
             this.r = i2;
-            WebPManager.setMaskDrawable(this.f54887i, b.a.r0.b4.e.icon_mask_header40, null);
-            b.a.q0.s.u.c.d(this.f54883e).f(b.a.r0.b4.c.CAM_X0611);
+            WebPManager.setMaskDrawable(this.f54886i, b.a.r0.b4.e.icon_mask_header40, null);
+            b.a.q0.s.u.c.d(this.f54882e).f(b.a.r0.b4.c.CAM_X0611);
             WebPManager.setPureDrawable(this.j, b.a.r0.b4.e.icon_pure_topbar_return40, b.a.r0.b4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             WebPManager.setPureDrawable(this.k, b.a.r0.b4.e.icon_pure_card_close22, b.a.r0.b4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             AdInfoButton adInfoButton = this.M;
@@ -726,37 +726,37 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                 arguments.getString("from");
             }
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(b.a.r0.b4.g.video_ad_view, (ViewGroup) null);
-            this.f54883e = gestureInterceptTouchFrameLayout;
-            this.f54884f = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(b.a.r0.b4.f.fun_ad_container);
-            this.f54885g = (FrameLayout) this.f54883e.findViewById(b.a.r0.b4.f.error_tip_container);
-            this.f54887i = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.ad_error_image);
-            this.f54886h = (LinearLayout) this.f54883e.findViewById(b.a.r0.b4.f.ad_top_container);
-            this.j = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.back_btn);
-            this.k = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.feed_back);
+            this.f54882e = gestureInterceptTouchFrameLayout;
+            this.f54883f = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(b.a.r0.b4.f.fun_ad_container);
+            this.f54884g = (FrameLayout) this.f54882e.findViewById(b.a.r0.b4.f.error_tip_container);
+            this.f54886i = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.ad_error_image);
+            this.f54885h = (LinearLayout) this.f54882e.findViewById(b.a.r0.b4.f.ad_top_container);
+            this.j = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.back_btn);
+            this.k = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.feed_back);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
-            if (this.f54886h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.f54886h.getLayoutParams()).topMargin = statusBarHeight;
+            if (this.f54885h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.f54885h.getLayoutParams()).topMargin = statusBarHeight;
             }
             this.j.setVisibility(8);
             this.j.setOnClickListener(new e(this));
             this.k.setOnClickListener(new f(this));
-            this.o = new b.a.r0.b4.l.a(getActivity(), this.f54885g);
+            this.o = new b.a.r0.b4.l.a(getActivity(), this.f54884g);
             if (b.a.q0.b.d.Y() && !b.a.r0.y0.a.i().m("6061002332-203360688")) {
-                this.f54884f.setVisibility(8);
-                this.f54887i.setVisibility(0);
+                this.f54883f.setVisibility(8);
+                this.f54886i.setVisibility(0);
                 this.p = true;
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", this.n).param("obj_locate", 2).param("tid", "").param("fid", "").param(TiebaStatic.Params.AD_TITLE, "").param(TiebaStatic.Params.AD_DESC, "").param("ad_pic", "").param(TiebaStatic.Params.AD_SOURCE, "").param(TiebaStatic.Params.AD_TYPE, "4"));
-                return this.f54883e;
+                return this.f54882e;
             } else if (b.a.q0.b.d.Z() && !b.a.r0.y0.a.i().m("6061002410-390177882")) {
-                this.f54884f.setVisibility(8);
+                this.f54883f.setVisibility(8);
                 this.k.setVisibility(8);
-                this.f54887i.setVisibility(0);
+                this.f54886i.setVisibility(0);
                 this.p = true;
                 x("", "", 2);
-                return this.f54883e;
+                return this.f54882e;
             } else {
-                this.f54887i.setVisibility(8);
-                this.f54884f.setVisibility(0);
+                this.f54886i.setVisibility(8);
+                this.f54883f.setVisibility(0);
                 if (b.a.q0.b.d.Z()) {
                     s();
                     u();
@@ -792,10 +792,10 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
                         }
                     }
                 } else if (b.a.q0.b.d.Y()) {
-                    b.a.r0.y0.a.i().v(getActivity(), "6061002332-203360688", this.f54884f, new h(this), b.a.r0.y0.a.b(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_VIDEO_MIDDLE, VideoMiddleAdSwitch.isOn() ? "1" : "0"));
+                    b.a.r0.y0.a.i().v(getActivity(), "6061002332-203360688", this.f54883f, new h(this), b.a.r0.y0.a.b(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_VIDEO_MIDDLE, VideoMiddleAdSwitch.isOn() ? "1" : "0"));
                 }
-                this.f54883e.setSimpleOnGestureListener(new i(this));
-                return this.f54883e;
+                this.f54882e.setSimpleOnGestureListener(new i(this));
+                return this.f54882e;
             }
         }
         return (View) invokeLLL.objValue;
@@ -851,7 +851,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
     public final void p() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f54883e == null || (tBLottieAnimationView = this.z) == null || this.P) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f54882e == null || (tBLottieAnimationView = this.z) == null || this.P) {
             return;
         }
         tBLottieAnimationView.setVisibility(0);
@@ -919,16 +919,16 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
     public final void s() {
         GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gestureInterceptTouchFrameLayout = this.f54883e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gestureInterceptTouchFrameLayout = this.f54882e) == null) {
             return;
         }
         this.t = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(b.a.r0.b4.f.draw_container);
-        this.u = (LinearLayout) this.f54883e.findViewById(b.a.r0.b4.f.draw_info_container);
-        this.w = (LinearLayout) this.f54883e.findViewById(b.a.r0.b4.f.draw_info_desc_container);
+        this.u = (LinearLayout) this.f54882e.findViewById(b.a.r0.b4.f.draw_info_container);
+        this.w = (LinearLayout) this.f54882e.findViewById(b.a.r0.b4.f.draw_info_desc_container);
         this.u.setVisibility(0);
         b.a.q0.s.u.c.d(this.u).o(new int[]{b.a.r0.b4.c.CAM_X0606, b.a.r0.b4.c.CAM_X0601});
-        this.v = (FrameLayout) this.f54883e.findViewById(b.a.r0.b4.f.draw_video_container);
-        this.x = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.agree_img);
+        this.v = (FrameLayout) this.f54882e.findViewById(b.a.r0.b4.f.draw_video_container);
+        this.x = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.agree_img);
         VideoItemModel videoItemModel = this.m;
         if (videoItemModel != null && videoItemModel.getVideoAdData() != null) {
             this.O = this.m.getVideoAdData().b();
@@ -938,7 +938,7 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         } else {
             this.x.setImageDrawable(WebPManager.getMaskDrawable(b.a.r0.b4.e.icon_mask_video_good36, WebPManager.ResourceStateType.NORMAL));
         }
-        this.y = (EMTextView) this.f54883e.findViewById(b.a.r0.b4.f.agree_num);
+        this.y = (EMTextView) this.f54882e.findViewById(b.a.r0.b4.f.agree_num);
         VideoItemModel videoItemModel2 = this.m;
         if (videoItemModel2 != null && videoItemModel2.getVideoAdData() != null) {
             this.N = this.m.getVideoAdData().a();
@@ -949,11 +949,11 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         d2.A(b.a.r0.b4.i.F_X01);
         d2.v(b.a.r0.b4.c.CAM_X0101);
         d2.y(b.a.r0.b4.b.S_O_X001);
-        this.z = (TBLottieAnimationView) this.f54883e.findViewById(b.a.r0.b4.f.agree_animation_view);
-        ImageView imageView = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.comment_img);
+        this.z = (TBLottieAnimationView) this.f54882e.findViewById(b.a.r0.b4.f.agree_animation_view);
+        ImageView imageView = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.comment_img);
         this.A = imageView;
         imageView.setImageDrawable(WebPManager.getMaskDrawable(b.a.r0.b4.e.icon_mask_video_reply36, WebPManager.ResourceStateType.NORMAL_DISABLE));
-        EMTextView eMTextView = (EMTextView) this.f54883e.findViewById(b.a.r0.b4.f.comment_num);
+        EMTextView eMTextView = (EMTextView) this.f54882e.findViewById(b.a.r0.b4.f.comment_num);
         this.B = eMTextView;
         eMTextView.setText(b.a.r0.b4.i.video_ad_draw_comment);
         b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.B);
@@ -963,11 +963,11 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         d3.y(b.a.r0.b4.b.S_O_X001);
         this.A.setAlpha(SkinManager.RESOURCE_ALPHA_PRESS);
         this.B.setAlpha(SkinManager.RESOURCE_ALPHA_PRESS);
-        this.C = this.f54883e.findViewById(b.a.r0.b4.f.more_container);
-        ImageView imageView2 = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.more_img);
+        this.C = this.f54882e.findViewById(b.a.r0.b4.f.more_container);
+        ImageView imageView2 = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.more_img);
         this.D = imageView2;
         imageView2.setImageDrawable(WebPManager.getMaskDrawable(b.a.r0.b4.e.icon_mask_video_more36, WebPManager.ResourceStateType.NORMAL));
-        EMTextView eMTextView2 = (EMTextView) this.f54883e.findViewById(b.a.r0.b4.f.more_text);
+        EMTextView eMTextView2 = (EMTextView) this.f54882e.findViewById(b.a.r0.b4.f.more_text);
         this.E = eMTextView2;
         eMTextView2.setText(b.a.r0.b4.i.video_ad_draw_more);
         b.a.q0.s.u.c d4 = b.a.q0.s.u.c.d(this.E);
@@ -975,8 +975,8 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         d4.A(b.a.r0.b4.i.F_X01);
         d4.v(b.a.r0.b4.c.CAM_X0101);
         d4.y(b.a.r0.b4.b.S_O_X001);
-        this.F = (LinearLayout) this.f54883e.findViewById(b.a.r0.b4.f.ad_portrait_and_name);
-        HeadImageView headImageView = (HeadImageView) this.f54883e.findViewById(b.a.r0.b4.f.ad_portrait);
+        this.F = (LinearLayout) this.f54882e.findViewById(b.a.r0.b4.f.ad_portrait_and_name);
+        HeadImageView headImageView = (HeadImageView) this.f54882e.findViewById(b.a.r0.b4.f.ad_portrait);
         this.G = headImageView;
         headImageView.setDefaultResource(17170445);
         this.G.setPlaceHolder(2);
@@ -984,13 +984,13 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         this.G.setBorderWidth(b.a.r0.b4.d.L_X02);
         this.G.setBorderColor(b.a.r0.b4.c.CAM_X0622);
         this.G.setDrawBorder(true);
-        TextView textView = (TextView) this.f54883e.findViewById(b.a.r0.b4.f.ad_name);
+        TextView textView = (TextView) this.f54882e.findViewById(b.a.r0.b4.f.ad_name);
         this.H = textView;
         b.a.q0.s.u.c d5 = b.a.q0.s.u.c.d(textView);
         d5.z(b.a.r0.b4.d.T_X06);
         d5.A(b.a.r0.b4.i.F_X02);
         d5.v(b.a.r0.b4.c.CAM_X0101);
-        ExpandableTextView expandableTextView = (ExpandableTextView) this.f54883e.findViewById(b.a.r0.b4.f.ad_desc);
+        ExpandableTextView expandableTextView = (ExpandableTextView) this.f54882e.findViewById(b.a.r0.b4.f.ad_desc);
         this.I = expandableTextView;
         expandableTextView.setTextSize(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.b4.d.T_X07));
         this.I.setTextColor(b.a.r0.b4.c.CAM_X0621);
@@ -998,13 +998,13 @@ public class VideoAdFragment extends BaseFragment implements b.InterfaceC0660b, 
         this.I.setExpandable(false);
         this.I.setTextMaxLine(2);
         this.I.setLimitLine(2);
-        LinearLayout linearLayout = (LinearLayout) this.f54883e.findViewById(b.a.r0.b4.f.ad_icon_bg);
+        LinearLayout linearLayout = (LinearLayout) this.f54882e.findViewById(b.a.r0.b4.f.ad_icon_bg);
         this.J = linearLayout;
         b.a.q0.s.u.c d6 = b.a.q0.s.u.c.d(linearLayout);
         d6.n(b.a.r0.b4.i.J_X04);
         d6.f(b.a.r0.b4.c.CAM_X0614);
-        this.K = (ImageView) this.f54883e.findViewById(b.a.r0.b4.f.ad_icon_img);
-        TextView textView2 = (TextView) this.f54883e.findViewById(b.a.r0.b4.f.ad_icon_text);
+        this.K = (ImageView) this.f54882e.findViewById(b.a.r0.b4.f.ad_icon_img);
+        TextView textView2 = (TextView) this.f54882e.findViewById(b.a.r0.b4.f.ad_icon_text);
         this.L = textView2;
         textView2.setText(b.a.r0.b4.i.video_ad_draw_ad);
         b.a.q0.s.u.c d7 = b.a.q0.s.u.c.d(this.L);

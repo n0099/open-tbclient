@@ -24,13 +24,13 @@ public class CouponBaseActivity extends BeanActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f60633a;
+        public float f60632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f60634b;
+        public float f60633b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f60635c;
+        public int f60634c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Resources resources) {
@@ -55,21 +55,21 @@ public class CouponBaseActivity extends BeanActivity {
 
         private void a(DisplayMetrics displayMetrics) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, this, displayMetrics) == null) && this.f60633a == 0.0f) {
+            if ((interceptable == null || interceptable.invokeL(65537, this, displayMetrics) == null) && this.f60632a == 0.0f) {
                 float f2 = displayMetrics.density;
                 float f3 = displayMetrics.scaledDensity;
                 float f4 = displayMetrics.widthPixels / 360.0f;
-                this.f60633a = f4;
-                this.f60634b = (f3 / f2) * f4;
-                this.f60635c = (int) (f4 * 160.0f);
+                this.f60632a = f4;
+                this.f60633b = (f3 / f2) * f4;
+                this.f60634c = (int) (f4 * 160.0f);
             }
         }
 
         private void b(DisplayMetrics displayMetrics) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, displayMetrics) == null) {
-                displayMetrics.density = this.f60633a;
-                displayMetrics.densityDpi = this.f60635c;
+                displayMetrics.density = this.f60632a;
+                displayMetrics.densityDpi = this.f60634c;
             }
         }
 

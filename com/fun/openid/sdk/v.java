@@ -12,16 +12,16 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f62926a;
+    public Context f62925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t f62927b;
+    public t f62926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f62928c;
+    public ServiceConnection f62927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f62929d;
+    public a f62928d;
 
     /* loaded from: classes11.dex */
     public interface a<T> {
@@ -41,7 +41,7 @@ public class v {
                 return;
             }
         }
-        this.f62926a = null;
-        this.f62929d = null;
+        this.f62925a = null;
+        this.f62928d = null;
     }
 }

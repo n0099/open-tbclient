@@ -19,7 +19,7 @@ public class RequestGetTopicListMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f49881common;
+    public CommonReq f49880common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetTopicListMessage() {
@@ -46,7 +46,7 @@ public class RequestGetTopicListMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f72996common = this.f49881common;
+            builder.f72995common = this.f49880common;
             builder.call_from = this.callFrom;
             if (z) {
                 z.a(builder, true);
@@ -68,7 +68,7 @@ public class RequestGetTopicListMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f49881common = commonReq;
+            this.f49880common = commonReq;
         }
     }
 }

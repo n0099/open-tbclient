@@ -44,7 +44,7 @@ public class TbLiveCyberView extends CyberVideoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbLiveCyberView f46852a;
+        public final /* synthetic */ TbLiveCyberView f46851a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbLiveCyberView tbLiveCyberView, int i2) {
@@ -64,7 +64,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f46852a = tbLiveCyberView;
+            this.f46851a = tbLiveCyberView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class TbLiveCyberView extends CyberVideoView {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f46852a.stop();
+                this.f46851a.stop();
             }
         }
     }

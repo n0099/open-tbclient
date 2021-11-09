@@ -34,32 +34,32 @@ public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f68212d = "com.sdk.base.framework.d.a";
+    public static final String f68211d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f68213e;
+    public static final boolean f68212e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68214a;
+    public Context f68213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68215b;
+    public String f68214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68216c;
+    public String f68215c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f68217f;
+    public PInfo f68216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f68218g;
+    public AInfo f68217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f68219h;
+    public SInfo f68218h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<KInfo> f68220i;
+    public ArrayList<KInfo> f68219i;
     public com.sdk.base.framework.b.a<T> j;
     public e k;
 
@@ -76,7 +76,7 @@ public class a<T> {
                 return;
             }
         }
-        f68213e = f.f68206b;
+        f68212e = f.f68205b;
     }
 
     public a() {
@@ -108,7 +108,7 @@ public class a<T> {
                 return;
             }
         }
-        this.f68214a = context;
+        this.f68213a = context;
         this.j = aVar;
         this.k = eVar;
     }
@@ -126,17 +126,17 @@ public class a<T> {
                     e = e2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f68212d, e.toString(), Boolean.valueOf(f68213e));
+                    c.b(f68211d, e.toString(), Boolean.valueOf(f68212e));
                     return fVar;
                 }
             } else {
                 dataInfo2 = dataInfo;
             }
             TreeMap<String, Object> treeMap = new TreeMap<>();
-            String a2 = com.sdk.base.framework.f.i.a.a(this.f68214a);
+            String a2 = com.sdk.base.framework.f.i.a.a(this.f68213a);
             String a3 = com.sdk.base.framework.f.i.a.a(16);
-            String a4 = com.sdk.base.framework.f.a.a.a(this.f68214a, BaseConfig.apk);
-            String a5 = com.sdk.base.framework.f.b.a.a(this.f68214a, com.alipay.sdk.packet.e.o);
+            String a4 = com.sdk.base.framework.f.a.a.a(this.f68213a, BaseConfig.apk);
+            String a5 = com.sdk.base.framework.f.b.a.a(this.f68213a, com.alipay.sdk.packet.e.o);
             if ("/st/api/v1.0/ses".equals(str2)) {
                 a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
             }
@@ -167,11 +167,11 @@ public class a<T> {
                 kVar.a((ArrayList<File>) null);
                 kVar.a(hashMap);
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
-                    g gVar = g.f68241a;
+                    g gVar = g.f68240a;
                 } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                    g gVar2 = g.f68242b;
+                    g gVar2 = g.f68241b;
                 }
-                h hVar = new h(this.f68214a, kVar);
+                h hVar = new h(this.f68213a, kVar);
                 com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
                 try {
                     fVar2.c(hVar);
@@ -181,13 +181,13 @@ public class a<T> {
                     fVar = fVar2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f68212d, e.toString(), Boolean.valueOf(f68213e));
+                    c.b(f68211d, e.toString(), Boolean.valueOf(f68212e));
                     return fVar;
                 }
             } catch (Exception e4) {
                 a(1, 101006, "公钥出错");
-                String str3 = f68212d;
-                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f68213e));
+                String str3 = f68211d;
+                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f68212e));
                 return null;
             }
         }
@@ -200,17 +200,17 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataInfo, str)) == null) {
             try {
-                if (this.f68218g == null) {
-                    this.f68218g = com.sdk.base.framework.c.a.a(this.f68214a);
+                if (this.f68217g == null) {
+                    this.f68217g = com.sdk.base.framework.c.a.a(this.f68213a);
                 }
-                if (this.f68219h == null) {
-                    this.f68219h = com.sdk.base.framework.c.a.b();
+                if (this.f68218h == null) {
+                    this.f68218h = com.sdk.base.framework.c.a.b();
                 }
-                if (this.f68220i == null) {
-                    this.f68220i = com.sdk.base.framework.c.a.a();
+                if (this.f68219i == null) {
+                    this.f68219i = com.sdk.base.framework.c.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<KInfo> it = this.f68220i.iterator();
+                Iterator<KInfo> it = this.f68219i.iterator();
                 while (it.hasNext()) {
                     KInfo next = it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
@@ -220,15 +220,15 @@ public class a<T> {
                     mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
-                if (this.f68217f == null) {
-                    this.f68217f = com.sdk.base.framework.c.a.c();
+                if (this.f68216f == null) {
+                    this.f68216f = com.sdk.base.framework.c.a.c();
                 }
                 StringBuilder sb = new StringBuilder("{app:");
-                sb.append(this.f68218g);
+                sb.append(this.f68217g);
                 sb.append(",sdk:");
-                sb.append(this.f68219h);
+                sb.append(this.f68218h);
                 sb.append(",device:");
-                sb.append(this.f68217f);
+                sb.append(this.f68216f);
                 sb.append(",sim:");
                 sb.append(arrayList);
                 sb.append(",data:");
@@ -236,10 +236,10 @@ public class a<T> {
                 sb.append("}");
                 str2 = sb.toString();
             } catch (Exception e2) {
-                c.b(f68212d, e2.toString(), Boolean.valueOf(f68213e));
+                c.b(f68211d, e2.toString(), Boolean.valueOf(f68212e));
                 str2 = null;
             }
-            return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f68214a, f.f68205a), str);
+            return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f68213a, f.f68204a), str);
         }
         return (String) invokeLL.objValue;
     }

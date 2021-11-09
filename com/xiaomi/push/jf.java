@@ -10,7 +10,7 @@ public final class jf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f71339a;
+    public final byte f71338a;
 
     /* renamed from: a  reason: collision with other field name */
     public final int f820a;
@@ -49,7 +49,7 @@ public final class jf {
                 return;
             }
         }
-        this.f71339a = b2;
+        this.f71338a = b2;
         this.f820a = i2;
     }
 }

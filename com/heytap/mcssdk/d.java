@@ -19,10 +19,10 @@ public final class d implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Intent f63713a;
+    public final /* synthetic */ Intent f63712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f63714b;
+    public final /* synthetic */ PushManager f63713b;
 
     public d(PushManager pushManager, Intent intent) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class d implements ServiceConnection {
                 return;
             }
         }
-        this.f63714b = pushManager;
-        this.f63713a = intent;
+        this.f63713b = pushManager;
+        this.f63712a = intent;
     }
 
     @Override // android.content.ServiceConnection
@@ -49,13 +49,13 @@ public final class d implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             Bundle bundle = new Bundle();
-            bundle.putAll(this.f63713a.getExtras());
+            bundle.putAll(this.f63712a.getExtras());
             try {
                 IMcsSdkService.Stub.asInterface(iBinder).process(bundle);
             } catch (Exception e2) {
                 LogUtil.d("bindMcsService exception:" + e2);
             }
-            context = this.f63714b.mContext;
+            context = this.f63713b.mContext;
             context.unbindService(this);
         }
     }

@@ -64,7 +64,7 @@ public class TransmitForumAdapter extends b.a.e.l.e.a<TransmitForumData, Transmi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumAdapter f55847e;
+        public final /* synthetic */ TransmitForumAdapter f55846e;
 
         public a(TransmitForumAdapter transmitForumAdapter) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class TransmitForumAdapter extends b.a.e.l.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.f55847e = transmitForumAdapter;
+            this.f55846e = transmitForumAdapter;
         }
 
         @Override // b.a.e.l.e.w
@@ -90,15 +90,15 @@ public class TransmitForumAdapter extends b.a.e.l.e.a<TransmitForumData, Transmi
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof TransmitForumData)) {
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = this.f55847e.m != null ? this.f55847e.m.c() : false;
+                boolean c2 = this.f55846e.m != null ? this.f55846e.m.c() : false;
                 if (!isChecked && c2) {
-                    this.f55847e.m.b();
+                    this.f55846e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (this.f55847e.m != null) {
-                        this.f55847e.m.a();
+                    if (this.f55846e.m != null) {
+                        this.f55846e.m.a();
                     }
                 }
             }

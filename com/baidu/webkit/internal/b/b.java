@@ -29,7 +29,7 @@ public final class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f60950a;
+    public final String[] f60949a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f60950a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.f60949a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -58,7 +58,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f60950a;
+            String[] strArr = this.f60949a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -100,37 +100,6 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f60952a;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f60952a = this;
-                            }
-
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public final void onClick(DialogInterface dialogInterface, int i2) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                                }
-                            }
-                        }).setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.webkit.internal.b.b.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
                             public final /* synthetic */ b f60951a;
 
                             {
@@ -151,6 +120,37 @@ public final class b extends g {
                                 this.f60951a = this;
                             }
 
+                            @Override // android.content.DialogInterface.OnClickListener
+                            public final void onClick(DialogInterface dialogInterface, int i2) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                                }
+                            }
+                        }).setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.webkit.internal.b.b.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ b f60950a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f60950a = this;
+                            }
+
                             @Override // android.content.DialogInterface.OnCancelListener
                             public final void onCancel(DialogInterface dialogInterface) {
                                 Interceptable interceptable2 = $ic;
@@ -164,10 +164,10 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f60953a;
+                            public final /* synthetic */ AlertDialog f60952a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f60954b;
+                            public final /* synthetic */ b f60953b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,8 +184,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f60954b = this;
-                                this.f60953a = show;
+                                this.f60953b = this;
+                                this.f60952a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -193,7 +193,7 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f60953a.dismiss();
+                                        this.f60952a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }

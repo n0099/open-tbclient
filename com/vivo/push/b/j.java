@@ -11,7 +11,7 @@ public final class j extends com.vivo.push.y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70217a;
+    public String f70216a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -35,7 +35,7 @@ public final class j extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.a("MsgArriveCommand.MSG_TAG", this.f70217a);
+            aVar.a("MsgArriveCommand.MSG_TAG", this.f70216a);
         }
     }
 
@@ -43,7 +43,7 @@ public final class j extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f70217a = aVar.a("MsgArriveCommand.MSG_TAG");
+            this.f70216a = aVar.a("MsgArriveCommand.MSG_TAG");
         }
     }
 
@@ -65,6 +65,6 @@ public final class j extends com.vivo.push.y {
                 return;
             }
         }
-        this.f70217a = str;
+        this.f70216a = str;
     }
 }

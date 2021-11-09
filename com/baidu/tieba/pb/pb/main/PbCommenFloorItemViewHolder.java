@@ -43,7 +43,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TBLottieAnimationView f52208a;
+    public TBLottieAnimationView f52207a;
     public LinearLayout mAllContent;
     public View mBottomAgreeContainer;
     public AgreeView mBottomAgreeView;
@@ -112,7 +112,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f52209e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f52208e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -129,14 +129,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f52209e = pbCommenFloorItemViewHolder;
+            this.f52208e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52209e.f52208a.playAnimation();
+                this.f52208e.f52207a.playAnimation();
             }
         }
     }
@@ -261,7 +261,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.mPbFloorComplaint.setVisibility(8);
         }
-        this.f52208a = (TBLottieAnimationView) view.findViewById(i.user_living_lottie);
+        this.f52207a = (TBLottieAnimationView) view.findViewById(i.user_living_lottie);
         this.mPbRightTopLayout = (ViewGroup) view.findViewById(i.pb_floor_right_top_layout);
         this.mPbRightTopAgreeView = (AgreeView) view.findViewById(i.pb_floor_right_top_agree_view);
         this.mPbRightTopMoreView = (ImageView) view.findViewById(i.pb_floor_right_top_feedback);
@@ -304,7 +304,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public void handleUserAlaLiveSkinType(int i2) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f52208a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f52207a) == null) {
             return;
         }
         SkinManager.setLottieAnimation(tBLottieAnimationView, k.card_live_header_bg);
@@ -314,18 +314,18 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f52208a.setVisibility(0);
-                if (this.f52208a.isAnimating()) {
+                this.f52207a.setVisibility(0);
+                if (this.f52207a.isAnimating()) {
                     return;
                 }
-                this.f52208a.setSpeed(0.8f);
-                this.f52208a.setRepeatCount(-1);
-                this.f52208a.post(new a(this));
+                this.f52207a.setSpeed(0.8f);
+                this.f52207a.setRepeatCount(-1);
+                this.f52207a.post(new a(this));
                 return;
             }
-            this.f52208a.setVisibility(8);
-            if (this.f52208a.isAnimating()) {
-                this.f52208a.cancelAnimation();
+            this.f52207a.setVisibility(8);
+            if (this.f52207a.isAnimating()) {
+                this.f52207a.cancelAnimation();
             }
         }
     }

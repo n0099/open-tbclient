@@ -18,13 +18,13 @@ public class g implements i.a.a.e.o.g.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbsViewEventHandler f72325a;
+    public AbsViewEventHandler f72324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i.a.a.e.k.c f72326b;
+    public i.a.a.e.k.c f72325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f72327c;
+    public Activity f72326c;
 
     public g(AbsViewEventHandler absViewEventHandler, i.a.a.e.k.c cVar, Activity activity, IYYPayResultView iYYPayResultView) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class g implements i.a.a.e.o.g.c {
             }
         }
         RLog.info("PayResultDialogListener", "create PayResultDialogListener");
-        this.f72325a = absViewEventHandler;
-        this.f72326b = cVar;
-        this.f72327c = activity;
+        this.f72324a = absViewEventHandler;
+        this.f72325b = cVar;
+        this.f72326c = activity;
     }
 
     @Override // i.a.a.e.o.g.c
@@ -52,7 +52,7 @@ public class g implements i.a.a.e.o.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            this.f72326b.b(cancelType, this.f72325a);
+            this.f72325b.b(cancelType, this.f72324a);
         }
     }
 

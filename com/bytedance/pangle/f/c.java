@@ -52,10 +52,10 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<X509Certificate> f61387a;
+        public final List<X509Certificate> f61386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f61388b;
+        public final List<Integer> f61387b;
 
         public b(List<X509Certificate> list, List<Integer> list2) {
             Interceptable interceptable = $ic;
@@ -72,8 +72,8 @@ public final class c {
                     return;
                 }
             }
-            this.f61387a = list;
-            this.f61388b = list2;
+            this.f61386a = list;
+            this.f61387b = list2;
         }
     }
 
@@ -84,13 +84,13 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate[] f61389a;
+        public final X509Certificate[] f61388a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f61390b;
+        public final b f61389b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f61391c;
+        public byte[] f61390c;
 
         public C1844c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
@@ -107,8 +107,8 @@ public final class c {
                     return;
                 }
             }
-            this.f61389a = x509CertificateArr;
-            this.f61390b = bVar;
+            this.f61388a = x509CertificateArr;
+            this.f61389b = bVar;
         }
     }
 
@@ -137,7 +137,7 @@ public final class c {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
-                    ByteBuffer a2 = f.a(mVar.f61407a);
+                    ByteBuffer a2 = f.a(mVar.f61406a);
                     int i2 = 0;
                     C1844c c1844c = null;
                     while (a2.hasRemaining()) {
@@ -163,7 +163,7 @@ public final class c {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c1844c.f61391c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c1844c.f61390c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
                             return c1844c;
                         }
@@ -324,7 +324,7 @@ public final class c {
                         if (bVar == null) {
                             bVar = a(a2, certificateFactory);
                             try {
-                                if (bVar.f61387a.size() > 0 && !Arrays.equals(bVar.f61387a.get(bVar.f61387a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
+                                if (bVar.f61386a.size() > 0 && !Arrays.equals(bVar.f61386a.get(bVar.f61386a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
                                     throw new SecurityException("Terminal certificate in Proof-of-rotation record does not match APK signing certificate");
                                 }
                             } catch (CertificateEncodingException e2) {

@@ -20,10 +20,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GetCardInfoResponse.ProtocolPlatformItem[] f60520a;
+    public GetCardInfoResponse.ProtocolPlatformItem[] f60519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60521b;
+    public Context f60520b;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -31,7 +31,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f60522a;
+        public TextView f60521a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f60520a = protocolPlatformItemArr;
-        this.f60521b = context.getApplicationContext();
+        this.f60519a = protocolPlatformItemArr;
+        this.f60520b = context.getApplicationContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,14 +73,14 @@ public class b extends BaseAdapter {
     public GetCardInfoResponse.ProtocolPlatformItem getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f60520a[i2] : (GetCardInfoResponse.ProtocolPlatformItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f60519a[i2] : (GetCardInfoResponse.ProtocolPlatformItem) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60520a.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60519a.length : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -99,14 +99,14 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                view2 = LayoutInflater.from(this.f60521b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
-                aVar.f60522a = (TextView) view2.findViewById(R.id.tv_protocol_name);
+                view2 = LayoutInflater.from(this.f60520b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
+                aVar.f60521a = (TextView) view2.findViewById(R.id.tv_protocol_name);
                 view2.setTag(aVar);
             } else {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            aVar.f60522a.setText(this.f60520a[i2].templateName);
+            aVar.f60521a.setText(this.f60519a[i2].templateName);
             return view2;
         }
         return (View) invokeILL.objValue;

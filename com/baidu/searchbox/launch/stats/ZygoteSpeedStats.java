@@ -28,6 +28,7 @@ import org.json.JSONObject;
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";
+    public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";
     public static final int APPLICATION_LAUNCH_THRESHOLD = 1000;
     public static final String APP_STARTED_COST = "appStartedCost";
     public static boolean DEBUG = false;
@@ -247,9 +248,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             if (j > 50 && j < 60000) {
                 hashMap.put(LAUNCH_2_APP_ON_START, String.valueOf(j));
             }
-            long splashActivityDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getSplashActivityDuration();
-            if (splashActivityDuration > 50 && splashActivityDuration < 60000) {
-                hashMap.put(ELAPSED_NO_SPLASH_COST, String.valueOf(splashActivityDuration));
+            long adShowDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdShowDuration();
+            if (adShowDuration > 50 && adShowDuration < 60000) {
+                hashMap.put(ELAPSED_NO_SPLASH_COST, String.valueOf(adShowDuration));
             }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
             hashMap.put(UNFIX_USER_PERCEPTION_COST, String.valueOf(this.mUnFixUserPerceptionCost));
@@ -260,6 +261,10 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
             if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {
                 hashMap.put(AFTER_MAINTAB_CREATE_COST, String.valueOf(appLaunchEndTimeStamp));
+            }
+            long adShowDuration2 = appLaunchEndTimeStamp - SpeedStatsManager.getInstance().getAdShowDuration();
+            if (adShowDuration2 > 50 && adShowDuration2 < 60000) {
+                hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(adShowDuration2));
             }
             JSONObject jsonData = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
             if (jsonData != null) {

@@ -12,13 +12,13 @@ public final class jk extends jl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71348a;
+    public int f71347a;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71349b;
+    public int f71348b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class jk extends jl {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71348a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71347a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -51,7 +51,7 @@ public final class jk extends jl {
                 i3 = b2;
             }
             if (i3 > 0) {
-                System.arraycopy(this.f823a, this.f71348a, bArr, i2, i3);
+                System.arraycopy(this.f823a, this.f71347a, bArr, i2, i3);
                 a(i3);
             }
             return i3;
@@ -63,7 +63,7 @@ public final class jk extends jl {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f71348a += i2;
+            this.f71347a += i2;
         }
     }
 
@@ -93,7 +93,7 @@ public final class jk extends jl {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71349b - this.f71348a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71348b - this.f71347a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -101,8 +101,8 @@ public final class jk extends jl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             this.f823a = bArr;
-            this.f71348a = i2;
-            this.f71349b = i2 + i3;
+            this.f71347a = i2;
+            this.f71348b = i2 + i3;
         }
     }
 }

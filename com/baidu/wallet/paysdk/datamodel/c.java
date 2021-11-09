@@ -15,16 +15,16 @@ public class c extends BeanRequestBase {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59664a;
+    public String f59663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59665b;
+    public String f59664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59666c;
+    public String f59665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59667d;
+    public String f59666d;
 
     public c(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -41,17 +41,17 @@ public class c extends BeanRequestBase {
                 return;
             }
         }
-        this.f59664a = str;
-        this.f59665b = str2;
-        this.f59666c = str3;
-        this.f59667d = str4;
+        this.f59663a = str;
+        this.f59664b = str2;
+        this.f59665c = str3;
+        this.f59666d = str4;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f59664a) || TextUtils.isEmpty(this.f59665b) || TextUtils.isEmpty(this.f59666c) || TextUtils.isEmpty(this.f59667d)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f59663a) || TextUtils.isEmpty(this.f59664b) || TextUtils.isEmpty(this.f59665c) || TextUtils.isEmpty(this.f59666d)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase

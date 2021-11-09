@@ -29,19 +29,19 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
     public Runnable D;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55566e;
+    public int f55565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55567f;
+    public int f55566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55568g;
+    public int f55567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55569h;
+    public int f55568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55570i;
+    public int f55569i;
     public int j;
     public int k;
     public int l;
@@ -66,7 +66,7 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordCircleProgressBar f55571e;
+        public final /* synthetic */ RecordCircleProgressBar f55570e;
 
         public a(RecordCircleProgressBar recordCircleProgressBar) {
             Interceptable interceptable = $ic;
@@ -83,27 +83,27 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
                     return;
                 }
             }
-            this.f55571e = recordCircleProgressBar;
+            this.f55570e = recordCircleProgressBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RecordCircleProgressBar recordCircleProgressBar = this.f55571e;
+                RecordCircleProgressBar recordCircleProgressBar = this.f55570e;
                 int i2 = recordCircleProgressBar.x;
                 if (i2 <= 0) {
                     recordCircleProgressBar.y = true;
                 } else if (i2 >= 255) {
                     recordCircleProgressBar.y = false;
                 }
-                RecordCircleProgressBar recordCircleProgressBar2 = this.f55571e;
+                RecordCircleProgressBar recordCircleProgressBar2 = this.f55570e;
                 if (recordCircleProgressBar2.y) {
                     recordCircleProgressBar2.x += 50;
                 } else {
                     recordCircleProgressBar2.x -= 50;
                 }
-                this.f55571e.invalidate();
+                this.f55570e.invalidate();
             }
         }
     }
@@ -223,12 +223,12 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
             if (this.v <= 0) {
                 return;
             }
-            RectF rectF = new RectF(getPaddingLeft() + this.C, getPaddingTop() + this.C, (getPaddingLeft() + this.f55568g) - this.C, (getPaddingTop() + this.f55568g) - this.C);
+            RectF rectF = new RectF(getPaddingLeft() + this.C, getPaddingTop() + this.C, (getPaddingLeft() + this.f55567g) - this.C, (getPaddingTop() + this.f55567g) - this.C);
             this.r.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawOval(rectF, this.r);
             this.r.setStyle(Paint.Style.STROKE);
             float f3 = 360.0f / this.v;
-            float f4 = (float) ((this.f55569h * 360) / ((this.f55568g + this.C) * 3.141592653589793d));
+            float f4 = (float) ((this.f55568h * 360) / ((this.f55567g + this.C) * 3.141592653589793d));
             if (!this.z) {
                 int i2 = 1;
                 while (true) {
@@ -254,7 +254,7 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
                 }
                 canvas.drawArc(rectF, (f5 * f3) - 90.0f, this.s.get(i3).floatValue() * f3, false, this.p);
                 f5 += this.s.get(i3).floatValue();
-                float f6 = (float) ((this.f55570i * 360) / ((this.f55568g + this.C) * 3.141592653589793d));
+                float f6 = (float) ((this.f55569i * 360) / ((this.f55567g + this.C) * 3.141592653589793d));
                 if (i3 != 0 || getProgress() < 0.2f) {
                     f2 = f6;
                 } else {
@@ -273,10 +273,10 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f55566e = ((i4 - i2) - getPaddingRight()) - getPaddingLeft();
+            this.f55565e = ((i4 - i2) - getPaddingRight()) - getPaddingLeft();
             int paddingTop = ((i5 - i3) - getPaddingTop()) - getPaddingBottom();
-            this.f55567f = paddingTop;
-            this.f55568g = Math.min(this.f55566e, paddingTop);
+            this.f55566f = paddingTop;
+            this.f55567g = Math.min(this.f55565e, paddingTop);
         }
     }
 
@@ -434,8 +434,8 @@ public class RecordCircleProgressBar extends View implements b.a.r0.c4.l.a, Runn
         this.n = getContext().getResources().getColor(R.color.CAM_X0313);
         this.o = getContext().getResources().getColor(R.color.CAM_X0619);
         this.m = getContext().getResources().getColor(R.color.CAM_X0302);
-        this.f55569h = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
-        this.f55570i = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
+        this.f55568h = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
+        this.f55569i = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         this.j = dimenPixelSize;
         this.C = dimenPixelSize / 2;

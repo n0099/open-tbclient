@@ -503,10 +503,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mDatas.getChatMessages().remove(i3);
                 if (i3 == size - 1 && (cacheInfo = getCacheInfo()) != null) {
                     MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
-                    aVar.f50494b = cacheInfo.customGroupType;
-                    aVar.f50493a = cacheInfo.id;
-                    aVar.f50495c = chatMessage2;
-                    aVar.f50496d = 2;
+                    aVar.f50493b = cacheInfo.customGroupType;
+                    aVar.f50492a = cacheInfo.id;
+                    aVar.f50494c = chatMessage2;
+                    aVar.f50495d = 2;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
                 }
             }
@@ -812,7 +812,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (loadDraftResponsedMessage.getData() == null) {
                 return;
             }
-            String str = loadDraftResponsedMessage.getData().f50482a;
+            String str = loadDraftResponsedMessage.getData().f50481a;
             this.mLoadDataMode = 8;
             e eVar = this.mLoadDataCallBack;
             if (eVar != null) {
@@ -831,9 +831,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     return true;
                 }
                 long j = this.mId;
-                if (j == 0 || j == b.a.e.e.m.b.g(loadHistoryResponsedMessage.getData().f50487a, 0L)) {
-                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50488b;
-                    boolean z = loadHistoryResponsedMessage.getData().f50489c;
+                if (j == 0 || j == b.a.e.e.m.b.g(loadHistoryResponsedMessage.getData().f50486a, 0L)) {
+                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50487b;
+                    boolean z = loadHistoryResponsedMessage.getData().f50488c;
                     int mergeList = mergeList(this.mDatas.getChatMessages(), list);
                     if (mergeList > 0) {
                         this.mDatas.setIsNewAdd(true);

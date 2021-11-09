@@ -34,7 +34,7 @@ public class c implements com.kwad.sdk.core.d<a.C1916a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1916a, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c1916a.f65283a = jSONObject.optBoolean("clickActionButton");
+        c1916a.f65282a = jSONObject.optBoolean("clickActionButton");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class c implements com.kwad.sdk.core.d<a.C1916a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c1916a.f65283a);
+            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c1916a.f65282a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

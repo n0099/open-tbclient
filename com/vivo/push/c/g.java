@@ -33,8 +33,8 @@ public final class g extends ab {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f70428a.getPackageName());
-            com.vivo.push.util.y.b(this.f70428a).a();
+            com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f70427a.getPackageName());
+            com.vivo.push.util.y.b(this.f70427a).a();
         }
     }
 }

@@ -16,7 +16,7 @@ public class c extends a.C2024a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f70179d;
+    public String f70178d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(WebView webView, long j, String str, String str2) {
@@ -37,20 +37,20 @@ public class c extends a.C2024a {
                 return;
             }
         }
-        this.f70179d = str2;
+        this.f70178d = str2;
     }
 
     private void b(String str) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (webView = this.f70013a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (webView = this.f70012a.get()) == null) {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer("javascript:");
         stringBuffer.append("if(!!");
-        stringBuffer.append(this.f70179d);
+        stringBuffer.append(this.f70178d);
         stringBuffer.append("){");
-        stringBuffer.append(this.f70179d);
+        stringBuffer.append(this.f70178d);
         stringBuffer.append("(");
         stringBuffer.append(str);
         stringBuffer.append(")}");
@@ -82,8 +82,8 @@ public class c extends a.C2024a {
             SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("result", !com.tencent.open.b.c.f70056a ? -4 : 0);
-                jSONObject.put("sn", this.f70014b);
+                jSONObject.put("result", !com.tencent.open.b.c.f70055a ? -4 : 0);
+                jSONObject.put("sn", this.f70013b);
                 jSONObject.put("data", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();

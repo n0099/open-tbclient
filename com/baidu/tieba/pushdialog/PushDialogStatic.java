@@ -31,7 +31,7 @@ public class PushDialogStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Wire f53420a;
+    public static Wire f53419a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -76,9 +76,53 @@ public class PushDialogStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f53421e;
+            public final /* synthetic */ TbPageContextSupport f53420e;
 
             public a(b bVar, TbPageContextSupport tbPageContextSupport) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, tbPageContextSupport};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f53420e = tbPageContextSupport;
+            }
+
+            @Override // b.a.q0.s.s.a.e
+            public void onClick(b.a.q0.s.s.a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                    aVar.dismiss();
+                    Intent intent = new Intent();
+                    intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
+                    intent.putExtra("extra_pkgname", this.f53420e.getPageContext().getPageActivity().getPackageName());
+                    intent.setFlags(268435456);
+                    try {
+                        this.f53420e.getPageContext().getPageActivity().startActivity(intent);
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class C1759b implements a.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ TbPageContextSupport f53421e;
+
+            public C1759b(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,54 +146,10 @@ public class PushDialogStatic {
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
                     Intent intent = new Intent();
-                    intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
-                    intent.putExtra("extra_pkgname", this.f53421e.getPageContext().getPageActivity().getPackageName());
-                    intent.setFlags(268435456);
-                    try {
-                        this.f53421e.getPageContext().getPageActivity().startActivity(intent);
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class C1759b implements a.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f53422e;
-
-            public C1759b(b bVar, TbPageContextSupport tbPageContextSupport) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, tbPageContextSupport};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f53422e = tbPageContextSupport;
-            }
-
-            @Override // b.a.q0.s.s.a.e
-            public void onClick(b.a.q0.s.s.a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    aVar.dismiss();
-                    Intent intent = new Intent();
                     intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                     intent.setFlags(268435456);
                     try {
-                        this.f53422e.getPageContext().getPageActivity().startActivity(intent);
+                        this.f53421e.getPageContext().getPageActivity().startActivity(intent);
                     } catch (Exception unused) {
                     }
                 }
@@ -255,7 +255,7 @@ public class PushDialogStatic {
                 return;
             }
         }
-        f53420a = new Wire(new Class[0]);
+        f53419a = new Wire(new Class[0]);
         TbadkApplication.getInst().RegisterIntent(PushDialogActivityConfig.class, PushDialogActivity.class);
         a();
     }

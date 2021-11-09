@@ -14,16 +14,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64400a;
+    public Context f64399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64401b;
+    public int f64400b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64402c;
+    public long f64401c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f64403d;
+    public File f64402d;
 
     /* renamed from: com.kwad.sdk.core.diskcache.b.b$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -38,16 +38,16 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f64404a;
+        public Context f64403a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f64405b;
+        public int f64404b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64406c;
+        public long f64405c;
 
         /* renamed from: d  reason: collision with root package name */
-        public File f64407d;
+        public File f64406d;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class b {
                     return;
                 }
             }
-            this.f64405b = 1;
-            this.f64406c = 100L;
-            this.f64404a = context.getApplicationContext();
+            this.f64404b = 1;
+            this.f64405c = 100L;
+            this.f64403a = context.getApplicationContext();
         }
 
         public a a(int i2) {
@@ -74,7 +74,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 if (i2 > 0) {
-                    this.f64405b = i2;
+                    this.f64404b = i2;
                     return this;
                 }
                 throw new IllegalArgumentException("appVersion <= 0");
@@ -87,7 +87,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
                 if (j > 0) {
-                    this.f64406c = j;
+                    this.f64405c = j;
                     return this;
                 }
                 throw new IllegalArgumentException("maxSize <= 0");
@@ -100,7 +100,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
                 d.a(file, "directory is not allow null");
-                this.f64407d = file;
+                this.f64406d = file;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -111,10 +111,10 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 b bVar = new b(null);
-                bVar.f64400a = this.f64404a;
-                bVar.f64401b = this.f64405b;
-                bVar.f64402c = this.f64406c;
-                bVar.f64403d = this.f64407d;
+                bVar.f64399a = this.f64403a;
+                bVar.f64400b = this.f64404b;
+                bVar.f64401c = this.f64405c;
+                bVar.f64402d = this.f64406d;
                 return bVar;
             }
             return (b) invokeV.objValue;

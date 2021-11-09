@@ -19,27 +19,27 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f61116d = "a";
+    public static final String f61115d = "a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f61117e;
+    public static final int[] f61116e;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f61118f;
+    public static a f61117f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f61119g;
+    public static boolean f61118g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Vector<BdNetTask>> f61120a;
+    public List<Vector<BdNetTask>> f61119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<BdNetEngine> f61121b;
+    public Vector<BdNetEngine> f61120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61122c;
+    public Context f61121c;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public final class a {
                 return;
             }
         }
-        f61117e = new int[]{0, 1, 2, 3};
+        f61116e = new int[]{0, 1, 2, 3};
     }
 
     public a() {
@@ -70,12 +70,12 @@ public final class a {
                 return;
             }
         }
-        int length = f61117e.length;
-        this.f61120a = new ArrayList(length);
+        int length = f61116e.length;
+        this.f61119a = new ArrayList(length);
         for (int i4 = 0; i4 < length; i4++) {
-            this.f61120a.add(new Vector<>());
+            this.f61119a.add(new Vector<>());
         }
-        this.f61121b = new Vector<>();
+        this.f61120b = new Vector<>();
     }
 
     public static a a() {
@@ -83,11 +83,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f61118f == null) {
-                    f61118f = new a();
+                if (f61117f == null) {
+                    f61117f = new a();
                 }
             }
-            return f61118f;
+            return f61117f;
         }
         return (a) invokeV.objValue;
     }
@@ -95,13 +95,13 @@ public final class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61119g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61118g : invokeV.booleanValue;
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f61118f = null;
+            f61117f = null;
         }
     }
 
@@ -112,18 +112,18 @@ public final class a {
                 if (bdNetTask == null) {
                     return;
                 }
-                if (this.f61120a == null) {
-                    this.f61120a = new ArrayList(f61117e.length);
+                if (this.f61119a == null) {
+                    this.f61119a = new ArrayList(f61116e.length);
                 }
-                if (this.f61120a.isEmpty()) {
-                    for (int i3 = 0; i3 < f61117e.length; i3++) {
-                        this.f61120a.add(new Vector<>());
+                if (this.f61119a.isEmpty()) {
+                    for (int i3 = 0; i3 < f61116e.length; i3++) {
+                        this.f61119a.add(new Vector<>());
                     }
                 }
-                int length = f61117e.length;
+                int length = f61116e.length;
                 for (int i4 = 0; i4 < length; i4++) {
-                    if (i2 == f61117e[i4]) {
-                        this.f61120a.get(i4).add(bdNetTask);
+                    if (i2 == f61116e[i4]) {
+                        this.f61119a.get(i4).add(bdNetTask);
                         return;
                     }
                 }
@@ -136,9 +136,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                int size = this.f61120a.size();
+                int size = this.f61119a.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    Vector<BdNetTask> vector = this.f61120a.get(i2);
+                    Vector<BdNetTask> vector = this.f61119a.get(i2);
                     if (vector.size() > 0) {
                         return vector.remove(0);
                     }
@@ -154,9 +154,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                int size = this.f61121b.size();
+                int size = this.f61120b.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    BdNetEngine bdNetEngine = this.f61121b.get(i2);
+                    BdNetEngine bdNetEngine = this.f61120b.get(i2);
                     if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                         bdNetEngine.allocate();
                         return bdNetEngine;
@@ -165,7 +165,7 @@ public final class a {
                 if (size < 6) {
                     BdNetEngine bdNetEngine2 = new BdNetEngine();
                     bdNetEngine2.allocate();
-                    this.f61121b.add(bdNetEngine2);
+                    this.f61120b.add(bdNetEngine2);
                     return bdNetEngine2;
                 }
                 return null;

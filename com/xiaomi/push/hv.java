@@ -22,34 +22,34 @@ public class hv implements iq<hv, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f71165a;
+    public static final iy f71164a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f71166b;
+    public static final iy f71165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f71167c;
+    public static final iy f71166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f71168d;
+    public static final iy f71167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f71169e;
+    public static final iy f71168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f71170f;
+    public static final iy f71169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f71171g;
+    public static final iy f71170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f71172h;
+    public static final iy f71171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f71173i;
+    public static final iy f71172i;
     public static final iy j;
     public static final iy k;
     public static final iy l;
@@ -140,15 +140,15 @@ public class hv implements iq<hv, Object>, Serializable, Cloneable {
             }
         }
         f569a = new jg("XmPushActionAckMessage");
-        f71165a = new iy("", (byte) 11, (short) 1);
-        f71166b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f71167c = new iy("", (byte) 11, (short) 3);
-        f71168d = new iy("", (byte) 11, (short) 4);
-        f71169e = new iy("", (byte) 10, (short) 5);
-        f71170f = new iy("", (byte) 11, (short) 6);
-        f71171g = new iy("", (byte) 11, (short) 7);
-        f71172h = new iy("", StandardMessageCodec.LIST, (short) 8);
-        f71173i = new iy("", (byte) 11, (short) 9);
+        f71164a = new iy("", (byte) 11, (short) 1);
+        f71165b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f71166c = new iy("", (byte) 11, (short) 3);
+        f71167d = new iy("", (byte) 11, (short) 4);
+        f71168e = new iy("", (byte) 10, (short) 5);
+        f71169f = new iy("", (byte) 11, (short) 6);
+        f71170g = new iy("", (byte) 11, (short) 7);
+        f71171h = new iy("", StandardMessageCodec.LIST, (short) 8);
+        f71172i = new iy("", (byte) 11, (short) 9);
         j = new iy("", (byte) 11, (short) 10);
         k = new iy("", (byte) 2, (short) 11);
         l = new iy("", (byte) 11, (short) 12);
@@ -407,7 +407,7 @@ public class hv implements iq<hv, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f71329a;
+            byte b2 = m523a.f71328a;
             if (b2 == 0) {
                 jbVar.f();
                 if (e()) {
@@ -716,45 +716,45 @@ public class hv implements iq<hv, Object>, Serializable, Cloneable {
             a();
             jbVar.a(f569a);
             if (this.f574a != null && m423a()) {
-                jbVar.a(f71165a);
+                jbVar.a(f71164a);
                 jbVar.a(this.f574a);
                 jbVar.b();
             }
             if (this.f572a != null && b()) {
-                jbVar.a(f71166b);
+                jbVar.a(f71165b);
                 this.f572a.b(jbVar);
                 jbVar.b();
             }
             if (this.f579b != null) {
-                jbVar.a(f71167c);
+                jbVar.a(f71166c);
                 jbVar.a(this.f579b);
                 jbVar.b();
             }
             if (this.f581c != null) {
-                jbVar.a(f71168d);
+                jbVar.a(f71167d);
                 jbVar.a(this.f581c);
                 jbVar.b();
             }
-            jbVar.a(f71169e);
+            jbVar.a(f71168e);
             jbVar.a(this.f571a);
             jbVar.b();
             if (this.f582d != null && f()) {
-                jbVar.a(f71170f);
+                jbVar.a(f71169f);
                 jbVar.a(this.f582d);
                 jbVar.b();
             }
             if (this.f583e != null && g()) {
-                jbVar.a(f71171g);
+                jbVar.a(f71170g);
                 jbVar.a(this.f583e);
                 jbVar.b();
             }
             if (this.f573a != null && h()) {
-                jbVar.a(f71172h);
+                jbVar.a(f71171h);
                 this.f573a.b(jbVar);
                 jbVar.b();
             }
             if (this.f584f != null && i()) {
-                jbVar.a(f71173i);
+                jbVar.a(f71172i);
                 jbVar.a(this.f584f);
                 jbVar.b();
             }

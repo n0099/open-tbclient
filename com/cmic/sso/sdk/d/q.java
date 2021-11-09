@@ -20,7 +20,7 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f61994a;
+    public static volatile boolean f61993a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -432,11 +432,11 @@ public class q {
     public static void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            if (f61994a) {
+            if (f61993a) {
                 c.a("UmcConfigUtil", "正在获取配置中...");
                 return;
             }
-            f61994a = true;
+            f61993a = true;
             com.cmic.sso.sdk.b.c.a.a().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.d.q.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -466,7 +466,7 @@ public class q {
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        boolean unused = q.f61994a = false;
+                        boolean unused = q.f61993a = false;
                     }
                 }
             });

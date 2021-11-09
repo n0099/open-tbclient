@@ -30,19 +30,19 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49801e;
+    public int f49800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HotTopicTabRankListLayout f49802f;
+    public HotTopicTabRankListLayout f49801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49803g;
+    public View f49802g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49804h;
+    public TextView f49803h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49805i;
+    public View f49804i;
     public ImageView j;
     public View k;
     public View l;
@@ -56,7 +56,7 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicRankLayout f49806e;
+        public final /* synthetic */ HotTopicRankLayout f49805e;
 
         public a(HotTopicRankLayout hotTopicRankLayout) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
                     return;
                 }
             }
-            this.f49806e = hotTopicRankLayout;
+            this.f49805e = hotTopicRankLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
             if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, cVar, Integer.valueOf(i2), Long.valueOf(j)}) == null) || cVar == null) {
                 return;
             }
-            b.a.r0.h1.j.c.a("c13753", cVar, i2 + 1, this.f49806e.n);
+            b.a.r0.h1.j.c.a("c13753", cVar, i2 + 1, this.f49805e.n);
         }
     }
 
@@ -116,7 +116,7 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
                 return;
             }
         }
-        this.f49801e = 3;
+        this.f49800e = 3;
         this.o = new a(this);
         b();
     }
@@ -127,31 +127,31 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.group_title_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f49804h = (TextView) findViewById(R.id.tv_title);
+            this.f49803h = (TextView) findViewById(R.id.tv_title);
             this.j = (ImageView) findViewById(R.id.iv_into);
-            this.f49805i = findViewById(R.id.layout_into);
+            this.f49804i = findViewById(R.id.layout_into);
             this.k = findViewById(R.id.divider_line_top);
             this.l = findViewById(R.id.divider_line_bottom);
             this.m = (LinearLayout) findViewById(R.id.content);
-            this.f49803g = findViewById(R.id.title_layout);
+            this.f49802g = findViewById(R.id.title_layout);
             int g2 = l.g(getContext(), R.dimen.M_H_X004);
             int g3 = l.g(getContext(), R.dimen.M_H_X004);
             int g4 = l.g(getContext(), R.dimen.M_W_X005);
-            this.f49803g.setPadding(g4, g2, g4, g3);
-            ViewGroup.LayoutParams layoutParams = this.f49803g.getLayoutParams();
+            this.f49802g.setPadding(g4, g2, g4, g3);
+            ViewGroup.LayoutParams layoutParams = this.f49802g.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
-            this.f49803g.setLayoutParams(layoutParams);
-            this.f49804h.setMaxLines(1);
-            this.f49804h.setEllipsize(TextUtils.TruncateAt.END);
+            this.f49802g.setLayoutParams(layoutParams);
+            this.f49803h.setMaxLines(1);
+            this.f49803h.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.card_container);
             HotTopicTabRankListLayout hotTopicTabRankListLayout = new HotTopicTabRankListLayout(getContext());
-            this.f49802f = hotTopicTabRankListLayout;
+            this.f49801f = hotTopicTabRankListLayout;
             hotTopicTabRankListLayout.setOnItemCoverListener(this.o);
-            linearLayout.addView(this.f49802f);
+            linearLayout.addView(this.f49801f);
             linearLayout.setPadding(0, 0, 0, g3);
             this.j.setClickable(false);
-            this.f49805i.setOnClickListener(this);
+            this.f49804i.setOnClickListener(this);
             this.j.setVisibility(8);
         }
     }
@@ -159,16 +159,16 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
     @Override // b.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f49801e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f49800e == i2) {
             return;
         }
-        b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f49804h);
+        b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f49803h);
         d2.v(R.color.CAM_X0105);
         d2.z(R.dimen.T_X07);
         d2.A(R.string.F_X02);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         b.a.q0.b.g.b.j(this.k);
-        this.f49801e = i2;
+        this.f49800e = i2;
         b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.m);
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
@@ -193,13 +193,13 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<b>, View.On
     public void onBindDataToView(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            TextView textView = this.f49804h;
+            TextView textView = this.f49803h;
             String str = bVar.f17563f;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.f49802f.bindData(bVar);
+            this.f49801f.bindData(bVar);
             this.k.setVisibility(0);
             this.l.setVisibility(8);
             b.a.q0.b.g.b.i(this.k);

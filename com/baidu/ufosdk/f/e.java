@@ -14,7 +14,7 @@ public final class e extends LinkedList {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f56689a;
+    public final int f56688a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class e extends LinkedList {
                 return;
             }
         }
-        this.f56689a = 2000;
+        this.f56688a = 2000;
     }
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
@@ -37,7 +37,7 @@ public final class e extends LinkedList {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (size() == this.f56689a) {
+            if (size() == this.f56688a) {
                 removeFirst();
             }
             return super.add(obj);

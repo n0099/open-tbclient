@@ -15,7 +15,7 @@ public class ExchangeSuperMemberViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f51518a;
+    public f f51517a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExchangeSuperMemberViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,16 +35,16 @@ public class ExchangeSuperMemberViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51518a = new f(view, baseFragmentActivity);
+        this.f51517a = new f(view, baseFragmentActivity);
     }
 
     public void fillView(k kVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar == null || (fVar = this.f51518a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar == null || (fVar = this.f51517a) == null) {
             return;
         }
         fVar.f();
-        this.f51518a.c(kVar);
+        this.f51517a.c(kVar);
     }
 }

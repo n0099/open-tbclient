@@ -33,22 +33,22 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48308a;
+    public c f48307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f48309b;
+    public BdUniqueId f48308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j1 f48310c;
+    public j1 f48309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f48311d;
+    public int f48310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48312e;
+    public TbPageContext f48311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f48313f;
+    public View.OnClickListener f48312f;
     public TextView rec_user_describe;
     public EntelechyUserLikeButton rec_user_like;
     public TextView rec_user_name;
@@ -60,7 +60,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsSchoolRecommendItemView f48314e;
+        public final /* synthetic */ FrsSchoolRecommendItemView f48313e;
 
         public a(FrsSchoolRecommendItemView frsSchoolRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                     return;
                 }
             }
-            this.f48314e = frsSchoolRecommendItemView;
+            this.f48313e = frsSchoolRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48314e.f48310c == null || k.isEmpty(this.f48314e.f48310c.f25880a.getUserName()) || k.isEmpty(this.f48314e.f48310c.f25880a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48313e.f48309c == null || k.isEmpty(this.f48313e.f48309c.f25880a.getUserName()) || k.isEmpty(this.f48313e.f48309c.f25880a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f48314e.getView().getContext(), this.f48314e.f48310c.f25880a.getUserId(), this.f48314e.f48310c.f25880a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f48313e.getView().getContext(), this.f48313e.f48309c.f25880a.getUserId(), this.f48313e.f48309c.f25880a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -108,22 +108,22 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                 return;
             }
         }
-        this.f48311d = 3;
-        this.f48313f = new a(this);
-        this.f48309b = bdUniqueId;
-        this.f48312e = tbPageContext;
+        this.f48310d = 3;
+        this.f48312f = new a(this);
+        this.f48308b = bdUniqueId;
+        this.f48311e = tbPageContext;
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.rec_usr_header);
         this.rec_usr_header = headImageView;
-        headImageView.setPageId(this.f48309b);
+        headImageView.setPageId(this.f48308b);
         this.rec_usr_header.setIsRound(true);
         this.rec_user_name = (TextView) view.findViewById(R.id.rec_user_name);
         this.rec_user_describe = (TextView) view.findViewById(R.id.rec_user_describe);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
         this.rec_user_like = entelechyUserLikeButton;
         c cVar = new c(tbPageContext, entelechyUserLikeButton);
-        this.f48308a = cVar;
+        this.f48307a = cVar;
         cVar.m("1");
-        this.f48308a.l(bdUniqueId);
+        this.f48307a.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
@@ -131,16 +131,16 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof j1)) {
             j1 j1Var = (j1) cVar;
-            this.f48310c = j1Var;
+            this.f48309c = j1Var;
             if (StringUtils.isNull(j1Var.f25880a.getUserId())) {
                 return;
             }
-            this.rec_usr_header.startLoad(this.f48310c.f25880a.getPortrait(), 28, false);
-            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f48310c.f25880a.getUserName(), 5);
-            this.rec_user_describe.setText(StringHelper.cutStringWithEllipsis(this.f48310c.f25880a.getGodUserData().getIntro(), 6));
+            this.rec_usr_header.startLoad(this.f48309c.f25880a.getPortrait(), 28, false);
+            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f48309c.f25880a.getUserName(), 5);
+            this.rec_user_describe.setText(StringHelper.cutStringWithEllipsis(this.f48309c.f25880a.getGodUserData().getIntro(), 6));
             this.rec_user_name.setText(cutStringWithEllipsis);
-            getView().setOnClickListener(this.f48313f);
-            this.f48308a.n(this.f48310c.f25880a);
+            getView().setOnClickListener(this.f48312f);
+            this.f48307a.n(this.f48309c.f25880a);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -149,19 +149,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public ItemViewHolder createItemViewHolder(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.f48312e, this.f48309b) : (ItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.f48311e, this.f48308b) : (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f48311d != i2) {
+            if (this.f48310d != i2) {
                 SkinManager.setViewTextColor(this.rec_user_name, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.rec_user_describe, R.color.CAM_X0109);
                 this.rec_user_like.onChangeSkinType(i2);
             }
-            this.f48311d = i2;
+            this.f48310d = i2;
         }
     }
 }

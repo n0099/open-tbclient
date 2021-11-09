@@ -32,7 +32,7 @@ public final class a {
             String pluginProcessNameByAuthority = contentProviderManager.getPluginProcessNameByAuthority(str2);
             String a2 = b.a(pluginProcessNameByAuthority, str, uri);
             String encodeToString = TextUtils.isEmpty(a2) ? "" : Base64.encodeToString(a2.getBytes(), 10);
-            String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).f61466b;
+            String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).f61465b;
             Uri parse = Uri.parse("content://" + str3 + File.separator + "proxy?provider_params=" + encodeToString);
             ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "进程[processName=" + pluginProcessNameByAuthority + "] build provider 【 uri:" + parse + " 】");
             return parse;
@@ -359,7 +359,7 @@ public final class a {
             if (contentResolver == null) {
                 return null;
             }
-            String str5 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str)).f61466b;
+            String str5 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str)).f61465b;
             if (bundle == null) {
                 bundle = new Bundle();
             }

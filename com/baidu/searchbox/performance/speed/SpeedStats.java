@@ -196,7 +196,7 @@ public class SpeedStats {
                             HashMap hashMap = new HashMap();
                             hashMap.put("duration", calculateDuration);
                             if (!TextUtils.equals(this.this$0.mUbcType, SpeedStatsUtils.UBC_TYPE_HOT_LAUNCH)) {
-                                long appUserPerceptionLaunchDuration = this.this$0.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - SpeedStatsManager.getInstance().getSplashActivityDuration();
+                                long appUserPerceptionLaunchDuration = this.this$0.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - SpeedStatsManager.getInstance().getAdShowDuration();
                                 if (appUserPerceptionLaunchDuration > 50 && appUserPerceptionLaunchDuration < 60000) {
                                     hashMap.put(SpeedStatsUtils.UBC_KEY_USER_PERCEPTION_COST, String.valueOf(appUserPerceptionLaunchDuration));
                                 }
@@ -375,7 +375,7 @@ public class SpeedStats {
                 mainActivityCreateStartTimeStamp = this.mSpeedStatsManager.getMainActivityCreateStartTimeStamp();
             }
             if (mainActivityCreateStartTimeStamp > 0) {
-                long appUserPerceptionLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getSplashActivityDuration();
+                long appUserPerceptionLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration();
                 if (appUserPerceptionLaunchDuration <= 50 || appUserPerceptionLaunchDuration >= 60000) {
                     return null;
                 }
@@ -499,7 +499,7 @@ public class SpeedStats {
                         if (this.mHasBanner || this.mHasSkin) {
                             return null;
                         }
-                        return "splash";
+                        return SpeedStatsUtils.UBC_VALUE_SPLASH;
                     }
                     return SpeedStatsUtils.UBC_VALUE_SPLASH_SKIN;
                 }

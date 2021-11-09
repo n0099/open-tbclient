@@ -19,7 +19,7 @@ public class b implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.ss.android.downloadlib.addownload.a.c f68626a;
+    public static com.ss.android.downloadlib.addownload.a.c f68625a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {
@@ -39,7 +39,7 @@ public class b implements d {
     public static com.ss.android.downloadlib.addownload.a.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68626a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68625a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadlib.addownload.d.d
@@ -56,18 +56,18 @@ public class b implements d {
             if (curBytes > 0 && totalBytes > 0) {
                 int a3 = i.a(a2.getId(), (int) ((curBytes * 100) / totalBytes));
                 if (a3 > a(bVar.s())) {
-                    f68626a = new com.ss.android.downloadlib.addownload.a.c(this, bVar, cVar) { // from class: com.ss.android.downloadlib.addownload.d.b.1
+                    f68625a = new com.ss.android.downloadlib.addownload.a.c(this, bVar, cVar) { // from class: com.ss.android.downloadlib.addownload.d.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f68627a;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f68626a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f68628b;
+                        public final /* synthetic */ c f68627b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ b f68629c;
+                        public final /* synthetic */ b f68628c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -84,16 +84,16 @@ public class b implements d {
                                     return;
                                 }
                             }
-                            this.f68629c = this;
-                            this.f68627a = bVar;
-                            this.f68628b = cVar;
+                            this.f68628c = this;
+                            this.f68626a = bVar;
+                            this.f68627b = cVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.a.c
                         public void a() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                com.ss.android.downloadlib.addownload.a.c unused = b.f68626a = null;
+                                com.ss.android.downloadlib.addownload.a.c unused = b.f68625a = null;
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.putOpt("pause_optimise_type", "download_percent");
@@ -101,7 +101,7 @@ public class b implements d {
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
                                 }
-                                com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f68627a);
+                                com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f68626a);
                             }
                         }
 
@@ -109,7 +109,7 @@ public class b implements d {
                         public void b() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                com.ss.android.downloadlib.addownload.a.c unused = b.f68626a = null;
+                                com.ss.android.downloadlib.addownload.a.c unused = b.f68625a = null;
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.putOpt("pause_optimise_type", "download_percent");
@@ -117,8 +117,8 @@ public class b implements d {
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
                                 }
-                                com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f68627a);
-                                this.f68628b.a(this.f68627a);
+                                com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f68626a);
+                                this.f68627b.a(this.f68626a);
                             }
                         }
                     };

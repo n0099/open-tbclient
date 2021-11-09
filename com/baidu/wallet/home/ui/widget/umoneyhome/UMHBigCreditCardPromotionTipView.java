@@ -21,22 +21,22 @@ public class UMHBigCreditCardPromotionTipView extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f58558a;
+    public NetImageView f58557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f58559b;
+    public NetImageView f58558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f58560c;
+    public MaskTextView f58559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f58561d;
+    public MaskTextView f58560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f58562e;
+    public HomeCfgResponse.DataIcon f58561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f58563f;
+    public HomeCfgResponse.DataIcon f58562f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHBigCreditCardPromotionTipView(Context context) {
@@ -72,10 +72,10 @@ public class UMHBigCreditCardPromotionTipView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_tip_tip_item_layout"), this);
-            this.f58558a = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img1"));
-            this.f58559b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img2"));
-            this.f58560c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text1"));
-            this.f58561d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text2"));
+            this.f58557a = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img1"));
+            this.f58558b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img2"));
+            this.f58559c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text1"));
+            this.f58560d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text2"));
         }
     }
 
@@ -84,52 +84,52 @@ public class UMHBigCreditCardPromotionTipView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onEyeMaskChanged();
-            this.f58560c.resetMaskText();
-            this.f58561d.resetMaskText();
+            this.f58559c.resetMaskText();
+            this.f58560d.resetMaskText();
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HomeCfgResponse.DataIcon dataIcon = this.f58562e;
+            HomeCfgResponse.DataIcon dataIcon = this.f58561e;
             if (dataIcon != null) {
                 if (!TextUtils.isEmpty(dataIcon.icon_link)) {
-                    this.f58558a.setImageUrl(this.f58562e.icon_link);
+                    this.f58557a.setImageUrl(this.f58561e.icon_link);
                 }
-                if (!TextUtils.isEmpty(this.f58562e.name)) {
-                    this.f58560c.setVisibility(0);
-                    this.f58560c.setMaskText(this.f58562e.name);
+                if (!TextUtils.isEmpty(this.f58561e.name)) {
+                    this.f58559c.setVisibility(0);
+                    this.f58559c.setMaskText(this.f58561e.name);
                 } else {
-                    this.f58560c.setVisibility(4);
+                    this.f58559c.setVisibility(4);
                 }
             } else {
-                this.f58558a.setVisibility(4);
-                this.f58560c.setVisibility(4);
+                this.f58557a.setVisibility(4);
+                this.f58559c.setVisibility(4);
             }
-            HomeCfgResponse.DataIcon dataIcon2 = this.f58563f;
+            HomeCfgResponse.DataIcon dataIcon2 = this.f58562f;
             if (dataIcon2 != null) {
                 if (!TextUtils.isEmpty(dataIcon2.icon_link)) {
-                    this.f58559b.setImageUrl(this.f58563f.icon_link);
+                    this.f58558b.setImageUrl(this.f58562f.icon_link);
                 }
-                if (!TextUtils.isEmpty(this.f58563f.name)) {
-                    this.f58561d.setVisibility(0);
-                    this.f58561d.setMaskText(this.f58563f.name);
+                if (!TextUtils.isEmpty(this.f58562f.name)) {
+                    this.f58560d.setVisibility(0);
+                    this.f58560d.setMaskText(this.f58562f.name);
                     return;
                 }
-                this.f58561d.setVisibility(4);
+                this.f58560d.setVisibility(4);
                 return;
             }
-            this.f58559b.setVisibility(4);
-            this.f58561d.setVisibility(4);
+            this.f58558b.setVisibility(4);
+            this.f58560d.setVisibility(4);
         }
     }
 
     public void setData(HomeCfgResponse.DataIcon dataIcon, HomeCfgResponse.DataIcon dataIcon2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, dataIcon, dataIcon2) == null) {
-            this.f58562e = dataIcon;
-            this.f58563f = dataIcon2;
+            this.f58561e = dataIcon;
+            this.f58562f = dataIcon2;
             initView();
             refresh();
         }

@@ -60,28 +60,28 @@ public class g {
 
     public static void b(PostData postData, AbsPbActivity.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.M() == null || postData.M().y() == null || eVar == null || eVar.f52184a == null || eVar.f52185b == null || postData.M().y().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.M() == null || postData.M().y() == null || eVar == null || eVar.f52183a == null || eVar.f52184b == null || postData.M().y().size() == 0) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.f52184a, eVar.j);
+        String str = (String) ListUtils.getItem(eVar.f52183a, eVar.j);
         if (StringUtils.isNull(str)) {
             return;
         }
-        eVar.f52184a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f52185b;
-        eVar.f52185b = new ConcurrentHashMap<>();
+        eVar.f52183a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f52184b;
+        eVar.f52184b = new ConcurrentHashMap<>();
         Iterator<TbRichTextData> it = postData.M().y().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 8) {
                 String a2 = a(next);
                 if (!StringUtils.isNull(a2) && concurrentHashMap.get(a2) != null) {
-                    eVar.f52184a.add(a2);
-                    eVar.f52185b.put(a2, concurrentHashMap.get(a2));
+                    eVar.f52183a.add(a2);
+                    eVar.f52184b.put(a2, concurrentHashMap.get(a2));
                 }
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.f52184a, str);
+        eVar.j = ListUtils.getPosition(eVar.f52183a, str);
     }
 
     public static PostData c(f fVar, boolean z, int i2) {

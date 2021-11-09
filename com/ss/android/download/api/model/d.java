@@ -12,10 +12,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68376a;
+    public String f68375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68377b;
+    public String f68376b;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -23,10 +23,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68378a;
+        public String f68377a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f68379b;
+        public String f68378b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f68378a = str;
+                this.f68377a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -74,13 +74,13 @@ public class d {
                 return;
             }
         }
-        this.f68376a = aVar.f68378a;
-        this.f68377b = aVar.f68379b;
+        this.f68375a = aVar.f68377a;
+        this.f68376b = aVar.f68378b;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68376a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68375a : (String) invokeV.objValue;
     }
 }

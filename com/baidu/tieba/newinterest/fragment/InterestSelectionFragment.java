@@ -26,19 +26,19 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f51982e;
+    public FrameLayout f51981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51983f;
+    public TextView f51982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51984g;
+    public TextView f51983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.g2.g.a f51985h;
+    public b.a.r0.g2.g.a f51984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoScrollGridView f51986i;
+    public NoScrollGridView f51985i;
 
     public InterestSelectionFragment() {
         Interceptable interceptable = $ic;
@@ -70,20 +70,20 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51986i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+            this.f51985i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
             this.mInterestSelectedButton = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-            this.f51983f = textView;
+            this.f51982f = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f51984g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-            this.f51982e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
+            this.f51983g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+            this.f51981e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
             b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
             this.mInterestSelectedButton.setTextSize(R.dimen.tbds42);
             this.mInterestSelectedButton.setConfig(aVar);
             this.mInterestSelectedButton.setText(getResources().getString(R.string.select_interest_introduce));
             this.mInterestSelectedButton.setEnabled(false);
             this.mInterestSelectedButton.setOnClickListener(this);
-            this.f51986i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
+            this.f51985i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
         }
     }
 
@@ -93,9 +93,9 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f51983f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f51984g, R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f51982e, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f51982f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f51983g, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f51981e, R.color.CAM_X0201);
             this.mInterestSelectionAdapter.notifyDataSetChanged();
         }
     }
@@ -105,8 +105,8 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f51985h = new b.a.r0.g2.g.a(getContext());
-            this.mInterestSelectionAdapter = new b(this.f51985h.c(), getContext());
+            this.f51984h = new b.a.r0.g2.g.a(getContext());
+            this.mInterestSelectionAdapter = new b(this.f51984h.c(), getContext());
         }
     }
 

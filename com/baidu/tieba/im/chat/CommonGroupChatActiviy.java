@@ -55,10 +55,73 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f50173a;
+        public final /* synthetic */ CommonGroupChatActiviy f50172a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50172a = commonGroupChatActiviy;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            GroupData group;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
+                return;
+            }
+            switch (socketResponsedMessage.getCmd()) {
+                case 103101:
+                case 103110:
+                case 103112:
+                    this.f50172a.mListView.refresh();
+                    return;
+                case 103104:
+                    if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
+                        ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
+                        if (responseDismissGroupMessage.getError() != 0) {
+                            return;
+                        }
+                        MsglistModel msglistModel = this.f50172a.mListModel;
+                        if ((msglistModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) msglistModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.f50172a.finish();
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CommonGroupChatActiviy f50173a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -80,69 +143,6 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            GroupData group;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
-                return;
-            }
-            switch (socketResponsedMessage.getCmd()) {
-                case 103101:
-                case 103110:
-                case 103112:
-                    this.f50173a.mListView.refresh();
-                    return;
-                case 103104:
-                    if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
-                        ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() != 0) {
-                            return;
-                        }
-                        MsglistModel msglistModel = this.f50173a.mListModel;
-                        if ((msglistModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) msglistModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.f50173a.finish();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f50174a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50174a = commonGroupChatActiviy;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             GroupNewsPojo p;
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             }
             switch (customResponsedMessage.getCmd()) {
                 case 2001109:
-                    this.f50174a.mListView.refresh();
+                    this.f50173a.mListView.refresh();
                     return;
                 case 2001126:
                 case 2001128:
@@ -167,18 +167,18 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     if (TextUtils.isEmpty(cmd)) {
                         return;
                     }
-                    this.f50174a.mListView.refresh();
+                    this.f50173a.mListView.refresh();
                     if (cmd.equals("apply_join_success")) {
                         return;
                     }
                     if (cmd.equals("kick_out")) {
-                        this.f50174a.processKick(p);
+                        this.f50173a.processKick(p);
                         return;
                     } else if (cmd.equals("group_name_change")) {
-                        this.f50174a.processTitleChange(p);
+                        this.f50173a.processTitleChange(p);
                         return;
                     } else if (cmd.equals("dismiss_group")) {
-                        this.f50174a.processDismissGroup(p);
+                        this.f50173a.processDismissGroup(p);
                         return;
                     } else {
                         return;

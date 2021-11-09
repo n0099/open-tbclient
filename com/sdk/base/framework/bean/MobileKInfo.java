@@ -14,7 +14,7 @@ public class MobileKInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: cn  reason: collision with root package name */
-    public String f68189cn;
+    public String f68188cn;
     public String ic;
     public boolean idfd;
     public String ie;
@@ -38,7 +38,7 @@ public class MobileKInfo {
     public String getCn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68189cn : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68188cn : (String) invokeV.objValue;
     }
 
     public String getIc() {
@@ -74,7 +74,7 @@ public class MobileKInfo {
     public void setCn(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f68189cn = str;
+            this.f68188cn = str;
         }
     }
 

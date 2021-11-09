@@ -56,7 +56,7 @@ public class EasterEggH5Service extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f47529a;
+        public final /* synthetic */ EasterEggH5Service f47528a;
 
         public a(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -73,16 +73,16 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f47529a = easterEggH5Service;
+            this.f47528a = easterEggH5Service;
         }
 
         @Override // b.a.r0.l0.c
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || this.f47529a.mWebView == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || this.f47528a.mWebView == null) {
                 return;
             }
-            EasterEggH5Service easterEggH5Service = this.f47529a;
+            EasterEggH5Service easterEggH5Service = this.f47528a;
             easterEggH5Service.loadJsUrl(easterEggH5Service.mWebView, "receiveEvent", str2, str3);
         }
     }
@@ -93,10 +93,57 @@ public class EasterEggH5Service extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f47530a;
+        public final /* synthetic */ EasterEggH5Service f47529a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EasterEggH5Service easterEggH5Service, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {easterEggH5Service, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47529a = easterEggH5Service;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof String)) {
+                String a2 = this.f47529a.mHttpRule != null ? this.f47529a.mHttpRule.a("reindeer_search") : null;
+                if (a2 != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("content", customResponsedMessage.getData());
+                        this.f47529a.onHitEventListener.a("reindeer_search", this.f47529a.gson.toJson(a2), this.f47529a.gson.toJson(jSONObject.toString()));
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EasterEggH5Service f47530a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(EasterEggH5Service easterEggH5Service, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -120,56 +167,9 @@ public class EasterEggH5Service extends Service {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof String)) {
-                String a2 = this.f47530a.mHttpRule != null ? this.f47530a.mHttpRule.a("reindeer_search") : null;
-                if (a2 != null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("content", customResponsedMessage.getData());
-                        this.f47530a.onHitEventListener.a("reindeer_search", this.f47530a.gson.toJson(a2), this.f47530a.gson.toJson(jSONObject.toString()));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f47531a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(EasterEggH5Service easterEggH5Service, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {easterEggH5Service, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47531a = easterEggH5Service;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof NetWorkParam)) {
                 NetWorkParam netWorkParam = (NetWorkParam) customResponsedMessage.getData();
-                String a2 = this.f47531a.mHttpRule != null ? this.f47531a.mHttpRule.a(netWorkParam.mUrl) : null;
+                String a2 = this.f47530a.mHttpRule != null ? this.f47530a.mHttpRule.a(netWorkParam.mUrl) : null;
                 if (a2 != null) {
                     HashMap hashMap = new HashMap();
                     if (!ListUtils.isEmpty(netWorkParam.mPostData)) {
@@ -179,7 +179,7 @@ public class EasterEggH5Service extends Service {
                             }
                         }
                     }
-                    this.f47531a.onHitEventListener.a(netWorkParam.mUrl, this.f47531a.gson.toJson(a2), this.f47531a.gson.toJson(this.f47531a.gson.toJson(hashMap)));
+                    this.f47530a.onHitEventListener.a(netWorkParam.mUrl, this.f47530a.gson.toJson(a2), this.f47530a.gson.toJson(this.f47530a.gson.toJson(hashMap)));
                 }
             }
         }
@@ -191,7 +191,7 @@ public class EasterEggH5Service extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f47532a;
+        public final /* synthetic */ EasterEggH5Service f47531a;
 
         public d(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f47532a = easterEggH5Service;
+            this.f47531a = easterEggH5Service;
         }
 
         @Override // b.a.r0.l0.d.b
@@ -216,18 +216,18 @@ public class EasterEggH5Service extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
                 if (z && aVar != null && !k.isEmpty(aVar.a()) && aVar.c()) {
-                    if (this.f47532a.mWebView != null) {
-                        this.f47532a.mWebView.loadUrl(aVar.a());
+                    if (this.f47531a.mWebView != null) {
+                        this.f47531a.mWebView.loadUrl(aVar.a());
                     }
                     HashMap<String, String> b2 = aVar.b();
                     if (b2 != null) {
-                        this.f47532a.mHttpRule.d(b2);
-                        this.f47532a.mSocketRule.d(b2);
+                        this.f47531a.mHttpRule.d(b2);
+                        this.f47531a.mSocketRule.d(b2);
                         return;
                     }
                     return;
                 }
-                this.f47532a.stopSelf();
+                this.f47531a.stopSelf();
             }
         }
     }
@@ -269,7 +269,7 @@ public class EasterEggH5Service extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f47533a;
+        public final /* synthetic */ EasterEggH5Service f47532a;
 
         public f(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -286,14 +286,14 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f47533a = easterEggH5Service;
+            this.f47532a = easterEggH5Service;
         }
 
         @Override // b.a.r0.l3.n0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f47533a.jsBridge != null && this.f47533a.jsBridge.b(this.f47533a.mWebView, str, jsPromptResult) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f47532a.jsBridge != null && this.f47532a.jsBridge.b(this.f47532a.mWebView, str, jsPromptResult) : invokeLL.booleanValue;
         }
     }
 

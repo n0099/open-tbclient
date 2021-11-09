@@ -11,7 +11,7 @@ public final class cf implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f56861a;
+    public final /* synthetic */ FeedbackInputActivity f56860a;
 
     public cf(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class cf implements View.OnClickListener {
                 return;
             }
         }
-        this.f56861a = feedbackInputActivity;
+        this.f56860a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener

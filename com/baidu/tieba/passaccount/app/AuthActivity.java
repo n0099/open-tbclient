@@ -56,9 +56,44 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52030a;
+        public final /* synthetic */ AuthActivity f52029a;
 
         public a(AuthActivity authActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {authActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52029a = authActivity;
+        }
+
+        @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+        public void onBack() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f52029a.goBack();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements SapiWebView.OnFinishCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AuthActivity f52030a;
+
+        public b(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,24 +111,24 @@ public class AuthActivity extends BaseActivity {
             this.f52030a = authActivity;
         }
 
-        @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
-        public void onBack() {
+        @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+        public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52030a.goBack();
+                this.f52030a.onClose();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements SapiWebView.OnFinishCallback {
+    public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ AuthActivity f52031a;
 
-        public b(AuthActivity authActivity) {
+        public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,41 +146,6 @@ public class AuthActivity extends BaseActivity {
             this.f52031a = authActivity;
         }
 
-        @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52031a.onClose();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements SapiWebView.WebviewClientCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52032a;
-
-        public c(AuthActivity authActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {authActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52032a = authActivity;
-        }
-
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class AuthActivity extends BaseActivity {
                 if (TextUtils.isEmpty(queryParameter)) {
                     return;
                 }
-                this.f52032a.finishActivity(true, queryParameter);
+                this.f52031a.finishActivity(true, queryParameter);
             }
         }
 
@@ -179,7 +179,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52033a;
+        public final /* synthetic */ AuthActivity f52032a;
 
         public d(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52033a = authActivity;
+            this.f52032a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52033a.finishActivity(true, null);
+                this.f52032a.finishActivity(true, null);
             }
         }
     }

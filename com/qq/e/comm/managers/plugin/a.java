@@ -8,10 +8,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f67993a;
+    public static Method f67992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f67994b;
+    public static boolean f67993b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Throwable th, String str) {
@@ -19,17 +19,17 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65536, null, th, str) == null) {
             try {
                 Exception exc = new Exception("插件错误：" + str, th);
-                if (f67994b) {
+                if (f67993b) {
                     return;
                 }
-                if (f67993a == null) {
+                if (f67992a == null) {
                     Method declaredMethod = Class.forName("com.tencent.bugly.crashreport.CrashReport").getDeclaredMethod("postCatchedException", Throwable.class);
-                    f67993a = declaredMethod;
+                    f67992a = declaredMethod;
                     declaredMethod.setAccessible(true);
                 }
-                f67993a.invoke(null, exc);
+                f67992a.invoke(null, exc);
             } catch (Throwable unused) {
-                f67994b = true;
+                f67993b = true;
             }
         }
     }

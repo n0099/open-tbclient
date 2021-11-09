@@ -15,14 +15,14 @@ public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f68222a;
+    public static final char[] f68221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f68223b;
+    public static final byte[] f68222b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f68224c;
+    public byte[] f68223c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,13 +37,13 @@ public final class a extends d {
                 return;
             }
         }
-        f68222a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f68223b = new byte[256];
+        f68221a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f68222b = new byte[256];
         for (int i2 = 0; i2 < 255; i2++) {
-            f68223b[i2] = -1;
+            f68222b[i2] = -1;
         }
         for (int i3 = 0; i3 < 64; i3++) {
-            f68223b[f68222a[i3]] = (byte) i3;
+            f68222b[f68221a[i3]] = (byte) i3;
         }
     }
 
@@ -60,7 +60,7 @@ public final class a extends d {
                 return;
             }
         }
-        this.f68224c = new byte[4];
+        this.f68223c = new byte[4];
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0085  */
@@ -89,7 +89,7 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f68224c;
+                byte[] bArr = this.f68223c;
                 bArr[0] = (byte) read;
                 int i4 = i2 - 1;
                 int i5 = 0;
@@ -108,10 +108,10 @@ public final class a extends d {
                 if (i4 == -1) {
                     throw new c();
                 }
-                if (i2 > 3 && this.f68224c[3] == 61) {
+                if (i2 > 3 && this.f68223c[3] == 61) {
                     i2 = 3;
                 }
-                if (i2 > 2 && this.f68224c[2] == 61) {
+                if (i2 > 2 && this.f68223c[2] == 61) {
                     i2 = 2;
                 }
                 if (i2 != 2) {
@@ -137,15 +137,15 @@ public final class a extends d {
                             outputStream.write((byte) i3);
                             return;
                         }
-                        b6 = f68223b[this.f68224c[3] & 255];
+                        b6 = f68222b[this.f68223c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f68223b[this.f68224c[2] & 255];
+                    b6 = f68222b[this.f68223c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f68223b;
-                byte[] bArr3 = this.f68224c;
+                byte[] bArr2 = f68222b;
+                byte[] bArr3 = this.f68223c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;

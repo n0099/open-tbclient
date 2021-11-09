@@ -11,7 +11,7 @@ public final class c<T> extends h.j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final h.j<? super T> f71888i;
+    public final h.j<? super T> f71887i;
     public final OnSubscribeAmb$Selection<T> j;
     public boolean k;
 
@@ -41,7 +41,7 @@ public final class c<T> extends h.j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.f71888i.onCompleted();
+            this.f71887i.onCompleted();
         }
     }
 
@@ -49,7 +49,7 @@ public final class c<T> extends h.j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.f71888i.onError(th);
+            this.f71887i.onError(th);
         }
     }
 
@@ -57,7 +57,7 @@ public final class c<T> extends h.j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.f71888i.onNext(t);
+            this.f71887i.onNext(t);
         }
     }
 }

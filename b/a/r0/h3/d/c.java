@@ -114,7 +114,7 @@ public class c implements b.a.r0.h3.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_ADLOAD_START_STAMP_KEY);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_START_STAMP_KEY);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921390, b.a.q0.a1.a.class, this.f17750a.getActivity());
             if (runTask == null || runTask.getData() == null) {
                 return false;

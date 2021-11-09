@@ -14,7 +14,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f72167a;
+    public static final a f72166a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -67,7 +67,7 @@ public final class e {
                 return;
             }
         }
-        f72167a = new a();
+        f72166a = new a();
     }
 
     public static k a(h.n.a aVar) {
@@ -85,6 +85,6 @@ public final class e {
     public static k c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72167a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72166a : (k) invokeV.objValue;
     }
 }

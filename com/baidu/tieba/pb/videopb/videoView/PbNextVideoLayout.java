@@ -30,19 +30,19 @@ public class PbNextVideoLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52827e;
+    public int f52826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52828f;
+    public TbImageView f52827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52829g;
+    public TextView f52828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52830h;
+    public TextView f52829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f52831i;
+    public ImageView f52830i;
     public boolean isManualFinish;
     public ProgressBar j;
     public boolean k;
@@ -54,7 +54,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbNextVideoLayout f52832a;
+        public final /* synthetic */ PbNextVideoLayout f52831a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PbNextVideoLayout pbNextVideoLayout, long j, long j2) {
@@ -75,7 +75,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f52832a = pbNextVideoLayout;
+            this.f52831a = pbNextVideoLayout;
             pbNextVideoLayout.isManualFinish = true;
         }
 
@@ -83,7 +83,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PbNextVideoLayout pbNextVideoLayout = this.f52832a;
+                PbNextVideoLayout pbNextVideoLayout = this.f52831a;
                 pbNextVideoLayout.isManualFinish = false;
                 pbNextVideoLayout.performClick();
             }
@@ -93,7 +93,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         public void onTick(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.f52832a.j.setProgress(((int) (5000 - j)) * 2);
+                this.f52831a.j.setProgress(((int) (5000 - j)) * 2);
             }
         }
     }
@@ -116,7 +116,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f52827e = 50;
+        this.f52826e = 50;
         this.k = true;
         this.isManualFinish = true;
         b(context);
@@ -126,12 +126,12 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             RelativeLayout.inflate(context, j.pb_next_video_layout, this);
-            this.f52828f = (TbImageView) findViewById(i.pb_next_video_img);
-            this.f52829g = (TextView) findViewById(i.pb_next_video_txt);
-            this.f52830h = (TextView) findViewById(i.pb_next_video_title);
-            this.f52831i = (ImageView) findViewById(i.pb_next_video_close);
+            this.f52827f = (TbImageView) findViewById(i.pb_next_video_img);
+            this.f52828g = (TextView) findViewById(i.pb_next_video_txt);
+            this.f52829h = (TextView) findViewById(i.pb_next_video_title);
+            this.f52830i = (ImageView) findViewById(i.pb_next_video_close);
             this.j = (ProgressBar) findViewById(i.pb_next_video_progress_bar);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52831i, h.icon_pure_close16_n_svg, f.CAM_X0622, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52830i, h.icon_pure_close16_n_svg, f.CAM_X0622, null);
         }
     }
 
@@ -139,12 +139,12 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.k = true;
-            this.f52829g.setText(l.pb_video_next_play);
+            this.f52828g.setText(l.pb_video_next_play);
             a aVar = this.l;
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, 5000 - this.j.getProgress(), this.f52827e);
+            a aVar2 = new a(this, 5000 - this.j.getProgress(), this.f52826e);
             this.l = aVar2;
             aVar2.start();
         }
@@ -154,12 +154,12 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             getLayoutParams().height = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds156 : g.tbds267);
-            this.f52828f.getLayoutParams().width = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds276 : g.tbds470);
-            this.f52830h.setTextSize(0, b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds42 : g.tbds52));
-            ((LinearLayout.LayoutParams) this.f52830h.getLayoutParams()).topMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds8 : g.tbds22);
-            ((RelativeLayout.LayoutParams) this.f52831i.getLayoutParams()).topMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds20 : g.tbds42);
-            ((RelativeLayout.LayoutParams) this.f52831i.getLayoutParams()).rightMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds44 : g.tbds52);
-            this.f52827e = (!z2 || z) ? 50 : 25;
+            this.f52827f.getLayoutParams().width = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds276 : g.tbds470);
+            this.f52829h.setTextSize(0, b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds42 : g.tbds52));
+            ((LinearLayout.LayoutParams) this.f52829h.getLayoutParams()).topMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds8 : g.tbds22);
+            ((RelativeLayout.LayoutParams) this.f52830i.getLayoutParams()).topMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds20 : g.tbds42);
+            ((RelativeLayout.LayoutParams) this.f52830i.getLayoutParams()).rightMargin = b.a.e.e.p.l.g(getContext(), (!z2 || z) ? g.tbds44 : g.tbds52);
+            this.f52826e = (!z2 || z) ? 50 : 25;
         }
     }
 
@@ -171,7 +171,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.f52829g.setText(l.pb_video_next_video);
+            this.f52828g.setText(l.pb_video_next_video);
             this.j.setProgress(0);
         }
     }
@@ -181,9 +181,9 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, d2Var) == null) || d2Var == null || d2Var.q1() == null) {
             return;
         }
-        this.f52828f.startLoad(d2Var.q1().thumbnail_url, 10, false);
-        this.f52829g.setText(l.pb_video_next_play);
-        this.f52830h.setText(d2Var.getTitle());
+        this.f52827f.startLoad(d2Var.q1().thumbnail_url, 10, false);
+        this.f52828g.setText(l.pb_video_next_play);
+        this.f52829h.setText(d2Var.getTitle());
         this.j.setProgress(0);
     }
 
@@ -207,7 +207,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);
-            this.f52831i.setOnClickListener(onClickListener);
+            this.f52830i.setOnClickListener(onClickListener);
         }
     }
 
@@ -252,7 +252,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f52827e = 50;
+        this.f52826e = 50;
         this.k = true;
         this.isManualFinish = true;
         b(context);
@@ -277,7 +277,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f52827e = 50;
+        this.f52826e = 50;
         this.k = true;
         this.isManualFinish = true;
         b(context);

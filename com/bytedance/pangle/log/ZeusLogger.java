@@ -188,10 +188,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f61439b.getLogger() == null) {
+            if (sDebug || i.a().f61438b.getLogger() == null) {
                 return;
             }
-            i.a().f61439b.getLogger().i(str, prefixTraceInfo);
+            i.a().f61438b.getLogger().i(str, prefixTraceInfo);
         }
     }
 
@@ -199,10 +199,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f61439b.getLogger() == null) {
+            if (sDebug || i.a().f61438b.getLogger() == null) {
                 return;
             }
-            i.a().f61439b.getLogger().v(str, prefixTraceInfo);
+            i.a().f61438b.getLogger().v(str, prefixTraceInfo);
         }
     }
 
@@ -210,10 +210,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f61439b.getLogger() == null) {
+            if (sDebug || i.a().f61438b.getLogger() == null) {
                 return;
             }
-            i.a().f61439b.getLogger().w(str, prefixTraceInfo);
+            i.a().f61438b.getLogger().w(str, prefixTraceInfo);
         }
     }
 
@@ -232,8 +232,8 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3, th) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (!sDebug && i.a().f61439b.getLogger() != null) {
-                i.a().f61439b.getLogger().e(str, prefixTraceInfo, th);
+            if (!sDebug && i.a().f61438b.getLogger() != null) {
+                i.a().f61438b.getLogger().e(str, prefixTraceInfo, th);
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
@@ -249,7 +249,7 @@ public class ZeusLogger {
                     }
                     jSONObject2.putOpt("message", d.a(prefixTraceInfo));
                     jSONObject2.putOpt("throwable", d.a(th));
-                    d.a(com.bytedance.pangle.b.b.f61251i, jSONObject, null, jSONObject2);
+                    d.a(com.bytedance.pangle.b.b.f61250i, jSONObject, null, jSONObject2);
                 }
             }
             jSONObject.putOpt("log_tag", "other");
@@ -257,7 +257,7 @@ public class ZeusLogger {
             }
             jSONObject2.putOpt("message", d.a(prefixTraceInfo));
             jSONObject2.putOpt("throwable", d.a(th));
-            d.a(com.bytedance.pangle.b.b.f61251i, jSONObject, null, jSONObject2);
+            d.a(com.bytedance.pangle.b.b.f61250i, jSONObject, null, jSONObject2);
         }
     }
 
@@ -265,10 +265,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, th) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f61439b.getLogger() == null) {
+            if (sDebug || i.a().f61438b.getLogger() == null) {
                 return;
             }
-            i.a().f61439b.getLogger().w(str, prefixTraceInfo, th);
+            i.a().f61438b.getLogger().w(str, prefixTraceInfo, th);
         }
     }
 }

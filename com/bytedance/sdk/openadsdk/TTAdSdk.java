@@ -22,7 +22,7 @@ public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TTInitializer f61574a;
+    public static final TTInitializer f61573a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -45,7 +45,7 @@ public final class TTAdSdk {
                 return;
             }
         }
-        f61574a = new g();
+        f61573a = new g();
     }
 
     public TTAdSdk() {
@@ -73,7 +73,7 @@ public final class TTAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            TTInitializer tTInitializer = f61574a;
+            TTInitializer tTInitializer = f61573a;
             if (tTInitializer != null) {
                 return tTInitializer.getAdManager();
             }
@@ -98,7 +98,7 @@ public final class TTAdSdk {
                 d.a();
             }
             tTAdConfig.setExtra(TTAdConstant.PANGLE_INIT_START_TIME, Long.valueOf(SystemClock.elapsedRealtime()));
-            TTInitializer tTInitializer = f61574a;
+            TTInitializer tTInitializer = f61573a;
             if (tTInitializer != null) {
                 return tTInitializer.init(context, tTAdConfig);
             }
@@ -111,7 +111,7 @@ public final class TTAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            TTInitializer tTInitializer = f61574a;
+            TTInitializer tTInitializer = f61573a;
             if (tTInitializer != null) {
                 return tTInitializer.isInitSuccess();
             }
@@ -123,7 +123,7 @@ public final class TTAdSdk {
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
         TTAdManager adManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, tTAdConfig) == null) || tTAdConfig == null || (adManager = f61574a.getAdManager()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, tTAdConfig) == null) || tTAdConfig == null || (adManager = f61573a.getAdManager()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -142,7 +142,7 @@ public final class TTAdSdk {
     public static void updatePaid(boolean z) {
         TTAdManager adManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65544, null, z) == null) || (adManager = f61574a.getAdManager()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65544, null, z) == null) || (adManager = f61573a.getAdManager()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -166,7 +166,7 @@ public final class TTAdSdk {
                 d.a();
             }
             tTAdConfig.setExtra(TTAdConstant.PANGLE_INIT_START_TIME, Long.valueOf(SystemClock.elapsedRealtime()));
-            TTInitializer tTInitializer = f61574a;
+            TTInitializer tTInitializer = f61573a;
             if (tTInitializer == null) {
                 initCallback.fail(4100, "Load initializer failed");
             } else {

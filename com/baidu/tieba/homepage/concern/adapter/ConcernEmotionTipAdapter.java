@@ -30,7 +30,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49405a;
+        public int f49404a;
         public ViewGroup concernEmotionTipLayout;
         public ImageView emotionPic;
         public TextView tipText;
@@ -53,7 +53,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
                     return;
                 }
             }
-            this.f49405a = 3;
+            this.f49404a = 3;
             this.concernEmotionTipLayout = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
             this.emotionPic = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
@@ -62,11 +62,11 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public void onChangeSkinType(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.f49405a != i2) {
+                if (this.f49404a != i2) {
                     SkinManager.setViewTextColor(this.tipText, R.color.CAM_X0107);
                 }
                 SkinManager.setImageResource(this.emotionPic, i3);
-                this.f49405a = i2;
+                this.f49404a = i2;
             }
         }
     }

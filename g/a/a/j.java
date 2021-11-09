@@ -40,31 +40,31 @@ public final class j {
     public byte[] Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71730a;
+    public int f71729a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71731b;
+    public int f71730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f71732c;
+    public final a f71731c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f71733d;
+    public byte[] f71732d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f71734e;
+    public final int[] f71733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f71735f;
+    public final int[] f71734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f71736g;
+    public int f71735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f71737h;
+    public boolean f71736h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f71738i;
+    public boolean f71737i;
     public boolean j;
     public final g k;
     public final g l;
@@ -96,10 +96,10 @@ public final class j {
                 return;
             }
         }
-        this.f71730a = 0;
-        this.f71732c = new a();
-        this.f71734e = new int[3240];
-        this.f71735f = new int[3240];
+        this.f71729a = 0;
+        this.f71731c = new a();
+        this.f71733e = new int[3240];
+        this.f71734f = new int[3240];
         this.k = new g();
         this.l = new g();
         this.m = new g();
@@ -121,15 +121,15 @@ public final class j {
     public static void a(j jVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, jVar) == null) {
-            int i2 = jVar.f71730a;
+            int i2 = jVar.f71729a;
             if (i2 == 0) {
                 throw new IllegalStateException("State MUST be initialized");
             }
             if (i2 == 11) {
                 return;
             }
-            jVar.f71730a = 11;
-            a.b(jVar.f71732c);
+            jVar.f71729a = 11;
+            a.b(jVar.f71731c);
         }
     }
 
@@ -156,14 +156,14 @@ public final class j {
     public static void c(j jVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
-            if (jVar.f71730a == 0) {
-                a.e(jVar.f71732c, inputStream);
-                int b2 = b(jVar.f71732c);
+            if (jVar.f71729a == 0) {
+                a.e(jVar.f71731c, inputStream);
+                int b2 = b(jVar.f71731c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;
                     jVar.O = i2 - 16;
-                    jVar.f71730a = 1;
+                    jVar.f71729a = 1;
                     return;
                 }
                 throw new BrotliRuntimeException("Invalid 'windowBits' code");

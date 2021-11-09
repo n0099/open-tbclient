@@ -22,7 +22,7 @@ public class UMHHeadItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f58585a;
+    public NetImageView f58584a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHHeadItem(Context context) {
@@ -58,10 +58,10 @@ public class UMHHeadItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NetImageView netImageView = new NetImageView(getContext());
-            this.f58585a = netImageView;
+            this.f58584a = netImageView;
             netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f58585a.setImageDrawable(new ColorDrawable(ResUtils.getColor(getContext(), "wallet_home_umh_background")));
-            addView(this.f58585a, new RelativeLayout.LayoutParams(-1, -1));
+            this.f58584a.setImageDrawable(new ColorDrawable(ResUtils.getColor(getContext(), "wallet_home_umh_background")));
+            addView(this.f58584a, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -70,7 +70,7 @@ public class UMHHeadItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f58585a, getData().logo);
+        setNetImageViewUrl(this.f58584a, getData().logo);
         handlePoint();
     }
 

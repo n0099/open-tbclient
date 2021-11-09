@@ -19,7 +19,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50025common;
+    public CommonReq f50024common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -59,7 +59,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f72934common = getCommon();
+                builder.f72933common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();
@@ -88,7 +88,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50025common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50024common : (CommonReq) invokeV.objValue;
     }
 
     public Long getLastId() {
@@ -166,7 +166,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f50025common = commonReq;
+            this.f50024common = commonReq;
         }
     }
 

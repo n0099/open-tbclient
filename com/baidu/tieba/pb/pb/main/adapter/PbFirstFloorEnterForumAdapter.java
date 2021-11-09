@@ -46,19 +46,19 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public CardForumHeadLayout f52464e;
+        public CardForumHeadLayout f52463e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f52465f;
+        public View f52464f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f52466g;
+        public View f52465g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f52467h;
+        public ImageView f52466h;
 
         /* renamed from: i  reason: collision with root package name */
-        public h f52468i;
+        public h f52467i;
         public TBSpecificationBtn j;
         public String k;
         public String l;
@@ -85,21 +85,21 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
             this.m = pbFirstFloorEnterForumAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
             CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) viewGroup.getChildAt(0);
-            this.f52464e = cardForumHeadLayout;
+            this.f52463e = cardForumHeadLayout;
             if (cardForumHeadLayout != null) {
                 cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-                this.f52464e.setAfterClickListener(this);
+                this.f52463e.setAfterClickListener(this);
             }
-            this.f52465f = viewGroup.getChildAt(1);
-            this.f52467h = (ImageView) viewGroup.getChildAt(2);
-            this.f52466g = viewGroup.getChildAt(3);
+            this.f52464f = viewGroup.getChildAt(1);
+            this.f52466h = (ImageView) viewGroup.getChildAt(2);
+            this.f52465g = viewGroup.getChildAt(3);
         }
 
         public final void b(String str) {
             TbPageTag l;
             h hVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (hVar = this.f52468i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (hVar = this.f52467i) == null) {
                 return;
             }
             b.a.r0.k2.u.f.f1.c.a(str, hVar.j, hVar.k, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
@@ -122,10 +122,10 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
         public void changeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                WebPManager.setPureDrawable(this.f52467h, b.a.r0.k2.h.icon_pure_list_arrow16_right, f.CAM_X0107, null);
-                SkinManager.setBackgroundColor(this.f52465f, f.CAM_X0203);
-                SkinManager.setBackgroundColor(this.f52466g, f.CAM_X0203);
-                this.f52464e.onChangeSkinType();
+                WebPManager.setPureDrawable(this.f52466h, b.a.r0.k2.h.icon_pure_list_arrow16_right, f.CAM_X0107, null);
+                SkinManager.setBackgroundColor(this.f52464f, f.CAM_X0203);
+                SkinManager.setBackgroundColor(this.f52465g, f.CAM_X0203);
+                this.f52463e.onChangeSkinType();
             }
         }
 
@@ -133,7 +133,7 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f52468i.k).param("fid", this.f52468i.j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f52467i.k).param("fid", this.f52467i.j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
 
@@ -141,22 +141,22 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
                 if (hVar != null) {
-                    this.f52468i = hVar;
+                    this.f52467i = hVar;
                     this.k = hVar.j;
                     this.l = hVar.f18766e;
                     if (!this.m.o) {
                         this.m.o = hVar.l;
                     }
-                    this.f52466g.setVisibility(hVar.f18770i ? 0 : 8);
+                    this.f52465g.setVisibility(hVar.f18770i ? 0 : 8);
                     if (getView() != null) {
                         getView().setPadding(0, 0, 0, hVar.f18770i ? b.a.e.e.p.l.g(this.m.f2419e, g.tbds42) : 0);
                     }
-                    this.f52464e.setData(hVar.f18766e, hVar.f18767f, hVar.f18768g, hVar.f18769h);
+                    this.f52463e.setData(hVar.f18766e, hVar.f18767f, hVar.f18768g, hVar.f18769h);
                 }
                 if (this.j == null || this.m.o) {
                     return;
                 }
-                this.f52467h.setVisibility(4);
+                this.f52466h.setVisibility(4);
                 this.j.setVisibility(0);
                 c();
                 b("c14274");
@@ -170,7 +170,7 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorEnterForumAdapter f52469a;
+        public final /* synthetic */ PbFirstFloorEnterForumAdapter f52468a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PbFirstFloorEnterForumAdapter pbFirstFloorEnterForumAdapter, int i2) {
@@ -190,7 +190,7 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
                     return;
                 }
             }
-            this.f52469a = pbFirstFloorEnterForumAdapter;
+            this.f52468a = pbFirstFloorEnterForumAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -198,8 +198,8 @@ public class PbFirstFloorEnterForumAdapter extends b.a.e.l.e.a<h, PbFirstFloorEn
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f20875b) {
-                this.f52469a.o = true;
-                this.f52469a.n.c();
+                this.f52468a.o = true;
+                this.f52468a.n.c();
             }
         }
     }

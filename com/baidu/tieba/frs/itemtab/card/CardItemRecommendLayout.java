@@ -54,19 +54,19 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f48855e;
+    public EMTextView f48854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f48856f;
+    public BdRecyclerView f48855f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f48857g;
+    public c f48856g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ItemInfo> f48858h;
+    public List<ItemInfo> f48857h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Point f48859i;
+    public final Point f48858i;
 
     /* loaded from: classes9.dex */
     public class a extends RecyclerView.ItemDecoration {
@@ -74,7 +74,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardItemRecommendLayout f48860a;
+        public final /* synthetic */ CardItemRecommendLayout f48859a;
 
         public a(CardItemRecommendLayout cardItemRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f48860a = cardItemRecommendLayout;
+            this.f48859a = cardItemRecommendLayout;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -109,7 +109,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemRecommendLayout f48861e;
+        public final /* synthetic */ CardItemRecommendLayout f48860e;
 
         public b(CardItemRecommendLayout cardItemRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -126,16 +126,16 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f48861e = cardItemRecommendLayout;
+            this.f48860e = cardItemRecommendLayout;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j)}) == null) || ListUtils.getItem(this.f48861e.f48858h, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j)}) == null) || ListUtils.getItem(this.f48860e.f48857h, i2) == null) {
                 return;
             }
-            ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.f48861e.f48858h, i2)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.f48861e.f48858h, i2)).id), 0);
+            ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.f48860e.f48857h, i2)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.f48860e.f48857h, i2)).id), 0);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b.a.q0.s.g0.p.b(3, i2 + 1, 2)));
         }
     }
@@ -146,7 +146,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardItemRecommendLayout f48862a;
+        public final /* synthetic */ CardItemRecommendLayout f48861a;
 
         public c(CardItemRecommendLayout cardItemRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f48862a = cardItemRecommendLayout;
+            this.f48861a = cardItemRecommendLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -171,10 +171,10 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         /* renamed from: a */
         public void onBindViewHolder(@NonNull d dVar, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i2) == null) || ListUtils.getItem(this.f48862a.f48858h, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i2) == null) || ListUtils.getItem(this.f48861a.f48857h, i2) == null) {
                 return;
             }
-            dVar.b((ItemInfo) ListUtils.getItem(this.f48862a.f48858h, i2));
+            dVar.b((ItemInfo) ListUtils.getItem(this.f48861a.f48857h, i2));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b.a.q0.s.g0.p.b(3, i2 + 1, 1)));
         }
 
@@ -198,10 +198,10 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f48862a.f48858h == null) {
+                if (this.f48861a.f48857h == null) {
                     return 0;
                 }
-                return this.f48862a.f48858h.size();
+                return this.f48861a.f48857h.size();
             }
             return invokeV.intValue;
         }
@@ -213,22 +213,22 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final BarImageView f48863a;
+        public final BarImageView f48862a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final EMTextView f48864b;
+        public final EMTextView f48863b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ImageView f48865c;
+        public final ImageView f48864c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final TextView f48866d;
+        public final TextView f48865d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f48867e;
+        public boolean f48866e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ItemInfo f48868f;
+        public ItemInfo f48867f;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -236,7 +236,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f48869e;
+            public final /* synthetic */ d f48868e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -253,16 +253,16 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                         return;
                     }
                 }
-                this.f48869e = dVar;
+                this.f48868e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48869e.f48868f == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48868e.f48867f == null) {
                     return;
                 }
-                ItemClickJumpUtil.itemClickJump(this.f48869e.f48868f.forum_name, String.valueOf(this.f48869e.f48868f.id), 0);
+                ItemClickJumpUtil.itemClickJump(this.f48868e.f48867f.forum_name, String.valueOf(this.f48868e.f48867f.id), 0);
             }
         }
 
@@ -285,16 +285,16 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                 }
             }
             BarImageView barImageView = (BarImageView) view.findViewById(e1.frs_item_recommend_image);
-            this.f48863a = barImageView;
+            this.f48862a = barImageView;
             barImageView.setConrers(15);
-            this.f48863a.setRadiusById(h1.J_X05);
-            this.f48863a.setDrawCorner(true);
-            this.f48863a.setShowOuterBorder(true);
-            this.f48863a.setPlaceHolder(3);
-            this.f48863a.setPageId(j.a(view.getContext()).getUniqueId());
-            this.f48864b = (EMTextView) view.findViewById(e1.frs_item_recommend_name);
-            this.f48865c = (ImageView) view.findViewById(e1.frs_item_recommend_star);
-            this.f48866d = (TextView) view.findViewById(e1.frs_item_recommend_score);
+            this.f48862a.setRadiusById(h1.J_X05);
+            this.f48862a.setDrawCorner(true);
+            this.f48862a.setShowOuterBorder(true);
+            this.f48862a.setPlaceHolder(3);
+            this.f48862a.setPageId(j.a(view.getContext()).getUniqueId());
+            this.f48863b = (EMTextView) view.findViewById(e1.frs_item_recommend_name);
+            this.f48864c = (ImageView) view.findViewById(e1.frs_item_recommend_star);
+            this.f48865d = (TextView) view.findViewById(e1.frs_item_recommend_score);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -305,12 +305,12 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, itemInfo) == null) || itemInfo == null) {
                 return;
             }
-            this.f48868f = itemInfo;
-            this.f48863a.startLoad(itemInfo.icon_url, 10, false);
+            this.f48867f = itemInfo;
+            this.f48862a.startLoad(itemInfo.icon_url, 10, false);
             if (StringHelper.getChineseAndEnglishLength(itemInfo.name) <= 10) {
-                this.f48864b.setText(itemInfo.name);
+                this.f48863b.setText(itemInfo.name);
             } else {
-                this.f48864b.setText(StringHelper.cutChineseAndEnglishWithSuffix(itemInfo.name, 8, "..."));
+                this.f48863b.setText(StringHelper.cutChineseAndEnglishWithSuffix(itemInfo.name, 8, "..."));
             }
             ItemTable itemTable = itemInfo.score;
             if (itemTable != null && (list = itemTable.item_point) != null) {
@@ -323,13 +323,13 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
             }
             d2 = 0.0d;
             if (d2 > 0.0d && d2 <= 10.0d) {
-                this.f48865c.setVisibility(0);
-                this.f48866d.setText(String.valueOf(d2));
-                this.f48867e = true;
+                this.f48864c.setVisibility(0);
+                this.f48865d.setText(String.valueOf(d2));
+                this.f48866e = true;
             } else {
-                this.f48866d.setText(h1.frs_evaluate_exception);
-                this.f48865c.setVisibility(8);
-                this.f48867e = false;
+                this.f48865d.setText(h1.frs_evaluate_exception);
+                this.f48864c.setVisibility(8);
+                this.f48866e = false;
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -337,9 +337,9 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                WebPManager.setPureDrawable(this.f48865c, d1.icon_pure_small_star, b1.CAM_X0305, null);
-                b.a.q0.s.u.c.d(this.f48864b).v(b1.CAM_X0105);
-                SkinManager.setViewTextColor(this.f48866d, this.f48867e ? b1.CAM_X0305 : b1.CAM_X0109);
+                WebPManager.setPureDrawable(this.f48864c, d1.icon_pure_small_star, b1.CAM_X0305, null);
+                b.a.q0.s.u.c.d(this.f48863b).v(b1.CAM_X0105);
+                SkinManager.setViewTextColor(this.f48865d, this.f48866e ? b1.CAM_X0305 : b1.CAM_X0109);
             }
         }
     }
@@ -362,7 +362,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f48859i = new Point();
+        this.f48858i = new Point();
         b();
     }
 
@@ -371,24 +371,24 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             EMTextView eMTextView = new EMTextView(getContext());
-            this.f48855e = eMTextView;
+            this.f48854e = eMTextView;
             eMTextView.setGravity(16);
-            this.f48855e.setText(h1.frs_item_tab_recommend_title);
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f48855e);
+            this.f48854e.setText(h1.frs_item_tab_recommend_title);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f48854e);
             d2.A(h1.F_X02);
             d2.z(c1.T_X07);
-            this.f48855e.setPadding(l.g(getContext(), c1.M_W_X005), l.g(getContext(), c1.M_H_X004), l.g(getContext(), c1.M_W_X005), l.g(getContext(), c1.M_H_X008));
-            addView(this.f48855e, new LinearLayout.LayoutParams(-1, -2));
+            this.f48854e.setPadding(l.g(getContext(), c1.M_W_X005), l.g(getContext(), c1.M_H_X004), l.g(getContext(), c1.M_W_X005), l.g(getContext(), c1.M_H_X008));
+            addView(this.f48854e, new LinearLayout.LayoutParams(-1, -2));
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.f48856f = bdRecyclerView;
+            this.f48855f = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.f48856f.setPadding(l.g(getContext(), c1.M_W_X004), 0, l.g(getContext(), c1.M_W_X005), 0);
-            this.f48856f.addItemDecoration(new a(this));
-            this.f48856f.setOnItemClickListener(new b(this));
-            addView(this.f48856f, new LinearLayout.LayoutParams(-1, -2));
+            this.f48855f.setPadding(l.g(getContext(), c1.M_W_X004), 0, l.g(getContext(), c1.M_W_X005), 0);
+            this.f48855f.addItemDecoration(new a(this));
+            this.f48855f.setOnItemClickListener(new b(this));
+            addView(this.f48855f, new LinearLayout.LayoutParams(-1, -2));
             c cVar = new c(this);
-            this.f48857g = cVar;
-            this.f48856f.setAdapter(cVar);
+            this.f48856g = cVar;
+            this.f48855f.setAdapter(cVar);
         }
     }
 
@@ -396,8 +396,8 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            this.f48857g.notifyDataSetChanged();
-            b.a.q0.s.u.c.d(this.f48855e).v(b1.CAM_X0105);
+            this.f48856g.notifyDataSetChanged();
+            b.a.q0.s.u.c.d(this.f48854e).v(b1.CAM_X0105);
             b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this);
             d2.n(h1.J_X06);
             d2.f(b1.CAM_X0205);
@@ -411,8 +411,8 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent != null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f48859i.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.f48856f.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                    this.f48858i.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.f48855f.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                         ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
                     }
                 } else {
@@ -420,7 +420,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                     if (motionEvent.getAction() == 2) {
                         boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
                         ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.f48859i.x - motionEvent.getX()) > Math.abs(this.f48859i.y - motionEvent.getY())) {
+                        if (!z2 && Math.abs(this.f48858i.x - motionEvent.getX()) > Math.abs(this.f48858i.y - motionEvent.getY())) {
                             z = true;
                         }
                         parent.requestDisallowInterceptTouchEvent(z);
@@ -441,8 +441,8 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
             if (fVar.g() == null) {
                 return;
             }
-            this.f48858h = fVar.g();
-            this.f48857g.notifyDataSetChanged();
+            this.f48857h = fVar.g();
+            this.f48856g.notifyDataSetChanged();
         }
     }
 
@@ -465,7 +465,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f48859i = new Point();
+        this.f48858i = new Point();
         b();
     }
 
@@ -488,7 +488,7 @@ public class CardItemRecommendLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f48859i = new Point();
+        this.f48858i = new Point();
         b();
     }
 }

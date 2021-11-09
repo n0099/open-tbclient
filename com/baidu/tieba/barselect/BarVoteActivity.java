@@ -36,7 +36,7 @@ public class BarVoteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f47245a;
+        public final /* synthetic */ BarVoteActivity f47244a;
 
         public a(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -53,57 +53,57 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47245a = barVoteActivity;
+            this.f47244a = barVoteActivity;
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
         public void a(int i2, String str, f fVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, fVar) == null) || this.f47245a.mView == null || this.f47245a.mView.w() == null) {
+            if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, fVar) == null) || this.f47244a.mView == null || this.f47244a.mView.w() == null) {
                 return;
             }
-            BarVoteActivity barVoteActivity = this.f47245a;
+            BarVoteActivity barVoteActivity = this.f47244a;
             barVoteActivity.hideLoadingView(barVoteActivity.mView.w());
             if (i2 != 0) {
                 if (i2 == 2430005) {
-                    if (this.f47245a.mModel == null || this.f47245a.mModel.mPn != 0) {
+                    if (this.f47244a.mModel == null || this.f47244a.mModel.mPn != 0) {
                         return;
                     }
-                    if (this.f47245a.mView.u() != null) {
-                        this.f47245a.mView.u().setVisibility(8);
+                    if (this.f47244a.mView.u() != null) {
+                        this.f47244a.mView.u().setVisibility(8);
                     }
-                    this.f47245a.mView.F(str);
-                } else if (this.f47245a.mModel == null || this.f47245a.mModel.mPn != 0) {
+                    this.f47244a.mView.F(str);
+                } else if (this.f47244a.mModel == null || this.f47244a.mModel.mPn != 0) {
                 } else {
-                    if (this.f47245a.mView.u() != null) {
-                        this.f47245a.mView.u().setVisibility(8);
+                    if (this.f47244a.mView.u() != null) {
+                        this.f47244a.mView.u().setVisibility(8);
                     }
-                    this.f47245a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    this.f47244a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             } else if (fVar == null || fVar.a() == null || fVar.a().g() < 1 || fVar.a().g() > 2) {
-                if (this.f47245a.mModel == null || this.f47245a.mModel.mPn != 0) {
+                if (this.f47244a.mModel == null || this.f47244a.mModel.mPn != 0) {
                     return;
                 }
-                if (this.f47245a.mView.u() != null) {
-                    this.f47245a.mView.u().setVisibility(8);
+                if (this.f47244a.mView.u() != null) {
+                    this.f47244a.mView.u().setVisibility(8);
                 }
                 if (fVar == null || fVar.a() == null) {
-                    this.f47245a.mView.F(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                    this.f47244a.mView.F(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                 } else if (fVar.a().g() < 1 || fVar.a().g() > 2) {
-                    this.f47245a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    this.f47244a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             } else {
-                if (this.f47245a.mView.u() != null) {
-                    this.f47245a.mView.u().setVisibility(0);
+                if (this.f47244a.mView.u() != null) {
+                    this.f47244a.mView.u().setVisibility(0);
                 }
-                long j = this.f47245a.fid;
+                long j = this.f47244a.fid;
                 if (j != 0) {
                     fVar.i(j);
                 }
                 if (fVar.g() == null) {
-                    fVar.l(this.f47245a.mPageId);
+                    fVar.l(this.f47244a.mPageId);
                 }
-                this.f47245a.mView.C(fVar);
+                this.f47244a.mView.C(fVar);
             }
         }
     }
@@ -114,7 +114,7 @@ public class BarVoteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f47246e;
+        public final /* synthetic */ BarVoteActivity f47245e;
 
         public b(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -131,17 +131,17 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47246e = barVoteActivity;
+            this.f47245e = barVoteActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.D()) {
-                this.f47246e.mView.x();
-                BarVoteActivity barVoteActivity = this.f47246e;
+                this.f47245e.mView.x();
+                BarVoteActivity barVoteActivity = this.f47245e;
                 barVoteActivity.showLoadingView(barVoteActivity.mView.w());
-                this.f47246e.reload();
+                this.f47245e.reload();
             }
         }
     }

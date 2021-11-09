@@ -19,7 +19,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f64162a;
+    public static final AtomicBoolean f64161a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -42,19 +42,19 @@ public class d {
                 return;
             }
         }
-        f64162a = new AtomicBoolean(false);
+        f64161a = new AtomicBoolean(false);
     }
 
     public static void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || f64162a.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || f64161a.get()) {
             return;
         }
         if (KsAdSDKImpl.get().getIsExternal()) {
             b(aVar);
             return;
         }
-        f64162a.set(true);
+        f64161a.set(true);
         boolean b2 = AbiUtil.b();
         String str = b2 ? "kwappstatus-v8a" : "kwappstatus-v7a";
         String Z = com.kwad.sdk.core.config.c.Z();
@@ -74,17 +74,17 @@ public class d {
         }
         com.kwai.sodler.a.b.a(context);
         com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-        bVar.f67110c = Z;
-        bVar.f67112e = true;
-        bVar.f67108a = str;
-        bVar.f67109b = ab;
-        bVar.f67114g = false;
+        bVar.f67109c = Z;
+        bVar.f67111e = true;
+        bVar.f67107a = str;
+        bVar.f67108b = ab;
+        bVar.f67113g = false;
         com.kwai.sodler.a.b.a(str, bVar, new b.a(aVar) { // from class: com.kwad.sdk.collector.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f64163a;
+            public final /* synthetic */ a f64162a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -101,7 +101,7 @@ public class d {
                         return;
                     }
                 }
-                this.f64163a = aVar;
+                this.f64162a = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -119,8 +119,8 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048580, this, hVar, pluginError) == null) {
                     super.a(hVar, pluginError);
-                    if (this.f64163a != null) {
-                        this.f64163a.a(pluginError == null ? "load error" : pluginError.toString());
+                    if (this.f64162a != null) {
+                        this.f64162a.a(pluginError == null ? "load error" : pluginError.toString());
                     }
                 }
             }
@@ -131,7 +131,7 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048581, this, hVar, gVar) == null) {
                     super.a(hVar, gVar);
-                    d.b(this.f64163a);
+                    d.b(this.f64162a);
                 }
             }
         });

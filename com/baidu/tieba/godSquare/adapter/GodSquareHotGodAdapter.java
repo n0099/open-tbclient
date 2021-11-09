@@ -61,7 +61,7 @@ public class GodSquareHotGodAdapter extends b.a.e.l.e.a<h, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareHotGodAdapter f49338b;
+        public final /* synthetic */ GodSquareHotGodAdapter f49337b;
 
         public a(GodSquareHotGodAdapter godSquareHotGodAdapter) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class GodSquareHotGodAdapter extends b.a.e.l.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f49338b = godSquareHotGodAdapter;
+            this.f49337b = godSquareHotGodAdapter;
         }
 
         @Override // b.a.r0.b0.c0
@@ -86,11 +86,11 @@ public class GodSquareHotGodAdapter extends b.a.e.l.e.a<h, ViewHolder> {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f49338b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f14764e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f49337b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f14764e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f49338b.n.m.getId()) {
-                if (view.getId() == this.f49338b.n.i().getId() || view.getId() == this.f49338b.n.o.getId()) {
+            if (view.getId() != this.f49337b.n.m.getId()) {
+                if (view.getId() == this.f49337b.n.i().getId() || view.getId() == this.f49337b.n.o.getId()) {
                     TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f14764e.getUserId()));
                     return;
                 }

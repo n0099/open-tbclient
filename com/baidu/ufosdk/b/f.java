@@ -15,33 +15,33 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Display f56656a;
+    public static Display f56655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f56657b;
+    public static int f56656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f56658c;
+    public static int f56657c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (f56657b == 0) {
-                if (f56656a == null) {
-                    f56656a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            if (f56656b == 0) {
+                if (f56655a == null) {
+                    f56655a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
                 }
                 Point point = new Point();
                 if (j.a() < 13) {
-                    point.set(f56656a.getWidth(), f56656a.getHeight());
+                    point.set(f56655a.getWidth(), f56655a.getHeight());
                 } else {
-                    f56656a.getSize(point);
+                    f56655a.getSize(point);
                 }
-                f56657b = point.x;
-                f56658c = point.y;
+                f56656b = point.x;
+                f56657c = point.y;
             }
-            int[] iArr = {f56657b, f56658c};
+            int[] iArr = {f56656b, f56657c};
             return iArr[0] + "x" + iArr[1];
         }
         return (String) invokeL.objValue;

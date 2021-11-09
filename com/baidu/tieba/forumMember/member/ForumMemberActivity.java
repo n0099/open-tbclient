@@ -39,7 +39,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f48165a;
+        public final /* synthetic */ ForumMemberActivity f48164a;
 
         public a(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f48165a = forumMemberActivity;
+            this.f48164a = forumMemberActivity;
         }
 
         @Override // b.a.r0.x0.s0
         public void a(int i2, int i3, l1 l1Var, ArrayList<n> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), l1Var, arrayList}) == null) {
-                this.f48165a.mView.d();
-                this.f48165a.mView.c();
+                this.f48164a.mView.d();
+                this.f48164a.mView.c();
                 if (arrayList != null) {
                     Iterator<n> it = arrayList.iterator();
                     while (it.hasNext()) {
@@ -74,12 +74,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     }
                 }
                 if (!ListUtils.isEmpty(arrayList)) {
-                    this.f48165a.mView.e();
-                    this.f48165a.mListViewData = arrayList;
-                    this.f48165a.mView.f(this.f48165a.mListViewData);
-                } else if (!ListUtils.isEmpty(this.f48165a.mListViewData) || l1Var == null) {
+                    this.f48164a.mView.e();
+                    this.f48164a.mListViewData = arrayList;
+                    this.f48164a.mView.f(this.f48164a.mListViewData);
+                } else if (!ListUtils.isEmpty(this.f48164a.mListViewData) || l1Var == null) {
                 } else {
-                    this.f48165a.mView.l(l1Var.f25912f);
+                    this.f48164a.mView.l(l1Var.f25912f);
                 }
             }
         }
@@ -91,7 +91,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f48166e;
+        public final /* synthetic */ ForumMemberActivity f48165e;
 
         public b(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f48166e = forumMemberActivity;
+            this.f48165e = forumMemberActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f48166e.mView.b(z);
+                this.f48165e.mView.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.f48166e.mListViewData)) {
-                        this.f48166e.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.f48165e.mListViewData)) {
+                        this.f48165e.startFirstTimeLoad();
                     } else {
-                        this.f48166e.mView.m();
+                        this.f48165e.mView.m();
                     }
                 }
             }

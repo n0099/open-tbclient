@@ -58,19 +58,19 @@ public class FrsTopItemInfoView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49148e;
+    public Context f49147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49149f;
+    public TextView f49148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49150g;
+    public View f49149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49151h;
+    public TextView f49150h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f49152i;
+    public ImageView f49151i;
     public TextView j;
     public TextView k;
     public ItemTableView l;
@@ -93,9 +93,80 @@ public class FrsTopItemInfoView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTopItemInfoView f49153e;
+        public final /* synthetic */ FrsTopItemInfoView f49152e;
 
         public a(FrsTopItemInfoView frsTopItemInfoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTopItemInfoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f49152e = frsTopItemInfoView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f49152e.f49147e) || WriteActivityConfig.isAsyncWriting() || this.f49152e.t == null) {
+                return;
+            }
+            WriteActivityConfig.newInstance((Activity) this.f49152e.f49147e).setType(9).setFrom("frs").setForumId("0").setIsEvaluate(true).setCallFrom("2").setScoreItemInfo(new SerializableItemInfo(this.f49152e.t)).setItemIsSchool(this.f49152e.t.is_school.intValue() == 1).setStarCount(this.f49152e.t.score != null ? this.f49152e.t.score.comment_star.intValue() : 0).send();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsTopItemInfoView f49153e;
+
+        /* loaded from: classes9.dex */
+        public class a implements a.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ b.a.q0.s.s.a f49154e;
+
+            public a(b bVar, b.a.q0.s.s.a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f49154e = aVar;
+            }
+
+            @Override // b.a.q0.s.s.a.e
+            public void onClick(b.a.q0.s.s.a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                    this.f49154e.dismiss();
+                }
+            }
+        }
+
+        public b(FrsTopItemInfoView frsTopItemInfoView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,82 +187,11 @@ public class FrsTopItemInfoView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f49153e.f49148e) || WriteActivityConfig.isAsyncWriting() || this.f49153e.t == null) {
-                return;
-            }
-            WriteActivityConfig.newInstance((Activity) this.f49153e.f49148e).setType(9).setFrom("frs").setForumId("0").setIsEvaluate(true).setCallFrom("2").setScoreItemInfo(new SerializableItemInfo(this.f49153e.t)).setItemIsSchool(this.f49153e.t.is_school.intValue() == 1).setStarCount(this.f49153e.t.score != null ? this.f49153e.t.score.comment_star.intValue() : 0).send();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTopItemInfoView f49154e;
-
-        /* loaded from: classes9.dex */
-        public class a implements a.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b.a.q0.s.s.a f49155e;
-
-            public a(b bVar, b.a.q0.s.s.a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f49155e = aVar;
-            }
-
-            @Override // b.a.q0.s.s.a.e
-            public void onClick(b.a.q0.s.s.a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f49155e.dismiss();
-                }
-            }
-        }
-
-        public b(FrsTopItemInfoView frsTopItemInfoView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsTopItemInfoView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f49154e = frsTopItemInfoView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f49154e.f49148e instanceof FrsActivity)) {
-                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a((FrsActivity) this.f49154e.f49148e);
-                aVar.setMessage(this.f49154e.f49148e.getString(h1.comment_tab_dialog_info));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f49153e.f49147e instanceof FrsActivity)) {
+                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a((FrsActivity) this.f49153e.f49147e);
+                aVar.setMessage(this.f49153e.f49147e.getString(h1.comment_tab_dialog_info));
                 aVar.setPositiveButton(h1.comment_tab_dialog_botton_text, new a(this, aVar));
-                aVar.create(((FrsActivity) this.f49154e.f49148e).getPageContext()).show();
+                aVar.create(((FrsActivity) this.f49153e.f49147e).getPageContext()).show();
             }
         }
     }
@@ -247,14 +247,14 @@ public class FrsTopItemInfoView extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f49148e = context;
+            this.f49147e = context;
             LayoutInflater.from(context).inflate(f1.frs_top_item_info_view, this);
             setOrientation(1);
-            this.f49149f = (TextView) findViewById(e1.item_title_name);
-            this.f49150g = findViewById(e1.item_split);
-            this.f49151h = (TextView) findViewById(e1.item_title_value);
+            this.f49148f = (TextView) findViewById(e1.item_title_name);
+            this.f49149g = findViewById(e1.item_split);
+            this.f49150h = (TextView) findViewById(e1.item_title_value);
             ImageView imageView = (ImageView) findViewById(e1.icon_question);
-            this.f49152i = imageView;
+            this.f49151i = imageView;
             imageView.setOnClickListener(this.x);
             this.j = (TextView) findViewById(e1.big_score);
             this.k = (TextView) findViewById(e1.people_num);
@@ -266,7 +266,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.q = (RankStarView) findViewById(e1.star_view);
             this.r = (ImageView) findViewById(e1.right_arrow);
             this.s = findViewById(e1.bottom_line);
-            this.f49149f.setText(h1.frs_evaluate_item_title);
+            this.f49148f.setText(h1.frs_evaluate_item_title);
             this.p.setText(h1.frs_evaluate_click_tip);
             this.j.setText(h1.frs_evaluate_exception);
             if (DeviceInfoUtil.isXiaoMi()) {
@@ -284,11 +284,11 @@ public class FrsTopItemInfoView extends LinearLayout {
             c d2 = c.d(this);
             d2.n(h1.J_X06);
             d2.f(b1.CAM_X0201);
-            c d3 = c.d(this.f49149f);
+            c d3 = c.d(this.f49148f);
             d3.A(h1.F_X02);
             d3.v(b1.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f49150g, b1.CAM_X0109);
-            c d4 = c.d(this.f49151h);
+            SkinManager.setBackgroundColor(this.f49149g, b1.CAM_X0109);
+            c d4 = c.d(this.f49150h);
             d4.A(h1.F_X02);
             d4.v(b1.CAM_X0105);
             c d5 = c.d(this.j);
@@ -305,7 +305,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.q.updateStarDrawable();
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, d1.ic_icon_mybar_pure_list_arrow16_right, b1.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(this.s, b1.CAM_X0210);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f49152i, d1.ic_icon_pure_use_unknown_n_svg, b1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f49151i, d1.ic_icon_pure_use_unknown_n_svg, b1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -316,7 +316,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             if (itemInfo == null || itemInfo.score == null) {
                 return;
             }
-            this.f49151h.setText(itemInfo.name);
+            this.f49150h.setText(itemInfo.name);
             ItemTable itemTable = itemInfo.score;
             int intValue = itemTable.total_point_num.intValue();
             List<ItemPoint> list = itemTable.item_point;
@@ -344,7 +344,7 @@ public class FrsTopItemInfoView extends LinearLayout {
                 if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                     this.q.setStarCount(itemTable.comment_star.intValue());
                 }
-                this.f49150g.setVisibility(0);
+                this.f49149g.setVisibility(0);
                 this.m.setVisibility(0);
                 this.m.setText(c(this.v), TextView.BufferType.SPANNABLE);
                 this.l.setData(itemTable.item_plot, intValue);
@@ -361,7 +361,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.k.setText(TbadkCoreApplication.getInst().getString(h1.frs_evaluate_people, new Object[]{"0"}));
             this.q.setStarCount(0.0f);
             this.m.setVisibility(8);
-            this.f49150g.setVisibility(8);
+            this.f49149g.setVisibility(8);
             this.l.clear();
         }
     }

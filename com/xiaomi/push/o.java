@@ -13,22 +13,22 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f71353a;
+    public static final o f71352a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ o[] f825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f71354b;
+    public static final o f71353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f71355c;
+    public static final o f71354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final o f71356d;
+    public static final o f71355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final o f71357e;
+    public static final o f71356e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,13 +44,13 @@ public final class o {
                 return;
             }
         }
-        f71353a = new o("China", 0);
-        f71354b = new o("Global", 1);
-        f71355c = new o("Europe", 2);
-        f71356d = new o("Russia", 3);
+        f71352a = new o("China", 0);
+        f71353b = new o("Global", 1);
+        f71354c = new o("Europe", 2);
+        f71355d = new o("Russia", 3);
         o oVar = new o("India", 4);
-        f71357e = oVar;
-        f825a = new o[]{f71353a, f71354b, f71355c, f71356d, oVar};
+        f71356e = oVar;
+        f825a = new o[]{f71352a, f71353b, f71354c, f71355d, oVar};
     }
 
     public o(String str, int i2) {

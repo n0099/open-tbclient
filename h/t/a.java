@@ -17,11 +17,11 @@ public final class a<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object[] f72156g;
+    public static final Object[] f72155g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SubjectSubscriptionManager<T> f72157f;
+    public final SubjectSubscriptionManager<T> f72156f;
 
     /* renamed from: h.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -30,7 +30,7 @@ public final class a<T> extends d<T, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubjectSubscriptionManager f72158e;
+        public final /* synthetic */ SubjectSubscriptionManager f72157e;
 
         public C2068a(SubjectSubscriptionManager subjectSubscriptionManager) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public final class a<T> extends d<T, T> {
                     return;
                 }
             }
-            this.f72158e = subjectSubscriptionManager;
+            this.f72157e = subjectSubscriptionManager;
         }
 
         @Override // h.n.b
@@ -58,7 +58,7 @@ public final class a<T> extends d<T, T> {
         public void call(SubjectSubscriptionManager.c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                cVar.b(this.f72158e.getLatest());
+                cVar.b(this.f72157e.getLatest());
             }
         }
     }
@@ -76,7 +76,7 @@ public final class a<T> extends d<T, T> {
                 return;
             }
         }
-        f72156g = new Object[0];
+        f72155g = new Object[0];
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,7 +97,7 @@ public final class a<T> extends d<T, T> {
                 return;
             }
         }
-        this.f72157f = subjectSubscriptionManager;
+        this.f72156f = subjectSubscriptionManager;
     }
 
     public static <T> a<T> F() {
@@ -126,9 +126,9 @@ public final class a<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f72157f.getLatest() == null || this.f72157f.active) {
+            if (this.f72156f.getLatest() == null || this.f72156f.active) {
                 Object b2 = NotificationLite.b();
-                for (SubjectSubscriptionManager.c<T> cVar : this.f72157f.terminate(b2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f72156f.terminate(b2)) {
                     cVar.d(b2);
                 }
             }
@@ -139,10 +139,10 @@ public final class a<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            if (this.f72157f.getLatest() == null || this.f72157f.active) {
+            if (this.f72156f.getLatest() == null || this.f72156f.active) {
                 Object c2 = NotificationLite.c(th);
                 ArrayList arrayList = null;
-                for (SubjectSubscriptionManager.c<T> cVar : this.f72157f.terminate(c2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f72156f.terminate(c2)) {
                     try {
                         cVar.d(c2);
                     } catch (Throwable th2) {
@@ -161,9 +161,9 @@ public final class a<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            if (this.f72157f.getLatest() == null || this.f72157f.active) {
+            if (this.f72156f.getLatest() == null || this.f72156f.active) {
                 Object h2 = NotificationLite.h(t);
-                for (SubjectSubscriptionManager.c<T> cVar : this.f72157f.next(h2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f72156f.next(h2)) {
                     cVar.d(h2);
                 }
             }

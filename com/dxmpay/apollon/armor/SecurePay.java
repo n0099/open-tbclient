@@ -26,10 +26,10 @@ public final class SecurePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SecurePay f62070a = null;
+    public static SecurePay f62069a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62071b = true;
+    public static boolean f62070b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public final class SecurePay {
         try {
             System.loadLibrary("dxm_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f62071b = false;
+            f62070b = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -73,15 +73,15 @@ public final class SecurePay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (SecurePay.class) {
-                if (f62070a == null) {
+                if (f62069a == null) {
                     SecurePay securePay2 = new SecurePay();
-                    f62070a = securePay2;
+                    f62069a = securePay2;
                     try {
                         securePay2.init();
                     } catch (Throwable unused) {
                     }
                 }
-                securePay = f62070a;
+                securePay = f62069a;
             }
             return securePay;
         }
@@ -225,7 +225,7 @@ public final class SecurePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f62071b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f62070b : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

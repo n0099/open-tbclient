@@ -24,10 +24,10 @@ public final class a {
         public int flags;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f69974h;
+        public String f69973h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f69975i;
+        public String f69974i;
         public String j;
         public Bundle k;
 
@@ -55,16 +55,16 @@ public final class a {
             if (context == null || c2020a == null) {
                 com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
                 return false;
-            } else if (c.a(c2020a.f69974h)) {
-                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2020a.f69974h);
+            } else if (c.a(c2020a.f69973h)) {
+                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2020a.f69973h);
                 return false;
             } else {
-                if (c.a(c2020a.f69975i)) {
-                    c2020a.f69975i = c2020a.f69974h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+                if (c.a(c2020a.f69974i)) {
+                    c2020a.f69974i = c2020a.f69973h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
                 }
-                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2020a.f69974h + ", targetClassName = " + c2020a.f69975i);
+                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2020a.f69973h + ", targetClassName = " + c2020a.f69974i);
                 Intent intent = new Intent();
-                intent.setClassName(c2020a.f69974h, c2020a.f69975i);
+                intent.setClassName(c2020a.f69973h, c2020a.f69974i);
                 Bundle bundle = c2020a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);

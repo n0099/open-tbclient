@@ -15,14 +15,14 @@ public class LogUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LogUtil f57085a;
+    public static LogUtil f57084a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f57086c;
+    public static Boolean f57085c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f57087b;
+    public Context f57086b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class LogUtil {
                 return;
             }
         }
-        f57086c = Boolean.FALSE;
+        f57085c = Boolean.FALSE;
     }
 
     public LogUtil(Context context) {
@@ -55,7 +55,7 @@ public class LogUtil {
                 return;
             }
         }
-        this.f57087b = context;
+        this.f57086b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
@@ -64,10 +64,10 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (LogUtil.class) {
-                if (f57085a == null) {
-                    f57085a = new LogUtil(context);
+                if (f57084a == null) {
+                    f57084a = new LogUtil(context);
                 }
-                logUtil = f57085a;
+                logUtil = f57084a;
             }
             return logUtil;
         }
@@ -77,41 +77,41 @@ public class LogUtil {
     public static void logD(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            f57086c.booleanValue();
+            f57085c.booleanValue();
         }
     }
 
     public static void logE(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            f57086c.booleanValue();
+            f57085c.booleanValue();
         }
     }
 
     public static void logI(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            f57086c.booleanValue();
+            f57085c.booleanValue();
         }
     }
 
     public static void syso(Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bool) == null) && f57086c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bool) == null) && f57085c.booleanValue()) {
             System.out.println(String.valueOf(bool));
         }
     }
 
     public static void syso(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f57086c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f57085c.booleanValue()) {
             System.out.println(String.valueOf(obj));
         }
     }
 
     public static void syso(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f57086c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f57085c.booleanValue()) {
             System.out.println(str);
         }
     }
@@ -119,7 +119,7 @@ public class LogUtil {
     public void setSysoLog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            f57086c = Boolean.valueOf(z);
+            f57085c = Boolean.valueOf(z);
         }
     }
 }

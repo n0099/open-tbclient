@@ -30,7 +30,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f69027a;
+    public static Boolean f69026a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = f69027a;
+            Boolean bool = f69026a;
             if (bool == null) {
                 return true;
             }
@@ -155,8 +155,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (e.class) {
-                if (f69027a == null) {
-                    f69027a = Boolean.valueOf((b() || b(context) || c(context) || !d(context) || c() || e(context)) ? false : true);
+                if (f69026a == null) {
+                    f69026a = Boolean.valueOf((b() || b(context) || c(context) || !d(context) || c() || e(context)) ? false : true);
                 }
             }
         }

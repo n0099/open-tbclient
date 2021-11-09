@@ -14,16 +14,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f61236a;
+    public static Method f61235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f61237b;
+    public static Method f61236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f61238c;
+    public static Method f61237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f61239d;
+    public static Method f61238d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public final class a {
             }
         }
         try {
-            f61236a = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-            f61237b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-            f61238c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-            f61239d = Class.class.getDeclaredMethod("forName", String.class);
+            f61235a = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+            f61236b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+            f61237c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+            f61238d = Class.class.getDeclaredMethod("forName", String.class);
         } catch (Throwable th) {
             ZeusLogger.e(ZeusLogger.TAG_INIT, "DoubleReflectorinit failed", th);
         }
@@ -60,7 +60,7 @@ public final class a {
         Field field;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
-            Method method = f61236a;
+            Method method = f61235a;
             Field field2 = null;
             if (method != null) {
                 try {
@@ -98,7 +98,7 @@ public final class a {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
-            Method method2 = f61237b;
+            Method method2 = f61236b;
             Method method3 = null;
             if (method2 != null) {
                 try {
@@ -137,7 +137,7 @@ public final class a {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) != null) {
             return (Constructor) invokeLL.objValue;
         }
-        Method method = f61238c;
+        Method method = f61237c;
         if (method != null) {
             try {
                 constructor = (Constructor) method.invoke(cls, clsArr);

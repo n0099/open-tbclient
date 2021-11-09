@@ -39,7 +39,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f53890a;
+        public final /* synthetic */ SystemHelpSettingActivity f53889a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SystemHelpSettingActivity systemHelpSettingActivity) {
@@ -59,7 +59,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f53890a = systemHelpSettingActivity;
+            this.f53889a = systemHelpSettingActivity;
         }
 
         @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
@@ -71,11 +71,11 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                    this.f53890a.closeLoadingDialog();
-                    this.f53890a.mView.d().setTip("");
-                    this.f53890a.showToast(R.string.systemhelpsetting_clear_cache_success);
+                    this.f53889a.closeLoadingDialog();
+                    this.f53889a.mView.d().setTip("");
+                    this.f53889a.showToast(R.string.systemhelpsetting_clear_cache_success);
                 } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                    this.f53890a.mView.d().setTip((String) objArr[1]);
+                    this.f53889a.mView.d().setTip((String) objArr[1]);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f53891a;
+        public final /* synthetic */ SystemHelpSettingActivity f53890a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SystemHelpSettingActivity systemHelpSettingActivity, int i2) {
@@ -107,7 +107,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f53891a = systemHelpSettingActivity;
+            this.f53890a = systemHelpSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,8 +115,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f53891a.closeLoadingDialog();
-                this.f53891a.showToast(R.string.systemhelpsetting_clear_im_success);
+                this.f53890a.closeLoadingDialog();
+                this.f53890a.showToast(R.string.systemhelpsetting_clear_im_success);
             }
         }
     }
@@ -127,9 +127,44 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f53892e;
+        public final /* synthetic */ SystemHelpSettingActivity f53891e;
 
         public c(SystemHelpSettingActivity systemHelpSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {systemHelpSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53891e = systemHelpSettingActivity;
+        }
+
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SystemHelpSettingActivity f53892e;
+
+        public d(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,20 +186,23 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                SystemHelpSettingActivity systemHelpSettingActivity = this.f53892e;
+                systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
+                this.f53892e.mModel.A();
                 aVar.dismiss();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class d implements a.e {
+    public class e implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ SystemHelpSettingActivity f53893e;
 
-        public d(SystemHelpSettingActivity systemHelpSettingActivity) {
+        public e(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,23 +224,20 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                SystemHelpSettingActivity systemHelpSettingActivity = this.f53893e;
-                systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-                this.f53893e.mModel.A();
                 aVar.dismiss();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class e implements a.e {
+    public class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ SystemHelpSettingActivity f53894e;
 
-        public e(SystemHelpSettingActivity systemHelpSettingActivity) {
+        public f(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,44 +260,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class f implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f53895e;
-
-        public f(SystemHelpSettingActivity systemHelpSettingActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {systemHelpSettingActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53895e = systemHelpSettingActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                SystemHelpSettingActivity systemHelpSettingActivity = this.f53895e;
+                SystemHelpSettingActivity systemHelpSettingActivity = this.f53894e;
                 systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-                this.f53895e.mModel.B();
+                this.f53894e.mModel.B();
             }
         }
     }

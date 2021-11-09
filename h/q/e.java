@@ -12,7 +12,7 @@ public class e<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final h.e<T> f72132i;
+    public final h.e<T> f72131i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(j<? super T> jVar) {
@@ -39,7 +39,7 @@ public class e<T> extends j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72132i.onCompleted();
+            this.f72131i.onCompleted();
         }
     }
 
@@ -47,7 +47,7 @@ public class e<T> extends j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f72132i.onError(th);
+            this.f72131i.onError(th);
         }
     }
 
@@ -55,7 +55,7 @@ public class e<T> extends j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f72132i.onNext(t);
+            this.f72131i.onNext(t);
         }
     }
 
@@ -78,6 +78,6 @@ public class e<T> extends j<T> {
                 return;
             }
         }
-        this.f72132i = new d(jVar);
+        this.f72131i = new d(jVar);
     }
 }

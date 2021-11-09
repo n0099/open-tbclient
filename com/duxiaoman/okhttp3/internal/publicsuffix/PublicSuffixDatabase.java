@@ -25,29 +25,29 @@ public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f62040e;
+    public static final byte[] f62039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f62041f;
+    public static final String[] f62040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f62042g;
+    public static final String[] f62041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final PublicSuffixDatabase f62043h;
+    public static final PublicSuffixDatabase f62042h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f62044a;
+    public final AtomicBoolean f62043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f62045b;
+    public final CountDownLatch f62044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f62046c;
+    public byte[] f62045c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f62047d;
+    public byte[] f62046d;
 
     static {
         InterceptResult invokeClinit;
@@ -62,10 +62,10 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        f62040e = new byte[]{ExifInterface.START_CODE};
-        f62041f = new String[0];
-        f62042g = new String[]{"*"};
-        f62043h = new PublicSuffixDatabase();
+        f62039e = new byte[]{ExifInterface.START_CODE};
+        f62040f = new String[0];
+        f62041g = new String[]{"*"};
+        f62042h = new PublicSuffixDatabase();
     }
 
     public PublicSuffixDatabase() {
@@ -81,8 +81,8 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        this.f62044a = new AtomicBoolean(false);
-        this.f62045b = new CountDownLatch(1);
+        this.f62043a = new AtomicBoolean(false);
+        this.f62044b = new CountDownLatch(1);
     }
 
     public static String a(byte[] bArr, byte[][] bArr2, int i2) {
@@ -170,7 +170,7 @@ public final class PublicSuffixDatabase {
     public static PublicSuffixDatabase c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62043h : (PublicSuffixDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62042h : (PublicSuffixDatabase) invokeV.objValue;
     }
 
     public final String[] b(String[] strArr) {
@@ -183,17 +183,17 @@ public final class PublicSuffixDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             int i2 = 0;
-            if (!this.f62044a.get() && this.f62044a.compareAndSet(false, true)) {
+            if (!this.f62043a.get() && this.f62043a.compareAndSet(false, true)) {
                 f();
             } else {
                 try {
-                    this.f62045b.await();
+                    this.f62044b.await();
                 } catch (InterruptedException unused) {
                     Thread.currentThread().interrupt();
                 }
             }
             synchronized (this) {
-                if (this.f62046c == null) {
+                if (this.f62045c == null) {
                     throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
                 }
             }
@@ -209,7 +209,7 @@ public final class PublicSuffixDatabase {
                     str2 = null;
                     break;
                 }
-                str2 = a(this.f62046c, bArr, i4);
+                str2 = a(this.f62045c, bArr, i4);
                 if (str2 != null) {
                     break;
                 }
@@ -218,8 +218,8 @@ public final class PublicSuffixDatabase {
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
                 for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                    bArr2[i5] = f62040e;
-                    str3 = a(this.f62046c, bArr2, i5);
+                    bArr2[i5] = f62039e;
+                    str3 = a(this.f62045c, bArr2, i5);
                     if (str3 != null) {
                         break;
                     }
@@ -231,7 +231,7 @@ public final class PublicSuffixDatabase {
                     if (i2 >= length - 1) {
                         break;
                     }
-                    String a2 = a(this.f62047d, bArr, i2);
+                    String a2 = a(this.f62046d, bArr, i2);
                     if (a2 != null) {
                         str = a2;
                         break;
@@ -242,17 +242,17 @@ public final class PublicSuffixDatabase {
             if (str != null) {
                 return ("!" + str).split("\\.");
             } else if (str2 == null && str3 == null) {
-                return f62042g;
+                return f62041g;
             } else {
                 if (str2 != null) {
                     strArr2 = str2.split("\\.");
                 } else {
-                    strArr2 = f62041f;
+                    strArr2 = f62040f;
                 }
                 if (str3 != null) {
                     strArr3 = str3.split("\\.");
                 } else {
-                    strArr3 = f62041f;
+                    strArr3 = f62040f;
                 }
                 return strArr2.length > strArr3.length ? strArr2 : strArr3;
             }
@@ -306,10 +306,10 @@ public final class PublicSuffixDatabase {
             byte[] bArr2 = new byte[buffer.readInt()];
             buffer.readFully(bArr2);
             synchronized (this) {
-                this.f62046c = bArr;
-                this.f62047d = bArr2;
+                this.f62045c = bArr;
+                this.f62046d = bArr2;
             }
-            this.f62045b.countDown();
+            this.f62044b.countDown();
         } finally {
             e.f(buffer);
         }

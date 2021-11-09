@@ -22,19 +22,19 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47473e;
+    public int f47472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47474f;
+    public int f47473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47475g;
+    public int f47474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<b.a.r0.e0.a> f47476h;
+    public ArrayList<b.a.r0.e0.a> f47475h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.e0.b f47477i;
+    public b.a.r0.e0.b f47476i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
@@ -45,7 +45,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConsumptionRecordsModel f47478a;
+        public final /* synthetic */ ConsumptionRecordsModel f47477a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ConsumptionRecordsModel consumptionRecordsModel, int i2) {
@@ -65,7 +65,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     return;
                 }
             }
-            this.f47478a = consumptionRecordsModel;
+            this.f47477a = consumptionRecordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,17 +77,17 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 if (httpResponsedMessage.getError() == 0) {
                     if (z) {
                         GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
-                        this.f47478a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
+                        this.f47477a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
-                    if (this.f47478a.k != null) {
-                        this.f47478a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f47478a.f47476h, this.f47478a.f47477i, this.f47478a.j);
+                    if (this.f47477a.k != null) {
+                        this.f47477a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f47477a.f47475h, this.f47477a.f47476i, this.f47477a.j);
                         return;
                     }
                     return;
                 }
-                ConsumptionRecordsModel.w(this.f47478a);
-                if (this.f47478a.k != null) {
-                    this.f47478a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f47478a.f47476h, this.f47478a.f47477i, this.f47478a.j);
+                ConsumptionRecordsModel.w(this.f47477a);
+                if (this.f47477a.k != null) {
+                    this.f47477a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f47477a.f47475h, this.f47477a.f47476i, this.f47477a.j);
                 }
             }
         }
@@ -115,9 +115,9 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 return;
             }
         }
-        this.f47473e = 0;
-        this.f47474f = 1;
-        this.f47475g = 1;
+        this.f47472e = 0;
+        this.f47473f = 1;
+        this.f47474g = 1;
         this.j = false;
         this.l = new a(this, CmdConfigHttp.CMD_GET_USER_ORDER);
         this.unique_id = bdUniqueId;
@@ -127,8 +127,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int w(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i2 = consumptionRecordsModel.f47473e;
-        consumptionRecordsModel.f47473e = i2 - 1;
+        int i2 = consumptionRecordsModel.f47472e;
+        consumptionRecordsModel.f47472e = i2 - 1;
         return i2;
     }
 
@@ -136,11 +136,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            this.f47473e = 1;
+            this.f47472e = 1;
             newGetUserOrderRequestMessage.setPn(1);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f47474f);
-            newGetUserOrderRequestMessage.setShowMember(this.f47475g);
+            newGetUserOrderRequestMessage.setOrderType(this.f47473f);
+            newGetUserOrderRequestMessage.setShowMember(this.f47474g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -156,12 +156,12 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 }
                 return;
             }
-            this.f47473e++;
+            this.f47472e++;
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            newGetUserOrderRequestMessage.setPn(this.f47473e);
+            newGetUserOrderRequestMessage.setPn(this.f47472e);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f47474f);
-            newGetUserOrderRequestMessage.setShowMember(this.f47475g);
+            newGetUserOrderRequestMessage.setOrderType(this.f47473f);
+            newGetUserOrderRequestMessage.setShowMember(this.f47474g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -170,19 +170,19 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, bVar, z) == null) {
             if (bVar != null) {
-                this.f47477i = bVar;
+                this.f47476i = bVar;
             }
             this.j = z;
             if (arrayList == null) {
                 return;
             }
-            if (this.f47476h == null) {
-                this.f47476h = new ArrayList<>();
+            if (this.f47475h == null) {
+                this.f47475h = new ArrayList<>();
             }
-            if (this.f47473e == 1) {
-                this.f47476h.clear();
+            if (this.f47472e == 1) {
+                this.f47475h.clear();
             }
-            this.f47476h.addAll(arrayList);
+            this.f47475h.addAll(arrayList);
         }
     }
 
@@ -214,7 +214,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47474f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47473f : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -242,14 +242,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void setShowMember(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f47475g = i2;
+            this.f47474g = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f47474f = i2;
+            this.f47473f = i2;
         }
     }
 }

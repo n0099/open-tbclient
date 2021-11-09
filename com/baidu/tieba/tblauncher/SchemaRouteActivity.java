@@ -63,7 +63,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f54430a;
+        public final /* synthetic */ SchemaRouteActivity f54429a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -80,17 +80,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54430a = schemaRouteActivity;
+            this.f54429a = schemaRouteActivity;
         }
 
         @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.z) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f54430a.getActivity(), null, (String) hashMap.get(g.z), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f54429a.getActivity(), null, (String) hashMap.get(g.z), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.N));
-                this.f54430a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f54429a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }

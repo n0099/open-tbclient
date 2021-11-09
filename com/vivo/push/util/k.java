@@ -17,31 +17,31 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f70386a;
+    public static final boolean f70385a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f70387b;
+    public static final String f70386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f70388c;
+    public static final boolean f70387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f70389d;
+    public static final boolean f70388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f70390e;
+    public static final boolean f70389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f70391f;
+    public static final boolean f70390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f70392g;
+    public static final boolean f70391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f70393h;
+    public static final boolean f70392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f70394i;
+    public static Method f70393i;
     public static String j;
     public static String k;
     public static String l;
@@ -62,19 +62,19 @@ public final class k {
                 return;
             }
         }
-        f70386a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+        f70385a = z.b("ro.vivo.product.overseas", "no").equals("yes");
         if (Build.VERSION.SDK_INT >= 26) {
             b2 = z.b("ro.product.country.region", "N");
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f70387b = b2;
-        f70388c = "RU".equals(b2);
-        f70389d = "IN".equals(f70387b);
-        f70390e = b("rom_1.0");
-        f70391f = b("rom_2.0");
-        f70392g = b("rom_2.5");
-        f70393h = b("rom_3.0");
+        f70386b = b2;
+        f70387c = "RU".equals(b2);
+        f70388d = "IN".equals(f70386b);
+        f70389e = b("rom_1.0");
+        f70390f = b("rom_2.0");
+        f70391g = b("rom_2.5");
+        f70392h = b("rom_3.0");
         j = null;
         k = null;
         l = "";
@@ -89,10 +89,10 @@ public final class k {
                 if (j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f70394i = declaredMethod;
+                        f70393i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        j = (String) f70394i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f70394i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        j = (String) f70393i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f70393i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }

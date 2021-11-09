@@ -14,10 +14,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f61425a;
+    public static Class f61424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f61426b;
+    public static Object f61425b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -38,23 +38,23 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61426b == null) {
+            if (f61425b == null) {
                 try {
                     synchronized (a.class) {
-                        if (f61426b == null) {
-                            if (f61425a == null) {
-                                f61425a = Class.forName("android.app.ActivityThread");
+                        if (f61425b == null) {
+                            if (f61424a == null) {
+                                f61424a = Class.forName("android.app.ActivityThread");
                             }
-                            f61426b = MethodUtils.invokeStaticMethod(f61425a, "currentActivityThread", new Object[0]);
+                            f61425b = MethodUtils.invokeStaticMethod(f61424a, "currentActivityThread", new Object[0]);
                         }
-                        if (f61426b == null && Looper.myLooper() != Looper.getMainLooper()) {
+                        if (f61425b == null && Looper.myLooper() != Looper.getMainLooper()) {
                             Object obj = new Object();
                             new Handler(Looper.getMainLooper()).post(new Runnable(obj) { // from class: com.bytedance.pangle.helper.a.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ Object f61427a;
+                                public final /* synthetic */ Object f61426a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -71,7 +71,7 @@ public class a {
                                             return;
                                         }
                                     }
-                                    this.f61427a = obj;
+                                    this.f61426a = obj;
                                 }
 
                                 /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -81,26 +81,26 @@ public class a {
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
                                             try {
-                                                Object unused = a.f61426b = MethodUtils.invokeStaticMethod(a.f61425a, "currentActivityThread", new Object[0]);
-                                                synchronized (this.f61427a) {
-                                                    this.f61427a.notify();
+                                                Object unused = a.f61425b = MethodUtils.invokeStaticMethod(a.f61424a, "currentActivityThread", new Object[0]);
+                                                synchronized (this.f61426a) {
+                                                    this.f61426a.notify();
                                                 }
                                             } catch (Exception e2) {
                                                 ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper main looper invoke currentActivityThread failed.", e2);
-                                                synchronized (this.f61427a) {
-                                                    this.f61427a.notify();
+                                                synchronized (this.f61426a) {
+                                                    this.f61426a.notify();
                                                 }
                                             }
                                         } catch (Throwable th) {
-                                            synchronized (this.f61427a) {
-                                                this.f61427a.notify();
+                                            synchronized (this.f61426a) {
+                                                this.f61426a.notify();
                                                 throw th;
                                             }
                                         }
                                     }
                                 }
                             });
-                            if (f61426b == null) {
+                            if (f61425b == null) {
                                 synchronized (obj) {
                                     try {
                                         obj.wait(5000L);
@@ -115,7 +115,7 @@ public class a {
                     ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper currentActivityThread failed.", e3);
                 }
             }
-            return f61426b;
+            return f61425b;
         }
         return invokeV.objValue;
     }

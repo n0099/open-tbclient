@@ -80,7 +80,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f63390f;
+        public final Comparator<? super E> f63389f;
 
         public a(Comparator<? super E> comparator) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
                 }
             }
             n.p(comparator);
-            this.f63390f = comparator;
+            this.f63389f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -160,9 +160,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f63390f, this.f63340b, this.f63339a);
-                this.f63340b = construct.size();
-                this.f63341c = true;
+                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f63389f, this.f63339b, this.f63338a);
+                this.f63339b = construct.size();
+                this.f63340c = true;
                 return construct;
             }
             return (ImmutableSortedSet) invokeV.objValue;

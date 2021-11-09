@@ -52,7 +52,7 @@ public class BusCardPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f59787c != null;
+            return this.f59786c != null;
         }
         return invokeL.booleanValue;
     }

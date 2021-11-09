@@ -31,7 +31,7 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static WalletHomeBeanFactory f58292a;
+        public static WalletHomeBeanFactory f58291a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f58292a = new WalletHomeBeanFactory(null);
+            f58291a = new WalletHomeBeanFactory(null);
         }
     }
 
@@ -58,7 +58,7 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
     public static WalletHomeBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58292a : (WalletHomeBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58291a : (WalletHomeBeanFactory) invokeV.objValue;
     }
 
     public WalletHomeBeanFactory() {

@@ -18,7 +18,7 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68741a;
+    public Context f68740a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
                 return;
             }
         }
-        this.f68741a = context.getApplicationContext();
+        this.f68740a = context.getApplicationContext();
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.d
@@ -52,7 +52,7 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
         DownloadInfo downloadInfo;
         com.ss.android.downloadad.api.a.b a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (context = this.f68741a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() == 0 || (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (context = this.f68740a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() == 0 || (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
             return;
         }
         if (i3 == 1) {
@@ -104,11 +104,11 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
         Context context;
         DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.f68741a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() != -3) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.f68740a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() != -3) {
             return;
         }
         downloadInfo.setPackageName(str2);
-        com.ss.android.downloadlib.addownload.b.a().a(this.f68741a, downloadInfo);
+        com.ss.android.downloadlib.addownload.b.a().a(this.f68740a, downloadInfo);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.d

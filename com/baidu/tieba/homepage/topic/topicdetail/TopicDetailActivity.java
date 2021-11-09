@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f49823a;
+        public final /* synthetic */ TopicDetailActivity f49822a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f49823a = topicDetailActivity;
+            this.f49822a = topicDetailActivity;
         }
 
         @Override // b.a.q0.a.g.b
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f49823a.topicID = b.g(str, -1L);
+                this.f49822a.topicID = b.g(str, -1L);
             }
         }
     }

@@ -38,7 +38,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f56641a = false;
+    public static boolean f56640a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -50,28 +50,28 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56642b = "";
+    public static String f56641b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f56643c = "";
+    public static String f56642c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f56644d = "";
+    public static String f56643d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f56645e = 0;
+    public static int f56644e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f56646f = "";
+    public static String f56645f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f56647g = null;
+    public static Bitmap f56646g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f56648h = "";
+    public static String f56647h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f56649i = "";
+    public static String f56648i = "";
     public static int j = 0;
     public static int k = 0;
     public static String l = "";

@@ -58,7 +58,7 @@ public class NewLogoActivity extends LogoBaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_START_STAMP_KEY);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY);
             this.logoCreateTime = System.currentTimeMillis();
             super.onCreate(bundle);
             i iVar = new i(this);

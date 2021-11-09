@@ -50,11 +50,11 @@ public class d0 extends WebViewClient {
             if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
                 try {
                     y2 a2 = c3.a(applicationContext);
-                    a2.i(new g3(this.f33279a.f70490d), parse.toString(), 0);
+                    a2.i(new g3(this.f33279a.f70489d), parse.toString(), 0);
                     a2.m();
                     HashMap hashMap = new HashMap();
                     hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.f33279a.f70490d;
+                    Info info = this.f33279a.f70489d;
                     if (info != null) {
                         r0.K(r0.i((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
                     }
@@ -62,7 +62,7 @@ public class d0 extends WebViewClient {
                     return true;
                 } catch (Exception e2) {
                     y2 a3 = c3.a(applicationContext);
-                    a3.i(new g3(this.f33279a.f70490d), e2.getMessage(), 2);
+                    a3.i(new g3(this.f33279a.f70489d), e2.getMessage(), 2);
                     a3.m();
                     e2.printStackTrace();
                 }

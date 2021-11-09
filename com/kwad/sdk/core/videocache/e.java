@@ -20,13 +20,13 @@ public class e extends k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f65152a;
+    public final h f65151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.b f65153b;
+    public final com.kwad.sdk.core.videocache.a.b f65152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f65154c;
+    public b f65153c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(h hVar, com.kwad.sdk.core.videocache.a.b bVar) {
@@ -47,8 +47,8 @@ public class e extends k {
                 return;
             }
         }
-        this.f65153b = bVar;
-        this.f65152a = hVar;
+        this.f65152b = bVar;
+        this.f65151a = hVar;
     }
 
     private String a(String str, Object... objArr) {
@@ -79,8 +79,8 @@ public class e extends k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, dVar)) == null) {
-            long a2 = this.f65152a.a();
-            return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.f65150c && ((float) dVar.f65149b) > ((float) this.f65153b.a()) + (((float) a2) * 0.2f)) ? false : true;
+            long a2 = this.f65151a.a();
+            return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.f65149c && ((float) dVar.f65148b) > ((float) this.f65152b.a()) + (((float) a2) * 0.2f)) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -89,17 +89,17 @@ public class e extends k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar)) == null) {
-            String c2 = this.f65152a.c();
+            String c2 = this.f65151a.c();
             boolean z = !TextUtils.isEmpty(c2);
-            long a2 = this.f65153b.d() ? this.f65153b.a() : this.f65152a.a();
+            long a2 = this.f65152b.d() ? this.f65152b.a() : this.f65151a.a();
             boolean z2 = a2 >= 0;
-            long j = dVar.f65150c ? a2 - dVar.f65149b : a2;
-            boolean z3 = z2 && dVar.f65150c;
+            long j = dVar.f65149c ? a2 - dVar.f65148b : a2;
+            boolean z3 = z2 && dVar.f65149c;
             StringBuilder sb = new StringBuilder();
-            sb.append(dVar.f65150c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
+            sb.append(dVar.f65149c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
             sb.append("Accept-Ranges: bytes\n");
             sb.append(z2 ? a("Content-Length: %d\n", Long.valueOf(j)) : "");
-            sb.append(z3 ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f65149b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "");
+            sb.append(z3 ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f65148b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "");
             sb.append(z ? a("Content-Type: %s\n", c2) : "");
             sb.append(StringUtils.LF);
             return sb.toString();
@@ -112,7 +112,7 @@ public class e extends k {
         if (interceptable != null && interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, this, outputStream, j) != null) {
             return;
         }
-        h hVar = new h(this.f65152a);
+        h hVar = new h(this.f65151a);
         try {
             hVar.a((int) j);
             byte[] bArr = new byte[8192];
@@ -133,16 +133,16 @@ public class e extends k {
     public void a(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bVar = this.f65154c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bVar = this.f65153c) == null) {
             return;
         }
-        bVar.a(this.f65153b.f65133a, this.f65152a.d(), i2);
+        bVar.a(this.f65152b.f65132a, this.f65151a.d(), i2);
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f65154c = bVar;
+            this.f65153c = bVar;
         }
     }
 
@@ -151,7 +151,7 @@ public class e extends k {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, socket) == null) {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
             bufferedOutputStream.write(b(dVar).getBytes("UTF-8"));
-            long j = dVar.f65149b;
+            long j = dVar.f65148b;
             if (a(dVar)) {
                 a(bufferedOutputStream, j);
             } else {

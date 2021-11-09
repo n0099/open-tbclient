@@ -16,10 +16,10 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BaseFragment[] f54465a;
+    public final BaseFragment[] f54464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f54466b;
+    public final int f54465b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NewUserGuidePagerAdapter(FragmentManager fragmentManager) {
@@ -40,15 +40,15 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
             }
         }
         BaseFragment[] baseFragmentArr = {new NewUserGuideIntroduceFragment(), new NewUserGuideMainFragment()};
-        this.f54465a = baseFragmentArr;
-        this.f54466b = baseFragmentArr.length;
+        this.f54464a = baseFragmentArr;
+        this.f54465b = baseFragmentArr.length;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54466b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54465b : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -56,10 +56,10 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f54466b) {
+            if (i2 < 0 || i2 >= this.f54465b) {
                 return null;
             }
-            return this.f54465a[i2];
+            return this.f54464a[i2];
         }
         return (Fragment) invokeI.objValue;
     }

@@ -63,7 +63,7 @@ public class DragSortListView extends ListView {
     public int W;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60535a;
+    public View f60534a;
     public float aa;
     public float ab;
     public a ac;
@@ -81,28 +81,28 @@ public class DragSortListView extends ListView {
     public boolean ao;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f60536b;
+    public Point f60535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f60537c;
+    public Point f60536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60538d;
+    public int f60537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60539e;
+    public boolean f60538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f60540f;
+    public DataSetObserver f60539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f60541g;
+    public float f60540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f60542h;
+    public float f60541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f60543i;
+    public int f60542i;
     public int j;
     public int k;
     public boolean l;
@@ -127,10 +127,10 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60546a;
+        public final /* synthetic */ DragSortListView f60545a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ListAdapter f60547b;
+        public ListAdapter f60546b;
 
         public a(DragSortListView dragSortListView, ListAdapter listAdapter) {
             Interceptable interceptable = $ic;
@@ -147,17 +147,17 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60546a = dragSortListView;
-            this.f60547b = listAdapter;
+            this.f60545a = dragSortListView;
+            this.f60546b = listAdapter;
             listAdapter.registerDataSetObserver(new DataSetObserver(this, dragSortListView) { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DragSortListView f60548a;
+                public final /* synthetic */ DragSortListView f60547a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f60549b;
+                public final /* synthetic */ a f60548b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -174,15 +174,15 @@ public class DragSortListView extends ListView {
                             return;
                         }
                     }
-                    this.f60549b = this;
-                    this.f60548a = dragSortListView;
+                    this.f60548b = this;
+                    this.f60547a = dragSortListView;
                 }
 
                 @Override // android.database.DataSetObserver
                 public void onChanged() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60549b.notifyDataSetChanged();
+                        this.f60548b.notifyDataSetChanged();
                     }
                 }
 
@@ -190,7 +190,7 @@ public class DragSortListView extends ListView {
                 public void onInvalidated() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f60549b.notifyDataSetInvalidated();
+                        this.f60548b.notifyDataSetInvalidated();
                     }
                 }
             });
@@ -199,42 +199,42 @@ public class DragSortListView extends ListView {
         public ListAdapter a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60547b : (ListAdapter) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60546b : (ListAdapter) invokeV.objValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean areAllItemsEnabled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60547b.areAllItemsEnabled() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60546b.areAllItemsEnabled() : invokeV.booleanValue;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60547b.getCount() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60546b.getCount() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f60547b.getItem(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f60546b.getItem(i2) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f60547b.getItemId(i2) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f60546b.getItemId(i2) : invokeI.longValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public int getItemViewType(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f60547b.getItemViewType(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f60546b.getItemViewType(i2) : invokeI.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -247,7 +247,7 @@ public class DragSortListView extends ListView {
                 if (view != null) {
                     dragSortItemView2 = (DragSortItemView) view;
                     View childAt = dragSortItemView2.getChildAt(0);
-                    View view2 = this.f60547b.getView(i2, childAt, this.f60546a);
+                    View view2 = this.f60546b.getView(i2, childAt, this.f60545a);
                     if (view2 != childAt) {
                         if (childAt != null) {
                             dragSortItemView2.removeViewAt(0);
@@ -255,17 +255,17 @@ public class DragSortListView extends ListView {
                         dragSortItemView2.addView(view2);
                     }
                 } else {
-                    View view3 = this.f60547b.getView(i2, null, this.f60546a);
+                    View view3 = this.f60546b.getView(i2, null, this.f60545a);
                     if (view3 instanceof Checkable) {
-                        dragSortItemView = new DragSortItemViewCheckable(this.f60546a.getContext());
+                        dragSortItemView = new DragSortItemViewCheckable(this.f60545a.getContext());
                     } else {
-                        dragSortItemView = new DragSortItemView(this.f60546a.getContext());
+                        dragSortItemView = new DragSortItemView(this.f60545a.getContext());
                     }
                     dragSortItemView.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
                     dragSortItemView.addView(view3);
                     dragSortItemView2 = dragSortItemView;
                 }
-                DragSortListView dragSortListView = this.f60546a;
+                DragSortListView dragSortListView = this.f60545a;
                 dragSortListView.a(i2 + dragSortListView.getHeaderViewsCount(), (View) dragSortItemView2, true);
                 return dragSortItemView2;
             }
@@ -276,28 +276,28 @@ public class DragSortListView extends ListView {
         public int getViewTypeCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60547b.getViewTypeCount() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60546b.getViewTypeCount() : invokeV.intValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean hasStableIds() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60547b.hasStableIds() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60546b.hasStableIds() : invokeV.booleanValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60547b.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60546b.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean isEnabled(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f60547b.isEnabled(i2) : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f60546b.isEnabled(i2) : invokeI.booleanValue;
         }
     }
 
@@ -317,31 +317,31 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60550a;
+        public final /* synthetic */ DragSortListView f60549a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f60551b;
+        public boolean f60550b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f60552c;
+        public long f60551c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f60553d;
+        public long f60552d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f60554e;
+        public int f60553e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f60555f;
+        public float f60554f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f60556g;
+        public long f60555g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f60557h;
+        public int f60556h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f60558i;
+        public float f60557i;
         public boolean j;
 
         public d(DragSortListView dragSortListView) {
@@ -359,7 +359,7 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60550a = dragSortListView;
+            this.f60549a = dragSortListView;
             this.j = false;
         }
 
@@ -374,7 +374,7 @@ public class DragSortListView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (this.j) {
-                    return this.f60557h;
+                    return this.f60556h;
                 }
                 return -1;
             }
@@ -385,19 +385,19 @@ public class DragSortListView extends ListView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (this.f60551b) {
+                if (this.f60550b) {
                     this.j = false;
                     return;
                 }
-                int firstVisiblePosition = this.f60550a.getFirstVisiblePosition();
-                int lastVisiblePosition = this.f60550a.getLastVisiblePosition();
-                int count = this.f60550a.getCount();
-                int paddingTop = this.f60550a.getPaddingTop();
-                int height = (this.f60550a.getHeight() - paddingTop) - this.f60550a.getPaddingBottom();
-                int min = Math.min(this.f60550a.N, this.f60550a.f60538d + this.f60550a.y);
-                int max = Math.max(this.f60550a.N, this.f60550a.f60538d - this.f60550a.y);
-                if (this.f60557h == 0) {
-                    View childAt = this.f60550a.getChildAt(0);
+                int firstVisiblePosition = this.f60549a.getFirstVisiblePosition();
+                int lastVisiblePosition = this.f60549a.getLastVisiblePosition();
+                int count = this.f60549a.getCount();
+                int paddingTop = this.f60549a.getPaddingTop();
+                int height = (this.f60549a.getHeight() - paddingTop) - this.f60549a.getPaddingBottom();
+                int min = Math.min(this.f60549a.N, this.f60549a.f60537d + this.f60549a.y);
+                int max = Math.max(this.f60549a.N, this.f60549a.f60537d - this.f60549a.y);
+                if (this.f60556h == 0) {
+                    View childAt = this.f60549a.getChildAt(0);
                     if (childAt == null) {
                         this.j = false;
                         return;
@@ -405,10 +405,10 @@ public class DragSortListView extends ListView {
                         this.j = false;
                         return;
                     } else {
-                        this.f60558i = this.f60550a.L.a((this.f60550a.H - max) / this.f60550a.I, this.f60552c);
+                        this.f60557i = this.f60549a.L.a((this.f60549a.H - max) / this.f60549a.I, this.f60551c);
                     }
                 } else {
-                    View childAt2 = this.f60550a.getChildAt(lastVisiblePosition - firstVisiblePosition);
+                    View childAt2 = this.f60549a.getChildAt(lastVisiblePosition - firstVisiblePosition);
                     if (childAt2 == null) {
                         this.j = false;
                         return;
@@ -416,36 +416,36 @@ public class DragSortListView extends ListView {
                         this.j = false;
                         return;
                     } else {
-                        this.f60558i = -this.f60550a.L.a((min - this.f60550a.G) / this.f60550a.J, this.f60552c);
+                        this.f60557i = -this.f60549a.L.a((min - this.f60549a.G) / this.f60549a.J, this.f60551c);
                     }
                 }
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f60553d = uptimeMillis;
-                float f2 = (float) (uptimeMillis - this.f60552c);
-                this.f60555f = f2;
-                int round = Math.round(this.f60558i * f2);
-                this.f60554e = round;
+                this.f60552d = uptimeMillis;
+                float f2 = (float) (uptimeMillis - this.f60551c);
+                this.f60554f = f2;
+                int round = Math.round(this.f60557i * f2);
+                this.f60553e = round;
                 if (round >= 0) {
-                    this.f60554e = Math.min(height, round);
+                    this.f60553e = Math.min(height, round);
                     lastVisiblePosition = firstVisiblePosition;
                 } else {
-                    this.f60554e = Math.max(-height, round);
+                    this.f60553e = Math.max(-height, round);
                 }
-                View childAt3 = this.f60550a.getChildAt(lastVisiblePosition - firstVisiblePosition);
-                int top = childAt3.getTop() + this.f60554e;
+                View childAt3 = this.f60549a.getChildAt(lastVisiblePosition - firstVisiblePosition);
+                int top = childAt3.getTop() + this.f60553e;
                 if (lastVisiblePosition == 0 && top > paddingTop) {
                     top = paddingTop;
                 }
-                this.f60550a.af = true;
+                this.f60549a.af = true;
                 if (Build.VERSION.SDK_INT >= 21) {
-                    this.f60550a.setSelectionFromTop(lastVisiblePosition, top - paddingTop);
+                    this.f60549a.setSelectionFromTop(lastVisiblePosition, top - paddingTop);
                 }
-                this.f60550a.layoutChildren();
-                this.f60550a.invalidate();
-                this.f60550a.af = false;
-                this.f60550a.d(lastVisiblePosition, childAt3, false);
-                this.f60552c = this.f60553d;
-                this.f60550a.post(this);
+                this.f60549a.layoutChildren();
+                this.f60549a.invalidate();
+                this.f60549a.af = false;
+                this.f60549a.d(lastVisiblePosition, childAt3, false);
+                this.f60551c = this.f60552d;
+                this.f60549a.post(this);
             }
         }
 
@@ -454,24 +454,24 @@ public class DragSortListView extends ListView {
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.j) {
                 return;
             }
-            this.f60551b = false;
+            this.f60550b = false;
             this.j = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f60556g = uptimeMillis;
-            this.f60552c = uptimeMillis;
-            this.f60557h = i2;
-            this.f60550a.post(this);
+            this.f60555g = uptimeMillis;
+            this.f60551c = uptimeMillis;
+            this.f60556h = i2;
+            this.f60549a.post(this);
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z) {
-                    this.f60550a.removeCallbacks(this);
+                    this.f60549a.removeCallbacks(this);
                     this.j = false;
                     return;
                 }
-                this.f60551b = true;
+                this.f60550b = true;
             }
         }
     }
@@ -486,129 +486,129 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public StringBuilder f60559a;
+        public StringBuilder f60558a;
 
         /* renamed from: b  reason: collision with root package name */
-        public File f60560b;
+        public File f60559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60561c;
+        public final /* synthetic */ DragSortListView f60560c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f60562d;
+        public int f60561d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f60563e;
+        public int f60562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f60564f;
+        public boolean f60563f;
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60559a.append("<DSLVStates>\n");
-                this.f60563e = 0;
-                this.f60564f = true;
+                this.f60558a.append("<DSLVStates>\n");
+                this.f60562e = 0;
+                this.f60563f = true;
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f60564f) {
-                this.f60559a.append("<DSLVState>\n");
-                int childCount = this.f60561c.getChildCount();
-                int firstVisiblePosition = this.f60561c.getFirstVisiblePosition();
-                this.f60559a.append("    <Positions>");
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f60563f) {
+                this.f60558a.append("<DSLVState>\n");
+                int childCount = this.f60560c.getChildCount();
+                int firstVisiblePosition = this.f60560c.getFirstVisiblePosition();
+                this.f60558a.append("    <Positions>");
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    StringBuilder sb = this.f60559a;
+                    StringBuilder sb = this.f60558a;
                     sb.append(firstVisiblePosition + i2);
                     sb.append(",");
                 }
-                this.f60559a.append("</Positions>\n");
-                this.f60559a.append("    <Tops>");
+                this.f60558a.append("</Positions>\n");
+                this.f60558a.append("    <Tops>");
                 for (int i3 = 0; i3 < childCount; i3++) {
-                    StringBuilder sb2 = this.f60559a;
-                    sb2.append(this.f60561c.getChildAt(i3).getTop());
+                    StringBuilder sb2 = this.f60558a;
+                    sb2.append(this.f60560c.getChildAt(i3).getTop());
                     sb2.append(",");
                 }
-                this.f60559a.append("</Tops>\n");
-                this.f60559a.append("    <Bottoms>");
+                this.f60558a.append("</Tops>\n");
+                this.f60558a.append("    <Bottoms>");
                 for (int i4 = 0; i4 < childCount; i4++) {
-                    StringBuilder sb3 = this.f60559a;
-                    sb3.append(this.f60561c.getChildAt(i4).getBottom());
+                    StringBuilder sb3 = this.f60558a;
+                    sb3.append(this.f60560c.getChildAt(i4).getBottom());
                     sb3.append(",");
                 }
-                this.f60559a.append("</Bottoms>\n");
-                StringBuilder sb4 = this.f60559a;
+                this.f60558a.append("</Bottoms>\n");
+                StringBuilder sb4 = this.f60558a;
                 sb4.append("    <FirstExpPos>");
-                sb4.append(this.f60561c.j);
+                sb4.append(this.f60560c.j);
                 sb4.append("</FirstExpPos>\n");
-                StringBuilder sb5 = this.f60559a;
+                StringBuilder sb5 = this.f60558a;
                 sb5.append("    <FirstExpBlankHeight>");
-                DragSortListView dragSortListView = this.f60561c;
+                DragSortListView dragSortListView = this.f60560c;
                 int a2 = dragSortListView.a(dragSortListView.j);
-                DragSortListView dragSortListView2 = this.f60561c;
+                DragSortListView dragSortListView2 = this.f60560c;
                 sb5.append(a2 - dragSortListView2.c(dragSortListView2.j));
                 sb5.append("</FirstExpBlankHeight>\n");
-                StringBuilder sb6 = this.f60559a;
+                StringBuilder sb6 = this.f60558a;
                 sb6.append("    <SecondExpPos>");
-                sb6.append(this.f60561c.k);
+                sb6.append(this.f60560c.k);
                 sb6.append("</SecondExpPos>\n");
-                StringBuilder sb7 = this.f60559a;
+                StringBuilder sb7 = this.f60558a;
                 sb7.append("    <SecondExpBlankHeight>");
-                DragSortListView dragSortListView3 = this.f60561c;
+                DragSortListView dragSortListView3 = this.f60560c;
                 int a3 = dragSortListView3.a(dragSortListView3.k);
-                DragSortListView dragSortListView4 = this.f60561c;
+                DragSortListView dragSortListView4 = this.f60560c;
                 sb7.append(a3 - dragSortListView4.c(dragSortListView4.k));
                 sb7.append("</SecondExpBlankHeight>\n");
-                StringBuilder sb8 = this.f60559a;
+                StringBuilder sb8 = this.f60558a;
                 sb8.append("    <SrcPos>");
-                sb8.append(this.f60561c.m);
+                sb8.append(this.f60560c.m);
                 sb8.append("</SrcPos>\n");
-                StringBuilder sb9 = this.f60559a;
+                StringBuilder sb9 = this.f60558a;
                 sb9.append("    <SrcHeight>");
-                sb9.append(this.f60561c.x + this.f60561c.getDividerHeight());
+                sb9.append(this.f60560c.x + this.f60560c.getDividerHeight());
                 sb9.append("</SrcHeight>\n");
-                StringBuilder sb10 = this.f60559a;
+                StringBuilder sb10 = this.f60558a;
                 sb10.append("    <ViewHeight>");
-                sb10.append(this.f60561c.getHeight());
+                sb10.append(this.f60560c.getHeight());
                 sb10.append("</ViewHeight>\n");
-                StringBuilder sb11 = this.f60559a;
+                StringBuilder sb11 = this.f60558a;
                 sb11.append("    <LastY>");
-                sb11.append(this.f60561c.P);
+                sb11.append(this.f60560c.P);
                 sb11.append("</LastY>\n");
-                StringBuilder sb12 = this.f60559a;
+                StringBuilder sb12 = this.f60558a;
                 sb12.append("    <FloatY>");
-                sb12.append(this.f60561c.f60538d);
+                sb12.append(this.f60560c.f60537d);
                 sb12.append("</FloatY>\n");
-                this.f60559a.append("    <ShuffleEdges>");
+                this.f60558a.append("    <ShuffleEdges>");
                 for (int i5 = 0; i5 < childCount; i5++) {
-                    StringBuilder sb13 = this.f60559a;
-                    DragSortListView dragSortListView5 = this.f60561c;
+                    StringBuilder sb13 = this.f60558a;
+                    DragSortListView dragSortListView5 = this.f60560c;
                     sb13.append(dragSortListView5.a(firstVisiblePosition + i5, dragSortListView5.getChildAt(i5).getTop()));
                     sb13.append(",");
                 }
-                this.f60559a.append("</ShuffleEdges>\n");
-                this.f60559a.append("</DSLVState>\n");
-                int i6 = this.f60562d + 1;
-                this.f60562d = i6;
+                this.f60558a.append("</ShuffleEdges>\n");
+                this.f60558a.append("</DSLVState>\n");
+                int i6 = this.f60561d + 1;
+                this.f60561d = i6;
                 if (i6 > 1000) {
                     c();
-                    this.f60562d = 0;
+                    this.f60561d = 0;
                 }
             }
         }
 
         public void c() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f60564f) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f60563f) {
                 try {
-                    FileWriter fileWriter = new FileWriter(this.f60560b, this.f60563e != 0);
-                    fileWriter.write(this.f60559a.toString());
-                    this.f60559a.delete(0, this.f60559a.length());
+                    FileWriter fileWriter = new FileWriter(this.f60559b, this.f60562e != 0);
+                    fileWriter.write(this.f60558a.toString());
+                    this.f60558a.delete(0, this.f60558a.length());
                     fileWriter.flush();
                     fileWriter.close();
-                    this.f60563e++;
+                    this.f60562e++;
                 } catch (IOException unused) {
                 }
             }
@@ -616,10 +616,10 @@ public class DragSortListView extends ListView {
 
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f60564f) {
-                this.f60559a.append("</DSLVStates>\n");
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f60563f) {
+                this.f60558a.append("</DSLVStates>\n");
                 c();
-                this.f60564f = false;
+                this.f60563f = false;
             }
         }
     }
@@ -649,31 +649,31 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f60584a;
+        public float f60583a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60585b;
+        public long f60584b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60586c;
+        public final /* synthetic */ DragSortListView f60585c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f60587d;
+        public float f60586d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f60588e;
+        public float f60587e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f60589f;
+        public float f60588f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f60590g;
+        public float f60589g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f60591h;
+        public float f60590h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f60592i;
+        public boolean f60591i;
 
         public n(DragSortListView dragSortListView, float f2, int i2) {
             Interceptable interceptable = $ic;
@@ -690,29 +690,29 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60586c = dragSortListView;
-            this.f60587d = f2;
-            this.f60584a = i2;
+            this.f60585c = dragSortListView;
+            this.f60586d = f2;
+            this.f60583a = i2;
             float f3 = 1.0f / ((f2 * 2.0f) * (1.0f - f2));
-            this.f60591h = f3;
-            this.f60588e = f3;
-            this.f60589f = f2 / ((f2 - 1.0f) * 2.0f);
-            this.f60590g = 1.0f / (1.0f - f2);
+            this.f60590h = f3;
+            this.f60587e = f3;
+            this.f60588f = f2 / ((f2 - 1.0f) * 2.0f);
+            this.f60589g = 1.0f / (1.0f - f2);
         }
 
         public float a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f3 = this.f60587d;
+                float f3 = this.f60586d;
                 if (f2 < f3) {
-                    return this.f60588e * f2 * f2;
+                    return this.f60587e * f2 * f2;
                 }
                 if (f2 < 1.0f - f3) {
-                    return this.f60589f + (this.f60590g * f2);
+                    return this.f60588f + (this.f60589g * f2);
                 }
                 float f4 = f2 - 1.0f;
-                return 1.0f - ((this.f60591h * f4) * f4);
+                return 1.0f - ((this.f60590h * f4) * f4);
             }
             return invokeF.floatValue;
         }
@@ -738,34 +738,34 @@ public class DragSortListView extends ListView {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f60585b = SystemClock.uptimeMillis();
-                this.f60592i = false;
+                this.f60584b = SystemClock.uptimeMillis();
+                this.f60591i = false;
                 a();
-                this.f60586c.post(this);
+                this.f60585c.post(this);
             }
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f60592i = true;
+                this.f60591i = true;
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f60592i) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f60591i) {
                 return;
             }
-            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f60585b)) / this.f60584a;
+            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f60584b)) / this.f60583a;
             if (uptimeMillis >= 1.0f) {
                 a(1.0f, 1.0f);
                 b();
                 return;
             }
             a(uptimeMillis, a(uptimeMillis));
-            this.f60586c.post(this);
+            this.f60585c.post(this);
         }
     }
 
@@ -788,11 +788,11 @@ public class DragSortListView extends ListView {
                 return;
             }
         }
-        this.f60536b = new Point();
-        this.f60537c = new Point();
-        this.f60539e = false;
-        this.f60541g = 0.6f;
-        this.f60542h = 0.6f;
+        this.f60535b = new Point();
+        this.f60536c = new Point();
+        this.f60538e = false;
+        this.f60540g = 0.6f;
+        this.f60541h = 0.6f;
         this.l = false;
         this.u = true;
         this.v = 0;
@@ -807,7 +807,7 @@ public class DragSortListView extends ListView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DragSortListView f60544a;
+            public final /* synthetic */ DragSortListView f60543a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -824,14 +824,14 @@ public class DragSortListView extends ListView {
                         return;
                     }
                 }
-                this.f60544a = this;
+                this.f60543a = this;
             }
 
             @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.c
             public float a(float f2, long j2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Long.valueOf(j2)})) == null) ? this.f60544a.K * f2 : invokeCommon.floatValue;
+                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Long.valueOf(j2)})) == null) ? this.f60543a.K * f2 : invokeCommon.floatValue;
             }
         };
         this.R = 0;
@@ -859,12 +859,12 @@ public class DragSortListView extends ListView {
         this.ai = new l(this, 0.5f, 150);
         this.ak = new g(this, 0.5f, 150);
         this.V = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
-        this.f60540f = new DataSetObserver(this) { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.2
+        this.f60539f = new DataSetObserver(this) { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DragSortListView f60545a;
+            public final /* synthetic */ DragSortListView f60544a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -881,13 +881,13 @@ public class DragSortListView extends ListView {
                         return;
                     }
                 }
-                this.f60545a = this;
+                this.f60544a = this;
             }
 
             private void a() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(65537, this) == null) && this.f60545a.v == 4) {
-                    this.f60545a.cancelDrag();
+                if ((interceptable2 == null || interceptable2.invokeV(65537, this) == null) && this.f60544a.v == 4) {
+                    this.f60544a.cancelDrag();
                 }
             }
 
@@ -951,11 +951,11 @@ public class DragSortListView extends ListView {
                     a(i3, canvas);
                 }
             }
-            View view = this.f60535a;
+            View view = this.f60534a;
             if (view != null) {
                 int width = view.getWidth();
-                int height = this.f60535a.getHeight();
-                int i4 = this.f60536b.x;
+                int height = this.f60534a.getHeight();
+                int i4 = this.f60535b.x;
                 int width2 = getWidth();
                 if (i4 < 0) {
                     i4 = -i4;
@@ -967,11 +967,11 @@ public class DragSortListView extends ListView {
                     f2 = 0.0f;
                 }
                 canvas.save();
-                Point point = this.f60536b;
+                Point point = this.f60535b;
                 canvas.translate(point.x, point.y);
                 canvas.clipRect(0, 0, width, height);
-                canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f60542h * 255.0f * f2), 31);
-                this.f60535a.draw(canvas);
+                canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f60541h * 255.0f * f2), 31);
+                this.f60534a.draw(canvas);
                 canvas.restore();
                 canvas.restore();
             }
@@ -981,7 +981,7 @@ public class DragSortListView extends ListView {
     public float getFloatAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60542h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60541h : invokeV.floatValue;
     }
 
     public ListAdapter getInputAdapter() {
@@ -1008,14 +1008,14 @@ public class DragSortListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.layoutChildren();
-            View view = this.f60535a;
+            View view = this.f60534a;
             if (view != null) {
-                if (view.isLayoutRequested() && !this.f60539e) {
+                if (view.isLayoutRequested() && !this.f60538e) {
                     i();
                 }
-                View view2 = this.f60535a;
-                view2.layout(0, 0, view2.getMeasuredWidth(), this.f60535a.getMeasuredHeight());
-                this.f60539e = false;
+                View view2 = this.f60534a;
+                view2.layout(0, 0, view2.getMeasuredWidth(), this.f60534a.getMeasuredHeight());
+                this.f60538e = false;
             }
         }
     }
@@ -1126,7 +1126,7 @@ public class DragSortListView extends ListView {
                 }
                 this.T = true;
             }
-            if (this.f60535a != null) {
+            if (this.f60534a != null) {
                 z = true;
             } else {
                 if (super.onInterceptTouchEvent(motionEvent)) {
@@ -1156,12 +1156,12 @@ public class DragSortListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            View view = this.f60535a;
+            View view = this.f60534a;
             if (view != null) {
                 if (view.isLayoutRequested()) {
                     i();
                 }
-                this.f60539e = true;
+                this.f60538e = true;
             }
             this.z = i2;
         }
@@ -1317,7 +1317,7 @@ public class DragSortListView extends ListView {
     public void setFloatAlpha(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.f60542h = f2;
+            this.f60541h = f2;
         }
     }
 
@@ -1382,20 +1382,20 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60574a;
+        public final /* synthetic */ DragSortListView f60573a;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f60575d;
+        public float f60574d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f60576e;
+        public float f60575e;
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60575d = this.f60574a.o;
-                this.f60576e = this.f60574a.y;
+                this.f60574d = this.f60573a.o;
+                this.f60575e = this.f60573a.y;
             }
         }
 
@@ -1403,10 +1403,10 @@ public class DragSortListView extends ListView {
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                if (this.f60574a.v == 4) {
-                    this.f60574a.o = (int) ((this.f60576e * f3) + ((1.0f - f3) * this.f60575d));
-                    this.f60574a.f60536b.y = this.f60574a.N - this.f60574a.o;
-                    this.f60574a.a(true);
+                if (this.f60573a.v == 4) {
+                    this.f60573a.o = (int) ((this.f60575e * f3) + ((1.0f - f3) * this.f60574d));
+                    this.f60573a.f60535b.y = this.f60573a.N - this.f60573a.o;
+                    this.f60573a.a(true);
                     return;
                 }
                 d();
@@ -1432,7 +1432,7 @@ public class DragSortListView extends ListView {
             if (this.v == 3) {
                 this.v = 0;
             }
-            this.f60542h = this.f60541g;
+            this.f60541h = this.f60540g;
             this.an = false;
             this.ah.a();
         }
@@ -1474,11 +1474,11 @@ public class DragSortListView extends ListView {
     private void i() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || (view = this.f60535a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || (view = this.f60534a) == null) {
             return;
         }
         a(view);
-        int measuredHeight = this.f60535a.getMeasuredHeight();
+        int measuredHeight = this.f60534a.getMeasuredHeight();
         this.x = measuredHeight;
         this.y = measuredHeight / 2;
     }
@@ -1489,17 +1489,17 @@ public class DragSortListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65586, this) == null) {
             if (this.U != null) {
-                this.f60537c.set(this.M, this.N);
-                this.U.a(this.f60535a, this.f60536b, this.f60537c);
+                this.f60536c.set(this.M, this.N);
+                this.U.a(this.f60534a, this.f60535b, this.f60536c);
             }
-            Point point = this.f60536b;
+            Point point = this.f60535b;
             int i4 = point.x;
             int i5 = point.y;
             int paddingLeft = getPaddingLeft();
             if ((this.R & 1) == 0 && i4 > paddingLeft) {
-                this.f60536b.x = paddingLeft;
+                this.f60535b.x = paddingLeft;
             } else if ((this.R & 2) == 0 && i4 < paddingLeft) {
-                this.f60536b.x = paddingLeft;
+                this.f60535b.x = paddingLeft;
             }
             int headerViewsCount = getHeaderViewsCount();
             int footerViewsCount = getFooterViewsCount();
@@ -1520,14 +1520,14 @@ public class DragSortListView extends ListView {
                 height = Math.min(getChildAt(i2 - firstVisiblePosition).getBottom(), height);
             }
             if (i5 < paddingTop) {
-                this.f60536b.y = paddingTop;
+                this.f60535b.y = paddingTop;
             } else {
                 int i6 = this.x;
                 if (i5 + i6 > height) {
-                    this.f60536b.y = height - i6;
+                    this.f60535b.y = height - i6;
                 }
             }
-            this.f60538d = this.f60536b.y + this.y;
+            this.f60537d = this.f60535b.y + this.y;
         }
     }
 
@@ -1535,15 +1535,15 @@ public class DragSortListView extends ListView {
     public void k() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65587, this) == null) || (view = this.f60535a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65587, this) == null) || (view = this.f60534a) == null) {
             return;
         }
         view.setVisibility(8);
         i iVar = this.U;
         if (iVar != null) {
-            iVar.a(this.f60535a);
+            iVar.a(this.f60534a);
         }
-        this.f60535a = null;
+        this.f60534a = null;
         invalidate();
     }
 
@@ -1554,7 +1554,7 @@ public class DragSortListView extends ListView {
         if (interceptable == null || interceptable.invokeL(1048596, this, listAdapter) == null) {
             if (listAdapter != null) {
                 this.ac = new a(this, listAdapter);
-                listAdapter.registerDataSetObserver(this.f60540f);
+                listAdapter.registerDataSetObserver(this.f60539f);
                 if (listAdapter instanceof h) {
                     setDropListener((h) listAdapter);
                 }
@@ -1589,7 +1589,7 @@ public class DragSortListView extends ListView {
                     this.m = headerViewsCount;
                     this.j = headerViewsCount;
                     this.k = headerViewsCount;
-                    this.f60543i = headerViewsCount;
+                    this.f60542i = headerViewsCount;
                     View childAt = getChildAt(headerViewsCount - getFirstVisiblePosition());
                     if (childAt != null) {
                         childAt.setVisibility(4);
@@ -1619,7 +1619,7 @@ public class DragSortListView extends ListView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)})) == null) {
-            if (this.f60535a != null) {
+            if (this.f60534a != null) {
                 this.B.a(true);
                 if (z) {
                     removeItem(this.m - getHeaderViewsCount(), f2);
@@ -1647,9 +1647,9 @@ public class DragSortListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65569, this) == null) {
             this.v = 2;
-            if (this.s != null && (i2 = this.f60543i) >= 0 && i2 < getCount()) {
+            if (this.s != null && (i2 = this.f60542i) >= 0 && i2 < getCount()) {
                 int headerViewsCount = getHeaderViewsCount();
-                this.s.a_(this.m - headerViewsCount, this.f60543i - headerViewsCount);
+                this.s.a_(this.m - headerViewsCount, this.f60542i - headerViewsCount);
             }
             k();
             e();
@@ -1688,7 +1688,7 @@ public class DragSortListView extends ListView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i2), view, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            if (this.v == 0 && this.T && this.f60535a == null && view != null && this.u) {
+            if (this.v == 0 && this.T && this.f60534a == null && view != null && this.u) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -1696,17 +1696,17 @@ public class DragSortListView extends ListView {
                 this.j = headerViewsCount;
                 this.k = headerViewsCount;
                 this.m = headerViewsCount;
-                this.f60543i = headerViewsCount;
+                this.f60542i = headerViewsCount;
                 this.v = 4;
                 this.R = 0;
                 this.R = i3 | 0;
-                this.f60535a = view;
+                this.f60534a = view;
                 i();
                 this.n = i4;
                 this.o = i5;
                 int i6 = this.N;
                 this.Q = i6;
-                Point point = this.f60536b;
+                Point point = this.f60535b;
                 point.x = this.M - i4;
                 point.y = i6 - i5;
                 View childAt = getChildAt(this.m - getFirstVisiblePosition());
@@ -1740,19 +1740,19 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60565a;
+        public final /* synthetic */ DragSortListView f60564a;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f60566d;
+        public int f60565d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f60567e;
+        public int f60566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f60568f;
+        public float f60567f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f60569g;
+        public float f60568g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(DragSortListView dragSortListView, float f2, int i2) {
@@ -1773,7 +1773,7 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60565a = dragSortListView;
+            this.f60564a = dragSortListView;
         }
 
         private int e() {
@@ -1781,12 +1781,12 @@ public class DragSortListView extends ListView {
             int bottom;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                int firstVisiblePosition = this.f60565a.getFirstVisiblePosition();
-                int dividerHeight = (this.f60565a.w + this.f60565a.getDividerHeight()) / 2;
-                View childAt = this.f60565a.getChildAt(this.f60566d - firstVisiblePosition);
+                int firstVisiblePosition = this.f60564a.getFirstVisiblePosition();
+                int dividerHeight = (this.f60564a.w + this.f60564a.getDividerHeight()) / 2;
+                View childAt = this.f60564a.getChildAt(this.f60565d - firstVisiblePosition);
                 if (childAt != null) {
-                    int i2 = this.f60566d;
-                    int i3 = this.f60567e;
+                    int i2 = this.f60565d;
+                    int i3 = this.f60566e;
                     if (i2 == i3) {
                         return childAt.getTop();
                     }
@@ -1794,7 +1794,7 @@ public class DragSortListView extends ListView {
                         bottom = childAt.getTop();
                     } else {
                         bottom = childAt.getBottom() + dividerHeight;
-                        dividerHeight = this.f60565a.x;
+                        dividerHeight = this.f60564a.x;
                     }
                     return bottom - dividerHeight;
                 }
@@ -1808,11 +1808,11 @@ public class DragSortListView extends ListView {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60566d = this.f60565a.f60543i;
-                this.f60567e = this.f60565a.m;
-                this.f60565a.v = 2;
-                this.f60568f = this.f60565a.f60536b.y - e();
-                this.f60569g = this.f60565a.f60536b.x - this.f60565a.getPaddingLeft();
+                this.f60565d = this.f60564a.f60542i;
+                this.f60566e = this.f60564a.m;
+                this.f60564a.v = 2;
+                this.f60567f = this.f60564a.f60535b.y - e();
+                this.f60568g = this.f60564a.f60535b.x - this.f60564a.getPaddingLeft();
             }
         }
 
@@ -1820,7 +1820,7 @@ public class DragSortListView extends ListView {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f60565a.c();
+                this.f60564a.c();
             }
         }
 
@@ -1829,12 +1829,12 @@ public class DragSortListView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 int e2 = e();
-                float paddingLeft = this.f60565a.f60536b.x - this.f60565a.getPaddingLeft();
+                float paddingLeft = this.f60564a.f60535b.x - this.f60564a.getPaddingLeft();
                 float f4 = 1.0f - f3;
-                if (f4 < Math.abs((this.f60565a.f60536b.y - e2) / this.f60568f) || f4 < Math.abs(paddingLeft / this.f60569g)) {
-                    this.f60565a.f60536b.y = e2 + ((int) (this.f60568f * f4));
-                    this.f60565a.f60536b.x = this.f60565a.getPaddingLeft() + ((int) (this.f60569g * f4));
-                    this.f60565a.a(true);
+                if (f4 < Math.abs((this.f60564a.f60535b.y - e2) / this.f60567f) || f4 < Math.abs(paddingLeft / this.f60568g)) {
+                    this.f60564a.f60535b.y = e2 + ((int) (this.f60567f * f4));
+                    this.f60564a.f60535b.x = this.f60564a.getPaddingLeft() + ((int) (this.f60568g * f4));
+                    this.f60564a.a(true);
                 }
             }
         }
@@ -1846,7 +1846,7 @@ public class DragSortListView extends ListView {
             this.m = -1;
             this.j = -1;
             this.k = -1;
-            this.f60543i = -1;
+            this.f60542i = -1;
         }
     }
 
@@ -1856,16 +1856,16 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60570a;
+        public final /* synthetic */ DragSortListView f60569a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SparseIntArray f60571b;
+        public SparseIntArray f60570b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<Integer> f60572c;
+        public ArrayList<Integer> f60571c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f60573d;
+        public int f60572d;
 
         public j(DragSortListView dragSortListView, int i2) {
             Interceptable interceptable = $ic;
@@ -1882,40 +1882,40 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60570a = dragSortListView;
-            this.f60571b = new SparseIntArray(i2);
-            this.f60572c = new ArrayList<>(i2);
-            this.f60573d = i2;
+            this.f60569a = dragSortListView;
+            this.f60570b = new SparseIntArray(i2);
+            this.f60571c = new ArrayList<>(i2);
+            this.f60572d = i2;
         }
 
         public void a(int i2, int i3) {
             int i4;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (i4 = this.f60571b.get(i2, -1)) == i3) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (i4 = this.f60570b.get(i2, -1)) == i3) {
                 return;
             }
             if (i4 == -1) {
-                if (this.f60571b.size() == this.f60573d) {
-                    this.f60571b.delete(this.f60572c.remove(0).intValue());
+                if (this.f60570b.size() == this.f60572d) {
+                    this.f60570b.delete(this.f60571c.remove(0).intValue());
                 }
             } else {
-                this.f60572c.remove(Integer.valueOf(i2));
+                this.f60571c.remove(Integer.valueOf(i2));
             }
-            this.f60571b.put(i2, i3);
-            this.f60572c.add(Integer.valueOf(i2));
+            this.f60570b.put(i2, i3);
+            this.f60571c.add(Integer.valueOf(i2));
         }
 
         public int a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f60571b.get(i2, -1) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f60570b.get(i2, -1) : invokeI.intValue;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f60571b.clear();
-                this.f60572c.clear();
+                this.f60570b.clear();
+                this.f60571c.clear();
             }
         }
     }
@@ -2017,25 +2017,25 @@ public class DragSortListView extends ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f60577a;
+        public final /* synthetic */ DragSortListView f60576a;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f60578d;
+        public float f60577d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f60579e;
+        public float f60578e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f60580f;
+        public float f60579f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f60581g;
+        public int f60580g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f60582h;
+        public int f60581h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f60583i;
+        public int f60582i;
         public int j;
         public int k;
 
@@ -2058,43 +2058,43 @@ public class DragSortListView extends ListView {
                     return;
                 }
             }
-            this.f60577a = dragSortListView;
-            this.f60581g = -1;
-            this.f60582h = -1;
+            this.f60576a = dragSortListView;
+            this.f60580g = -1;
+            this.f60581h = -1;
         }
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60581g = -1;
-                this.f60582h = -1;
-                this.f60583i = this.f60577a.j;
-                this.j = this.f60577a.k;
-                this.k = this.f60577a.m;
-                this.f60577a.v = 1;
-                this.f60578d = this.f60577a.f60536b.x;
-                if (!this.f60577a.al) {
-                    this.f60577a.k();
+                this.f60580g = -1;
+                this.f60581h = -1;
+                this.f60582i = this.f60576a.j;
+                this.j = this.f60576a.k;
+                this.k = this.f60576a.m;
+                this.f60576a.v = 1;
+                this.f60577d = this.f60576a.f60535b.x;
+                if (!this.f60576a.al) {
+                    this.f60576a.k();
                     return;
                 }
-                float width = this.f60577a.getWidth() * 2.0f;
-                if (this.f60577a.am != 0.0f) {
+                float width = this.f60576a.getWidth() * 2.0f;
+                if (this.f60576a.am != 0.0f) {
                     float f2 = width * 2.0f;
-                    if (this.f60577a.am < 0.0f) {
+                    if (this.f60576a.am < 0.0f) {
                         float f3 = -f2;
-                        if (this.f60577a.am > f3) {
-                            this.f60577a.am = f3;
+                        if (this.f60576a.am > f3) {
+                            this.f60576a.am = f3;
                             return;
                         }
                     }
-                    if (this.f60577a.am <= 0.0f || this.f60577a.am >= f2) {
+                    if (this.f60576a.am <= 0.0f || this.f60576a.am >= f2) {
                         return;
                     }
-                    this.f60577a.am = f2;
+                    this.f60576a.am = f2;
                     return;
                 }
-                this.f60577a.am = (this.f60578d >= 0.0f ? 1 : -1) * width;
+                this.f60576a.am = (this.f60577d >= 0.0f ? 1 : -1) * width;
             }
         }
 
@@ -2102,7 +2102,7 @@ public class DragSortListView extends ListView {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f60577a.d();
+                this.f60576a.d();
             }
         }
 
@@ -2112,50 +2112,50 @@ public class DragSortListView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 float f4 = 1.0f - f3;
-                int firstVisiblePosition = this.f60577a.getFirstVisiblePosition();
-                View childAt2 = this.f60577a.getChildAt(this.f60583i - firstVisiblePosition);
-                if (this.f60577a.al) {
-                    float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f60585b)) / 1000.0f;
+                int firstVisiblePosition = this.f60576a.getFirstVisiblePosition();
+                View childAt2 = this.f60576a.getChildAt(this.f60582i - firstVisiblePosition);
+                if (this.f60576a.al) {
+                    float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f60584b)) / 1000.0f;
                     if (uptimeMillis == 0.0f) {
                         return;
                     }
-                    float f5 = this.f60577a.am * uptimeMillis;
-                    int width = this.f60577a.getWidth();
-                    DragSortListView dragSortListView = this.f60577a;
-                    float f6 = (this.f60577a.am > 0.0f ? 1 : -1) * uptimeMillis;
+                    float f5 = this.f60576a.am * uptimeMillis;
+                    int width = this.f60576a.getWidth();
+                    DragSortListView dragSortListView = this.f60576a;
+                    float f6 = (this.f60576a.am > 0.0f ? 1 : -1) * uptimeMillis;
                     float f7 = width;
                     dragSortListView.am = dragSortListView.am + (f6 * f7);
-                    this.f60578d += f5;
-                    Point point = this.f60577a.f60536b;
-                    float f8 = this.f60578d;
+                    this.f60577d += f5;
+                    Point point = this.f60576a.f60535b;
+                    float f8 = this.f60577d;
                     point.x = (int) f8;
                     if (f8 < f7 && f8 > (-width)) {
-                        this.f60585b = SystemClock.uptimeMillis();
-                        this.f60577a.a(true);
+                        this.f60584b = SystemClock.uptimeMillis();
+                        this.f60576a.a(true);
                         return;
                     }
                 }
                 if (childAt2 != null) {
-                    if (this.f60581g == -1) {
-                        this.f60581g = this.f60577a.b(this.f60583i, childAt2, false);
-                        this.f60579e = childAt2.getHeight() - this.f60581g;
+                    if (this.f60580g == -1) {
+                        this.f60580g = this.f60576a.b(this.f60582i, childAt2, false);
+                        this.f60578e = childAt2.getHeight() - this.f60580g;
                     }
-                    int max = Math.max((int) (this.f60579e * f4), 1);
+                    int max = Math.max((int) (this.f60578e * f4), 1);
                     ViewGroup.LayoutParams layoutParams = childAt2.getLayoutParams();
-                    layoutParams.height = this.f60581g + max;
+                    layoutParams.height = this.f60580g + max;
                     childAt2.setLayoutParams(layoutParams);
                 }
                 int i2 = this.j;
-                if (i2 == this.f60583i || (childAt = this.f60577a.getChildAt(i2 - firstVisiblePosition)) == null) {
+                if (i2 == this.f60582i || (childAt = this.f60576a.getChildAt(i2 - firstVisiblePosition)) == null) {
                     return;
                 }
-                if (this.f60582h == -1) {
-                    this.f60582h = this.f60577a.b(this.j, childAt, false);
-                    this.f60580f = childAt.getHeight() - this.f60582h;
+                if (this.f60581h == -1) {
+                    this.f60581h = this.f60576a.b(this.j, childAt, false);
+                    this.f60579f = childAt.getHeight() - this.f60581h;
                 }
-                int max2 = Math.max((int) (f4 * this.f60580f), 1);
+                int max2 = Math.max((int) (f4 * this.f60579f), 1);
                 ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
-                layoutParams2.height = this.f60582h + max2;
+                layoutParams2.height = this.f60581h + max2;
                 childAt.setLayoutParams(layoutParams2);
             }
         }
@@ -2164,12 +2164,12 @@ public class DragSortListView extends ListView {
     private void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65562, this, i2, i3) == null) {
-            Point point = this.f60536b;
+            Point point = this.f60535b;
             point.x = i2 - this.n;
             point.y = i3 - this.o;
             a(true);
-            int min = Math.min(i3, this.f60538d + this.y);
-            int max = Math.max(i3, this.f60538d - this.y);
+            int min = Math.min(i3, this.f60537d + this.y);
+            int max = Math.max(i3, this.f60537d - this.y);
             int b2 = this.B.b();
             if (min > this.P && min > this.F && b2 != 1) {
                 if (b2 != -1) {
@@ -2316,7 +2316,7 @@ public class DragSortListView extends ListView {
             int height = childAt.getHeight();
             int a2 = a(i4, top);
             int dividerHeight = getDividerHeight();
-            if (this.f60538d < a2) {
+            if (this.f60537d < a2) {
                 while (i4 >= 0) {
                     i4--;
                     int a3 = a(i4);
@@ -2329,7 +2329,7 @@ public class DragSortListView extends ListView {
                     }
                     top -= a3 + dividerHeight;
                     int a4 = a(i4, top);
-                    if (this.f60538d >= a4) {
+                    if (this.f60537d >= a4) {
                         i3 = a2;
                         a2 = a4;
                         break;
@@ -2351,7 +2351,7 @@ public class DragSortListView extends ListView {
                     int i6 = i4 + 1;
                     int a5 = a(i6);
                     int a6 = a(i6, top);
-                    if (this.f60538d < a6) {
+                    if (this.f60537d < a6) {
                         i3 = a2;
                         a2 = a6;
                         break;
@@ -2370,7 +2370,7 @@ public class DragSortListView extends ListView {
             float f2 = this.ab;
             if (this.l) {
                 int abs = Math.abs(a2 - i3);
-                if (this.f60538d < a2) {
+                if (this.f60537d < a2) {
                     int i9 = a2;
                     a2 = i3;
                     i3 = i9;
@@ -2379,7 +2379,7 @@ public class DragSortListView extends ListView {
                 float f3 = i10;
                 int i11 = a2 + i10;
                 int i12 = i3 - i10;
-                int i13 = this.f60538d;
+                int i13 = this.f60537d;
                 if (i13 < i11) {
                     this.j = i4 - 1;
                     this.k = i4;
@@ -2406,13 +2406,13 @@ public class DragSortListView extends ListView {
                 this.k = i4;
             }
             z = (this.j == i7 && this.k == i8 && this.ab == f2) ? true : true;
-            int i14 = this.f60543i;
+            int i14 = this.f60542i;
             if (i4 != i14) {
                 b bVar = this.r;
                 if (bVar != null) {
                     bVar.a(i14 - headerViewsCount, i4 - headerViewsCount);
                 }
-                this.f60543i = i4;
+                this.f60542i = i4;
                 return true;
             }
             return z;
@@ -2460,7 +2460,7 @@ public class DragSortListView extends ListView {
             }
             int visibility = view.getVisibility();
             int i4 = 0;
-            if (i2 == this.m && this.f60535a != null) {
+            if (i2 == this.m && this.f60534a != null) {
                 i4 = 4;
             }
             if (i4 != visibility) {

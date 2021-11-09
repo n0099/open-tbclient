@@ -43,10 +43,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate[][] f61385a;
+        public final X509Certificate[][] f61384a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f61386b;
+        public final byte[] f61385b;
 
         public a(X509Certificate[][] x509CertificateArr, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public final class b {
                     return;
                 }
             }
-            this.f61385a = x509CertificateArr;
-            this.f61386b = bArr;
+            this.f61384a = x509CertificateArr;
+            this.f61385b = bArr;
         }
     }
 
@@ -94,7 +94,7 @@ public final class b {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
-                    ByteBuffer a2 = f.a(mVar.f61407a);
+                    ByteBuffer a2 = f.a(mVar.f61406a);
                     int i2 = 0;
                     while (a2.hasRemaining()) {
                         i2++;

@@ -12,10 +12,10 @@ public class v extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f65951h;
+    public int f65950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f65952i;
+    public int[] f65951i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(com.kwad.sdk.pngencrypt.k kVar) {
@@ -36,13 +36,13 @@ public class v extends aa {
                 return;
             }
         }
-        this.f65951h = 0;
+        this.f65950h = 0;
     }
 
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-            this.f65952i[i2] = (i3 << 16) | (i4 << 8) | i5;
+            this.f65951i[i2] = (i3 << 16) | (i4 << 8) | i5;
         }
     }
 
@@ -50,11 +50,11 @@ public class v extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            b(dVar.f65917a / 3);
+            b(dVar.f65916a / 3);
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.f65951h) {
-                byte[] bArr = dVar.f65920d;
+            while (i2 < this.f65950h) {
+                byte[] bArr = dVar.f65919d;
                 int i4 = i3 + 1;
                 int i5 = i4 + 1;
                 a(i2, bArr[i3] & 255, bArr[i4] & 255, bArr[i5] & 255);
@@ -67,13 +67,13 @@ public class v extends aa {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f65951h = i2;
+            this.f65950h = i2;
             if (i2 < 1 || i2 > 256) {
-                throw new PngjException("invalid pallette - nentries=" + this.f65951h);
+                throw new PngjException("invalid pallette - nentries=" + this.f65950h);
             }
-            int[] iArr = this.f65952i;
+            int[] iArr = this.f65951i;
             if (iArr == null || iArr.length != i2) {
-                this.f65952i = new int[this.f65951h];
+                this.f65951i = new int[this.f65950h];
             }
         }
     }

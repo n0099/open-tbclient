@@ -14,13 +14,13 @@ public class fu extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fs f70972a;
+    public final /* synthetic */ fs f70971a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Exception f419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f70973b;
+    public final /* synthetic */ int f70972b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu(fs fsVar, int i2, int i3, Exception exc) {
@@ -40,8 +40,8 @@ public class fu extends XMPushService.i {
                 return;
             }
         }
-        this.f70972a = fsVar;
-        this.f70973b = i3;
+        this.f70971a = fsVar;
+        this.f70972b = i3;
         this.f419a = exc;
     }
 
@@ -50,7 +50,7 @@ public class fu extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "shutdown the connection. " + this.f70973b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f419a;
+            return "shutdown the connection. " + this.f70972b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f419a;
         }
         return (String) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class fu extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f70972a.f70965b.a(this.f70973b, this.f419a);
+            this.f70971a.f70964b.a(this.f70972b, this.f419a);
         }
     }
 }

@@ -32,10 +32,10 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f55892e;
+    public c f55891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f55893f;
+    public b f55892f;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -77,10 +77,10 @@ public final class AssociatedItemContainer extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssociatedItemContainer f55894e;
+        public final /* synthetic */ AssociatedItemContainer f55893e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ItemCardView f55895f;
+        public final /* synthetic */ ItemCardView f55894f;
 
         public d(AssociatedItemContainer associatedItemContainer, ItemCardView itemCardView) {
             Interceptable interceptable = $ic;
@@ -97,32 +97,32 @@ public final class AssociatedItemContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f55894e = associatedItemContainer;
-            this.f55895f = itemCardView;
+            this.f55893e = associatedItemContainer;
+            this.f55894f = itemCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             ViewParent parent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (parent = this.f55895f.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (parent = this.f55894f.getParent()) == null) {
                 return;
             }
             if (parent != null) {
-                int indexOfChild = ((ViewGroup) parent).indexOfChild(this.f55895f);
-                AssociatedItemContainer associatedItemContainer = this.f55894e;
+                int indexOfChild = ((ViewGroup) parent).indexOfChild(this.f55894f);
+                AssociatedItemContainer associatedItemContainer = this.f55893e;
                 associatedItemContainer.removeViewsInLayout(indexOfChild, associatedItemContainer.getChildCount() == indexOfChild + 1 ? 1 : 2);
-                if (this.f55894e.getChildCount() > 0) {
-                    AssociatedItemContainer associatedItemContainer2 = this.f55894e;
+                if (this.f55893e.getChildCount() > 0) {
+                    AssociatedItemContainer associatedItemContainer2 = this.f55893e;
                     if (!(associatedItemContainer2.getChildAt(associatedItemContainer2.getChildCount() - 1) instanceof ItemCardView)) {
-                        AssociatedItemContainer associatedItemContainer3 = this.f55894e;
+                        AssociatedItemContainer associatedItemContainer3 = this.f55893e;
                         associatedItemContainer3.removeViewAt(associatedItemContainer3.getChildCount() - 1);
                     }
                 }
-                this.f55894e.requestLayout();
-                c onDeletedListener = this.f55894e.getOnDeletedListener();
+                this.f55893e.requestLayout();
+                c onDeletedListener = this.f55893e.getOnDeletedListener();
                 if (onDeletedListener != null) {
-                    Object tag = this.f55895f.getTag(R.id.key_item_data);
+                    Object tag = this.f55894f.getTag(R.id.key_item_data);
                     if (tag == null) {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.core.data.ItemData");
                     }
@@ -190,7 +190,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             itemCardView.setOnCloseListener(new d(this, itemCardView));
             itemCardView.setData(itemData, 10, "", false);
             addView(itemCardView);
-            b bVar = this.f55893f;
+            b bVar = this.f55892f;
             if (bVar != null) {
                 bVar.a(z);
             }
@@ -200,13 +200,13 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final b getOnAddedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55893f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55892f : (b) invokeV.objValue;
     }
 
     public final c getOnDeletedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55892e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55891e : (c) invokeV.objValue;
     }
 
     public final void onChangeSkin() {
@@ -223,14 +223,14 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final void setOnAddedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f55893f = bVar;
+            this.f55892f = bVar;
         }
     }
 
     public final void setOnDeletedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f55892e = cVar;
+            this.f55891e = cVar;
         }
     }
 

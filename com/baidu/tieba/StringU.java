@@ -16,7 +16,7 @@ public class StringU {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f46589a;
+    public static boolean f46588a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class StringU {
         }
         try {
             boolean j = h.f().j("stringu", 2);
-            f46589a = j;
+            f46588a = j;
             if (j) {
                 a("stringu_so_load_success", null);
             } else {
@@ -80,7 +80,7 @@ public class StringU {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f46589a || TextUtils.isEmpty(str)) {
+            if (!f46588a || TextUtils.isEmpty(str)) {
                 str2 = "";
             } else {
                 try {

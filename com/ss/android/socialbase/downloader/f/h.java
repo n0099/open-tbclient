@@ -12,10 +12,10 @@ public class h implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f69337a;
+    public final e f69336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f69338b;
+    public final e f69337b;
 
     public h(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class h implements e {
                 return;
             }
         }
-        this.f69337a = eVar;
-        this.f69338b = eVar2;
+        this.f69336a = eVar;
+        this.f69337b = eVar2;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.f69316b = this.f69338b;
-            this.f69337a.b(aVar);
+            aVar.f69315b = this.f69337b;
+            this.f69336a.b(aVar);
         }
     }
 }

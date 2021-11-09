@@ -357,7 +357,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (b.f63897c.booleanValue()) {
+            if (b.f63896c.booleanValue()) {
                 throw new RuntimeException("please use getContext().getResources()");
             }
             return this.mBase.getContext().getResources();

@@ -18,7 +18,7 @@ public class bj extends al.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bi f71468a;
+    public final /* synthetic */ bi f71467a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f938a;
@@ -38,7 +38,7 @@ public class bj extends al.b {
                 return;
             }
         }
-        this.f71468a = biVar;
+        this.f71467a = biVar;
         this.f938a = false;
     }
 
@@ -57,13 +57,13 @@ public class bj extends al.b {
         }
         try {
             String a3 = a.a(com.xiaomi.push.t.m639a()).a();
-            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.f71353a.name().equals(a3)) {
+            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.f71352a.name().equals(a3)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
                 a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m639a(), str, (List<com.xiaomi.push.bf>) null), 10));
                 if (a2 == null) {
-                    this.f71468a.f936a = a2;
+                    this.f71467a.f936a = a2;
                     this.f938a = true;
-                    this.f71468a.e();
+                    this.f71467a.e();
                     return;
                 }
                 return;
@@ -86,15 +86,15 @@ public class bj extends al.b {
         dt.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f71468a.f935a = null;
+            this.f71467a.f935a = null;
             if (this.f938a) {
-                synchronized (this.f71468a) {
-                    list = this.f71468a.f937a;
-                    list2 = this.f71468a.f937a;
+                synchronized (this.f71467a) {
+                    list = this.f71467a.f937a;
+                    list2 = this.f71467a.f937a;
                     aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
                 }
                 for (bi.a aVar2 : aVarArr) {
-                    aVar = this.f71468a.f936a;
+                    aVar = this.f71467a.f936a;
                     aVar2.a(aVar);
                 }
             }

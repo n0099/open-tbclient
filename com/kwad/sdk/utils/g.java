@@ -13,10 +13,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Executor f66700a;
+    public static volatile Executor f66699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile ScheduledExecutorService f66701b;
+    public static volatile ScheduledExecutorService f66700b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,23 +32,23 @@ public class g {
                 return;
             }
         }
-        f66700a = com.kwad.sdk.core.i.b.n();
+        f66699a = com.kwad.sdk.core.i.b.n();
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f66700a.execute(runnable);
+            f66699a.execute(runnable);
         }
     }
 
     public static void a(Runnable runnable, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), timeUnit}) == null) {
-            if (f66701b == null) {
-                f66701b = com.kwad.sdk.core.i.b.o();
+            if (f66700b == null) {
+                f66700b = com.kwad.sdk.core.i.b.o();
             }
-            f66701b.schedule(runnable, j, timeUnit);
+            f66700b.schedule(runnable, j, timeUnit);
         }
     }
 }

@@ -87,7 +87,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50144e;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50143e;
 
         public a(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                     return;
                 }
             }
-            this.f50144e = workPublishHotTopicSelectActivity;
+            this.f50143e = workPublishHotTopicSelectActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -112,20 +112,20 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 String obj = editable.toString();
-                if (this.f50144e.mSelectedList.size() >= this.f50144e.mMaxSelected) {
+                if (this.f50143e.mSelectedList.size() >= this.f50143e.mMaxSelected) {
                     editable.clear();
                     return;
                 }
                 if (obj == null || obj.trim().length() <= 0) {
-                    this.f50144e.afterDealText();
+                    this.f50143e.afterDealText();
                 } else {
-                    this.f50144e.mNoDataView.setVisibility(8);
-                    this.f50144e.mListCustomView.setVisibility(8);
-                    this.f50144e.showLoadingView();
-                    this.f50144e.mHotModel.K(obj);
+                    this.f50143e.mNoDataView.setVisibility(8);
+                    this.f50143e.mListCustomView.setVisibility(8);
+                    this.f50143e.showLoadingView();
+                    this.f50143e.mHotModel.K(obj);
                 }
-                this.f50144e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
-                this.f50144e.setTopicTextViewColor();
+                this.f50143e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.f50143e.setTopicTextViewColor();
             }
         }
 
@@ -150,7 +150,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50145a;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50144a;
 
         public b(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                     return;
                 }
             }
-            this.f50145a = workPublishHotTopicSelectActivity;
+            this.f50144a = workPublishHotTopicSelectActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -203,9 +203,46 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50146e;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50145e;
 
         public c(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishHotTopicSelectActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50145e = workPublishHotTopicSelectActivity;
+        }
+
+        @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
+        public void onLabelClick(TextView textView, Object obj, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, textView, obj, i2) == null) && (obj instanceof String)) {
+                this.f50145e.mSelectedList.remove(obj);
+                this.f50145e.mTopicViewNums.setText(String.format("(%d/%d)", Integer.valueOf(this.f50145e.mSelectedList.size()), Integer.valueOf(this.f50145e.mMaxSelected)));
+                this.f50145e.mTopicView.setLabels(this.f50145e.mSelectedList, this.f50145e.mLabelTextprovider);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50146e;
+
+        public d(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,26 +260,29 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.f50146e = workPublishHotTopicSelectActivity;
         }
 
-        @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
-        public void onLabelClick(TextView textView, Object obj, int i2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, textView, obj, i2) == null) && (obj instanceof String)) {
-                this.f50146e.mSelectedList.remove(obj);
-                this.f50146e.mTopicViewNums.setText(String.format("(%d/%d)", Integer.valueOf(this.f50146e.mSelectedList.size()), Integer.valueOf(this.f50146e.mMaxSelected)));
-                this.f50146e.mTopicView.setLabels(this.f50146e.mSelectedList, this.f50146e.mLabelTextprovider);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (view == this.f50146e.mClearView) {
+                    this.f50146e.clearAllTextStatus();
+                } else if (view == this.f50146e.mDoneText) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921602, this.f50146e.mSelectedList));
+                    this.f50146e.close();
+                }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class d implements View.OnClickListener {
+    public class e implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishHotTopicSelectActivity f50147e;
 
-        public d(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
+        public e(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,56 +300,16 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.f50147e = workPublishHotTopicSelectActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f50147e.mClearView) {
-                    this.f50147e.clearAllTextStatus();
-                } else if (view == this.f50147e.mDoneText) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921602, this.f50147e.mSelectedList));
-                    this.f50147e.close();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class e implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50148e;
-
-        public e(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishHotTopicSelectActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50148e = workPublishHotTopicSelectActivity;
-        }
-
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             b.a.r0.k1.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (dVar = (b.a.r0.k1.d) ListUtils.getItem(this.f50148e.mSuggestAdatper.d(), i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (dVar = (b.a.r0.k1.d) ListUtils.getItem(this.f50147e.mSuggestAdatper.d(), i2)) == null) {
                 return;
             }
             String b2 = dVar.b();
-            this.f50148e.addTopicToView(b2);
-            this.f50148e.addClickStats(b2, 3);
+            this.f50147e.addTopicToView(b2);
+            this.f50147e.addClickStats(b2, 3);
         }
     }
 
@@ -319,7 +319,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50149a;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50148a;
 
         public f(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                     return;
                 }
             }
-            this.f50149a = workPublishHotTopicSelectActivity;
+            this.f50148a = workPublishHotTopicSelectActivity;
         }
 
         @Override // android.widget.ExpandableListView.OnGroupClickListener
@@ -344,8 +344,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                if (this.f50149a.mLvNoSearch != null) {
-                    this.f50149a.mLvNoSearch.expandGroup(i2);
+                if (this.f50148a.mLvNoSearch != null) {
+                    this.f50148a.mLvNoSearch.expandGroup(i2);
                     return true;
                 }
                 return true;
@@ -360,9 +360,57 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50150e;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50149e;
 
         public g(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishHotTopicSelectActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50149e = workPublishHotTopicSelectActivity;
+        }
+
+        @Override // android.widget.ExpandableListView.OnChildClickListener
+        public boolean onChildClick(ExpandableListView expandableListView, View view, int i2, int i3, long j) {
+            InterceptResult invokeCommon;
+            b.a.r0.k1.d child;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+                if (this.f50149e.mNoSearchAdapter == null || (child = this.f50149e.mNoSearchAdapter.getChild(i2, i3)) == null) {
+                    return false;
+                }
+                String b2 = child.b();
+                this.f50149e.addTopicToView(b2);
+                b.a.r0.k1.c group = this.f50149e.mNoSearchAdapter.getGroup(i2);
+                if (group != null) {
+                    this.f50149e.addClickStats(b2, group.getType() == 0 ? 1 : 2);
+                    return false;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class h implements View.OnFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50150e;
+
+        public h(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -380,37 +428,25 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.f50150e = workPublishHotTopicSelectActivity;
         }
 
-        @Override // android.widget.ExpandableListView.OnChildClickListener
-        public boolean onChildClick(ExpandableListView expandableListView, View view, int i2, int i3, long j) {
-            InterceptResult invokeCommon;
-            b.a.r0.k1.d child;
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
-                if (this.f50150e.mNoSearchAdapter == null || (child = this.f50150e.mNoSearchAdapter.getChild(i2, i3)) == null) {
-                    return false;
-                }
-                String b2 = child.b();
-                this.f50150e.addTopicToView(b2);
-                b.a.r0.k1.c group = this.f50150e.mNoSearchAdapter.getGroup(i2);
-                if (group != null) {
-                    this.f50150e.addClickStats(b2, group.getType() == 0 ? 1 : 2);
-                    return false;
-                }
-                return false;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
+                return;
             }
-            return invokeCommon.booleanValue;
+            l.x(this.f50150e.getPageContext().getPageActivity(), view);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class h implements View.OnFocusChangeListener {
+    public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishHotTopicSelectActivity f50151e;
 
-        public h(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
+        public i(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -428,49 +464,13 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.f50151e = workPublishHotTopicSelectActivity;
         }
 
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
-                return;
-            }
-            l.x(this.f50151e.getPageContext().getPageActivity(), view);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class i implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50152e;
-
-        public i(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishHotTopicSelectActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50152e = workPublishHotTopicSelectActivity;
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50152e.mSelectedList.size() < this.f50152e.mMaxSelected) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50151e.mSelectedList.size() < this.f50151e.mMaxSelected) {
                 return;
             }
-            new BdTopToast(this.f50152e.getPageContext().getPageActivity()).setIcon(false).setContent(this.f50152e.getString(R.string.topic_num_already_max)).show((ViewGroup) this.f50152e.getPageContext().getPageActivity().findViewById(R.id.suspend_root_view));
+            new BdTopToast(this.f50151e.getPageContext().getPageActivity()).setIcon(false).setContent(this.f50151e.getString(R.string.topic_num_already_max)).show((ViewGroup) this.f50151e.getPageContext().getPageActivity().findViewById(R.id.suspend_root_view));
         }
     }
 
@@ -480,7 +480,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50153a;
+        public final /* synthetic */ WorkPublishHotTopicSelectActivity f50152a;
 
         public j(WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -497,7 +497,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                     return;
                 }
             }
-            this.f50153a = workPublishHotTopicSelectActivity;
+            this.f50152a = workPublishHotTopicSelectActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -506,11 +506,11 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    l.K(this.f50153a.getPageContext().getPageActivity(), textView);
-                    if (TextUtils.isEmpty(this.f50153a.getSearchKey())) {
+                    l.K(this.f50152a.getPageContext().getPageActivity(), textView);
+                    if (TextUtils.isEmpty(this.f50152a.getSearchKey())) {
                         return true;
                     }
-                    WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity = this.f50153a;
+                    WorkPublishHotTopicSelectActivity workPublishHotTopicSelectActivity = this.f50152a;
                     workPublishHotTopicSelectActivity.addTopicToView(workPublishHotTopicSelectActivity.getSearchKey());
                     return true;
                 }

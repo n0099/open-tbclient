@@ -12,10 +12,10 @@ public abstract class ae extends s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65907h;
+    public String f65906h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f65908i;
+    public String f65907i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(String str, com.kwad.sdk.pngencrypt.k kVar) {
@@ -41,12 +41,12 @@ public abstract class ae extends s {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65907h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65906h : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65908i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65907i : (String) invokeV.objValue;
     }
 }

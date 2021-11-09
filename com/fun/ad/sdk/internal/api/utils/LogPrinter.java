@@ -20,7 +20,7 @@ public final class LogPrinter {
     public static final String TAG = "FunAdSdk";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f62864a;
+    public static final Pattern f62863a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class LogPrinter {
                 return;
             }
         }
-        f62864a = Pattern.compile("(\\$\\d+)+$");
+        f62863a = Pattern.compile("(\\$\\d+)+$");
     }
 
     public LogPrinter() {
@@ -65,7 +65,7 @@ public final class LogPrinter {
                     str = String.format(str, objArr);
                 }
                 String className = stackTrace[2].getClassName();
-                Matcher matcher = f62864a.matcher(className);
+                Matcher matcher = f62863a.matcher(className);
                 String str2 = "";
                 if (matcher.find()) {
                     className = matcher.replaceAll("");

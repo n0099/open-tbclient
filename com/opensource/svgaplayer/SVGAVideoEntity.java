@@ -52,31 +52,31 @@ public final class SVGAVideoEntity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67757a;
+    public boolean f67756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f67758b;
+    public c f67757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67759c;
+    public int f67758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67760d;
+    public int f67759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<f> f67761e;
+    public List<f> f67760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.n.a.g.a> f67762f;
+    public List<b.n.a.g.a> f67761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SoundPool f67763g;
+    public SoundPool f67762g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, Bitmap> f67764h;
+    public HashMap<String, Bitmap> f67763h;
 
     /* renamed from: i  reason: collision with root package name */
-    public File f67765i;
+    public File f67764i;
     public MovieEntity j;
 
     /* loaded from: classes2.dex */
@@ -85,16 +85,16 @@ public final class SVGAVideoEntity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Ref.IntRef f67766a;
+        public final /* synthetic */ Ref.IntRef f67765a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f67767b;
+        public final /* synthetic */ List f67766b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SVGAVideoEntity f67768c;
+        public final /* synthetic */ SVGAVideoEntity f67767c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Function0 f67769d;
+        public final /* synthetic */ Function0 f67768d;
 
         public a(Ref.IntRef intRef, List list, SVGAVideoEntity sVGAVideoEntity, Function0 function0, MovieEntity movieEntity) {
             Interceptable interceptable = $ic;
@@ -111,21 +111,21 @@ public final class SVGAVideoEntity {
                     return;
                 }
             }
-            this.f67766a = intRef;
-            this.f67767b = list;
-            this.f67768c = sVGAVideoEntity;
-            this.f67769d = function0;
+            this.f67765a = intRef;
+            this.f67766b = list;
+            this.f67767c = sVGAVideoEntity;
+            this.f67768d = function0;
         }
 
         @Override // android.media.SoundPool.OnLoadCompleteListener
         public final void onLoadComplete(SoundPool soundPool, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, soundPool, i2, i3) == null) {
-                Ref.IntRef intRef = this.f67766a;
+                Ref.IntRef intRef = this.f67765a;
                 int i4 = intRef.element + 1;
                 intRef.element = i4;
-                if (i4 >= this.f67767b.size()) {
-                    this.f67769d.invoke();
+                if (i4 >= this.f67766b.size()) {
+                    this.f67768d.invoke();
                 }
             }
         }
@@ -146,21 +146,21 @@ public final class SVGAVideoEntity {
                 return;
             }
         }
-        this.f67757a = true;
-        this.f67758b = new c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.f67759c = 15;
-        this.f67761e = CollectionsKt__CollectionsKt.emptyList();
-        this.f67762f = CollectionsKt__CollectionsKt.emptyList();
-        this.f67764h = new HashMap<>();
-        this.f67765i = file;
+        this.f67756a = true;
+        this.f67757b = new c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.f67758c = 15;
+        this.f67760e = CollectionsKt__CollectionsKt.emptyList();
+        this.f67761f = CollectionsKt__CollectionsKt.emptyList();
+        this.f67763h = new HashMap<>();
+        this.f67764i = file;
         JSONObject optJSONObject = jSONObject.optJSONObject("movie");
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("viewBox");
             if (optJSONObject2 != null) {
-                this.f67758b = new c(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
+                this.f67757b = new c(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
             }
-            this.f67759c = optJSONObject.optInt(FpsConstants.REPORT_FPS, 20);
-            this.f67760d = optJSONObject.optInt("frames", 0);
+            this.f67758c = optJSONObject.optInt(FpsConstants.REPORT_FPS, 20);
+            this.f67759d = optJSONObject.optInt("frames", 0);
         }
         l(jSONObject);
         n(jSONObject);
@@ -169,61 +169,61 @@ public final class SVGAVideoEntity {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67757a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67756a : invokeV.booleanValue;
     }
 
     public final List<b.n.a.g.a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67762f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67761f : (List) invokeV.objValue;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67759c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67758c : invokeV.intValue;
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67760d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67759d : invokeV.intValue;
     }
 
     public final HashMap<String, Bitmap> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67764h : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67763h : (HashMap) invokeV.objValue;
     }
 
     public final SoundPool f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67763g : (SoundPool) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67762g : (SoundPool) invokeV.objValue;
     }
 
     public final void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SoundPool soundPool = this.f67763g;
+            SoundPool soundPool = this.f67762g;
             if (soundPool != null) {
                 soundPool.release();
             }
-            this.f67763g = null;
-            this.f67764h.clear();
+            this.f67762g = null;
+            this.f67763h.clear();
         }
     }
 
     public final List<f> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67761e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67760e : (List) invokeV.objValue;
     }
 
     public final c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67758b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67757b : (c) invokeV.objValue;
     }
 
     public final void i(Function0<Unit> function0) {
@@ -315,8 +315,8 @@ public final class SVGAVideoEntity {
                         soundPool = soundPool2;
                         hashMap2 = hashMap;
                     }
-                    this.f67762f = arrayList;
-                    this.f67763g = soundPool;
+                    this.f67761f = arrayList;
+                    this.f67762g = soundPool;
                     return;
                 }
             }
@@ -351,13 +351,13 @@ public final class SVGAVideoEntity {
                     options2 = e.f33159a;
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArray, 0, length, options2);
                     if (decodeByteArray != null) {
-                        HashMap<String, Bitmap> hashMap = this.f67764h;
+                        HashMap<String, Bitmap> hashMap = this.f67763h;
                         Intrinsics.checkExpressionValueIsNotNull(imageKey, "imageKey");
                         hashMap.put(imageKey, decodeByteArray);
                     } else {
                         String utf8 = ((ByteString) entry.getValue()).utf8();
                         if (utf8 != null) {
-                            String str = this.f67765i.getAbsolutePath() + "/" + utf8;
+                            String str = this.f67764i.getAbsolutePath() + "/" + utf8;
                             if (new File(str).exists()) {
                                 options4 = e.f33159a;
                                 bitmap = BitmapFactory.decodeFile(str, options4);
@@ -365,15 +365,15 @@ public final class SVGAVideoEntity {
                                 bitmap = null;
                             }
                             if (bitmap != null) {
-                                this.f67764h.put(imageKey, bitmap);
+                                this.f67763h.put(imageKey, bitmap);
                             } else {
-                                String str2 = this.f67765i.getAbsolutePath() + "/" + imageKey + ".png";
+                                String str2 = this.f67764i.getAbsolutePath() + "/" + imageKey + ".png";
                                 String str3 = new File(str2).exists() ? str2 : null;
                                 if (str3 != null) {
                                     options3 = e.f33159a;
                                     Bitmap decodeFile = BitmapFactory.decodeFile(str3, options3);
                                     if (decodeFile != null) {
-                                        this.f67764h.put(imageKey, decodeFile);
+                                        this.f67763h.put(imageKey, decodeFile);
                                     }
                                 }
                             }
@@ -400,7 +400,7 @@ public final class SVGAVideoEntity {
             String next = keys.next();
             options = e.f33159a;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            String str = this.f67765i.getAbsolutePath() + "/" + optJSONObject.get(next);
+            String str = this.f67764i.getAbsolutePath() + "/" + optJSONObject.get(next);
             if (new File(str).exists()) {
                 options3 = e.f33159a;
                 bitmap = BitmapFactory.decodeFile(str, options3);
@@ -408,15 +408,15 @@ public final class SVGAVideoEntity {
                 bitmap = null;
             }
             if (bitmap != null) {
-                this.f67764h.put(next, bitmap);
+                this.f67763h.put(next, bitmap);
             } else {
-                String str2 = this.f67765i.getAbsolutePath() + "/" + next + ".png";
+                String str2 = this.f67764i.getAbsolutePath() + "/" + next + ".png";
                 String str3 = new File(str2).exists() ? str2 : null;
                 if (str3 != null) {
                     options2 = e.f33159a;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str3, options2);
                     if (decodeFile != null) {
-                        this.f67764h.put(next, decodeFile);
+                        this.f67763h.put(next, decodeFile);
                     }
                 }
             }
@@ -437,7 +437,7 @@ public final class SVGAVideoEntity {
             } else {
                 emptyList = CollectionsKt__CollectionsKt.emptyList();
             }
-            this.f67761e = emptyList;
+            this.f67760e = emptyList;
         }
     }
 
@@ -455,14 +455,14 @@ public final class SVGAVideoEntity {
                     }
                 }
             }
-            this.f67761e = CollectionsKt___CollectionsKt.toList(arrayList);
+            this.f67760e = CollectionsKt___CollectionsKt.toList(arrayList);
         }
     }
 
     public final void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f67757a = z;
+            this.f67756a = z;
         }
     }
 
@@ -482,22 +482,22 @@ public final class SVGAVideoEntity {
                 return;
             }
         }
-        this.f67757a = true;
-        this.f67758b = new c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.f67759c = 15;
-        this.f67761e = CollectionsKt__CollectionsKt.emptyList();
-        this.f67762f = CollectionsKt__CollectionsKt.emptyList();
-        this.f67764h = new HashMap<>();
+        this.f67756a = true;
+        this.f67757b = new c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.f67758c = 15;
+        this.f67760e = CollectionsKt__CollectionsKt.emptyList();
+        this.f67761f = CollectionsKt__CollectionsKt.emptyList();
+        this.f67763h = new HashMap<>();
         this.j = movieEntity;
-        this.f67765i = file;
+        this.f67764i = file;
         MovieParams movieParams = movieEntity.params;
         if (movieParams != null) {
             Float f3 = movieParams.viewBoxWidth;
-            this.f67758b = new c(0.0d, 0.0d, f3 != null ? f3.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f2.floatValue() : 0.0f);
+            this.f67757b = new c(0.0d, 0.0d, f3 != null ? f3.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f2.floatValue() : 0.0f);
             Integer num = movieParams.fps;
-            this.f67759c = num != null ? num.intValue() : 20;
+            this.f67758c = num != null ? num.intValue() : 20;
             Integer num2 = movieParams.frames;
-            this.f67760d = num2 != null ? num2.intValue() : 0;
+            this.f67759d = num2 != null ? num2.intValue() : 0;
         }
         try {
             k(movieEntity);

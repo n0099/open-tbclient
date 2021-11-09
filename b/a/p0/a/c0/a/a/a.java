@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.c0.a.a.b;
 import b.a.p0.a.c0.a.c.c;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +122,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends b.a.p0.a.c0
                         break;
                     }
                     break;
-                case 3304:
+                case SpeedStatsStampTable.AD_SDK_DO_SHOW_STAMP_KEY /* 3304 */:
                     if (str2.equals("go")) {
                         c2 = 3;
                         break;

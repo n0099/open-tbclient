@@ -12,10 +12,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f71674a;
+    public static o f71673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Executor f71675b;
+    public static Executor f71674b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public o() {
@@ -36,15 +36,15 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f71674a == null) {
+            if (f71673a == null) {
                 synchronized (o.class) {
-                    if (f71674a == null) {
-                        f71674a = new o();
-                        f71675b = Executors.newFixedThreadPool(1);
+                    if (f71673a == null) {
+                        f71673a = new o();
+                        f71674b = Executors.newFixedThreadPool(1);
                     }
                 }
             }
-            return f71674a;
+            return f71673a;
         }
         return (o) invokeV.objValue;
     }
@@ -55,7 +55,7 @@ public class o {
             return;
         }
         try {
-            f71675b.execute(runnable);
+            f71674b.execute(runnable);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

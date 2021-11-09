@@ -21,19 +21,19 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<b.a.r0.b1.b.a> f49266e;
+    public ArrayList<b.a.r0.b1.b.a> f49265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<j0> f49267f;
+    public ArrayList<j0> f49266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f49268g;
+    public ArrayList<e> f49267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49269h;
+    public String f49268h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49270i;
+    public int f49269i;
     public b j;
     public b.a.e.c.g.a k;
 
@@ -43,7 +43,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultGiftListModel f49271a;
+        public final /* synthetic */ DefaultGiftListModel f49270a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DefaultGiftListModel defaultGiftListModel, int i2, int i3) {
@@ -64,7 +64,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f49271a = defaultGiftListModel;
+            this.f49270a = defaultGiftListModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
@@ -88,34 +88,34 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                this.f49271a.f49266e = defaultGiftListHttpResponseMessage.getCategoryList();
-                this.f49271a.f49267f = defaultGiftListHttpResponseMessage.getGiftList();
-                this.f49271a.f49268g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                this.f49271a.f49269h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
-                this.f49271a.f49270i = defaultGiftListHttpResponseMessage.getFreeChance();
+                this.f49270a.f49265e = defaultGiftListHttpResponseMessage.getCategoryList();
+                this.f49270a.f49266f = defaultGiftListHttpResponseMessage.getGiftList();
+                this.f49270a.f49267g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                this.f49270a.f49268h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                this.f49270a.f49269i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i3 = defaultGiftListHttpResponseMessage.currencyType;
                 k0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
                 k0Var = null;
                 i2 = 0;
-                if (this.f49271a.j == null) {
-                    this.f49271a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f49271a.f49270i, this.f49271a.f49269h, i2, k0Var, this.f49271a.f49266e, this.f49271a.f49267f, this.f49271a.f49268g);
+                if (this.f49270a.j == null) {
+                    this.f49270a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f49270a.f49269i, this.f49270a.f49268h, i2, k0Var, this.f49270a.f49265e, this.f49270a.f49266f, this.f49270a.f49267g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                this.f49271a.f49266e = defaultGiftListSocketResponseMessage.getCategoryList();
-                this.f49271a.f49267f = defaultGiftListSocketResponseMessage.getGiftList();
-                this.f49271a.f49268g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                this.f49271a.f49269h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
-                this.f49271a.f49270i = defaultGiftListSocketResponseMessage.getFreeChance();
+                this.f49270a.f49265e = defaultGiftListSocketResponseMessage.getCategoryList();
+                this.f49270a.f49266f = defaultGiftListSocketResponseMessage.getGiftList();
+                this.f49270a.f49267g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                this.f49270a.f49268h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                this.f49270a.f49269i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i3 = defaultGiftListSocketResponseMessage.currencyType;
                 k0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
             i2 = i3;
             k0Var = k0Var2;
-            if (this.f49271a.j == null) {
+            if (this.f49270a.j == null) {
             }
         }
     }

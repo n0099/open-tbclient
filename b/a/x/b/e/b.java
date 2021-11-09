@@ -157,12 +157,12 @@ public class b extends a implements c {
                 GLES20.glClear(16384);
             }
             if (bVar.e()) {
-                GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                 GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
             }
             GLES20.glDrawArrays(5, 0, aVar.e());
             if (bVar.e()) {
-                GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             }
         }
     }

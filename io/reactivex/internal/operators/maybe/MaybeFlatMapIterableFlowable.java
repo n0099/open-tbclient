@@ -38,7 +38,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72504d;
+        public Disposable f72503d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -69,8 +69,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f72504d.dispose();
-                this.f72504d = DisposableHelper.DISPOSED;
+                this.f72503d.dispose();
+                this.f72503d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -191,7 +191,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-                this.f72504d = DisposableHelper.DISPOSED;
+                this.f72503d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -199,8 +199,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f72504d, disposable)) {
-                this.f72504d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f72503d, disposable)) {
+                this.f72503d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

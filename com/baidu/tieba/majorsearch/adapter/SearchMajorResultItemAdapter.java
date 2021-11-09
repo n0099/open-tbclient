@@ -27,16 +27,16 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51365a;
+    public String f51364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f51366b;
+    public Context f51365b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f51367c;
+    public List<String> f51366c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f51368d;
+    public b f51367d;
 
     /* loaded from: classes9.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,7 +44,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f51369a;
+        public TextView f51368a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(SearchMajorResultItemAdapter searchMajorResultItemAdapter, View view) {
@@ -64,7 +64,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                     return;
                 }
             }
-            this.f51369a = (TextView) view.findViewById(R.id.tv_major_name);
+            this.f51368a = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
@@ -74,10 +74,10 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51370e;
+        public final /* synthetic */ String f51369e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorResultItemAdapter f51371f;
+        public final /* synthetic */ SearchMajorResultItemAdapter f51370f;
 
         public a(SearchMajorResultItemAdapter searchMajorResultItemAdapter, String str) {
             Interceptable interceptable = $ic;
@@ -94,17 +94,17 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                     return;
                 }
             }
-            this.f51371f = searchMajorResultItemAdapter;
-            this.f51370e = str;
+            this.f51370f = searchMajorResultItemAdapter;
+            this.f51369e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51371f.f51368d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51370f.f51367d == null) {
                 return;
             }
-            this.f51371f.f51368d.a(this.f51370e);
+            this.f51370f.f51367d.a(this.f51369e);
         }
     }
 
@@ -128,16 +128,16 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                 return;
             }
         }
-        this.f51366b = context;
+        this.f51365b = context;
     }
 
     public final void b(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f51365a)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f51364a)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f51365a.toLowerCase();
+        String lowerCase2 = this.f51364a.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -145,7 +145,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f51365a.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f51364a.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
@@ -154,7 +154,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<String> list = this.f51367c;
+            List<String> list = this.f51366c;
             if (list == null) {
                 return 0;
             }
@@ -166,7 +166,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public void setData(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f51367c = list;
+            this.f51366c = list;
             notifyDataSetChanged();
         }
     }
@@ -174,14 +174,14 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public void setKeyWord(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f51365a = str;
+            this.f51364a = str;
         }
     }
 
     public void setNoData() {
         List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (list = this.f51367c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (list = this.f51366c) == null) {
             return;
         }
         list.clear();
@@ -191,7 +191,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public void setOnItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f51368d = bVar;
+            this.f51367d = bVar;
         }
     }
 
@@ -200,17 +200,17 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
         List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i2) == null) || (list = this.f51367c) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i2) == null) || (list = this.f51366c) == null) {
             return;
         }
         String str = list.get(i2);
         if (StringUtils.isNull(str)) {
             return;
         }
-        viewHolder.f51369a.setText(str);
-        SkinManager.setViewTextColor(viewHolder.f51369a, R.color.CAM_X0105);
+        viewHolder.f51368a.setText(str);
+        SkinManager.setViewTextColor(viewHolder.f51368a, R.color.CAM_X0105);
         SkinManager.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-        b(viewHolder.f51369a, str);
+        b(viewHolder.f51368a, str);
         viewHolder.itemView.setOnClickListener(new a(this, str));
     }
 
@@ -220,6 +220,6 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f51366b).inflate(R.layout.search_major_item_layout, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f51365b).inflate(R.layout.search_major_item_layout, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 }

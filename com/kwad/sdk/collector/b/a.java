@@ -16,7 +16,7 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1892a f64147b;
+    public C1892a f64146b;
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -25,7 +25,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f64148a;
+        public List<String> f64147a;
 
         public C1892a(List<String> list) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f64148a = list;
+            this.f64147a = list;
         }
 
         public JSONObject a() {
@@ -50,7 +50,7 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "packageName", this.f64148a);
+                q.a(jSONObject, "packageName", this.f64147a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -73,7 +73,7 @@ public class a extends d {
             }
         }
         C1892a c1892a = new C1892a(list);
-        this.f64147b = c1892a;
+        this.f64146b = c1892a;
         a("targetAppInfo", c1892a.a());
         b(CommandMessage.SDK_VERSION, "3.3.11.4");
         a("sdkVersionCode", 3031104);

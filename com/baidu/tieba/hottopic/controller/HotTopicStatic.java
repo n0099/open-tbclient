@@ -166,7 +166,7 @@ public class HotTopicStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f50013a;
+            public final /* synthetic */ g f50012a;
 
             public a(d dVar, g gVar) {
                 Interceptable interceptable = $ic;
@@ -183,7 +183,7 @@ public class HotTopicStatic {
                         return;
                     }
                 }
-                this.f50013a = gVar;
+                this.f50012a = gVar;
             }
 
             @Override // b.a.q0.h0.b
@@ -193,8 +193,8 @@ public class HotTopicStatic {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("fid", this.f50013a.b());
-                    bundle.putString("from", this.f50013a.d());
+                    bundle.putString("fid", this.f50012a.b());
+                    bundle.putString("from", this.f50012a.d());
                     frsHottopicFragment.setArguments(bundle);
                     b.a.q0.h0.c cVar = new b.a.q0.h0.c();
                     cVar.f12612a = frsHottopicFragment;

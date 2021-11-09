@@ -14,7 +14,7 @@ public final class f implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f56725a;
+    public final /* synthetic */ ScreenCapEditActivity f56724a;
 
     public f(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class f implements View.OnClickListener {
                 return;
             }
         }
-        this.f56725a = screenCapEditActivity;
+        this.f56724a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,12 +41,12 @@ public final class f implements View.OnClickListener {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            imageView = this.f56725a.f56708e;
+            imageView = this.f56724a.f56707e;
             if (imageView != null) {
-                bitmap = this.f56725a.f56710g;
+                bitmap = this.f56724a.f56709g;
                 if (bitmap != null) {
-                    this.f56725a.a(true);
-                    handler = this.f56725a.N;
+                    this.f56724a.a(true);
+                    handler = this.f56724a.N;
                     handler.obtainMessage(0).sendToTarget();
                 }
             }

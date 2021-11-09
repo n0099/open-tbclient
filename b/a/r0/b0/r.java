@@ -208,7 +208,7 @@ public class r {
                 if (this.f14854e.o) {
                     this.f14854e.n.Q(this.f14854e.f14849g.t);
                 }
-                this.f14854e.n.S(this.f14854e.f14849g.f47456e, this.f14854e.f14849g.l, this.f14854e.f14849g.f47457f, this.f14854e.f14849g.f47460i, 0, 0, true, this.f14854e.f14849g.t.L(), false);
+                this.f14854e.n.S(this.f14854e.f14849g.f47455e, this.f14854e.f14849g.l, this.f14854e.f14849g.f47456f, this.f14854e.f14849g.f47459i, 0, 0, true, this.f14854e.f14849g.t.L(), false);
                 aVar.dismiss();
             }
         }
@@ -301,7 +301,7 @@ public class r {
                 if (this.f14855a.f14848f != null) {
                     this.f14855a.f14848f.a(true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, this.f14855a.f14849g.f47457f));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, this.f14855a.f14849g.f47456f));
             }
         }
     }
@@ -484,20 +484,20 @@ public class r {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ForumManageModel.b)) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                if (bVar.f54250c == 0) {
+                if (bVar.f54249c == 0) {
                     b.a.e.e.p.l.L(this.f14859a.f14844b, R.string.delete_success);
                     if (this.f14859a.f14849g != null) {
                         if (b.a.e.e.p.k.isEmpty(this.f14859a.f14849g.K)) {
-                            if (b.a.e.e.p.k.isEmpty(this.f14859a.f14849g.f47457f)) {
+                            if (b.a.e.e.p.k.isEmpty(this.f14859a.f14849g.f47456f)) {
                                 return;
                             }
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, this.f14859a.f14849g.f47457f));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, this.f14859a.f14849g.f47456f));
                             return;
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, this.f14859a.f14849g.K));
                     }
-                } else if (!b.a.e.e.p.k.isEmpty(bVar.f54249b)) {
-                    b.a.e.e.p.l.M(this.f14859a.f14844b, bVar.f54249b);
+                } else if (!b.a.e.e.p.k.isEmpty(bVar.f54248b)) {
+                    b.a.e.e.p.l.M(this.f14859a.f14844b, bVar.f54248b);
                 } else {
                     b.a.e.e.p.l.L(this.f14859a.f14844b, R.string.delete_fail);
                 }

@@ -62,7 +62,7 @@ public abstract class PluginService extends Service implements a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PluginService f61491a;
+            public final /* synthetic */ PluginService f61490a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -79,7 +79,7 @@ public abstract class PluginService extends Service implements a {
                         return;
                     }
                 }
-                this.f61491a = this;
+                this.f61490a = this;
             }
 
             @Override // java.lang.reflect.InvocationHandler
@@ -110,7 +110,7 @@ public abstract class PluginService extends Service implements a {
                         return c2 != 2 ? null : 0;
                     }
                     com.bytedance.pangle.service.a.a b2 = com.bytedance.pangle.service.a.a.b();
-                    PluginService pluginService = this.f61491a;
+                    PluginService pluginService = this.f61490a;
                     return Boolean.valueOf(b2.a(new ComponentName(pluginService, pluginService.getClass().getName())));
                 }
                 return invokeLLL.objValue;

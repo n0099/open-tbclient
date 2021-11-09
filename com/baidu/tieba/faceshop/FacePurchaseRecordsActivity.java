@@ -24,19 +24,19 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f47920e;
+    public k f47919e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePurchaseRecordsModel f47921f;
+    public FacePurchaseRecordsModel f47920f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47922g;
+    public String f47921g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f47923h;
+    public e f47922h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView.b f47924i;
+    public NoNetworkView.b f47923i;
 
     /* loaded from: classes9.dex */
     public class a implements f.g {
@@ -44,7 +44,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FacePurchaseRecordsActivity f47925e;
+        public final /* synthetic */ FacePurchaseRecordsActivity f47924e;
 
         public a(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
             Interceptable interceptable = $ic;
@@ -61,14 +61,14 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
                     return;
                 }
             }
-            this.f47925e = facePurchaseRecordsActivity;
+            this.f47924e = facePurchaseRecordsActivity;
         }
 
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f47925e.k(false);
+                this.f47924e.k(false);
             }
         }
     }
@@ -79,7 +79,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacePurchaseRecordsActivity f47926a;
+        public final /* synthetic */ FacePurchaseRecordsActivity f47925a;
 
         public b(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
             Interceptable interceptable = $ic;
@@ -96,31 +96,31 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
                     return;
                 }
             }
-            this.f47926a = facePurchaseRecordsActivity;
+            this.f47925a = facePurchaseRecordsActivity;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f47926a.hideProgressBar();
+                this.f47925a.hideProgressBar();
                 if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-                    if (this.f47926a.f47920e != null) {
+                    if (this.f47925a.f47919e != null) {
                         FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
                         if (facePurchaseRecordsData.errno == 0) {
-                            this.f47926a.f47920e.f(facePurchaseRecordsData);
+                            this.f47925a.f47919e.f(facePurchaseRecordsData);
                             return;
                         }
                         String str = facePurchaseRecordsData.usermsg;
                         if (str != null) {
-                            this.f47926a.showToast(str);
+                            this.f47925a.showToast(str);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.f47926a.showToast(R.string.neterror);
+                this.f47925a.showToast(R.string.neterror);
             }
         }
     }
@@ -131,7 +131,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FacePurchaseRecordsActivity f47927e;
+        public final /* synthetic */ FacePurchaseRecordsActivity f47926e;
 
         public c(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
                     return;
                 }
             }
-            this.f47927e = facePurchaseRecordsActivity;
+            this.f47926e = facePurchaseRecordsActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
@@ -156,9 +156,9 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.f47927e.k(true);
+                    this.f47926e.k(true);
                 }
-                this.f47927e.f47920e.b(z);
+                this.f47926e.f47919e.b(z);
             }
         }
     }
@@ -176,28 +176,28 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
                 return;
             }
         }
-        this.f47923h = new b(this);
-        this.f47924i = new c(this);
+        this.f47922h = new b(this);
+        this.f47923i = new c(this);
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47920e.a(this.f47924i);
+            this.f47919e.a(this.f47923i);
         }
     }
 
     public final void i(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.f47921f = new FacePurchaseRecordsModel(getActivity());
+            this.f47920f = new FacePurchaseRecordsModel(getActivity());
             if (bundle != null) {
-                this.f47922g = bundle.getString("st_type");
+                this.f47921g = bundle.getString("st_type");
             } else {
-                this.f47922g = getIntent().getStringExtra("st_type");
+                this.f47921g = getIntent().getStringExtra("st_type");
             }
-            this.f47921f.setStType(this.f47922g);
-            this.f47921f.setLoadDataCallBack(this.f47923h);
+            this.f47920f.setStType(this.f47921g);
+            this.f47920f.setLoadDataCallBack(this.f47922h);
         }
     }
 
@@ -205,9 +205,9 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             k kVar = new k(getPageContext());
-            this.f47920e = kVar;
+            this.f47919e = kVar;
             kVar.i(new a(this));
-            this.f47920e.h(this);
+            this.f47919e.h(this);
             h();
         }
     }
@@ -219,17 +219,17 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
                 if (z) {
                     showProgressBar();
                 }
-                this.f47921f.loadData();
+                this.f47920f.loadData();
                 return;
             }
-            this.f47920e.c();
+            this.f47919e.c();
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f47920e.g(this.f47924i);
+            this.f47919e.g(this.f47923i);
         }
     }
 
@@ -237,7 +237,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     public void onChangeSkinType(int i2) {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (kVar = this.f47920e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (kVar = this.f47919e) == null) {
             return;
         }
         kVar.e(i2);
@@ -258,7 +258,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            FacePurchaseRecordsModel facePurchaseRecordsModel = this.f47921f;
+            FacePurchaseRecordsModel facePurchaseRecordsModel = this.f47920f;
             if (facePurchaseRecordsModel != null) {
                 facePurchaseRecordsModel.cancelLoadData();
             }
@@ -272,7 +272,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         k kVar;
         FacePurchasePackageData facePurchasePackageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (kVar = this.f47920e) == null || kVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f47920e.d().getItem(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (kVar = this.f47919e) == null || kVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f47919e.d().getItem(i2)) == null) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
@@ -291,7 +291,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            bundle.putString("st_type", this.f47922g);
+            bundle.putString("st_type", this.f47921g);
             super.onSaveInstanceState(bundle);
         }
     }

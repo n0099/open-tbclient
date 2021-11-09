@@ -21,19 +21,19 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f54608e;
+    public List<d> f54607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f54609f;
+    public e f54608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.a.r0.r3.h.a> f54610g;
+    public List<b.a.r0.r3.h.a> f54609g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f54611h;
+    public b f54610h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f54612i;
+    public boolean f54611i;
     public b.a.e.c.g.a j;
 
     /* loaded from: classes9.dex */
@@ -42,7 +42,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DressupCenterModel f54613a;
+        public final /* synthetic */ DressupCenterModel f54612a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DressupCenterModel dressupCenterModel, int i2, int i3) {
@@ -63,7 +63,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
                     return;
                 }
             }
-            this.f54613a = dressupCenterModel;
+            this.f54612a = dressupCenterModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -75,25 +75,25 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             boolean z = responsedMessage instanceof DressupCenterHttpResponseMessage;
             if (z || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (this.f54613a.f54611h != null) {
-                        this.f54613a.f54611h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54613a.f54610g, this.f54613a.f54609f, this.f54613a.f54608e);
+                    if (this.f54612a.f54610h != null) {
+                        this.f54612a.f54610h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54612a.f54609g, this.f54612a.f54608f, this.f54612a.f54607e);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     DressupCenterHttpResponseMessage dressupCenterHttpResponseMessage = (DressupCenterHttpResponseMessage) responsedMessage;
-                    this.f54613a.f54608e = dressupCenterHttpResponseMessage.getThemeList();
-                    this.f54613a.f54609f = dressupCenterHttpResponseMessage.getRecommand();
-                    this.f54613a.f54610g = dressupCenterHttpResponseMessage.getThemeCarouselList();
+                    this.f54612a.f54607e = dressupCenterHttpResponseMessage.getThemeList();
+                    this.f54612a.f54608f = dressupCenterHttpResponseMessage.getRecommand();
+                    this.f54612a.f54609g = dressupCenterHttpResponseMessage.getThemeCarouselList();
                 } else if (responsedMessage instanceof DressupCenterSocketResponseMessage) {
                     DressupCenterSocketResponseMessage dressupCenterSocketResponseMessage = (DressupCenterSocketResponseMessage) responsedMessage;
-                    this.f54613a.f54608e = dressupCenterSocketResponseMessage.getThemeList();
-                    this.f54613a.f54609f = dressupCenterSocketResponseMessage.getRecommand();
-                    this.f54613a.f54610g = dressupCenterSocketResponseMessage.getThemeCarouselList();
+                    this.f54612a.f54607e = dressupCenterSocketResponseMessage.getThemeList();
+                    this.f54612a.f54608f = dressupCenterSocketResponseMessage.getRecommand();
+                    this.f54612a.f54609g = dressupCenterSocketResponseMessage.getThemeCarouselList();
                 }
-                if (this.f54613a.f54611h != null) {
-                    this.f54613a.f54611h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54613a.f54610g, this.f54613a.f54609f, this.f54613a.f54608e);
+                if (this.f54612a.f54610h != null) {
+                    this.f54612a.f54610h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54612a.f54609g, this.f54612a.f54608f, this.f54612a.f54607e);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             }
         }
         this.j = new a(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
-        this.f54612i = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f54611i = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.j);
     }
@@ -128,13 +128,13 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54612i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54611i : invokeV.booleanValue;
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f54611h = bVar;
+            this.f54610h = bVar;
         }
     }
 

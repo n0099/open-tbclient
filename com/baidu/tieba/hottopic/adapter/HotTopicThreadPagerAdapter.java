@@ -34,26 +34,26 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String[] f49985g;
+    public static String[] f49984g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<HotTopicActivity> f49986a;
+    public TbPageContext<HotTopicActivity> f49985a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HotTopicView> f49987b;
+    public List<HotTopicView> f49986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<e> f49988c;
+    public List<e> f49987c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49989d;
+    public int f49988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.f f49990e;
+    public c.f f49989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f49991f;
+    public c f49990f;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        f49985g = new String[]{"最热", "最新"};
+        f49984g = new String[]{"最热", "最新"};
     }
 
     public HotTopicThreadPagerAdapter(Context context, c.f fVar) {
@@ -86,30 +86,30 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f49989d = -1;
-        this.f49990e = fVar;
+        this.f49988d = -1;
+        this.f49989e = fVar;
         f<?> a2 = j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f49986a = (TbPageContext) a2;
+            this.f49985a = (TbPageContext) a2;
         }
-        this.f49988c = new ArrayList();
-        this.f49987b = new ArrayList();
+        this.f49987c = new ArrayList();
+        this.f49986b = new ArrayList();
         HotTopicView hotTopicView = new HotTopicView(context);
         HotTopicView hotTopicView2 = new HotTopicView(context);
-        hotTopicView.setScrollCallback(this.f49990e);
-        hotTopicView2.setScrollCallback(this.f49990e);
-        this.f49987b.add(hotTopicView);
-        this.f49987b.add(hotTopicView2);
+        hotTopicView.setScrollCallback(this.f49989e);
+        hotTopicView2.setScrollCallback(this.f49989e);
+        this.f49986b.add(hotTopicView);
+        this.f49986b.add(hotTopicView2);
     }
 
     public final void a() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.f49989d) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.f49988d) < 0) {
             return;
         }
-        HotTopicView hotTopicView = this.f49987b.get(i2 % 2);
-        e eVar = (e) ListUtils.getItem(this.f49988c, this.f49989d);
+        HotTopicView hotTopicView = this.f49986b.get(i2 % 2);
+        e eVar = (e) ListUtils.getItem(this.f49987c, this.f49988d);
         if (hotTopicView != null) {
             hotTopicView.hideLoadingView();
             hotTopicView.hideNetRefreshView();
@@ -122,10 +122,10 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
 
     public void changeListViewFakeHeaderHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || ListUtils.isEmpty(this.f49987b)) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || ListUtils.isEmpty(this.f49986b)) {
             return;
         }
-        for (HotTopicView hotTopicView : this.f49987b) {
+        for (HotTopicView hotTopicView : this.f49986b) {
             hotTopicView.changePlaceHolderHeaderViewHeight(i2);
         }
     }
@@ -133,7 +133,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void completePullRefresh(boolean z) {
         List<HotTopicView> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (list = this.f49987b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (list = this.f49986b) == null) {
             return;
         }
         for (HotTopicView hotTopicView : list) {
@@ -146,7 +146,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (HotTopicView hotTopicView : this.f49987b) {
+            for (HotTopicView hotTopicView : this.f49986b) {
                 if (hotTopicView != null) {
                     hotTopicView.destroy();
                 }
@@ -165,18 +165,18 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.getCount(this.f49988c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.getCount(this.f49987c) : invokeV.intValue;
     }
 
     public HotTopicView getCurrentTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.f49989d;
+            int i2 = this.f49988d;
             if (i2 == -1) {
                 return null;
             }
-            return (HotTopicView) ListUtils.getItem(this.f49987b, i2 % 2);
+            return (HotTopicView) ListUtils.getItem(this.f49986b, i2 % 2);
         }
         return (HotTopicView) invokeV.objValue;
     }
@@ -185,14 +185,14 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public CharSequence getPageTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? f49985g[i2] : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? f49984g[i2] : (CharSequence) invokeI.objValue;
     }
 
     public void hideLoadMoreView(int i2) {
         List<HotTopicView> list;
         HotTopicView hotTopicView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (list = this.f49987b) == null || i2 >= list.size() || (hotTopicView = this.f49987b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (list = this.f49986b) == null || i2 >= list.size() || (hotTopicView = this.f49986b.get(i2)) == null) {
             return;
         }
         hotTopicView.hideLoadMoreView();
@@ -224,8 +224,8 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            for (int i3 = 0; i3 < this.f49988c.size(); i3++) {
-                HotTopicView hotTopicView = this.f49987b.get(i3);
+            for (int i3 = 0; i3 < this.f49987c.size(); i3++) {
+                HotTopicView hotTopicView = this.f49986b.get(i3);
                 if (hotTopicView != null) {
                     hotTopicView.onChangeSkinType(i2);
                 }
@@ -254,7 +254,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void scrollOtherListView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            for (HotTopicView hotTopicView : this.f49987b) {
+            for (HotTopicView hotTopicView : this.f49986b) {
                 if (hotTopicView != null && hotTopicView != getCurrentTab()) {
                     hotTopicView.scrollListView(i2);
                 }
@@ -265,7 +265,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void scrollOtherListViewToTop(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            for (HotTopicView hotTopicView : this.f49987b) {
+            for (HotTopicView hotTopicView : this.f49986b) {
                 if (hotTopicView != null && hotTopicView != getCurrentTab()) {
                     hotTopicView.scrollToTop(f2);
                 }
@@ -276,7 +276,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void setMainView(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) {
-            this.f49991f = cVar;
+            this.f49990f = cVar;
         }
     }
 
@@ -285,28 +285,28 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048596, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            int i3 = this.f49989d;
+            int i3 = this.f49988d;
             if (i3 == i2) {
                 return;
             }
-            this.f49989d = i2;
-            if (ListUtils.isEmpty(this.f49988c)) {
+            this.f49988d = i2;
+            if (ListUtils.isEmpty(this.f49987c)) {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-            e eVar = (e) ListUtils.getItem(this.f49988c, this.f49989d);
+            e eVar = (e) ListUtils.getItem(this.f49987c, this.f49988d);
             if (eVar != null && eVar.h() != null) {
-                if (this.f49989d == 0) {
+                if (this.f49988d == 0) {
                     TiebaStatic.log(new StatisticItem("c11970").param("obj_id", eVar.h().f18447e));
                 } else {
                     TiebaStatic.log(new StatisticItem("c11971").param("obj_id", eVar.h().f18447e));
                 }
             }
-            HotTopicView hotTopicView = (HotTopicView) ListUtils.getItem(this.f49987b, i3 % 2);
+            HotTopicView hotTopicView = (HotTopicView) ListUtils.getItem(this.f49986b, i3 % 2);
             if (hotTopicView != null) {
                 hotTopicView.pause();
             }
-            HotTopicView hotTopicView2 = (HotTopicView) ListUtils.getItem(this.f49987b, i2 % 2);
+            HotTopicView hotTopicView2 = (HotTopicView) ListUtils.getItem(this.f49986b, i2 % 2);
             if (hotTopicView2 != null) {
                 if (eVar != null && !ListUtils.isEmpty(eVar.i())) {
                     hotTopicView2.resume();
@@ -314,7 +314,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
                     hotTopicView2.showNetRefreshView(TbadkCoreApplication.getInst().getString(h.neterror), true);
                 } else {
                     hotTopicView2.showLoadingView(true);
-                    this.f49986a.getOrignalPage().loadHotTopicData();
+                    this.f49985a.getOrignalPage().loadHotTopicData();
                 }
             }
         }
@@ -324,7 +324,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         List<HotTopicView> list;
         HotTopicView hotTopicView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (list = this.f49987b) == null || i2 >= list.size() || (hotTopicView = this.f49987b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (list = this.f49986b) == null || i2 >= list.size() || (hotTopicView = this.f49986b.get(i2)) == null) {
             return;
         }
         hotTopicView.showLoadMoreView();
@@ -342,7 +342,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         List<HotTopicView> list;
         HotTopicView hotTopicView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (list = this.f49987b) == null || i2 >= list.size() || (hotTopicView = this.f49987b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (list = this.f49986b) == null || i2 >= list.size() || (hotTopicView = this.f49986b.get(i2)) == null) {
             return;
         }
         hotTopicView.showNoMoreView();
@@ -352,8 +352,8 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
             if (!ListUtils.isEmpty(list)) {
-                this.f49988c.clear();
-                this.f49988c.addAll(list);
+                this.f49987c.clear();
+                this.f49987c.addAll(list);
             }
             notifyDataSetChanged();
             a();
@@ -366,15 +366,15 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i2)) == null) {
-            HotTopicView hotTopicView = this.f49987b.get(i2 % 2);
+            HotTopicView hotTopicView = this.f49986b.get(i2 % 2);
             if (hotTopicView.getParent() != null) {
                 viewGroup.removeView(hotTopicView);
             }
-            hotTopicView.setMainView(this.f49991f);
+            hotTopicView.setMainView(this.f49990f);
             viewGroup.addView(hotTopicView);
             hotTopicView.hideLoadingView();
             hotTopicView.hideNetRefreshView();
-            hotTopicView.refreshView(this.f49988c.get(i2));
+            hotTopicView.refreshView(this.f49987c.get(i2));
             return hotTopicView;
         }
         return (HotTopicView) invokeLI.objValue;

@@ -14,7 +14,7 @@ public class InterviewLiveViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f48491a;
+    public d f48490a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterviewLiveViewHolder(d dVar) {
@@ -34,12 +34,12 @@ public class InterviewLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48491a = dVar;
+        this.f48490a = dVar;
     }
 
     public d getContainerView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48491a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48490a : (d) invokeV.objValue;
     }
 }

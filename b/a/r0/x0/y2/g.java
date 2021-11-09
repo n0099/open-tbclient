@@ -120,7 +120,7 @@ public class g {
             q frsView;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f26887a.f26878a == null || !(customResponsedMessage instanceof SignMessage) || (frsViewData = this.f26887a.f26878a.getFrsViewData()) == null || frsViewData.getForum() == null || (name = (forum = frsViewData.getForum()).getName()) == null || !name.equals(FrsActivityStatic.f48185c) || customResponsedMessage.getOrginalMessage().getTag() != this.f26887a.f26881d) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f26887a.f26878a == null || !(customResponsedMessage instanceof SignMessage) || (frsViewData = this.f26887a.f26878a.getFrsViewData()) == null || frsViewData.getForum() == null || (name = (forum = frsViewData.getForum()).getName()) == null || !name.equals(FrsActivityStatic.f48184c) || customResponsedMessage.getOrginalMessage().getTag() != this.f26887a.f26881d) {
                 return;
             }
             TiebaStatic.eventStat(this.f26887a.f26878a.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
@@ -566,7 +566,7 @@ public class g {
                 }
                 ForumData forum = frsViewData.getForum();
                 forum.setFromPage("frs");
-                FrsActivityStatic.f48185c = forum.getName() == null ? "" : forum.getName();
+                FrsActivityStatic.f48184c = forum.getName() == null ? "" : forum.getName();
                 CustomMessage customMessage = new CustomMessage(2001425, forum);
                 customMessage.setTag(this.f26881d);
                 MessageManager.getInstance().sendMessage(customMessage);

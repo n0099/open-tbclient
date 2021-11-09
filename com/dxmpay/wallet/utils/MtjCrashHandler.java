@@ -22,7 +22,7 @@ public class MtjCrashHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile AtomicBoolean f62701a;
+    public static volatile AtomicBoolean f62700a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MtjCrashHandler {
                 return;
             }
         }
-        f62701a = new AtomicBoolean(false);
+        f62700a = new AtomicBoolean(false);
     }
 
     public MtjCrashHandler() {
@@ -95,7 +95,7 @@ public class MtjCrashHandler {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f62701a.compareAndSet(false, true) && b()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f62700a.compareAndSet(false, true) && b()) {
             try {
                 StatService.setDebugOn(false);
                 StatService.setOn(context, 16);

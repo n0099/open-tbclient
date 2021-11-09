@@ -21,13 +21,13 @@ public class ToastDialog extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f47370e;
+    public View f47369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47371f;
+    public TextView f47370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47372g;
+    public String f47371g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ToastDialog(Context context) {
@@ -53,7 +53,7 @@ public class ToastDialog extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-            View view = this.f47370e;
+            View view = this.f47369e;
             int i3 = R.color.cp_cont_b_alpha80;
             SkinManager.setBackgroundShapeDrawable(view, g2, i3, i3, i2);
         }
@@ -62,7 +62,7 @@ public class ToastDialog extends AlertDialog {
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f47372g = str;
+            this.f47371g = str;
         }
     }
 
@@ -75,10 +75,10 @@ public class ToastDialog extends AlertDialog {
             if (window != null) {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.id_card_dialog);
-                this.f47370e = window.findViewById(R.id.toast_container);
-                this.f47371f = (TextView) window.findViewById(R.id.toast_tv);
-                if (!StringUtils.isNull(this.f47372g)) {
-                    this.f47371f.setText(this.f47372g);
+                this.f47369e = window.findViewById(R.id.toast_container);
+                this.f47370f = (TextView) window.findViewById(R.id.toast_tv);
+                if (!StringUtils.isNull(this.f47371g)) {
+                    this.f47370f.setText(this.f47371g);
                 }
                 onSkinChange(TbadkCoreApplication.getInst().getSkinType());
             }

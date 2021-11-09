@@ -36,19 +36,19 @@ public class YYPayGiftView extends LinearLayout implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f73159e;
+    public int f73158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f73160f;
+    public int f73159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f73161g;
+    public Button f73160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoScrollGridView f73162h;
+    public NoScrollGridView f73161h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f73163i;
+    public View f73162i;
     public TextView j;
     public ImageView k;
     public d.a l;
@@ -63,7 +63,7 @@ public class YYPayGiftView extends LinearLayout implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayGiftView f73164e;
+        public final /* synthetic */ YYPayGiftView f73163e;
 
         public a(YYPayGiftView yYPayGiftView) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class YYPayGiftView extends LinearLayout implements d {
                     return;
                 }
             }
-            this.f73164e = yYPayGiftView;
+            this.f73163e = yYPayGiftView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f73164e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f73163e.l == null) {
                 return;
             }
-            this.f73164e.l.a();
+            this.f73163e.l.a();
         }
     }
 
@@ -112,28 +112,28 @@ public class YYPayGiftView extends LinearLayout implements d {
             }
         }
         this.mGiftBagList = new ArrayList();
-        this.f73159e = i2;
-        this.f73160f = i3;
+        this.f73158e = i2;
+        this.f73159f = i3;
         this.n = payUIKitConfig;
         b(context);
-        i.a.a.e.m.b.d(this.f73159e, this.f73160f, "17", "", "", "");
+        i.a.a.e.m.b.d(this.f73158e, this.f73159f, "17", "", "", "");
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, l.f72366a.a(this.n))).inflate(e.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, l.f72365a.a(this.n))).inflate(e.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
             Button button = (Button) findViewById(i.a.a.e.d.btn_know);
-            this.f73161g = button;
+            this.f73160g = button;
             button.setOnClickListener(new a(this));
             this.j = (TextView) findViewById(i.a.a.e.d.tv_title);
-            this.f73163i = findViewById(i.a.a.e.d.rl_container);
-            this.f73162h = (NoScrollGridView) findViewById(i.a.a.e.d.grid_pay_gift);
+            this.f73162i = findViewById(i.a.a.e.d.rl_container);
+            this.f73161h = (NoScrollGridView) findViewById(i.a.a.e.d.grid_pay_gift);
             b bVar = new b(context, this.mGiftBagList, this.n);
             this.o = bVar;
-            this.f73162h.setAdapter((ListAdapter) bVar);
+            this.f73161h.setAdapter((ListAdapter) bVar);
             this.k = (ImageView) findViewById(i.a.a.e.d.img_logo);
-            this.k.setBackgroundResource(l.f72366a.b(this.n) ? c.pay_ui_campaign_pay_success_logo_red : c.pay_ui_campaign_pay_success_logo_yellow);
+            this.k.setBackgroundResource(l.f72365a.b(this.n) ? c.pay_ui_campaign_pay_success_logo_red : c.pay_ui_campaign_pay_success_logo_yellow);
         }
     }
 
@@ -142,7 +142,7 @@ public class YYPayGiftView extends LinearLayout implements d {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.m.successButtonMsg)) {
             return;
         }
-        this.f73161g.setText(this.m.successButtonMsg);
+        this.f73160g.setText(this.m.successButtonMsg);
     }
 
     public final void d() {
@@ -175,7 +175,7 @@ public class YYPayGiftView extends LinearLayout implements d {
                 this.mGiftBagList.clear();
                 this.mGiftBagList.addAll(this.m.giftbag);
                 this.o.notifyDataSetChanged();
-                i.a(this.mGiftBagList.size(), this.f73163i, this.f73162h);
+                i.a(this.mGiftBagList.size(), this.f73162i, this.f73161h);
                 d();
                 c();
                 return;

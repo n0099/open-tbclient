@@ -38,13 +38,13 @@ public final class SensorsDataUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71650a;
+    public static String f71649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f71651b;
+    public static final SimpleDateFormat f71650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f71652c;
+    public static final List<String> f71651c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,7 +60,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f71651b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f71650b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f71652c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f71651c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,15 +148,15 @@ public final class SensorsDataUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f71650a)) {
-                return f71650a;
+            if (!TextUtils.isEmpty(f71649a)) {
+                return f71649a;
             }
             try {
-                f71650a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                f71649a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f71650a;
+            return f71649a;
         }
         return (String) invokeL.objValue;
     }
@@ -236,7 +236,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f71652c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f71651c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -247,8 +247,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f71651b) {
-                        jSONObject2.put(next, f71651b.format((Date) obj));
+                    synchronized (f71650b) {
+                        jSONObject2.put(next, f71650b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);

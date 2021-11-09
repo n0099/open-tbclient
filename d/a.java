@@ -22,20 +22,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f71590b;
+    public static final a f71589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f71591c;
+    public static final int f71590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f71592d;
+    public static final int f71591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f71593e;
+    public static final int f71592e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f71594a;
+    public final Executor f71593a;
 
     /* renamed from: d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -89,11 +89,11 @@ public final class a {
                 return;
             }
         }
-        f71590b = new a();
+        f71589b = new a();
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f71591c = availableProcessors;
-        f71592d = availableProcessors + 1;
-        f71593e = (availableProcessors * 2) + 1;
+        f71590c = availableProcessors;
+        f71591d = availableProcessors + 1;
+        f71592e = (availableProcessors * 2) + 1;
     }
 
     public a() {
@@ -109,7 +109,7 @@ public final class a {
                 return;
             }
         }
-        this.f71594a = new b(null);
+        this.f71593a = new b(null);
     }
 
     @SuppressLint({"NewApi"})
@@ -125,7 +125,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f71592d, f71593e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f71591d, f71592e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
             a(threadPoolExecutor, true);
             return threadPoolExecutor;
         }
@@ -135,6 +135,6 @@ public final class a {
     public static Executor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f71590b.f71594a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f71589b.f71593a : (Executor) invokeV.objValue;
     }
 }

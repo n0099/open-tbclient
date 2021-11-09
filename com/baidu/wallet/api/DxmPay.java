@@ -29,7 +29,7 @@ public class DxmPay {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f57241a;
+        public static final DxmPay f57240a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public class DxmPay {
                     return;
                 }
             }
-            f57241a = new DxmPay(null);
+            f57240a = new DxmPay(null);
         }
     }
 
@@ -75,7 +75,7 @@ public class DxmPay {
     public static DxmPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f57241a : (DxmPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f57240a : (DxmPay) invokeV.objValue;
     }
 
     public void initWallet(Context context) {

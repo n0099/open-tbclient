@@ -17,7 +17,7 @@ public abstract class BaseService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f70569a;
+    public a f70568a;
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -25,7 +25,7 @@ public abstract class BaseService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<BaseService> f70570a;
+        public WeakReference<BaseService> f70569a;
 
         public a(WeakReference<BaseService> weakReference) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class BaseService extends Service {
                     return;
                 }
             }
-            this.f70570a = weakReference;
+            this.f70569a = weakReference;
         }
 
         public void a() {
@@ -60,7 +60,7 @@ public abstract class BaseService extends Service {
             WeakReference<BaseService> weakReference;
             BaseService baseService;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.f70570a) == null || (baseService = weakReference.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.f70569a) == null || (baseService = weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
@@ -105,10 +105,10 @@ public abstract class BaseService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
             super.onStart(intent, i2);
-            if (this.f70569a == null) {
-                this.f70569a = new a(new WeakReference(this));
+            if (this.f70568a == null) {
+                this.f70568a = new a(new WeakReference(this));
             }
-            this.f70569a.a();
+            this.f70568a.a();
         }
     }
 }

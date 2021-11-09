@@ -16,7 +16,7 @@ public class g implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f62900a;
+    public boolean f62899a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class g implements f {
                 return;
             }
         }
-        this.f62900a = false;
+        this.f62899a = false;
     }
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, final f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f62900a) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f62899a) {
             return;
         }
         v vVar = new v();
@@ -53,13 +53,13 @@ public class g implements f {
                 }
             }
         };
-        vVar.f62926a = context;
-        vVar.f62929d = aVar2;
-        vVar.f62928c = new u(vVar);
+        vVar.f62925a = context;
+        vVar.f62928d = aVar2;
+        vVar.f62927c = new u(vVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = vVar.f62926a.bindService(intent, vVar.f62928c, 1) ? (char) 1 : (char) 65535;
-        this.f62900a = true;
+        char c2 = vVar.f62925a.bindService(intent, vVar.f62927c, 1) ? (char) 1 : (char) 65535;
+        this.f62899a = true;
         if (c2 != 1) {
             aVar.a(true, null);
         }
@@ -81,15 +81,15 @@ public class g implements f {
         if (interceptable == null || interceptable.invokeLLL(65537, this, aVar, str, vVar) == null) {
             vVar.getClass();
             try {
-                tVar2 = vVar.f62927b;
+                tVar2 = vVar.f62926b;
             } catch (RemoteException unused) {
             }
             if (tVar2 != null) {
                 z = tVar2.a();
                 if (!z) {
-                    if (vVar.f62926a != null) {
+                    if (vVar.f62925a != null) {
                         try {
-                            tVar = vVar.f62927b;
+                            tVar = vVar.f62926b;
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
@@ -106,16 +106,16 @@ public class g implements f {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                 }
-                vVar.f62926a.unbindService(vVar.f62928c);
-                vVar.f62927b = null;
-                this.f62900a = false;
+                vVar.f62925a.unbindService(vVar.f62927c);
+                vVar.f62926b = null;
+                this.f62899a = false;
             }
             z = false;
             if (!z) {
             }
-            vVar.f62926a.unbindService(vVar.f62928c);
-            vVar.f62927b = null;
-            this.f62900a = false;
+            vVar.f62925a.unbindService(vVar.f62927c);
+            vVar.f62926b = null;
+            this.f62899a = false;
         }
     }
 }

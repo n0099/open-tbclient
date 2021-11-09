@@ -21,13 +21,13 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f57514a;
+    public boolean f57513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57515b;
+    public int f57514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57516c;
+    public int f57515c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DivisionEditText(Context context, AttributeSet attributeSet, int i2) {
@@ -48,9 +48,9 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                 return;
             }
         }
-        this.f57514a = true;
-        this.f57515b = 0;
-        this.f57516c = 3;
+        this.f57513a = true;
+        this.f57514b = 0;
+        this.f57515c = 3;
         setUseSafeKeyBoard(false);
     }
 
@@ -63,26 +63,26 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     public boolean isFormatEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57514a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57513a : invokeV.booleanValue;
     }
 
     public void setFormatEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f57514a = z;
+            this.f57513a = z;
         }
     }
 
     public void setViewType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f57515b = i2;
+            this.f57514b = i2;
             if (i2 == 13) {
-                this.f57516c = 3;
+                this.f57515c = 3;
             } else if (i2 == 25) {
-                this.f57516c = 4;
+                this.f57515c = 4;
             } else if (i2 == 20) {
-                this.f57516c = 6;
+                this.f57515c = 6;
                 if (isFormatEnabled()) {
                     setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
                     return;
@@ -114,37 +114,37 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                 return;
             }
         }
-        this.f57514a = true;
-        this.f57515b = 0;
-        this.f57516c = 3;
+        this.f57513a = true;
+        this.f57514b = 0;
+        this.f57515c = 3;
         setUseSafeKeyBoard(false);
         addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.base.widget.DivisionEditText.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f57517a;
+            public int f57516a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f57518b;
+            public int f57517b;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f57519c;
+            public boolean f57518c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f57520d;
+            public int f57519d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f57521e;
+            public int f57520e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DivisionEditText f57522f;
+            public final /* synthetic */ DivisionEditText f57521f;
 
             /* renamed from: g  reason: collision with root package name */
-            public char[] f57523g;
+            public char[] f57522g;
 
             /* renamed from: h  reason: collision with root package name */
-            public StringBuffer f57524h;
+            public StringBuffer f57523h;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -161,36 +161,36 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                         return;
                     }
                 }
-                this.f57522f = this;
-                this.f57517a = 0;
-                this.f57518b = 0;
-                this.f57519c = false;
-                this.f57520d = 0;
-                this.f57524h = new StringBuffer();
-                this.f57521e = 0;
+                this.f57521f = this;
+                this.f57516a = 0;
+                this.f57517b = 0;
+                this.f57518c = false;
+                this.f57519d = 0;
+                this.f57523h = new StringBuffer();
+                this.f57520e = 0;
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 int i4;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f57519c && this.f57522f.isFormatEnabled()) {
-                    this.f57520d = this.f57522f.getSelectionEnd();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f57518c && this.f57521f.isFormatEnabled()) {
+                    this.f57519d = this.f57521f.getSelectionEnd();
                     int i5 = 0;
-                    while (i5 < this.f57524h.length()) {
-                        if (this.f57524h.charAt(i5) == ' ') {
-                            this.f57524h.deleteCharAt(i5);
+                    while (i5 < this.f57523h.length()) {
+                        if (this.f57523h.charAt(i5) == ' ') {
+                            this.f57523h.deleteCharAt(i5);
                         } else {
                             i5++;
                         }
                     }
-                    if (this.f57522f.f57515b != 13) {
-                        if (this.f57522f.f57515b != 25) {
-                            if (this.f57522f.f57515b == 20) {
+                    if (this.f57521f.f57514b != 13) {
+                        if (this.f57521f.f57514b != 25) {
+                            if (this.f57521f.f57514b == 20) {
                                 i4 = 0;
-                                for (int i6 = 0; i6 < this.f57524h.length(); i6++) {
+                                for (int i6 = 0; i6 < this.f57523h.length(); i6++) {
                                     if (i6 == 6 || i6 == 15) {
-                                        this.f57524h.insert(i6, ' ');
+                                        this.f57523h.insert(i6, ' ');
                                         i4++;
                                     }
                                 }
@@ -199,56 +199,56 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                             }
                         } else {
                             i4 = 0;
-                            for (int i7 = 0; i7 < this.f57524h.length(); i7++) {
+                            for (int i7 = 0; i7 < this.f57523h.length(); i7++) {
                                 if (i7 == 4 || i7 == 9 || i7 == 14 || i7 == 19) {
-                                    this.f57524h.insert(i7, ' ');
+                                    this.f57523h.insert(i7, ' ');
                                     i4++;
                                 }
                             }
                         }
                     } else {
                         i4 = 0;
-                        for (int i8 = 0; i8 < this.f57524h.length(); i8++) {
+                        for (int i8 = 0; i8 < this.f57523h.length(); i8++) {
                             if (i8 == 3 || i8 == 8) {
-                                this.f57524h.insert(i8, ' ');
+                                this.f57523h.insert(i8, ' ');
                                 i4++;
                             }
                         }
                     }
-                    int i9 = this.f57521e;
+                    int i9 = this.f57520e;
                     if (i4 > i9) {
                         if (i4 - i9 > 1) {
-                            this.f57520d += i4 - i9;
+                            this.f57519d += i4 - i9;
                         } else {
-                            int i10 = this.f57520d;
-                            if (i10 - 1 >= 0 && this.f57524h.charAt(i10 - 1) == ' ') {
-                                this.f57520d += i4 - this.f57521e;
+                            int i10 = this.f57519d;
+                            if (i10 - 1 >= 0 && this.f57523h.charAt(i10 - 1) == ' ') {
+                                this.f57519d += i4 - this.f57520e;
                             }
                         }
                     }
-                    this.f57523g = new char[this.f57524h.length()];
-                    StringBuffer stringBuffer = this.f57524h;
-                    stringBuffer.getChars(0, stringBuffer.length(), this.f57523g, 0);
-                    String stringBuffer2 = this.f57524h.toString();
-                    if (stringBuffer2.length() > this.f57522f.f57515b) {
-                        stringBuffer2 = stringBuffer2.substring(0, this.f57522f.f57515b);
+                    this.f57522g = new char[this.f57523h.length()];
+                    StringBuffer stringBuffer = this.f57523h;
+                    stringBuffer.getChars(0, stringBuffer.length(), this.f57522g, 0);
+                    String stringBuffer2 = this.f57523h.toString();
+                    if (stringBuffer2.length() > this.f57521f.f57514b) {
+                        stringBuffer2 = stringBuffer2.substring(0, this.f57521f.f57514b);
                     }
-                    this.f57522f.setText(stringBuffer2);
-                    Editable text = this.f57522f.getText();
-                    if (this.f57520d > text.length()) {
-                        this.f57520d = text.length();
-                    } else if (this.f57520d < 0) {
-                        this.f57520d = 0;
+                    this.f57521f.setText(stringBuffer2);
+                    Editable text = this.f57521f.getText();
+                    if (this.f57519d > text.length()) {
+                        this.f57519d = text.length();
+                    } else if (this.f57519d < 0) {
+                        this.f57519d = 0;
                     }
-                    Selection.setSelection(text, this.f57520d);
-                    if (this.f57522f.f57515b == 13 && this.f57517a < editable.length()) {
-                        if (!this.f57522f.isFormatEnabled() && text.length() == 11) {
+                    Selection.setSelection(text, this.f57519d);
+                    if (this.f57521f.f57514b == 13 && this.f57516a < editable.length()) {
+                        if (!this.f57521f.isFormatEnabled() && text.length() == 11) {
                             Selection.setSelection(text, 11);
                         } else if (text.length() == 13) {
                             Selection.setSelection(text, 13);
                         }
                     }
-                    this.f57519c = false;
+                    this.f57518c = false;
                 }
             }
 
@@ -256,15 +256,15 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
-                    this.f57517a = charSequence.length();
-                    if (this.f57524h.length() > 0) {
-                        StringBuffer stringBuffer = this.f57524h;
+                    this.f57516a = charSequence.length();
+                    if (this.f57523h.length() > 0) {
+                        StringBuffer stringBuffer = this.f57523h;
                         stringBuffer.delete(0, stringBuffer.length());
                     }
-                    this.f57521e = 0;
+                    this.f57520e = 0;
                     for (int i7 = 0; i7 < charSequence.length(); i7++) {
                         if (charSequence.charAt(i7) == ' ') {
-                            this.f57521e++;
+                            this.f57520e++;
                         }
                     }
                 }
@@ -274,16 +274,16 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
-                    this.f57518b = charSequence.length();
-                    if (this.f57522f.f57515b == 13 && this.f57518b >= 11 && !this.f57522f.isFormatEnabled()) {
-                        this.f57522f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+                    this.f57517b = charSequence.length();
+                    if (this.f57521f.f57514b == 13 && this.f57517b >= 11 && !this.f57521f.isFormatEnabled()) {
+                        this.f57521f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
                     }
-                    this.f57524h.append(charSequence.toString());
-                    int i7 = this.f57518b;
-                    if (i7 != this.f57517a && i7 >= this.f57522f.f57516c && !this.f57519c) {
-                        this.f57519c = true;
+                    this.f57523h.append(charSequence.toString());
+                    int i7 = this.f57517b;
+                    if (i7 != this.f57516a && i7 >= this.f57521f.f57515c && !this.f57518c) {
+                        this.f57518c = true;
                     } else {
-                        this.f57519c = false;
+                        this.f57518c = false;
                     }
                 }
             }

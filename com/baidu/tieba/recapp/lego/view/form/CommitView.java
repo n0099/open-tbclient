@@ -26,16 +26,16 @@ public class CommitView extends FormItemBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f53583e;
+    public CheckBox f53582e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f53584f;
+    public Button f53583f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53585g;
+    public int f53584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53586h;
+    public String f53585h;
 
     /* loaded from: classes9.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
@@ -43,7 +43,7 @@ public class CommitView extends FormItemBaseView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommitView f53587e;
+        public final /* synthetic */ CommitView f53586e;
 
         public a(CommitView commitView) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class CommitView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f53587e = commitView;
+            this.f53586e = commitView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -68,12 +68,12 @@ public class CommitView extends FormItemBaseView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
                 if (z) {
-                    this.f53587e.f53584f.setClickable(true);
-                    this.f53587e.f53584f.setBackgroundResource(R.color.form_button_bg_color_enable);
+                    this.f53586e.f53583f.setClickable(true);
+                    this.f53586e.f53583f.setBackgroundResource(R.color.form_button_bg_color_enable);
                     return;
                 }
-                this.f53587e.f53584f.setClickable(false);
-                this.f53587e.f53584f.setBackgroundResource(R.color.form_button_bg_color_unenable);
+                this.f53586e.f53583f.setClickable(false);
+                this.f53586e.f53583f.setBackgroundResource(R.color.form_button_bg_color_unenable);
             }
         }
     }
@@ -96,10 +96,10 @@ public class CommitView extends FormItemBaseView {
                 return;
             }
         }
-        this.f53583e = null;
-        this.f53584f = null;
-        this.f53585g = 1;
-        this.f53586h = "";
+        this.f53582e = null;
+        this.f53583f = null;
+        this.f53584g = 1;
+        this.f53585h = "";
         d();
     }
 
@@ -127,17 +127,17 @@ public class CommitView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             CheckBox checkBox = new CheckBox(this.mContext, null, R.style.form_check_box_style);
-            this.f53583e = checkBox;
-            checkBox.setId(this.f53585g);
-            this.f53583e.setTextSize(0, (int) this.mResources.getDimension(R.dimen.fontsize20));
-            this.f53583e.setTextColor(this.mHintFontColor);
-            this.f53583e.setGravity(19);
-            this.f53583e.setChecked(true);
-            this.f53583e.setButtonDrawable((Drawable) null);
-            this.f53583e.setOnCheckedChangeListener(new a(this));
+            this.f53582e = checkBox;
+            checkBox.setId(this.f53584g);
+            this.f53582e.setTextSize(0, (int) this.mResources.getDimension(R.dimen.fontsize20));
+            this.f53582e.setTextColor(this.mHintFontColor);
+            this.f53582e.setGravity(19);
+            this.f53582e.setChecked(true);
+            this.f53582e.setButtonDrawable((Drawable) null);
+            this.f53582e.setOnCheckedChangeListener(new a(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.bottomMargin = this.mSize50;
-            addView(this.f53583e, layoutParams);
+            addView(this.f53582e, layoutParams);
         }
     }
 
@@ -145,27 +145,27 @@ public class CommitView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Button button = new Button(this.mContext);
-            this.f53584f = button;
+            this.f53583f = button;
             button.setGravity(17);
-            this.f53584f.setTextColor(this.mButtonFontColor);
-            this.f53584f.setTextSize(0, this.mFontSize);
+            this.f53583f.setTextColor(this.mButtonFontColor);
+            this.f53583f.setTextSize(0, this.mFontSize);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mSize80);
-            layoutParams.addRule(3, this.f53583e.getId());
-            this.f53584f.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.form_commit_button_selector));
-            addView(this.f53584f, layoutParams);
+            layoutParams.addRule(3, this.f53582e.getId());
+            this.f53583f.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.form_commit_button_selector));
+            addView(this.f53583f, layoutParams);
         }
     }
 
     public Button getCommitButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53584f : (Button) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53583f : (Button) invokeV.objValue;
     }
 
     public String getPostUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53586h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53585h : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
@@ -189,8 +189,8 @@ public class CommitView extends FormItemBaseView {
     public void setClickable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f53584f.setClickable(z);
-            this.f53583e.setClickable(z);
+            this.f53583f.setClickable(z);
+            this.f53582e.setClickable(z);
         }
     }
 
@@ -201,30 +201,30 @@ public class CommitView extends FormItemBaseView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bVar)) == null) {
             if (super.updateView(bVar)) {
                 FormCard.c cVar = (FormCard.c) bVar;
-                if (TextUtils.isEmpty(cVar.f53503d)) {
-                    this.f53583e.setVisibility(8);
+                if (TextUtils.isEmpty(cVar.f53502d)) {
+                    this.f53582e.setVisibility(8);
                 } else {
-                    this.f53583e.setVisibility(0);
-                    this.f53583e.setTextSize(0, this.mFontSize26);
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f53583e.getLayoutParams();
+                    this.f53582e.setVisibility(0);
+                    this.f53582e.setTextSize(0, this.mFontSize26);
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f53582e.getLayoutParams();
                     marginLayoutParams.bottomMargin = this.mSize50;
-                    marginLayoutParams.height = c(this.f53583e.getPaint(), cVar.f53503d);
+                    marginLayoutParams.height = c(this.f53582e.getPaint(), cVar.f53502d);
                     Drawable drawable = this.mResources.getDrawable(R.drawable.form_checkbox_selector);
                     int i2 = this.mSize20;
                     drawable.setBounds(0, 0, i2, i2);
-                    this.f53583e.setCompoundDrawables(drawable, null, null, null);
-                    this.f53583e.setCompoundDrawablePadding(this.mSize20);
-                    this.f53583e.setText(cVar.f53503d);
+                    this.f53582e.setCompoundDrawables(drawable, null, null, null);
+                    this.f53582e.setCompoundDrawablePadding(this.mSize20);
+                    this.f53582e.setText(cVar.f53502d);
                 }
-                String str = cVar.f53501b;
+                String str = cVar.f53500b;
                 if (TextUtils.isEmpty(str)) {
                     str = this.mResources.getString(R.string.push_commit);
                 }
-                this.f53584f.getLayoutParams().height = this.mSize80;
-                this.f53584f.setPadding(0, 0, 0, 0);
-                this.f53584f.setTextSize(0, this.mFontSize);
-                this.f53584f.setText(str);
-                this.f53586h = cVar.f53504e;
+                this.f53583f.getLayoutParams().height = this.mSize80;
+                this.f53583f.setPadding(0, 0, 0, 0);
+                this.f53583f.setTextSize(0, this.mFontSize);
+                this.f53583f.setText(str);
+                this.f53585h = cVar.f53503e;
                 return true;
             }
             return false;
@@ -251,10 +251,10 @@ public class CommitView extends FormItemBaseView {
                 return;
             }
         }
-        this.f53583e = null;
-        this.f53584f = null;
-        this.f53585g = 1;
-        this.f53586h = "";
+        this.f53582e = null;
+        this.f53583f = null;
+        this.f53584g = 1;
+        this.f53585h = "";
         d();
     }
 
@@ -277,10 +277,10 @@ public class CommitView extends FormItemBaseView {
                 return;
             }
         }
-        this.f53583e = null;
-        this.f53584f = null;
-        this.f53585g = 1;
-        this.f53586h = "";
+        this.f53582e = null;
+        this.f53583f = null;
+        this.f53584g = 1;
+        this.f53585h = "";
         d();
     }
 }

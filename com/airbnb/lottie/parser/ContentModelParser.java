@@ -6,6 +6,7 @@ import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes6.dex */
@@ -68,7 +69,7 @@ public class ContentModelParser {
                 }
                 c2 = 65535;
                 break;
-            case 3307:
+            case SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY /* 3307 */:
                 if (str.equals("gr")) {
                     c2 = 0;
                     break;

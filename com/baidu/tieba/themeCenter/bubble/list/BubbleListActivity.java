@@ -32,7 +32,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f54568a;
+        public final /* synthetic */ BubbleListActivity f54567a;
 
         public a(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f54568a = bubbleListActivity;
+            this.f54567a = bubbleListActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
         public void a(int i2, String str, e eVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                this.f54568a.mView.j();
-                BubbleListActivity bubbleListActivity = this.f54568a;
+                this.f54567a.mView.j();
+                BubbleListActivity bubbleListActivity = this.f54567a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
                 if (i2 == 0) {
-                    this.f54568a.mView.i(eVar, list, this.f54568a.mModel.L());
+                    this.f54567a.mView.i(eVar, list, this.f54567a.mModel.L());
                     return;
                 }
-                this.f54568a.showToast(str);
-                this.f54568a.mView.h();
+                this.f54567a.showToast(str);
+                this.f54567a.mView.h();
             }
         }
     }
@@ -75,9 +75,45 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f54569e;
+        public final /* synthetic */ BubbleListActivity f54568e;
 
         public b(BubbleListActivity bubbleListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bubbleListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54568e = bubbleListActivity;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54568e.mModel == null) {
+                return;
+            }
+            this.f54568e.mModel.w();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements f.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BubbleListActivity f54569e;
+
+        public c(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,49 +131,13 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             this.f54569e = bubbleListActivity;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54569e.mModel == null) {
-                return;
-            }
-            this.f54569e.mModel.w();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements f.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f54570e;
-
-        public c(BubbleListActivity bubbleListActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bubbleListActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54570e = bubbleListActivity;
-        }
-
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f54570e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f54569e.mModel == null) {
                 return;
             }
-            this.f54570e.mModel.loadData();
+            this.f54569e.mModel.loadData();
         }
     }
 

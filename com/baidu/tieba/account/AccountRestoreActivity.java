@@ -46,7 +46,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AccountRestoreActivity f46631a;
+        public final /* synthetic */ AccountRestoreActivity f46630a;
 
         public a(AccountRestoreActivity accountRestoreActivity) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                     return;
                 }
             }
-            this.f46631a = accountRestoreActivity;
+            this.f46630a = accountRestoreActivity;
         }
 
         @Override // b.a.r0.l3.n0.c
@@ -71,8 +71,8 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                if (this.f46631a.jsBridge != null) {
-                    return this.f46631a.jsBridge.b(this.f46631a.mWebView, str, jsPromptResult);
+                if (this.f46630a.jsBridge != null) {
+                    return this.f46630a.jsBridge.b(this.f46630a.mWebView, str, jsPromptResult);
                 }
                 return false;
             }

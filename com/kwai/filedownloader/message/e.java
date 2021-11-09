@@ -14,17 +14,17 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile g f67023a;
+    public volatile g f67022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b f67024b;
+    public volatile b f67023b;
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f67025a;
+        public static final e f67024a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class e {
                     return;
                 }
             }
-            f67025a = new e();
+            f67024a = new e();
         }
     }
 
@@ -66,18 +66,18 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f67025a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f67024a : (e) invokeV.objValue;
     }
 
     public void a(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
-                if (this.f67024b != null) {
-                    this.f67024b.a(messageSnapshot);
+                if (this.f67023b != null) {
+                    this.f67023b.a(messageSnapshot);
                 }
-            } else if (this.f67023a != null) {
-                this.f67023a.a(messageSnapshot);
+            } else if (this.f67022a != null) {
+                this.f67022a.a(messageSnapshot);
             }
         }
     }
@@ -85,11 +85,11 @@ public class e {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f67024b = bVar;
+            this.f67023b = bVar;
             if (bVar == null) {
-                this.f67023a = null;
+                this.f67022a = null;
             } else {
-                this.f67023a = new g(5, bVar);
+                this.f67022a = new g(5, bVar);
             }
         }
     }

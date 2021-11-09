@@ -320,9 +320,9 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
             cardPersonDynamicThreadData.t = d2Var;
-            cardPersonDynamicThreadData.f47456e = String.valueOf(d2Var.T());
-            cardPersonDynamicThreadData.f47457f = d2Var.E;
-            cardPersonDynamicThreadData.f47460i = d2Var.k2;
+            cardPersonDynamicThreadData.f47455e = String.valueOf(d2Var.T());
+            cardPersonDynamicThreadData.f47456f = d2Var.E;
+            cardPersonDynamicThreadData.f47459i = d2Var.k2;
             cardPersonDynamicThreadData.s = d2Var.j2;
             if (d2Var != null && d2Var.L() != null) {
                 cardPersonDynamicThreadData.K = d2Var.L().oriUgcNid;

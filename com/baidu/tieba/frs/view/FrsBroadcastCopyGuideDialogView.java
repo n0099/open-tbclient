@@ -26,19 +26,19 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f49100e;
+    public LinearLayout f49099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f49101f;
+    public Context f49100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49102g;
+    public TextView f49101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49103h;
+    public TextView f49102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f49104i;
+    public ImageView f49103i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f49101f = context;
+        this.f49100f = context;
         a(context);
     }
 
@@ -68,19 +68,19 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(f1.frs_broadcast_major_copy_guide_dialog, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(e1.frs_broadcast_guide_main);
-            this.f49100e = linearLayout;
-            this.f49102g = (TextView) linearLayout.findViewById(e1.frs_broadcast_guide_title);
-            this.f49103h = (TextView) this.f49100e.findViewById(e1.frs_broadcast_guide_content);
-            this.f49104i = (ImageView) this.f49100e.findViewById(e1.guide_iv);
-            this.j = (TextView) this.f49100e.findViewById(e1.to_next_tv);
-            this.f49102g.setText(h1.forum_broadcast_copy_guide_title);
-            this.f49103h.setText(h1.forum_broadcast_copy_guide_hint);
+            this.f49099e = linearLayout;
+            this.f49101g = (TextView) linearLayout.findViewById(e1.frs_broadcast_guide_title);
+            this.f49102h = (TextView) this.f49099e.findViewById(e1.frs_broadcast_guide_content);
+            this.f49103i = (ImageView) this.f49099e.findViewById(e1.guide_iv);
+            this.j = (TextView) this.f49099e.findViewById(e1.to_next_tv);
+            this.f49101g.setText(h1.forum_broadcast_copy_guide_title);
+            this.f49102h.setText(h1.forum_broadcast_copy_guide_hint);
             this.j.setText(h1.comment_tab_dialog_botton_text);
-            SkinManager.setViewTextColor(this.f49102g, b1.CAM_X0105);
-            SkinManager.setViewTextColor(this.f49103h, b1.CAM_X0107);
+            SkinManager.setViewTextColor(this.f49101g, b1.CAM_X0105);
+            SkinManager.setViewTextColor(this.f49102h, b1.CAM_X0107);
             SkinManager.setViewTextColor(this.j, b1.CAM_X0302);
-            SkinManager.setImageResource(this.f49104i, d1.pic_frs_guide_copylink);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(b1.CAM_X0211).blRadius(l.g(this.f49101f, c1.tbds30)).brRadius(l.g(this.f49101f, c1.tbds30)).tlRadius(l.g(this.f49101f, c1.tbds32)).trRadius(l.g(this.f49101f, c1.tbds32)).into(this.f49100e);
+            SkinManager.setImageResource(this.f49103i, d1.pic_frs_guide_copylink);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(b1.CAM_X0211).blRadius(l.g(this.f49100f, c1.tbds30)).brRadius(l.g(this.f49100f, c1.tbds30)).tlRadius(l.g(this.f49100f, c1.tbds32)).trRadius(l.g(this.f49100f, c1.tbds32)).into(this.f49099e);
         }
     }
 

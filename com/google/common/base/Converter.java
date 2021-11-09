@@ -372,10 +372,10 @@ public abstract class Converter<A, B> implements g<A, B> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f63139e;
+        public final /* synthetic */ Iterable f63138e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Converter f63140f;
+        public final /* synthetic */ Converter f63139f;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
@@ -384,10 +384,10 @@ public abstract class Converter<A, B> implements g<A, B> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f63141e;
+            public final Iterator<? extends A> f63140e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f63142f;
+            public final /* synthetic */ a f63141f;
 
             public C1866a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -404,29 +404,29 @@ public abstract class Converter<A, B> implements g<A, B> {
                         return;
                     }
                 }
-                this.f63142f = aVar;
-                this.f63141e = this.f63142f.f63139e.iterator();
+                this.f63141f = aVar;
+                this.f63140e = this.f63141f.f63138e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63141e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63140e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public B next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f63142f.f63140f.convert(this.f63141e.next()) : (B) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f63141f.f63139f.convert(this.f63140e.next()) : (B) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f63141e.remove();
+                    this.f63140e.remove();
                 }
             }
         }
@@ -446,8 +446,8 @@ public abstract class Converter<A, B> implements g<A, B> {
                     return;
                 }
             }
-            this.f63140f = converter;
-            this.f63139e = iterable;
+            this.f63139f = converter;
+            this.f63138e = iterable;
         }
 
         @Override // java.lang.Iterable

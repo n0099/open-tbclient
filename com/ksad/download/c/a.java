@@ -22,16 +22,16 @@ public class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f63777a;
+    public d f63776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f63778b;
+    public final Map<String, Integer> f63777b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f63779c;
+    public Service f63778c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC1885a f63780d;
+    public final HandlerC1885a f63779d;
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -40,7 +40,7 @@ public class a extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f63781a;
+        public final WeakReference<a> f63780a;
 
         public HandlerC1885a(a aVar) {
             Interceptable interceptable = $ic;
@@ -57,18 +57,18 @@ public class a extends c {
                     return;
                 }
             }
-            this.f63781a = new WeakReference<>(aVar);
+            this.f63780a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f63781a.get()) != null && message.what == 1) {
-                if (aVar.f63777a == null || !aVar.f63777a.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f63780a.get()) != null && message.what == 1) {
+                if (aVar.f63776a == null || !aVar.f63776a.d()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
-                    aVar.f63779c.stopSelf();
+                    aVar.f63778c.stopSelf();
                 }
             }
         }
@@ -87,8 +87,8 @@ public class a extends c {
                 return;
             }
         }
-        this.f63778b = new ConcurrentHashMap();
-        this.f63780d = new HandlerC1885a(this);
+        this.f63777b = new ConcurrentHashMap();
+        this.f63779d = new HandlerC1885a(this);
     }
 
     private void a(Intent intent) {
@@ -100,15 +100,15 @@ public class a extends c {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f63778b.get(stringExtra);
+            Integer num = this.f63777b.get(stringExtra);
             if (intExtra == 1) {
-                this.f63778b.put(stringExtra, Integer.valueOf(this.f63777a.a(downloadRequest, (com.ksad.download.c) null)));
+                this.f63777b.put(stringExtra, Integer.valueOf(this.f63776a.a(downloadRequest, (com.ksad.download.c) null)));
             } else if (intExtra == 2) {
-                this.f63777a.d(num.intValue());
+                this.f63776a.d(num.intValue());
             } else if (intExtra == 3) {
-                this.f63777a.e(num.intValue());
+                this.f63776a.e(num.intValue());
             } else if (intExtra == 4) {
-                this.f63777a.c(num.intValue());
+                this.f63776a.c(num.intValue());
             }
         } catch (Exception unused) {
         }
@@ -120,9 +120,9 @@ public class a extends c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
             return;
         }
-        this.f63779c = service;
-        this.f63777a = d.a();
-        this.f63780d.sendEmptyMessageDelayed(1, 30000L);
+        this.f63778c = service;
+        this.f63776a = d.a();
+        this.f63779d.sendEmptyMessageDelayed(1, 30000L);
     }
 
     @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy

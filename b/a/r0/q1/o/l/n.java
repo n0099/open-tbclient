@@ -507,8 +507,8 @@ public class n {
         this.p.h0().setOnDragingListener(this.w);
         this.p.h0().setOnSeekBarChangeListener(this.r);
         this.p.z0(this.v);
-        this.p.G0(this.f22706e.f51091d);
-        this.p.I0(this.f22706e.f51094g);
+        this.p.G0(this.f22706e.f51090d);
+        this.p.I0(this.f22706e.f51093g);
         this.p.J0(this.f22709h);
         this.p.x0(this.u);
         this.p.r0();
@@ -606,15 +606,15 @@ public class n {
                 return;
             }
             String str = this.f22709h;
-            if (str == null || !str.equalsIgnoreCase(aVar.f51088a)) {
+            if (str == null || !str.equalsIgnoreCase(aVar.f51087a)) {
                 w();
-                this.f22709h = aVar.f51088a;
+                this.f22709h = aVar.f51087a;
                 this.f22707f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                this.f22707f.startLoad(aVar.f51091d, 17, false);
-                int i3 = aVar.f51092e;
-                int i4 = aVar.f51093f;
+                this.f22707f.startLoad(aVar.f51090d, 17, false);
+                int i3 = aVar.f51091e;
+                int i4 = aVar.f51092f;
                 ViewGroup.LayoutParams layoutParams = this.f22703b.getLayoutParams();
-                if (i3 > 0 && i4 > 0 && layoutParams != null && !aVar.f51095h) {
+                if (i3 > 0 && i4 > 0 && layoutParams != null && !aVar.f51094h) {
                     if (i3 > i4) {
                         layoutParams.height = ((this.k * 1) * i4) / i3;
                     } else {
@@ -622,7 +622,7 @@ public class n {
                     }
                     this.f22703b.setLayoutParams(layoutParams);
                     this.p.M0();
-                } else if (layoutParams != null && aVar.f51095h) {
+                } else if (layoutParams != null && aVar.f51094h) {
                     layoutParams.width = this.k;
                     layoutParams.height = this.l;
                     this.f22703b.setLayoutParams(layoutParams);

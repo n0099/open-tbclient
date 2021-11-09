@@ -11,31 +11,31 @@ public class a extends com.kwad.sdk.core.response.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65034a;
+    public int f65033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65035b;
+    public String f65034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65036c;
+    public int f65035c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65037d;
+    public int f65036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65038e;
+    public String f65037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f65039f;
+    public String f65038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f65040g;
+    public int f65039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f65041h;
+    public int f65040h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65042i;
+    public int f65041i;
     public int j;
     public transient List<AdTemplate> k;
 
@@ -52,10 +52,10 @@ public class a extends com.kwad.sdk.core.response.a.a {
                 return;
             }
         }
-        this.f65036c = 1;
-        this.f65040g = 1;
-        this.f65041h = 1;
-        this.f65042i = 1;
+        this.f65035c = 1;
+        this.f65039g = 1;
+        this.f65040h = 1;
+        this.f65041i = 1;
         this.j = 1;
     }
 }

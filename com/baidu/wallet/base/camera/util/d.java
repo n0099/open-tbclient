@@ -11,7 +11,7 @@ public final class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedBlockingQueue<Runnable> f57366a;
+    public final LinkedBlockingQueue<Runnable> f57365a;
 
     public d(LinkedBlockingQueue<Runnable> linkedBlockingQueue) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f57366a = linkedBlockingQueue;
+        this.f57365a = linkedBlockingQueue;
     }
 
     @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ public final class d implements Runnable {
             Thread currentThread = Thread.currentThread();
             while (!currentThread.isInterrupted()) {
                 try {
-                    this.f57366a.take().run();
+                    this.f57365a.take().run();
                 } catch (InterruptedException unused) {
                     return;
                 }

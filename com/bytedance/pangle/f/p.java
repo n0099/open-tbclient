@@ -15,10 +15,10 @@ public final class p extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f61418a;
+    public final byte[] f61417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61419b;
+    public int f61418b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(X509Certificate x509Certificate, byte[] bArr) {
@@ -38,8 +38,8 @@ public final class p extends r {
                 return;
             }
         }
-        this.f61419b = -1;
-        this.f61418a = bArr;
+        this.f61418b = -1;
+        this.f61417a = bArr;
     }
 
     @Override // java.security.cert.Certificate
@@ -66,7 +66,7 @@ public final class p extends r {
     public final byte[] getEncoded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61418a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61417a : (byte[]) invokeV.objValue;
     }
 
     @Override // java.security.cert.Certificate
@@ -74,14 +74,14 @@ public final class p extends r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f61419b == -1) {
+            if (this.f61418b == -1) {
                 try {
-                    this.f61419b = Arrays.hashCode(getEncoded());
+                    this.f61418b = Arrays.hashCode(getEncoded());
                 } catch (CertificateEncodingException unused) {
-                    this.f61419b = 0;
+                    this.f61418b = 0;
                 }
             }
-            return this.f61419b;
+            return this.f61418b;
         }
         return invokeV.intValue;
     }

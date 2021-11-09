@@ -33,9 +33,9 @@ public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        cVar.f64584a = jSONObject.optInt("cellId");
-        cVar.f64585b = jSONObject.optInt("lac");
-        cVar.f64586c = jSONObject.optInt("bsss");
+        cVar.f64583a = jSONObject.optInt("cellId");
+        cVar.f64584b = jSONObject.optInt("lac");
+        cVar.f64585c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,9 +47,9 @@ public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "cellId", cVar.f64584a);
-            com.kwad.sdk.utils.q.a(jSONObject, "lac", cVar.f64585b);
-            com.kwad.sdk.utils.q.a(jSONObject, "bsss", cVar.f64586c);
+            com.kwad.sdk.utils.q.a(jSONObject, "cellId", cVar.f64583a);
+            com.kwad.sdk.utils.q.a(jSONObject, "lac", cVar.f64584b);
+            com.kwad.sdk.utils.q.a(jSONObject, "bsss", cVar.f64585c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

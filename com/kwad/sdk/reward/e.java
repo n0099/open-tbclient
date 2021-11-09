@@ -29,11 +29,11 @@ public class e extends BaseSystemDialogFragment {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f66344a;
+    public static e f66343a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f66345b;
+    public a f66344b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -68,7 +68,7 @@ public class e extends BaseSystemDialogFragment {
     public static void a(Activity activity, String str, a aVar, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, activity, str, aVar, str2, str3) == null) {
-            f66344a = new e();
+            f66343a = new e();
             Bundle bundle = new Bundle();
             bundle.putString("key_title", str);
             if (!TextUtils.isEmpty(str2)) {
@@ -77,16 +77,16 @@ public class e extends BaseSystemDialogFragment {
             if (!TextUtils.isEmpty(str3)) {
                 bundle.putString("key_continueBtnText", str3);
             }
-            f66344a.setArguments(bundle);
-            f66344a.a(aVar);
-            f66344a.show(activity.getFragmentManager(), "videoCloseDialog");
+            f66343a.setArguments(bundle);
+            f66343a.a(aVar);
+            f66343a.show(activity.getFragmentManager(), "videoCloseDialog");
         }
     }
 
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
-            this.f66345b = aVar;
+            this.f66344b = aVar;
         }
     }
 
@@ -94,7 +94,7 @@ public class e extends BaseSystemDialogFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            e eVar = f66344a;
+            e eVar = f66343a;
             return eVar != null && eVar.b();
         }
         return invokeV.booleanValue;
@@ -125,7 +125,7 @@ public class e extends BaseSystemDialogFragment {
             getDialog().setCanceledOnTouchOutside(false);
             window.setLayout(-1, -1);
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            a aVar = this.f66345b;
+            a aVar = this.f66344b;
             if (aVar != null) {
                 aVar.a();
             }
@@ -155,6 +155,42 @@ public class e extends BaseSystemDialogFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f66345a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f66345a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f66345a.dismiss();
+                        if (this.f66345a.f66344b != null) {
+                            this.f66345a.f66344b.b();
+                        }
+                    }
+                }
+            });
+            textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.reward.e.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
                 public final /* synthetic */ e f66346a;
 
                 {
@@ -180,13 +216,13 @@ public class e extends BaseSystemDialogFragment {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.f66346a.dismiss();
-                        if (this.f66346a.f66345b != null) {
-                            this.f66346a.f66345b.b();
+                        if (this.f66346a.f66344b != null) {
+                            this.f66346a.f66344b.c();
                         }
                     }
                 }
             });
-            textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.reward.e.2
+            getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.sdk.reward.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,42 +245,6 @@ public class e extends BaseSystemDialogFragment {
                         }
                     }
                     this.f66347a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f66347a.dismiss();
-                        if (this.f66347a.f66345b != null) {
-                            this.f66347a.f66345b.c();
-                        }
-                    }
-                }
-            });
-            getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.sdk.reward.e.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f66348a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f66348a = this;
                 }
 
                 @Override // android.content.DialogInterface.OnKeyListener

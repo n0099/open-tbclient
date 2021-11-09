@@ -685,10 +685,10 @@ public class TbRichTextItem extends OrmObject {
                             if (this.f46393e == 4) {
                                 if (TbFaceManager.e().b(this.f46394f.getText()) <= 0) {
                                     this.f46393e = 1;
-                                    this.f46394f.setText(StringUtils.isNull(pbContent.f73001c) ? PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.editor_express) + PreferencesUtil.RIGHT_MOUNT : PreferencesUtil.LEFT_MOUNT + pbContent.f73001c + PreferencesUtil.RIGHT_MOUNT);
+                                    this.f46394f.setText(StringUtils.isNull(pbContent.f73000c) ? PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getString(R.string.editor_express) + PreferencesUtil.RIGHT_MOUNT : PreferencesUtil.LEFT_MOUNT + pbContent.f73000c + PreferencesUtil.RIGHT_MOUNT);
                                     break;
                                 } else {
-                                    this.f46394f.setLink(PreferencesUtil.LEFT_MOUNT + pbContent.f73001c + PreferencesUtil.RIGHT_MOUNT);
+                                    this.f46394f.setLink(PreferencesUtil.LEFT_MOUNT + pbContent.f73000c + PreferencesUtil.RIGHT_MOUNT);
                                     break;
                                 }
                             } else if (this.f46393e == 256) {
@@ -700,7 +700,7 @@ public class TbRichTextItem extends OrmObject {
                 } else {
                     TbRichTextEmotionInfo tbRichTextEmotionInfo = new TbRichTextEmotionInfo();
                     this.f46397i = tbRichTextEmotionInfo;
-                    tbRichTextEmotionInfo.mGifInfo.mSharpText = String.format("#(%s)", pbContent.f73001c);
+                    tbRichTextEmotionInfo.mGifInfo.mSharpText = String.format("#(%s)", pbContent.f73000c);
                     this.f46397i.mGifInfo.mDynamicUrl = pbContent.dynamic;
                     this.f46397i.mGifInfo.mStaticUrl = pbContent._static;
                     this.f46397i.mType = this.f46393e;

@@ -12,10 +12,10 @@ public final class l extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70221a;
+    public int f70220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70222b;
+    public int f70221b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l() {
@@ -33,8 +33,8 @@ public final class l extends u {
                 return;
             }
         }
-        this.f70221a = -1;
-        this.f70222b = -1;
+        this.f70220a = -1;
+        this.f70221b = -1;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -42,21 +42,21 @@ public final class l extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f70221a);
-            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f70222b);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f70220a);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f70221b);
         }
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70221a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70220a : invokeV.intValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70222b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70221b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -71,8 +71,8 @@ public final class l extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f70221a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f70221a);
-            this.f70222b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f70222b);
+            this.f70220a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f70220a);
+            this.f70221b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f70221b);
         }
     }
 }

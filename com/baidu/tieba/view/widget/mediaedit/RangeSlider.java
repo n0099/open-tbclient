@@ -36,19 +36,19 @@ public class RangeSlider extends ViewGroup {
     public float G;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55620e;
+    public int f55619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f55621f;
+    public Paint f55620f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f55622g;
+    public Paint f55621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f55623h;
+    public Paint f55622h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ThumbView f55624i;
+    public final ThumbView f55623i;
     public final ThumbView j;
     public float k;
     public float l;
@@ -130,32 +130,32 @@ public class RangeSlider extends ViewGroup {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int i2 = this.u + (this.f55620e * 2);
-            float x = this.f55624i.getX();
+            int i2 = this.u + (this.f55619e * 2);
+            float x = this.f55623i.getX();
             float x2 = this.j.getX();
             float f2 = this.w;
-            int i3 = this.f55620e;
-            canvas.drawRect(this.t + x, i3, x2, i3 + f2, this.f55621f);
-            canvas.drawRect(this.t + x, (i2 - i3) - f2, x2, i2 - this.f55620e, this.f55621f);
+            int i3 = this.f55619e;
+            canvas.drawRect(this.t + x, i3, x2, i3 + f2, this.f55620f);
+            canvas.drawRect(this.t + x, (i2 - i3) - f2, x2, i2 - this.f55619e, this.f55620f);
             float f3 = this.t + x;
-            int i4 = this.f55620e;
+            int i4 = this.f55619e;
             canvas.drawRect(f3, i4 + f2, x2, (i2 - i4) - f2, this.D);
             float f4 = this.k;
-            int i5 = this.f55620e;
-            canvas.drawRect(f4, i5, x + this.t, i2 - i5, this.f55622g);
-            int i6 = this.f55620e;
-            canvas.drawRect(x2, i6, this.m, i2 - i6, this.f55622g);
+            int i5 = this.f55619e;
+            canvas.drawRect(f4, i5, x + this.t, i2 - i5, this.f55621g);
+            int i6 = this.f55619e;
+            canvas.drawRect(x2, i6, this.m, i2 - i6, this.f55621g);
         }
     }
 
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            float x = this.f55624i.getX() + i2;
+            float x = this.f55623i.getX() + i2;
             if (x < this.k - this.t || x >= this.j.getX() - this.t || this.j.getX() - (this.t + x) < this.B || x >= getMeasuredWidth() - this.l) {
                 return;
             }
-            this.f55624i.setX(x);
+            this.f55623i.setX(x);
             e(1);
         }
     }
@@ -164,7 +164,7 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             float x = this.j.getX() + i2;
-            if (x <= this.k || x <= this.f55624i.getX() + this.t || x - (this.f55624i.getX() + this.t) < this.B || x > getMeasuredWidth() - this.l) {
+            if (x <= this.k || x <= this.f55623i.getX() + this.t || x - (this.f55623i.getX() + this.t) < this.B || x > getMeasuredWidth() - this.l) {
                 return;
             }
             this.j.setX(x);
@@ -204,7 +204,7 @@ public class RangeSlider extends ViewGroup {
             }
             float f3 = i2;
             float x2 = this.C.getX() + f3;
-            if (x2 <= this.f55624i.getX() + this.t || x2 >= this.j.getX()) {
+            if (x2 <= this.f55623i.getX() + this.t || x2 >= this.j.getX()) {
                 return;
             }
             if (UtilHelper.getDimenPixelSize(R.dimen.tbds4) + x2 >= this.j.getX() && this.G <= this.j.getX()) {
@@ -226,14 +226,14 @@ public class RangeSlider extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (aVar = this.y) == null) {
             return;
         }
-        aVar.a(this, i2, this.f55624i.getX() + this.t, this.j.getX());
+        aVar.a(this, i2, this.f55623i.getX() + this.t, this.j.getX());
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             e(3);
-            this.f55624i.setPressed(false);
+            this.f55623i.setPressed(false);
         }
     }
 
@@ -248,7 +248,7 @@ public class RangeSlider extends ViewGroup {
     public float getLeftThumbX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55624i.getX() + this.t : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55623i.getX() + this.t : invokeV.floatValue;
     }
 
     public float getRightThumbX() {
@@ -281,12 +281,12 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, canvas) == null) {
             if (this.E == 1 && this.F) {
-                this.f55624i.setVisibility(8);
+                this.f55623i.setVisibility(8);
                 this.j.setVisibility(8);
                 return;
             }
-            if (this.f55624i.getVisibility() == 8 || this.j.getVisibility() == 8) {
-                this.f55624i.setVisibility(0);
+            if (this.f55623i.getVisibility() == 8 || this.j.getVisibility() == 8) {
+                this.f55623i.setVisibility(0);
                 this.j.setVisibility(0);
             }
             a(canvas);
@@ -298,16 +298,16 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int measuredWidth = getMeasuredWidth();
-            ThumbView thumbView = this.f55624i;
+            ThumbView thumbView = this.f55623i;
             float f2 = this.k;
-            int i6 = this.f55620e;
+            int i6 = this.f55619e;
             thumbView.layout((int) (f2 - this.t), i6, (int) f2, this.u + i6);
             ThumbView thumbView2 = this.j;
             float f3 = measuredWidth;
             float f4 = this.l;
-            int i7 = this.f55620e;
+            int i7 = this.f55619e;
             thumbView2.layout((int) (f3 - f4), i7, (int) ((f3 - f4) + this.t), this.u + i7);
-            this.C.layout((int) (this.f55624i.getX() + this.t), 0, (int) (this.f55624i.getX() + this.t + this.v), this.u + (this.f55620e * 2));
+            this.C.layout((int) (this.f55623i.getX() + this.t), 0, (int) (this.f55623i.getX() + this.t + this.v), this.u + (this.f55619e * 2));
             this.C.invalidate();
         }
     }
@@ -318,7 +318,7 @@ public class RangeSlider extends ViewGroup {
         if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
             super.onMeasure(makeMeasureSpec, i3);
-            this.f55624i.measure(makeMeasureSpec, i3);
+            this.f55623i.measure(makeMeasureSpec, i3);
             this.j.measure(makeMeasureSpec, i3);
         }
     }
@@ -340,7 +340,7 @@ public class RangeSlider extends ViewGroup {
                             }
                             if (this.x) {
                                 int i2 = x - this.q;
-                                if (this.f55624i.isPressed()) {
+                                if (this.f55623i.isPressed()) {
                                     getParent().requestDisallowInterceptTouchEvent(true);
                                     b(i2);
                                     resetAnimator();
@@ -368,7 +368,7 @@ public class RangeSlider extends ViewGroup {
                     this.q = 0;
                     this.p = 0;
                     getParent().requestDisallowInterceptTouchEvent(false);
-                    if (this.f55624i.isPressed()) {
+                    if (this.f55623i.isPressed()) {
                         f();
                         invalidate();
                     } else if (this.j.isPressed()) {
@@ -390,23 +390,23 @@ public class RangeSlider extends ViewGroup {
                     this.p = x2;
                     this.q = x2;
                     this.x = false;
-                    if (!this.f55624i.isPressed() && this.f55624i.inInTarget(x2, y) && !this.j.isPressed() && !this.f55624i.isPressed() && this.C.a(x2, y)) {
+                    if (!this.f55623i.isPressed() && this.f55623i.inInTarget(x2, y) && !this.j.isPressed() && !this.f55623i.isPressed() && this.C.a(x2, y)) {
                         if (x2 >= this.C.getX()) {
                             this.C.setPressed(true);
                         } else {
-                            this.f55624i.setPressed(true);
+                            this.f55623i.setPressed(true);
                         }
-                    } else if (!this.j.isPressed() && this.j.inInTarget(x2, y) && !this.j.isPressed() && !this.f55624i.isPressed() && this.C.a(x2, y)) {
+                    } else if (!this.j.isPressed() && this.j.inInTarget(x2, y) && !this.j.isPressed() && !this.f55623i.isPressed() && this.C.a(x2, y)) {
                         if (x2 >= this.j.getX()) {
                             this.j.setPressed(true);
                         } else {
                             this.C.setPressed(true);
                         }
-                    } else if (!this.f55624i.isPressed() && this.f55624i.inInTarget(x2, y)) {
-                        this.f55624i.setPressed(true);
+                    } else if (!this.f55623i.isPressed() && this.f55623i.inInTarget(x2, y)) {
+                        this.f55623i.setPressed(true);
                     } else if (!this.j.isPressed() && this.j.inInTarget(x2, y)) {
                         this.j.setPressed(true);
-                    } else if (this.j.isPressed() || this.f55624i.isPressed() || !this.C.a(x2, y)) {
+                    } else if (this.j.isPressed() || this.f55623i.isPressed() || !this.C.a(x2, y)) {
                         return false;
                     } else {
                         this.C.setPressed(true);
@@ -422,12 +422,12 @@ public class RangeSlider extends ViewGroup {
     public void playValueAnimator(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.r = this.f55624i.getX() + this.t;
+            this.r = this.f55623i.getX() + this.t;
             this.s = this.j.getX() - this.v;
             ValueAnimator valueAnimator = this.A;
             if (valueAnimator != null) {
                 valueAnimator.cancel();
-                this.n = (int) (this.f55624i.getX() + this.t);
+                this.n = (int) (this.f55623i.getX() + this.t);
             }
         }
     }
@@ -439,7 +439,7 @@ public class RangeSlider extends ViewGroup {
             return;
         }
         valueAnimator.cancel();
-        this.n = (int) (this.f55624i.getX() + this.t);
+        this.n = (int) (this.f55623i.getX() + this.t);
     }
 
     public void setCurrentAbsolutePosition(float f2) {
@@ -468,14 +468,14 @@ public class RangeSlider extends ViewGroup {
     public void setLeftThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, drawable) == null) {
-            this.f55624i.setThumbDrawable(drawable);
+            this.f55623i.setThumbDrawable(drawable);
         }
     }
 
     public void setLineColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f55621f.setColor(i2);
+            this.f55620f.setColor(i2);
         }
     }
 
@@ -512,7 +512,7 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
             this.u = i2;
-            this.f55624i.setThumbHeight(i2);
+            this.f55623i.setThumbHeight(i2);
             this.j.setThumbHeight(i2);
         }
     }
@@ -521,7 +521,7 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
             this.t = i2;
-            this.f55624i.setThumbWidth(i2);
+            this.f55623i.setThumbWidth(i2);
             this.j.setThumbWidth(i2);
         }
     }
@@ -561,7 +561,7 @@ public class RangeSlider extends ViewGroup {
         b.a.r0.c4.l.c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            ThumbView thumbView = this.f55624i;
+            ThumbView thumbView = this.f55623i;
             if (thumbView != null) {
                 thumbView.setX(f2);
             }
@@ -619,35 +619,35 @@ public class RangeSlider extends ViewGroup {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.RangeSlider, 0, 0);
         this.t = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_thumbWidth, 7);
         this.u = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_thumbHeight, 70);
-        this.f55620e = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_verticalLineBeyond, 2);
+        this.f55619e = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_verticalLineBeyond, 2);
         this.v = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_verticalLineWidth, 1);
         this.w = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_lineHeight, 1);
         this.k = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_leftThumbPadding, 0);
         this.l = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RangeSlider_rightThumbPadding, 0);
         Paint paint = new Paint();
-        this.f55623h = paint;
+        this.f55622h = paint;
         paint.setStrokeCap(Paint.Cap.ROUND);
-        this.f55623h.setColor(-1);
+        this.f55622h.setColor(-1);
         Paint paint2 = new Paint();
-        this.f55622g = paint2;
+        this.f55621g = paint2;
         paint2.setColor(obtainStyledAttributes.getColor(R$styleable.RangeSlider_maskColor, -1610612736));
         Paint paint3 = new Paint();
         this.D = paint3;
         paint3.setColor(obtainStyledAttributes.getColor(R$styleable.RangeSlider_maskCoverColor, 0));
         this.E = obtainStyledAttributes.getInt(R$styleable.RangeSlider_sliderType, 0);
         Paint paint4 = new Paint();
-        this.f55621f = paint4;
+        this.f55620f = paint4;
         paint4.setColor(obtainStyledAttributes.getColor(R$styleable.RangeSlider_lineColor, -65456));
         this.o = ViewConfiguration.get(context).getScaledTouchSlop();
         Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.RangeSlider_leftThumbDrawable);
         Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.RangeSlider_rightThumbDrawable);
-        this.f55624i = new ThumbView(context, this.t, this.u, drawable == null ? new ColorDrawable(-65456) : drawable);
+        this.f55623i = new ThumbView(context, this.t, this.u, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.j = new ThumbView(context, this.t, this.u, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
         this.C = new b.a.r0.c4.l.c.b(context);
         this.C.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.n = this.k;
-        addView(this.f55624i);
+        addView(this.f55623i);
         addView(this.j);
         addView(this.C);
         setWillNotDraw(false);

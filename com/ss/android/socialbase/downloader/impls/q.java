@@ -13,7 +13,7 @@ public class q implements s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long[] f69583a;
+    public final long[] f69582a;
 
     public q(String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class q implements s {
                 return;
             }
         }
-        this.f69583a = a(str);
+        this.f69582a = a(str);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.s
@@ -38,7 +38,7 @@ public class q implements s {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            long[] jArr = this.f69583a;
+            long[] jArr = this.f69582a;
             if (jArr == null || jArr.length <= 0) {
                 return 0L;
             }
@@ -46,11 +46,11 @@ public class q implements s {
             if (i4 < 0) {
                 i4 = 0;
             }
-            long[] jArr2 = this.f69583a;
+            long[] jArr2 = this.f69582a;
             if (i4 > jArr2.length - 1) {
                 i4 = jArr2.length - 1;
             }
-            return this.f69583a[i4];
+            return this.f69582a[i4];
         }
         return invokeII.longValue;
     }

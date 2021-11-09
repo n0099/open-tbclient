@@ -73,31 +73,31 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69438a = "f";
+    public static final String f69437a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f69439b;
+    public static final Pattern f69438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f69440c;
+    public static String f69439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SparseArray<Boolean> f69441d;
+    public static volatile SparseArray<Boolean> f69440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SparseArray<List<ai>> f69442e;
+    public static volatile SparseArray<List<ai>> f69441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final char[] f69443f;
+    public static final char[] f69442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Pattern f69444g;
+    public static Pattern f69443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Pattern f69445h;
+    public static Pattern f69444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static ConnectivityManager f69446i;
+    public static ConnectivityManager f69445i;
     public static Boolean j;
     public static Boolean k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,13 +115,13 @@ public class f {
                 return;
             }
         }
-        f69439b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
-        f69440c = null;
-        f69441d = new SparseArray<>();
-        f69442e = new SparseArray<>();
-        f69443f = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f69444g = null;
-        f69445h = null;
+        f69438b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
+        f69439c = null;
+        f69440d = new SparseArray<>();
+        f69441e = new SparseArray<>();
+        f69442f = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f69443g = null;
+        f69444h = null;
     }
 
     public f() {
@@ -179,7 +179,7 @@ public class f {
                     return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                 }
             } catch (Exception e2) {
-                String str = f69438a;
+                String str = f69437a;
                 com.ss.android.socialbase.downloader.c.a.d(str, "parse content-length from content-range failed " + e2);
             }
             return -1L;
@@ -223,15 +223,15 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, downloadInfo)) == null) {
             boolean z = false;
             if (!downloadInfo.isDeleteCacheIfCheckFailed() && TextUtils.isEmpty(downloadInfo.getLastModified())) {
-                com.ss.android.socialbase.downloader.c.a.b(f69438a, "dcache::last modify is emtpy, so just return cache");
+                com.ss.android.socialbase.downloader.c.a.b(f69437a, "dcache::last modify is emtpy, so just return cache");
             } else {
-                String str = f69438a;
+                String str = f69437a;
                 com.ss.android.socialbase.downloader.c.a.b(str, "dcache::curt=" + System.currentTimeMillis() + " expired=" + downloadInfo.getCacheExpiredTime());
                 if (System.currentTimeMillis() > downloadInfo.getCacheExpiredTime()) {
                     z = true;
                 }
             }
-            String str2 = f69438a;
+            String str2 = f69437a;
             com.ss.android.socialbase.downloader.c.a.b(str2, "cacheExpired::dcache::name=" + downloadInfo.getName() + " expired=" + z);
             return z;
         }
@@ -359,19 +359,19 @@ public class f {
                 return null;
             }
             try {
-                if (f69444g == null) {
-                    f69444g = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+                if (f69443g == null) {
+                    f69443g = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
                 }
-                matcher = f69444g.matcher(str);
+                matcher = f69443g.matcher(str);
             } catch (Exception unused) {
             }
             if (matcher.find()) {
                 return matcher.group(1);
             }
-            if (f69445h == null) {
-                f69445h = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+            if (f69444h == null) {
+                f69444h = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
             }
-            Matcher matcher2 = f69445h.matcher(str);
+            Matcher matcher2 = f69444h.matcher(str);
             if (matcher2.find()) {
                 return matcher2.group(1);
             }
@@ -406,7 +406,7 @@ public class f {
                     for (int i6 = 0; i6 < i3; i6++) {
                         int i7 = bArr[i6 + i2] & 255;
                         int i8 = i5 + 1;
-                        char[] cArr2 = f69443f;
+                        char[] cArr2 = f69442f;
                         cArr[i5] = cArr2[i7 >> 4];
                         i5 = i8 + 1;
                         cArr[i8] = cArr2[i7 & 15];
@@ -514,11 +514,11 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65623, null, i2)) == null) {
-            com.ss.android.socialbase.downloader.constants.f fVar = com.ss.android.socialbase.downloader.constants.f.f69186a;
-            if (i2 == com.ss.android.socialbase.downloader.constants.f.f69187b.ordinal()) {
-                return com.ss.android.socialbase.downloader.constants.f.f69187b;
+            com.ss.android.socialbase.downloader.constants.f fVar = com.ss.android.socialbase.downloader.constants.f.f69185a;
+            if (i2 == com.ss.android.socialbase.downloader.constants.f.f69186b.ordinal()) {
+                return com.ss.android.socialbase.downloader.constants.f.f69186b;
             }
-            return i2 == com.ss.android.socialbase.downloader.constants.f.f69188c.ordinal() ? com.ss.android.socialbase.downloader.constants.f.f69188c : fVar;
+            return i2 == com.ss.android.socialbase.downloader.constants.f.f69187c.ordinal() ? com.ss.android.socialbase.downloader.constants.f.f69187c : fVar;
         }
         return (com.ss.android.socialbase.downloader.constants.f) invokeI.objValue;
     }
@@ -553,7 +553,7 @@ public class f {
                 try {
                     return Long.parseLong(split[1]);
                 } catch (NumberFormatException unused) {
-                    String str2 = f69438a;
+                    String str2 = f69437a;
                     com.ss.android.socialbase.downloader.c.a.d(str2, "parse instance length failed with " + str);
                 }
             }
@@ -771,7 +771,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, context)) == null) {
-            String str = f69440c;
+            String str = f69439c;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -783,7 +783,7 @@ public class f {
                                     com.ss.android.socialbase.downloader.c.a.b("Process", "processName = " + runningAppProcessInfo.processName);
                                 }
                                 String str2 = runningAppProcessInfo.processName;
-                                f69440c = str2;
+                                f69439c = str2;
                                 return str2;
                             }
                         }
@@ -792,7 +792,7 @@ public class f {
                     e2.printStackTrace();
                 }
                 String i2 = i();
-                f69440c = i2;
+                f69439c = i2;
                 return i2;
             }
             return str;
@@ -1445,36 +1445,36 @@ public class f {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65561, null, downloadInfo, xVar, aiVar) == null) {
-            com.ss.android.socialbase.downloader.c.a.b(f69438a, "saveFileAsTargetName targetName is " + downloadInfo.getTargetFilePath());
+            com.ss.android.socialbase.downloader.c.a.b(f69437a, "saveFileAsTargetName targetName is " + downloadInfo.getTargetFilePath());
             try {
             } catch (Throwable th) {
-                com.ss.android.socialbase.downloader.c.a.b(f69438a, "saveFileAsTargetName throwable " + th.getMessage());
+                com.ss.android.socialbase.downloader.c.a.b(f69437a, "saveFileAsTargetName throwable " + th.getMessage());
                 if (aiVar == null) {
                 }
             }
-            synchronized (f69441d) {
-                if (f69441d.get(downloadInfo.getId()) == Boolean.TRUE) {
-                    com.ss.android.socialbase.downloader.c.a.b(f69438a, "has another same task is saving temp file");
+            synchronized (f69440d) {
+                if (f69440d.get(downloadInfo.getId()) == Boolean.TRUE) {
+                    com.ss.android.socialbase.downloader.c.a.b(f69437a, "has another same task is saving temp file");
                     if (aiVar != null) {
-                        List<ai> list = f69442e.get(downloadInfo.getId());
+                        List<ai> list = f69441e.get(downloadInfo.getId());
                         if (list == null) {
                             list = new ArrayList<>();
-                            f69442e.put(downloadInfo.getId(), list);
+                            f69441e.put(downloadInfo.getId(), list);
                         }
                         list.add(aiVar);
                     }
                     return;
                 }
-                com.ss.android.socialbase.downloader.c.a.b(f69438a, "saveTempFileStatusMap put id:" + downloadInfo.getId());
-                f69441d.put(downloadInfo.getId(), Boolean.TRUE);
+                com.ss.android.socialbase.downloader.c.a.b(f69437a, "saveTempFileStatusMap put id:" + downloadInfo.getId());
+                f69440d.put(downloadInfo.getId(), Boolean.TRUE);
                 File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
                 File file2 = new File(downloadInfo.getSavePath(), downloadInfo.getName());
                 boolean h2 = h(downloadInfo.getSavePath());
                 if (file2.exists()) {
-                    com.ss.android.socialbase.downloader.c.a.b(f69438a, "targetFile exist");
+                    com.ss.android.socialbase.downloader.c.a.b(f69437a, "targetFile exist");
                     int a2 = a(file2, downloadInfo.getMd5());
                     if (a(a2)) {
-                        com.ss.android.socialbase.downloader.c.a.b(f69438a, "tempFile not exist , targetFile exists and md5 check valid");
+                        com.ss.android.socialbase.downloader.c.a.b(f69437a, "tempFile not exist , targetFile exists and md5 check valid");
                         downloadInfo.setTTMd5CheckStatus(a2);
                         if (aiVar != null) {
                             aiVar.a();
@@ -1564,7 +1564,7 @@ public class f {
                     if (z) {
                     }
                 }
-                com.ss.android.socialbase.downloader.c.a.b(f69438a, "saveFileAsTargetName throwable " + th.getMessage());
+                com.ss.android.socialbase.downloader.c.a.b(f69437a, "saveFileAsTargetName throwable " + th.getMessage());
                 if (aiVar == null) {
                     aiVar.a(new BaseException(1038, b(th, "saveFileAsTargetName")));
                 }
@@ -1575,8 +1575,8 @@ public class f {
     public static void a(int i2, boolean z, BaseException baseException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), baseException}) == null) {
-            synchronized (f69441d) {
-                List<ai> list = f69442e.get(i2);
+            synchronized (f69440d) {
+                List<ai> list = f69441e.get(i2);
                 if (list != null) {
                     for (ai aiVar : list) {
                         if (aiVar != null) {
@@ -1588,9 +1588,9 @@ public class f {
                         }
                     }
                 }
-                String str = f69438a;
+                String str = f69437a;
                 com.ss.android.socialbase.downloader.c.a.b(str, "handleTempSaveCallback id:" + i2);
-                f69441d.remove(i2);
+                f69440d.remove(i2);
             }
         }
     }
@@ -1686,7 +1686,7 @@ public class f {
             arrayList.add(new com.ss.android.socialbase.downloader.model.c("Accept-Encoding", "identity"));
             String format = j3 <= 0 ? String.format("bytes=%s-", String.valueOf(j2)) : String.format("bytes=%s-%s", String.valueOf(j2), String.valueOf(j3));
             arrayList.add(new com.ss.android.socialbase.downloader.model.c("Range", format));
-            String str2 = f69438a;
+            String str2 = f69437a;
             com.ss.android.socialbase.downloader.c.a.b(str2, " range CurrentOffset:" + j2 + " EndOffset:" + j3 + ", range = " + format);
             return arrayList;
         }
@@ -1703,10 +1703,10 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            ConnectivityManager connectivityManager = f69446i;
+            ConnectivityManager connectivityManager = f69445i;
             if (connectivityManager == null) {
                 ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
-                f69446i = connectivityManager2;
+                f69445i = connectivityManager2;
                 return connectivityManager2;
             }
             return connectivityManager;

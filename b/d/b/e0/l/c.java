@@ -47,7 +47,7 @@ public final class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             OkHttpURLConnection okHttpURLConnection = this.f30445b;
-            if (okHttpURLConnection.f62033e != null) {
+            if (okHttpURLConnection.f62032e != null) {
                 return okHttpURLConnection.o;
             }
             throw new IllegalStateException("Connection has not yet been established");
@@ -59,14 +59,14 @@ public final class c extends b {
     public HostnameVerifier getHostnameVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30445b.f62029a.o() : (HostnameVerifier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30445b.f62028a.o() : (HostnameVerifier) invokeV.objValue;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public SSLSocketFactory getSSLSocketFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30445b.f62029a.E() : (SSLSocketFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30445b.f62028a.E() : (SSLSocketFactory) invokeV.objValue;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
@@ -74,9 +74,9 @@ public final class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hostnameVerifier) == null) {
             OkHttpURLConnection okHttpURLConnection = this.f30445b;
-            w.b t = okHttpURLConnection.f62029a.t();
+            w.b t = okHttpURLConnection.f62028a.t();
             t.j(hostnameVerifier);
-            okHttpURLConnection.f62029a = t.a();
+            okHttpURLConnection.f62028a = t.a();
         }
     }
 
@@ -86,9 +86,9 @@ public final class c extends b {
         if (interceptable == null || interceptable.invokeL(1048580, this, sSLSocketFactory) == null) {
             if (sSLSocketFactory != null) {
                 OkHttpURLConnection okHttpURLConnection = this.f30445b;
-                w.b t = okHttpURLConnection.f62029a.t();
+                w.b t = okHttpURLConnection.f62028a.t();
                 t.o(sSLSocketFactory);
-                okHttpURLConnection.f62029a = t.a();
+                okHttpURLConnection.f62028a = t.a();
                 return;
             }
             throw new IllegalArgumentException("sslSocketFactory == null");

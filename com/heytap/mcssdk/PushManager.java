@@ -280,7 +280,7 @@ public class PushManager implements b {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f63712f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f63711f : (String) invokeV.objValue;
     }
 
     public static boolean isSupportPush(Context context) {

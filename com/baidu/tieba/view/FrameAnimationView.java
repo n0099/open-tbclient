@@ -39,7 +39,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f55279e;
+        public final /* synthetic */ FrameAnimationView f55278e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f55279e = frameAnimationView;
+            this.f55278e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f55279e.a0);
-                if (this.f55279e.T != null) {
-                    this.f55279e.v();
+                e.a().removeCallbacks(this.f55278e.a0);
+                if (this.f55278e.T != null) {
+                    this.f55278e.v();
                 }
             }
         }

@@ -17,10 +17,10 @@ public class f implements Iterable<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentLinkedQueue<String> f70112a;
+    public ConcurrentLinkedQueue<String> f70111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f70113b;
+    public AtomicInteger f70112b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class f implements Iterable<String> {
                 return;
             }
         }
-        this.f70112a = null;
-        this.f70113b = null;
-        this.f70112a = new ConcurrentLinkedQueue<>();
-        this.f70113b = new AtomicInteger(0);
+        this.f70111a = null;
+        this.f70112b = null;
+        this.f70111a = new ConcurrentLinkedQueue<>();
+        this.f70112b = new AtomicInteger(0);
     }
 
     public int a(String str) {
@@ -46,8 +46,8 @@ public class f implements Iterable<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int length = str.length();
-            this.f70112a.add(str);
-            return this.f70113b.addAndGet(length);
+            this.f70111a.add(str);
+            return this.f70112b.addAndGet(length);
         }
         return invokeL.intValue;
     }
@@ -55,8 +55,8 @@ public class f implements Iterable<String> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f70112a.clear();
-            this.f70113b.set(0);
+            this.f70111a.clear();
+            this.f70112b.set(0);
         }
     }
 
@@ -64,7 +64,7 @@ public class f implements Iterable<String> {
     public Iterator<String> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70112a.iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70111a.iterator() : (Iterator) invokeV.objValue;
     }
 
     public void a(Writer[] writerArr, char[] cArr) throws IOException {
@@ -141,6 +141,6 @@ public class f implements Iterable<String> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70113b.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70112b.get() : invokeV.intValue;
     }
 }

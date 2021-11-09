@@ -13,10 +13,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GiftBagsInfo f72345a;
+    public GiftBagsInfo f72344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f72346b;
+    public boolean f72345b;
 
     public a(GiftBagsInfo giftBagsInfo, boolean z) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class a {
                 return;
             }
         }
-        this.f72345a = giftBagsInfo;
-        this.f72346b = z;
+        this.f72344a = giftBagsInfo;
+        this.f72345b = z;
     }
 
     public static boolean b(a aVar) {
@@ -46,19 +46,19 @@ public class a {
     public GiftBagsInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72345a : (GiftBagsInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72344a : (GiftBagsInfo) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72346b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72345b : invokeV.booleanValue;
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f72346b = z;
+            this.f72345b = z;
         }
     }
 }

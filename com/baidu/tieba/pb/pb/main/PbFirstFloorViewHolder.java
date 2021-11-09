@@ -43,10 +43,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f52214a;
+    public ImageView f52213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52215b;
+    public View f52214b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public ThreadForumEnterButtonContainer mForumEnterButtonContainer;
@@ -90,12 +90,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mSkinType = 3;
         this.mViewStubController = new s(view);
         ImageView imageView = (ImageView) view.findViewById(i.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f52214a = imageView;
+        this.f52213a = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -q0.g());
-        this.f52214a.setImageMatrix(matrix);
-        this.f52215b = view.findViewById(i.blank_view_above_rich_text);
+        this.f52213a.setImageMatrix(matrix);
+        this.f52214b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
         int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
@@ -133,14 +133,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f52215b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f52214b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f52215b.setLayoutParams(layoutParams);
-            this.f52215b.setVisibility(0);
+            this.f52214b.setLayoutParams(layoutParams);
+            this.f52214b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -180,19 +180,19 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (fVar != null && fVar.j) {
-                this.f52214a.setImageResource(h.pic_frs_headlines_n);
-                this.f52214a.setVisibility(0);
+                this.f52213a.setImageResource(h.pic_frs_headlines_n);
+                this.f52213a.setVisibility(0);
             } else if (z && z2) {
-                this.f52214a.setImageResource(h.pic_pb_stick_refined_n);
-                this.f52214a.setVisibility(0);
+                this.f52213a.setImageResource(h.pic_pb_stick_refined_n);
+                this.f52213a.setVisibility(0);
             } else if (z) {
-                this.f52214a.setImageResource(h.pic_pb_refined_n);
-                this.f52214a.setVisibility(0);
+                this.f52213a.setImageResource(h.pic_pb_refined_n);
+                this.f52213a.setVisibility(0);
             } else if (z2) {
-                this.f52214a.setImageResource(h.pic_pb_stick_n);
-                this.f52214a.setVisibility(0);
+                this.f52213a.setImageResource(h.pic_pb_stick_n);
+                this.f52213a.setVisibility(0);
             } else {
-                this.f52214a.setVisibility(8);
+                this.f52213a.setVisibility(8);
             }
         }
     }

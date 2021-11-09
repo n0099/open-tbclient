@@ -30,19 +30,19 @@ public class ScreenTopToast extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ShadowLinearLayout f55380e;
+    public ShadowLinearLayout f55379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55381f;
+    public TextView f55380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55382g;
+    public TextView f55381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f55383h;
+    public TBSpecificationBtn f55382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f55384i;
+    public Animation f55383i;
     public Animation j;
     public Runnable k;
     public boolean l;
@@ -53,7 +53,7 @@ public class ScreenTopToast extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ScreenTopToast f55385a;
+        public final /* synthetic */ ScreenTopToast f55384a;
 
         public a(ScreenTopToast screenTopToast) {
             Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class ScreenTopToast extends LinearLayout {
                     return;
                 }
             }
-            this.f55385a = screenTopToast;
+            this.f55384a = screenTopToast;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f55385a.g();
-                if (this.f55385a.getParent() != null) {
-                    ((ViewGroup) this.f55385a.getParent()).removeView(this.f55385a);
-                    this.f55385a.l = false;
+                this.f55384a.g();
+                if (this.f55384a.getParent() != null) {
+                    ((ViewGroup) this.f55384a.getParent()).removeView(this.f55384a);
+                    this.f55384a.l = false;
                 }
             }
         }
@@ -106,7 +106,7 @@ public class ScreenTopToast extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScreenTopToast f55386e;
+        public final /* synthetic */ ScreenTopToast f55385e;
 
         public b(ScreenTopToast screenTopToast) {
             Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class ScreenTopToast extends LinearLayout {
                     return;
                 }
             }
-            this.f55386e = screenTopToast;
+            this.f55385e = screenTopToast;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55386e.d();
+                this.f55385e.d();
             }
         }
     }
@@ -172,11 +172,11 @@ public class ScreenTopToast extends LinearLayout {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
             LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-            this.f55380e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
-            this.f55381f = (TextView) findViewById(R.id.screen_top_toast_title);
-            this.f55382g = (TextView) findViewById(R.id.screen_top_toast_content);
-            this.f55383h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.f55383h.setConfig(new b.a.q0.s.g0.n.a());
+            this.f55379e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+            this.f55380f = (TextView) findViewById(R.id.screen_top_toast_title);
+            this.f55381g = (TextView) findViewById(R.id.screen_top_toast_content);
+            this.f55382h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+            this.f55382h.setConfig(new b.a.q0.s.g0.n.a());
             f();
             onChangeSkinType();
         }
@@ -185,7 +185,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f55384i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+            this.f55383i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
             this.j = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
@@ -210,10 +210,10 @@ public class ScreenTopToast extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.f55381f, R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f55382g, R.color.CAM_X0302);
-            this.f55383h.changeSkinType();
-            this.f55380e.onChangeSkinType();
+            SkinManager.setViewTextColor(this.f55380f, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f55381g, R.color.CAM_X0302);
+            this.f55382h.changeSkinType();
+            this.f55379e.onChangeSkinType();
         }
     }
 
@@ -231,7 +231,7 @@ public class ScreenTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, onClickListener)) == null) {
-            this.f55383h.setOnClickListener(onClickListener);
+            this.f55382h.setOnClickListener(onClickListener);
             return this;
         }
         return (ScreenTopToast) invokeL.objValue;
@@ -241,7 +241,7 @@ public class ScreenTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f55383h.setText(str);
+            this.f55382h.setText(str);
             return this;
         }
         return (ScreenTopToast) invokeL.objValue;
@@ -251,7 +251,7 @@ public class ScreenTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.f55382g.setText(str);
+            this.f55381g.setText(str);
             return this;
         }
         return (ScreenTopToast) invokeL.objValue;
@@ -261,7 +261,7 @@ public class ScreenTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f55381f.setText(str);
+            this.f55380f.setText(str);
             return this;
         }
         return (ScreenTopToast) invokeL.objValue;
@@ -276,12 +276,12 @@ public class ScreenTopToast extends LinearLayout {
             ((ViewGroup) getParent()).removeView(this);
         }
         g();
-        if (TextUtils.isEmpty(this.f55382g.getText())) {
-            this.f55382g.setVisibility(8);
+        if (TextUtils.isEmpty(this.f55381g.getText())) {
+            this.f55381g.setVisibility(8);
         }
         viewGroup.addView(this, -1, -2);
         this.l = true;
-        startAnimation(this.f55384i);
+        startAnimation(this.f55383i);
         e.a().postDelayed(this.k, 5000L);
     }
 

@@ -30,19 +30,19 @@ public class TaskItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51501e;
+    public Context f51500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51502f;
+    public View f51501f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f51503g;
+    public TbImageView f51502g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51504h;
+    public TextView f51503h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51505i;
+    public TextView f51504i;
     public TextView j;
     public View k;
     public View l;
@@ -66,7 +66,7 @@ public class TaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51501e = context;
+        this.f51500e = context;
         this.m = onClickListener;
         b();
     }
@@ -124,17 +124,17 @@ public class TaskItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f51501e).inflate(R.layout.index_task_item, this);
-            this.f51502f = inflate;
+            View inflate = LayoutInflater.from(this.f51500e).inflate(R.layout.index_task_item, this);
+            this.f51501f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f51503g = (TbImageView) this.f51502f.findViewById(R.id.task_icon);
-            this.f51504h = (TextView) this.f51502f.findViewById(R.id.txt_title);
-            this.f51505i = (TextView) this.f51502f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f51502f.findViewById(R.id.txt_status);
+            this.f51502g = (TbImageView) this.f51501f.findViewById(R.id.task_icon);
+            this.f51503h = (TextView) this.f51501f.findViewById(R.id.txt_title);
+            this.f51504i = (TextView) this.f51501f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f51501f.findViewById(R.id.txt_status);
             this.j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f51502f.findViewById(R.id.divider_line);
+            this.k = this.f51501f.findViewById(R.id.divider_line);
         }
     }
 
@@ -148,7 +148,7 @@ public class TaskItemView extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a.a((TbPageContext) j.a(this.f51501e), this.f51502f);
+            a.a((TbPageContext) j.a(this.f51500e), this.f51501f);
         }
     }
 
@@ -159,14 +159,14 @@ public class TaskItemView extends LinearLayout {
         }
         this.l.setTag(rVar);
         this.j.setTag(rVar);
-        this.f51503g.startLoad(rVar.d(), 10, false);
+        this.f51502g.startLoad(rVar.d(), 10, false);
         String b2 = rVar.b();
         if (!StringUtils.isNull(b2) && b2.contains("\\n")) {
             b2 = rVar.b().replace("\\n", org.apache.commons.lang3.StringUtils.LF);
         }
-        this.f51505i.setText(b2);
-        this.j.setText(this.f51501e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-        this.f51504h.setText(a(rVar.g()));
+        this.f51504i.setText(b2);
+        this.j.setText(this.f51500e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+        this.f51503h.setText(a(rVar.g()));
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
@@ -197,7 +197,7 @@ public class TaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51501e = context;
+        this.f51500e = context;
         b();
     }
 
@@ -220,7 +220,7 @@ public class TaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51501e = context;
+        this.f51500e = context;
         b();
     }
 }

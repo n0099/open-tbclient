@@ -34,7 +34,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f54536a;
+        public final /* synthetic */ BackgroundListActivity f54535a;
 
         public a(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -51,22 +51,22 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f54536a = backgroundListActivity;
+            this.f54535a = backgroundListActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
         public void a(int i2, String str, e eVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                this.f54536a.mView.j();
-                BackgroundListActivity backgroundListActivity = this.f54536a;
+                this.f54535a.mView.j();
+                BackgroundListActivity backgroundListActivity = this.f54535a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.mView.c());
                 if (i2 == 0) {
-                    this.f54536a.mView.i(eVar, list, this.f54536a.mModel.P());
+                    this.f54535a.mView.i(eVar, list, this.f54535a.mModel.P());
                     return;
                 }
-                this.f54536a.showToast(str);
-                this.f54536a.mView.h();
+                this.f54535a.showToast(str);
+                this.f54535a.mView.h();
             }
         }
     }
@@ -77,9 +77,45 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f54537e;
+        public final /* synthetic */ BackgroundListActivity f54536e;
 
         public b(BackgroundListActivity backgroundListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {backgroundListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54536e = backgroundListActivity;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54536e.mModel == null) {
+                return;
+            }
+            this.f54536e.mModel.w();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements f.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BackgroundListActivity f54537e;
+
+        public c(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,49 +133,13 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             this.f54537e = backgroundListActivity;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54537e.mModel == null) {
-                return;
-            }
-            this.f54537e.mModel.w();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements f.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f54538e;
-
-        public c(BackgroundListActivity backgroundListActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {backgroundListActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54538e = backgroundListActivity;
-        }
-
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f54538e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f54537e.mModel == null) {
                 return;
             }
-            this.f54538e.mModel.loadData();
+            this.f54537e.mModel.loadData();
         }
     }
 

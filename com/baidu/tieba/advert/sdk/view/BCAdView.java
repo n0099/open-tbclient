@@ -45,16 +45,16 @@ public class BCAdView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<BCAdView> f46820a;
+        public final WeakReference<BCAdView> f46819a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AdInfo f46821b;
+        public AdInfo f46820b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f46822c;
+        public c f46821c;
 
         /* renamed from: d  reason: collision with root package name */
-        public AdType f46823d;
+        public AdType f46822d;
 
         /* renamed from: com.baidu.tieba.advert.sdk.view.BCAdView$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
@@ -119,17 +119,17 @@ public class BCAdView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46821b = bCAdView.mRequestAdInfo;
-            this.f46822c = bCAdView.mSplashInfoCache;
-            this.f46823d = bCAdView.type;
-            this.f46820a = new WeakReference<>(bCAdView);
+            this.f46820b = bCAdView.mRequestAdInfo;
+            this.f46821c = bCAdView.mSplashInfoCache;
+            this.f46822d = bCAdView.type;
+            this.f46819a = new WeakReference<>(bCAdView);
         }
 
         @Override // b.a.r0.u.a.i.b.InterfaceC1161b
         public void a(String str) {
             BCAdView bCAdView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bCAdView = this.f46820a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bCAdView = this.f46819a.get()) == null) {
                 return;
             }
             try {
@@ -157,12 +157,12 @@ public class BCAdView extends RelativeLayout {
                 return;
             }
             AdInfo jsonToObject = AdInfo.jsonToObject(str);
-            this.f46821b = jsonToObject;
-            if (this.f46823d == AdType.SPLASH && !k.isEmpty(jsonToObject.adImgUrl)) {
-                d.h().k(this.f46821b.adImgUrl, 10, new C1712a(this), 0, 0, null, new Object[0]);
+            this.f46820b = jsonToObject;
+            if (this.f46822d == AdType.SPLASH && !k.isEmpty(jsonToObject.adImgUrl)) {
+                d.h().k(this.f46820b.adImgUrl, 10, new C1712a(this), 0, 0, null, new Object[0]);
             }
-            this.f46822c.b(str);
-            BCAdView bCAdView = this.f46820a.get();
+            this.f46821c.b(str);
+            BCAdView bCAdView = this.f46819a.get();
             if (bCAdView == null || (aVar = bCAdView.mCallBack) == null) {
                 return;
             }

@@ -36,7 +36,7 @@ public class q5 implements View.OnClickListener {
     public void onClick(View view) {
         u5 u5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (u5Var = this.f33448e.f70540g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (u5Var = this.f33448e.f70539g) == null) {
             return;
         }
         ((a0) u5Var).f33231a.finish();

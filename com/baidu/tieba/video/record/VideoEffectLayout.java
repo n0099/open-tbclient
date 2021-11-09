@@ -37,19 +37,19 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f54823e;
+    public HListView f54822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HListView f54824f;
+    public HListView f54823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.z3.l.c f54825g;
+    public b.a.r0.z3.l.c f54824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f54826h;
+    public j f54825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<b.a.r0.z3.l.d> f54827i;
+    public List<b.a.r0.z3.l.d> f54826i;
     public List<b.a.r0.z3.l.d> j;
     public List<b.a.r0.z3.l.d> k;
     public List<StickerItem> l;
@@ -72,10 +72,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f54828e;
+        public final /* synthetic */ h f54827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54829f;
+        public final /* synthetic */ VideoEffectLayout f54828f;
 
         public a(VideoEffectLayout videoEffectLayout, h hVar) {
             Interceptable interceptable = $ic;
@@ -92,8 +92,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54829f = videoEffectLayout;
-            this.f54828e = hVar;
+            this.f54828f = videoEffectLayout;
+            this.f54827e = hVar;
         }
 
         @Override // com.baidu.tieba.video.record.VideoEffectLayout.h
@@ -102,21 +102,21 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, dVar, obj) == null) || dVar == null) {
                 return;
             }
-            h hVar = this.f54828e;
+            h hVar = this.f54827e;
             if (hVar != null) {
                 hVar.onEffectChoosed(dVar, obj);
             }
             int type = dVar.getType();
             if (type == 1) {
-                this.f54829f.m = dVar.b();
-                this.f54829f.p = dVar;
+                this.f54828f.m = dVar.b();
+                this.f54828f.p = dVar;
             } else if (type == 2) {
-                this.f54829f.n = dVar.b();
-                this.f54829f.q = dVar;
+                this.f54828f.n = dVar.b();
+                this.f54828f.q = dVar;
             } else if (type != 3) {
             } else {
-                this.f54829f.o = dVar.b();
-                this.f54829f.r = dVar;
+                this.f54828f.o = dVar.b();
+                this.f54828f.r = dVar;
             }
         }
 
@@ -134,10 +134,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f54830e;
+        public final /* synthetic */ h f54829e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54831f;
+        public final /* synthetic */ VideoEffectLayout f54830f;
 
         public b(VideoEffectLayout videoEffectLayout, h hVar) {
             Interceptable interceptable = $ic;
@@ -154,8 +154,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54831f = videoEffectLayout;
-            this.f54830e = hVar;
+            this.f54830f = videoEffectLayout;
+            this.f54829e = hVar;
         }
 
         @Override // com.baidu.tieba.video.record.VideoEffectLayout.h
@@ -171,8 +171,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerItem) == null) || stickerItem == null) {
                 return;
             }
-            this.f54831f.selectStrick(stickerItem);
-            h hVar = this.f54830e;
+            this.f54830f.selectStrick(stickerItem);
+            h hVar = this.f54829e;
             if (hVar != null) {
                 hVar.onStickerChoosed(stickerItem);
             }
@@ -185,13 +185,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f54832e;
+        public final /* synthetic */ List f54831e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f54833f;
+        public final /* synthetic */ String f54832f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54834g;
+        public final /* synthetic */ VideoEffectLayout f54833g;
 
         public c(VideoEffectLayout videoEffectLayout, List list, String str) {
             Interceptable interceptable = $ic;
@@ -208,18 +208,18 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54834g = videoEffectLayout;
-            this.f54832e = list;
-            this.f54833f = str;
+            this.f54833g = videoEffectLayout;
+            this.f54831e = list;
+            this.f54832f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54834g.f54825g.g(this.f54832e, this.f54833f);
-                this.f54834g.f54825g.notifyDataSetChanged();
-                this.f54834g.setListViewSelection(0);
+                this.f54833g.f54824g.g(this.f54831e, this.f54832f);
+                this.f54833g.f54824g.notifyDataSetChanged();
+                this.f54833g.setListViewSelection(0);
             }
         }
     }
@@ -230,10 +230,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f54835e;
+        public final /* synthetic */ int f54834e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54836f;
+        public final /* synthetic */ VideoEffectLayout f54835f;
 
         public d(VideoEffectLayout videoEffectLayout, int i2) {
             Interceptable interceptable = $ic;
@@ -250,15 +250,15 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54836f = videoEffectLayout;
-            this.f54835e = i2;
+            this.f54835f = videoEffectLayout;
+            this.f54834e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54836f.f54823e.setSelection(this.f54835e);
+                this.f54835f.f54822e.setSelection(this.f54834e);
             }
         }
     }
@@ -269,7 +269,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54837f;
+        public final /* synthetic */ VideoEffectLayout f54836f;
 
         public e(VideoEffectLayout videoEffectLayout) {
             Interceptable interceptable = $ic;
@@ -286,16 +286,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54837f = videoEffectLayout;
+            this.f54836f = videoEffectLayout;
         }
 
         @Override // b.a.r0.z3.l.l, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f28587e || this.f54837f.f54823e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f28587e || this.f54836f.f54822e == null) {
                 return;
             }
-            this.f54837f.f54823e.setVisibility(8);
+            this.f54836f.f54822e.setVisibility(8);
         }
 
         @Override // b.a.r0.z3.l.l, android.animation.Animator.AnimatorListener
@@ -303,8 +303,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationStart(animator);
-                if (this.f54837f.f54824f != null) {
-                    this.f54837f.f54824f.setVisibility(0);
+                if (this.f54836f.f54823f != null) {
+                    this.f54836f.f54823f.setVisibility(0);
                 }
             }
         }
@@ -316,7 +316,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54838e;
+        public final /* synthetic */ VideoEffectLayout f54837e;
 
         public f(VideoEffectLayout videoEffectLayout) {
             Interceptable interceptable = $ic;
@@ -333,14 +333,14 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54838e = videoEffectLayout;
+            this.f54837e = videoEffectLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54838e.requestLayout();
+                this.f54837e.requestLayout();
             }
         }
     }
@@ -351,7 +351,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoEffectLayout f54839f;
+        public final /* synthetic */ VideoEffectLayout f54838f;
 
         public g(VideoEffectLayout videoEffectLayout) {
             Interceptable interceptable = $ic;
@@ -368,16 +368,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     return;
                 }
             }
-            this.f54839f = videoEffectLayout;
+            this.f54838f = videoEffectLayout;
         }
 
         @Override // b.a.r0.z3.l.l, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f28587e || this.f54839f.f54824f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f28587e || this.f54838f.f54823f == null) {
                 return;
             }
-            this.f54839f.f54824f.setVisibility(8);
+            this.f54838f.f54823f.setVisibility(8);
         }
 
         @Override // b.a.r0.z3.l.l, android.animation.Animator.AnimatorListener
@@ -385,8 +385,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationStart(animator);
-                if (this.f54839f.f54823e != null) {
-                    this.f54839f.f54823e.setVisibility(0);
+                if (this.f54838f.f54822e != null) {
+                    this.f54838f.f54822e.setVisibility(0);
                 }
             }
         }
@@ -467,7 +467,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public final void k(String str, b.a.r0.z3.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            this.f54827i.add(n(0, 1, str, aVar));
+            this.f54826i.add(n(0, 1, str, aVar));
         }
     }
 
@@ -488,7 +488,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         c cVar = new c(this, list, str);
         if (getVisibility() != 0) {
             cVar.run();
-        } else if (this.f54824f.getVisibility() == 0) {
+        } else if (this.f54823f.getVisibility() == 0) {
             cVar.run();
             u(false);
         } else {
@@ -514,7 +514,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public void notifyStickerDataChanged() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (jVar = this.f54826h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (jVar = this.f54825h) == null) {
             return;
         }
         jVar.notifyDataSetChanged();
@@ -522,8 +522,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
 
     public final void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f54827i == null) {
-            this.f54827i = new ArrayList();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f54826i == null) {
+            this.f54826i = new ArrayList();
             k("No", b.a.r0.z3.a.b(0));
             k("1", b.a.r0.z3.a.b(1));
             k("2", b.a.r0.z3.a.b(2));
@@ -539,7 +539,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.x = 1;
             o();
-            m(this.f54827i, this.m);
+            m(this.f54826i, this.m);
         }
     }
 
@@ -573,15 +573,15 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.x = 0;
-            this.f54824f.setAdapter((ListAdapter) this.f54826h);
-            this.f54826h.notifyDataSetChanged();
+            this.f54823f.setAdapter((ListAdapter) this.f54825h);
+            this.f54825h.notifyDataSetChanged();
             setListViewSelection(0);
             if (getVisibility() == 0) {
                 u(true);
                 return;
             }
-            this.f54824f.setVisibility(0);
-            this.f54823e.setVisibility(8);
+            this.f54823f.setVisibility(0);
+            this.f54822e.setVisibility(8);
         }
     }
 
@@ -637,13 +637,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             r();
-            b.a.r0.z3.l.c cVar = this.f54825g;
+            b.a.r0.z3.l.c cVar = this.f54824g;
             if (cVar != null) {
                 cVar.c();
-                this.f54825g.d();
-                this.f54825g.e();
+                this.f54824g.d();
+                this.f54824g.e();
             }
-            j jVar = this.f54826h;
+            j jVar = this.f54825h;
             if (jVar != null) {
                 jVar.d();
             }
@@ -653,7 +653,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public void resetMusicPos() {
         b.a.r0.z3.l.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (cVar = this.f54825g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (cVar = this.f54824g) == null) {
             return;
         }
         cVar.e();
@@ -667,25 +667,25 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             r();
             LinearLayout.inflate(getContext(), R.layout.layout_effect_container, this);
             HListView hListView = (HListView) findViewById(R.id.effect_list_view);
-            this.f54823e = hListView;
+            this.f54822e = hListView;
             hListView.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds28));
-            this.f54823e.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
+            this.f54822e.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
             HListView hListView2 = (HListView) findViewById(R.id.sticker_list_view);
-            this.f54824f = hListView2;
+            this.f54823f = hListView2;
             hListView2.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
             b.a.r0.z3.l.c cVar = new b.a.r0.z3.l.c();
-            this.f54825g = cVar;
-            this.f54823e.setAdapter((ListAdapter) cVar);
+            this.f54824g = cVar;
+            this.f54822e.setAdapter((ListAdapter) cVar);
             j jVar = new j();
-            this.f54826h = jVar;
-            this.f54824f.setAdapter((ListAdapter) jVar);
+            this.f54825h = jVar;
+            this.f54823f.setAdapter((ListAdapter) jVar);
         }
     }
 
     public void selectCloudMusic() {
         b.a.r0.z3.l.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (cVar = this.f54825g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (cVar = this.f54824g) == null) {
             return;
         }
         cVar.f();
@@ -705,7 +705,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     stickerItem2.isSelect = true;
                 }
             }
-            j jVar = this.f54826h;
+            j jVar = this.f54825h;
             if (jVar != null) {
                 jVar.notifyDataSetChanged();
             }
@@ -730,7 +730,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 stickerItem3.isDownLoading = false;
             }
         }
-        j jVar = this.f54826h;
+        j jVar = this.f54825h;
         if (jVar != null) {
             jVar.notifyDataSetChanged();
         }
@@ -739,11 +739,11 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public void setListener(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, hVar) == null) {
-            b.a.r0.z3.l.c cVar = this.f54825g;
+            b.a.r0.z3.l.c cVar = this.f54824g;
             if (cVar != null) {
                 cVar.h(new a(this, hVar));
             }
-            j jVar = this.f54826h;
+            j jVar = this.f54825h;
             if (jVar != null) {
                 jVar.f(new b(this, hVar));
             }
@@ -767,10 +767,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
             this.l = list;
-            j jVar = this.f54826h;
+            j jVar = this.f54825h;
             if (jVar != null) {
                 jVar.e(list);
-                this.f54826h.notifyDataSetChanged();
+                this.f54825h.notifyDataSetChanged();
             }
         }
     }
@@ -784,13 +784,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             }
             if (this.t == null) {
                 this.t = new AnimatorSet();
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54823e, Key.ALPHA, 1.0f, 0.0f);
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54822e, Key.ALPHA, 1.0f, 0.0f);
                 ofFloat.setDuration(300L);
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f54823e, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f54822e, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
                 ofPropertyValuesHolder.setDuration(200L);
                 this.t.playSequentially(ofFloat, ofPropertyValuesHolder);
             }
-            this.f54823e.setVisibility(0);
+            this.f54822e.setVisibility(0);
             this.t.start();
         }
     }
@@ -809,9 +809,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 }
                 if (this.u == null) {
                     this.u = new AnimatorSet();
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54823e, Key.ALPHA, 1.0f, 0.0f);
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54822e, Key.ALPHA, 1.0f, 0.0f);
                     ofFloat.setDuration(300L);
-                    ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f54824f, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
+                    ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f54823f, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
                     ofPropertyValuesHolder.setDuration(200L);
                     ofPropertyValuesHolder.addListener(new e(this));
                     this.u.playSequentially(ofFloat, ofPropertyValuesHolder);
@@ -826,9 +826,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             }
             if (this.v == null) {
                 this.v = new AnimatorSet();
-                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f54824f, Key.ALPHA, 1.0f, 0.0f);
+                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f54823f, Key.ALPHA, 1.0f, 0.0f);
                 ofFloat2.setDuration(300L);
-                ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.f54823e, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
+                ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.f54822e, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, 1000.0f, 0.0f));
                 ofPropertyValuesHolder2.setDuration(200L);
                 ofPropertyValuesHolder2.addListener(new g(this));
                 this.v.playSequentially(ofFloat2, ofPropertyValuesHolder2);

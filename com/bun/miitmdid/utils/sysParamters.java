@@ -20,20 +20,20 @@ public class sysParamters {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile sysParamters f61224e;
+    public static volatile sysParamters f61223e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61225a;
+    public String f61224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61226b;
+    public String f61225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61227c;
+    public String f61226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61228d;
+    public String f61227d;
     @Keep
     public String sdk_version;
     @Keep
@@ -52,7 +52,7 @@ public class sysParamters {
                 return;
             }
         }
-        this.f61228d = "Android";
+        this.f61227d = "Android";
         this.sdk_version = "10011";
         this.sdk_vname = "1.0.11";
     }
@@ -74,14 +74,14 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61224e == null) {
+            if (f61223e == null) {
                 synchronized (sysParamters.class) {
-                    if (f61224e == null) {
-                        f61224e = new sysParamters();
+                    if (f61223e == null) {
+                        f61223e = new sysParamters();
                     }
                 }
             }
-            return f61224e;
+            return f61223e;
         }
         return (sysParamters) invokeV.objValue;
     }
@@ -128,12 +128,12 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f61225a)) {
+            if (TextUtils.isEmpty(this.f61224a)) {
                 String a2 = a(b.a());
-                this.f61225a = a2;
+                this.f61224a = a2;
                 return a2;
             }
-            return this.f61225a;
+            return this.f61224a;
         }
         return (String) invokeV.objValue;
     }
@@ -148,14 +148,14 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f61226b)) {
+            if (TextUtils.isEmpty(this.f61225b)) {
                 String str = Build.MODEL;
-                this.f61226b = str;
+                this.f61225b = str;
                 String replace = str.replace(" ", "-");
-                this.f61226b = replace;
+                this.f61225b = replace;
                 return replace;
             }
-            return this.f61226b;
+            return this.f61225b;
         }
         return (String) invokeV.objValue;
     }
@@ -164,12 +164,12 @@ public class sysParamters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f61227c)) {
+            if (TextUtils.isEmpty(this.f61226c)) {
                 String encode = Uri.encode(Build.MANUFACTURER);
-                this.f61227c = encode;
+                this.f61226c = encode;
                 return encode;
             }
-            return this.f61227c;
+            return this.f61226c;
         }
         return (String) invokeV.objValue;
     }

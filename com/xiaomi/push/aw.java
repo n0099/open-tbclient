@@ -9,7 +9,7 @@ public class aw {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f70685a;
+    public static int f70684a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static ar a(Context context) {
@@ -17,22 +17,22 @@ public class aw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             if (av.m155a(context)) {
-                f70685a = 1;
+                f70684a = 1;
                 return new av(context);
             } else if (ap.m151a(context)) {
-                f70685a = 2;
+                f70684a = 2;
                 return new ap(context);
             } else if (ay.a(context)) {
-                f70685a = 4;
+                f70684a = 4;
                 return new ay(context);
             } else if (bc.a(context)) {
-                f70685a = 5;
+                f70684a = 5;
                 return new bc(context);
             } else if (au.a(context)) {
-                f70685a = 3;
+                f70684a = 3;
                 return new as(context);
             } else {
-                f70685a = 0;
+                f70684a = 0;
                 return new bb();
             }
         }

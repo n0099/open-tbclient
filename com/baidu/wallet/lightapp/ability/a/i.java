@@ -53,10 +53,10 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f58643a;
+            public final /* synthetic */ ILightappInvokerCallback f58642a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f58644b;
+            public final /* synthetic */ i f58643b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -73,8 +73,8 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f58644b = this;
-                this.f58643a = iLightappInvokerCallback;
+                this.f58643b = this;
+                this.f58642a = iLightappInvokerCallback;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -89,9 +89,9 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                 }
                 try {
                     if (((Integer) new JSONObject(str3).get("result")).intValue() == 0) {
-                        this.f58643a.onResult(0, str3);
+                        this.f58642a.onResult(0, str3);
                     } else {
-                        this.f58643a.onResult(1, str3);
+                        this.f58642a.onResult(1, str3);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();

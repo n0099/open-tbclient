@@ -19,16 +19,16 @@ public abstract class v0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i0 f62930a;
+    public final i0 f62929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62931b;
+    public final String f62930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f62932c;
+    public final int f62931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f62933d;
+    public final String f62932d;
 
     /* loaded from: classes11.dex */
     public class a extends HashMap<String, Object> {
@@ -36,13 +36,13 @@ public abstract class v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Object[] f62934a;
+        public final /* synthetic */ Object[] f62933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f62935b;
+        public final /* synthetic */ String f62934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ v0 f62936c;
+        public final /* synthetic */ v0 f62935c;
 
         public a(v0 v0Var, Object[] objArr, String str) {
             Interceptable interceptable = $ic;
@@ -59,28 +59,28 @@ public abstract class v0 {
                     return;
                 }
             }
-            this.f62936c = v0Var;
-            this.f62934a = objArr;
-            this.f62935b = str;
+            this.f62935c = v0Var;
+            this.f62933a = objArr;
+            this.f62934b = str;
             if (objArr != null && objArr.length > 0) {
                 if (objArr.length % 2 != 0) {
                     throw new IllegalArgumentException("Length of argument 'appends' must be even.");
                 }
                 int i4 = 0;
                 while (true) {
-                    Object[] objArr3 = this.f62934a;
+                    Object[] objArr3 = this.f62933a;
                     if (i4 >= objArr3.length) {
                         break;
                     }
-                    put(objArr3[i4].toString(), this.f62934a[i4 + 1]);
+                    put(objArr3[i4].toString(), this.f62933a[i4 + 1]);
                     i4 += 2;
                 }
             }
-            put("st", this.f62935b);
-            put("sid", this.f62936c.f62931b);
-            put("sidv", Integer.valueOf(this.f62936c.f62932c));
-            put("ldr_i", Integer.valueOf(v.b(this.f62936c.f62931b)));
-            put("type", this.f62936c.f62933d);
+            put("st", this.f62934b);
+            put("sid", this.f62935c.f62930b);
+            put("sidv", Integer.valueOf(this.f62935c.f62931c));
+            put("ldr_i", Integer.valueOf(v.b(this.f62935c.f62930b)));
+            put("type", this.f62935c.f62932d);
         }
     }
 
@@ -144,7 +144,7 @@ public abstract class v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f62937e;
+        public long f62936e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(j jVar) {
@@ -173,7 +173,7 @@ public abstract class v0 {
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, objArr) == null) {
                 Object[] objArr2 = new Object[objArr.length + 2];
                 objArr2[0] = "lid";
-                objArr2[1] = Long.valueOf(this.f62937e);
+                objArr2[1] = Long.valueOf(this.f62936e);
                 System.arraycopy(objArr, 0, objArr2, 2, objArr.length);
                 super.c(str, objArr2);
             }
@@ -204,7 +204,7 @@ public abstract class v0 {
         public void h(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.f62937e = System.currentTimeMillis();
+                this.f62936e = System.currentTimeMillis();
                 b();
                 c("ldr_ld_start", "irpt", Integer.valueOf(z ? 1 : 0));
             }
@@ -226,19 +226,19 @@ public abstract class v0 {
                 return;
             }
         }
-        this.f62930a = i0.a();
-        this.f62931b = str;
-        this.f62933d = str2;
-        this.f62932c = i2;
+        this.f62929a = i0.a();
+        this.f62930b = str;
+        this.f62932d = str2;
+        this.f62931c = i2;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f62931b;
+            String str = this.f62930b;
             Object obj = v.f31247a;
             int i2 = v.f31248b.getInt("key_sid_c_pre_" + str, 0);
-            String str2 = this.f62931b;
+            String str2 = this.f62930b;
             v.d("key_sid_c_pre_" + str2, i2 + 1);
         }
     }
@@ -246,7 +246,7 @@ public abstract class v0 {
     public void c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, objArr) == null) {
-            this.f62930a.c("ad_ldr", new a(this, objArr, str));
+            this.f62929a.c("ad_ldr", new a(this, objArr, str));
         }
     }
 

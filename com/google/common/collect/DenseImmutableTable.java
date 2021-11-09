@@ -150,13 +150,13 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f63313g;
+            public int f63312g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f63314h;
+            public final int f63313h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ ImmutableArrayMap f63315i;
+            public final /* synthetic */ ImmutableArrayMap f63314i;
 
             public a(ImmutableArrayMap immutableArrayMap) {
                 Interceptable interceptable = $ic;
@@ -173,9 +173,9 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                         return;
                     }
                 }
-                this.f63315i = immutableArrayMap;
-                this.f63313g = -1;
-                this.f63314h = this.f63315i.keyToIndex().size();
+                this.f63314i = immutableArrayMap;
+                this.f63312g = -1;
+                this.f63313h = this.f63314i.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -187,16 +187,16 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                 if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
                     return (Map.Entry) invokeV.objValue;
                 }
-                int i2 = this.f63313g;
+                int i2 = this.f63312g;
                 while (true) {
-                    this.f63313g = i2 + 1;
-                    int i3 = this.f63313g;
-                    if (i3 < this.f63314h) {
-                        Object value = this.f63315i.getValue(i3);
+                    this.f63312g = i2 + 1;
+                    int i3 = this.f63312g;
+                    if (i3 < this.f63313h) {
+                        Object value = this.f63314i.getValue(i3);
                         if (value != null) {
-                            return Maps.l(this.f63315i.getKey(this.f63313g), value);
+                            return Maps.l(this.f63314i.getKey(this.f63312g), value);
                         }
-                        i2 = this.f63313g;
+                        i2 = this.f63312g;
                     } else {
                         return b();
                     }

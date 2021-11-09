@@ -554,7 +554,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                         }
                     } else {
                         GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
-                        GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                        GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                         GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
                         if (i3 == 0) {
                             this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
@@ -565,7 +565,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                             this.mFullScreen2D.drawFrame(i2, fArr);
                             this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
-                        GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                        GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                     }
                 }
                 if (this.mTextureReader != null) {

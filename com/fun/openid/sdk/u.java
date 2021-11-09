@@ -17,7 +17,7 @@ public class u implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ v f62925a;
+    public final /* synthetic */ v f62924a;
 
     public u(v vVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class u implements ServiceConnection {
                 return;
             }
         }
-        this.f62925a = vVar;
+        this.f62924a = vVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -43,21 +43,21 @@ public class u implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
-                v vVar = this.f62925a;
-                int i2 = t.a.f62923a;
+                v vVar = this.f62924a;
+                int i2 = t.a.f62922a;
                 if (iBinder == null) {
                     c1864a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
                     c1864a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C1864a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.f62927b = c1864a;
-                v vVar2 = this.f62925a;
-                v.a aVar = vVar2.f62929d;
+                vVar.f62926b = c1864a;
+                v vVar2 = this.f62924a;
+                v.a aVar = vVar2.f62928d;
                 if (aVar != null) {
                     aVar.a("Deviceid Service Connected", vVar2);
                 }
-                this.f62925a.getClass();
+                this.f62924a.getClass();
             }
         }
     }
@@ -66,7 +66,7 @@ public class u implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f62925a.f62927b = null;
+            this.f62924a.f62926b = null;
         }
     }
 }

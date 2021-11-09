@@ -35,19 +35,19 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47023e;
+    public int f47022e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f47024f;
+    public TbPageContext f47023f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f47025g;
+    public b f47024g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<n> f47026h;
+    public List<n> f47025h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<d2> f47027i;
+    public List<d2> f47026i;
     public long j;
     public int k;
     public HttpMessageListener l;
@@ -58,7 +58,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpecialRecommendTabModel f47028a;
+        public final /* synthetic */ SpecialRecommendTabModel f47027a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SpecialRecommendTabModel specialRecommendTabModel, int i2) {
@@ -78,7 +78,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47028a = specialRecommendTabModel;
+            this.f47027a = specialRecommendTabModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,26 +89,26 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021095 && (httpResponsedMessage instanceof AlaSpecialRecommendResponse)) {
                 AlaSpecialRecommendResponse alaSpecialRecommendResponse = (AlaSpecialRecommendResponse) httpResponsedMessage;
                 if (alaSpecialRecommendResponse.isSuccess()) {
-                    if (this.f47028a.f47023e == 0) {
+                    if (this.f47027a.f47022e == 0) {
                         SpecialLiveFragment.mRefreshNewCountRecommendTab++;
-                        this.f47028a.f47026h.clear();
-                        this.f47028a.f47027i.clear();
+                        this.f47027a.f47025h.clear();
+                        this.f47027a.f47026i.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (ListUtils.getCount(alaSpecialRecommendResponse.livesList) > 0) {
-                        this.f47028a.G(alaSpecialRecommendResponse.livesList);
+                        this.f47027a.G(alaSpecialRecommendResponse.livesList);
                     }
-                    SpecialRecommendTabModel specialRecommendTabModel = this.f47028a;
-                    specialRecommendTabModel.D(specialRecommendTabModel.f47027i);
-                    if (this.f47028a.f47023e == 0 && (cVar = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
-                        this.f47028a.E(cVar);
+                    SpecialRecommendTabModel specialRecommendTabModel = this.f47027a;
+                    specialRecommendTabModel.D(specialRecommendTabModel.f47026i);
+                    if (this.f47027a.f47022e == 0 && (cVar = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
+                        this.f47027a.E(cVar);
                     }
-                    SpecialRecommendTabModel.x(this.f47028a);
-                    if (this.f47028a.f47025g != null) {
-                        this.f47028a.f47025g.b(this.f47028a.f47026h, z);
+                    SpecialRecommendTabModel.x(this.f47027a);
+                    if (this.f47027a.f47024g != null) {
+                        this.f47027a.f47024g.b(this.f47027a.f47025h, z);
                     }
-                } else if (this.f47028a.f47025g != null) {
-                    this.f47028a.f47025g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f47027a.f47024g != null) {
+                    this.f47027a.f47024g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -136,18 +136,18 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47023e = 1;
+        this.f47022e = 1;
         this.k = 60;
         this.l = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
-        this.f47024f = tbPageContext;
-        this.f47026h = new LinkedList();
-        this.f47027i = new ArrayList();
+        this.f47023f = tbPageContext;
+        this.f47025h = new LinkedList();
+        this.f47026i = new ArrayList();
         MessageManager.getInstance().registerListener(this.l);
     }
 
     public static /* synthetic */ int x(SpecialRecommendTabModel specialRecommendTabModel) {
-        int i2 = specialRecommendTabModel.f47023e;
-        specialRecommendTabModel.f47023e = i2 + 1;
+        int i2 = specialRecommendTabModel.f47022e;
+        specialRecommendTabModel.f47022e = i2 + 1;
         return i2;
     }
 
@@ -156,7 +156,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f47026h = new LinkedList();
+        this.f47025h = new LinkedList();
         int size = list.size();
         for (int i2 = 0; i2 < size; i2 += 2) {
             b.a.r0.w.f.h.b.b bVar = new b.a.r0.w.f.h.b.b();
@@ -169,7 +169,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 eVar2.f24510h = list.get(i3);
                 bVar.f24893f = eVar2;
             }
-            this.f47026h.add(bVar);
+            this.f47025h.add(bVar);
         }
     }
 
@@ -178,10 +178,10 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || ListUtils.isEmpty(cVar.f24824e)) {
             return;
         }
-        if (ListUtils.getCount(this.f47026h) > 2) {
-            this.f47026h.add(2, cVar);
+        if (ListUtils.getCount(this.f47025h) > 2) {
+            this.f47025h.add(2, cVar);
         } else {
-            this.f47026h.add(cVar);
+            this.f47025h.add(cVar);
         }
     }
 
@@ -204,7 +204,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", l.k(this.f47024f.getPageActivity()) + "_" + l.i(this.f47024f.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", l.k(this.f47023f.getPageActivity()) + "_" + l.i(this.f47023f.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("refresh_type", i3);
             httpMessage.addParam("session_id", this.j);
             httpMessage.addParam("big_refresh_count", i4);
@@ -219,7 +219,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 String s1 = d2Var.s1();
                 if (!TextUtils.isEmpty(s1)) {
                     boolean z = false;
-                    Iterator<d2> it = this.f47027i.iterator();
+                    Iterator<d2> it = this.f47026i.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (s1.equals(it.next().s1())) {
@@ -231,7 +231,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.f47027i.add(d2Var);
+                        this.f47026i.add(d2Var);
                     }
                 }
             }
@@ -245,14 +245,14 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             if (currentTimeMillis - this.j >= this.k * 30 * 1000) {
                 this.j = currentTimeMillis;
             }
-            F(this.f47023e, 1, SpecialLiveFragment.mRefreshNewCountRecommendTab - 1);
+            F(this.f47022e, 1, SpecialLiveFragment.mRefreshNewCountRecommendTab - 1);
         }
     }
 
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f47023e = 0;
+            this.f47022e = 0;
             this.j = System.currentTimeMillis();
             F(0, 0, SpecialLiveFragment.mRefreshNewCountRecommendTab);
         }
@@ -261,7 +261,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public void J(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f47025g = bVar;
+            this.f47024g = bVar;
         }
     }
 

@@ -16,13 +16,13 @@ public final class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f61280a = 0;
+        public static int f61279a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f61281b = 1;
+        public static int f61280b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f61282c = 3;
+        public static int f61281c = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

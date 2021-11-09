@@ -80,10 +80,10 @@ public class WriteActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f56097a = 11;
+    public static int f56096a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f56098b = 18;
+    public static int f56097b = 18;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -300,7 +300,7 @@ public class WriteActivityStatic {
         if (interceptable == null || interceptable.invokeL(65539, null, tbPageContext) == null) {
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
             int i2 = Build.VERSION.SDK_INT;
-            if (i2 <= f56098b && i2 >= f56097a) {
+            if (i2 <= f56097b && i2 >= f56096a) {
                 d(tbPageContext);
             } else {
                 c(tbPageContext);

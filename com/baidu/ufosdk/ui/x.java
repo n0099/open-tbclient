@@ -14,13 +14,13 @@ public final class x implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f57052a;
+    public final /* synthetic */ String f57051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f57053b;
+    public final /* synthetic */ int f57052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f57054c;
+    public final /* synthetic */ FeedbackEditActivity f57053c;
 
     public x(FeedbackEditActivity feedbackEditActivity, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.f57054c = feedbackEditActivity;
-        this.f57052a = str;
-        this.f57053b = i2;
+        this.f57053c = feedbackEditActivity;
+        this.f57051a = str;
+        this.f57052b = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0059: IGET  (r2v1 int A[REMOVE]) = (r4v0 'this' com.baidu.ufosdk.ui.x A[IMMUTABLE_TYPE, THIS]) com.baidu.ufosdk.ui.x.b int)] */
@@ -54,32 +54,32 @@ public final class x implements Runnable {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f57052a);
-            b2 = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f57052a));
+            com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f57051a);
+            b2 = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f57051a));
             if (b2 == null || b2.length == 0) {
                 return;
             }
             try {
-                list = this.f57054c.q;
+                list = this.f57053c.q;
                 if (list.size() == 0) {
-                    list3 = this.f57054c.q;
+                    list3 = this.f57053c.q;
                     list3.add(b2);
                 } else {
-                    list2 = this.f57054c.q;
-                    list2.set(this.f57053b, b2);
+                    list2 = this.f57053c.q;
+                    list2.set(this.f57052b, b2);
                 }
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("arrayList error in readBitmapFromFile!", e2);
             }
-            hashMap = this.f57054c.r;
+            hashMap = this.f57053c.r;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f57053b);
-            hashMap.put(sb.toString(), this.f57052a);
+            sb.append(this.f57052b);
+            hashMap.put(sb.toString(), this.f57051a);
             StringBuilder sb2 = new StringBuilder("*^o^*-- picPathMap.size : ");
-            hashMap2 = this.f57054c.r;
+            hashMap2 = this.f57053c.r;
             sb2.append(hashMap2.size());
             com.baidu.ufosdk.f.c.c(sb2.toString());
-            handler = this.f57054c.af;
+            handler = this.f57053c.af;
             handler.obtainMessage(17).sendToTarget();
         }
     }

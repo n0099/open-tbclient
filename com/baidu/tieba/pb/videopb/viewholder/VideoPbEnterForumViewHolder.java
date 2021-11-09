@@ -23,10 +23,10 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CardForumHeadLayout f52842e;
+    public CardForumHeadLayout f52841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d2 f52843f;
+    public d2 f52842f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbEnterForumViewHolder(View view) {
@@ -47,18 +47,18 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
             }
         }
         CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        this.f52842e = cardForumHeadLayout;
+        this.f52841e = cardForumHeadLayout;
         if (cardForumHeadLayout != null) {
             cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-            this.f52842e.setAfterClickListener(this);
+            this.f52841e.setAfterClickListener(this);
         }
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52842e.onChangeSkinType();
-            CardForumHeadLayout cardForumHeadLayout = this.f52842e;
+            this.f52841e.onChangeSkinType();
+            CardForumHeadLayout cardForumHeadLayout = this.f52841e;
             int g2 = l.g(this.itemView.getContext(), g.tbds10);
             int i2 = f.CAM_X0206;
             SkinManager.setBackgroundShapeDrawable(cardForumHeadLayout, g2, i2, i2);
@@ -68,17 +68,17 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f52843f == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f52842f == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13399").param("tid", this.f52843f.s1()).param("fid", this.f52843f.T()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.f52843f.F0()));
+        TiebaStatic.log(new StatisticItem("c13399").param("tid", this.f52842f.s1()).param("fid", this.f52842f.T()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.f52842f.F0()));
     }
 
     public void setData(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.f52843f = d2Var;
-            this.f52842e.setData(d2Var);
+            this.f52842f = d2Var;
+            this.f52841e.setData(d2Var);
         }
     }
 }

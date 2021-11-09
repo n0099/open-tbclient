@@ -65,31 +65,31 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f60299a;
+    public final String f60298a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SelectBindCardLayout f60300b;
+    public SelectBindCardLayout f60299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60301c;
+    public TextView f60300c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OrderConfirmation f60302d;
+    public OrderConfirmation f60301d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CardData.BondCard[] f60303e;
+    public CardData.BondCard[] f60302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f60304f;
+    public boolean f60303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BindFastRequest f60305g;
+    public BindFastRequest f60304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayRequest f60306h;
+    public PayRequest f60305h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f60307i;
+    public int f60306i;
     public SelectBindCardLayout.BindCardItemView j;
     public Boolean k;
     public View l;
@@ -107,8 +107,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 return;
             }
         }
-        this.f60299a = "SelectBindCardActivity" + hashCode();
-        this.f60304f = false;
+        this.f60298a = "SelectBindCardActivity" + hashCode();
+        this.f60303f = false;
         this.k = Boolean.FALSE;
     }
 
@@ -122,26 +122,26 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         PayRequest payRequest;
         String displayName;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (payRequest = this.f60306h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (payRequest = this.f60305h) == null) {
             return;
         }
         String needToPayAmount = payRequest.getNeedToPayAmount();
-        String orderPrice = this.f60306h.getOrderPrice();
-        String discountAmount = this.f60306h.getDiscountAmount();
+        String orderPrice = this.f60305h.getOrderPrice();
+        String discountAmount = this.f60305h.getDiscountAmount();
         boolean z = (TextUtils.isEmpty(StringUtils.fen2Yuan(discountAmount)) || StringUtils.fen2Yuan(discountAmount).equals("0.00")) ? false : true;
         SpannableString spannableString = new SpannableString(ResUtils.getString(getActivity(), "dxm_wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
         if (z) {
             spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 33);
         }
         String str = "-" + ResUtils.getString(getActivity(), "dxm_wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
-        if (this.f60306h.showCouponListEntry()) {
-            this.f60302d.setDiscountInfoVisiable(true);
-            this.f60302d.setCouponInfo(this.f60306h.getDiscountMsg(), str, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.SelectBindCardActivity.2
+        if (this.f60305h.showCouponListEntry()) {
+            this.f60301d.setDiscountInfoVisiable(true);
+            this.f60301d.setCouponInfo(this.f60305h.getDiscountMsg(), str, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.SelectBindCardActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SelectBindCardActivity f60309a;
+                public final /* synthetic */ SelectBindCardActivity f60308a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -158,34 +158,34 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                             return;
                         }
                     }
-                    this.f60309a = this;
+                    this.f60308a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        PayController.getInstance().gotoDiscountPage(this.f60309a);
+                        PayController.getInstance().gotoDiscountPage(this.f60308a);
                     }
                 }
             });
-        } else if (!TextUtils.isEmpty(this.f60306h.getRandomDiscountMsg())) {
-            this.f60302d.setDiscountInfoVisiable(true);
-            this.f60302d.setCouponInfo(this.f60306h.getRandomDiscountMsg(), "", null);
+        } else if (!TextUtils.isEmpty(this.f60305h.getRandomDiscountMsg())) {
+            this.f60301d.setDiscountInfoVisiable(true);
+            this.f60301d.setCouponInfo(this.f60305h.getRandomDiscountMsg(), "", null);
         } else {
-            this.f60302d.setDiscountInfoVisiable(false);
+            this.f60301d.setDiscountInfoVisiable(false);
         }
-        this.f60302d.setOrderPrice(StringUtils.fen2Yuan(needToPayAmount), spannableString);
-        this.f60302d.setOrderInfo(this.f60306h.getGoodsName());
-        this.f60302d.setTitle(this.f60306h.title_url);
-        this.f60302d.setSpNameValue(PayDataCache.getInstance().getSpName());
+        this.f60301d.setOrderPrice(StringUtils.fen2Yuan(needToPayAmount), spannableString);
+        this.f60301d.setOrderInfo(this.f60305h.getGoodsName());
+        this.f60301d.setTitle(this.f60305h.title_url);
+        this.f60301d.setSpNameValue(PayDataCache.getInstance().getSpName());
         if (PayDataCache.getInstance().isRemotePay()) {
             if (!TextUtils.isEmpty(WalletLoginHelper.getInstance().getPassUserName())) {
                 displayName = WalletLoginHelper.getInstance().getPassUserName();
             } else {
                 displayName = PayDataCache.getInstance().getPayResponse().getDisplayName();
             }
-            this.f60302d.setAccountInfo(displayName, null);
+            this.f60301d.setAccountInfo(displayName, null);
         }
     }
 
@@ -194,16 +194,16 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             if (d()) {
-                this.f60303e = new CardData.BondCard[0];
+                this.f60302e = new CardData.BondCard[0];
                 WalletGlobalUtils.safeShowDialog(this, -1, "");
                 e();
                 enableAddBondCards = true;
             } else {
-                this.f60303e = PayDataCache.getInstance().getBondCards();
+                this.f60302e = PayDataCache.getInstance().getBondCards();
                 enableAddBondCards = PayDataCache.getInstance().enableAddBondCards();
             }
-            this.f60300b.setAdaptetr(this.f60303e, enableAddBondCards);
-            this.f60300b.setBindCardItemClickListener(this);
+            this.f60299b.setAdaptetr(this.f60302e, enableAddBondCards);
+            this.f60299b.setBindCardItemClickListener(this);
         }
     }
 
@@ -211,7 +211,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i2 = this.f60305g.mBindFrom;
+            int i2 = this.f60304g.mBindFrom;
             return i2 == 4 || i2 == 5;
         }
         return invokeV.booleanValue;
@@ -220,7 +220,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            k kVar = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_GET_CARD_LIST, this.f60299a);
+            k kVar = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_GET_CARD_LIST, this.f60298a);
             kVar.setResponseCallback(this);
             kVar.execBean();
         }
@@ -233,12 +233,12 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             if (extras == null) {
                 extras = new Bundle();
             }
-            BindFastRequest bindFastRequest = this.f60305g;
+            BindFastRequest bindFastRequest = this.f60304g;
             if (bindFastRequest == null || bindFastRequest.mBondCard == null) {
                 return;
             }
             this.j.setProgressBarVisible(false);
-            CardData.BondCard bondCard = this.f60305g.mBondCard;
+            CardData.BondCard bondCard = this.f60304g.mBondCard;
             if (bondCard != null) {
                 extras.putSerializable(BindFastRequest.HAS_BINDED_CARD, bondCard);
                 extras.putBoolean(BindFastRequest.BIND_IS_FIRST, false);
@@ -257,10 +257,10 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             Bundle extras = getIntent().getExtras();
-            if (this.f60306h != null && !d()) {
-                this.f60306h.mBondCard = null;
+            if (this.f60305h != null && !d()) {
+                this.f60305h.mBondCard = null;
             }
-            BindFastRequest bindFastRequest2 = this.f60305g;
+            BindFastRequest bindFastRequest2 = this.f60304g;
             int i2 = bindFastRequest2.mBindFrom;
             if (i2 == 2) {
                 bindFastRequest2.mBindFrom = 0;
@@ -269,8 +269,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             } else if (i2 == 4) {
                 bindFastRequest2.mBindFrom = 3;
             }
-            int i3 = this.f60305g.mBindFrom;
-            if ((i3 == 3 || i3 == 4) && (bindFastRequest = this.f60305g) != null) {
+            int i3 = this.f60304g.mBindFrom;
+            if ((i3 == 3 || i3 == 4) && (bindFastRequest = this.f60304g) != null) {
                 bindFastRequest.mUseNewCardFindPwd = true;
             }
             PayRequestCache.BindCategory h2 = h();
@@ -279,9 +279,9 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 StatHelper.cachePayWay(4);
                 StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_ENTER);
                 StatisticManager.onEventStart(PayStatServiceEvent.PAY_BIND_CARD_DURATION);
-                getBindCardFlagDelegate().a(this.f60305g);
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f60305g.getRequestId(), this.f60305g);
-                this.f60305g.mBondCard = null;
+                getBindCardFlagDelegate().a(this.f60304g);
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f60304g.getRequestId(), this.f60304g);
+                this.f60304g.mBondCard = null;
                 if (extras == null) {
                     extras = new Bundle();
                 }
@@ -294,10 +294,10 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Bundle f60313a;
+                public final /* synthetic */ Bundle f60312a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SelectBindCardActivity f60314b;
+                public final /* synthetic */ SelectBindCardActivity f60313b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -314,8 +314,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                             return;
                         }
                     }
-                    this.f60314b = this;
-                    this.f60313a = extras;
+                    this.f60313b = this;
+                    this.f60312a = extras;
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
@@ -329,15 +329,15 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 public void onResponse(CardAddResponse cardAddResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardAddResponse) == null) {
-                        this.f60314b.getBindCardFlagDelegate().a(this.f60314b.f60305g);
-                        PayRequestCache.getInstance().addBeanRequestToCache(this.f60314b.f60305g.getRequestId(), this.f60314b.f60305g);
-                        this.f60314b.f60305g.mBondCard = null;
-                        Bundle bundle = this.f60313a;
+                        this.f60313b.getBindCardFlagDelegate().a(this.f60313b.f60304g);
+                        PayRequestCache.getInstance().addBeanRequestToCache(this.f60313b.f60304g.getRequestId(), this.f60313b.f60304g);
+                        this.f60313b.f60304g.mBondCard = null;
+                        Bundle bundle = this.f60312a;
                         if (bundle == null) {
                             bundle = new Bundle();
                         }
                         bundle.putBoolean(BindFastRequest.BIND_IS_FIRST, false);
-                        Intent intent = this.f60314b.getIntent();
+                        Intent intent = this.f60313b.getIntent();
                         if (intent != null && intent.hasExtra("baidu.wallet.from")) {
                             bundle.putString("baidu.wallet.from", intent.getStringExtra("baidu.wallet.from"));
                         }
@@ -345,11 +345,11 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                         if (loadingUi instanceof BaseActivity) {
                             ((BaseActivity) loadingUi).startActivityWithExtras(bundle, BindCardImplActivity.class);
                         } else {
-                            this.f60314b.startActivityWithExtras(bundle, BindCardImplActivity.class);
+                            this.f60313b.startActivityWithExtras(bundle, BindCardImplActivity.class);
                         }
                     }
                 }
-            }, h2, this.k.booleanValue() ? PayRequestCache.BindCategory.Pwd.getScenario() : this.f60307i, null, null);
+            }, h2, this.k.booleanValue() ? PayRequestCache.BindCategory.Pwd.getScenario() : this.f60306i, null, null);
         }
     }
 
@@ -363,7 +363,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             if (this.k.booleanValue()) {
                 return PayRequestCache.BindCategory.Pwd;
             }
-            int i2 = this.f60307i;
+            int i2 = this.f60306i;
             if (1 == i2) {
                 return PayRequestCache.BindCategory.Initiative;
             }
@@ -417,9 +417,9 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             if (i2 != 526) {
                 if (i2 == 16) {
                     CalcPaymentResponse calcPaymentResponse = obj instanceof CalcPaymentResponse ? (CalcPaymentResponse) obj : null;
-                    this.f60306h.setCalcPayment(calcPaymentResponse);
+                    this.f60305h.setCalcPayment(calcPaymentResponse);
                     if (calcPaymentResponse != null) {
-                        this.f60306h.calcPayPriceByRemote(calcPaymentResponse);
+                        this.f60305h.calcPayPriceByRemote(calcPaymentResponse);
                     }
                     f();
                     return;
@@ -429,12 +429,12 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             WalletGlobalUtils.safeDismissDialog(this, -1);
             FindPwdCardCheckResponse findPwdCardCheckResponse = (FindPwdCardCheckResponse) obj;
             if (findPwdCardCheckResponse != null) {
-                this.f60303e = findPwdCardCheckResponse.getBondCards();
+                this.f60302e = findPwdCardCheckResponse.getBondCards();
             }
-            CardData.BondCard[] bondCardArr = this.f60303e;
+            CardData.BondCard[] bondCardArr = this.f60302e;
             if (bondCardArr != null && bondCardArr.length != 0) {
-                this.f60300b.setAdaptetr(bondCardArr, PayDataCache.getInstance().enableAddBondCards());
-                this.f60300b.setBindCardItemClickListener(this);
+                this.f60299b.setAdaptetr(bondCardArr, PayDataCache.getInstance().enableAddBondCards());
+                this.f60299b.setBindCardItemClickListener(this);
                 return;
             }
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "ebpay_find_pwd_get_cardlist_failed"));
@@ -448,7 +448,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             PasswordController.getPassWordInstance().setPassByUserFail("");
             PasswordController.getPassWordInstance().forgetPasswdFailed();
-            if (this.f60304f) {
+            if (this.f60303f) {
                 WalletGlobalUtils.safeShowDialog(this, 4, "");
             } else {
                 super.onBackPressed();
@@ -464,12 +464,12 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             super.onCreate(bundle);
             setFlagPaySdk();
             if (bundle == null) {
-                this.f60304f = getIntent().getBooleanExtra(BindFastRequest.BIND_IS_FIRST, false);
-                this.f60305g = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent()));
+                this.f60303f = getIntent().getBooleanExtra(BindFastRequest.BIND_IS_FIRST, false);
+                this.f60304g = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent()));
                 this.k = Boolean.valueOf(PayRequestCache.BindCategory.Pwd.name().equals(getIntent().getStringExtra("baidu.wallet.from")));
                 BeanRequestBase beanRequestFromCache = PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
                 if (beanRequestFromCache != null && (beanRequestFromCache instanceof PayRequest)) {
-                    this.f60306h = (PayRequest) beanRequestFromCache;
+                    this.f60305h = (PayRequest) beanRequestFromCache;
                 }
                 if (PayDataCache.getInstance().getPayResponse() != null && PayDataCache.getInstance().getPayResponse().checkResponseValidity()) {
                     PayDataCache.getInstance().getPayResponse().storeResponse(this);
@@ -478,43 +478,43 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                     return;
                 }
             } else {
-                this.f60304f = bundle.getBoolean("isFrist", false);
+                this.f60303f = bundle.getBoolean("isFrist", false);
                 this.k = Boolean.valueOf(bundle.getBoolean("isForPwd", false));
                 Serializable serializable = bundle.getSerializable("mBindRequest");
                 if (serializable != null && (serializable instanceof BindFastRequest)) {
-                    this.f60305g = (BindFastRequest) serializable;
+                    this.f60304g = (BindFastRequest) serializable;
                 }
                 Serializable serializable2 = bundle.getSerializable("mPayRequest");
                 if (serializable2 != null && (serializable2 instanceof PayRequest)) {
-                    this.f60306h = (PayRequest) serializable2;
+                    this.f60305h = (PayRequest) serializable2;
                 }
                 Serializable serializable3 = bundle.getSerializable("DirectPayContentResponse");
                 if (serializable3 != null && (serializable3 instanceof DirectPayContentResponse)) {
                     ((DirectPayContentResponse) serializable3).storeResponse(getActivity());
                 }
             }
-            BindFastRequest bindFastRequest = this.f60305g;
-            if (bindFastRequest != null && (!bindFastRequest.isRealPay() || this.f60306h != null)) {
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f60305g.getRequestId(), this.f60305g);
-                if (this.f60306h != null) {
-                    PayRequestCache.getInstance().addBeanRequestToCache(this.f60306h.getRequestId(), this.f60306h);
+            BindFastRequest bindFastRequest = this.f60304g;
+            if (bindFastRequest != null && (!bindFastRequest.isRealPay() || this.f60305h != null)) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f60304g.getRequestId(), this.f60304g);
+                if (this.f60305h != null) {
+                    PayRequestCache.getInstance().addBeanRequestToCache(this.f60305h.getRequestId(), this.f60305h);
                 }
-                String str = "bindFrom=" + this.f60305g.mBindFrom + "#";
-                this.f60307i = this.f60305g.mBindFrom;
+                String str = "bindFrom=" + this.f60304g.mBindFrom + "#";
+                this.f60306i = this.f60304g.mBindFrom;
                 if (PayDataCache.getInstance().hasMobilePwd()) {
                     a();
                 }
                 setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_bond_card_activity"));
                 DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
-                this.f60301c = (TextView) findViewById(ResUtils.id(getActivity(), "select_pay_card"));
-                this.f60302d = (OrderConfirmation) findViewById(ResUtils.id(getActivity(), "pay_layout"));
+                this.f60300c = (TextView) findViewById(ResUtils.id(getActivity(), "select_pay_card"));
+                this.f60301d = (OrderConfirmation) findViewById(ResUtils.id(getActivity(), "pay_layout"));
                 this.l = findViewById(ResUtils.id(getActivity(), "statusbar_top"));
-                this.f60302d.getBackButton().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.SelectBindCardActivity.1
+                this.f60301d.getBackButton().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.SelectBindCardActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SelectBindCardActivity f60308a;
+                    public final /* synthetic */ SelectBindCardActivity f60307a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -531,25 +531,25 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                                 return;
                             }
                         }
-                        this.f60308a = this;
+                        this.f60307a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f60308a.onBackPressed();
+                            this.f60307a.onBackPressed();
                         }
                     }
                 });
-                int i2 = this.f60305g.mBindFrom;
+                int i2 = this.f60304g.mBindFrom;
                 if (i2 == 4) {
                     String string2 = ResUtils.getString(getActivity(), "ebpay_complete_tip1");
                     initActionBar("ebpay_title_find_pwd");
-                    this.f60301c.setVisibility(0);
-                    this.f60302d.setVisibility(8);
+                    this.f60300c.setVisibility(0);
+                    this.f60301d.setVisibility(8);
                     if (!TextUtils.isEmpty(string2)) {
-                        this.f60301c.setText(string2);
+                        this.f60300c.setText(string2);
                     }
                 } else if (i2 == 5) {
                     if (PayDataCache.getInstance().hasEnableCardsForFindPWD()) {
@@ -560,21 +560,21 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                         string = ResUtils.getString(getActivity(), "ebpay_complete_tip6");
                     }
                     initActionBar("ebpay_title_complete_info");
-                    this.f60301c.setVisibility(0);
-                    this.f60302d.setVisibility(8);
+                    this.f60300c.setVisibility(0);
+                    this.f60301d.setVisibility(8);
                     if (!TextUtils.isEmpty(string)) {
-                        this.f60301c.setText(string);
+                        this.f60300c.setText(string);
                     }
                 } else if (i2 == 2) {
                     initActionBar("ebpay_title_complete_info");
-                    this.f60301c.setVisibility(8);
+                    this.f60300c.setVisibility(8);
                     if (PayDataCache.getInstance().hasCanAmount()) {
                         this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_complete_tip7");
                         if (bundle == null) {
                             WalletGlobalUtils.safeShowDialog(this, 3, "");
                         }
                     }
-                    this.f60302d.setVisibility(0);
+                    this.f60301d.setVisibility(0);
                     if (payResponse != null) {
                         b();
                         findViewById(ResUtils.id(getActivity(), "bdactionbar")).setVisibility(8);
@@ -582,8 +582,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                     }
                 }
                 SelectBindCardLayout selectBindCardLayout = (SelectBindCardLayout) findViewById(ResUtils.id(this, "lv_bond_card_list"));
-                this.f60300b = selectBindCardLayout;
-                selectBindCardLayout.setBindFrom(this.f60307i);
+                this.f60299b = selectBindCardLayout;
+                selectBindCardLayout.setBindFrom(this.f60306i);
                 c();
                 EventBus.getInstance().register(this, "ev_bean_execut_err_content", 0, EventBus.ThreadMode.MainThread);
                 EventBus.getInstance().registerSticky(this, "order_confirm_event_bus_key", 0, EventBus.ThreadMode.MainThread);
@@ -613,7 +613,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            BeanManager.getInstance().removeAllBeans(this.f60299a);
+            BeanManager.getInstance().removeAllBeans(this.f60298a);
             EventBus.getInstance().unregister(this, "ev_bean_execut_err_content");
             EventBus.getInstance().unregister(this, "order_confirm_event_bus_key");
             super.onDestroy();
@@ -624,7 +624,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) && event != null && "order_confirm_event_bus_key".equals(event.mEventKey)) {
             b();
-            BindFastRequest bindFastRequest = this.f60305g;
+            BindFastRequest bindFastRequest = this.f60304g;
             if (bindFastRequest == null || bindFastRequest.mBindFrom != 2) {
                 return;
             }
@@ -660,7 +660,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SelectBindCardActivity f60310a;
+                public final /* synthetic */ SelectBindCardActivity f60309a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -677,14 +677,14 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                             return;
                         }
                     }
-                    this.f60310a = this;
+                    this.f60309a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f60310a, 3);
+                        WalletGlobalUtils.safeDismissDialog(this.f60309a, 3);
                     }
                 }
             });
@@ -700,8 +700,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                 NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
             }
             setFlagPaySdk();
-            BindFastRequest bindFastRequest = this.f60305g;
-            int i2 = this.f60307i;
+            BindFastRequest bindFastRequest = this.f60304g;
+            int i2 = this.f60306i;
             bindFastRequest.mBindFrom = i2;
             bindFastRequest.setBindFromOrigin(i2);
         }
@@ -711,10 +711,10 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
-            bundle.putBoolean(BindFastRequest.BIND_IS_FIRST, this.f60304f);
+            bundle.putBoolean(BindFastRequest.BIND_IS_FIRST, this.f60303f);
             bundle.putBoolean("isForPwd", this.k.booleanValue());
-            bundle.putSerializable("mBindRequest", this.f60305g);
-            PayRequest payRequest = this.f60306h;
+            bundle.putSerializable("mBindRequest", this.f60304g);
+            PayRequest payRequest = this.f60305h;
             if (payRequest != null) {
                 bundle.putSerializable("mPayRequest", payRequest);
             }
@@ -743,16 +743,16 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             if (bondCard == null) {
                 return;
             }
-            BindFastRequest bindFastRequest2 = this.f60305g;
+            BindFastRequest bindFastRequest2 = this.f60304g;
             bindFastRequest2.mBondCard = bondCard;
             bindFastRequest2.setmBankInfo(null);
-            int i2 = this.f60305g.mBindFrom;
+            int i2 = this.f60304g.mBindFrom;
             if (i2 == 2) {
                 b(bondCard);
             } else if (i2 == 4 || i2 == 5) {
-                this.f60305g.setmBankCard(bondCard.account_no);
-                this.f60305g.setSubBankCode(bondCard.account_bank_code);
-                this.f60305g.mBindFrom = 3;
+                this.f60304g.setmBankCard(bondCard.account_no);
+                this.f60304g.setSubBankCode(bondCard.account_bank_code);
+                this.f60304g.mBindFrom = 3;
                 extras.putBoolean(BindFastRequest.BIND_IS_FIRST, false);
                 if (PayRequestCache.getInstance().isPaying()) {
                     BaiduPay.getInstance().launchBindCardActivity(this, null, extras);
@@ -762,10 +762,10 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Bundle f60311a;
+                        public final /* synthetic */ Bundle f60310a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ SelectBindCardActivity f60312b;
+                        public final /* synthetic */ SelectBindCardActivity f60311b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -782,8 +782,8 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                                     return;
                                 }
                             }
-                            this.f60312b = this;
-                            this.f60311a = extras;
+                            this.f60311b = this;
+                            this.f60310a = extras;
                         }
 
                         @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
@@ -797,32 +797,32 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
                         public void onResponse(CardAddResponse cardAddResponse) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardAddResponse) == null) {
-                                this.f60312b.getBindCardFlagDelegate().a(this.f60312b.f60305g);
-                                PayRequestCache.getInstance().addBeanRequestToCache(this.f60312b.f60305g.getRequestId(), this.f60312b.f60305g);
+                                this.f60311b.getBindCardFlagDelegate().a(this.f60311b.f60304g);
+                                PayRequestCache.getInstance().addBeanRequestToCache(this.f60311b.f60304g.getRequestId(), this.f60311b.f60304g);
                                 Activity loadingUi = BindCardEntry.getLoadingUi();
                                 if (loadingUi instanceof BaseActivity) {
-                                    ((BaseActivity) loadingUi).startActivityWithExtras(this.f60311a, BindCardImplActivity.class);
+                                    ((BaseActivity) loadingUi).startActivityWithExtras(this.f60310a, BindCardImplActivity.class);
                                 } else {
-                                    this.f60312b.startActivityWithExtras(this.f60311a, BindCardImplActivity.class);
+                                    this.f60311b.startActivityWithExtras(this.f60310a, BindCardImplActivity.class);
                                 }
                             }
                         }
-                    }, PayRequestCache.BindCategory.Pwd, this.k.booleanValue() ? PayRequestCache.BindCategory.Pwd.getScenario() : this.f60307i, null, null);
+                    }, PayRequestCache.BindCategory.Pwd, this.k.booleanValue() ? PayRequestCache.BindCategory.Pwd.getScenario() : this.f60306i, null, null);
                 }
             }
-            int i3 = this.f60305g.mBindFrom;
-            if ((i3 == 3 || i3 == 4) && (bindFastRequest = this.f60305g) != null) {
+            int i3 = this.f60304g.mBindFrom;
+            if ((i3 == 3 || i3 == 4) && (bindFastRequest = this.f60304g) != null) {
                 bindFastRequest.mUseNewCardFindPwd = false;
             }
-            getBindCardFlagDelegate().a(this.f60305g);
-            PayRequestCache.getInstance().addBeanRequestToCache(this.f60305g.getRequestId(), this.f60305g);
+            getBindCardFlagDelegate().a(this.f60304g);
+            PayRequestCache.getInstance().addBeanRequestToCache(this.f60304g.getRequestId(), this.f60304g);
         }
     }
 
     private void b(CardData.BondCard bondCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bondCard) == null) {
-            PayRequest payRequest = this.f60306h;
+            PayRequest payRequest = this.f60305h;
             if (payRequest != null) {
                 payRequest.mBondCard = bondCard;
             }
@@ -834,7 +834,7 @@ public class SelectBindCardActivity extends PayBaseBeanActivity implements Selec
             if (bindCardItemView != null) {
                 bindCardItemView.setProgressBarVisible(true);
             }
-            d dVar = (d) PayBeanFactory.getInstance().getBean((Context) getActivity(), 16, this.f60299a);
+            d dVar = (d) PayBeanFactory.getInstance().getBean((Context) getActivity(), 16, this.f60298a);
             PayTypeItemView.PayTypeItemViewData payTypeItemViewData = new PayTypeItemView.PayTypeItemViewData();
             payTypeItemViewData.type = PayTypeItemView.ItemViewType.BANKCARD;
             payTypeItemViewData.card = bondCard;

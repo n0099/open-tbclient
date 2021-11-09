@@ -8290,7 +8290,7 @@ public final class R {
         public static final int SettingsActivityBackGround = 0x7f080064;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f46581a = 0x7f080065;
+        public static final int f46580a = 0x7f080065;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080066;
         public static final int abc_action_bar_item_background_material = 0x7f080067;
         public static final int abc_btn_borderless_material = 0x7f080068;
@@ -15539,7 +15539,7 @@ public final class R {
         public static final int commodity_tail_text_mask = 0x7f090749;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f46582common = 0x7f09074a;
+        public static final int f46581common = 0x7f09074a;
         public static final int common_btn_text = 0x7f09074b;
         public static final int common_card_view_container = 0x7f09074c;
         public static final int common_forum_title = 0x7f09074d;

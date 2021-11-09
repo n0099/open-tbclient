@@ -19,13 +19,13 @@ public class GDTAD {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f67826a;
+    public static boolean f67825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static InitListener f67827b;
+    public static InitListener f67826b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f67828c;
+    public static e f67827c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -46,7 +46,7 @@ public class GDTAD {
                 return;
             }
         }
-        f67828c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
+        f67827c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,9 +76,9 @@ public class GDTAD {
             public void onLoadSuccess() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    boolean unused = GDTAD.f67826a = true;
-                    if (GDTAD.f67827b != null) {
-                        GDTAD.f67827b.onSuccess();
+                    boolean unused = GDTAD.f67825a = true;
+                    if (GDTAD.f67826b != null) {
+                        GDTAD.f67826b.onSuccess();
                     }
                 }
             }
@@ -102,16 +102,16 @@ public class GDTAD {
     public static void initSDK(Context context, String str, InitListener initListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, initListener) == null) {
-            if (f67826a) {
+            if (f67825a) {
                 GDTLogger.w("SDK已经被初始化过", null);
             } else if (context == null) {
                 GDTLogger.e("Context参数不能为null");
             } else if (StringUtil.isEmpty(str)) {
                 GDTLogger.e("AppId参数不能为空");
             } else {
-                f67827b = initListener;
+                f67826b = initListener;
                 GDTADManager gDTADManager = GDTADManager.getInstance();
-                gDTADManager.setPluginLoadListener(f67828c);
+                gDTADManager.setPluginLoadListener(f67827c);
                 gDTADManager.initWith(context.getApplicationContext(), str);
             }
         }

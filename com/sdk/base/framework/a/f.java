@@ -21,29 +21,29 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f68145b;
+    public static d f68144b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68146c;
+    public long f68145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.sdk.base.framework.b.b<T> f68147d;
+    public com.sdk.base.framework.b.b<T> f68146d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68148e;
+    public String f68147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68149f;
+    public String f68148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f68150g;
+    public g f68149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68151h;
+    public int f68150h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f68152i;
+    public boolean f68151i;
     public long j;
     public String k;
     public boolean l;
@@ -66,7 +66,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        f68145b = new d();
+        f68144b = new d();
     }
 
     public f(h<T> hVar) {
@@ -84,9 +84,9 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        this.f68146c = d.a();
-        this.f68150g = g.f68153a;
-        this.f68152i = true;
+        this.f68145c = d.a();
+        this.f68149g = g.f68152a;
+        this.f68151i = true;
         this.k = null;
         this.l = false;
         Boolean bool = Boolean.FALSE;
@@ -96,10 +96,10 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         k<T> b2 = hVar.b();
         this.p = b2;
         if (b2 != null) {
-            this.f68148e = b2.a();
-            this.f68149f = this.p.d();
-            this.f68151h = this.p.f();
-            this.f68147d = this.p.g();
+            this.f68147e = b2.a();
+            this.f68148f = this.p.d();
+            this.f68150h = this.p.f();
+            this.f68146d = this.p.g();
         }
     }
 
@@ -112,14 +112,14 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
             try {
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.b(th.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f68112a);
-                int i2 = this.f68151h;
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f68111a);
+                int i2 = this.f68150h;
                 if (i2 > 0) {
-                    this.f68151h = i2 - 1;
+                    this.f68150h = i2 - 1;
                     lVar = a(hVar, httpURLConnection);
                 }
             }
-            if (!d.b(this.f68148e) || (a2 = f68145b.a(this.f68149f)) == null) {
+            if (!d.b(this.f68147e) || (a2 = f68144b.a(this.f68148f)) == null) {
                 if (this.m.booleanValue() && this.l) {
                     File file = new File(this.k);
                     long length = (file.isFile() && file.exists()) ? file.length() : 0L;
@@ -160,19 +160,19 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     sb.append("\n  net请求码：");
                     sb.append(i2);
                     sb.toString();
-                    this.f68112a.booleanValue();
+                    this.f68111a.booleanValue();
                 }
-                if (this.f68112a.booleanValue()) {
+                if (this.f68111a.booleanValue()) {
                     StringBuilder sb2 = new StringBuilder("响应返回：code=");
                     sb2.append(i2);
                     sb2.append(";耗时=");
                     sb2.append(System.currentTimeMillis() - this.q);
-                    com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", sb2.toString(), this.f68112a);
+                    com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", sb2.toString(), this.f68111a);
                 }
                 if (i2 < 300) {
                     byte[] bArr = null;
                     if (httpURLConnection != null) {
-                        this.f68152i = false;
+                        this.f68151i = false;
                         if (this.l) {
                             this.m = Boolean.valueOf(this.m.booleanValue() && com.sdk.base.framework.f.d.a.a(httpURLConnection));
                             String b2 = this.n.booleanValue() ? com.sdk.base.framework.f.d.a.b(httpURLConnection) : null;
@@ -186,8 +186,8 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                             new com.sdk.base.framework.a.b.d();
                             String a2 = com.sdk.base.framework.a.b.d.a(httpURLConnection, this, "UTF-8");
                             bArr = a2;
-                            if (d.b(this.f68148e)) {
-                                f68145b.a(this.f68149f, a2, this.f68146c);
+                            if (d.b(this.f68147e)) {
+                                f68144b.a(this.f68148f, a2, this.f68145c);
                                 bArr = a2;
                             }
                         }
@@ -204,7 +204,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                         if (com.sdk.base.framework.a.a.c.b(headerField2).booleanValue()) {
                             if ("/ctcnet/gctcmc.do".equals(path)) {
                                 com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc", headerField2);
-                                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f68112a);
+                                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f68111a);
                             }
                             a3.setRequestProperty("Cookie", headerField2);
                         } else {
@@ -220,11 +220,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     }
                 }
                 com.sdk.base.framework.f.f.a.b("服务异常 ResponseCode = " + i2);
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i2, this.f68112a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i2, this.f68111a);
                 return new l<>(0, "服务端数据格式出错", false);
             } catch (Exception e2) {
                 com.sdk.base.framework.f.f.a.b(e2.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.toString(), this.f68112a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.toString(), this.f68111a);
                 return new l<>(1, "网络访问异常", false);
             }
         }
@@ -256,7 +256,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, objArr)) == null) {
-            if (this.f68150g != g.f68157e && objArr != null && objArr.length != 0) {
+            if (this.f68149g != g.f68156e && objArr != null && objArr.length != 0) {
                 if (objArr.length == 4) {
                     String valueOf = String.valueOf(objArr[1]);
                     this.k = valueOf;
@@ -272,7 +272,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     d(1);
                     h<T> hVar = (h) objArr[0];
                     String a2 = hVar.a();
-                    this.f68149f = a2;
+                    this.f68148f = a2;
                     HttpURLConnection a3 = hVar.a(a2, false);
                     if (a3 == null) {
                         d(4, new l(0, c(), false));
@@ -289,7 +289,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     }
                 } catch (Exception e2) {
                     com.sdk.base.framework.f.f.a.b(e2.toString());
-                    com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e2.toString(), this.f68112a);
+                    com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e2.toString(), this.f68111a);
                     d(3, 302002, "网络访问异常");
                 }
             }
@@ -302,14 +302,14 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f68150g = g.f68157e;
+            this.f68149g = g.f68156e;
             if (b()) {
                 return;
             }
             try {
                 a(true);
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f68112a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f68111a);
             }
         }
     }
@@ -317,29 +317,29 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     @Override // com.sdk.base.framework.a.c.c
     public final void a(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f68150g == g.f68157e || objArr == null || objArr.length == 0 || this.f68147d == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f68149g == g.f68156e || objArr == null || objArr.length == 0 || this.f68146d == null) {
             return;
         }
         int intValue = ((Integer) objArr[0]).intValue();
         if (intValue == 1) {
-            this.f68150g = g.f68154b;
+            this.f68149g = g.f68153b;
         } else if (intValue == 2) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f68150g = g.f68155c;
+            this.f68149g = g.f68154c;
             Long.parseLong(String.valueOf(objArr[1]));
             Long.parseLong(String.valueOf(objArr[2]));
         } else if (intValue == 3) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f68150g = g.f68156d;
-            this.f68147d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
+            this.f68149g = g.f68155d;
+            this.f68146d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
         } else if (intValue == 4 && objArr.length == 2) {
-            this.f68150g = g.f68158f;
+            this.f68149g = g.f68157f;
             this.p.d();
-            this.f68147d.a((l) objArr[1]);
+            this.f68146d.a((l) objArr[1]);
         }
     }
 
@@ -348,18 +348,18 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            if (this.f68147d != null && this.f68150g != g.f68157e) {
+            if (this.f68146d != null && this.f68149g != g.f68156e) {
                 if (z) {
                     d(2, Long.valueOf(j), Long.valueOf(j2));
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    if (uptimeMillis - this.j >= this.f68147d.a()) {
+                    if (uptimeMillis - this.j >= this.f68146d.a()) {
                         this.j = uptimeMillis;
                         d(2, Long.valueOf(j), Long.valueOf(j2));
                     }
                 }
             }
-            return this.f68150g != g.f68157e;
+            return this.f68149g != g.f68156e;
         }
         return invokeCommon.booleanValue;
     }

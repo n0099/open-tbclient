@@ -26,11 +26,11 @@ public interface e extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f69212a;
+            public static e f69211a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69213b;
+            public IBinder f69212b;
 
             public C1990a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public interface e extends IInterface {
                         return;
                     }
                 }
-                this.f69213b = iBinder;
+                this.f69212b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.e
@@ -60,7 +60,7 @@ public interface e extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                         obtain.writeLong(j);
-                        if (!this.f69213b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69212b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(j);
                         }
                         obtain2.readException();
@@ -77,7 +77,7 @@ public interface e extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69213b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69212b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -144,7 +144,7 @@ public interface e extends IInterface {
         public static e a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1990a.f69212a : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1990a.f69211a : (e) invokeV.objValue;
         }
     }
 }

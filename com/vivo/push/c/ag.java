@@ -12,10 +12,10 @@ public final class ag implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.k f70257a;
+    public final /* synthetic */ com.vivo.push.b.k f70256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ af f70258b;
+    public final /* synthetic */ af f70257b;
 
     public ag(af afVar, com.vivo.push.b.k kVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class ag implements Runnable {
                 return;
             }
         }
-        this.f70258b = afVar;
-        this.f70257a = kVar;
+        this.f70257b = afVar;
+        this.f70256a = kVar;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public final class ag implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            af afVar = this.f70258b;
-            PushMessageCallback pushMessageCallback = ((ab) afVar).f70246b;
-            context = afVar.f70428a;
-            pushMessageCallback.onUnBind(context, this.f70257a.h(), this.f70257a.d());
+            af afVar = this.f70257b;
+            PushMessageCallback pushMessageCallback = ((ab) afVar).f70245b;
+            context = afVar.f70427a;
+            pushMessageCallback.onUnBind(context, this.f70256a.h(), this.f70256a.d());
         }
     }
 }

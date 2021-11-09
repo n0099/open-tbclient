@@ -19,16 +19,16 @@ public class j implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72243a;
+    public int f72242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72244b;
+    public int f72243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f72245c;
+    public PayUIKitConfig f72244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i.a.a.e.l.b f72246d;
+    public i.a.a.e.l.b f72245d;
 
     public j(int i2, int i3, PayUIKitConfig payUIKitConfig, i.a.a.e.l.b bVar) {
         Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class j implements b {
                 return;
             }
         }
-        this.f72243a = i2;
-        this.f72244b = i3;
-        this.f72245c = payUIKitConfig;
-        this.f72246d = bVar;
+        this.f72242a = i2;
+        this.f72243b = i3;
+        this.f72244c = payUIKitConfig;
+        this.f72245d = bVar;
     }
 
     @Override // i.a.a.e.k.b
     public void a(Activity activity, PayFlowType payFlowType, i.a.a.e.l.f fVar, i.a.a.e.l.c cVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, fVar, cVar, appCustomExpand, iPayCallback, str}) == null) {
-            i.a.a.e.l.b bVar = this.f72246d;
+            i.a.a.e.l.b bVar = this.f72245d;
             if (bVar == null) {
                 RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
                 return;
@@ -63,15 +63,15 @@ public class j implements b {
             i.a.a.b.b.a.a b2 = bVar.b(payFlowType);
             b2.q(iPayCallback);
             b2.o(activity);
-            b2.t(cVar.f72347a);
-            b2.u(fVar.f72357a);
+            b2.t(cVar.f72346a);
+            b2.u(fVar.f72356a);
             b2.p(appCustomExpand);
             b2.y(str);
-            PayType payType = fVar.f72357a;
+            PayType payType = fVar.f72356a;
             if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                b2.v(i.a.a.e.l.e.b(this.f72245c));
+                b2.v(i.a.a.e.l.e.b(this.f72244c));
             }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f72243a, this.f72244b);
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f72242a, this.f72243b);
             if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
                 middleRevenue.getMiddlePayService().a(b2);
             } else {

@@ -59,10 +59,10 @@ public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f46836a;
+    public static boolean f46835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f46837b;
+    public static i f46836b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -483,11 +483,11 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f46837b = new a();
+        f46836b = new a();
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            b.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f46837b, BdUniqueId.gen());
+            b.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f46836b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -518,10 +518,10 @@ public class SwanAppAbTestStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f46836a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f46835a) {
             return;
         }
-        f46836a = true;
+        f46835a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;

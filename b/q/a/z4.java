@@ -36,10 +36,10 @@ public class z4 implements Runnable {
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f33594e.f70513b) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f33594e.f70512b) == null || bitmap.isRecycled()) {
             return;
         }
         GifImageView gifImageView = this.f33594e;
-        gifImageView.setImageBitmap(gifImageView.f70513b);
+        gifImageView.setImageBitmap(gifImageView.f70512b);
     }
 }

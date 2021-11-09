@@ -18,13 +18,13 @@ public class RoundAngleImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f64918a;
+    public Path f64917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float[] f64919b;
+    public float[] f64918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f64920c;
+    public RectF f64919c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAngleImageView(Context context) {
@@ -87,15 +87,15 @@ public class RoundAngleImageView extends ImageView {
                 return;
             }
         }
-        this.f64918a = new Path();
-        this.f64920c = new RectF();
+        this.f64917a = new Path();
+        this.f64919c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            float[] fArr = this.f64919b;
+            float[] fArr = this.f64918b;
             if (fArr == null || fArr.length != 8) {
                 super.onDraw(canvas);
                 return;
@@ -105,16 +105,16 @@ public class RoundAngleImageView extends ImageView {
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            float[] fArr2 = this.f64919b;
+            float[] fArr2 = this.f64918b;
             float f2 = fArr2[1] + fArr2[7];
-            this.f64918a.rewind();
+            this.f64917a.rewind();
             float f3 = measuredWidth;
             if (f3 >= fArr2[0] + fArr2[3]) {
                 float f4 = measuredHeight;
                 if (f4 > f2) {
-                    this.f64920c.set(0.0f, 0.0f, f3, f4);
-                    this.f64918a.addRoundRect(this.f64920c, this.f64919b, Path.Direction.CW);
-                    canvas.clipPath(this.f64918a);
+                    this.f64919c.set(0.0f, 0.0f, f3, f4);
+                    this.f64917a.addRoundRect(this.f64919c, this.f64918b, Path.Direction.CW);
+                    canvas.clipPath(this.f64917a);
                 }
             }
             super.onDraw(canvas);
@@ -126,10 +126,10 @@ public class RoundAngleImageView extends ImageView {
         if (interceptable != null && interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) != null) {
             return;
         }
-        this.f64919b = new float[8];
+        this.f64918b = new float[8];
         int i2 = 0;
         while (true) {
-            float[] fArr = this.f64919b;
+            float[] fArr = this.f64918b;
             if (i2 >= fArr.length) {
                 return;
             }
@@ -143,10 +143,10 @@ public class RoundAngleImageView extends ImageView {
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fArr) != null) {
             return;
         }
-        this.f64919b = new float[8];
+        this.f64918b = new float[8];
         int i2 = 0;
         while (true) {
-            float[] fArr2 = this.f64919b;
+            float[] fArr2 = this.f64918b;
             if (i2 >= fArr2.length) {
                 return;
             }

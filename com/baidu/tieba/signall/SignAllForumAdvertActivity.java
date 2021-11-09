@@ -35,7 +35,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53985a;
+        public final /* synthetic */ SignAllForumAdvertActivity f53984a;
 
         public a(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f53985a = signAllForumAdvertActivity;
+            this.f53984a = signAllForumAdvertActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar == null) {
-                    this.f53985a.finish();
+                    this.f53984a.finish();
                 }
             }
         }
@@ -74,9 +74,44 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53986e;
+        public final /* synthetic */ SignAllForumAdvertActivity f53985e;
 
         public b(SignAllForumAdvertActivity signAllForumAdvertActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {signAllForumAdvertActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53985e = signAllForumAdvertActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                UrlManager.getInstance().dealOneLink(this.f53985e.getPageContext(), new String[]{this.f53985e.mAdUrl});
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SignAllForumAdvertActivity f53986e;
+
+        public c(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,42 +133,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f53986e.getPageContext(), new String[]{this.f53986e.mAdUrl});
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53987e;
-
-        public c(SignAllForumAdvertActivity signAllForumAdvertActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {signAllForumAdvertActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53987e = signAllForumAdvertActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53987e.finish();
+                this.f53986e.finish();
             }
         }
     }

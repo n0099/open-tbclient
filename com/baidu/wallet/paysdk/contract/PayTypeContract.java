@@ -275,7 +275,7 @@ public interface PayTypeContract {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f59629a;
+                    public final /* synthetic */ Presenter f59628a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -292,7 +292,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f59629a = this;
+                        this.f59628a = this;
                     }
 
                     @Override // java.util.Comparator

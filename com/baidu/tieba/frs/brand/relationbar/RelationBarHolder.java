@@ -13,7 +13,7 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f48427a;
+    public T f48426a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarHolder(T t) {
@@ -33,12 +33,12 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f48427a = t;
+        this.f48426a = t;
     }
 
     public T getRelationBarCellView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48427a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48426a : (T) invokeV.objValue;
     }
 }

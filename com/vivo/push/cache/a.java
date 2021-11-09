@@ -77,15 +77,15 @@ public final class a extends d<com.vivo.push.model.a> {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(g.a(g.a(d.f70295a), g.a(d.f70296b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(g.a(g.a(d.f70294a), g.a(d.f70295b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final com.vivo.push.model.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (d.f70297c) {
-                for (T t : this.f70298d) {
+            synchronized (d.f70296c) {
+                for (T t : this.f70297d) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }

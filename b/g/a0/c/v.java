@@ -168,12 +168,12 @@ public class v extends BasePidLoader<f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
-            jYNativeAdView.f62772a.setText(fVar.f());
-            jYNativeAdView.f62775d.setText(fVar.h());
-            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f62776e);
-            jYNativeAdView.f62777f.setText(fVar.g());
-            jYNativeAdView.f62778g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
-            fVar.c(jYNativeAdView, jYNativeAdView.f62774c);
+            jYNativeAdView.f62771a.setText(fVar.f());
+            jYNativeAdView.f62774d.setText(fVar.h());
+            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f62775e);
+            jYNativeAdView.f62776f.setText(fVar.g());
+            jYNativeAdView.f62777g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
+            fVar.c(jYNativeAdView, jYNativeAdView.f62773c);
             return jYNativeAdView;
         }
         return (JYNativeAdView) invokeL.objValue;

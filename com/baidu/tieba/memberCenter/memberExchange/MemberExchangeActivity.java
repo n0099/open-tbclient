@@ -38,7 +38,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberExchangeActivity f51540a;
+        public final /* synthetic */ MemberExchangeActivity f51539a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberExchangeActivity memberExchangeActivity, int i2) {
@@ -58,7 +58,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                     return;
                 }
             }
-            this.f51540a = memberExchangeActivity;
+            this.f51539a = memberExchangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,21 +70,21 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
                         if (getTCodeResMessage.getTCodeInfo().f27497a.equals("0")) {
-                            this.f51540a.showToast(R.string.exchange_success);
+                            this.f51539a.showToast(R.string.exchange_success);
                             return;
                         } else {
-                            this.f51540a.showToast(R.string.exchange_error);
+                            this.f51539a.showToast(R.string.exchange_error);
                             return;
                         }
                     }
-                    this.f51540a.showToast(R.string.neterror);
+                    this.f51539a.showToast(R.string.neterror);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.f51540a.getResources().getString(R.string.neterror);
+                    errorString = this.f51539a.getResources().getString(R.string.neterror);
                 }
-                this.f51540a.showToast(errorString);
+                this.f51539a.showToast(errorString);
             }
         }
     }

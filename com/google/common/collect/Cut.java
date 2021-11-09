@@ -301,7 +301,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, boundType, discreteDomain)) == null) {
-                int i2 = a.f63312a[boundType.ordinal()];
+                int i2 = a.f63311a[boundType.ordinal()];
                 if (i2 == 1) {
                     C next = discreteDomain.next(this.endpoint);
                     return next == null ? Cut.belowAll() : Cut.belowValue(next);
@@ -319,7 +319,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, boundType, discreteDomain)) == null) {
-                int i2 = a.f63312a[boundType.ordinal()];
+                int i2 = a.f63311a[boundType.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
                         C next = discreteDomain.next(this.endpoint);
@@ -615,7 +615,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, boundType, discreteDomain)) == null) {
-                int i2 = a.f63312a[boundType.ordinal()];
+                int i2 = a.f63311a[boundType.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
                         C previous = discreteDomain.previous(this.endpoint);
@@ -633,7 +633,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, boundType, discreteDomain)) == null) {
-                int i2 = a.f63312a[boundType.ordinal()];
+                int i2 = a.f63311a[boundType.ordinal()];
                 if (i2 == 1) {
                     C previous = discreteDomain.previous(this.endpoint);
                     return previous == null ? Cut.aboveAll() : new AboveValue(previous);
@@ -652,7 +652,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f63312a;
+        public static final /* synthetic */ int[] f63311a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -669,13 +669,13 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
                 }
             }
             int[] iArr = new int[BoundType.values().length];
-            f63312a = iArr;
+            f63311a = iArr;
             try {
                 iArr[BoundType.CLOSED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f63312a[BoundType.OPEN.ordinal()] = 2;
+                f63311a[BoundType.OPEN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }

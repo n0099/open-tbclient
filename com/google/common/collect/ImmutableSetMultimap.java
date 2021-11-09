@@ -147,12 +147,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Collection entrySet = this.f63359a.entrySet();
-                Comparator<? super K> comparator = this.f63360b;
+                Collection entrySet = this.f63358a.entrySet();
+                Comparator<? super K> comparator = this.f63359b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f63361c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f63360c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
@@ -193,7 +193,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d1.b<ImmutableSetMultimap> f63380a;
+        public static final d1.b<ImmutableSetMultimap> f63379a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -209,7 +209,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     return;
                 }
             }
-            f63380a = d1.a(ImmutableSetMultimap.class, "emptySet");
+            f63379a = d1.a(ImmutableSetMultimap.class, "emptySet");
         }
     }
 
@@ -338,9 +338,9 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     }
                 }
                 try {
-                    ImmutableMultimap.d.f63362a.b(this, builder.a());
-                    ImmutableMultimap.d.f63363b.a(this, i2);
-                    b.f63380a.b(this, emptySet(comparator));
+                    ImmutableMultimap.d.f63361a.b(this, builder.a());
+                    ImmutableMultimap.d.f63362b.a(this, i2);
+                    b.f63379a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));

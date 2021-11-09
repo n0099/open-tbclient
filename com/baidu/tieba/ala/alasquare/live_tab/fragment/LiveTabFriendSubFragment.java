@@ -36,16 +36,16 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46897f;
+    public View f46896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdSwipeRefreshLayout f46898g;
+    public BdSwipeRefreshLayout f46897g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeRecyclerView f46899h;
+    public BdTypeRecyclerView f46898h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.w.f.c.a f46900i;
+    public b.a.r0.w.f.c.a f46899i;
     public g j;
     public PbListView k;
     public AlaLiveTabFriendModel l;
@@ -61,7 +61,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabFriendSubFragment f46901a;
+        public final /* synthetic */ LiveTabFriendSubFragment f46900a;
 
         public a(LiveTabFriendSubFragment liveTabFriendSubFragment) {
             Interceptable interceptable = $ic;
@@ -78,26 +78,26 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
                     return;
                 }
             }
-            this.f46901a = liveTabFriendSubFragment;
+            this.f46900a = liveTabFriendSubFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.b
         public void a(boolean z, List<n> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-                this.f46901a.hideLoadingView();
-                this.f46901a.hideNetRefreshView();
+                this.f46900a.hideLoadingView();
+                this.f46900a.hideNetRefreshView();
                 if (z) {
-                    this.f46901a.m();
+                    this.f46900a.m();
                 } else {
-                    this.f46901a.n();
+                    this.f46900a.n();
                 }
-                this.f46901a.p();
-                this.f46901a.setData(list);
+                this.f46900a.p();
+                this.f46900a.setData(list);
                 if (ListUtils.isEmpty(list)) {
-                    this.f46901a.showEmptyView();
+                    this.f46900a.showEmptyView();
                 } else {
-                    this.f46901a.hideEmptyView();
+                    this.f46900a.hideEmptyView();
                 }
             }
         }
@@ -106,19 +106,19 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public void b(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-                this.f46901a.p();
-                this.f46901a.hideLoadingView();
-                this.f46901a.hideNetRefreshView();
+                this.f46900a.p();
+                this.f46900a.hideLoadingView();
+                this.f46900a.hideNetRefreshView();
                 if (!z) {
-                    if (!this.f46901a.l.a()) {
-                        this.f46901a.showNetRefreshView();
+                    if (!this.f46900a.l.a()) {
+                        this.f46900a.showNetRefreshView();
                         return;
                     } else {
-                        this.f46901a.showToast(R.string.data_load_error);
+                        this.f46900a.showToast(R.string.data_load_error);
                         return;
                     }
                 }
-                this.f46901a.showToast(R.string.data_load_error);
+                this.f46900a.showToast(R.string.data_load_error);
             }
         }
     }
@@ -129,9 +129,48 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveTabFriendSubFragment f46902e;
+        public final /* synthetic */ LiveTabFriendSubFragment f46901e;
 
         public b(LiveTabFriendSubFragment liveTabFriendSubFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveTabFriendSubFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46901e = liveTabFriendSubFragment;
+        }
+
+        @Override // b.a.q0.s.g0.f.g
+        public void onListPullRefresh(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (j.z()) {
+                    this.f46901e.l.refresh();
+                } else {
+                    this.f46901e.p();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements BdListView.p {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LiveTabFriendSubFragment f46902e;
+
+        public c(LiveTabFriendSubFragment liveTabFriendSubFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,53 +188,14 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             this.f46902e = liveTabFriendSubFragment;
         }
 
-        @Override // b.a.q0.s.g0.f.g
-        public void onListPullRefresh(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (j.z()) {
-                    this.f46902e.l.refresh();
-                } else {
-                    this.f46902e.p();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveTabFriendSubFragment f46903e;
-
-        public c(LiveTabFriendSubFragment liveTabFriendSubFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {liveTabFriendSubFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46903e = liveTabFriendSubFragment;
-        }
-
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!l.D()) {
-                    this.f46903e.j();
+                    this.f46902e.j();
                 } else {
-                    this.f46903e.l.loadMore();
+                    this.f46902e.l.loadMore();
                 }
             }
         }
@@ -207,7 +207,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabFriendSubFragment f46904a;
+        public final /* synthetic */ LiveTabFriendSubFragment f46903a;
 
         public d(LiveTabFriendSubFragment liveTabFriendSubFragment) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
                     return;
                 }
             }
-            this.f46904a = liveTabFriendSubFragment;
+            this.f46903a = liveTabFriendSubFragment;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -233,7 +233,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             if (interceptable == null || interceptable.invokeLII(1048576, this, recyclerView, i2, i3) == null) {
                 super.onScrolled(recyclerView, i2, i3);
                 if (i3 >= 4) {
-                    LiveTabFriendSubFragment liveTabFriendSubFragment = this.f46904a;
+                    LiveTabFriendSubFragment liveTabFriendSubFragment = this.f46903a;
                     if (liveTabFriendSubFragment.isHideTopHeader) {
                         return;
                     }
@@ -249,7 +249,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveTabFriendSubFragment f46905e;
+        public final /* synthetic */ LiveTabFriendSubFragment f46904e;
 
         public e(LiveTabFriendSubFragment liveTabFriendSubFragment) {
             Interceptable interceptable = $ic;
@@ -266,14 +266,14 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
                     return;
                 }
             }
-            this.f46905e = liveTabFriendSubFragment;
+            this.f46904e = liveTabFriendSubFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f46905e.loadData();
+                this.f46904e.loadData();
             }
         }
     }
@@ -334,17 +334,17 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f46898g = (BdSwipeRefreshLayout) this.f46897f.findViewById(R.id.live_tab_refresh_layout);
-            this.mTopContainer = (LinearLayout) this.f46897f.findViewById(R.id.top_container);
+            this.f46897g = (BdSwipeRefreshLayout) this.f46896f.findViewById(R.id.live_tab_refresh_layout);
+            this.mTopContainer = (LinearLayout) this.f46896f.findViewById(R.id.top_container);
             g gVar = new g(getPageContext());
             this.j = gVar;
-            this.f46898g.setProgressView(gVar);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f46897f.findViewById(R.id.live_tab_list_view);
-            this.f46899h = bdTypeRecyclerView;
+            this.f46897g.setProgressView(gVar);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f46896f.findViewById(R.id.live_tab_list_view);
+            this.f46898h = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.mContext));
-            this.f46899h.setFadingEdgeLength(0);
-            this.f46899h.setOverScrollMode(2);
-            this.f46900i = new b.a.r0.w.f.c.a(getPageContext(), this.f46899h, 103);
+            this.f46898h.setFadingEdgeLength(0);
+            this.f46898h.setOverScrollMode(2);
+            this.f46899i = new b.a.r0.w.f.c.a(getPageContext(), this.f46898h, 103);
             PbListView pbListView = new PbListView(this.mContext);
             this.k = pbListView;
             pbListView.a();
@@ -356,7 +356,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             this.k.A(R.color.CAM_X0110);
             this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.j.U(getPageContext().getUniqueId());
-            this.f46899h.addOnScrollListener(this.q);
+            this.f46898h.addOnScrollListener(this.q);
             k(this.o);
             l(this.p);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -366,7 +366,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f46899h.setNextPage(null);
+            this.f46898h.setNextPage(null);
         }
     }
 
@@ -382,7 +382,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void l(BdListView.p pVar) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, pVar) == null) || (bdTypeRecyclerView = this.f46899h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, pVar) == null) || (bdTypeRecyclerView = this.f46898h) == null) {
             return;
         }
         bdTypeRecyclerView.setOnSrollToBottomListener(pVar);
@@ -406,7 +406,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f46899h.setNextPage(this.k);
+            this.f46898h.setNextPage(this.k);
         }
         this.k.s(l.g(this.mContext, R.dimen.tbds182));
         this.k.C(this.mContext.getResources().getString(R.string.loading));
@@ -420,7 +420,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f46899h.setNextPage(this.k);
+            this.f46898h.setNextPage(this.k);
         }
         this.k.s(l.g(this.mContext, R.dimen.tbds182));
         this.k.C(this.mContext.getResources().getString(R.string.list_no_more));
@@ -431,7 +431,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public void notifyListViewChanged() {
         b.a.r0.w.f.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f46900i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f46899i) == null) {
             return;
         }
         aVar.b();
@@ -440,7 +440,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f46898g.setRefreshing(true);
+            this.f46897g.setRefreshing(true);
         }
     }
 
@@ -458,7 +458,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0109));
                 this.k.d(i2);
             }
-            b.a.r0.w.f.c.a aVar = this.f46900i;
+            b.a.r0.w.f.c.a aVar = this.f46899i;
             if (aVar != null) {
                 aVar.b();
             }
@@ -489,8 +489,8 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f46897f == null) {
-                this.f46897f = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
+            if (this.f46896f == null) {
+                this.f46896f = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
                 initView();
                 if (viewGroup != null) {
                     this.m = (((viewGroup.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
@@ -499,7 +499,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             if (this.isAfterLazyLoaded) {
                 loadData();
             }
-            return this.f46897f;
+            return this.f46896f;
         }
         return (View) invokeLLL.objValue;
     }
@@ -509,10 +509,10 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            BdTypeRecyclerView bdTypeRecyclerView = this.f46899h;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f46898h;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.removeOnScrollListener(this.q);
-                this.f46899h.setOnSrollToBottomListener(null);
+                this.f46898h.setOnSrollToBottomListener(null);
             }
             g gVar = this.j;
             if (gVar != null) {
@@ -529,7 +529,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f46898g.setRefreshing(false);
+            this.f46897g.setRefreshing(false);
         }
     }
 
@@ -537,7 +537,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public void refreshPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f46899h.setSelection(0);
+            this.f46898h.setSelection(0);
             o();
         }
     }
@@ -545,7 +545,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     public final void setData(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            this.f46900i.c(list);
+            this.f46899i.c(list);
         }
     }
 

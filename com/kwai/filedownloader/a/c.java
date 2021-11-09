@@ -22,7 +22,7 @@ public class c implements com.kwai.filedownloader.a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public URLConnection f66803a;
+    public URLConnection f66802a;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -30,13 +30,13 @@ public class c implements com.kwai.filedownloader.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Proxy f66804a;
+        public Proxy f66803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f66805b;
+        public Integer f66804b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f66806c;
+        public Integer f66805c;
     }
 
     /* loaded from: classes2.dex */
@@ -45,7 +45,7 @@ public class c implements com.kwai.filedownloader.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f66807a;
+        public final a f66806a;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -80,14 +80,14 @@ public class c implements com.kwai.filedownloader.a.b {
                     return;
                 }
             }
-            this.f66807a = aVar;
+            this.f66806a = aVar;
         }
 
         @Override // com.kwai.filedownloader.f.c.b
         public com.kwai.filedownloader.a.b a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new c(str, this.f66807a) : (com.kwai.filedownloader.a.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new c(str, this.f66806a) : (com.kwai.filedownloader.a.b) invokeL.objValue;
         }
     }
 
@@ -127,14 +127,14 @@ public class c implements com.kwai.filedownloader.a.b {
                 return;
             }
         }
-        this.f66803a = (aVar == null || aVar.f66804a == null) ? url.openConnection() : url.openConnection(aVar.f66804a);
-        l.a(this.f66803a);
+        this.f66802a = (aVar == null || aVar.f66803a == null) ? url.openConnection() : url.openConnection(aVar.f66803a);
+        l.a(this.f66802a);
         if (aVar != null) {
-            if (aVar.f66805b != null) {
-                this.f66803a.setReadTimeout(aVar.f66805b.intValue());
+            if (aVar.f66804b != null) {
+                this.f66802a.setReadTimeout(aVar.f66804b.intValue());
             }
-            if (aVar.f66806c != null) {
-                this.f66803a.setConnectTimeout(aVar.f66806c.intValue());
+            if (aVar.f66805c != null) {
+                this.f66802a.setConnectTimeout(aVar.f66805c.intValue());
             }
         }
     }
@@ -143,21 +143,21 @@ public class c implements com.kwai.filedownloader.a.b {
     public InputStream a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.h.b.a().b(this.f66803a.getInputStream()) : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.h.b.a().b(this.f66802a.getInputStream()) : (InputStream) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.b
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f66803a.getHeaderField(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f66802a.getHeaderField(str) : (String) invokeL.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.f66803a.addRequestProperty(str, str2);
+            this.f66802a.addRequestProperty(str, str2);
         }
     }
 
@@ -175,21 +175,21 @@ public class c implements com.kwai.filedownloader.a.b {
     public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66803a.getRequestProperties() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66802a.getRequestProperties() : (Map) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66803a.getHeaderFields() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66802a.getHeaderFields() : (Map) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f66803a.connect();
+            this.f66802a.connect();
         }
     }
 
@@ -198,7 +198,7 @@ public class c implements com.kwai.filedownloader.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            URLConnection uRLConnection = this.f66803a;
+            URLConnection uRLConnection = this.f66802a;
             if (uRLConnection instanceof HttpURLConnection) {
                 return ((HttpURLConnection) uRLConnection).getResponseCode();
             }

@@ -102,7 +102,7 @@ public class a {
                         break;
                     }
                     n next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f47457f)) {
+                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f47456f)) {
                         z = true;
                         it.remove();
                         break;

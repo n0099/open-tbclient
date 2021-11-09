@@ -29,11 +29,11 @@ public interface l extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static l f69224a;
+            public static l f69223a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69225b;
+            public IBinder f69224b;
 
             public C1996a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public interface l extends IInterface {
                         return;
                     }
                 }
-                this.f69225b = iBinder;
+                this.f69224b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -67,7 +67,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f69225b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69224b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -83,7 +83,7 @@ public interface l extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69225b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69224b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -101,7 +101,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f69225b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69224b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(downloadInfo);
                         }
                         obtain2.readException();
@@ -184,7 +184,7 @@ public interface l extends IInterface {
         public static l a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1996a.f69224a : (l) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1996a.f69223a : (l) invokeV.objValue;
         }
     }
 }

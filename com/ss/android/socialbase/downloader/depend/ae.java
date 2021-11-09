@@ -31,11 +31,11 @@ public interface ae extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ae f69205a;
+            public static ae f69204a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69206b;
+            public IBinder f69205b;
 
             public C1987a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public interface ae extends IInterface {
                         return;
                     }
                 }
-                this.f69206b = iBinder;
+                this.f69205b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -70,7 +70,7 @@ public interface ae extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f69206b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69205b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(downloadInfo);
                         }
                         obtain2.readException();
@@ -87,7 +87,7 @@ public interface ae extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69206b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69205b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -105,7 +105,7 @@ public interface ae extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f69206b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69205b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(downloadInfo);
                         }
                         obtain2.readException();
@@ -133,7 +133,7 @@ public interface ae extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f69206b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69205b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().c(downloadInfo);
                         }
                         obtain2.readException();
@@ -223,7 +223,7 @@ public interface ae extends IInterface {
         public static ae a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1987a.f69205a : (ae) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1987a.f69204a : (ae) invokeV.objValue;
         }
     }
 }

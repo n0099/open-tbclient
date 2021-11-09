@@ -23,16 +23,16 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47513e;
+    public Context f47512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f47514f;
+    public ImageView f47513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47515g;
+    public TextView f47514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f47516h;
+    public TBSpecificationBtn f47515h;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +40,7 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadManagerNotLoginLayout f47517e;
+        public final /* synthetic */ DownloadManagerNotLoginLayout f47516e;
 
         public a(DownloadManagerNotLoginLayout downloadManagerNotLoginLayout) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f47517e = downloadManagerNotLoginLayout;
+            this.f47516e = downloadManagerNotLoginLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewHelper.checkUpIsLogin(this.f47517e.f47513e);
+                ViewHelper.checkUpIsLogin(this.f47516e.f47512e);
             }
         }
     }
@@ -94,25 +94,25 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.download_manager_not_login_layout, (ViewGroup) this, true);
-            this.f47513e = context;
-            this.f47514f = (ImageView) inflate.findViewById(R.id.download_manager_not_login_emotion_pic);
-            this.f47515g = (TextView) inflate.findViewById(R.id.download_manager_not_login_tv);
-            this.f47516h = (TBSpecificationBtn) inflate.findViewById(R.id.download_manager_login_btn);
+            this.f47512e = context;
+            this.f47513f = (ImageView) inflate.findViewById(R.id.download_manager_not_login_emotion_pic);
+            this.f47514g = (TextView) inflate.findViewById(R.id.download_manager_not_login_tv);
+            this.f47515h = (TBSpecificationBtn) inflate.findViewById(R.id.download_manager_login_btn);
             b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
-            this.f47516h.setText(context.getResources().getString(R.string.click_me_login));
-            this.f47516h.setTextSize(R.dimen.T_X06);
-            this.f47516h.setTextHorizontalCenter(true);
-            this.f47516h.setConfig(aVar);
-            this.f47516h.setOnClickListener(new a(this));
+            this.f47515h.setText(context.getResources().getString(R.string.click_me_login));
+            this.f47515h.setTextSize(R.dimen.T_X06);
+            this.f47515h.setTextHorizontalCenter(true);
+            this.f47515h.setConfig(aVar);
+            this.f47515h.setOnClickListener(new a(this));
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f47514f, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f47515g, R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f47516h;
+            SkinManager.setImageResource(this.f47513f, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.f47514g, R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.f47515h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }

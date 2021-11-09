@@ -12,7 +12,7 @@ public final class ct implements View.OnLongClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f56881a;
+    public final /* synthetic */ cg f56880a;
 
     public ct(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class ct implements View.OnLongClickListener {
                 return;
             }
         }
-        this.f56881a = cgVar;
+        this.f56880a = cgVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -37,7 +37,7 @@ public final class ct implements View.OnLongClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            this.f56881a.f56862a.a(view);
+            this.f56880a.f56861a.a(view);
             return false;
         }
         return invokeL.booleanValue;

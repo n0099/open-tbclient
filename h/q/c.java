@@ -18,7 +18,7 @@ public class c<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super T> f72125i;
+    public final j<? super T> f72124i;
     public boolean j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class c<T> extends j<T> {
                 return;
             }
         }
-        this.f72125i = jVar;
+        this.f72124i = jVar;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -48,7 +48,7 @@ public class c<T> extends j<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
             h.r.f.c().b().a(th);
             try {
-                this.f72125i.onError(th);
+                this.f72124i.onError(th);
                 try {
                     unsubscribe();
                 } catch (Throwable th2) {
@@ -87,7 +87,7 @@ public class c<T> extends j<T> {
         }
         this.j = true;
         try {
-            this.f72125i.onCompleted();
+            this.f72124i.onCompleted();
             try {
                 unsubscribe();
             } finally {
@@ -128,7 +128,7 @@ public class c<T> extends j<T> {
                 if (this.j) {
                     return;
                 }
-                this.f72125i.onNext(t);
+                this.f72124i.onNext(t);
             } catch (Throwable th) {
                 h.m.a.f(th, this);
             }

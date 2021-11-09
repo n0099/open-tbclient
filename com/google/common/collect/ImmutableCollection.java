@@ -32,13 +32,13 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f63339a;
+        public Object[] f63338a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63340b;
+        public int f63339b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63341c;
+        public boolean f63340c;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
                 }
             }
             m.b(i2, "initialCapacity");
-            this.f63339a = new Object[i2];
-            this.f63340b = 0;
+            this.f63338a = new Object[i2];
+            this.f63339b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
@@ -66,9 +66,9 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eArr)) == null) {
                 u0.b(eArr);
-                g(this.f63340b + eArr.length);
-                System.arraycopy(eArr, 0, this.f63339a, this.f63340b, eArr.length);
-                this.f63340b += eArr.length;
+                g(this.f63339b + eArr.length);
+                System.arraycopy(eArr, 0, this.f63338a, this.f63339b, eArr.length);
+                this.f63339b += eArr.length;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -79,10 +79,10 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
                 n.p(e2);
-                g(this.f63340b + 1);
-                Object[] objArr = this.f63339a;
-                int i2 = this.f63340b;
-                this.f63340b = i2 + 1;
+                g(this.f63339b + 1);
+                Object[] objArr = this.f63338a;
+                int i2 = this.f63339b;
+                this.f63339b = i2 + 1;
                 objArr[i2] = e2;
                 return this;
             }
@@ -92,13 +92,13 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
         public final void g(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                Object[] objArr = this.f63339a;
+                Object[] objArr = this.f63338a;
                 if (objArr.length < i2) {
-                    this.f63339a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
-                    this.f63341c = false;
-                } else if (this.f63341c) {
-                    this.f63339a = (Object[]) objArr.clone();
-                    this.f63341c = false;
+                    this.f63338a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
+                    this.f63340c = false;
+                } else if (this.f63340c) {
+                    this.f63338a = (Object[]) objArr.clone();
+                    this.f63340c = false;
                 }
             }
         }

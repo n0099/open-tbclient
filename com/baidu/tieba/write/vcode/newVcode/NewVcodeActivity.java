@@ -51,7 +51,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NewVcodeActivity f55850a;
+            public final /* synthetic */ NewVcodeActivity f55849a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,7 +68,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         return;
                     }
                 }
-                this.f55850a = this;
+                this.f55849a = this;
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -82,31 +82,31 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    this.f55850a.setResult(0, intent);
-                    this.f55850a.finish();
+                    this.f55849a.setResult(0, intent);
+                    this.f55849a.finish();
                 } else if (postWriteCallBackData.getErrorCode() == 220034) {
-                    this.f55850a.showToast(postWriteCallBackData.getErrorString());
+                    this.f55849a.showToast(postWriteCallBackData.getErrorString());
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    this.f55850a.setResult(0, intent2);
-                    this.f55850a.finish();
+                    this.f55849a.setResult(0, intent2);
+                    this.f55849a.finish();
                 } else if (m0Var == null || writeData == null) {
                 } else {
-                    this.f55850a.mPageType = b.a.e.e.m.b.e("4", 0);
-                    this.f55850a.mPresenter.d();
-                    this.f55850a.mPresenter.onDestroy();
-                    this.f55850a.mWriteData = writeData;
-                    this.f55850a.mWriteData.setVcodeMD5(m0Var.b());
-                    this.f55850a.mWriteData.setVcodeUrl(m0Var.c());
-                    this.f55850a.mWriteData.setVcodeExtra(m0Var.a());
-                    this.f55850a.mWriteModel.setWriteData(this.f55850a.mWriteData);
-                    NewVcodeActivity newVcodeActivity = this.f55850a;
+                    this.f55849a.mPageType = b.a.e.e.m.b.e("4", 0);
+                    this.f55849a.mPresenter.d();
+                    this.f55849a.mPresenter.onDestroy();
+                    this.f55849a.mWriteData = writeData;
+                    this.f55849a.mWriteData.setVcodeMD5(m0Var.b());
+                    this.f55849a.mWriteData.setVcodeUrl(m0Var.c());
+                    this.f55849a.mWriteData.setVcodeExtra(m0Var.a());
+                    this.f55849a.mWriteModel.setWriteData(this.f55849a.mWriteData);
+                    NewVcodeActivity newVcodeActivity = this.f55849a;
                     newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
-                    this.f55850a.mPresenter.e(true, postWriteCallBackData.getErrorString());
-                    this.f55850a.mNewVcodeView.setPresenter(this.f55850a.mPresenter);
-                    this.f55850a.mPresenter.a(this.f55850a.mNeedFeedBackButton);
+                    this.f55849a.mPresenter.e(true, postWriteCallBackData.getErrorString());
+                    this.f55849a.mNewVcodeView.setPresenter(this.f55849a.mPresenter);
+                    this.f55849a.mPresenter.a(this.f55849a.mNeedFeedBackButton);
                 }
             }
         };

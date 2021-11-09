@@ -29,26 +29,26 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f68518a;
+    public volatile boolean f68517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<Long, DownloadModel> f68519b;
+    public final ConcurrentHashMap<Long, DownloadModel> f68518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConcurrentHashMap<Long, DownloadEventConfig> f68520c;
+    public final ConcurrentHashMap<Long, DownloadEventConfig> f68519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ConcurrentHashMap<Long, DownloadController> f68521d;
+    public final ConcurrentHashMap<Long, DownloadController> f68520d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> f68522e;
+    public final ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> f68521e;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f68524a;
+        public static f f68523a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,20 +64,20 @@ public class f {
                     return;
                 }
             }
-            f68524a = new f();
+            f68523a = new f();
         }
     }
 
     public DownloadController c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) ? this.f68521d.get(Long.valueOf(j)) : (DownloadController) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) ? this.f68520d.get(Long.valueOf(j)) : (DownloadController) invokeJ.objValue;
     }
 
     public com.ss.android.downloadad.api.a.b d(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) ? this.f68522e.get(Long.valueOf(j)) : (com.ss.android.downloadad.api.a.b) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) ? this.f68521e.get(Long.valueOf(j)) : (com.ss.android.downloadad.api.a.b) invokeJ.objValue;
     }
 
     @NonNull
@@ -86,17 +86,17 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
             e eVar = new e();
-            eVar.f68514a = j;
-            eVar.f68515b = a(j);
+            eVar.f68513a = j;
+            eVar.f68514b = a(j);
             DownloadEventConfig b2 = b(j);
-            eVar.f68516c = b2;
+            eVar.f68515c = b2;
             if (b2 == null) {
-                eVar.f68516c = new com.ss.android.download.api.download.c();
+                eVar.f68515c = new com.ss.android.download.api.download.c();
             }
             DownloadController c2 = c(j);
-            eVar.f68517d = c2;
+            eVar.f68516d = c2;
             if (c2 == null) {
-                eVar.f68517d = new com.ss.android.download.api.download.b();
+                eVar.f68516d = new com.ss.android.download.api.download.b();
             }
             return eVar;
         }
@@ -106,9 +106,9 @@ public class f {
     public void f(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.f68519b.remove(Long.valueOf(j));
-            this.f68520c.remove(Long.valueOf(j));
-            this.f68521d.remove(Long.valueOf(j));
+            this.f68518b.remove(Long.valueOf(j));
+            this.f68519c.remove(Long.valueOf(j));
+            this.f68520d.remove(Long.valueOf(j));
         }
     }
 
@@ -125,11 +125,11 @@ public class f {
                 return;
             }
         }
-        this.f68518a = false;
-        this.f68519b = new ConcurrentHashMap<>();
-        this.f68520c = new ConcurrentHashMap<>();
-        this.f68521d = new ConcurrentHashMap<>();
-        this.f68522e = new ConcurrentHashMap<>();
+        this.f68517a = false;
+        this.f68518b = new ConcurrentHashMap<>();
+        this.f68519c = new ConcurrentHashMap<>();
+        this.f68520d = new ConcurrentHashMap<>();
+        this.f68521e = new ConcurrentHashMap<>();
     }
 
     public void b() {
@@ -140,7 +140,7 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f68523a;
+                public final /* synthetic */ f f68522a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -157,19 +157,19 @@ public class f {
                             return;
                         }
                     }
-                    this.f68523a = this;
+                    this.f68522a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68523a.f68518a) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68522a.f68517a) {
                         return;
                     }
                     synchronized (f.class) {
-                        if (!this.f68523a.f68518a) {
-                            this.f68523a.f68522e.putAll(i.a().b());
-                            this.f68523a.f68518a = true;
+                        if (!this.f68522a.f68517a) {
+                            this.f68522a.f68521e.putAll(i.a().b());
+                            this.f68522a.f68517a = true;
                         }
                     }
                 }
@@ -180,19 +180,19 @@ public class f {
     public ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68522e : (ConcurrentHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68521e : (ConcurrentHashMap) invokeV.objValue;
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68524a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68523a : (f) invokeV.objValue;
     }
 
     public DownloadEventConfig b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) ? this.f68520c.get(Long.valueOf(j)) : (DownloadEventConfig) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) ? this.f68519c.get(Long.valueOf(j)) : (DownloadEventConfig) invokeJ.objValue;
     }
 
     public void a(DownloadModel downloadModel) {
@@ -200,7 +200,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, downloadModel) == null) || downloadModel == null) {
             return;
         }
-        this.f68519b.put(Long.valueOf(downloadModel.getId()), downloadModel);
+        this.f68518b.put(Long.valueOf(downloadModel.getId()), downloadModel);
         if (downloadModel.getDeepLink() != null) {
             downloadModel.getDeepLink().setId(downloadModel.getId());
             downloadModel.getDeepLink().setPackageName(downloadModel.getPackageName());
@@ -214,7 +214,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (com.ss.android.downloadad.api.a.b bVar : this.f68522e.values()) {
+            for (com.ss.android.downloadad.api.a.b bVar : this.f68521e.values()) {
                 if (bVar != null && str.equals(bVar.a())) {
                     return bVar;
                 }
@@ -229,7 +229,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        for (DownloadModel downloadModel : this.f68519b.values()) {
+        for (DownloadModel downloadModel : this.f68518b.values()) {
             if ((downloadModel instanceof AdDownloadModel) && TextUtils.equals(downloadModel.getDownloadUrl(), str)) {
                 ((AdDownloadModel) downloadModel).setPackageName(str2);
             }
@@ -241,7 +241,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeJL(1048582, this, j, downloadEventConfig) == null) || downloadEventConfig == null) {
             return;
         }
-        this.f68520c.put(Long.valueOf(j), downloadEventConfig);
+        this.f68519c.put(Long.valueOf(j), downloadEventConfig);
     }
 
     public void a(long j, DownloadController downloadController) {
@@ -249,7 +249,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeJL(1048581, this, j, downloadController) == null) || downloadController == null) {
             return;
         }
-        this.f68521d.put(Long.valueOf(j), downloadController);
+        this.f68520d.put(Long.valueOf(j), downloadController);
     }
 
     public synchronized void a(com.ss.android.downloadad.api.a.b bVar) {
@@ -259,7 +259,7 @@ public class f {
                 if (bVar == null) {
                     return;
                 }
-                this.f68522e.put(Long.valueOf(bVar.b()), bVar);
+                this.f68521e.put(Long.valueOf(bVar.b()), bVar);
                 i.a().a(bVar);
             }
         }
@@ -268,7 +268,7 @@ public class f {
     public DownloadModel a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.f68519b.get(Long.valueOf(j)) : (DownloadModel) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.f68518b.get(Long.valueOf(j)) : (DownloadModel) invokeJ.objValue;
     }
 
     public com.ss.android.downloadad.api.a.b a(String str) {
@@ -278,7 +278,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (com.ss.android.downloadad.api.a.b bVar : this.f68522e.values()) {
+            for (com.ss.android.downloadad.api.a.b bVar : this.f68521e.values()) {
                 if (bVar != null && str.equals(bVar.e())) {
                     return bVar;
                 }
@@ -295,7 +295,7 @@ public class f {
             if (downloadInfo == null) {
                 return null;
             }
-            for (com.ss.android.downloadad.api.a.b bVar : this.f68522e.values()) {
+            for (com.ss.android.downloadad.api.a.b bVar : this.f68521e.values()) {
                 if (bVar != null && bVar.s() == downloadInfo.getId()) {
                     return bVar;
                 }
@@ -304,7 +304,7 @@ public class f {
                 try {
                     long a2 = l.a(new JSONObject(downloadInfo.getExtra()), "extra");
                     if (a2 != 0) {
-                        for (com.ss.android.downloadad.api.a.b bVar2 : this.f68522e.values()) {
+                        for (com.ss.android.downloadad.api.a.b bVar2 : this.f68521e.values()) {
                             if (bVar2 != null && bVar2.b() == a2) {
                                 return bVar2;
                             }
@@ -315,7 +315,7 @@ public class f {
                     e2.printStackTrace();
                 }
             }
-            for (com.ss.android.downloadad.api.a.b bVar3 : this.f68522e.values()) {
+            for (com.ss.android.downloadad.api.a.b bVar3 : this.f68521e.values()) {
                 if (bVar3 != null && TextUtils.equals(bVar3.a(), downloadInfo.getUrl())) {
                     return bVar3;
                 }
@@ -329,7 +329,7 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            for (com.ss.android.downloadad.api.a.b bVar : this.f68522e.values()) {
+            for (com.ss.android.downloadad.api.a.b bVar : this.f68521e.values()) {
                 if (bVar != null && bVar.s() == i2) {
                     return bVar;
                 }
@@ -346,7 +346,7 @@ public class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                for (com.ss.android.downloadad.api.a.b bVar : this.f68522e.values()) {
+                for (com.ss.android.downloadad.api.a.b bVar : this.f68521e.values()) {
                     if (bVar != null && TextUtils.equals(bVar.a(), str)) {
                         bVar.b(str2);
                         hashMap.put(Long.valueOf(bVar.b()), bVar);
@@ -366,7 +366,7 @@ public class f {
                 for (Long l : list) {
                     long longValue = l.longValue();
                     arrayList.add(String.valueOf(longValue));
-                    this.f68522e.remove(Long.valueOf(longValue));
+                    this.f68521e.remove(Long.valueOf(longValue));
                 }
                 i.a().a((List<String>) arrayList);
             }

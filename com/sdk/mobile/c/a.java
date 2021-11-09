@@ -29,7 +29,7 @@ public class a<T> extends com.sdk.base.module.b.a<T> {
                 return;
             }
         }
-        boolean z = f.f68206b;
+        boolean z = f.f68205b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

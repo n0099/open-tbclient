@@ -58,7 +58,7 @@ public interface t extends IInterface {
         public static t b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1999a.f69230a : (t) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1999a.f69229a : (t) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -101,11 +101,11 @@ public interface t extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static t f69230a;
+            public static t f69229a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69231b;
+            public IBinder f69230b;
 
             public C1999a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public interface t extends IInterface {
                         return;
                     }
                 }
-                this.f69231b = iBinder;
+                this.f69230b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.t
@@ -134,7 +134,7 @@ public interface t extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                         obtain.writeStringList(list);
-                        if (!this.f69231b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f69230b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(list);
                         } else {
                             obtain2.readException();
@@ -150,7 +150,7 @@ public interface t extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69231b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69230b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.t
@@ -162,7 +162,7 @@ public interface t extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
-                        if (!this.f69231b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f69230b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();

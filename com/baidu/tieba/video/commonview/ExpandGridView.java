@@ -18,16 +18,16 @@ public class ExpandGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f54656e;
+    public Scroller f54655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54657f;
+    public boolean f54656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f54658g;
+    public a f54657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54659h;
+    public boolean f54658h;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -52,19 +52,19 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f54657f = false;
-        this.f54659h = false;
-        this.f54656e = new Scroller(context);
+        this.f54656f = false;
+        this.f54658h = false;
+        this.f54655e = new Scroller(context);
     }
 
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f54656e.computeScrollOffset()) {
-                this.f54659h = true;
-                int currY = this.f54656e.getCurrY();
-                a aVar = this.f54658g;
+            if (this.f54655e.computeScrollOffset()) {
+                this.f54658h = true;
+                int currY = this.f54655e.getCurrY();
+                a aVar = this.f54657g;
                 if (aVar != null) {
                     aVar.a(currY);
                 }
@@ -74,7 +74,7 @@ public class ExpandGridView extends GridView {
                     setLayoutParams(layoutParams);
                 }
             } else {
-                this.f54659h = false;
+                this.f54658h = false;
             }
             super.computeScroll();
         }
@@ -86,9 +86,9 @@ public class ExpandGridView extends GridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() != 3 && motionEvent.getAction() != 1) {
-                this.f54657f = true;
+                this.f54656f = true;
             } else {
-                this.f54657f = false;
+                this.f54656f = false;
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -98,13 +98,13 @@ public class ExpandGridView extends GridView {
     public boolean isOnAutoScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54659h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54658h : invokeV.booleanValue;
     }
 
     public boolean isOnTouch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54657f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54656f : invokeV.booleanValue;
     }
 
     @Override // android.widget.AbsListView, android.view.View
@@ -117,15 +117,15 @@ public class ExpandGridView extends GridView {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f54658g = aVar;
+            this.f54657g = aVar;
         }
     }
 
     public void startScroll(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.f54656e.startScroll(i2, i3, i4, i5, i6);
-            this.f54659h = true;
+            this.f54655e.startScroll(i2, i3, i4, i5, i6);
+            this.f54658h = true;
             invalidate();
         }
     }
@@ -133,8 +133,8 @@ public class ExpandGridView extends GridView {
     public void startScroll(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            this.f54656e.startScroll(i2, i3, i4, i5);
-            this.f54659h = true;
+            this.f54655e.startScroll(i2, i3, i4, i5);
+            this.f54658h = true;
             invalidate();
         }
     }
@@ -158,9 +158,9 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f54657f = false;
-        this.f54659h = false;
-        this.f54656e = new Scroller(context);
+        this.f54656f = false;
+        this.f54658h = false;
+        this.f54655e = new Scroller(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,8 +182,8 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f54657f = false;
-        this.f54659h = false;
-        this.f54656e = new Scroller(context);
+        this.f54656f = false;
+        this.f54658h = false;
+        this.f54655e = new Scroller(context);
     }
 }

@@ -41,7 +41,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f48527e;
+        public final /* synthetic */ FrsMoreFeedForumsActivity f48526e;
 
         public a(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                     return;
                 }
             }
-            this.f48527e = frsMoreFeedForumsActivity;
+            this.f48526e = frsMoreFeedForumsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f48527e.mBackLogo.getId()) {
-                this.f48527e.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f48526e.mBackLogo.getId()) {
+                this.f48526e.finish();
             }
         }
     }
@@ -76,7 +76,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f48528a;
+        public final /* synthetic */ FrsMoreFeedForumsActivity f48527a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i2) {
@@ -96,7 +96,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                     return;
                 }
             }
-            this.f48528a = frsMoreFeedForumsActivity;
+            this.f48527a = frsMoreFeedForumsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
-                this.f48528a.mAdapter.f(this.f48528a.mFeedForumDataList, (x) customResponsedMessage.getData());
+                this.f48527a.mAdapter.f(this.f48527a.mFeedForumDataList, (x) customResponsedMessage.getData());
             }
         }
     }

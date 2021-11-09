@@ -34,19 +34,19 @@ public class AppDownloadView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53665e;
+    public TextView f53664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f53666f;
+    public ProgressBar f53665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f53667g;
+    public ImageView f53666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53668h;
+    public TextView f53667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DownloadData f53669i;
+    public DownloadData f53668i;
     public CustomMessageListener j;
     public CustomMessageListener k;
 
@@ -56,7 +56,7 @@ public class AppDownloadView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public AppDownloadView f53672e;
+        public AppDownloadView f53671e;
 
         public AppDownloadListener() {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AppDownloadView extends LinearLayout {
         public void setAppDownloadView(AppDownloadView appDownloadView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, appDownloadView) == null) {
-                this.f53672e = appDownloadView;
+                this.f53671e = appDownloadView;
             }
         }
     }
@@ -116,10 +116,10 @@ public class AppDownloadView extends LinearLayout {
             setOrientation(0);
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.app_download_layout, (ViewGroup) this, true);
-            this.f53665e = (TextView) inflate.findViewById(R.id.app_push_title);
-            this.f53666f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
-            this.f53667g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
-            this.f53668h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
+            this.f53664e = (TextView) inflate.findViewById(R.id.app_push_title);
+            this.f53665f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
+            this.f53666g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
+            this.f53667h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -132,7 +132,7 @@ public class AppDownloadView extends LinearLayout {
         int status = downloadData.getStatus();
         if (status == 1) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f53667g, R.drawable.icon_download_pause);
+            SkinManager.setImageResource(this.f53666g, R.drawable.icon_download_pause);
         } else if (status == 3) {
             setVisibility(8);
         } else if (status == 5) {
@@ -141,7 +141,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(8);
         } else if (status == 7) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f53667g, R.drawable.icon_download_play);
+            SkinManager.setImageResource(this.f53666g, R.drawable.icon_download_play);
         }
         int j = e.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
@@ -156,6 +156,62 @@ public class AppDownloadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.j == null) {
                 this.j = new CustomMessageListener(this, 2001118) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ AppDownloadView f53669a;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(r8);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Integer.valueOf(r8)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f53669a = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.adp.framework.listener.MessageListener
+                    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage) && this.f53669a.f53668i != null) {
+                            DownloadData downloadData = null;
+                            List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                            int i2 = 0;
+                            while (true) {
+                                if (i2 >= data.size()) {
+                                    break;
+                                }
+                                DownloadData downloadData2 = data.get(i2);
+                                if (TextUtils.isEmpty(this.f53669a.f53668i.getId())) {
+                                    i2++;
+                                } else if (this.f53669a.f53668i.getId().equals(downloadData2.getId())) {
+                                    downloadData = downloadData2;
+                                }
+                            }
+                            if (downloadData != null) {
+                                this.f53669a.h(e.n().j(downloadData.getId(), downloadData.getName()));
+                                this.f53669a.postInvalidate();
+                            }
+                        }
+                    }
+                };
+            }
+            if (this.k == null) {
+                this.k = new CustomMessageListener(this, 2016484) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,74 +243,18 @@ public class AppDownloadView extends LinearLayout {
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage) && this.f53670a.f53669i != null) {
-                            DownloadData downloadData = null;
-                            List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                            int i2 = 0;
-                            while (true) {
-                                if (i2 >= data.size()) {
-                                    break;
-                                }
-                                DownloadData downloadData2 = data.get(i2);
-                                if (TextUtils.isEmpty(this.f53670a.f53669i.getId())) {
-                                    i2++;
-                                } else if (this.f53670a.f53669i.getId().equals(downloadData2.getId())) {
-                                    downloadData = downloadData2;
-                                }
-                            }
-                            if (downloadData != null) {
-                                this.f53670a.h(e.n().j(downloadData.getId(), downloadData.getName()));
-                                this.f53670a.postInvalidate();
-                            }
-                        }
-                    }
-                };
-            }
-            if (this.k == null) {
-                this.k = new CustomMessageListener(this, 2016484) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AppDownloadView f53671a;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(r8);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(r8)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f53671a = this;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.adp.framework.listener.MessageListener
-                    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f53671a.f53669i == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f53670a.f53668i == null) {
                             return;
                         }
                         DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                        if (this.f53671a.f53669i.getId() == null || downloadData == null || !this.f53671a.f53669i.getId().equals(downloadData.getId())) {
+                        if (this.f53670a.f53668i.getId() == null || downloadData == null || !this.f53670a.f53668i.getId().equals(downloadData.getId())) {
                             return;
                         }
                         int p = e.p(downloadData);
                         if (p == 7) {
-                            SkinManager.setImageResource(this.f53671a.f53667g, R.drawable.icon_download_pause);
+                            SkinManager.setImageResource(this.f53670a.f53666g, R.drawable.icon_download_pause);
                         } else if (p == 1) {
-                            SkinManager.setImageResource(this.f53671a.f53667g, R.drawable.icon_download_play);
+                            SkinManager.setImageResource(this.f53670a.f53666g, R.drawable.icon_download_play);
                         }
                     }
                 };
@@ -290,8 +290,8 @@ public class AppDownloadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             int max = Math.max(0, i2);
-            this.f53666f.setProgress(max);
-            TextView textView = this.f53668h;
+            this.f53665f.setProgress(max);
+            TextView textView = this.f53667h;
             textView.setText(max + "%");
         }
     }
@@ -308,10 +308,10 @@ public class AppDownloadView extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f53665e, R.color.CAM_X0108, 1, i2);
-            this.f53666f.setProgressDrawable(SkinManager.getDrawable(i2, R.drawable.progress_download_app_layerlist));
-            SkinManager.setImageResource(this.f53667g, R.drawable.icon_download_play, i2);
-            SkinManager.setViewTextColor(this.f53668h, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f53664e, R.color.CAM_X0108, 1, i2);
+            this.f53665f.setProgressDrawable(SkinManager.getDrawable(i2, R.drawable.progress_download_app_layerlist));
+            SkinManager.setImageResource(this.f53666g, R.drawable.icon_download_play, i2);
+            SkinManager.setViewTextColor(this.f53667h, R.color.CAM_X0109, 1, i2);
         }
     }
 
@@ -328,9 +328,9 @@ public class AppDownloadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 == 1) {
-                SkinManager.setImageResource(this.f53667g, R.drawable.icon_download_pause);
+                SkinManager.setImageResource(this.f53666g, R.drawable.icon_download_pause);
             } else {
-                SkinManager.setImageResource(this.f53667g, R.drawable.icon_download_play);
+                SkinManager.setImageResource(this.f53666g, R.drawable.icon_download_play);
             }
         }
     }
@@ -341,7 +341,7 @@ public class AppDownloadView extends LinearLayout {
             return;
         }
         DownloadData downloadData2 = (DownloadData) downloadData.clone();
-        this.f53669i = downloadData2;
+        this.f53668i = downloadData2;
         if (downloadData2 == null) {
             return;
         }
@@ -365,7 +365,7 @@ public class AppDownloadView extends LinearLayout {
     public void showTitleView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f53665e.setVisibility(i2);
+            this.f53664e.setVisibility(i2);
         }
     }
 

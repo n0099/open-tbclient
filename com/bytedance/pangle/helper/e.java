@@ -19,10 +19,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Executor f61434a;
+    public static Executor f61433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ScheduledExecutorService f61435b;
+    public static ScheduledExecutorService f61434b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public final class e {
                 return;
             }
         }
-        f61434a = Executors.newCachedThreadPool();
-        f61435b = Executors.newSingleThreadScheduledExecutor();
+        f61433a = Executors.newCachedThreadPool();
+        f61434b = Executors.newSingleThreadScheduledExecutor();
     }
 
     public static ExecutorService a(int i2) {
@@ -50,7 +50,7 @@ public final class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public AtomicInteger f61436a;
+            public AtomicInteger f61435a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public final class e {
                         return;
                     }
                 }
-                this.f61436a = new AtomicInteger(1);
+                this.f61435a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -73,7 +73,7 @@ public final class e {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.f61436a.getAndIncrement());
+                    return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.f61435a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }

@@ -32,7 +32,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49420a;
+        public int f49419a;
         public TextView tip;
         public View topDivider;
 
@@ -54,14 +54,14 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                     return;
                 }
             }
-            this.f49420a = 3;
+            this.f49419a = 3;
             this.tip = (TextView) view.findViewById(R.id.concern_tip_txt);
             this.topDivider = view.findViewById(R.id.concern_tip_top_line);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49420a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49419a == i2) {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);

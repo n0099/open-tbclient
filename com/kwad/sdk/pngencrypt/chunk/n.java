@@ -11,10 +11,10 @@ public class n extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65943h;
+    public String f65942h;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f65944i;
+    public byte[] f65943i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(com.kwad.sdk.pngencrypt.k kVar) {
@@ -41,16 +41,16 @@ public class n extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            int c2 = b.c(dVar.f65920d);
-            this.f65943h = b.a(dVar.f65920d, 0, c2);
-            byte[] bArr = dVar.f65920d;
+            int c2 = b.c(dVar.f65919d);
+            this.f65942h = b.a(dVar.f65919d, 0, c2);
+            byte[] bArr = dVar.f65919d;
             if ((bArr[c2 + 1] & 255) != 0) {
                 throw new PngjException("bad compression for ChunkTypeICCP");
             }
             int i2 = c2 + 2;
             int length = bArr.length - i2;
             byte[] bArr2 = new byte[length];
-            this.f65944i = bArr2;
+            this.f65943i = bArr2;
             System.arraycopy(bArr, i2, bArr2, 0, length);
         }
     }

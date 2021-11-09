@@ -84,14 +84,14 @@ public class g {
             if (i2 != 0) {
                 list.add(0, list.remove(i2));
             }
-            if (list.get(0).f72347a.giftBagTagInfos != null && !list.get(0).f72347a.giftBagTagInfos.isEmpty()) {
-                list.get(0).f72347a.giftBagTagInfos.get(0).tag = "推荐";
+            if (list.get(0).f72346a.giftBagTagInfos != null && !list.get(0).f72346a.giftBagTagInfos.isEmpty()) {
+                list.get(0).f72346a.giftBagTagInfos.get(0).tag = "推荐";
                 return;
             }
             GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
             giftBagTagInfo.tag = "推荐";
-            list.get(0).f72347a.giftBagTagInfos = new ArrayList();
-            list.get(0).f72347a.giftBagTagInfos.add(giftBagTagInfo);
+            list.get(0).f72346a.giftBagTagInfos = new ArrayList();
+            list.get(0).f72346a.giftBagTagInfos.add(giftBagTagInfo);
         }
     }
 
@@ -100,7 +100,7 @@ public class g {
         ProductInfo productInfo;
         List<GiftBagsInfo> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar)) == null) ? (cVar == null || (productInfo = cVar.f72347a) == null || (list = productInfo.giftbags) == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar)) == null) ? (cVar == null || (productInfo = cVar.f72346a) == null || (list = productInfo.giftbags) == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
     }
 
     public static void f(List<i.a.a.e.l.c> list, PayUIKitConfig payUIKitConfig, int i2) {
@@ -121,8 +121,8 @@ public class g {
             }
             GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
             giftBagTagInfo.tag = "推荐";
-            a2.f72347a.giftBagTagInfos = new ArrayList();
-            a2.f72347a.giftBagTagInfos.add(giftBagTagInfo);
+            a2.f72346a.giftBagTagInfos = new ArrayList();
+            a2.f72346a.giftBagTagInfos.add(giftBagTagInfo);
             list.add(0, a2);
         }
     }

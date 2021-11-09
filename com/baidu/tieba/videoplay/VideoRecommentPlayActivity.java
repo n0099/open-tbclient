@@ -72,7 +72,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoRecommentPlayActivity f55006a;
+        public final /* synthetic */ VideoRecommentPlayActivity f55004a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoRecommentPlayActivity videoRecommentPlayActivity, int i2) {
@@ -92,7 +92,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f55006a = videoRecommentPlayActivity;
+            this.f55004a = videoRecommentPlayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,14 +100,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f55006a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f55004a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
                 return;
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
             if (floatValue < 0.0f || floatValue > 1.0f) {
                 return;
             }
-            this.f55006a.mBackImage.setAlpha(floatValue);
+            this.f55004a.mBackImage.setAlpha(floatValue);
         }
     }
 
@@ -117,7 +117,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoRecommentPlayActivity f55007e;
+        public final /* synthetic */ VideoRecommentPlayActivity f55005e;
 
         public b(VideoRecommentPlayActivity videoRecommentPlayActivity) {
             Interceptable interceptable = $ic;
@@ -134,14 +134,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f55007e = videoRecommentPlayActivity;
+            this.f55005e = videoRecommentPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55007e.finish();
+                this.f55005e.finish();
             }
         }
     }

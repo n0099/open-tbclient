@@ -28,19 +28,19 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ListViewPager f51246e;
+    public ListViewPager f51245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51247f;
+    public View f51246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IndicatorView f51248g;
+    public IndicatorView f51247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.q1.t.b f51249h;
+    public b.a.r0.q1.t.b f51248h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.q1.t.a f51250i;
+    public b.a.r0.q1.t.a f51249i;
     public c j;
 
     /* loaded from: classes9.dex */
@@ -49,7 +49,7 @@ public class BannerFlowView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BannerFlowView f51251a;
+        public final /* synthetic */ BannerFlowView f51250a;
 
         public a(BannerFlowView bannerFlowView) {
             Interceptable interceptable = $ic;
@@ -66,25 +66,25 @@ public class BannerFlowView extends FrameLayout {
                     return;
                 }
             }
-            this.f51251a = bannerFlowView;
+            this.f51250a = bannerFlowView;
         }
 
         @Override // b.a.r0.q1.o.l.k
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f51251a.j == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f51250a.j == null) {
                 return;
             }
-            this.f51251a.j.a(i2);
+            this.f51250a.j.a(i2);
         }
 
         @Override // b.a.r0.q1.o.l.k
         public void b(float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f51251a.j == null) {
+            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f51250a.j == null) {
                 return;
             }
-            this.f51251a.j.b(f2);
+            this.f51250a.j.b(f2);
         }
     }
 
@@ -94,7 +94,7 @@ public class BannerFlowView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerFlowView f51252e;
+        public final /* synthetic */ BannerFlowView f51251e;
 
         public b(BannerFlowView bannerFlowView) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class BannerFlowView extends FrameLayout {
                     return;
                 }
             }
-            this.f51252e = bannerFlowView;
+            this.f51251e = bannerFlowView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -131,10 +131,10 @@ public class BannerFlowView extends FrameLayout {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f51252e.j == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f51251e.j == null) {
                 return;
             }
-            this.f51252e.j.onPageSelected(i2);
+            this.f51251e.j.onPageSelected(i2);
         }
     }
 
@@ -167,49 +167,49 @@ public class BannerFlowView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.f51247f, R.drawable.bg_pic_shadow);
-            this.f51248g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
-            this.f51248g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
+            SkinManager.setBackgroundResource(this.f51246f, R.drawable.bg_pic_shadow);
+            this.f51247g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
+            this.f51247g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
         }
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f51246e = new ListViewPager(context);
-            this.f51247f = new View(context);
+            this.f51245e = new ListViewPager(context);
+            this.f51246f = new View(context);
             IndicatorView indicatorView = new IndicatorView(context);
-            this.f51248g = indicatorView;
+            this.f51247g = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.f51249h = new b.a.r0.q1.t.b(context, this.f51246e, this.f51248g, null);
-            this.f51250i = new b.a.r0.q1.t.a(context, b.a.q0.s.g0.u.d.a.f13091e);
-            this.f51249h.m(5000L);
-            this.f51249h.l(context, this.f51250i);
-            this.f51249h.q(new b(this));
-            addView(this.f51246e, new FrameLayout.LayoutParams(-1, -1));
+            this.f51248h = new b.a.r0.q1.t.b(context, this.f51245e, this.f51247g, null);
+            this.f51249i = new b.a.r0.q1.t.a(context, b.a.q0.s.g0.u.d.a.f13091e);
+            this.f51248h.m(5000L);
+            this.f51248h.l(context, this.f51249i);
+            this.f51248h.q(new b(this));
+            addView(this.f51245e, new FrameLayout.LayoutParams(-1, -1));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(context, R.dimen.ds80));
             layoutParams.gravity = 80;
-            addView(this.f51247f, layoutParams);
+            addView(this.f51246f, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 85;
             layoutParams2.setMargins(0, 0, l.g(context, R.dimen.ds20), l.g(context, R.dimen.ds16));
-            addView(this.f51248g, layoutParams2);
+            addView(this.f51247g, layoutParams2);
         }
     }
 
     public void setAutoScrollIntervalTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f51249h.m(j);
+            this.f51248h.m(j);
         }
     }
 
     public void setData(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f51246e.removeAllViews();
-            this.f51249h.n(list);
+            this.f51245e.removeAllViews();
+            this.f51248h.n(list);
         }
     }
 
@@ -217,7 +217,7 @@ public class BannerFlowView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                View view = this.f51247f;
+                View view = this.f51246f;
                 if (view != null) {
                     if (z2) {
                         view.setVisibility(0);
@@ -225,28 +225,28 @@ public class BannerFlowView extends FrameLayout {
                         view.setVisibility(4);
                     }
                 }
-                this.f51249h.o(null);
+                this.f51248h.o(null);
                 return;
             }
-            View view2 = this.f51247f;
+            View view2 = this.f51246f;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
-            this.f51249h.o(new a(this));
+            this.f51248h.o(new a(this));
         }
     }
 
     public void setDisableParentEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f51246e.setDisableParentEvent(z);
+            this.f51245e.setDisableParentEvent(z);
         }
     }
 
     public void setIndicatorViewPosition(int i2) {
         IndicatorView indicatorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (indicatorView = this.f51248g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (indicatorView = this.f51247g) == null) {
             return;
         }
         if (i2 == 0) {
@@ -254,8 +254,8 @@ public class BannerFlowView extends FrameLayout {
         } else if (i2 == 1) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) indicatorView.getLayoutParams();
             layoutParams.gravity = 85;
-            this.f51248g.setLayoutParams(layoutParams);
-            this.f51248g.setVisibility(0);
+            this.f51247g.setLayoutParams(layoutParams);
+            this.f51247g.setVisibility(0);
         } else if (i2 != 2) {
             indicatorView.setVisibility(8);
         } else {
@@ -263,22 +263,22 @@ public class BannerFlowView extends FrameLayout {
             layoutParams2.gravity = 81;
             layoutParams2.rightMargin = 0;
             layoutParams2.rightMargin = 0;
-            this.f51248g.setLayoutParams(layoutParams2);
-            this.f51248g.setVisibility(0);
+            this.f51247g.setLayoutParams(layoutParams2);
+            this.f51247g.setVisibility(0);
         }
     }
 
     public void setMaxScrollCountLimit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f51249h.p(i2);
+            this.f51248h.p(i2);
         }
     }
 
     public void setOnItemClickListener(b.a<b.a.q0.s.g0.u.d.a, a.C1113a> aVar) {
         b.a.r0.q1.t.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (aVar2 = this.f51250i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (aVar2 = this.f51249i) == null) {
             return;
         }
         aVar2.f(aVar);
@@ -294,9 +294,9 @@ public class BannerFlowView extends FrameLayout {
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f51246e.setSwipeControlInterface(cVar);
+            this.f51245e.setSwipeControlInterface(cVar);
             if (cVar != null) {
-                this.f51246e.setDisableParentEvent(false);
+                this.f51245e.setDisableParentEvent(false);
             }
         }
     }
@@ -304,14 +304,14 @@ public class BannerFlowView extends FrameLayout {
     public void startAutoScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f51249h.r();
+            this.f51248h.r();
         }
     }
 
     public void stopAutoScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f51249h.s();
+            this.f51248h.s();
         }
     }
 

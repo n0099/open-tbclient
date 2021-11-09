@@ -13,7 +13,7 @@ public abstract class c implements KsAppDownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64497a;
+    public String f64496a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public abstract class c implements KsAppDownloadListener {
                 return;
             }
         }
-        this.f64497a = str;
+        this.f64496a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64497a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64496a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {

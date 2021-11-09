@@ -29,7 +29,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49992a;
+        public int f49991a;
         public b.a.r0.j1.o.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,20 +50,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f49992a = 3;
+            this.f49991a = 3;
             this.mCardView = aVar;
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49992a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49991a == i2) {
                 return;
             }
             b.a.r0.j1.o.a aVar = this.mCardView;
             if (aVar != null) {
                 aVar.k(aVar.h(), i2);
             }
-            this.f49992a = i2;
+            this.f49991a = i2;
         }
     }
 

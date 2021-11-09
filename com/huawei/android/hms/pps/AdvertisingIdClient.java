@@ -98,11 +98,11 @@ public class AdvertisingIdClient {
                 try {
                     if (bindService) {
                         try {
-                            if (aVar.f63717a) {
+                            if (aVar.f63716a) {
                                 throw new IllegalStateException();
                             }
-                            aVar.f63717a = true;
-                            b.a.C1884a c1884a = new b.a.C1884a(aVar.f63718b.take());
+                            aVar.f63716a = true;
+                            b.a.C1884a c1884a = new b.a.C1884a(aVar.f63717b.take());
                             return new Info(c1884a.a(), c1884a.b());
                         } catch (RemoteException unused) {
                             getTag();

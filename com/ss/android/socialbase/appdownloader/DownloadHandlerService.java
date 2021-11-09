@@ -30,7 +30,7 @@ public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68877a;
+    public static final String f68876a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f68877a = DownloadHandlerService.class.getSimpleName();
+        f68876a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -111,7 +111,7 @@ public class DownloadHandlerService extends Service {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DownloadHandlerService f68878a;
+                    public final /* synthetic */ DownloadHandlerService f68877a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,7 +128,7 @@ public class DownloadHandlerService extends Service {
                                 return;
                             }
                         }
-                        this.f68878a = this;
+                        this.f68877a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -198,7 +198,7 @@ public class DownloadHandlerService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f68877a, "onStartCommand");
+                com.ss.android.socialbase.downloader.c.a.b(f68876a, "onStartCommand");
             }
             a(intent);
             stopSelf();
@@ -228,13 +228,13 @@ public class DownloadHandlerService extends Service {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f68879a;
+            public final /* synthetic */ DownloadInfo f68878a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.d f68880b;
+            public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.d f68879b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ z f68881c;
+            public final /* synthetic */ z f68880c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -251,9 +251,9 @@ public class DownloadHandlerService extends Service {
                         return;
                     }
                 }
-                this.f68879a = downloadInfo;
-                this.f68880b = dVar;
-                this.f68881c = downloadNotificationEventListener;
+                this.f68878a = downloadInfo;
+                this.f68879b = dVar;
+                this.f68880c = downloadNotificationEventListener;
             }
 
             @Override // java.lang.Runnable
@@ -262,15 +262,15 @@ public class DownloadHandlerService extends Service {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        File file = new File(this.f68879a.getSavePath(), this.f68879a.getName());
+                        File file = new File(this.f68878a.getSavePath(), this.f68878a.getName());
                         if (file.exists()) {
                             try {
-                                String str = (com.ss.android.socialbase.downloader.downloader.c.N() == null || (a2 = c.a(this.f68879a, file)) == null) ? "" : a2.packageName;
-                                if (this.f68880b != null) {
-                                    this.f68880b.a(this.f68879a.getId(), 3, str, -3, this.f68879a.getDownloadTime());
+                                String str = (com.ss.android.socialbase.downloader.downloader.c.N() == null || (a2 = c.a(this.f68878a, file)) == null) ? "" : a2.packageName;
+                                if (this.f68879b != null) {
+                                    this.f68879b.a(this.f68878a.getId(), 3, str, -3, this.f68878a.getDownloadTime());
                                 }
-                                if (this.f68881c != null) {
-                                    this.f68881c.a(3, this.f68879a, str, "");
+                                if (this.f68880c != null) {
+                                    this.f68880c.a(3, this.f68878a, str, "");
                                 }
                             } catch (Exception e2) {
                                 e2.printStackTrace();

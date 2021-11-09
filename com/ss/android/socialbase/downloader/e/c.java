@@ -15,10 +15,10 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f69305a;
+    public final InputStream f69304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.f.a f69306b;
+    public final com.ss.android.socialbase.downloader.f.a f69305b;
 
     public c(InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class c implements b {
                 return;
             }
         }
-        this.f69305a = inputStream;
-        this.f69306b = new com.ss.android.socialbase.downloader.f.a(i2);
+        this.f69304a = inputStream;
+        this.f69305b = new com.ss.android.socialbase.downloader.f.a(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b
@@ -44,9 +44,9 @@ public class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.ss.android.socialbase.downloader.f.a aVar = this.f69306b;
-            aVar.f69317c = this.f69305a.read(aVar.f69315a);
-            return this.f69306b;
+            com.ss.android.socialbase.downloader.f.a aVar = this.f69305b;
+            aVar.f69316c = this.f69304a.read(aVar.f69314a);
+            return this.f69305b;
         }
         return (com.ss.android.socialbase.downloader.f.a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class c implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f.a(this.f69305a);
+            f.a(this.f69304a);
         }
     }
 }

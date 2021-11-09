@@ -24,7 +24,7 @@ public interface FunNativeAd {
         public static final InteractionType TYPE_UNKNOW;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ InteractionType[] f62738a;
+        public static final /* synthetic */ InteractionType[] f62737a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public interface FunNativeAd {
             TYPE_DIAL = interactionType3;
             InteractionType interactionType4 = new InteractionType("TYPE_BROWSE", 3);
             TYPE_BROWSE = interactionType4;
-            f62738a = new InteractionType[]{interactionType, interactionType2, interactionType3, interactionType4};
+            f62737a = new InteractionType[]{interactionType, interactionType2, interactionType3, interactionType4};
         }
 
         public InteractionType(String str, int i2) {
@@ -79,7 +79,7 @@ public interface FunNativeAd {
         public static InteractionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) f62738a.clone() : (InteractionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) f62737a.clone() : (InteractionType[]) invokeV.objValue;
         }
     }
 

@@ -42,19 +42,19 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMeModelController f50826e;
+    public ReplyMeModelController f50825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f50827f;
+    public n f50826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f50828g;
+    public ViewGroup f50827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50829h;
+    public int f50828h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50830i;
+    public boolean f50829i;
     public CustomMessageListener j;
     public CustomMessageListener k;
     public final CustomMessageListener l;
@@ -68,10 +68,54 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReplyMessageFragment f50831a;
+        public final /* synthetic */ ReplyMessageFragment f50830a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ReplyMessageFragment replyMessageFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {replyMessageFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50830a = replyMessageFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
+                Intent intent = (Intent) customResponsedMessage.getData();
+                if (this.f50830a.f50825e != null) {
+                    ReplyMessageFragment replyMessageFragment = this.f50830a;
+                    replyMessageFragment.showLoadingView(replyMessageFragment.f50827g, true);
+                    this.f50830a.f50825e.y();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ReplyMessageFragment f50831a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ReplyMessageFragment replyMessageFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,20 +138,31 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            BdUniqueId bdUniqueId;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
-                Intent intent = (Intent) customResponsedMessage.getData();
-                if (this.f50831a.f50826e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && (bdUniqueId = (BdUniqueId) customResponsedMessage.getData()) != null && bdUniqueId.getId() == this.f50831a.getPageContext().getUniqueId().getId()) {
+                if (this.f50831a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.f50831a.getActivity()) {
+                    if (!TbadkCoreApplication.getInst().checkInterrupt() || this.f50831a.f50829i) {
+                        if (this.f50831a.f50826f != null) {
+                            this.f50831a.f50826f.Y(true);
+                            return;
+                        }
+                        return;
+                    }
+                    this.f50831a.f50829i = true;
+                    this.f50831a.f50826f.Y(true);
                     ReplyMessageFragment replyMessageFragment = this.f50831a;
-                    replyMessageFragment.showLoadingView(replyMessageFragment.f50828g, true);
-                    this.f50831a.f50826e.y();
+                    replyMessageFragment.showLoadingView(replyMessageFragment.f50827g);
+                    this.f50831a.f50825e.y();
+                    return;
                 }
+                this.f50831a.pullRefresh();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b extends CustomMessageListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +170,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public final /* synthetic */ ReplyMessageFragment f50832a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ReplyMessageFragment replyMessageFragment, int i2) {
+        public c(ReplyMessageFragment replyMessageFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -138,64 +193,9 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BdUniqueId bdUniqueId;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && (bdUniqueId = (BdUniqueId) customResponsedMessage.getData()) != null && bdUniqueId.getId() == this.f50832a.getPageContext().getUniqueId().getId()) {
-                if (this.f50832a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.f50832a.getActivity()) {
-                    if (!TbadkCoreApplication.getInst().checkInterrupt() || this.f50832a.f50830i) {
-                        if (this.f50832a.f50827f != null) {
-                            this.f50832a.f50827f.Y(true);
-                            return;
-                        }
-                        return;
-                    }
-                    this.f50832a.f50830i = true;
-                    this.f50832a.f50827f.Y(true);
-                    ReplyMessageFragment replyMessageFragment = this.f50832a;
-                    replyMessageFragment.showLoadingView(replyMessageFragment.f50828g);
-                    this.f50832a.f50826e.y();
-                    return;
-                }
-                this.f50832a.pullRefresh();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReplyMessageFragment f50833a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ReplyMessageFragment replyMessageFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {replyMessageFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50833a = replyMessageFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && this.f50833a.f50827f != null) {
-                this.f50833a.f50827f.S((NewsNotifyMessage) customResponsedMessage);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && this.f50832a.f50826f != null) {
+                this.f50832a.f50826f.S((NewsNotifyMessage) customResponsedMessage);
             }
         }
     }
@@ -242,7 +242,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReplyMessageFragment f50834e;
+        public final /* synthetic */ ReplyMessageFragment f50833e;
 
         public e(ReplyMessageFragment replyMessageFragment) {
             Interceptable interceptable = $ic;
@@ -259,7 +259,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     return;
                 }
             }
-            this.f50834e = replyMessageFragment;
+            this.f50833e = replyMessageFragment;
         }
 
         @Override // b.a.e.l.e.w
@@ -269,20 +269,20 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 b.a.r0.m1.b.p.a aVar = (b.a.r0.m1.b.p.a) nVar;
                 if (aVar.D()) {
                     aVar.H(false);
-                    if (this.f50834e.f50827f != null) {
-                        this.f50834e.f50827f.O();
+                    if (this.f50833e.f50826f != null) {
+                        this.f50833e.f50826f.O();
                     }
                 }
                 if (aVar.C()) {
                     if (aVar.E()) {
-                        this.f50834e.m(aVar);
+                        this.f50833e.m(aVar);
                     } else {
-                        this.f50834e.l(aVar);
+                        this.f50833e.l(aVar);
                     }
                 } else if (aVar.E()) {
-                    this.f50834e.n(aVar);
+                    this.f50833e.n(aVar);
                 } else {
-                    this.f50834e.o(aVar);
+                    this.f50833e.o(aVar);
                 }
                 if (aVar.x() != null) {
                     StatisticItem param = new StatisticItem(aVar.x()).param("obj_locate", 1);
@@ -314,7 +314,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReplyMessageFragment f50835e;
+        public final /* synthetic */ ReplyMessageFragment f50834e;
 
         public f(ReplyMessageFragment replyMessageFragment) {
             Interceptable interceptable = $ic;
@@ -331,7 +331,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     return;
                 }
             }
-            this.f50835e = replyMessageFragment;
+            this.f50834e = replyMessageFragment;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -339,8 +339,8 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f50835e.f50827f != null) {
-                    return new CustomResponsedMessage<>(2016322, Boolean.valueOf(this.f50835e.f50827f.Q()));
+                if (this.f50834e.f50826f != null) {
+                    return new CustomResponsedMessage<>(2016322, Boolean.valueOf(this.f50834e.f50826f.Q()));
                 }
                 return new CustomResponsedMessage<>(2016322, Boolean.FALSE);
             }
@@ -354,7 +354,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReplyMessageFragment f50836a;
+        public final /* synthetic */ ReplyMessageFragment f50835a;
 
         /* loaded from: classes9.dex */
         public class a implements b.c {
@@ -362,10 +362,10 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f50837a;
+            public final /* synthetic */ int f50836a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f50838b;
+            public final /* synthetic */ g f50837b;
 
             public a(g gVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -382,16 +382,16 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                         return;
                     }
                 }
-                this.f50838b = gVar;
-                this.f50837a = i2;
+                this.f50837b = gVar;
+                this.f50836a = i2;
             }
 
             @Override // b.a.r0.m1.b.f.b.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f50838b.f50836a.f50827f.B(this.f50837a);
-                    this.f50838b.f50836a.f50826e.x(this.f50837a);
+                    this.f50837b.f50835a.f50826f.B(this.f50836a);
+                    this.f50837b.f50835a.f50825e.x(this.f50836a);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     return;
                 }
             }
-            this.f50836a = replyMessageFragment;
+            this.f50835a = replyMessageFragment;
         }
 
         @Override // b.a.e.l.e.x
@@ -426,7 +426,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     aVar2.f21038b = b.a.e.e.m.b.g(aVar.A(), 0L);
                     aVar2.f21039c = b.a.e.e.m.b.g(aVar.q(), 0L);
                     aVar2.f21040d = aVar.g() != null ? aVar.g().oriUgcNid : "";
-                    b.a.r0.m1.b.f.b bVar = new b.a.r0.m1.b.f.b(this.f50836a.getPageContext());
+                    b.a.r0.m1.b.f.b bVar = new b.a.r0.m1.b.f.b(this.f50835a.getPageContext());
                     bVar.g(aVar2);
                     bVar.h(new a(this, i2));
                     bVar.i();
@@ -451,7 +451,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 return;
             }
         }
-        this.f50829h = 3;
+        this.f50828h = 3;
         this.j = new a(this, 2016321);
         this.k = new b(this, 2001628);
         this.l = new c(this, 2001120);
@@ -463,7 +463,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void interruptRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50827f.Y(false);
+            this.f50826f.Y(false);
         }
     }
 
@@ -483,7 +483,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void loadmore() {
         ReplyMeModelController replyMeModelController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (replyMeModelController = this.f50826e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (replyMeModelController = this.f50825e) == null) {
             return;
         }
         replyMeModelController.A();
@@ -530,7 +530,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            this.f50827f.P(i2, i3, intent);
+            this.f50826f.P(i2, i3, intent);
         }
     }
 
@@ -539,9 +539,9 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onChangeSkinType(i2);
-            if (this.f50829h != i2) {
-                this.f50829h = i2;
-                n nVar = this.f50827f;
+            if (this.f50828h != i2) {
+                this.f50828h = i2;
+                n nVar = this.f50826f;
                 if (nVar != null) {
                     nVar.onChangeSkinType(i2);
                 }
@@ -559,30 +559,30 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             registerListener(this.k);
             p();
             ReplyMeModelController replyMeModelController = new ReplyMeModelController(this);
-            this.f50826e = replyMeModelController;
+            this.f50825e = replyMeModelController;
             replyMeModelController.z(bundle);
-            this.f50826e.setUniqueId(getUniqueId());
-            this.f50828g = (ViewGroup) layoutInflater.inflate(R.layout.reply_me_activity, viewGroup, false);
+            this.f50825e.setUniqueId(getUniqueId());
+            this.f50827g = (ViewGroup) layoutInflater.inflate(R.layout.reply_me_activity, viewGroup, false);
             n nVar = new n(this);
-            this.f50827f = nVar;
-            nVar.R(this.f50828g);
-            this.f50827f.X(this.n);
-            this.f50827f.W(this.o);
+            this.f50826f = nVar;
+            nVar.R(this.f50827g);
+            this.f50826f.X(this.n);
+            this.f50826f.W(this.o);
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
                 if (getActivity() instanceof MessageCenterActivity) {
-                    this.f50827f.Y(false);
-                    showLoadingView(this.f50828g);
-                    this.f50826e.y();
-                    this.f50830i = true;
+                    this.f50826f.Y(false);
+                    showLoadingView(this.f50827g);
+                    this.f50825e.y();
+                    this.f50829i = true;
                 }
             } else {
-                this.f50827f.Y(false);
-                showLoadingView(this.f50828g);
-                this.f50826e.y();
+                this.f50826f.Y(false);
+                showLoadingView(this.f50827g);
+                this.f50825e.y();
             }
             registerListener(this.l);
             registerListener(this.m);
-            return this.f50828g;
+            return this.f50827g;
         }
         return (View) invokeLLL.objValue;
     }
@@ -597,11 +597,11 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             MessageManager.getInstance().unRegisterListener(this.k);
             MessageManager.getInstance().unRegisterListener(this.l);
             MessageManager.getInstance().unRegisterListener(this.m);
-            n nVar = this.f50827f;
+            n nVar = this.f50826f;
             if (nVar != null) {
                 nVar.destroy();
             }
-            ReplyMeModelController replyMeModelController = this.f50826e;
+            ReplyMeModelController replyMeModelController = this.f50825e;
             if (replyMeModelController != null) {
                 replyMeModelController.onDestroy();
             }
@@ -614,7 +614,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (!l.D() || (nVar = this.f50827f) == null) {
+            if (!l.D() || (nVar = this.f50826f) == null) {
                 return;
             }
             nVar.Y(true);
@@ -634,7 +634,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            n nVar = this.f50827f;
+            n nVar = this.f50826f;
             if (nVar != null) {
                 nVar.Q();
             }
@@ -646,7 +646,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPrimary();
-            n nVar = this.f50827f;
+            n nVar = this.f50826f;
             if (nVar != null) {
                 nVar.T();
             }
@@ -656,7 +656,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void onServerError(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, errorData) == null) {
-            hideLoadingView(this.f50828g);
+            hideLoadingView(this.f50827g);
             if (errorData != null) {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
@@ -664,26 +664,26 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     showToast(R.string.im_error_default);
                 }
             }
-            n nVar = this.f50827f;
+            n nVar = this.f50826f;
             if (nVar != null) {
                 nVar.onServerError(errorData);
             }
-            n nVar2 = this.f50827f;
+            n nVar2 = this.f50826f;
             if (nVar2 != null && nVar2.D() != null) {
-                this.f50827f.D().setVisibility(8);
+                this.f50826f.D().setVisibility(8);
             }
-            showNetRefreshView(this.f50828g, null, false);
+            showNetRefreshView(this.f50827g, null, false);
         }
     }
 
     public void onViewDataChange(boolean z, ArrayList<b.a.e.l.e.n> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048591, this, z, arrayList) == null) || this.f50827f == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048591, this, z, arrayList) == null) || this.f50826f == null) {
             return;
         }
-        hideLoadingView(this.f50828g);
-        hideNetRefreshView(this.f50828g);
-        this.f50827f.U(z, arrayList);
+        hideLoadingView(this.f50827g);
+        hideNetRefreshView(this.f50827g);
+        this.f50826f.U(z, arrayList);
     }
 
     public final void p() {
@@ -698,7 +698,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void pullRefresh() {
         ReplyMeModelController replyMeModelController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (replyMeModelController = this.f50826e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (replyMeModelController = this.f50825e) == null) {
             return;
         }
         replyMeModelController.C();

@@ -29,7 +29,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupActivity f54560a;
+        public final /* synthetic */ BubbleGroupActivity f54559a;
 
         public a(BubbleGroupActivity bubbleGroupActivity) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f54560a = bubbleGroupActivity;
+            this.f54559a = bubbleGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BubbleGroupActivity bubbleGroupActivity = this.f54560a;
+                BubbleGroupActivity bubbleGroupActivity = this.f54559a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
-                this.f54560a.mView.i();
+                this.f54559a.mView.i();
                 if (i2 == 0) {
-                    this.f54560a.mView.k(eVar, list, this.f54560a.mModel.D());
+                    this.f54559a.mView.k(eVar, list, this.f54559a.mModel.D());
                     return;
                 }
-                this.f54560a.showToast(str);
-                this.f54560a.mView.j();
+                this.f54559a.showToast(str);
+                this.f54559a.mView.j();
             }
         }
     }

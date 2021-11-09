@@ -63,7 +63,7 @@ public class CouponList implements NoProguard, Serializable {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: android  reason: collision with root package name */
-            public int f60632android;
+            public int f60631android;
             public String url;
 
             public AppSceneService() {

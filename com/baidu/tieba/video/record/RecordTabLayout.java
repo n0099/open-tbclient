@@ -23,19 +23,19 @@ public class RecordTabLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f54771e;
+    public LinearLayout f54770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54772f;
+    public View f54771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54773g;
+    public boolean f54772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54774h;
+    public int f54773h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f54775i;
+    public c f54774i;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -43,10 +43,10 @@ public class RecordTabLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f54776e;
+        public final /* synthetic */ int f54775e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordTabLayout f54777f;
+        public final /* synthetic */ RecordTabLayout f54776f;
 
         public a(RecordTabLayout recordTabLayout, int i2) {
             Interceptable interceptable = $ic;
@@ -63,22 +63,22 @@ public class RecordTabLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f54777f = recordTabLayout;
-            this.f54776e = i2;
+            this.f54776f = recordTabLayout;
+            this.f54775e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f54777f.f54774h;
-                int i3 = this.f54776e;
+                int i2 = this.f54776f.f54773h;
+                int i3 = this.f54775e;
                 if (i2 == i3) {
                     return;
                 }
-                this.f54777f.setCurrentTab(i3, true);
-                if (this.f54777f.f54775i != null) {
-                    this.f54777f.f54775i.onTabChoosed(this.f54776e, true);
+                this.f54776f.setCurrentTab(i3, true);
+                if (this.f54776f.f54774i != null) {
+                    this.f54776f.f54774i.onTabChoosed(this.f54775e, true);
                 }
             }
         }
@@ -90,13 +90,13 @@ public class RecordTabLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f54778e;
+        public final /* synthetic */ TextView f54777e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f54779f;
+        public final /* synthetic */ boolean f54778f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RecordTabLayout f54780g;
+        public final /* synthetic */ RecordTabLayout f54779g;
 
         public b(RecordTabLayout recordTabLayout, TextView textView, boolean z) {
             Interceptable interceptable = $ic;
@@ -113,24 +113,24 @@ public class RecordTabLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f54780g = recordTabLayout;
-            this.f54778e = textView;
-            this.f54779f = z;
+            this.f54779g = recordTabLayout;
+            this.f54777e = textView;
+            this.f54778f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                float x = (this.f54778e.getX() + ((this.f54778e.getWidth() - this.f54780g.f54772f.getWidth()) / 2)) - this.f54780g.f54772f.getLeft();
-                if (this.f54779f) {
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54780g.f54772f, Key.TRANSLATION_X, this.f54780g.f54772f.getTranslationX(), x);
+                float x = (this.f54777e.getX() + ((this.f54777e.getWidth() - this.f54779g.f54771f.getWidth()) / 2)) - this.f54779g.f54771f.getLeft();
+                if (this.f54778f) {
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f54779g.f54771f, Key.TRANSLATION_X, this.f54779g.f54771f.getTranslationX(), x);
                     ofFloat.setDuration(500L);
                     ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                     ofFloat.start();
                     return;
                 }
-                this.f54780g.f54772f.setTranslationX(x);
+                this.f54779g.f54771f.setTranslationX(x);
             }
         }
     }
@@ -158,7 +158,7 @@ public class RecordTabLayout extends LinearLayout {
                 return;
             }
         }
-        this.f54773g = true;
+        this.f54772g = true;
         d();
     }
 
@@ -172,10 +172,10 @@ public class RecordTabLayout extends LinearLayout {
             textView.setTag(Integer.valueOf(i2));
             textView.setOnClickListener(new a(this, i2));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            if (this.f54771e.getChildCount() != 0) {
+            if (this.f54770e.getChildCount() != 0) {
                 layoutParams.leftMargin = l.g(getContext(), R.dimen.ds44);
             }
-            this.f54771e.addView(textView, layoutParams);
+            this.f54770e.addView(textView, layoutParams);
         }
     }
 
@@ -184,34 +184,34 @@ public class RecordTabLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             LinearLayout linearLayout = new LinearLayout(getContext());
-            this.f54771e = linearLayout;
+            this.f54770e = linearLayout;
             linearLayout.setOrientation(0);
-            this.f54771e.setGravity(17);
-            addView(this.f54771e, new ViewGroup.LayoutParams(-1, -2));
+            this.f54770e.setGravity(17);
+            addView(this.f54770e, new ViewGroup.LayoutParams(-1, -2));
             View view = new View(getContext());
-            this.f54772f = view;
+            this.f54771f = view;
             view.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.ds44), l.g(getContext(), R.dimen.ds4));
             layoutParams.topMargin = l.g(getContext(), R.dimen.ds18);
-            addView(this.f54772f, layoutParams);
+            addView(this.f54771f, layoutParams);
         }
     }
 
     public int getCurrentTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54774h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54773h : invokeV.intValue;
     }
 
     public void setCurrentTab(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f54774h == i2) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f54773h == i2) {
             return;
         }
-        this.f54774h = i2;
+        this.f54773h = i2;
         TextView textView = null;
-        for (int i3 = 0; i3 < this.f54771e.getChildCount(); i3++) {
-            View childAt = this.f54771e.getChildAt(i3);
+        for (int i3 = 0; i3 < this.f54770e.getChildCount(); i3++) {
+            View childAt = this.f54770e.getChildAt(i3);
             if (childAt instanceof TextView) {
                 Object tag = childAt.getTag();
                 if ((tag instanceof Integer) && ((Integer) tag).intValue() == i2) {
@@ -223,7 +223,7 @@ public class RecordTabLayout extends LinearLayout {
                 }
             }
         }
-        if (this.f54773g) {
+        if (this.f54772g) {
             textView.post(new b(this, textView, z));
         }
     }
@@ -231,18 +231,18 @@ public class RecordTabLayout extends LinearLayout {
     public void setListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f54775i = cVar;
+            this.f54774i = cVar;
         }
     }
 
     public void setShowIndicator(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f54773g = z;
+            this.f54772g = z;
             if (z) {
                 return;
             }
-            this.f54772f.setVisibility(4);
+            this.f54771f.setVisibility(4);
         }
     }
 
@@ -265,7 +265,7 @@ public class RecordTabLayout extends LinearLayout {
                 return;
             }
         }
-        this.f54773g = true;
+        this.f54772g = true;
         d();
     }
 
@@ -288,7 +288,7 @@ public class RecordTabLayout extends LinearLayout {
                 return;
             }
         }
-        this.f54773g = true;
+        this.f54772g = true;
         d();
     }
 }

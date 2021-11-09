@@ -21,25 +21,25 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f69020a = null;
+    public static String f69019a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f69021b = "";
+    public static String f69020b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f69022c = null;
+    public static String f69021c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f69023d = "";
+    public static String f69022d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f69024e;
+    public static String f69023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f69025f;
+    public static String f69024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f69026g;
+    public static String f69025g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,7 +80,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             o();
-            return a(f69020a);
+            return a(f69019a);
         }
         return invokeV.booleanValue;
     }
@@ -101,10 +101,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f69024e == null) {
+            if (f69023e == null) {
                 a("");
             }
-            return f69024e;
+            return f69023e;
         }
         return (String) invokeV.objValue;
     }
@@ -113,10 +113,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f69025f == null) {
+            if (f69024f == null) {
                 a("");
             }
-            return f69025f;
+            return f69024f;
         }
         return (String) invokeV.objValue;
     }
@@ -125,10 +125,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f69022c == null) {
+            if (f69021c == null) {
                 a("");
             }
-            return f69022c;
+            return f69021c;
         }
         return (String) invokeV.objValue;
     }
@@ -160,7 +160,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             p();
-            return "V10".equals(f69026g);
+            return "V10".equals(f69025g);
         }
         return invokeV.booleanValue;
     }
@@ -170,7 +170,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             p();
-            return "V11".equals(f69026g);
+            return "V11".equals(f69025g);
         }
         return invokeV.booleanValue;
     }
@@ -180,34 +180,34 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             p();
-            return "V12".equals(f69026g);
+            return "V12".equals(f69025g);
         }
         return invokeV.booleanValue;
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65555, null) == null) && TextUtils.isEmpty(f69020a)) {
+        if ((interceptable == null || interceptable.invokeV(65555, null) == null) && TextUtils.isEmpty(f69019a)) {
             com.ss.android.socialbase.downloader.downloader.c.F();
-            f69020a = com.ss.android.socialbase.downloader.constants.e.f69178b;
-            f69023d = "ro.build.version." + com.ss.android.socialbase.downloader.constants.e.f69179c + "rom";
-            f69021b = "com." + com.ss.android.socialbase.downloader.constants.e.f69179c + ".market";
+            f69019a = com.ss.android.socialbase.downloader.constants.e.f69177b;
+            f69022d = "ro.build.version." + com.ss.android.socialbase.downloader.constants.e.f69178c + "rom";
+            f69020b = "com." + com.ss.android.socialbase.downloader.constants.e.f69178c + ".market";
         }
     }
 
     public static void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && f69026g == null) {
+        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && f69025g == null) {
             try {
-                f69026g = d("ro.miui.ui.version.name");
+                f69025g = d("ro.miui.ui.version.name");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            String str = f69026g;
+            String str = f69025g;
             if (str == null) {
                 str = "";
             }
-            f69026g = str;
+            f69025g = str;
         }
     }
 
@@ -216,81 +216,81 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             o();
-            String str2 = f69024e;
+            String str2 = f69023e;
             if (str2 != null) {
                 return str2.equals(str);
             }
             String d2 = d("ro.miui.ui.version.name");
-            f69025f = d2;
+            f69024f = d2;
             if (!TextUtils.isEmpty(d2)) {
-                f69024e = "MIUI";
-                f69022c = "com.xiaomi.market";
-                f69026g = f69025f;
+                f69023e = "MIUI";
+                f69021c = "com.xiaomi.market";
+                f69025g = f69024f;
             } else {
                 String d3 = d("ro.build.version.emui");
-                f69025f = d3;
+                f69024f = d3;
                 if (!TextUtils.isEmpty(d3)) {
-                    f69024e = "EMUI";
-                    f69022c = "com.huawei.appmarket";
+                    f69023e = "EMUI";
+                    f69021c = "com.huawei.appmarket";
                 } else {
-                    String d4 = d(f69023d);
-                    f69025f = d4;
+                    String d4 = d(f69022d);
+                    f69024f = d4;
                     if (!TextUtils.isEmpty(d4)) {
-                        f69024e = f69020a;
-                        if (g.a(f69021b) > -1) {
-                            f69022c = f69021b;
+                        f69023e = f69019a;
+                        if (g.a(f69020b) > -1) {
+                            f69021c = f69020b;
                         } else {
-                            f69022c = "com.heytap.market";
+                            f69021c = "com.heytap.market";
                         }
                     } else {
                         String d5 = d("ro.vivo.os.version");
-                        f69025f = d5;
+                        f69024f = d5;
                         if (!TextUtils.isEmpty(d5)) {
-                            f69024e = "VIVO";
-                            f69022c = "com.bbk.appstore";
+                            f69023e = "VIVO";
+                            f69021c = "com.bbk.appstore";
                         } else {
                             String d6 = d("ro.smartisan.version");
-                            f69025f = d6;
+                            f69024f = d6;
                             if (!TextUtils.isEmpty(d6)) {
-                                f69024e = "SMARTISAN";
-                                f69022c = "com.smartisanos.appstore";
+                                f69023e = "SMARTISAN";
+                                f69021c = "com.smartisanos.appstore";
                             } else {
                                 String d7 = d(RomUtils.KEY_VERSION_GIONEE);
-                                f69025f = d7;
+                                f69024f = d7;
                                 if (!TextUtils.isEmpty(d7)) {
-                                    f69024e = "QIONEE";
-                                    f69022c = "com.gionee.aora.market";
+                                    f69023e = "QIONEE";
+                                    f69021c = "com.gionee.aora.market";
                                 } else {
                                     String d8 = d("ro.lenovo.lvp.version");
-                                    f69025f = d8;
+                                    f69024f = d8;
                                     if (!TextUtils.isEmpty(d8)) {
-                                        f69024e = "LENOVO";
-                                        f69022c = "com.lenovo.leos.appstore";
+                                        f69023e = "LENOVO";
+                                        f69021c = "com.lenovo.leos.appstore";
                                     } else if (j().toUpperCase().contains("SAMSUNG")) {
-                                        f69024e = "SAMSUNG";
-                                        f69022c = "com.sec.android.app.samsungapps";
+                                        f69023e = "SAMSUNG";
+                                        f69021c = "com.sec.android.app.samsungapps";
                                     } else if (j().toUpperCase().contains("ZTE")) {
-                                        f69024e = "ZTE";
-                                        f69022c = "zte.com.market";
+                                        f69023e = "ZTE";
+                                        f69021c = "zte.com.market";
                                     } else if (j().toUpperCase().contains(RomUtils.ROM_NUBIA)) {
-                                        f69024e = RomUtils.ROM_NUBIA;
-                                        f69022c = "cn.nubia.neostore";
+                                        f69023e = RomUtils.ROM_NUBIA;
+                                        f69021c = "cn.nubia.neostore";
                                     } else if (k().toUpperCase().contains("FLYME")) {
-                                        f69024e = "FLYME";
-                                        f69022c = "com.meizu.mstore";
-                                        f69025f = k();
+                                        f69023e = "FLYME";
+                                        f69021c = "com.meizu.mstore";
+                                        f69024f = k();
                                     } else if (j().toUpperCase().contains(RomTypeUtil.ROM_ONEPLUS)) {
-                                        f69024e = RomTypeUtil.ROM_ONEPLUS;
-                                        f69025f = d("ro.rom.version");
-                                        if (g.a(f69021b) > -1) {
-                                            f69022c = f69021b;
+                                        f69023e = RomTypeUtil.ROM_ONEPLUS;
+                                        f69024f = d("ro.rom.version");
+                                        if (g.a(f69020b) > -1) {
+                                            f69021c = f69020b;
                                         } else {
-                                            f69022c = "com.heytap.market";
+                                            f69021c = "com.heytap.market";
                                         }
                                     } else {
-                                        f69024e = j().toUpperCase();
-                                        f69022c = "";
-                                        f69025f = "";
+                                        f69023e = j().toUpperCase();
+                                        f69021c = "";
+                                        f69024f = "";
                                     }
                                 }
                             }
@@ -298,7 +298,7 @@ public class d {
                     }
                 }
             }
-            return f69024e.equals(str);
+            return f69023e.equals(str);
         }
         return invokeL.booleanValue;
     }

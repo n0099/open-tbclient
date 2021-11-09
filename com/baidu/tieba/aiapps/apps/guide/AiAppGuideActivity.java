@@ -30,7 +30,7 @@ public class AiAppGuideActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AiAppGuideActivity f46838e;
+        public final /* synthetic */ AiAppGuideActivity f46837e;
 
         public a(AiAppGuideActivity aiAppGuideActivity) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class AiAppGuideActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46838e = aiAppGuideActivity;
+            this.f46837e = aiAppGuideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46838e.closeActivity();
+                this.f46837e.closeActivity();
             }
         }
     }

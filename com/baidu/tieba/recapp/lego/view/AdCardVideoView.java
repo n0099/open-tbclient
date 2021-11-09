@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCardVideoView f53535e;
+        public final /* synthetic */ AdCardVideoView f53534e;
 
         public a(AdCardVideoView adCardVideoView) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class AdCardVideoView extends AdCardBaseView implements r {
                     return;
                 }
             }
-            this.f53535e = adCardVideoView;
+            this.f53534e = adCardVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int jump2DownloadDetailPage = this.f53535e.mVideoView.jump2DownloadDetailPage();
-                if (this.f53535e.afterClickSchemeListener != null) {
-                    this.f53535e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                int jump2DownloadDetailPage = this.f53534e.mVideoView.jump2DownloadDetailPage();
+                if (this.f53534e.afterClickSchemeListener != null) {
+                    this.f53534e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
                 }
             }
         }

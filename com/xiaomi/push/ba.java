@@ -13,7 +13,7 @@ public class ba implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IBinder f70702a;
+    public final /* synthetic */ IBinder f70701a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ay.b f152a;
@@ -34,7 +34,7 @@ public class ba implements Runnable {
             }
         }
         this.f152a = bVar;
-        this.f70702a = iBinder;
+        this.f70701a = iBinder;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -51,43 +51,43 @@ public class ba implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                context = this.f152a.f70692a.f145a;
+                context = this.f152a.f70691a.f145a;
                 String packageName = context.getPackageName();
-                e2 = this.f152a.f70692a.e();
-                ay.a aVar = new ay.a(this.f152a.f70692a, null);
-                aVar.f149a = ay.c.a(this.f70702a, packageName, e2, "GUID");
-                aVar.f70689b = ay.c.a(this.f70702a, packageName, e2, "OUID");
-                aVar.f70690c = ay.c.a(this.f70702a, packageName, e2, "DUID");
-                aVar.f70691d = ay.c.a(this.f70702a, packageName, e2, "AUID");
-                this.f152a.f70692a.f147a = aVar;
-                this.f152a.f70692a.b();
-                this.f152a.f70692a.f144a = 2;
-                obj5 = this.f152a.f70692a.f148a;
+                e2 = this.f152a.f70691a.e();
+                ay.a aVar = new ay.a(this.f152a.f70691a, null);
+                aVar.f149a = ay.c.a(this.f70701a, packageName, e2, "GUID");
+                aVar.f70688b = ay.c.a(this.f70701a, packageName, e2, "OUID");
+                aVar.f70689c = ay.c.a(this.f70701a, packageName, e2, "DUID");
+                aVar.f70690d = ay.c.a(this.f70701a, packageName, e2, "AUID");
+                this.f152a.f70691a.f147a = aVar;
+                this.f152a.f70691a.b();
+                this.f152a.f70691a.f144a = 2;
+                obj5 = this.f152a.f70691a.f148a;
                 synchronized (obj5) {
                     try {
-                        obj6 = this.f152a.f70692a.f148a;
+                        obj6 = this.f152a.f70691a.f148a;
                         obj6.notifyAll();
                     } catch (Exception unused) {
                     }
                 }
             } catch (Exception unused2) {
-                this.f152a.f70692a.b();
-                this.f152a.f70692a.f144a = 2;
-                obj3 = this.f152a.f70692a.f148a;
+                this.f152a.f70691a.b();
+                this.f152a.f70691a.f144a = 2;
+                obj3 = this.f152a.f70691a.f148a;
                 synchronized (obj3) {
                     try {
-                        obj4 = this.f152a.f70692a.f148a;
+                        obj4 = this.f152a.f70691a.f148a;
                         obj4.notifyAll();
                     } catch (Exception unused3) {
                     }
                 }
             } catch (Throwable th) {
-                this.f152a.f70692a.b();
-                this.f152a.f70692a.f144a = 2;
-                obj = this.f152a.f70692a.f148a;
+                this.f152a.f70691a.b();
+                this.f152a.f70691a.f144a = 2;
+                obj = this.f152a.f70691a.f148a;
                 synchronized (obj) {
                     try {
-                        obj2 = this.f152a.f70692a.f148a;
+                        obj2 = this.f152a.f70691a.f148a;
                         obj2.notifyAll();
                     } catch (Exception unused4) {
                     }

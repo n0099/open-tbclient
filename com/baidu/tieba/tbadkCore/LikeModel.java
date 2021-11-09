@@ -33,19 +33,19 @@ public class LikeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54184e;
+    public String f54183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54185f;
+    public String f54184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54186g;
+    public String f54185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54187h;
+    public String f54186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54188i;
+    public String f54187i;
     public String j;
     public TbPageContext k;
     public b l;
@@ -75,9 +75,9 @@ public class LikeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54184e = null;
-        this.f54185f = null;
-        this.f54186g = null;
+        this.f54183e = null;
+        this.f54184f = null;
+        this.f54185g = null;
         this.l = null;
         this.k = tbPageContext;
     }
@@ -109,8 +109,8 @@ public class LikeModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.l != null) {
             return;
         }
-        this.f54184e = str;
-        this.f54185f = str2;
+        this.f54183e = str;
+        this.f54184f = str2;
         b bVar = new b(this, null);
         this.l = bVar;
         bVar.setPriority(2);
@@ -121,7 +121,7 @@ public class LikeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
             L(str, str2);
-            this.f54186g = str3;
+            this.f54185g = str3;
         }
     }
 
@@ -161,7 +161,7 @@ public class LikeModel extends BdBaseModel {
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f54187h = str;
+            this.f54186h = str;
         }
     }
 
@@ -171,10 +171,10 @@ public class LikeModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f54189a;
+        public volatile NetWork f54188a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LikeModel f54190b;
+        public final /* synthetic */ LikeModel f54189b;
 
         public b(LikeModel likeModel) {
             Interceptable interceptable = $ic;
@@ -191,8 +191,8 @@ public class LikeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54190b = likeModel;
-            this.f54189a = null;
+            this.f54189b = likeModel;
+            this.f54188a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -203,36 +203,36 @@ public class LikeModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
-                    this.f54189a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
-                    this.f54189a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f54190b.f54184e);
-                    this.f54189a.addPostData("fid", this.f54190b.f54185f);
-                    this.f54189a.addPostData("st_type", this.f54190b.f54187h);
-                    this.f54189a.addPostData("authsid", this.f54190b.f54188i);
-                    if (!StringUtils.isNull(this.f54190b.j)) {
-                        this.f54189a.addPostData("dev_id", this.f54190b.j);
+                    this.f54188a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
+                    this.f54188a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f54189b.f54183e);
+                    this.f54188a.addPostData("fid", this.f54189b.f54184f);
+                    this.f54188a.addPostData("st_type", this.f54189b.f54186h);
+                    this.f54188a.addPostData("authsid", this.f54189b.f54187i);
+                    if (!StringUtils.isNull(this.f54189b.j)) {
+                        this.f54188a.addPostData("dev_id", this.f54189b.j);
                     }
-                    if (!TextUtils.isEmpty(this.f54190b.f54186g)) {
-                        this.f54189a.addPostData("pagefrom", this.f54190b.f54186g);
+                    if (!TextUtils.isEmpty(this.f54189b.f54185g)) {
+                        this.f54188a.addPostData("pagefrom", this.f54189b.f54185g);
                     }
-                    this.f54189a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.f54189a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                    this.f54189a.addPostData("forum_name", this.f54190b.f54184e);
-                    this.f54189a.getNetContext().getRequest().mIsNeedTbs = true;
-                    this.f54189a.setNeedSig(true);
-                    String postNetData = this.f54189a.postNetData();
-                    int serverErrorCode = this.f54189a.getServerErrorCode();
-                    String errorString = this.f54189a.getErrorString();
-                    this.f54190b.setErrorCode(serverErrorCode);
-                    this.f54190b.setErrorString(errorString);
+                    this.f54188a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.f54188a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    this.f54188a.addPostData("forum_name", this.f54189b.f54183e);
+                    this.f54188a.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.f54188a.setNeedSig(true);
+                    String postNetData = this.f54188a.postNetData();
+                    int serverErrorCode = this.f54188a.getServerErrorCode();
+                    String errorString = this.f54188a.getErrorString();
+                    this.f54189b.setErrorCode(serverErrorCode);
+                    this.f54189b.setErrorString(errorString);
                     AuthTokenData.parse(postNetData);
                     if (postNetData != null) {
                         x xVar = new x();
                         xVar.o(postNetData);
-                        if (this.f54189a.getNetContext().getResponse().isRequestSuccess()) {
+                        if (this.f54188a.getNetContext().getResponse().isRequestSuccess()) {
                             xVar.q(null);
                         }
-                        this.f54190b.m = xVar.a();
-                        xVar.s(this.f54190b.f54185f);
+                        this.f54189b.m = xVar.a();
+                        xVar.s(this.f54189b.f54184f);
                         return xVar;
                     }
                 } catch (Exception e2) {
@@ -240,7 +240,7 @@ public class LikeModel extends BdBaseModel {
                 }
                 x xVar2 = new x();
                 xVar2.v(0);
-                xVar2.s(this.f54190b.f54185f);
+                xVar2.s(this.f54189b.f54184f);
                 return xVar2;
             }
             return (x) invokeL.objValue;
@@ -252,25 +252,25 @@ public class LikeModel extends BdBaseModel {
         public void onPostExecute(x xVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xVar) == null) {
-                this.f54190b.l = null;
-                if (this.f54189a == null || xVar == null || AntiHelper.a(this.f54190b.getContext(), this.f54190b.getErrorCode(), xVar.b())) {
+                this.f54189b.l = null;
+                if (this.f54188a == null || xVar == null || AntiHelper.a(this.f54189b.getContext(), this.f54189b.getErrorCode(), xVar.b())) {
                     return;
                 }
                 k kVar = new k();
                 kVar.f20874a = b.a.e.e.m.b.g(xVar.g(), 0L);
                 xVar.j();
-                if (xVar != null && this.f54189a.getNetContext().getResponse().isRequestSuccess()) {
+                if (xVar != null && this.f54188a.getNetContext().getResponse().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(b.a.e.e.m.b.g(xVar.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new i.a(this.f54190b.f54184e, xVar.k())));
-                    TbadkCoreApplication.getInst().addLikeForum(this.f54190b.f54184e);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new i.a(this.f54189b.f54183e, xVar.k())));
+                    TbadkCoreApplication.getInst().addLikeForum(this.f54189b.f54183e);
                     kVar.f20875b = true;
-                    kVar.f20876c = this.f54190b.getErrorString();
+                    kVar.f20876c = this.f54189b.getErrorString();
                 } else {
                     kVar.f20875b = false;
-                    kVar.f20876c = this.f54190b.getErrorString();
+                    kVar.f20876c = this.f54189b.getErrorString();
                 }
-                if (this.f54190b.mLoadDataCallBack != null) {
-                    this.f54190b.mLoadDataCallBack.c(xVar);
+                if (this.f54189b.mLoadDataCallBack != null) {
+                    this.f54189b.mLoadDataCallBack.c(xVar);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, kVar));
             }
@@ -280,14 +280,14 @@ public class LikeModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f54189a != null) {
-                    this.f54189a.cancelNetConnect();
-                    this.f54189a = null;
+                if (this.f54188a != null) {
+                    this.f54188a.cancelNetConnect();
+                    this.f54188a = null;
                 }
-                this.f54190b.l = null;
+                this.f54189b.l = null;
                 super.cancel(true);
-                if (this.f54190b.mLoadDataCallBack != null) {
-                    this.f54190b.mLoadDataCallBack.c(null);
+                if (this.f54189b.mLoadDataCallBack != null) {
+                    this.f54189b.mLoadDataCallBack.c(null);
                 }
             }
         }

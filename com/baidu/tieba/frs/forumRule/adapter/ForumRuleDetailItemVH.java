@@ -25,10 +25,10 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48510a;
+    public Context f48509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48511b;
+    public View f48510b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -51,8 +51,8 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48510a = context;
-        this.f48511b = view;
+        this.f48509a = context;
+        this.f48510b = view;
         initView(view);
     }
 

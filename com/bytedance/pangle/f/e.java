@@ -16,7 +16,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<Signature[]> f61392a;
+    public static WeakReference<Signature[]> f61391a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(String str) {
@@ -33,14 +33,14 @@ public final class e {
                 } else {
                     a2 = a.a(str);
                 }
-                Signature[] signatureArr = a2 != null ? a2.f61413b : null;
-                WeakReference<Signature[]> weakReference = f61392a;
+                Signature[] signatureArr = a2 != null ? a2.f61412b : null;
+                WeakReference<Signature[]> weakReference = f61391a;
                 Signature[] signatureArr2 = weakReference != null ? weakReference.get() : null;
                 if (signatureArr2 == null || signatureArr2.length == 0) {
                     try {
                         PackageInfo packageInfo = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 64);
                         Signature[] signatureArr3 = packageInfo.signatures;
-                        f61392a = new WeakReference<>(packageInfo.signatures);
+                        f61391a = new WeakReference<>(packageInfo.signatures);
                         signatureArr2 = signatureArr3;
                     } catch (PackageManager.NameNotFoundException unused) {
                         ZeusLogger.w(ZeusLogger.TAG_INSTALL, "ApkSignatureVerify get host signature error : ".concat(String.valueOf(str)));

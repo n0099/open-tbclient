@@ -78,10 +78,10 @@ public final class a extends TagPayloadReader {
                 int i2 = (x >> 4) & 15;
                 this.f31382d = i2;
                 if (i2 == 2) {
-                    this.f62967a.b(Format.createAudioSampleFormat(null, "audio/mpeg", null, -1, -1, 1, f31379e[(x >> 2) & 3], null, null, 0, null));
+                    this.f62966a.b(Format.createAudioSampleFormat(null, "audio/mpeg", null, -1, -1, 1, f31379e[(x >> 2) & 3], null, null, 0, null));
                     this.f31381c = true;
                 } else if (i2 == 7 || i2 == 8) {
-                    this.f62967a.b(Format.createAudioSampleFormat(null, this.f31382d == 7 ? "audio/g711-alaw" : "audio/g711-mlaw", null, -1, -1, 1, 8000, (x & 1) == 1 ? 2 : 3, null, null, 0, null));
+                    this.f62966a.b(Format.createAudioSampleFormat(null, this.f31382d == 7 ? "audio/g711-alaw" : "audio/g711-mlaw", null, -1, -1, 1, 8000, (x & 1) == 1 ? 2 : 3, null, null, 0, null));
                     this.f31381c = true;
                 } else if (i2 != 10) {
                     throw new TagPayloadReader.UnsupportedFormatException("Audio format not supported: " + this.f31382d);
@@ -101,8 +101,8 @@ public final class a extends TagPayloadReader {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, j) == null) {
             if (this.f31382d == 2) {
                 int a2 = lVar.a();
-                this.f62967a.a(lVar, a2);
-                this.f62967a.c(j, 1, a2, 0, null);
+                this.f62966a.a(lVar, a2);
+                this.f62966a.c(j, 1, a2, 0, null);
                 return;
             }
             int x = lVar.x();
@@ -111,12 +111,12 @@ public final class a extends TagPayloadReader {
                 byte[] bArr = new byte[a3];
                 lVar.g(bArr, 0, a3);
                 Pair<Integer, Integer> i2 = b.i.b.a.i0.c.i(bArr);
-                this.f62967a.b(Format.createAudioSampleFormat(null, "audio/mp4a-latm", null, -1, -1, ((Integer) i2.second).intValue(), ((Integer) i2.first).intValue(), Collections.singletonList(bArr), null, 0, null));
+                this.f62966a.b(Format.createAudioSampleFormat(null, "audio/mp4a-latm", null, -1, -1, ((Integer) i2.second).intValue(), ((Integer) i2.first).intValue(), Collections.singletonList(bArr), null, 0, null));
                 this.f31381c = true;
             } else if (this.f31382d != 10 || x == 1) {
                 int a4 = lVar.a();
-                this.f62967a.a(lVar, a4);
-                this.f62967a.c(j, 1, a4, 0, null);
+                this.f62966a.a(lVar, a4);
+                this.f62966a.c(j, 1, a4, 0, null);
             }
         }
     }

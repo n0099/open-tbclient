@@ -25,7 +25,7 @@ public class SwanEntryActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f46839e;
+        public final /* synthetic */ SwanEntryActivity f46838e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f46839e = swanEntryActivity;
+            this.f46838e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46839e.finish();
+                this.f46838e.finish();
             }
         }
     }

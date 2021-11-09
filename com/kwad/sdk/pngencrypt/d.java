@@ -12,19 +12,19 @@ public abstract class d extends ChunkReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final DeflatedChunksSet f65959e;
+    public final DeflatedChunksSet f65958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65960f;
+    public boolean f65959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65961g;
+    public boolean f65960g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f65962h;
+    public byte[] f65961h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65963i;
+    public int f65962i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(int i2, String str, boolean z, long j, DeflatedChunksSet deflatedChunksSet) {
@@ -45,13 +45,13 @@ public abstract class d extends ChunkReader {
                 return;
             }
         }
-        this.f65960f = false;
-        this.f65961g = false;
-        this.f65963i = -1;
-        this.f65959e = deflatedChunksSet;
+        this.f65959f = false;
+        this.f65960g = false;
+        this.f65962i = -1;
+        this.f65958e = deflatedChunksSet;
         if (str.equals("fdAT")) {
-            this.f65961g = true;
-            this.f65962h = new byte[4];
+            this.f65960g = true;
+            this.f65961h = new byte[4];
         }
         deflatedChunksSet.a(this);
     }
@@ -59,7 +59,7 @@ public abstract class d extends ChunkReader {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f65963i = i2;
+            this.f65962i = i2;
         }
     }
 
@@ -67,18 +67,18 @@ public abstract class d extends ChunkReader {
     public void a(int i2, byte[] bArr, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (this.f65961g && i2 < 4) {
+            if (this.f65960g && i2 < 4) {
                 while (i2 < 4 && i4 > 0) {
-                    this.f65962h[i2] = bArr[i3];
+                    this.f65961h[i2] = bArr[i3];
                     i2++;
                     i3++;
                     i4--;
                 }
             }
             if (i4 > 0) {
-                this.f65959e.a(bArr, i3, i4);
-                if (this.f65960f) {
-                    System.arraycopy(bArr, i3, a().f65920d, this.f65854b, i4);
+                this.f65958e.a(bArr, i3, i4);
+                if (this.f65959f) {
+                    System.arraycopy(bArr, i3, a().f65919d, this.f65853b, i4);
                 }
             }
         }
@@ -88,8 +88,8 @@ public abstract class d extends ChunkReader {
     public void c() {
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f65961g && a().f65919c.equals("fdAT") && this.f65963i >= 0 && (c2 = n.c(this.f65962h, 0)) != this.f65963i) {
-            com.kwad.sdk.core.d.a.a(new PngjException("bad chunk sequence for fDAT chunk " + c2 + " expected " + this.f65963i));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f65960g && a().f65918c.equals("fdAT") && this.f65962i >= 0 && (c2 = n.c(this.f65961h, 0)) != this.f65962i) {
+            com.kwad.sdk.core.d.a.a(new PngjException("bad chunk sequence for fDAT chunk " + c2 + " expected " + this.f65962i));
         }
     }
 }

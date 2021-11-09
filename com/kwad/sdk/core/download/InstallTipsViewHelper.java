@@ -39,31 +39,31 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdInfo f64421a;
+    public AdInfo f64420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f64422b;
+    public AdTemplate f64421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InstallTipsData f64423c;
+    public InstallTipsData f64422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f64424d;
+    public View f64423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f64425e;
+    public View f64424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f64426f;
+    public ImageView f64425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f64427g;
+    public TextView f64426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f64428h;
+    public Button f64427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64429i;
+    public int f64428i;
     public long j;
     public Context k;
 
@@ -179,20 +179,20 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                 return;
             }
         }
-        this.f64429i = -1;
+        this.f64428i = -1;
         this.j = 10000L;
         Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(KsAdSDKImpl.get().getContext());
         this.k = wrapContextIfNeed;
         if (wrapContextIfNeed == null) {
             return;
         }
-        this.f64421a = adInfo;
-        this.f64422b = adTemplate;
-        this.f64423c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
+        this.f64420a = adInfo;
+        this.f64421b = adTemplate;
+        this.f64422c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
         View inflate = LayoutInflater.from(this.k).inflate(R.layout.ksad_install_tips, (ViewGroup) null, false);
-        this.f64424d = inflate;
+        this.f64423d = inflate;
         a(this.k, inflate);
-        InstallTipsData installTipsData = this.f64423c;
+        InstallTipsData installTipsData = this.f64422c;
         if (installTipsData != null) {
             a(this.k, installTipsData);
         }
@@ -203,7 +203,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view)) == null) {
-            int i2 = this.f64429i;
+            int i2 = this.f64428i;
             if (i2 < 0) {
                 return null;
             }
@@ -232,16 +232,16 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, view) == null) {
             ViewCompat.setElevation(view, context.getResources().getDimension(R.dimen.ksad_install_tips_card_elevation));
-            this.f64425e = view.findViewById(R.id.ksad_install_tips_close);
-            this.f64426f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
-            this.f64427g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
-            this.f64428h = (Button) view.findViewById(R.id.ksad_install_tips_install);
-            InstallTipsData installTipsData = this.f64423c;
+            this.f64424e = view.findViewById(R.id.ksad_install_tips_close);
+            this.f64425f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
+            this.f64426g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
+            this.f64427h = (Button) view.findViewById(R.id.ksad_install_tips_install);
+            InstallTipsData installTipsData = this.f64422c;
             if (installTipsData != null && (clickButtonText = installTipsData.getClickButtonText()) != null) {
-                this.f64428h.setText(clickButtonText);
+                this.f64427h.setText(clickButtonText);
             }
-            this.f64425e.setOnClickListener(this);
-            this.f64428h.setOnClickListener(this);
+            this.f64424e.setOnClickListener(this);
+            this.f64427h.setOnClickListener(this);
         }
     }
 
@@ -249,19 +249,19 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, installTipsData) == null) {
             if (installTipsData.getIconUrl() != null) {
-                KSImageLoader.loadAppIcon(this.f64426f, com.kwad.sdk.core.response.b.a.n(this.f64421a), this.f64422b, 8);
+                KSImageLoader.loadAppIcon(this.f64425f, com.kwad.sdk.core.response.b.a.n(this.f64420a), this.f64421b, 8);
             }
-            this.f64427g.setText(installTipsData.getDisplayContent());
+            this.f64426g.setText(installTipsData.getDisplayContent());
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            String str = this.f64421a.downloadFilePath;
+            String str = this.f64420a.downloadFilePath;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null && !TextUtils.isEmpty(str)) {
-                com.kwad.sdk.core.report.a.h(this.f64422b);
+                com.kwad.sdk.core.report.a.h(this.f64421b);
                 KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
                 return;
             }
@@ -276,7 +276,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             if (this.k == null) {
                 return false;
             }
-            String q = com.kwad.sdk.core.response.b.a.q(this.f64421a);
+            String q = com.kwad.sdk.core.response.b.a.q(this.f64420a);
             if (TextUtils.isEmpty(q)) {
                 return false;
             }
@@ -288,7 +288,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64424d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64423d : (View) invokeV.objValue;
     }
 
     public void a(FrameLayout frameLayout) {
@@ -301,7 +301,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         int dimensionPixelSize2 = this.k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_margin);
         int i2 = dimensionPixelSize + dimensionPixelSize2;
         int i3 = -i2;
-        this.f64429i = i2 + dimensionPixelSize2;
+        this.f64428i = i2 + dimensionPixelSize2;
         ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
         FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         layoutParams2.gravity = 48;
@@ -309,13 +309,13 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         layoutParams2.rightMargin = dimensionPixelSize2;
         layoutParams2.topMargin = i3;
         frameLayout.addView(a2, layoutParams2);
-        a(a2, this.f64429i).start();
+        a(a2, this.f64428i).start();
         a2.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ InstallTipsViewHelper f64430a;
+            public final /* synthetic */ InstallTipsViewHelper f64429a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -332,14 +332,14 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f64430a = this;
+                this.f64429a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f64430a.b();
+                    this.f64429a.b();
                 }
             }
         }, this.j);
@@ -363,16 +363,16 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f64431a;
+            public final /* synthetic */ ViewGroup f64430a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ View f64432b;
+            public final /* synthetic */ View f64431b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Animator f64433c;
+            public final /* synthetic */ Animator f64432c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ InstallTipsViewHelper f64434d;
+            public final /* synthetic */ InstallTipsViewHelper f64433d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -389,10 +389,10 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f64434d = this;
-                this.f64431a = viewGroup;
-                this.f64432b = a2;
-                this.f64433c = a3;
+                this.f64433d = this;
+                this.f64430a = viewGroup;
+                this.f64431b = a2;
+                this.f64432c = a3;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -406,9 +406,9 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f64431a.removeView(this.f64432b);
-                    this.f64433c.removeListener(this);
-                    f.a().a(this.f64434d);
+                    this.f64430a.removeView(this.f64431b);
+                    this.f64432c.removeListener(this);
+                    f.a().a(this.f64433d);
                 }
             }
 
@@ -431,13 +431,13 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f64424d = null;
-            this.f64425e = null;
-            this.f64426f = null;
-            this.f64428h = null;
-            this.f64429i = -1;
-            this.f64422b = null;
-            this.f64423c = null;
+            this.f64423d = null;
+            this.f64424e = null;
+            this.f64425f = null;
+            this.f64427h = null;
+            this.f64428i = -1;
+            this.f64421b = null;
+            this.f64422c = null;
         }
     }
 
@@ -447,30 +447,30 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            InstallTipsData installTipsData = this.f64423c;
+            InstallTipsData installTipsData = this.f64422c;
             int clickAction = installTipsData != null ? installTipsData.getClickAction() : 1;
             int id = view.getId();
             if (id == R.id.ksad_install_tips_install) {
                 b();
                 if (clickAction == 1) {
                     d();
-                    com.kwad.sdk.core.report.a.d(this.f64422b, 45);
+                    com.kwad.sdk.core.report.a.d(this.f64421b, 45);
                 } else if (clickAction != 2) {
                     return;
                 }
                 e();
-                adTemplate = this.f64422b;
+                adTemplate = this.f64421b;
                 i2 = 47;
             } else if (id != R.id.ksad_install_tips_close) {
                 return;
             } else {
                 b();
                 if (clickAction == 1) {
-                    com.kwad.sdk.core.report.a.d(this.f64422b, 46);
+                    com.kwad.sdk.core.report.a.d(this.f64421b, 46);
                 } else if (clickAction != 2) {
                     return;
                 }
-                adTemplate = this.f64422b;
+                adTemplate = this.f64421b;
                 i2 = 48;
             }
             com.kwad.sdk.core.report.a.c(adTemplate, i2);

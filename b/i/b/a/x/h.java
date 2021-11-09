@@ -49,7 +49,7 @@ public final class h implements AudioProcessor {
         this.f32848b = -1;
         this.f32849c = -1;
         this.f32850d = 0;
-        ByteBuffer byteBuffer = AudioProcessor.f62942a;
+        ByteBuffer byteBuffer = AudioProcessor.f62941a;
         this.f32851e = byteBuffer;
         this.f32852f = byteBuffer;
     }
@@ -126,7 +126,7 @@ public final class h implements AudioProcessor {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32853g && this.f32852f == AudioProcessor.f62942a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32853g && this.f32852f == AudioProcessor.f62941a : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -165,7 +165,7 @@ public final class h implements AudioProcessor {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f32852f = AudioProcessor.f62942a;
+            this.f32852f = AudioProcessor.f62941a;
             this.f32853g = false;
         }
     }
@@ -176,7 +176,7 @@ public final class h implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ByteBuffer byteBuffer = this.f32852f;
-            this.f32852f = AudioProcessor.f62942a;
+            this.f32852f = AudioProcessor.f62941a;
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
@@ -197,7 +197,7 @@ public final class h implements AudioProcessor {
             this.f32849c = i3;
             this.f32850d = i4;
             if (i4 == 2) {
-                this.f32851e = AudioProcessor.f62942a;
+                this.f32851e = AudioProcessor.f62941a;
                 return true;
             }
             return true;
@@ -221,7 +221,7 @@ public final class h implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             flush();
-            this.f32851e = AudioProcessor.f62942a;
+            this.f32851e = AudioProcessor.f62941a;
             this.f32848b = -1;
             this.f32849c = -1;
             this.f32850d = 0;

@@ -28,13 +28,13 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f49182g;
+    public float f49181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shape f49183h;
+    public Shape f49182h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49184i;
+    public Paint f49183i;
     public Paint j;
     public RectF k;
 
@@ -82,12 +82,12 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f49183h;
+            Shape shape = this.f49182h;
             if (shape != null) {
-                shape.draw(canvas, this.f49184i);
+                shape.draw(canvas, this.f49183i);
             }
             RectF rectF = this.k;
-            float f2 = this.f49182g;
+            float f2 = this.f49181g;
             canvas.drawRoundRect(rectF, f2, f2, this.j);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -102,7 +102,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f49183h == null) {
+                if (this.f49182h == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(c1.tbds5) ? getResources().getDimension(c1.tbds5) : getPaddingLeft();
@@ -111,11 +111,11 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                     float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f49182g);
-                    this.f49183h = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, this.f49181g);
+                    this.f49182h = new RoundRectShape(fArr, rectF, fArr2);
                     this.k.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
                 }
-                this.f49183h.resize(getWidth(), getHeight());
+                this.f49182h.resize(getWidth(), getHeight());
             }
         }
     }
@@ -123,7 +123,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f49182g = f2;
+            this.f49181g = f2;
         }
     }
 
@@ -167,14 +167,14 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 return;
             }
         }
-        this.f49182g = 0.0f;
+        this.f49181g = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f49184i = paint;
+        this.f49183i = paint;
         paint.setAntiAlias(true);
-        this.f49184i.setColor(-7829368);
-        this.f49184i.setStyle(Paint.Style.FILL);
-        this.f49184i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f49183i.setColor(-7829368);
+        this.f49183i.setStyle(Paint.Style.FILL);
+        this.f49183i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
         this.j = paint2;
         paint2.setAntiAlias(true);

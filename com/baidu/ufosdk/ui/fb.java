@@ -11,7 +11,7 @@ public final class fb implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fa f57016a;
+    public final /* synthetic */ fa f57015a;
 
     public fb(fa faVar) {
         Interceptable interceptable = $ic;
@@ -28,15 +28,15 @@ public final class fb implements View.OnClickListener {
                 return;
             }
         }
-        this.f57016a = faVar;
+        this.f57015a = faVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         fa faVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (faVar = this.f57016a) != null && faVar.isShowing()) {
-            this.f57016a.dismiss();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (faVar = this.f57015a) != null && faVar.isShowing()) {
+            this.f57015a.dismiss();
         }
     }
 }

@@ -46,19 +46,19 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Lazy f56344e;
+    public final Lazy f56343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lazy f56345f;
+    public final Lazy f56344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f56346g;
+    public TbImageView f56345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f56347h;
+    public View f56346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56348i;
+    public ImageView f56347i;
     public TextView j;
     public TextView k;
     public View l;
@@ -77,9 +77,46 @@ public final class WorkPublishVideoView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishVideoView f56349e;
+        public final /* synthetic */ WorkPublishVideoView f56348e;
 
         public a(WorkPublishVideoView workPublishVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56348e = workPublishVideoView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view) {
+            b.a.r0.d4.u.p.c.b iWriteVideoPreviewListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (iWriteVideoPreviewListener = this.f56348e.getIWriteVideoPreviewListener()) == null) {
+                return;
+            }
+            iWriteVideoPreviewListener.onPlayClick();
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishVideoView f56349e;
+
+        public b(WorkPublishVideoView workPublishVideoView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,19 +141,19 @@ public final class WorkPublishVideoView extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (iWriteVideoPreviewListener = this.f56349e.getIWriteVideoPreviewListener()) == null) {
                 return;
             }
-            iWriteVideoPreviewListener.onPlayClick();
+            iWriteVideoPreviewListener.onCoverEditClick();
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class b implements View.OnClickListener {
+    public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishVideoView f56350e;
 
-        public b(WorkPublishVideoView workPublishVideoView) {
+        public c(WorkPublishVideoView workPublishVideoView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,19 +178,19 @@ public final class WorkPublishVideoView extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (iWriteVideoPreviewListener = this.f56350e.getIWriteVideoPreviewListener()) == null) {
                 return;
             }
-            iWriteVideoPreviewListener.onCoverEditClick();
+            iWriteVideoPreviewListener.onEditClick();
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class c implements View.OnClickListener {
+    public static final class d implements b.a.q0.c0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishVideoView f56351e;
 
-        public c(WorkPublishVideoView workPublishVideoView) {
+        public d(WorkPublishVideoView workPublishVideoView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,54 +208,17 @@ public final class WorkPublishVideoView extends RelativeLayout {
             this.f56351e = workPublishVideoView;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view) {
-            b.a.r0.d4.u.p.c.b iWriteVideoPreviewListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (iWriteVideoPreviewListener = this.f56351e.getIWriteVideoPreviewListener()) == null) {
-                return;
-            }
-            iWriteVideoPreviewListener.onEditClick();
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class d implements b.a.q0.c0.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishVideoView f56352e;
-
-        public d(WorkPublishVideoView workPublishVideoView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishVideoView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56352e = workPublishVideoView;
-        }
-
         @Override // b.a.q0.c0.b
         public final void imageLoaded(b.a.e.l.d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) {
-                if (WorkPublishVideoView.access$getCoverView$p(this.f56352e) != null && aVar != null) {
-                    this.f56352e.adjustSize(aVar.r(), aVar.m());
-                    WorkPublishVideoView.access$getCoverView$p(this.f56352e).invalidate();
+                if (WorkPublishVideoView.access$getCoverView$p(this.f56351e) != null && aVar != null) {
+                    this.f56351e.adjustSize(aVar.r(), aVar.m());
+                    WorkPublishVideoView.access$getCoverView$p(this.f56351e).invalidate();
                     return;
                 }
-                this.f56352e.adjustSize(16, 9);
-                WorkPublishVideoView.access$getCoverView$p(this.f56352e).invalidate();
+                this.f56351e.adjustSize(16, 9);
+                WorkPublishVideoView.access$getCoverView$p(this.f56351e).invalidate();
             }
         }
     }
@@ -257,15 +257,15 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f56344e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
-        this.f56345f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
+        this.f56343e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
+        this.f56344f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
         this.r = new Path();
         this.s = new RectF();
         initView();
     }
 
     public static final /* synthetic */ TbImageView access$getCoverView$p(WorkPublishVideoView workPublishVideoView) {
-        TbImageView tbImageView = workPublishVideoView.f56346g;
+        TbImageView tbImageView = workPublishVideoView.f56345g;
         if (tbImageView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("coverView");
         }
@@ -276,7 +276,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            Lazy lazy = this.f56344e;
+            Lazy lazy = this.f56343e;
             KProperty kProperty = u[0];
             return ((Number) lazy.getValue()).intValue();
         }
@@ -287,7 +287,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            Lazy lazy = this.f56345f;
+            Lazy lazy = this.f56344f;
             KProperty kProperty = u[1];
             return ((Number) lazy.getValue()).intValue();
         }
@@ -327,22 +327,22 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
             }
             view2.getLayoutParams().height = i5;
-            TbImageView tbImageView = this.f56346g;
+            TbImageView tbImageView = this.f56345g;
             if (tbImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView.getLayoutParams().width = i4;
-            TbImageView tbImageView2 = this.f56346g;
+            TbImageView tbImageView2 = this.f56345g;
             if (tbImageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView2.getLayoutParams().height = i5;
-            View view3 = this.f56347h;
+            View view3 = this.f56346h;
             if (view3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
             }
             view3.getLayoutParams().width = i4;
-            View view4 = this.f56347h;
+            View view4 = this.f56346h;
             if (view4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
             }
@@ -354,24 +354,24 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public final void deleteCoverCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbImageView tbImageView = this.f56346g;
+            TbImageView tbImageView = this.f56345g;
             if (tbImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             if (tbImageView != null) {
-                TbImageView tbImageView2 = this.f56346g;
+                TbImageView tbImageView2 = this.f56345g;
                 if (tbImageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("coverView");
                 }
                 if (tbImageView2.getTag() != null) {
                     b.a.q0.c0.c k = b.a.q0.c0.c.k();
-                    TbImageView tbImageView3 = this.f56346g;
+                    TbImageView tbImageView3 = this.f56345g;
                     if (tbImageView3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("coverView");
                     }
                     k.h(tbImageView3.getTag().toString());
                     b.a.q0.c0.c k2 = b.a.q0.c0.c.k();
-                    TbImageView tbImageView4 = this.f56346g;
+                    TbImageView tbImageView4 = this.f56345g;
                     if (tbImageView4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("coverView");
                     }
@@ -423,21 +423,21 @@ public final class WorkPublishVideoView extends RelativeLayout {
             }
             View findViewById = inflate.findViewById(R.id.video_thumbnail);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mRootView.findViewById(R.id.video_thumbnail)");
-            this.f56346g = (TbImageView) findViewById;
+            this.f56345g = (TbImageView) findViewById;
             View view = this.l;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
             }
             View findViewById2 = view.findViewById(R.id.video_thumbnail_mask);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mRootView.findViewById(R.id.video_thumbnail_mask)");
-            this.f56347h = findViewById2;
+            this.f56346h = findViewById2;
             View view2 = this.l;
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
             }
             View findViewById3 = view2.findViewById(R.id.video_play);
             Intrinsics.checkExpressionValueIsNotNull(findViewById3, "mRootView.findViewById(R.id.video_play)");
-            this.f56348i = (ImageView) findViewById3;
+            this.f56347i = (ImageView) findViewById3;
             View view3 = this.l;
             if (view3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
@@ -452,27 +452,27 @@ public final class WorkPublishVideoView extends RelativeLayout {
             View findViewById5 = view4.findViewById(R.id.video_edit);
             Intrinsics.checkExpressionValueIsNotNull(findViewById5, "mRootView.findViewById(R.id.video_edit)");
             this.j = (TextView) findViewById5;
-            TbImageView tbImageView = this.f56346g;
+            TbImageView tbImageView = this.f56345g;
             if (tbImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView.setConrers(15);
-            TbImageView tbImageView2 = this.f56346g;
+            TbImageView tbImageView2 = this.f56345g;
             if (tbImageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView2.setRadiusById(R.string.J_X05);
-            TbImageView tbImageView3 = this.f56346g;
+            TbImageView tbImageView3 = this.f56345g;
             if (tbImageView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView3.setDrawCorner(true);
-            TbImageView tbImageView4 = this.f56346g;
+            TbImageView tbImageView4 = this.f56345g;
             if (tbImageView4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             tbImageView4.setPlaceHolder(3);
-            View view5 = this.f56347h;
+            View view5 = this.f56346h;
             if (view5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
             }
@@ -507,7 +507,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             ImageOperation g2 = b.a.q0.d0.i.d.g(getMAX_VIDEO_WIDTH(), getMAX_VIDEO_HEIGHT());
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g2);
-            TbImageView tbImageView = this.f56346g;
+            TbImageView tbImageView = this.f56345g;
             if (tbImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
@@ -519,7 +519,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             b.a.e.l.d.a c2 = bVar.c(imageFileInfo, false);
             if (c2 != null) {
                 adjustSize(c2.r(), c2.m());
-                TbImageView tbImageView2 = this.f56346g;
+                TbImageView tbImageView2 = this.f56345g;
                 if (tbImageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("coverView");
                 }
@@ -545,7 +545,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             if (paint2 != null) {
                 paint2.setColor(SkinManager.getColor(R.color.CAM_X0302));
             }
-            View view = this.f56347h;
+            View view = this.f56346h;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
             }
@@ -635,8 +635,8 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f56344e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
-        this.f56345f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
+        this.f56343e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
+        this.f56344f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
         this.r = new Path();
         this.s = new RectF();
         initView();
@@ -661,8 +661,8 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f56344e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
-        this.f56345f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
+        this.f56343e = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_HEIGHT$2(this));
+        this.f56344f = LazyKt__LazyJVMKt.lazy(new WorkPublishVideoView$MAX_VIDEO_WIDTH$2(this));
         this.r = new Path();
         this.s = new RectF();
         initView();

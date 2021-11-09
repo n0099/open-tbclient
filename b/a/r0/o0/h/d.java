@@ -68,12 +68,12 @@ public class d implements b.a.r0.f0.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || this.f21653a.f21650b == null) {
                 return;
             }
-            if (eVar == null || !eVar.f47703b || (dVar = eVar.f47705d) == null || dVar.e() == null) {
+            if (eVar == null || !eVar.f47702b || (dVar = eVar.f47704d) == null || dVar.e() == null) {
                 this.f21653a.f21650b.a(null, false, 1, 0);
                 return;
             }
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            ArrayList<f> b2 = eVar.f47705d.e().b();
+            ArrayList<f> b2 = eVar.f47704d.e().b();
             if (ListUtils.getCount(b2) > 0) {
                 Iterator<f> it = b2.iterator();
                 while (it.hasNext()) {

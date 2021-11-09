@@ -12,7 +12,7 @@ public final class ab implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f56795a;
+    public final /* synthetic */ FeedbackEditActivity f56794a;
 
     public ab(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class ab implements View.OnClickListener {
                 return;
             }
         }
-        this.f56795a = feedbackEditActivity;
+        this.f56794a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,13 +38,13 @@ public final class ab implements View.OnClickListener {
         List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f56795a.v;
+            z = this.f56794a.v;
             if (z) {
                 return;
             }
-            list = this.f56795a.q;
+            list = this.f56794a.q;
             if (list.size() > 0) {
-                FeedbackEditActivity.a(this.f56795a, 1);
+                FeedbackEditActivity.a(this.f56794a, 1);
             }
         }
     }

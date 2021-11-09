@@ -10,7 +10,7 @@ public final class q extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f61420a;
+    public final int f61419a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i2, String str) {
@@ -30,7 +30,7 @@ public final class q extends Exception {
                 return;
             }
         }
-        this.f61420a = i2;
+        this.f61419a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,6 +52,6 @@ public final class q extends Exception {
                 return;
             }
         }
-        this.f61420a = i2;
+        this.f61419a = i2;
     }
 }

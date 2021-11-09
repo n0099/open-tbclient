@@ -47,7 +47,7 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f47799a;
+        public final /* synthetic */ EmotionView f47798a;
 
         public a(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f47799a = emotionView;
+            this.f47798a = emotionView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,8 +74,8 @@ public class EmotionView extends TbImageView {
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            this.f47799a.mIsGif = aVar.t();
-            View findViewWithTag = this.f47799a.findViewWithTag(str);
+            this.f47798a.mIsGif = aVar.t();
+            View findViewWithTag = this.f47798a.findViewWithTag(str);
             if (findViewWithTag == null || !(findViewWithTag instanceof TbImageView) || str == null) {
                 return;
             }
@@ -91,7 +91,7 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f47800e;
+        public final /* synthetic */ EmotionView f47799e;
 
         public b(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f47800e = emotionView;
+            this.f47799e = emotionView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -118,28 +118,28 @@ public class EmotionView extends TbImageView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f47800e.V = true;
-                    this.f47800e.a0 = motionEvent.getRawX();
-                    this.f47800e.b0 = motionEvent.getRawY();
-                    EmotionView emotionView = this.f47800e;
+                    this.f47799e.V = true;
+                    this.f47799e.a0 = motionEvent.getRawX();
+                    this.f47799e.b0 = motionEvent.getRawY();
+                    EmotionView emotionView = this.f47799e;
                     emotionView.c0 = emotionView.a0;
-                    EmotionView emotionView2 = this.f47800e;
+                    EmotionView emotionView2 = this.f47799e;
                     emotionView2.i0 = emotionView2.b0;
-                    this.f47800e.U = System.currentTimeMillis();
-                    if (this.f47800e.S()) {
-                        EmotionView emotionView3 = this.f47800e;
+                    this.f47799e.U = System.currentTimeMillis();
+                    if (this.f47799e.S()) {
+                        EmotionView emotionView3 = this.f47799e;
                         emotionView3.postDelayed(new d(emotionView3, emotionView3.U), 500L);
                     }
                 } else if (action == 1) {
-                    this.f47800e.V = false;
-                    if (this.f47800e.W) {
-                        this.f47800e.W();
-                    } else if (this.f47800e.j0 != null && this.f47800e.R()) {
-                        this.f47800e.j0.onClick(this.f47800e);
+                    this.f47799e.V = false;
+                    if (this.f47799e.W) {
+                        this.f47799e.W();
+                    } else if (this.f47799e.j0 != null && this.f47799e.R()) {
+                        this.f47799e.j0.onClick(this.f47799e);
                     }
                 } else if (action == 3) {
-                    this.f47800e.V = false;
-                    this.f47800e.W();
+                    this.f47799e.V = false;
+                    this.f47799e.W();
                 }
                 return true;
             }
@@ -164,10 +164,10 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f47801e;
+        public long f47800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f47802f;
+        public final /* synthetic */ EmotionView f47801f;
 
         public d(EmotionView emotionView, long j) {
             Interceptable interceptable = $ic;
@@ -184,15 +184,15 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f47802f = emotionView;
-            this.f47801e = j;
+            this.f47801f = emotionView;
+            this.f47800e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47802f.V && this.f47801e == this.f47802f.U && this.f47802f.T()) {
-                this.f47802f.V();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47801f.V && this.f47800e == this.f47801f.U && this.f47801f.T()) {
+                this.f47801f.V();
             }
         }
     }

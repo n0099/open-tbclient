@@ -37,19 +37,19 @@ public class SelectTopicListLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f56312e;
+    public LinearLayout f56311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbTabLayout f56313f;
+    public TbTabLayout f56312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomViewPager f56314g;
+    public CustomViewPager f56313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SelectTopicToolBar f56315h;
+    public SelectTopicToolBar f56314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f56316i;
+    public EMTextView f56315i;
     public List<c> j;
 
     /* loaded from: classes10.dex */
@@ -58,10 +58,10 @@ public class SelectTopicListLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f56317a;
+        public int f56316a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<c> f56318b;
+        public final List<c> f56317b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FragmentManager fragmentManager, List<c> list) {
@@ -81,8 +81,8 @@ public class SelectTopicListLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f56317a = -1;
-            this.f56318b = list;
+            this.f56316a = -1;
+            this.f56317b = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -90,7 +90,7 @@ public class SelectTopicListLayout extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<c> list = this.f56318b;
+                List<c> list = this.f56317b;
                 if (list == null) {
                     return 0;
                 }
@@ -104,7 +104,7 @@ public class SelectTopicListLayout extends LinearLayout {
         public Fragment getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f56318b.get(i2).f12612a : (Fragment) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f56317b.get(i2).f12612a : (Fragment) invokeI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -112,7 +112,7 @@ public class SelectTopicListLayout extends LinearLayout {
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f56318b.get(i2).f12614c : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f56317b.get(i2).f12614c : (CharSequence) invokeI.objValue;
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
@@ -121,13 +121,13 @@ public class SelectTopicListLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, viewGroup, i2, obj) == null) {
                 super.setPrimaryItem(viewGroup, i2, obj);
-                if (obj == null || (i3 = this.f56317a) == i2) {
+                if (obj == null || (i3 = this.f56316a) == i2) {
                     return;
                 }
                 if (i3 != -1 && i3 < getCount()) {
-                    ((BaseFragment) getItem(this.f56317a)).setPrimary(false);
+                    ((BaseFragment) getItem(this.f56316a)).setPrimary(false);
                 }
-                this.f56317a = i2;
+                this.f56316a = i2;
                 if (obj instanceof BaseFragment) {
                     ((BaseFragment) obj).setPrimary(true);
                 }
@@ -160,13 +160,13 @@ public class SelectTopicListLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.select_topic_list_layout, this);
-            this.f56312e = (LinearLayout) findViewById(R.id.ll_use_common);
-            this.f56315h = (SelectTopicToolBar) findViewById(R.id.topic_common_bar);
-            this.f56316i = (EMTextView) findViewById(R.id.common_topic_title);
-            this.f56313f = (TbTabLayout) findViewById(R.id.topic_list_tab_layout);
-            this.f56314g = (CustomViewPager) findViewById(R.id.topic_list_viewpager);
-            this.f56315h.setmFromType(2);
-            this.f56315h.showAddTopicItem(false);
+            this.f56311e = (LinearLayout) findViewById(R.id.ll_use_common);
+            this.f56314h = (SelectTopicToolBar) findViewById(R.id.topic_common_bar);
+            this.f56315i = (EMTextView) findViewById(R.id.common_topic_title);
+            this.f56312f = (TbTabLayout) findViewById(R.id.topic_list_tab_layout);
+            this.f56313g = (CustomViewPager) findViewById(R.id.topic_list_viewpager);
+            this.f56314h.setmFromType(2);
+            this.f56314h.showAddTopicItem(false);
             b();
         }
     }
@@ -193,12 +193,12 @@ public class SelectTopicListLayout extends LinearLayout {
             cVar2.f12614c = TbadkCoreApplication.getInst().getResources().getString(R.string.select_text_topic_title);
             cVar2.f12616e = 2;
             this.j.add(cVar2);
-            this.f56314g.setOffscreenPageLimit(this.j.size());
-            this.f56314g.setAdapter(new a(((FragmentActivity) getContext()).getSupportFragmentManager(), this.j));
-            this.f56313f.setSelectedTabTextBlod(true);
-            this.f56313f.setTabTextSize(l.g(getContext(), R.dimen.T_X06));
-            this.f56313f.setSelectedIndicatorBottomMargin(l.g(getContext(), R.dimen.tbds5));
-            this.f56313f.setupWithViewPager(this.f56314g);
+            this.f56313g.setOffscreenPageLimit(this.j.size());
+            this.f56313g.setAdapter(new a(((FragmentActivity) getContext()).getSupportFragmentManager(), this.j));
+            this.f56312f.setSelectedTabTextBlod(true);
+            this.f56312f.setTabTextSize(l.g(getContext(), R.dimen.T_X06));
+            this.f56312f.setSelectedIndicatorBottomMargin(l.g(getContext(), R.dimen.tbds5));
+            this.f56312f.setupWithViewPager(this.f56313g);
         }
     }
 
@@ -206,10 +206,10 @@ public class SelectTopicListLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, cVar2, cVar3) == null) {
             if (cVar != null && !ListUtils.isEmpty(cVar.b())) {
-                this.f56312e.setVisibility(0);
-                this.f56315h.bindData(cVar.c());
+                this.f56311e.setVisibility(0);
+                this.f56314h.bindData(cVar.c());
             } else {
-                this.f56312e.setVisibility(8);
+                this.f56311e.setVisibility(8);
             }
             if (ListUtils.isEmpty(this.j)) {
                 return;
@@ -234,16 +234,16 @@ public class SelectTopicListLayout extends LinearLayout {
     public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.a.q0.s.u.c.d(this.f56316i).v(R.color.CAM_X0105);
-            this.f56313f.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-            this.f56313f.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+            b.a.q0.s.u.c.d(this.f56315i).v(R.color.CAM_X0105);
+            this.f56312f.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.f56312f.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
         }
     }
 
     public void onClose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f56314g.setCurrentItem(0);
+            this.f56313g.setCurrentItem(0);
             for (c cVar : this.j) {
                 ((VideoTopicListFragment) cVar.f12612a).onClose();
             }
@@ -253,7 +253,7 @@ public class SelectTopicListLayout extends LinearLayout {
     public void setSelectTopicId(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f56315h.setSelectTopicId(j);
+            this.f56314h.setSelectTopicId(j);
             if (ListUtils.isEmpty(this.j)) {
                 return;
             }

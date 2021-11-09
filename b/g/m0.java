@@ -566,7 +566,7 @@ public class m0 extends i0 {
             synchronized (this.f31205e) {
                 this.f31205e.add(eVar);
             }
-            NetworkInfo networkInfo = com.fun.m0.f62865a;
+            NetworkInfo networkInfo = com.fun.m0.f62864a;
             boolean z = false;
             if (!(networkInfo != null && networkInfo.isConnected()) || this.f31204d.hasMessages(1)) {
                 return;

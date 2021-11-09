@@ -47,10 +47,10 @@ public class ConcernTabLiveItemView extends b<f> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f47062a;
+        public View.OnClickListener f47061a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabLiveItemView f47063b;
+        public final /* synthetic */ ConcernTabLiveItemView f47062b;
         public TextView bottomText;
         public ConcernTabLiveItemView concernTabLiveItemView;
         public View divider;
@@ -67,7 +67,7 @@ public class ConcernTabLiveItemView extends b<f> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewHolder f47064e;
+            public final /* synthetic */ ViewHolder f47063e;
 
             public a(ViewHolder viewHolder) {
                 Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ConcernTabLiveItemView extends b<f> {
                         return;
                     }
                 }
-                this.f47064e = viewHolder;
+                this.f47063e = viewHolder;
             }
 
             @Override // android.view.View.OnClickListener
@@ -92,13 +92,13 @@ public class ConcernTabLiveItemView extends b<f> {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.follow_btn && (view.getTag() instanceof UserData)) {
                     if (!l.D()) {
-                        this.f47064e.f47063b.n.showToast(R.string.neterror);
+                        this.f47063e.f47062b.n.showToast(R.string.neterror);
                         return;
                     }
                     UserData userData = (UserData) view.getTag();
                     AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                    this.f47064e.f47063b.m.followBtn.setVisibility(8);
-                    this.f47064e.f47063b.m.followedBtn.setVisibility(0);
+                    this.f47063e.f47062b.m.followBtn.setVisibility(8);
+                    this.f47063e.f47062b.m.followedBtn.setVisibility(0);
                     TiebaStatic.log(new StatisticItem("c12897"));
                 }
             }
@@ -122,8 +122,8 @@ public class ConcernTabLiveItemView extends b<f> {
                     return;
                 }
             }
-            this.f47063b = concernTabLiveItemView;
-            this.f47062a = new a(this);
+            this.f47062b = concernTabLiveItemView;
+            this.f47061a = new a(this);
             this.concernTabLiveItemView = concernTabLiveItemView2;
             View i4 = concernTabLiveItemView2.i();
             this.root = i4;
@@ -142,7 +142,7 @@ public class ConcernTabLiveItemView extends b<f> {
             this.bottomText = (TextView) this.root.findViewById(R.id.user_name);
             this.followBtn = (TextView) this.root.findViewById(R.id.follow_btn);
             this.followedBtn = (TextView) this.root.findViewById(R.id.followed_btn);
-            this.followBtn.setOnClickListener(this.f47062a);
+            this.followBtn.setOnClickListener(this.f47061a);
         }
     }
 

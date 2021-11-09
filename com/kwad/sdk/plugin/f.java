@@ -18,7 +18,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class, d> f65852a;
+    public static final Map<Class, d> f65851a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class f {
                 return;
             }
         }
-        f65852a = new ConcurrentHashMap();
+        f65851a = new ConcurrentHashMap();
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            T t = (T) f65852a.get(cls);
+            T t = (T) f65851a.get(cls);
             if (t != null) {
                 return t;
             }
@@ -76,7 +76,7 @@ public final class f {
                             return invokeLLL.objValue;
                         }
                     });
-                    f65852a.put(cls, t2);
+                    f65851a.put(cls, t2);
                     return t2;
                 }
                 return null;
@@ -91,7 +91,7 @@ public final class f {
     public static void a(Class cls, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cls, dVar) == null) {
-            f65852a.put(cls, dVar);
+            f65851a.put(cls, dVar);
         }
     }
 }

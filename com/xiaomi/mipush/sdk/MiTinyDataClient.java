@@ -36,7 +36,7 @@ public class MiTinyDataClient {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile a f70576a;
+        public static volatile a f70575a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -61,7 +61,7 @@ public class MiTinyDataClient {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f70577a;
+            public final /* synthetic */ a f70576a;
 
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f58a;
@@ -90,7 +90,7 @@ public class MiTinyDataClient {
                         return;
                     }
                 }
-                this.f70577a = aVar;
+                this.f70576a = aVar;
                 this.f61a = new ScheduledThreadPoolExecutor(1);
                 this.f59a = new ArrayList<>();
                 this.f58a = new aa(this);
@@ -109,9 +109,9 @@ public class MiTinyDataClient {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                     hj remove = this.f59a.remove(0);
-                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f70577a.f53a.getPackageName(), b.m114a(this.f70577a.f53a).m115a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
+                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f70576a.f53a.getPackageName(), b.m114a(this.f70576a.f53a).m115a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
-                        an.a(this.f70577a.f53a).a((an) ieVar, hf.f71079i, true, (hs) null);
+                        an.a(this.f70576a.f53a).a((an) ieVar, hf.f71078i, true, (hs) null);
                     }
                 }
             }
@@ -145,14 +145,14 @@ public class MiTinyDataClient {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (f70576a == null) {
+                if (f70575a == null) {
                     synchronized (a.class) {
-                        if (f70576a == null) {
-                            f70576a = new a();
+                        if (f70575a == null) {
+                            f70575a = new a();
                         }
                     }
                 }
-                return f70576a;
+                return f70575a;
             }
             return (a) invokeV.objValue;
         }

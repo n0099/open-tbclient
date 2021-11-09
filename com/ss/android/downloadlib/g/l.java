@@ -39,16 +39,16 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f68867a;
+    public static final char[] f68866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f68868b;
+    public static Object[] f68867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f68869c;
+    public static Object[] f68868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f68870d;
+    public static String f68869d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,10 +64,10 @@ public class l {
                 return;
             }
         }
-        f68868b = new Object[0];
-        f68869c = new Object[73];
-        f68867a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f68870d = null;
+        f68867b = new Object[0];
+        f68868c = new Object[73];
+        f68866a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f68869d = null;
     }
 
     public static boolean a(String str) {
@@ -451,10 +451,10 @@ public class l {
                 PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
                     cVar.b(packageInfo.versionCode);
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f68497b);
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f68496b);
                     n g2 = com.ss.android.downloadlib.addownload.j.g();
                     if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f68498c);
+                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f68497c);
                     }
                 }
             } catch (Exception e2) {

@@ -20,13 +20,13 @@ public class AndroidCertVerifyResult {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f56395a;
+    public final int f56394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f56396b;
+    public final boolean f56395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f56397c;
+    public final List<X509Certificate> f56396c;
 
     public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class AndroidCertVerifyResult {
                 return;
             }
         }
-        this.f56395a = i2;
-        this.f56396b = z;
-        this.f56397c = new ArrayList(list);
+        this.f56394a = i2;
+        this.f56395b = z;
+        this.f56396c = new ArrayList(list);
     }
 
     @CalledByNative
@@ -53,10 +53,10 @@ public class AndroidCertVerifyResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            byte[][] bArr = new byte[this.f56397c.size()];
-            for (int i2 = 0; i2 < this.f56397c.size(); i2++) {
+            byte[][] bArr = new byte[this.f56396c.size()];
+            for (int i2 = 0; i2 < this.f56396c.size(); i2++) {
                 try {
-                    bArr[i2] = this.f56397c.get(i2).getEncoded();
+                    bArr[i2] = this.f56396c.get(i2).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -70,14 +70,14 @@ public class AndroidCertVerifyResult {
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56395a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56394a : invokeV.intValue;
     }
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56396b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56395b : invokeV.booleanValue;
     }
 
     public AndroidCertVerifyResult(int i2) {
@@ -95,8 +95,8 @@ public class AndroidCertVerifyResult {
                 return;
             }
         }
-        this.f56395a = i2;
-        this.f56396b = false;
-        this.f56397c = Collections.emptyList();
+        this.f56394a = i2;
+        this.f56395b = false;
+        this.f56396c = Collections.emptyList();
     }
 }

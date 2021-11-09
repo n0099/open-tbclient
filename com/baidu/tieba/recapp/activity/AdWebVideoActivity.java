@@ -52,7 +52,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdWebVideoActivity f53489a;
+        public final /* synthetic */ AdWebVideoActivity f53488a;
 
         public a(AdWebVideoActivity adWebVideoActivity) {
             Interceptable interceptable = $ic;
@@ -69,20 +69,20 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     return;
                 }
             }
-            this.f53489a = adWebVideoActivity;
+            this.f53488a = adWebVideoActivity;
         }
 
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
         public void onScroll(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f53489a.mWebViewTopMargin -= i3;
-                if (this.f53489a.mWebViewTopMargin < this.f53489a.mPausePos) {
-                    this.f53489a.mVideoView.stopPlay(this.f53489a.mVideoView.getPlayStatus() != 2);
-                } else if (this.f53489a.mVideoView.getPlayStatus() == 2) {
-                    this.f53489a.mVideoView.autoContinue();
-                } else if (this.f53489a.mVideoView.getPlayStatus() == -1) {
-                    this.f53489a.mVideoView.autoPlay(0);
+                this.f53488a.mWebViewTopMargin -= i3;
+                if (this.f53488a.mWebViewTopMargin < this.f53488a.mPausePos) {
+                    this.f53488a.mVideoView.stopPlay(this.f53488a.mVideoView.getPlayStatus() != 2);
+                } else if (this.f53488a.mVideoView.getPlayStatus() == 2) {
+                    this.f53488a.mVideoView.autoContinue();
+                } else if (this.f53488a.mVideoView.getPlayStatus() == -1) {
+                    this.f53488a.mVideoView.autoPlay(0);
                 }
             }
         }
@@ -94,13 +94,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f53490a;
+        public AdvertAppInfo f53489a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53491b;
+        public int f53490b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53492c;
+        public String f53491c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -162,9 +162,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         if (interceptable == null || interceptable.invokeLIL(65544, null, advertAppInfo, i2, str) == null) {
             b bVar = new b();
             STATISTIC_DATA = bVar;
-            bVar.f53490a = advertAppInfo;
-            bVar.f53492c = str;
-            bVar.f53491b = i2;
+            bVar.f53489a = advertAppInfo;
+            bVar.f53491c = str;
+            bVar.f53490b = i2;
         }
     }
 
@@ -215,10 +215,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
                 b bVar = STATISTIC_DATA;
                 if (bVar != null) {
-                    this.mVideoView.updateTailFrameView(bVar.f53490a);
+                    this.mVideoView.updateTailFrameView(bVar.f53489a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.f53490a, bVar2.f53491b, bVar2.f53492c);
+                    distributeVideoView.setStatisticInfo(bVar2.f53489a, bVar2.f53490b, bVar2.f53491c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

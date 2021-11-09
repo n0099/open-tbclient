@@ -34,19 +34,19 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48033e;
+    public TbPageContext f48032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EmotionHorizontalView f48034f;
+    public EmotionHorizontalView f48033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionHorizontalView f48035g;
+    public EmotionHorizontalView f48034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionHorizontalView f48036h;
+    public EmotionHorizontalView f48035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f48037i;
+    public ImageView f48036i;
     public LinearLayout j;
     public RelativeLayout k;
     public View l;
@@ -75,7 +75,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
             }
         }
         this.p = null;
-        this.f48033e = tbPageContext;
+        this.f48032e = tbPageContext;
         a();
     }
 
@@ -98,31 +98,31 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.emotion_category_layout, this);
-            this.f48034f = new EmotionHorizontalView(this.f48033e);
-            this.f48035g = new EmotionHorizontalView(this.f48033e);
-            this.f48036h = new EmotionHorizontalView(this.f48033e);
-            this.f48034f.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            this.f48035g.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            this.f48036h.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            addView(this.f48034f);
-            addView(this.f48035g);
-            addView(this.f48036h);
-            this.f48034f.setVisibility(8);
-            this.f48035g.setVisibility(8);
-            this.f48036h.setVisibility(8);
+            this.f48033f = new EmotionHorizontalView(this.f48032e);
+            this.f48034g = new EmotionHorizontalView(this.f48032e);
+            this.f48035h = new EmotionHorizontalView(this.f48032e);
+            this.f48033f.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            this.f48034g.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            this.f48035h.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            addView(this.f48033f);
+            addView(this.f48034g);
+            addView(this.f48035h);
+            this.f48033f.setVisibility(8);
+            this.f48034g.setVisibility(8);
+            this.f48035h.setVisibility(8);
             this.j = (LinearLayout) findViewById(R.id.emotion_change_item);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.change_head_layout);
             this.k = relativeLayout;
             relativeLayout.setVisibility(8);
             ImageView imageView = (ImageView) findViewById(R.id.emotion_change_iv);
-            this.f48037i = imageView;
+            this.f48036i = imageView;
             imageView.setOnClickListener(this);
             this.l = findViewById(R.id.category_line_top);
             this.m = (TextView) findViewById(R.id.emotion_title);
             TextView textView = (TextView) findViewById(R.id.emotion_function);
             this.n = textView;
             textView.setOnClickListener(this);
-            this.o = new EmotionChangeModel(this.f48033e);
+            this.o = new EmotionChangeModel(this.f48032e);
             onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -142,7 +142,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public void endRefreshAnimation() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f48037i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f48036i) == null) {
             return;
         }
         imageView.clearAnimation();
@@ -173,7 +173,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             SkinManager.setBackgroundColor(this.l, R.color.common_color_10312);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f48037i, R.drawable.emotion_icon_refresh);
+            SkinManager.setImageResource(this.f48036i, R.drawable.emotion_icon_refresh);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
         }
     }
@@ -183,7 +183,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         EmotionChangeModel emotionChangeModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
-            if ((view == this.f48037i || view == this.n) && (emotionChangeModel = this.o) != null) {
+            if ((view == this.f48036i || view == this.n) && (emotionChangeModel = this.o) != null) {
                 emotionChangeModel.w(this);
                 startRefreshAnimation();
             }
@@ -217,30 +217,30 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         this.k.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            this.f48034f.setVisibility(0);
-            this.f48034f.setData(list.get(0));
-            this.f48035g.setVisibility(8);
-            this.f48036h.setVisibility(8);
+            this.f48033f.setVisibility(0);
+            this.f48033f.setData(list.get(0));
+            this.f48034g.setVisibility(8);
+            this.f48035h.setVisibility(8);
         } else if (size == 2) {
-            this.f48034f.setVisibility(0);
-            this.f48034f.setData(list.get(0));
-            this.f48035g.setVisibility(0);
-            this.f48035g.setData(list.get(1));
-            this.f48036h.setVisibility(8);
+            this.f48033f.setVisibility(0);
+            this.f48033f.setData(list.get(0));
+            this.f48034g.setVisibility(0);
+            this.f48034g.setData(list.get(1));
+            this.f48035h.setVisibility(8);
         } else {
-            this.f48034f.setVisibility(0);
-            this.f48034f.setData(list.get(0));
-            this.f48035g.setVisibility(0);
-            this.f48035g.setData(list.get(1));
-            this.f48036h.setVisibility(0);
-            this.f48036h.setData(list.get(2));
+            this.f48033f.setVisibility(0);
+            this.f48033f.setData(list.get(0));
+            this.f48034g.setVisibility(0);
+            this.f48034g.setData(list.get(1));
+            this.f48035h.setVisibility(0);
+            this.f48035h.setData(list.get(2));
         }
     }
 
     public void startRefreshAnimation() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (imageView = this.f48037i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (imageView = this.f48036i) == null) {
             return;
         }
         imageView.startAnimation(getClickRotateAnimation());

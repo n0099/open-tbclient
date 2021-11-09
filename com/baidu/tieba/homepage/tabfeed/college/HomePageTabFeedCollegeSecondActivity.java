@@ -42,10 +42,10 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f49742a;
+        public final /* synthetic */ List f49741a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f49743b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f49742b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49743b = homePageTabFeedCollegeSecondActivity;
-            this.f49742a = list;
+            this.f49742b = homePageTabFeedCollegeSecondActivity;
+            this.f49741a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f49742a.size() ? 2 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f49741a.size() ? 2 : 1 : invokeI.intValue;
         }
     }
 
@@ -80,7 +80,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f49744e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f49743e;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49744e = homePageTabFeedCollegeSecondActivity;
+            this.f49743e = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,13 +122,13 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f49744e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f49744e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.f49743e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f49743e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
                 } else if (i3 != 4) {
                     return;
                 }
             }
-            this.f49744e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f49744e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.f49743e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f49743e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 

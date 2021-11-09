@@ -57,9 +57,44 @@ public class MissionCustomDialogActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MissionCustomDialogActivity f51623e;
+        public final /* synthetic */ MissionCustomDialogActivity f51622e;
 
         public a(MissionCustomDialogActivity missionCustomDialogActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {missionCustomDialogActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51622e = missionCustomDialogActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f51622e.handleTask();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MissionCustomDialogActivity f51623e;
+
+        public b(MissionCustomDialogActivity missionCustomDialogActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,43 +116,8 @@ public class MissionCustomDialogActivity extends BaseActivity {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51623e.handleTask();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MissionCustomDialogActivity f51624e;
-
-        public b(MissionCustomDialogActivity missionCustomDialogActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {missionCustomDialogActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51624e = missionCustomDialogActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.y().D() ? 2 : 1).param("obj_type", 3));
-                this.f51624e.finish();
+                this.f51623e.finish();
             }
         }
     }
@@ -128,7 +128,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MissionCustomDialogActivity f51625a;
+        public final /* synthetic */ MissionCustomDialogActivity f51624a;
 
         public c(MissionCustomDialogActivity missionCustomDialogActivity) {
             Interceptable interceptable = $ic;
@@ -145,14 +145,14 @@ public class MissionCustomDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51625a = missionCustomDialogActivity;
+            this.f51624a = missionCustomDialogActivity;
         }
 
         @Override // com.baidu.tbadk.widget.mission.SignItemView.b
         public void a(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, activeCenterStatusData) == null) {
-                this.f51625a.applyBottomStatus(activeCenterStatusData);
+                this.f51624a.applyBottomStatus(activeCenterStatusData);
             }
         }
     }

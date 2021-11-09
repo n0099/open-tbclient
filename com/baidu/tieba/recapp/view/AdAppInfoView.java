@@ -36,13 +36,13 @@ public class AdAppInfoView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdvertAppInfo f53622e;
+    public AdvertAppInfo f53621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53623f;
+    public int f53622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53624g;
+    public int f53623g;
     public c mAdInfoModel;
     public TextView mAdTagView;
     public TextView mAppName;
@@ -81,7 +81,7 @@ public class AdAppInfoView extends FrameLayout {
             return;
         }
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.SimpleAdInfoView);
-        this.f53623f = obtainStyledAttributes.getResourceId(R$styleable.SimpleAdInfoView_layoutId, this.f53623f);
+        this.f53622f = obtainStyledAttributes.getResourceId(R$styleable.SimpleAdInfoView_layoutId, this.f53622f);
         obtainStyledAttributes.recycle();
     }
 
@@ -96,10 +96,10 @@ public class AdAppInfoView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewTreeObserver f53626e;
+            public final /* synthetic */ ViewTreeObserver f53625e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ AdAppInfoView f53627f;
+            public final /* synthetic */ AdAppInfoView f53626f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -116,8 +116,8 @@ public class AdAppInfoView extends FrameLayout {
                         return;
                     }
                 }
-                this.f53627f = this;
-                this.f53626e = viewTreeObserver;
+                this.f53626f = this;
+                this.f53625e = viewTreeObserver;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -126,13 +126,13 @@ public class AdAppInfoView extends FrameLayout {
                 int lineCount;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    Layout layout = this.f53627f.mAuthorNameView.getLayout();
+                    Layout layout = this.f53626f.mAuthorNameView.getLayout();
                     if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
-                        AdAppInfoView adAppInfoView = this.f53627f;
+                        AdAppInfoView adAppInfoView = this.f53626f;
                         adAppInfoView.mAuthorNameView.setOnClickListener(adAppInfoView.mClickListener);
                     }
-                    if (this.f53626e.isAlive()) {
-                        this.f53626e.removeOnGlobalLayoutListener(this);
+                    if (this.f53625e.isAlive()) {
+                        this.f53625e.removeOnGlobalLayoutListener(this);
                     }
                 }
             }
@@ -141,10 +141,10 @@ public class AdAppInfoView extends FrameLayout {
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f53622e == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f53621e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        b.a.r0.z2.l0.c b2 = g.b(this.f53622e, 102, 0);
+        b.a.r0.z2.l0.c b2 = g.b(this.f53621e, 102, 0);
         b2.c(str);
         e.b().d(b2);
     }
@@ -158,7 +158,7 @@ public class AdAppInfoView extends FrameLayout {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53623f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53622f : invokeV.intValue;
     }
 
     public void init(AttributeSet attributeSet) {
@@ -183,10 +183,10 @@ public class AdAppInfoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             SkinManager.setViewTextColor(this.mAppName, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.mVersionView, this.f53624g);
-            SkinManager.setViewTextColor(this.mAuthorNameView, this.f53624g);
-            SkinManager.setViewTextColor(this.mPrivacyTagView, this.f53624g);
-            SkinManager.setViewTextColor(this.mPermissionTagView, this.f53624g);
+            SkinManager.setViewTextColor(this.mVersionView, this.f53623g);
+            SkinManager.setViewTextColor(this.mAuthorNameView, this.f53623g);
+            SkinManager.setViewTextColor(this.mPrivacyTagView, this.f53623g);
+            SkinManager.setViewTextColor(this.mPermissionTagView, this.f53623g);
             this.mRatingBar.onChangeSkinType();
         }
     }
@@ -194,7 +194,7 @@ public class AdAppInfoView extends FrameLayout {
     public void setAd(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            this.f53622e = advertAppInfo;
+            this.f53621e = advertAppInfo;
         }
     }
 
@@ -270,7 +270,7 @@ public class AdAppInfoView extends FrameLayout {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f53624g = i2;
+            this.f53623g = i2;
             this.mRatingBar.setTextColor(i2);
         }
     }
@@ -322,14 +322,14 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.f53623f = R.layout.ad_app_info_view;
-        this.f53624g = R.color.CAM_X0109;
+        this.f53622f = R.layout.ad_app_info_view;
+        this.f53623g = R.color.CAM_X0109;
         this.mClickListener = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdAppInfoView f53625e;
+            public final /* synthetic */ AdAppInfoView f53624e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -346,20 +346,20 @@ public class AdAppInfoView extends FrameLayout {
                         return;
                     }
                 }
-                this.f53625e = this;
+                this.f53624e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f53625e.mAdInfoModel == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f53624e.mAdInfoModel == null) {
                     return;
                 }
                 int id = view.getId();
                 String str2 = "";
                 if (id == R.id.ad_privacy) {
-                    c.b bVar = this.f53625e.mAdInfoModel.f13244g;
+                    c.b bVar = this.f53624e.mAdInfoModel.f13244g;
                     if (bVar != null) {
                         str2 = bVar.f13250b;
                         str = "app_privacy";
@@ -367,19 +367,19 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                 } else {
                     if (id == R.id.ad_permission) {
-                        c.a aVar = this.f53625e.mAdInfoModel.f13245h;
+                        c.a aVar = this.f53624e.mAdInfoModel.f13245h;
                         if (aVar != null) {
                             str2 = aVar.f13248b;
                             str = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        l.M(this.f53625e.getContext(), this.f53625e.mAdInfoModel.f13241d);
+                        l.M(this.f53624e.getContext(), this.f53624e.mAdInfoModel.f13241d);
                         return;
                     }
                     str = "";
                 }
-                z.d(this.f53625e.getContext(), str2, null, null);
-                this.f53625e.c(str);
+                z.d(this.f53624e.getContext(), str2, null, null);
+                this.f53624e.c(str);
             }
         };
         init(attributeSet);

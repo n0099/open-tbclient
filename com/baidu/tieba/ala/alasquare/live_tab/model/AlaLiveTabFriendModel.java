@@ -28,19 +28,19 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f46931e;
+    public TbPageContext f46930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46932f;
+    public int f46931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f46933g;
+    public boolean f46932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f46934h;
+    public boolean f46933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f46935i;
+    public BdUniqueId f46934i;
     public b.a.r0.w.f.c.g.a j;
     public long k;
     public b l;
@@ -52,7 +52,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFriendModel f46936a;
+        public final /* synthetic */ AlaLiveTabFriendModel f46935a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaLiveTabFriendModel alaLiveTabFriendModel, int i2) {
@@ -72,38 +72,38 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f46936a = alaLiveTabFriendModel;
+            this.f46935a = alaLiveTabFriendModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f46936a.f46935i) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f46935a.f46934i) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
-                    if (this.f46936a.l != null) {
-                        this.f46936a.l.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f46936a.f46934h);
+                    if (this.f46935a.l != null) {
+                        this.f46935a.l.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f46935a.f46933h);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (this.f46936a.f46934h) {
-                        this.f46936a.j.a(jVar);
-                        AlaLiveTabFriendModel.C(this.f46936a);
+                    if (this.f46935a.f46933h) {
+                        this.f46935a.j.a(jVar);
+                        AlaLiveTabFriendModel.C(this.f46935a);
                     } else {
                         AlaLiveTabFragment.REFRESH_NEW_COUNT_FRIEND_TAB++;
-                        if (this.f46936a.j != null) {
-                            this.f46936a.j.b();
+                        if (this.f46935a.j != null) {
+                            this.f46935a.j.b();
                         }
-                        this.f46936a.j = new b.a.r0.w.f.c.g.a(alaTabLiveResponsedMessage);
+                        this.f46935a.j = new b.a.r0.w.f.c.g.a(alaTabLiveResponsedMessage);
                     }
-                    AlaLiveTabFriendModel alaLiveTabFriendModel = this.f46936a;
-                    alaLiveTabFriendModel.f46933g = alaLiveTabFriendModel.j.f();
-                    if (this.f46936a.l != null) {
-                        this.f46936a.l.a(this.f46936a.f46933g, this.f46936a.j.d());
+                    AlaLiveTabFriendModel alaLiveTabFriendModel = this.f46935a;
+                    alaLiveTabFriendModel.f46932g = alaLiveTabFriendModel.j.f();
+                    if (this.f46935a.l != null) {
+                        this.f46935a.l.a(this.f46935a.f46932g, this.f46935a.j.d());
                     }
                 }
-                this.f46936a.f46934h = false;
+                this.f46935a.f46933h = false;
             }
         }
     }
@@ -131,14 +131,14 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
             }
         }
         this.m = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
-        this.f46931e = tbPageContext;
+        this.f46930e = tbPageContext;
         this.l = bVar;
-        this.f46935i = BdUniqueId.gen();
+        this.f46934i = BdUniqueId.gen();
     }
 
     public static /* synthetic */ int C(AlaLiveTabFriendModel alaLiveTabFriendModel) {
-        int i2 = alaLiveTabFriendModel.f46932f;
-        alaLiveTabFriendModel.f46932f = i2 + 1;
+        int i2 = alaLiveTabFriendModel.f46931f;
+        alaLiveTabFriendModel.f46931f = i2 + 1;
         return i2;
     }
 
@@ -160,11 +160,11 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", l.k(this.f46931e.getPageActivity()) + "_" + l.i(this.f46931e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", l.k(this.f46930e.getPageActivity()) + "_" + l.i(this.f46930e.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.k);
             httpMessage.addParam("refresh_type", i3);
             httpMessage.addParam("big_refresh_count", i4);
-            httpMessage.setTag(this.f46935i);
+            httpMessage.setTag(this.f46934i);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -208,13 +208,13 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f46933g && !this.f46934h) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f46932g && !this.f46933h) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.k >= 1800000) {
                 this.k = currentTimeMillis;
             }
-            this.f46934h = true;
-            F(this.f46932f + 1, 1, AlaLiveTabFragment.REFRESH_NEW_COUNT_FRIEND_TAB - 1);
+            this.f46933h = true;
+            F(this.f46931f + 1, 1, AlaLiveTabFragment.REFRESH_NEW_COUNT_FRIEND_TAB - 1);
         }
     }
 
@@ -229,8 +229,8 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.k = System.currentTimeMillis();
-            this.f46934h = false;
-            this.f46932f = 1;
+            this.f46933h = false;
+            this.f46931f = 1;
             F(1, 0, AlaLiveTabFragment.REFRESH_NEW_COUNT_FRIEND_TAB);
         }
     }

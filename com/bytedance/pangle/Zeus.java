@@ -77,7 +77,7 @@ public class Zeus {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
             com.bytedance.pangle.download.h a2 = com.bytedance.pangle.download.h.a();
             synchronized (a2) {
-                Iterator<PluginDownloadBean> it = a2.f61350c.iterator();
+                Iterator<PluginDownloadBean> it = a2.f61349c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -89,7 +89,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a2.f61349b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a2.f61348b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -160,7 +160,7 @@ public class Zeus {
     public static boolean hasInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? i.a().f61438a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? i.a().f61437a : invokeV.booleanValue;
     }
 
     public static boolean hasNewPlugin(String str) {
@@ -214,7 +214,7 @@ public class Zeus {
     public static void preInit() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65555, null) == null) && com.bytedance.pangle.util.h.e()) {
-            com.bytedance.pangle.helper.e.f61434a.execute(new Runnable() { // from class: com.bytedance.pangle.Zeus.1
+            com.bytedance.pangle.helper.e.f61433a.execute(new Runnable() { // from class: com.bytedance.pangle.Zeus.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -251,10 +251,10 @@ public class Zeus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, zeusPluginStateListener) == null) {
             i a2 = i.a();
-            if (a2.f61440c.isEmpty()) {
-                a2.f61440c = new CopyOnWriteArrayList();
+            if (a2.f61439c.isEmpty()) {
+                a2.f61439c = new CopyOnWriteArrayList();
             }
-            a2.f61440c.add(zeusPluginStateListener);
+            a2.f61439c.add(zeusPluginStateListener);
         }
     }
 
@@ -297,8 +297,8 @@ public class Zeus {
         i a2;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a2 = i.a()).f61440c) != null && list.contains(zeusPluginStateListener)) {
-            a2.f61440c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a2 = i.a()).f61439c) != null && list.contains(zeusPluginStateListener)) {
+            a2.f61439c.remove(zeusPluginStateListener);
         }
     }
 

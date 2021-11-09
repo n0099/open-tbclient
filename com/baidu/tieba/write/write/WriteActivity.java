@@ -415,7 +415,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56021a;
+        public final /* synthetic */ WriteActivity f56020a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WriteActivity writeActivity, int i2) {
@@ -435,7 +435,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56021a = writeActivity;
+            this.f56020a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -445,13 +445,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.f56021a.mLocationModel.N(false);
-                    this.f56021a.mLocationModel.M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                    this.f56021a.sendLocaionAction(2, true, responsedSelectLocation.getName());
+                    this.f56020a.mLocationModel.N(false);
+                    this.f56020a.mLocationModel.M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.f56020a.sendLocaionAction(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.f56021a.mLocationModel.N(true);
-                this.f56021a.sendLocaionAction(0, true, null);
+                this.f56020a.mLocationModel.N(true);
+                this.f56020a.sendLocaionAction(0, true, null);
             }
         }
     }
@@ -462,9 +462,44 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56022e;
+        public final /* synthetic */ WriteActivity f56021e;
 
         public a0(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56021e = writeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56021e.sendMessage(new CustomMessage(2002001, new ImageProblemActivityConfig(this.f56021e.getPageContext().getPageActivity())));
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class a1 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56022e;
+
+        public a1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -482,46 +517,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56022e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56022e.sendMessage(new CustomMessage(2002001, new ImageProblemActivityConfig(this.f56022e.getPageContext().getPageActivity())));
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class a1 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56023e;
-
-        public a1(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56023e = writeActivity;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.e.e.p.l.x(this.f56023e.getActivity(), this.f56023e.getCurrentFocus());
+                b.a.e.e.p.l.x(this.f56022e.getActivity(), this.f56022e.getCurrentFocus());
             }
         }
     }
@@ -532,7 +532,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56024a;
+        public final /* synthetic */ WriteActivity f56023a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(WriteActivity writeActivity, int i2) {
@@ -552,7 +552,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56024a = writeActivity;
+            this.f56023a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -560,7 +560,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f56024a.showToast((String) customResponsedMessage.getData());
+                this.f56023a.showToast((String) customResponsedMessage.getData());
             }
         }
     }
@@ -571,7 +571,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56025a;
+        public final /* synthetic */ WriteActivity f56024a;
 
         public b0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -588,17 +588,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56025a = writeActivity;
+            this.f56024a = writeActivity;
         }
 
         @Override // com.baidu.tieba.write.view.AssociatedItemContainer.c
         public void a(ItemData itemData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
-                this.f56025a.mData.removeItemData(itemData);
-                if (ListUtils.isEmpty(this.f56025a.mData.getItemDatas())) {
-                    this.f56025a.changeToolButtonStatus();
-                    this.f56025a.associatedItemContainer.setVisibility(8);
+                this.f56024a.mData.removeItemData(itemData);
+                if (ListUtils.isEmpty(this.f56024a.mData.getItemDatas())) {
+                    this.f56024a.changeToolButtonStatus();
+                    this.f56024a.associatedItemContainer.setVisibility(8);
                 }
             }
         }
@@ -610,7 +610,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56026e;
+        public final /* synthetic */ WriteActivity f56025e;
 
         public b1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -627,15 +627,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56026e = writeActivity;
+            this.f56025e = writeActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56026e.mPhotoLiveGridViewAdapter.notifyDataSetChanged();
-                this.f56026e.mPhotoLiveGridView.invalidateViews();
+                this.f56025e.mPhotoLiveGridViewAdapter.notifyDataSetChanged();
+                this.f56025e.mPhotoLiveGridView.invalidateViews();
             }
         }
     }
@@ -646,7 +646,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56027a;
+        public final /* synthetic */ WriteActivity f56026a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(WriteActivity writeActivity, int i2) {
@@ -666,7 +666,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56027a = writeActivity;
+            this.f56026a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -676,7 +676,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 return;
             }
-            this.f56027a.checkClipboardAndShowNewLinkBubble();
+            this.f56026a.checkClipboardAndShowNewLinkBubble();
         }
     }
 
@@ -686,7 +686,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56028a;
+        public final /* synthetic */ WriteActivity f56027a;
 
         public c0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -703,17 +703,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56028a = writeActivity;
+            this.f56027a = writeActivity;
         }
 
         @Override // com.baidu.tieba.write.view.AssociatedItemContainer.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (this.f56028a.imageGridView.getVisibility() == 0) {
-                    this.f56028a.changeAssociatedItemContainerLayoutParams(true);
+                if (this.f56027a.imageGridView.getVisibility() == 0) {
+                    this.f56027a.changeAssociatedItemContainerLayoutParams(true);
                 } else {
-                    this.f56028a.changeAssociatedItemContainerLayoutParams(false);
+                    this.f56027a.changeAssociatedItemContainerLayoutParams(false);
                 }
             }
         }
@@ -725,7 +725,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56029a;
+        public final /* synthetic */ WriteActivity f56028a;
 
         public c1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -742,7 +742,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56029a = writeActivity;
+            this.f56028a = writeActivity;
         }
 
         @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
@@ -775,7 +775,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56030a;
+        public final /* synthetic */ WriteActivity f56029a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(WriteActivity writeActivity, int i2) {
@@ -795,7 +795,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56030a = writeActivity;
+            this.f56029a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -803,9 +803,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f56030a.clearDraft();
-                this.f56030a.setResult(100);
-                this.f56030a.finish();
+                this.f56029a.clearDraft();
+                this.f56029a.setResult(100);
+                this.f56029a.finish();
             }
         }
     }
@@ -816,9 +816,48 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56031a;
+        public final /* synthetic */ WriteActivity f56030a;
 
         public d0(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56030a = writeActivity;
+        }
+
+        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.b
+        public void onStarChange(float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+                if (TextUtils.isEmpty(this.f56030a.mPostContent.getText()) || this.f56030a.mPostContent.getText().length() < 20 || this.f56030a.mPostContent.getText().length() > 500 || f2 <= 0.0f) {
+                    this.f56030a.mPost.setEnabled(false);
+                } else {
+                    this.f56030a.mPost.setEnabled(true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class d1 extends BdAsyncTask<Void, Integer, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56031a;
+
+        public d1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -836,52 +875,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56031a = writeActivity;
         }
 
-        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.b
-        public void onStarChange(float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-                if (TextUtils.isEmpty(this.f56031a.mPostContent.getText()) || this.f56031a.mPostContent.getText().length() < 20 || this.f56031a.mPostContent.getText().length() > 500 || f2 <= 0.0f) {
-                    this.f56031a.mPost.setEnabled(false);
-                } else {
-                    this.f56031a.mPost.setEnabled(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class d1 extends BdAsyncTask<Void, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56032a;
-
-        public d1(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56032a = writeActivity;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + this.f56032a.photoName));
+                FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + this.f56031a.photoName));
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -894,7 +894,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56033a;
+        public final /* synthetic */ WriteActivity f56032a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(WriteActivity writeActivity, int i2) {
@@ -914,7 +914,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56033a = writeActivity;
+            this.f56032a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -922,7 +922,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                this.f56033a.setupRelevanceItemSelected((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
+                this.f56032a.setupRelevanceItemSelected((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
             }
         }
     }
@@ -933,9 +933,44 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56034a;
+        public final /* synthetic */ WriteActivity f56033a;
 
         public e0(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56033a = writeActivity;
+        }
+
+        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f56033a.mPost.setEnabled(false);
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class e1 extends t.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56034a;
+
+        public e1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -953,24 +988,39 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56034a = writeActivity;
         }
 
-        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
-        public void onClose() {
+        @Override // b.a.q0.d1.t.a
+        public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56034a.mPost.setEnabled(false);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            }
+        }
+
+        @Override // b.a.q0.d1.t.a
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists() && this.f56034a.writeImagesInfo != null) {
+                this.f56034a.writeImagesInfo.clear();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                imageFileInfo.isFromMoreForum = true;
+                this.f56034a.writeImagesInfo.addChooseFile(imageFileInfo);
+                this.f56034a.writeImagesInfo.setMaxImagesAllowed(1);
+                this.f56034a.refreshMutiImage(true);
+                this.f56034a.refreshVideoLauncher();
+                this.f56034a.refreshImageLauncher();
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class e1 extends t.a {
+    public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56035a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56035e;
 
-        public e1(WriteActivity writeActivity) {
+        public f(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -985,42 +1035,32 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56035a = writeActivity;
+            this.f56035e = writeActivity;
         }
 
-        @Override // b.a.q0.d1.t.a
-        public void onError(int i2, String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            }
-        }
-
-        @Override // b.a.q0.d1.t.a
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists() && this.f56035a.writeImagesInfo != null) {
-                this.f56035a.writeImagesInfo.clear();
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(str);
-                imageFileInfo.isFromMoreForum = true;
-                this.f56035a.writeImagesInfo.addChooseFile(imageFileInfo);
-                this.f56035a.writeImagesInfo.setMaxImagesAllowed(1);
-                this.f56035a.refreshMutiImage(true);
-                this.f56035a.refreshVideoLauncher();
-                this.f56035a.refreshImageLauncher();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56035e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
+                int emotionCheck = this.f56035e.emotionCheck();
+                if (emotionCheck < 0 || emotionCheck >= this.f56035e.mPostContent.getText().length()) {
+                    return;
+                }
+                this.f56035e.mPostContent.setSelection(emotionCheck);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class f implements View.OnClickListener {
+    public class f0 extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56036e;
 
-        public f(WriteActivity writeActivity) {
+        public f0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1038,51 +1078,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56036e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56036e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
-                int emotionCheck = this.f56036e.emotionCheck();
-                if (emotionCheck < 0 || emotionCheck >= this.f56036e.mPostContent.getText().length()) {
-                    return;
-                }
-                this.f56036e.mPostContent.setSelection(emotionCheck);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class f0 extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56037e;
-
-        public f0(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56037e = writeActivity;
-        }
-
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.e.m.g.i(this.f56037e.mEBusinessProtocolView, this.f56037e);
+                b.a.e.e.m.g.i(this.f56036e.mEBusinessProtocolView, this.f56036e);
             }
         }
 
@@ -1101,9 +1101,46 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56038e;
+        public final /* synthetic */ WriteActivity f56037e;
 
         public f1(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56037e = writeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56037e.latestPic == null) {
+                return;
+            }
+            WriteActivity writeActivity = this.f56037e;
+            writeActivity.chooseRecommendPic(writeActivity.latestPic.getAbsolutePath());
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class g implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56038e;
+
+        public g(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1121,48 +1158,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56038e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56038e.latestPic == null) {
-                return;
-            }
-            WriteActivity writeActivity = this.f56038e;
-            writeActivity.chooseRecommendPic(writeActivity.latestPic.getAbsolutePath());
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class g implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56039e;
-
-        public g(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56039e = writeActivity;
-        }
-
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f56039e.sendLocaionAction(0, true, null);
+                this.f56038e.sendLocaionAction(0, true, null);
                 aVar.dismiss();
             }
         }
@@ -1174,7 +1174,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56040a;
+        public final /* synthetic */ WriteActivity f56039a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g0(WriteActivity writeActivity, int i2) {
@@ -1194,7 +1194,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56040a = writeActivity;
+            this.f56039a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1202,11 +1202,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                WriteActivity writeActivity = this.f56040a;
+                WriteActivity writeActivity = this.f56039a;
                 if (writeActivity.mData == null || !writeActivity.canGoods) {
                     return;
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_SHOW).param("obj_locate", 1).param("fid", this.f56040a.mData.getForumId()).param("fname", this.f56040a.mData.getForumName()));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_SHOW).param("obj_locate", 1).param("fid", this.f56039a.mData.getForumId()).param("fname", this.f56039a.mData.getForumName()));
             }
         }
     }
@@ -1217,9 +1217,45 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56041e;
+        public final /* synthetic */ WriteActivity f56040e;
 
         public g1(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56040e = writeActivity;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.f56040e.isAttach) {
+                b.a.e.e.p.l.x(this.f56040e.getPageContext().getPageActivity(), this.f56040e.getCurrentFocus());
+                this.f56040e.recTimeStamp = System.currentTimeMillis();
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class h implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56041e;
+
+        public h(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1237,51 +1273,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56041e = writeActivity;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.f56041e.isAttach) {
-                b.a.e.e.p.l.x(this.f56041e.getPageContext().getPageActivity(), this.f56041e.getCurrentFocus());
-                this.f56041e.recTimeStamp = System.currentTimeMillis();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class h implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56042e;
-
-        public h(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56042e = writeActivity;
-        }
-
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (b.a.e.e.p.j.z()) {
-                    this.f56042e.sendLocaionAction(1, true, null);
-                    this.f56042e.mLocationModel.L();
+                    this.f56041e.sendLocaionAction(1, true, null);
+                    this.f56041e.mLocationModel.L();
                 } else {
-                    this.f56042e.mOnLocationCallBack.a();
+                    this.f56041e.mOnLocationCallBack.a();
                 }
                 aVar.dismiss();
             }
@@ -1294,7 +1294,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56043e;
+        public final /* synthetic */ WriteActivity f56042e;
 
         /* loaded from: classes10.dex */
         public class a implements a.e {
@@ -1375,32 +1375,32 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56043e = writeActivity;
+            this.f56042e = writeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f56043e.isAgreedProtocol) {
-                    this.f56043e.isAgreedProtocol = false;
-                    this.f56043e.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_use_uncheck16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                if (this.f56042e.isAgreedProtocol) {
+                    this.f56042e.isAgreedProtocol = false;
+                    this.f56042e.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_use_uncheck16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 } else {
-                    this.f56043e.isAgreedProtocol = true;
-                    this.f56043e.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    this.f56042e.isAgreedProtocol = true;
+                    this.f56042e.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 }
                 b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
-                if (j.g(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false) || !this.f56043e.isAgreedProtocol) {
+                if (j.g(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false) || !this.f56042e.isAgreedProtocol) {
                     return;
                 }
-                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f56043e);
+                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f56042e);
                 aVar.setNegativeTextColor(R.color.CAM_X0105);
                 aVar.setTitle("");
-                aVar.setMessage(this.f56043e.getResources().getString(R.string.protocol_tip));
+                aVar.setMessage(this.f56042e.getResources().getString(R.string.protocol_tip));
                 aVar.setContentViewSize(1);
                 aVar.setPositiveButton("同意", new a(this));
                 aVar.setNegativeButton("取消", new b(this));
-                aVar.create(this.f56043e.getPageContext()).show();
+                aVar.create(this.f56042e.getPageContext()).show();
             }
         }
     }
@@ -1411,9 +1411,55 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56044e;
+        public final /* synthetic */ WriteActivity f56043e;
 
         public h1(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56043e = writeActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56043e.mEditor == null || this.f56043e.mEditor.mEB == null) {
+                return;
+            }
+            String clipBoardContent = UtilHelper.getClipBoardContent();
+            if (b.a.e.e.p.k.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
+                return;
+            }
+            if (this.f56043e.mFindNewLinkBubbleController == null) {
+                WriteActivity writeActivity = this.f56043e;
+                writeActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(writeActivity.getPageContext(), this.f56043e.mOnNewLinkBubbleClickListener);
+            }
+            View launcherForId = this.f56043e.mEditor.mEB.getLauncherForId(31);
+            WriteTipBubbleController writeTipBubbleController = this.f56043e.mFindNewLinkBubbleController;
+            writeTipBubbleController.d(launcherForId, this.f56043e.getPageContext().getString(R.string.find_new_link) + StringUtils.LF + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class i implements View.OnFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56044e;
+
+        public i(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1431,77 +1477,31 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56044e = writeActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56044e.mEditor == null || this.f56044e.mEditor.mEB == null) {
-                return;
-            }
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            if (b.a.e.e.p.k.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
-                return;
-            }
-            if (this.f56044e.mFindNewLinkBubbleController == null) {
-                WriteActivity writeActivity = this.f56044e;
-                writeActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(writeActivity.getPageContext(), this.f56044e.mOnNewLinkBubbleClickListener);
-            }
-            View launcherForId = this.f56044e.mEditor.mEB.getLauncherForId(31);
-            WriteTipBubbleController writeTipBubbleController = this.f56044e.mFindNewLinkBubbleController;
-            writeTipBubbleController.d(launcherForId, this.f56044e.getPageContext().getString(R.string.find_new_link) + StringUtils.LF + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class i implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56045e;
-
-        public i(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56045e = writeActivity;
-        }
-
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (view == this.f56045e.mPostTitle || view == this.f56045e.mBack || view == this.f56045e.mPost) {
+                if (view == this.f56044e.mPostTitle || view == this.f56044e.mBack || view == this.f56044e.mPost) {
                     if (z) {
-                        this.f56045e.isDisalbeButtons = true;
-                        this.f56045e.changeToolButtonStatus();
-                        b.a.e.e.p.l.K(this.f56045e.getActivity(), this.f56045e.mPostTitle);
-                        if (this.f56045e.mEditor != null) {
-                            this.f56045e.mEditor.hideTools();
+                        this.f56044e.isDisalbeButtons = true;
+                        this.f56044e.changeToolButtonStatus();
+                        b.a.e.e.p.l.K(this.f56044e.getActivity(), this.f56044e.mPostTitle);
+                        if (this.f56044e.mEditor != null) {
+                            this.f56044e.mEditor.hideTools();
                         }
-                    } else if (view == this.f56045e.mPostTitle) {
-                        this.f56045e.mPrefix.setVisibility(0);
+                    } else if (view == this.f56044e.mPostTitle) {
+                        this.f56044e.mPrefix.setVisibility(0);
                     }
                 }
-                if (view == this.f56045e.mPostContent && z) {
-                    this.f56045e.isDisalbeButtons = false;
-                    this.f56045e.changeToolButtonStatus();
-                    b.a.e.e.p.l.K(this.f56045e.getActivity(), this.f56045e.mPostContent);
-                    if (this.f56045e.mEditor != null) {
-                        this.f56045e.mEditor.hideTools();
+                if (view == this.f56044e.mPostContent && z) {
+                    this.f56044e.isDisalbeButtons = false;
+                    this.f56044e.changeToolButtonStatus();
+                    b.a.e.e.p.l.K(this.f56044e.getActivity(), this.f56044e.mPostContent);
+                    if (this.f56044e.mEditor != null) {
+                        this.f56044e.mEditor.hideTools();
                     }
                 }
-                this.f56045e.updateHintTextColor();
+                this.f56044e.updateHintTextColor();
             }
         }
     }
@@ -1512,7 +1512,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56046a;
+        public final /* synthetic */ WriteActivity f56045a;
 
         public i0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -1529,7 +1529,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56046a = writeActivity;
+            this.f56045a = writeActivity;
         }
 
         @Override // com.baidu.tieba.view.EBusinessProtocolView.f
@@ -1537,14 +1537,14 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    if (this.f56046a.isAgreedProtocol) {
+                    if (this.f56045a.isAgreedProtocol) {
                         return;
                     }
-                    this.f56046a.isAgreedProtocol = true;
-                    this.f56046a.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-                } else if (this.f56046a.isAgreedProtocol) {
-                    this.f56046a.isAgreedProtocol = false;
-                    this.f56046a.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_use_uncheck16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.f56045a.isAgreedProtocol = true;
+                    this.f56045a.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                } else if (this.f56045a.isAgreedProtocol) {
+                    this.f56045a.isAgreedProtocol = false;
+                    this.f56045a.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_use_uncheck16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 }
             }
         }
@@ -1556,10 +1556,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f56047e;
+        public final /* synthetic */ b.a.q0.s.s.a f56046e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56048f;
+        public final /* synthetic */ WriteActivity f56047f;
 
         public i1(WriteActivity writeActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -1576,26 +1576,26 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56048f = writeActivity;
-            this.f56047e = aVar;
+            this.f56047f = writeActivity;
+            this.f56046e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.a.q0.s.s.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f56047e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f56046e) == null) {
                 return;
             }
             aVar.dismiss();
             b.a.q0.s.e0.b.j().t("commodity_goods_show_first_dialog", true);
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 2);
-            WriteData writeData = this.f56048f.mData;
+            WriteData writeData = this.f56047f.mData;
             StatisticItem param2 = param.param("fid", writeData != null ? writeData.getForumId() : "");
-            WriteData writeData2 = this.f56048f.mData;
+            WriteData writeData2 = this.f56047f.mData;
             TiebaStatic.log(param2.param("fname", writeData2 != null ? writeData2.getForumName() : ""));
             String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=" + this.f56048f.getStillCommodityNum()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=" + this.f56047f.getStillCommodityNum()));
         }
     }
 
@@ -1605,7 +1605,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56049g;
+        public final /* synthetic */ WriteActivity f56048g;
 
         public j(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -1622,7 +1622,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56049g = writeActivity;
+            this.f56048g = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1635,9 +1635,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 if (goodsEvent == null) {
                     return false;
                 }
-                this.f56049g.parseProductData(goodsEvent.getGoodsList());
+                this.f56048g.parseProductData(goodsEvent.getGoodsList());
                 goodsEvent.setDispost(true);
-                this.f56049g.changeToolButtonStatus();
+                this.f56048g.changeToolButtonStatus();
                 return false;
             }
             return invokeL.booleanValue;
@@ -1650,9 +1650,44 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56050e;
+        public final /* synthetic */ WriteActivity f56049e;
 
         public j0(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56049e = writeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56049e.showTipWindow();
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class j1 implements CustomMessageTask.CustomRunnable<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56050e;
+
+        public j1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1670,24 +1705,30 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56050e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56050e.showTipWindow();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage == null || customMessage.getData() == null || !customMessage.getData().booleanValue()) {
+                    return null;
+                }
+                new BdTopToast(this.f56050e).setIcon(false).setContent(this.f56050e.getResources().getString(R.string.user_collection_emotion_unclickable_hint)).show((ViewGroup) this.f56050e.mRootView);
+                return null;
             }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes10.dex */
-    public class j1 implements CustomMessageTask.CustomRunnable<Boolean> {
+    public class k implements d.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56051e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56051a;
 
-        public j1(WriteActivity writeActivity) {
+        public k(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1702,33 +1743,36 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56051e = writeActivity;
+            this.f56051a = writeActivity;
         }
 
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-            InterceptResult invokeL;
+        @Override // b.a.r0.d4.u.d.b
+        public void a(List<b.a.q0.s.q.w> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || customMessage.getData() == null || !customMessage.getData().booleanValue()) {
-                    return null;
-                }
-                new BdTopToast(this.f56051e).setIcon(false).setContent(this.f56051e.getResources().getString(R.string.user_collection_emotion_unclickable_hint)).show((ViewGroup) this.f56051e.mRootView);
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                this.f56051a.setProtocolVisibility(list);
             }
-            return (CustomResponsedMessage) invokeL.objValue;
+        }
+
+        @Override // b.a.r0.d4.u.d.b
+        public void b(int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f56051a.mPostContent == null) {
+                return;
+            }
+            this.f56051a.mPostContent.deleteSpanGroup(i2);
         }
     }
 
     /* loaded from: classes10.dex */
-    public class k implements d.b {
+    public class k0 implements TabMenuPopView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56052a;
 
-        public k(WriteActivity writeActivity) {
+        public k0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1746,60 +1790,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56052a = writeActivity;
         }
 
-        @Override // b.a.r0.d4.u.d.b
-        public void a(List<b.a.q0.s.q.w> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f56052a.setProtocolVisibility(list);
-            }
-        }
-
-        @Override // b.a.r0.d4.u.d.b
-        public void b(int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f56052a.mPostContent == null) {
-                return;
-            }
-            this.f56052a.mPostContent.deleteSpanGroup(i2);
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class k0 implements TabMenuPopView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56053a;
-
-        public k0(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56053a = writeActivity;
-        }
-
         @Override // com.baidu.tieba.frs.TabMenuPopView.c
         public void a(View view, b.a.r0.x0.n1 n1Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, n1Var) == null) || n1Var == null) {
                 return;
             }
-            this.f56053a.mCategoryView.setText(n1Var.f25997a);
-            this.f56053a.mData.setCategoryTo(n1Var.f25998b);
-            this.f56053a.mCategoryToID = n1Var.f25998b;
-            this.f56053a.mCategoryView.dismissPopWindow();
+            this.f56052a.mCategoryView.setText(n1Var.f25997a);
+            this.f56052a.mData.setCategoryTo(n1Var.f25998b);
+            this.f56052a.mCategoryToID = n1Var.f25998b;
+            this.f56052a.mCategoryView.dismissPopWindow();
         }
     }
 
@@ -1809,7 +1809,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56054a;
+        public final /* synthetic */ WriteActivity f56053a;
 
         public k1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -1826,7 +1826,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56054a = writeActivity;
+            this.f56053a = writeActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
@@ -1852,9 +1852,45 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56055e;
+        public final /* synthetic */ WriteActivity f56054e;
 
         public l(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56054e = writeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                WriteActivity writeActivity = this.f56054e;
+                writeActivity.showToast(writeActivity.mDisableAudioMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class l0 implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56055e;
+
+        public l0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1876,47 +1912,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56055e.mCategoryView.processClick();
                 WriteActivity writeActivity = this.f56055e;
-                writeActivity.showToast(writeActivity.mDisableAudioMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class l0 implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56056e;
-
-        public l0(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56056e = writeActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56056e.mCategoryView.processClick();
-                WriteActivity writeActivity = this.f56056e;
-                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56056e.getRealTitleInstance());
-                WriteActivity writeActivity2 = this.f56056e;
-                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56056e.getRealContentEdittextInstance());
+                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56055e.getRealTitleInstance());
+                WriteActivity writeActivity2 = this.f56055e;
+                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56055e.getRealContentEdittextInstance());
             }
         }
     }
@@ -1927,7 +1927,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56057a;
+        public final /* synthetic */ WriteActivity f56056a;
 
         public l1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -1944,19 +1944,19 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56057a = writeActivity;
+            this.f56056a = writeActivity;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
         public void a(View view, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, str) == null) || this.f56057a.mFindNewLinkBubbleController == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, str) == null) || this.f56056a.mFindNewLinkBubbleController == null) {
                 return;
             }
             TiebaStatic.log("c13802");
-            this.f56057a.mFindNewLinkBubbleController.c();
+            this.f56056a.mFindNewLinkBubbleController.c();
             UtilHelper.clearClipBoard();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.f56057a.getActivity(), 25049, str, false, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.f56056a.getActivity(), 25049, str, false, null)));
         }
     }
 
@@ -1966,7 +1966,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56058e;
+        public final /* synthetic */ WriteActivity f56057e;
 
         public m(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -1983,18 +1983,18 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56058e = writeActivity;
+            this.f56057e = writeActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) && z) {
-                this.f56058e.isPhotoliveTitleHasFocus = true;
-                this.f56058e.isDisalbeButtons = true;
-                this.f56058e.changeToolButtonStatus();
-                if (this.f56058e.mEditor != null) {
-                    this.f56058e.mEditor.hideTools();
+                this.f56057e.isPhotoliveTitleHasFocus = true;
+                this.f56057e.isDisalbeButtons = true;
+                this.f56057e.changeToolButtonStatus();
+                if (this.f56057e.mEditor != null) {
+                    this.f56057e.mEditor.hideTools();
                 }
             }
         }
@@ -2006,7 +2006,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56059a;
+        public final /* synthetic */ WriteActivity f56058a;
 
         public m0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -2023,7 +2023,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56059a = writeActivity;
+            this.f56058a = writeActivity;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -2040,7 +2040,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56060a;
+        public final /* synthetic */ WriteActivity f56059a;
 
         /* loaded from: classes10.dex */
         public class a implements a.e {
@@ -2078,7 +2078,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m1 f56061e;
+            public final /* synthetic */ m1 f56060e;
 
             public b(m1 m1Var) {
                 Interceptable interceptable = $ic;
@@ -2095,7 +2095,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                         return;
                     }
                 }
-                this.f56061e = m1Var;
+                this.f56060e = m1Var;
             }
 
             @Override // b.a.q0.s.s.a.e
@@ -2103,7 +2103,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    this.f56061e.f56060a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f56061e.f56060a.getActivity(), 0, 26, 1)));
+                    this.f56060e.f56059a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f56060e.f56059a.getActivity(), 0, 26, 1)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
                 }
             }
@@ -2124,35 +2124,35 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56060a = writeActivity;
+            this.f56059a = writeActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, b.a.q0.t.c.m0 m0Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m0Var, writeData, antiData}) == null) {
-                this.f56060a.stopVoice();
-                this.f56060a.closeLoadingDialog();
-                this.f56060a.isProcessedSaveDraft = true;
+                this.f56059a.stopVoice();
+                this.f56059a.closeLoadingDialog();
+                this.f56059a.isProcessedSaveDraft = true;
                 if (postWriteCallBackData != null) {
-                    WriteActivity writeActivity = this.f56060a;
+                    WriteActivity writeActivity = this.f56059a;
                     if (writeActivity.mData == null) {
                         return;
                     }
                     writeActivity.mHighLightController.n(null);
                     if (z) {
-                        this.f56060a.sendFinishSendAction(z);
-                        if (this.f56060a.canShowSuccessTip(writeData) || WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f56060a.mFrom)) {
-                            this.f56060a.showTipDialog(true, postWriteCallBackData);
+                        this.f56059a.sendFinishSendAction(z);
+                        if (this.f56059a.canShowSuccessTip(writeData) || WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f56059a.mFrom)) {
+                            this.f56059a.showTipDialog(true, postWriteCallBackData);
                         }
-                        b.a.r0.d4.r.a.f(this.f56060a.mData);
-                        this.f56060a.clearDraft();
-                        if ((this.f56060a.mData.getType() == 0 || this.f56060a.mData.getType() == 9 || this.f56060a.mData.getType() == 11) && !ListUtils.isEmpty(this.f56060a.mList) && !com.baidu.adp.lib.util.StringUtils.isNull(this.f56060a.mTopicId)) {
-                            TiebaStatic.log(new StatisticItem("c11731").param("obj_id", this.f56060a.mTopicId));
+                        b.a.r0.d4.r.a.f(this.f56059a.mData);
+                        this.f56059a.clearDraft();
+                        if ((this.f56059a.mData.getType() == 0 || this.f56059a.mData.getType() == 9 || this.f56059a.mData.getType() == 11) && !ListUtils.isEmpty(this.f56059a.mList) && !com.baidu.adp.lib.util.StringUtils.isNull(this.f56059a.mTopicId)) {
+                            TiebaStatic.log(new StatisticItem("c11731").param("obj_id", this.f56059a.mTopicId));
                         }
-                        this.f56060a.sendUpdatePhotoLiveMessage(postWriteCallBackData);
-                        if (!b.a.e.e.p.k.isEmpty(postWriteCallBackData.getVideoid()) && this.f56060a.mData.getVideoInfo() != null) {
-                            if (!b.a.e.e.p.k.isEmpty(this.f56060a.mData.getForumName())) {
+                        this.f56059a.sendUpdatePhotoLiveMessage(postWriteCallBackData);
+                        if (!b.a.e.e.p.k.isEmpty(postWriteCallBackData.getVideoid()) && this.f56059a.mData.getVideoInfo() != null) {
+                            if (!b.a.e.e.p.k.isEmpty(this.f56059a.mData.getForumName())) {
                                 postWriteCallBackData.mFrom = 2;
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001374, postWriteCallBackData));
@@ -2161,33 +2161,33 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                             intent.putExtras(bundle);
-                            this.f56060a.setResult(-1, intent);
+                            this.f56059a.setResult(-1, intent);
                         }
-                        this.f56060a.finish();
+                        this.f56059a.finish();
                     } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                        this.f56060a.showToast(postWriteCallBackData.getErrorString());
-                        this.f56060a.mHighLightController.n(postWriteCallBackData.getSensitiveWords());
-                        this.f56060a.mHighLightController.o(postWriteCallBackData.getErrorString());
-                        this.f56060a.mHighLightController.i(this.f56060a.mPostTitle, this.f56060a.mPostContent);
+                        this.f56059a.showToast(postWriteCallBackData.getErrorString());
+                        this.f56059a.mHighLightController.n(postWriteCallBackData.getSensitiveWords());
+                        this.f56059a.mHighLightController.o(postWriteCallBackData.getErrorString());
+                        this.f56059a.mHighLightController.i(this.f56059a.mPostTitle, this.f56059a.mPostContent);
                     } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                         if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                            DefaultNavigationBarCoverTip.makeText(this.f56060a.getActivity(), this.f56060a.getActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).show();
+                            DefaultNavigationBarCoverTip.makeText(this.f56059a.getActivity(), this.f56059a.getActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).show();
                         } else {
-                            DefaultNavigationBarCoverTip.makeText(this.f56060a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
+                            DefaultNavigationBarCoverTip.makeText(this.f56059a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
                         }
                     } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f56060a.getActivity());
+                        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f56059a.getActivity());
                         if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                            aVar.setMessage(this.f56060a.getActivity().getString(R.string.open_member_and_add_more_links));
+                            aVar.setMessage(this.f56059a.getActivity().getString(R.string.open_member_and_add_more_links));
                         } else {
                             aVar.setMessage(postWriteCallBackData.getErrorString());
                         }
                         aVar.setNegativeButton(R.string.cancel, new a(this));
                         aVar.setPositiveButton(R.string.open_now, new b(this));
-                        aVar.create(this.f56060a.getPageContext()).show();
+                        aVar.create(this.f56059a.getPageContext()).show();
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
                     } else if ((m0Var == null || writeData == null || m0Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001 && !b.a.r0.v3.a.c(postWriteCallBackData.getErrorCode())) {
-                        this.f56060a.showTipDialog(false, postWriteCallBackData);
+                        this.f56059a.showTipDialog(false, postWriteCallBackData);
                     } else if (m0Var != null && writeData != null && m0Var.c() != null) {
                         if (writeData.isCanNoForum()) {
                             writeData.setForumName("");
@@ -2197,17 +2197,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                         writeData.setVcodeUrl(m0Var.c());
                         writeData.setVcodeExtra(m0Var.a());
                         if (b.a.q0.e1.a.b(m0Var.d())) {
-                            NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(this.f56060a.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, m0Var.d());
-                            if (this.f56060a.isVcodeFeedBack) {
+                            NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(this.f56059a.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, m0Var.d());
+                            if (this.f56059a.isVcodeFeedBack) {
                                 newVcodeActivityConfig.setHideFeedBackButton();
                             }
-                            this.f56060a.sendMessage(new CustomMessage(2002001, newVcodeActivityConfig));
+                            this.f56059a.sendMessage(new CustomMessage(2002001, newVcodeActivityConfig));
                             return;
                         }
-                        this.f56060a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f56060a.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
+                        this.f56059a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f56059a.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                     } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
                     } else {
-                        this.f56060a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f56060a.getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
+                        this.f56059a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f56059a.getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
                     }
                 }
             }
@@ -2220,9 +2220,49 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56062e;
+        public final /* synthetic */ WriteActivity f56061e;
 
         public n(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56061e = writeActivity;
+        }
+
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) && z) {
+                this.f56061e.isPhotoliveTitleHasFocus = false;
+                this.f56061e.isDisalbeButtons = false;
+                this.f56061e.changeToolButtonStatus();
+                if (this.f56061e.mEditor != null) {
+                    this.f56061e.mEditor.hideTools();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class n0 implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56062e;
+
+        public n0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2240,29 +2280,33 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56062e = writeActivity;
         }
 
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) && z) {
-                this.f56062e.isPhotoliveTitleHasFocus = false;
-                this.f56062e.isDisalbeButtons = false;
-                this.f56062e.changeToolButtonStatus();
-                if (this.f56062e.mEditor != null) {
-                    this.f56062e.mEditor.hideTools();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                TiebaStatic.log(new StatisticItem("c13013").param("fid", this.f56062e.mData.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                this.f56062e.mPrefix.setVisibility(0);
+                this.f56062e.post_prefix_layout.setSelected(true);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56062e.mPrefixIcon, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
+                b.a.e.e.m.g.l(this.f56062e.mPrefixWindow, view, 0, b.a.e.e.p.l.e(this.f56062e.getPageContext().getPageActivity(), 1.0f));
+                this.f56062e.mEditor.hideTools();
+                WriteActivity writeActivity = this.f56062e;
+                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56062e.mPostTitle);
+                WriteActivity writeActivity2 = this.f56062e;
+                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56062e.mPostContent);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class n0 implements View.OnClickListener {
+    public class n1 implements LocationModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56063e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56063a;
 
-        public n0(WriteActivity writeActivity) {
+        public n1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2277,36 +2321,53 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56063e = writeActivity;
+            this.f56063a = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13013").param("fid", this.f56063e.mData.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.f56063e.mPrefix.setVisibility(0);
-                this.f56063e.post_prefix_layout.setSelected(true);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56063e.mPrefixIcon, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
-                b.a.e.e.m.g.l(this.f56063e.mPrefixWindow, view, 0, b.a.e.e.p.l.e(this.f56063e.getPageContext().getPageActivity(), 1.0f));
-                this.f56063e.mEditor.hideTools();
-                WriteActivity writeActivity = this.f56063e;
-                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56063e.mPostTitle);
-                WriteActivity writeActivity2 = this.f56063e;
-                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56063e.mPostContent);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f56063a.showToast(R.string.no_network_guide);
+                this.f56063a.sendLocaionAction(0, true, null);
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void b(LocationData locationData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
+                if (locationData != null && !com.baidu.adp.lib.util.StringUtils.isNull(locationData.getFormatted_address())) {
+                    this.f56063a.sendLocaionAction(2, true, locationData.getFormatted_address());
+                } else {
+                    onFail(null);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                WriteActivity writeActivity = this.f56063a;
+                if (com.baidu.adp.lib.util.StringUtils.isNull(str)) {
+                    str = this.f56063a.getPageContext().getString(R.string.location_fail);
+                }
+                writeActivity.showToast(str);
+                this.f56063a.sendLocaionAction(0, true, null);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class n1 implements LocationModel.e {
+    public class o implements PhotoLiveLinearLayout.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56064a;
 
-        public n1(WriteActivity writeActivity) {
+        public o(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2324,50 +2385,24 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56064a = writeActivity;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56064a.showToast(R.string.no_network_guide);
-                this.f56064a.sendLocaionAction(0, true, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b(LocationData locationData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
-                if (locationData != null && !com.baidu.adp.lib.util.StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f56064a.sendLocaionAction(2, true, locationData.getFormatted_address());
-                } else {
-                    onFail(null);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                WriteActivity writeActivity = this.f56064a;
-                if (com.baidu.adp.lib.util.StringUtils.isNull(str)) {
-                    str = this.f56064a.getPageContext().getString(R.string.location_fail);
-                }
-                writeActivity.showToast(str);
-                this.f56064a.sendLocaionAction(0, true, null);
+                this.f56064a.updateGridView();
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class o implements PhotoLiveLinearLayout.a {
+    public class o0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56065a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56065e;
 
-        public o(WriteActivity writeActivity) {
+        public o0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2382,27 +2417,35 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56065a = writeActivity;
+            this.f56065e = writeActivity;
         }
 
-        @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
-        public void a() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56065a.updateGridView();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                TiebaStatic.log(new StatisticItem("c13013").param("fid", this.f56065e.mData.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                this.f56065e.mPrefix.setSelected(true);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56065e.mPrefixIcon, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
+                b.a.e.e.m.g.l(this.f56065e.mPrefixWindow, view, 0, b.a.e.e.p.l.e(this.f56065e.getPageContext().getPageActivity(), 1.0f));
+                this.f56065e.mEditor.hideTools();
+                WriteActivity writeActivity = this.f56065e;
+                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56065e.getRealTitleInstance());
+                WriteActivity writeActivity2 = this.f56065e;
+                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56065e.getRealContentEdittextInstance());
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class o0 implements View.OnClickListener {
+    public class o1 extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56066e;
 
-        public o0(WriteActivity writeActivity) {
+        public o1(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2420,32 +2463,31 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56066e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13013").param("fid", this.f56066e.mData.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.f56066e.mPrefix.setSelected(true);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56066e.mPrefixIcon, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
-                b.a.e.e.m.g.l(this.f56066e.mPrefixWindow, view, 0, b.a.e.e.p.l.e(this.f56066e.getPageContext().getPageActivity(), 1.0f));
-                this.f56066e.mEditor.hideTools();
-                WriteActivity writeActivity = this.f56066e;
-                writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, this.f56066e.getRealTitleInstance());
-                WriteActivity writeActivity2 = this.f56066e;
-                writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56066e.getRealContentEdittextInstance());
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                b.a.e.e.p.l.x(this.f56066e.getActivity(), this.f56066e.getCurrentFocus());
+                return super.onFling(motionEvent, motionEvent2, f2, f3);
             }
+            return invokeCommon.booleanValue;
+        }
+
+        public /* synthetic */ o1(WriteActivity writeActivity, k kVar) {
+            this(writeActivity);
         }
     }
 
     /* loaded from: classes10.dex */
-    public class o1 extends GestureDetector.SimpleOnGestureListener {
+    public class p implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56067e;
 
-        public o1(WriteActivity writeActivity) {
+        public p(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2463,59 +2505,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56067e = writeActivity;
         }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                b.a.e.e.p.l.x(this.f56067e.getActivity(), this.f56067e.getCurrentFocus());
-                return super.onFling(motionEvent, motionEvent2, f2, f3);
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        public /* synthetic */ o1(WriteActivity writeActivity, k kVar) {
-            this(writeActivity);
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class p implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56068e;
-
-        public p(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56068e = writeActivity;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56068e.mEditor == null || this.f56068e.mEditor.mEB == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56067e.mEditor == null || this.f56067e.mEditor.mEB == null) {
                 return;
             }
-            if (this.f56068e.mCommodityTipController == null) {
-                WriteActivity writeActivity = this.f56068e;
+            if (this.f56067e.mCommodityTipController == null) {
+                WriteActivity writeActivity = this.f56067e;
                 writeActivity.mCommodityTipController = new b.a.r0.d4.u.b(writeActivity.getPageContext());
             }
-            this.f56068e.mCommodityTipController.b(this.f56068e.mEditor.mEB.getLauncherForId(2));
+            this.f56067e.mCommodityTipController.b(this.f56067e.mEditor.mEB.getLauncherForId(2));
         }
     }
 
@@ -2525,7 +2525,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56069a;
+        public final /* synthetic */ WriteActivity f56068a;
 
         public p0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -2542,27 +2542,27 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56069a = writeActivity;
+            this.f56068a = writeActivity;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f56069a.hideProgressBar();
+                this.f56068a.hideProgressBar();
                 if (obj == null || !(obj instanceof FeedBackModel)) {
-                    this.f56069a.mTopListView.setVisibility(8);
-                    this.f56069a.feedback_divider.setVisibility(8);
-                    this.f56069a.showToast(R.string.neterror);
+                    this.f56068a.mTopListView.setVisibility(8);
+                    this.f56068a.feedback_divider.setVisibility(8);
+                    this.f56068a.showToast(R.string.neterror);
                     return;
                 }
                 FeedBackModel feedBackModel = (FeedBackModel) obj;
                 if (feedBackModel.A() != 0) {
-                    this.f56069a.mTopListView.setVisibility(8);
-                    this.f56069a.feedback_divider.setVisibility(8);
+                    this.f56068a.mTopListView.setVisibility(8);
+                    this.f56068a.feedback_divider.setVisibility(8);
                     return;
                 }
-                this.f56069a.mTopListView.c(feedBackModel.B(), this.f56069a.getPageContext());
+                this.f56068a.mTopListView.c(feedBackModel.B(), this.f56068a.getPageContext());
             }
         }
     }
@@ -2573,9 +2573,255 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56070e;
+        public final /* synthetic */ WriteActivity f56069e;
 
         public q(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56069e = writeActivity;
+        }
+
+        @Override // b.a.q0.x.b
+        public void onAction(b.a.q0.x.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+                return;
+            }
+            int i2 = aVar.f14195a;
+            if (i2 == 16) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 9));
+                if (this.f56069e.isTextFull()) {
+                    this.f56069e.showToast(R.string.over_limit_tip);
+                    return;
+                }
+                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f56069e.getPageContext().getPageActivity(), 12004, true);
+                if (this.f56069e.getRealContentEdittextInstance() instanceof SpanGroupEditText) {
+                    atListActivityConfig.setSelectedAtList(((SpanGroupEditText) this.f56069e.getRealContentEdittextInstance()).getAtDataInText());
+                }
+                this.f56069e.sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            } else if (i2 == 14 || i2 == 48) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
+                this.f56069e.openImageActivity(aVar);
+            } else if (i2 == 60) {
+                this.f56069e.openVideoActivity(aVar);
+            } else if (i2 == 24) {
+                Object obj = aVar.f14197c;
+                if (obj == null || !(obj instanceof b.a.q0.t.c.w)) {
+                    return;
+                }
+                b.a.q0.t.c.w wVar = (b.a.q0.t.c.w) obj;
+                if (wVar.getType() == EmotionGroupType.BIG_EMOTION || wVar.getType() == EmotionGroupType.USER_COLLECT) {
+                    if (this.f56069e.mCurrentPermissionJudgePolicy == null) {
+                        this.f56069e.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
+                    }
+                    this.f56069e.mCurrentPermissionJudgePolicy.clearRequestPermissionList();
+                    this.f56069e.mCurrentPermissionJudgePolicy.appendRequestPermission(this.f56069e, "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (this.f56069e.mCurrentPermissionJudgePolicy.startRequestPermission(this.f56069e)) {
+                        return;
+                    }
+                    if (this.f56069e.writeImagesInfo.size() >= this.f56069e.writeImagesInfo.getMaxImagesAllowed()) {
+                        this.f56069e.showToast(String.format(this.f56069e.getString(R.string.max_choose_image_count), Integer.valueOf(this.f56069e.writeImagesInfo.getMaxImagesAllowed())));
+                        return;
+                    }
+                    ImageFileInfo imageFileInfo = new ImageFileInfo();
+                    imageFileInfo.setImageType(1);
+                    imageFileInfo.setFilePath(wVar.c());
+                    imageFileInfo.width = wVar.g();
+                    imageFileInfo.height = wVar.b();
+                    this.f56069e.writeImagesInfo.addChooseFile(imageFileInfo);
+                    this.f56069e.writeImagesInfo.updateQuality();
+                    this.f56069e.refreshMutiImage(true);
+                    this.f56069e.refreshVideoLauncher();
+                    this.f56069e.refreshImageLauncher();
+                    this.f56069e.refreshPostButton();
+                } else if (this.f56069e.isTextFull()) {
+                    this.f56069e.showToast(R.string.over_limit_tip);
+                } else {
+                    this.f56069e.insertFaceIconToEditText(wVar);
+                }
+            } else if (i2 == 3) {
+                this.f56069e.deleteChar();
+            } else if (i2 == 10) {
+                Object obj2 = aVar.f14197c;
+                if (obj2 instanceof VoiceData$VoiceModel) {
+                    this.f56069e.addVoice((VoiceData$VoiceModel) obj2);
+                    this.f56069e.refreshVideoLauncher();
+                }
+            } else if (i2 == 11) {
+                this.f56069e.deleteVoice();
+                this.f56069e.refreshVideoLauncher();
+            } else if (i2 == 12 || i2 == 13 || i2 == 46 || i2 == 49) {
+                this.f56069e.refreshImageLauncher();
+                this.f56069e.refreshVideoLauncher();
+                this.f56069e.refreshPostButton();
+            } else if (i2 == 15 || i2 == 47) {
+                Object obj3 = aVar.f14197c;
+                if (obj3 == null || !(obj3 instanceof Integer)) {
+                    return;
+                }
+                this.f56069e.jumpToEditImageActivity(((Integer) obj3).intValue());
+            } else if (i2 == 18) {
+                if (aVar.f14197c == null || this.f56069e.mAdditionData != null) {
+                    int i3 = this.f56069e.mLocationState;
+                    if (i3 != 0) {
+                        if (i3 != 2) {
+                            return;
+                        }
+                        this.f56069e.goToSelectLocationActivity();
+                        return;
+                    }
+                    Activity pageActivity = this.f56069e.getPageContext().getPageActivity();
+                    if (PermissionUtil.checkLocationForGoogle(pageActivity)) {
+                        this.f56069e.onLocViewClickedInInitState();
+                        return;
+                    } else {
+                        PermissionUtil.reuqestLocation(pageActivity, 0);
+                        return;
+                    }
+                }
+                this.f56069e.requestLocationIfValid();
+            } else if (i2 == 20) {
+                if (this.f56069e.mLocationModel != null) {
+                    this.f56069e.mLocationModel.N(true);
+                }
+            } else {
+                WriteVoteData writeVoteData = null;
+                if (i2 == 25) {
+                    Object obj4 = aVar.f14197c;
+                    if (obj4 == null || !(obj4 instanceof String)) {
+                        this.f56069e.mBubbleUrl = null;
+                    } else {
+                        this.f56069e.mBubbleUrl = (String) obj4;
+                    }
+                    this.f56069e.refreshBubble(false);
+                } else if (i2 == 27) {
+                    b.a.q0.s.e0.b.j().t("xiaoying_has_click", true);
+                    StatisticItem statisticItem2 = new StatisticItem("c10645");
+                    WriteData writeData = this.f56069e.mData;
+                    statisticItem2.param("fid", writeData != null ? writeData.getForumId() : "");
+                    TiebaStatic.log(statisticItem2);
+                    this.f56069e.mEditor.sendAction(new b.a.q0.x.a(2, 19, null));
+                    if (XiaoyingUtil.isXiaoyingInstalled()) {
+                        if (!XiaoyingUtil.isXiaoyingForbidden()) {
+                            if (this.f56069e.mEditor.isToolVisible()) {
+                                this.f56069e.mEditor.hideTools();
+                                this.f56069e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
+                            }
+                            XiaoyingUtil.startXiaoying(this.f56069e.getActivity());
+                            return;
+                        }
+                        XiaoyingUtil.showGoPluginDetailDialog(this.f56069e.getPageContext(), this.f56069e.getResources().getString(R.string.plugin_video_not_active), this.f56069e.getResources().getString(R.string.setup));
+                        return;
+                    }
+                    XiaoyingUtil.showGoPluginDetailDialog(this.f56069e.getPageContext(), this.f56069e.getResources().getString(R.string.plugin_video_install_tips), this.f56069e.getResources().getString(R.string.plugin_go_install));
+                } else if (i2 == 29) {
+                    this.f56069e.mEditor.sendAction(new b.a.q0.x.a(2, 19, null));
+                    this.f56069e.mEditor.sendAction(new b.a.q0.x.a(1, 2, null));
+                    this.f56069e.refreshPostButton();
+                    if (this.f56069e.mPostContent != null) {
+                        this.f56069e.mPostContent.requestFocus();
+                    }
+                    this.f56069e.mEditor.hideTools();
+                    this.f56069e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
+                    WriteActivity writeActivity = this.f56069e;
+                    writeActivity.ShowSoftKeyPad(writeActivity.mInputManager, this.f56069e.mPostContent);
+                } else if (i2 == 43) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
+                    b.a.q0.s.e0.b.j().t("hot_topic_has_click", true);
+                    this.f56069e.mEditor.sendAction(new b.a.q0.x.a(2, 26, null));
+                    this.f56069e.needAddHotTopicSign = true;
+                    this.f56069e.performHotTopicClick(true);
+                    if (!this.f56069e.getRealTitleInstance().isFocused() || this.f56069e.mTitleView.getVisibility() != 0) {
+                        this.f56069e.fromWhereToHotSelect = "from_content";
+                    } else {
+                        this.f56069e.fromWhereToHotSelect = "from_title";
+                    }
+                } else if (i2 == 56) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 8));
+                    if (this.f56069e.mTitleView.getVisibility() == 0) {
+                        if (this.f56069e.mTitleView.hasFocus()) {
+                            this.f56069e.mPostContent.requestFocus();
+                            this.f56069e.mPostContent.setSelection(this.f56069e.mPostContent.getText().toString().length());
+                        }
+                        this.f56069e.mTitleView.setVisibility(8);
+                        if (this.f56069e.imageGridView != null) {
+                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56069e.imageGridView.getLayoutParams();
+                            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X012);
+                            this.f56069e.imageGridView.setLayoutParams(layoutParams);
+                        }
+                        this.f56069e.mTitleViewDivider.setVisibility(8);
+                        this.f56069e.mEditor.findLauncherById(30).setName(this.f56069e.getResources().getString(R.string.editor_add_title));
+                    } else {
+                        this.f56069e.mTitleView.setVisibility(0);
+                        if (this.f56069e.imageGridView != null) {
+                            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f56069e.imageGridView.getLayoutParams();
+                            layoutParams2.topMargin = 0;
+                            this.f56069e.imageGridView.setLayoutParams(layoutParams2);
+                        }
+                        this.f56069e.mTitleViewDivider.setVisibility(0);
+                        this.f56069e.mTitleView.requestFocus();
+                        this.f56069e.mEditor.findLauncherById(30).setName(this.f56069e.getResources().getString(R.string.editor_hide_title));
+                    }
+                    this.f56069e.refreshPostButton();
+                } else if (i2 == 55) {
+                    Object obj5 = aVar.f14197c;
+                    if (obj5 == null || !(obj5 instanceof Boolean)) {
+                        return;
+                    }
+                    this.f56069e.isPrivacy = ((Boolean) obj5).booleanValue();
+                } else if (i2 == 58) {
+                    Object obj6 = aVar.f14197c;
+                    if (obj6 == null || !(obj6 instanceof Boolean)) {
+                        return;
+                    }
+                    this.f56069e.isToDynamic = ((Boolean) obj6).booleanValue();
+                } else if (i2 == 22) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 10));
+                    if (this.f56069e.mVoteViewController != null && this.f56069e.mVoteViewController.c() != null) {
+                        writeVoteData = this.f56069e.mVoteViewController.c();
+                    }
+                    this.f56069e.jumpToVoteView(writeVoteData);
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 2));
+                    this.f56069e.hideGuideTip();
+                } else if (i2 == 21) {
+                    if (this.f56069e.mFindNewLinkBubbleController != null) {
+                        this.f56069e.mFindNewLinkBubbleController.c();
+                    }
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.f56069e.getActivity(), 25049, "", true, null)));
+                } else if (i2 == 59) {
+                    this.f56069e.onCommodityClick();
+                } else if (i2 == 61) {
+                    this.f56069e.onItemToolClick();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class q0 implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56070e;
+
+        public q0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2593,311 +2839,65 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56070e = writeActivity;
         }
 
-        @Override // b.a.q0.x.b
-        public void onAction(b.a.q0.x.a aVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
-                return;
-            }
-            int i2 = aVar.f14195a;
-            if (i2 == 16) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 9));
-                if (this.f56070e.isTextFull()) {
-                    this.f56070e.showToast(R.string.over_limit_tip);
-                    return;
-                }
-                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f56070e.getPageContext().getPageActivity(), 12004, true);
-                if (this.f56070e.getRealContentEdittextInstance() instanceof SpanGroupEditText) {
-                    atListActivityConfig.setSelectedAtList(((SpanGroupEditText) this.f56070e.getRealContentEdittextInstance()).getAtDataInText());
-                }
-                this.f56070e.sendMessage(new CustomMessage(2002001, atListActivityConfig));
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(statisticItem);
-            } else if (i2 == 14 || i2 == 48) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
-                this.f56070e.openImageActivity(aVar);
-            } else if (i2 == 60) {
-                this.f56070e.openVideoActivity(aVar);
-            } else if (i2 == 24) {
-                Object obj = aVar.f14197c;
-                if (obj == null || !(obj instanceof b.a.q0.t.c.w)) {
-                    return;
-                }
-                b.a.q0.t.c.w wVar = (b.a.q0.t.c.w) obj;
-                if (wVar.getType() == EmotionGroupType.BIG_EMOTION || wVar.getType() == EmotionGroupType.USER_COLLECT) {
-                    if (this.f56070e.mCurrentPermissionJudgePolicy == null) {
-                        this.f56070e.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
-                    }
-                    this.f56070e.mCurrentPermissionJudgePolicy.clearRequestPermissionList();
-                    this.f56070e.mCurrentPermissionJudgePolicy.appendRequestPermission(this.f56070e, "android.permission.WRITE_EXTERNAL_STORAGE");
-                    if (this.f56070e.mCurrentPermissionJudgePolicy.startRequestPermission(this.f56070e)) {
-                        return;
-                    }
-                    if (this.f56070e.writeImagesInfo.size() >= this.f56070e.writeImagesInfo.getMaxImagesAllowed()) {
-                        this.f56070e.showToast(String.format(this.f56070e.getString(R.string.max_choose_image_count), Integer.valueOf(this.f56070e.writeImagesInfo.getMaxImagesAllowed())));
-                        return;
-                    }
-                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    imageFileInfo.setImageType(1);
-                    imageFileInfo.setFilePath(wVar.c());
-                    imageFileInfo.width = wVar.g();
-                    imageFileInfo.height = wVar.b();
-                    this.f56070e.writeImagesInfo.addChooseFile(imageFileInfo);
-                    this.f56070e.writeImagesInfo.updateQuality();
-                    this.f56070e.refreshMutiImage(true);
-                    this.f56070e.refreshVideoLauncher();
-                    this.f56070e.refreshImageLauncher();
-                    this.f56070e.refreshPostButton();
-                } else if (this.f56070e.isTextFull()) {
-                    this.f56070e.showToast(R.string.over_limit_tip);
-                } else {
-                    this.f56070e.insertFaceIconToEditText(wVar);
-                }
-            } else if (i2 == 3) {
-                this.f56070e.deleteChar();
-            } else if (i2 == 10) {
-                Object obj2 = aVar.f14197c;
-                if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f56070e.addVoice((VoiceData$VoiceModel) obj2);
-                    this.f56070e.refreshVideoLauncher();
-                }
-            } else if (i2 == 11) {
-                this.f56070e.deleteVoice();
-                this.f56070e.refreshVideoLauncher();
-            } else if (i2 == 12 || i2 == 13 || i2 == 46 || i2 == 49) {
-                this.f56070e.refreshImageLauncher();
-                this.f56070e.refreshVideoLauncher();
-                this.f56070e.refreshPostButton();
-            } else if (i2 == 15 || i2 == 47) {
-                Object obj3 = aVar.f14197c;
-                if (obj3 == null || !(obj3 instanceof Integer)) {
-                    return;
-                }
-                this.f56070e.jumpToEditImageActivity(((Integer) obj3).intValue());
-            } else if (i2 == 18) {
-                if (aVar.f14197c == null || this.f56070e.mAdditionData != null) {
-                    int i3 = this.f56070e.mLocationState;
-                    if (i3 != 0) {
-                        if (i3 != 2) {
-                            return;
-                        }
-                        this.f56070e.goToSelectLocationActivity();
-                        return;
-                    }
-                    Activity pageActivity = this.f56070e.getPageContext().getPageActivity();
-                    if (PermissionUtil.checkLocationForGoogle(pageActivity)) {
-                        this.f56070e.onLocViewClickedInInitState();
-                        return;
-                    } else {
-                        PermissionUtil.reuqestLocation(pageActivity, 0);
-                        return;
-                    }
-                }
-                this.f56070e.requestLocationIfValid();
-            } else if (i2 == 20) {
-                if (this.f56070e.mLocationModel != null) {
-                    this.f56070e.mLocationModel.N(true);
-                }
-            } else {
-                WriteVoteData writeVoteData = null;
-                if (i2 == 25) {
-                    Object obj4 = aVar.f14197c;
-                    if (obj4 == null || !(obj4 instanceof String)) {
-                        this.f56070e.mBubbleUrl = null;
-                    } else {
-                        this.f56070e.mBubbleUrl = (String) obj4;
-                    }
-                    this.f56070e.refreshBubble(false);
-                } else if (i2 == 27) {
-                    b.a.q0.s.e0.b.j().t("xiaoying_has_click", true);
-                    StatisticItem statisticItem2 = new StatisticItem("c10645");
-                    WriteData writeData = this.f56070e.mData;
-                    statisticItem2.param("fid", writeData != null ? writeData.getForumId() : "");
-                    TiebaStatic.log(statisticItem2);
-                    this.f56070e.mEditor.sendAction(new b.a.q0.x.a(2, 19, null));
-                    if (XiaoyingUtil.isXiaoyingInstalled()) {
-                        if (!XiaoyingUtil.isXiaoyingForbidden()) {
-                            if (this.f56070e.mEditor.isToolVisible()) {
-                                this.f56070e.mEditor.hideTools();
-                                this.f56070e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
-                            }
-                            XiaoyingUtil.startXiaoying(this.f56070e.getActivity());
-                            return;
-                        }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.f56070e.getPageContext(), this.f56070e.getResources().getString(R.string.plugin_video_not_active), this.f56070e.getResources().getString(R.string.setup));
-                        return;
-                    }
-                    XiaoyingUtil.showGoPluginDetailDialog(this.f56070e.getPageContext(), this.f56070e.getResources().getString(R.string.plugin_video_install_tips), this.f56070e.getResources().getString(R.string.plugin_go_install));
-                } else if (i2 == 29) {
-                    this.f56070e.mEditor.sendAction(new b.a.q0.x.a(2, 19, null));
-                    this.f56070e.mEditor.sendAction(new b.a.q0.x.a(1, 2, null));
-                    this.f56070e.refreshPostButton();
-                    if (this.f56070e.mPostContent != null) {
-                        this.f56070e.mPostContent.requestFocus();
-                    }
-                    this.f56070e.mEditor.hideTools();
-                    this.f56070e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
-                    WriteActivity writeActivity = this.f56070e;
-                    writeActivity.ShowSoftKeyPad(writeActivity.mInputManager, this.f56070e.mPostContent);
-                } else if (i2 == 43) {
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
-                    b.a.q0.s.e0.b.j().t("hot_topic_has_click", true);
-                    this.f56070e.mEditor.sendAction(new b.a.q0.x.a(2, 26, null));
-                    this.f56070e.needAddHotTopicSign = true;
-                    this.f56070e.performHotTopicClick(true);
-                    if (!this.f56070e.getRealTitleInstance().isFocused() || this.f56070e.mTitleView.getVisibility() != 0) {
-                        this.f56070e.fromWhereToHotSelect = "from_content";
-                    } else {
-                        this.f56070e.fromWhereToHotSelect = "from_title";
-                    }
-                } else if (i2 == 56) {
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 8));
-                    if (this.f56070e.mTitleView.getVisibility() == 0) {
-                        if (this.f56070e.mTitleView.hasFocus()) {
-                            this.f56070e.mPostContent.requestFocus();
-                            this.f56070e.mPostContent.setSelection(this.f56070e.mPostContent.getText().toString().length());
-                        }
-                        this.f56070e.mTitleView.setVisibility(8);
-                        if (this.f56070e.imageGridView != null) {
-                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56070e.imageGridView.getLayoutParams();
-                            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X012);
-                            this.f56070e.imageGridView.setLayoutParams(layoutParams);
-                        }
-                        this.f56070e.mTitleViewDivider.setVisibility(8);
-                        this.f56070e.mEditor.findLauncherById(30).setName(this.f56070e.getResources().getString(R.string.editor_add_title));
-                    } else {
-                        this.f56070e.mTitleView.setVisibility(0);
-                        if (this.f56070e.imageGridView != null) {
-                            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f56070e.imageGridView.getLayoutParams();
-                            layoutParams2.topMargin = 0;
-                            this.f56070e.imageGridView.setLayoutParams(layoutParams2);
-                        }
-                        this.f56070e.mTitleViewDivider.setVisibility(0);
-                        this.f56070e.mTitleView.requestFocus();
-                        this.f56070e.mEditor.findLauncherById(30).setName(this.f56070e.getResources().getString(R.string.editor_hide_title));
-                    }
-                    this.f56070e.refreshPostButton();
-                } else if (i2 == 55) {
-                    Object obj5 = aVar.f14197c;
-                    if (obj5 == null || !(obj5 instanceof Boolean)) {
-                        return;
-                    }
-                    this.f56070e.isPrivacy = ((Boolean) obj5).booleanValue();
-                } else if (i2 == 58) {
-                    Object obj6 = aVar.f14197c;
-                    if (obj6 == null || !(obj6 instanceof Boolean)) {
-                        return;
-                    }
-                    this.f56070e.isToDynamic = ((Boolean) obj6).booleanValue();
-                } else if (i2 == 22) {
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 10));
-                    if (this.f56070e.mVoteViewController != null && this.f56070e.mVoteViewController.c() != null) {
-                        writeVoteData = this.f56070e.mVoteViewController.c();
-                    }
-                    this.f56070e.jumpToVoteView(writeVoteData);
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 2));
-                    this.f56070e.hideGuideTip();
-                } else if (i2 == 21) {
-                    if (this.f56070e.mFindNewLinkBubbleController != null) {
-                        this.f56070e.mFindNewLinkBubbleController.c();
-                    }
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.f56070e.getActivity(), 25049, "", true, null)));
-                } else if (i2 == 59) {
-                    this.f56070e.onCommodityClick();
-                } else if (i2 == 61) {
-                    this.f56070e.onItemToolClick();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class q0 implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56071e;
-
-        public q0(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56071e = writeActivity;
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f56071e.mForumSelectedView == null || this.f56071e.mSelectForumData != null) {
-                    if (this.f56071e.checkCanGoodsConsistent()) {
-                        if (!this.f56071e.isProductTie || this.f56071e.isAgreedProtocol) {
-                            if (this.f56071e.checkContainHaowuTab()) {
-                                int checkTabConsistent = this.f56071e.checkTabConsistent();
+                if (this.f56070e.mForumSelectedView == null || this.f56070e.mSelectForumData != null) {
+                    if (this.f56070e.checkCanGoodsConsistent()) {
+                        if (!this.f56070e.isProductTie || this.f56070e.isAgreedProtocol) {
+                            if (this.f56070e.checkContainHaowuTab()) {
+                                int checkTabConsistent = this.f56070e.checkTabConsistent();
                                 if (checkTabConsistent == 1) {
-                                    this.f56071e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_no_commodity));
+                                    this.f56070e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_no_commodity));
                                     return;
                                 } else if (checkTabConsistent == 2) {
-                                    this.f56071e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_no_haowu_tab));
+                                    this.f56070e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_no_haowu_tab));
                                     return;
                                 }
                             }
                             if (!b.a.e.e.p.j.z()) {
-                                this.f56071e.showToast(R.string.neterror);
+                                this.f56070e.showToast(R.string.neterror);
                             }
                             if (b.a.q0.d1.n0.b()) {
                                 return;
                             }
-                            if (this.f56071e.mHighLightController.b(this.f56071e.mPostTitle, this.f56071e.mPostContent)) {
-                                WriteActivity writeActivity = this.f56071e;
+                            if (this.f56070e.mHighLightController.b(this.f56070e.mPostTitle, this.f56070e.mPostContent)) {
+                                WriteActivity writeActivity = this.f56070e;
                                 writeActivity.showToast(writeActivity.mHighLightController.e());
                                 return;
                             }
-                            WriteActivity writeActivity2 = this.f56071e;
-                            writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56071e.getRealTitleInstance());
-                            WriteActivity writeActivity3 = this.f56071e;
-                            writeActivity3.HidenSoftKeyPad(writeActivity3.mInputManager, this.f56071e.getRealContentEdittextInstance());
-                            this.f56071e.mEditor.hideTools();
-                            if (this.f56071e.mData.getType() != 7) {
-                                if (this.f56071e.isFeedBack) {
-                                    this.f56071e.postNewMessage();
+                            WriteActivity writeActivity2 = this.f56070e;
+                            writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, this.f56070e.getRealTitleInstance());
+                            WriteActivity writeActivity3 = this.f56070e;
+                            writeActivity3.HidenSoftKeyPad(writeActivity3.mInputManager, this.f56070e.getRealContentEdittextInstance());
+                            this.f56070e.mEditor.hideTools();
+                            if (this.f56070e.mData.getType() != 7) {
+                                if (this.f56070e.isFeedBack) {
+                                    this.f56070e.postNewMessage();
                                     BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
                                 } else {
                                     StatisticItem statisticItem = new StatisticItem("c12102");
-                                    statisticItem.param("obj_type", com.baidu.adp.lib.util.StringUtils.isNull(this.f56071e.mData.getForumName()) ? 1 : 2);
+                                    statisticItem.param("obj_type", com.baidu.adp.lib.util.StringUtils.isNull(this.f56070e.mData.getForumName()) ? 1 : 2);
                                     TiebaStatic.log(statisticItem);
-                                    this.f56071e.postPhotoTextThread();
+                                    this.f56070e.postPhotoTextThread();
                                 }
                             } else {
                                 TiebaStatic.log("c12015");
-                                this.f56071e.postNewMessage();
+                                this.f56070e.postNewMessage();
                             }
                             MercatorModel.d().f();
-                            TiebaStatic.log(new StatisticItem("c12262").param("obj_locate", this.f56071e.mCallFrom));
+                            TiebaStatic.log(new StatisticItem("c12262").param("obj_locate", this.f56070e.mCallFrom));
                             return;
                         }
-                        WriteActivity writeActivity4 = this.f56071e;
+                        WriteActivity writeActivity4 = this.f56070e;
                         writeActivity4.showToast(writeActivity4.getResources().getString(R.string.publish_faile_toast));
                         return;
                     }
-                    this.f56071e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_cant_but_commodity));
+                    this.f56070e.showToast(TbadkCoreApplication.getInst().getString(R.string.toast_cant_but_commodity));
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f56071e)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f56070e)));
             }
         }
     }
@@ -2908,10 +2908,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteData f56072e;
+        public final /* synthetic */ WriteVoteData f56071e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56073f;
+        public final /* synthetic */ WriteActivity f56072f;
 
         public r(WriteActivity writeActivity, WriteVoteData writeVoteData) {
             Interceptable interceptable = $ic;
@@ -2928,15 +2928,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56073f = writeActivity;
-            this.f56072e = writeVoteData;
+            this.f56072f = writeActivity;
+            this.f56071e = writeVoteData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56073f.jumpToVoteView(this.f56072e);
+                this.f56072f.jumpToVoteView(this.f56071e);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 3));
             }
         }
@@ -2948,7 +2948,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56074a;
+        public final /* synthetic */ WriteActivity f56073a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r0(WriteActivity writeActivity, int i2) {
@@ -2968,7 +2968,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56074a = writeActivity;
+            this.f56073a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2976,10 +2976,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b.a.q0.u.j jVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f56074a.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b.a.q0.u.j) || (jVar = (b.a.q0.u.j) customResponsedMessage.getData()) == null || com.baidu.adp.lib.util.StringUtils.isNull(jVar.f14141a) || com.baidu.adp.lib.util.StringUtils.isNull(jVar.f14143c)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f56073a.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b.a.q0.u.j) || (jVar = (b.a.q0.u.j) customResponsedMessage.getData()) == null || com.baidu.adp.lib.util.StringUtils.isNull(jVar.f14141a) || com.baidu.adp.lib.util.StringUtils.isNull(jVar.f14143c)) {
                 return;
             }
-            this.f56074a.initSelectForumData(jVar);
+            this.f56073a.initSelectForumData(jVar);
         }
     }
 
@@ -2989,7 +2989,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56075e;
+        public final /* synthetic */ WriteActivity f56074e;
 
         public s(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3006,7 +3006,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56075e = writeActivity;
+            this.f56074e = writeActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -3017,15 +3017,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             }
             int id = view.getId();
             if (id == R.id.save_draft_dialog_not_save) {
-                this.f56075e.clearDraft();
-                this.f56075e.setResult(100);
-                this.f56075e.finish();
+                this.f56074e.clearDraft();
+                this.f56074e.setResult(100);
+                this.f56074e.finish();
             } else if (id == R.id.save_draft_dialog_save) {
-                this.f56075e.processSaveDraft();
-                this.f56075e.setResult(100);
-                this.f56075e.finish();
+                this.f56074e.processSaveDraft();
+                this.f56074e.setResult(100);
+                this.f56074e.finish();
             }
-            this.f56075e.saveDraftDialog.dismiss();
+            this.f56074e.saveDraftDialog.dismiss();
         }
     }
 
@@ -3035,7 +3035,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56076a;
+        public final /* synthetic */ WriteActivity f56075a;
 
         public s0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3052,14 +3052,14 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56076a = writeActivity;
+            this.f56075a = writeActivity;
         }
 
         @Override // b.a.r0.d4.r.a.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.e.e.p.l.M(TbadkCoreApplication.getInst(), String.format(this.f56076a.getString(R.string.write_post_title_max_length), 31));
+                b.a.e.e.p.l.M(TbadkCoreApplication.getInst(), String.format(this.f56075a.getString(R.string.write_post_title_max_length), 31));
             }
         }
     }
@@ -3070,7 +3070,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56077e;
+        public final /* synthetic */ WriteActivity f56076e;
 
         public t(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3087,23 +3087,23 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56077e = writeActivity;
+            this.f56076e = writeActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f56077e.refreshPostButton();
-                this.f56077e.updateTitleStyle();
-                EditText realTitleInstance = this.f56077e.getRealTitleInstance();
+                this.f56076e.refreshPostButton();
+                this.f56076e.updateTitleStyle();
+                EditText realTitleInstance = this.f56076e.getRealTitleInstance();
                 if (editable == null || realTitleInstance == null || realTitleInstance.getText() == null) {
                     return;
                 }
-                if (this.f56077e.mTitleTemp == null || !this.f56077e.mTitleTemp.equals(editable.toString())) {
-                    if (this.f56077e.mHighLightController != null) {
-                        this.f56077e.mTitleTemp = realTitleInstance.getText().toString();
-                        this.f56077e.mHighLightController.j(realTitleInstance, true);
+                if (this.f56076e.mTitleTemp == null || !this.f56076e.mTitleTemp.equals(editable.toString())) {
+                    if (this.f56076e.mHighLightController != null) {
+                        this.f56076e.mTitleTemp = realTitleInstance.getText().toString();
+                        this.f56076e.mHighLightController.j(realTitleInstance, true);
                         return;
                     }
                     return;
@@ -3116,7 +3116,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f56077e.beforeText = charSequence != null ? charSequence.toString() : "";
+                this.f56076e.beforeText = charSequence != null ? charSequence.toString() : "";
             }
         }
 
@@ -3124,8 +3124,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                if ((charSequence != null ? charSequence.toString().length() : 0) > (this.f56077e.beforeText != null ? this.f56077e.beforeText.length() : 0)) {
-                    this.f56077e.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
+                if ((charSequence != null ? charSequence.toString().length() : 0) > (this.f56076e.beforeText != null ? this.f56076e.beforeText.length() : 0)) {
+                    this.f56076e.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
                 }
             }
         }
@@ -3137,16 +3137,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56078e;
+        public int f56077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public EditText f56079f;
+        public EditText f56078f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f56080g;
+        public TextView f56079g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56081h;
+        public final /* synthetic */ WriteActivity f56080h;
 
         public t0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3163,21 +3163,21 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56081h = writeActivity;
-            this.f56079f = null;
-            this.f56080g = null;
+            this.f56080h = writeActivity;
+            this.f56078f = null;
+            this.f56079g = null;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f56081h.refreshPostButton();
-                if (this.f56081h.isLivePhotoType) {
-                    int selectionStart = this.f56079f.getSelectionStart();
-                    this.f56078e = selectionStart;
-                    this.f56079f.setSelection(selectionStart);
-                    this.f56081h.setLeftCount(this.f56080g, this.f56079f);
+                this.f56080h.refreshPostButton();
+                if (this.f56080h.isLivePhotoType) {
+                    int selectionStart = this.f56078f.getSelectionStart();
+                    this.f56077e = selectionStart;
+                    this.f56078f.setSelection(selectionStart);
+                    this.f56080h.setLeftCount(this.f56079g, this.f56078f);
                 }
             }
         }
@@ -3186,18 +3186,18 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                if (!this.f56081h.isLivePhotoType || !this.f56081h.isPhotoliveTitleHasFocus) {
-                    if (this.f56081h.isLivePhotoType) {
-                        if (this.f56079f == this.f56081h.live_post_content && this.f56080g == this.f56081h.mContentOverPlusNumber) {
+                if (!this.f56080h.isLivePhotoType || !this.f56080h.isPhotoliveTitleHasFocus) {
+                    if (this.f56080h.isLivePhotoType) {
+                        if (this.f56078f == this.f56080h.live_post_content && this.f56079g == this.f56080h.mContentOverPlusNumber) {
                             return;
                         }
-                        this.f56079f = this.f56081h.live_post_content;
-                        this.f56080g = this.f56081h.mContentOverPlusNumber;
+                        this.f56078f = this.f56080h.live_post_content;
+                        this.f56079g = this.f56080h.mContentOverPlusNumber;
                     }
-                } else if (this.f56079f == this.f56081h.live_post_title && this.f56080g == this.f56081h.mTitleOverPlusNumber) {
+                } else if (this.f56078f == this.f56080h.live_post_title && this.f56079g == this.f56080h.mTitleOverPlusNumber) {
                 } else {
-                    this.f56079f = this.f56081h.live_post_title;
-                    this.f56080g = this.f56081h.mTitleOverPlusNumber;
+                    this.f56078f = this.f56080h.live_post_title;
+                    this.f56079g = this.f56080h.mTitleOverPlusNumber;
                 }
             }
         }
@@ -3216,13 +3216,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f56082e;
+        public String f56081e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f56083f;
+        public String f56082f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56084g;
+        public final /* synthetic */ WriteActivity f56083g;
 
         public u(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3239,27 +3239,27 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56084g = writeActivity;
-            this.f56082e = "";
+            this.f56083g = writeActivity;
+            this.f56081e = "";
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f56084g.refreshPostButton();
-                EditText realContentEdittextInstance = this.f56084g.getRealContentEdittextInstance();
+                this.f56083g.refreshPostButton();
+                EditText realContentEdittextInstance = this.f56083g.getRealContentEdittextInstance();
                 if (editable == null || realContentEdittextInstance == null || realContentEdittextInstance.getText() == null) {
                     return;
                 }
-                String str = this.f56082e;
+                String str = this.f56081e;
                 if (str == null || !str.equals(editable.toString())) {
-                    if (this.f56084g.mHighLightController != null) {
-                        this.f56082e = realContentEdittextInstance.getText().toString();
-                        this.f56084g.mHighLightController.j(realContentEdittextInstance, false);
+                    if (this.f56083g.mHighLightController != null) {
+                        this.f56081e = realContentEdittextInstance.getText().toString();
+                        this.f56083g.mHighLightController.j(realContentEdittextInstance, false);
                     }
-                    if (this.f56084g.isEvaluate) {
-                        this.f56084g.addEvaluateTextChangeOperation(editable);
+                    if (this.f56083g.isEvaluate) {
+                        this.f56083g.addEvaluateTextChangeOperation(editable);
                         return;
                     }
                     return;
@@ -3272,7 +3272,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f56083f = charSequence != null ? charSequence.toString() : "";
+                this.f56082f = charSequence != null ? charSequence.toString() : "";
             }
         }
 
@@ -3280,10 +3280,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                String str = this.f56083f;
+                String str = this.f56082f;
                 if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.length() : 0)) {
-                    this.f56084g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
-                    this.f56084g.gotoAtSelectActivity(charSequence, i2, i4);
+                    this.f56083g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
+                    this.f56083g.gotoAtSelectActivity(charSequence, i2, i4);
                 }
             }
         }
@@ -3295,7 +3295,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56085a;
+        public final /* synthetic */ WriteActivity f56084a;
 
         public u0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3312,15 +3312,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56085a = writeActivity;
+            this.f56084a = writeActivity;
         }
 
         @Override // b.a.q0.s.g0.s.a.InterfaceC0680a
         public void a(int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.f56085a.refreshListView();
-                this.f56085a.changeToolButtonStatus();
+                this.f56084a.refreshListView();
+                this.f56084a.changeToolButtonStatus();
             }
         }
     }
@@ -3331,7 +3331,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56086a;
+        public final /* synthetic */ WriteActivity f56085a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(WriteActivity writeActivity, int i2) {
@@ -3351,7 +3351,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56086a = writeActivity;
+            this.f56085a = writeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3360,15 +3360,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage.getError() == 0) {
                 String str = (String) MessageManager.getInstance().runTask(2001284, String.class, httpResponsedMessage).getData();
-                if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f56086a.mBubbleUrl)) {
-                    this.f56086a.mBubbleUrl = str;
+                if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f56085a.mBubbleUrl)) {
+                    this.f56085a.mBubbleUrl = str;
                     TbadkCoreApplication.getInst().setDefaultBubble(str);
-                    this.f56086a.refreshBubble(true);
-                } else if (TextUtils.isEmpty(str) || str.equals(this.f56086a.mBubbleUrl)) {
+                    this.f56085a.refreshBubble(true);
+                } else if (TextUtils.isEmpty(str) || str.equals(this.f56085a.mBubbleUrl)) {
                 } else {
-                    this.f56086a.mBubbleUrl = str;
-                    TbadkCoreApplication.getInst().setDefaultBubble(this.f56086a.mBubbleUrl);
-                    this.f56086a.refreshBubble(true);
+                    this.f56085a.mBubbleUrl = str;
+                    TbadkCoreApplication.getInst().setDefaultBubble(this.f56085a.mBubbleUrl);
+                    this.f56085a.refreshBubble(true);
                 }
             }
         }
@@ -3380,9 +3380,52 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56087e;
+        public final /* synthetic */ WriteActivity f56086e;
 
         public v0(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56086e = writeActivity;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    view.requestFocus();
+                    this.f56086e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
+                    this.f56086e.mPostContent.requestFocus();
+                    return false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class w implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56087e;
+
+        public w(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3405,55 +3448,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    view.requestFocus();
-                    this.f56087e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
-                    this.f56087e.mPostContent.requestFocus();
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class w implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56088e;
-
-        public w(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56088e = writeActivity;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 2) {
-                    if (this.f56088e.mPostContent != null) {
-                        b.a.e.e.p.l.x(this.f56088e.getPageContext().getContext(), this.f56088e.mPostContent);
+                    if (this.f56087e.mPostContent != null) {
+                        b.a.e.e.p.l.x(this.f56087e.getPageContext().getContext(), this.f56087e.mPostContent);
                     }
-                    if (this.f56088e.mEditor != null) {
-                        this.f56088e.mEditor.hideTools();
+                    if (this.f56087e.mEditor != null) {
+                        this.f56087e.mEditor.hideTools();
                         return false;
                     }
                     return false;
@@ -3470,10 +3470,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f56089a;
+        public final /* synthetic */ boolean f56088a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56090b;
+        public final /* synthetic */ WriteActivity f56089b;
 
         public w0(WriteActivity writeActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -3490,8 +3490,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56090b = writeActivity;
-            this.f56089a = z;
+            this.f56089b = writeActivity;
+            this.f56088a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3507,9 +3507,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
                     ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
                 }
-                this.f56090b.getRealContentEdittextInstance().setBackgroundDrawable(ninePatchDrawable);
-                if (this.f56089a) {
-                    b.a.r0.l3.i0.a.c(this.f56090b.getPageContext(), this.f56090b.getRealContentEdittextInstance(), true, this.f56090b.mBubbleTipRefreshCallback);
+                this.f56089b.getRealContentEdittextInstance().setBackgroundDrawable(ninePatchDrawable);
+                if (this.f56088a) {
+                    b.a.r0.l3.i0.a.c(this.f56089b.getPageContext(), this.f56089b.getRealContentEdittextInstance(), true, this.f56089b.mBubbleTipRefreshCallback);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
             }
@@ -3522,7 +3522,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56091e;
+        public final /* synthetic */ WriteActivity f56090e;
 
         public x(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3539,7 +3539,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56091e = writeActivity;
+            this.f56090e = writeActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -3547,8 +3547,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.requestFocus();
-                this.f56091e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
-                this.f56091e.mPostContent.requestFocus();
+                this.f56090e.mEditor.sendAction(new b.a.q0.x.a(5, -1, null));
+                this.f56090e.mPostContent.requestFocus();
             }
         }
     }
@@ -3559,7 +3559,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56092a;
+        public final /* synthetic */ WriteActivity f56091a;
 
         public x0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
@@ -3576,16 +3576,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     return;
                 }
             }
-            this.f56092a = writeActivity;
+            this.f56091a = writeActivity;
         }
 
         @Override // b.a.r0.l3.i0.a.f
         public void onRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56092a.mBubbleUrl = null;
-                this.f56092a.refreshBubble(false);
-                this.f56092a.mEditor.sendAction(new b.a.q0.x.a(2, 12, null));
+                this.f56091a.mBubbleUrl = null;
+                this.f56091a.refreshBubble(false);
+                this.f56091a.mEditor.sendAction(new b.a.q0.x.a(2, 12, null));
             }
         }
     }
@@ -3596,9 +3596,45 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56093e;
+        public final /* synthetic */ WriteActivity f56092e;
 
         public y(WriteActivity writeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {writeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56092e = writeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56092e.deleteVoice();
+                this.f56092e.refreshVideoLauncher();
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public class y0 implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WriteActivity f56093e;
+
+        public y0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3616,25 +3652,56 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56093e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56093e.deleteVoice();
-                this.f56093e.refreshVideoLauncher();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.f56093e.mAdapter != null && (this.f56093e.mAdapter.getItem(i2) instanceof b.a.q0.s.q.w)) {
+                b.a.q0.s.q.w wVar = (b.a.q0.s.q.w) this.f56093e.mAdapter.getItem(i2);
+                int i3 = wVar.f13468f;
+                if (i3 == 1) {
+                    if (wVar.s == 1) {
+                        UrlManager.getInstance().dealOneLink(this.f56093e.getPageContext(), new String[]{wVar.k});
+                        return;
+                    }
+                    UrlManager urlManager = UrlManager.getInstance();
+                    TbPageContext<WriteActivity> pageContext = this.f56093e.getPageContext();
+                    urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.k)});
+                } else if (i3 == 2) {
+                    if (!TextUtils.isEmpty(wVar.n)) {
+                        if (wVar.n.startsWith("tiebaclient://")) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, wVar.n));
+                            return;
+                        }
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(wVar.n));
+                        intent.addFlags(268468224);
+                        if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+                            this.f56093e.startActivity(intent);
+                        } else if (TextUtils.isEmpty(wVar.o)) {
+                        } else {
+                            UrlManager urlManager2 = UrlManager.getInstance();
+                            TbPageContext<WriteActivity> pageContext2 = this.f56093e.getPageContext();
+                            urlManager2.dealOneLink(pageContext2, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.o)});
+                        }
+                    } else if (TextUtils.isEmpty(wVar.o)) {
+                    } else {
+                        UrlManager urlManager3 = UrlManager.getInstance();
+                        TbPageContext<WriteActivity> pageContext3 = this.f56093e.getPageContext();
+                        urlManager3.dealOneLink(pageContext3, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.o)});
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class y0 implements AdapterView.OnItemClickListener {
+    public class z implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56094e;
 
-        public y0(WriteActivity writeActivity) {
+        public z(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3652,56 +3719,25 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56094e = writeActivity;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.f56094e.mAdapter != null && (this.f56094e.mAdapter.getItem(i2) instanceof b.a.q0.s.q.w)) {
-                b.a.q0.s.q.w wVar = (b.a.q0.s.q.w) this.f56094e.mAdapter.getItem(i2);
-                int i3 = wVar.f13468f;
-                if (i3 == 1) {
-                    if (wVar.s == 1) {
-                        UrlManager.getInstance().dealOneLink(this.f56094e.getPageContext(), new String[]{wVar.k});
-                        return;
-                    }
-                    UrlManager urlManager = UrlManager.getInstance();
-                    TbPageContext<WriteActivity> pageContext = this.f56094e.getPageContext();
-                    urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.k)});
-                } else if (i3 == 2) {
-                    if (!TextUtils.isEmpty(wVar.n)) {
-                        if (wVar.n.startsWith("tiebaclient://")) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, wVar.n));
-                            return;
-                        }
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(wVar.n));
-                        intent.addFlags(268468224);
-                        if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                            this.f56094e.startActivity(intent);
-                        } else if (TextUtils.isEmpty(wVar.o)) {
-                        } else {
-                            UrlManager urlManager2 = UrlManager.getInstance();
-                            TbPageContext<WriteActivity> pageContext2 = this.f56094e.getPageContext();
-                            urlManager2.dealOneLink(pageContext2, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.o)});
-                        }
-                    } else if (TextUtils.isEmpty(wVar.o)) {
-                    } else {
-                        UrlManager urlManager3 = UrlManager.getInstance();
-                        TbPageContext<WriteActivity> pageContext3 = this.f56094e.getPageContext();
-                        urlManager3.dealOneLink(pageContext3, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + b.a.e.e.p.k.getUrlEncode(wVar.o)});
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56094e.stopTask();
+                this.f56094e.popupSaveDraftDialog();
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public class z implements View.OnClickListener {
+    public class z0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WriteActivity f56095e;
 
-        public z(WriteActivity writeActivity) {
+        public z0(WriteActivity writeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3719,47 +3755,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.f56095e = writeActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56095e.stopTask();
-                this.f56095e.popupSaveDraftDialog();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public class z0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteActivity f56096e;
-
-        public z0(WriteActivity writeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56096e = writeActivity;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56096e.fromErrorDialog) {
-                this.f56096e.mOnPostWriteCallback.callback(false, b.a.r0.l3.s0.i.f20863c, b.a.r0.l3.s0.i.f20864d, b.a.r0.l3.s0.i.f20865e, b.a.r0.l3.s0.i.f20866f);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56095e.fromErrorDialog) {
+                this.f56095e.mOnPostWriteCallback.callback(false, b.a.r0.l3.s0.i.f20863c, b.a.r0.l3.s0.i.f20864d, b.a.r0.l3.s0.i.f20865e, b.a.r0.l3.s0.i.f20866f);
             }
         }
     }

@@ -14,7 +14,7 @@ public final class aw extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av f56818a;
+    public final /* synthetic */ av f56817a;
 
     public aw(av avVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class aw extends TimerTask {
                 return;
             }
         }
-        this.f56818a = avVar;
+        this.f56817a = avVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -44,13 +44,13 @@ public final class aw extends TimerTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Message message = new Message();
             message.what = 3;
-            handler = this.f56818a.f56817a.v;
+            handler = this.f56817a.f56816a.v;
             handler.sendMessage(message);
-            timer = this.f56818a.f56817a.p;
+            timer = this.f56817a.f56816a.p;
             if (timer != null) {
-                timer2 = this.f56818a.f56817a.p;
+                timer2 = this.f56817a.f56816a.p;
                 timer2.cancel();
-                timer3 = this.f56818a.f56817a.p;
+                timer3 = this.f56817a.f56816a.p;
                 timer3.purge();
             }
         }

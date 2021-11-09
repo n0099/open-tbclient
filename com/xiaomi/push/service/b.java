@@ -17,7 +17,7 @@ public class b extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ie f71452a;
+    public ie f71451a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<XMPushService> f925a;
@@ -41,7 +41,7 @@ public class b extends ai.a {
             }
         }
         this.f926a = false;
-        this.f71452a = ieVar;
+        this.f71451a = ieVar;
         this.f925a = weakReference;
         this.f926a = z;
     }
@@ -59,15 +59,15 @@ public class b extends ai.a {
         WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f925a) == null || this.f71452a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f925a) == null || this.f71451a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.f71452a.a(at.a());
-        this.f71452a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f71452a.m468a());
+        this.f71451a.a(at.a());
+        this.f71451a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f71451a.m468a());
         try {
-            String c2 = this.f71452a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.f71452a.b(), this.f71452a, hf.f71079i)), this.f926a);
+            String c2 = this.f71451a.c();
+            xMPushService.a(c2, ip.a(y.a(c2, this.f71451a.b(), this.f71451a, hf.f71078i)), this.f926a);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }

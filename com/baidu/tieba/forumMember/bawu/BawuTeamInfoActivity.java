@@ -33,7 +33,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f48163a;
+        public final /* synthetic */ BawuTeamInfoActivity f48162a;
 
         public a(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f48163a = bawuTeamInfoActivity;
+            this.f48162a = bawuTeamInfoActivity;
         }
 
         @Override // b.a.r0.v0.a.e.c
@@ -59,22 +59,22 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        BawuTeamInfoActivity bawuTeamInfoActivity = this.f48163a;
+                        BawuTeamInfoActivity bawuTeamInfoActivity = this.f48162a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.mView.d());
-                        this.f48163a.mView.k(arrayList, lVar, false);
+                        this.f48162a.mView.k(arrayList, lVar, false);
                     }
-                    this.f48163a.mModel.i(this.f48163a.forumId);
+                    this.f48162a.mModel.i(this.f48162a.forumId);
                     return;
                 }
-                BawuTeamInfoActivity bawuTeamInfoActivity2 = this.f48163a;
+                BawuTeamInfoActivity bawuTeamInfoActivity2 = this.f48162a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.mView.d());
                 if (i2 == 0) {
-                    this.f48163a.mView.k(arrayList, lVar, true);
+                    this.f48162a.mView.k(arrayList, lVar, true);
                     return;
                 }
-                this.f48163a.showToast(str);
-                if (this.f48163a.mView.e()) {
-                    this.f48163a.mView.j();
+                this.f48162a.showToast(str);
+                if (this.f48162a.mView.e()) {
+                    this.f48162a.mView.j();
                 }
             }
         }
@@ -86,7 +86,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f48164e;
+        public final /* synthetic */ BawuTeamInfoActivity f48163e;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f48164e = bawuTeamInfoActivity;
+            this.f48163e = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f48164e.refreshData();
+                this.f48163e.refreshData();
             }
         }
     }

@@ -40,7 +40,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f49335a;
+        public final /* synthetic */ GodSquareActivity f49334a;
 
         public a(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -57,41 +57,41 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f49335a = godSquareActivity;
+            this.f49334a = godSquareActivity;
         }
 
         @Override // b.a.r0.c1.c.b.c
         public void a(List<n> list, boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                this.f49335a.mHasMore = z2;
-                this.f49335a.mView.a().completePullRefreshPostDelayed(0L);
-                this.f49335a.mView.b();
+                this.f49334a.mHasMore = z2;
+                this.f49334a.mView.a().completePullRefreshPostDelayed(0L);
+                this.f49334a.mView.b();
                 if (ListUtils.isEmpty(list)) {
-                    this.f49335a.mView.d();
-                    if (ListUtils.isEmpty(this.f49335a.mModel.f15138e)) {
-                        this.f49335a.mView.k(str);
+                    this.f49334a.mView.d();
+                    if (ListUtils.isEmpty(this.f49334a.mModel.f15138e)) {
+                        this.f49334a.mView.k(str);
                         return;
                     }
-                    this.f49335a.mHasMore = true;
+                    this.f49334a.mHasMore = true;
                     if (l.D()) {
-                        this.f49335a.showToast(str);
+                        this.f49334a.showToast(str);
                         return;
                     }
                     return;
                 }
-                this.f49335a.mView.c();
+                this.f49334a.mView.c();
                 if (z) {
-                    this.f49335a.mModel.f15138e = list;
-                    this.f49335a.mView.m(this.f49335a.mModel.f15138e);
+                    this.f49334a.mModel.f15138e = list;
+                    this.f49334a.mView.m(this.f49334a.mModel.f15138e);
                 } else {
-                    this.f49335a.mModel.f15138e.addAll(list);
-                    this.f49335a.mView.g();
+                    this.f49334a.mModel.f15138e.addAll(list);
+                    this.f49334a.mView.g();
                 }
                 if (z2) {
-                    this.f49335a.mView.f();
+                    this.f49334a.mView.f();
                 } else {
-                    this.f49335a.mView.e();
+                    this.f49334a.mView.e();
                 }
             }
         }
@@ -103,7 +103,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f49336a;
+        public final /* synthetic */ GodSquareActivity f49335a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GodSquareActivity godSquareActivity, int i2) {
@@ -123,7 +123,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f49336a = godSquareActivity;
+            this.f49335a = godSquareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,8 +135,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f45669c)) {
                     return;
                 }
-                if (this.f49336a.mModel.g(b.a.e.e.m.b.g(updateAttentionMessage.getData().f45669c, 0L))) {
-                    this.f49336a.needRefreshView = true;
+                if (this.f49335a.mModel.g(b.a.e.e.m.b.g(updateAttentionMessage.getData().f45669c, 0L))) {
+                    this.f49335a.needRefreshView = true;
                 }
             }
         }
@@ -148,7 +148,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f49337e;
+        public final /* synthetic */ GodSquareActivity f49336e;
 
         public c(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f49337e = godSquareActivity;
+            this.f49336e = godSquareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (ListUtils.isEmpty(this.f49337e.mModel.f15138e)) {
-                    this.f49337e.loadFirstTime();
+                if (ListUtils.isEmpty(this.f49336e.mModel.f15138e)) {
+                    this.f49336e.loadFirstTime();
                 } else {
-                    this.f49337e.mView.l();
+                    this.f49336e.mView.l();
                 }
             }
         }

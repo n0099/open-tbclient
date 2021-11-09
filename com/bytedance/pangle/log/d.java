@@ -34,13 +34,13 @@ public final class d {
                 a2 = "unknown";
             }
             try {
-                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f61332h)));
+                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f61331h)));
                 jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(a2));
                 Plugin plugin2 = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""));
                 jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin2 != null ? plugin2.getApiVersionCode() : -1)));
                 jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.53-bugfix.13-pangle"));
                 ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
-                IZeusReporter reporter = i.a().f61439b.getReporter();
+                IZeusReporter reporter = i.a().f61438b.getReporter();
                 if (reporter != null) {
                     JSONObject jSONObject4 = new JSONObject();
                     Iterator<String> keys = jSONObject.keys();

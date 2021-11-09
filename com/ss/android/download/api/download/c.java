@@ -15,31 +15,31 @@ public class c implements DownloadEventConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68312a;
+    public String f68311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f68313b;
+    public boolean f68312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68314c;
+    public String f68313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68315d;
+    public String f68314d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68316e;
+    public String f68315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68317f;
+    public String f68316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68318g;
+    public String f68317g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f68319h;
+    public String f68318h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68320i;
+    public String f68319i;
     public String j;
     public String k;
     public Object l;
@@ -62,31 +62,31 @@ public class c implements DownloadEventConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68321a;
+        public String f68320a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f68322b;
+        public boolean f68321b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68323c;
+        public String f68322c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68324d;
+        public String f68323d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f68325e;
+        public String f68324e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f68326f;
+        public String f68325f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f68327g;
+        public String f68326g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f68328h;
+        public String f68327h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f68329i;
+        public String f68328i;
         public String j;
         public String k;
         public Object l;
@@ -125,21 +125,21 @@ public class c implements DownloadEventConfig {
     public String getClickButtonTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68312a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68311a : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickContinueLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68317f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68316f : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickInstallLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68318g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68317g : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -156,21 +156,21 @@ public class c implements DownloadEventConfig {
     public String getClickLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68314c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68313c : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickPauseLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68316e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68315e : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickStartLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68315d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68314d : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -228,7 +228,7 @@ public class c implements DownloadEventConfig {
     public boolean isEnableClickEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f68313b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f68312b : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -281,15 +281,15 @@ public class c implements DownloadEventConfig {
                 return;
             }
         }
-        this.f68312a = aVar.f68321a;
-        this.f68313b = aVar.f68322b;
-        this.f68314c = aVar.f68323c;
-        this.f68315d = aVar.f68324d;
-        this.f68316e = aVar.f68325e;
-        this.f68317f = aVar.f68326f;
-        this.f68318g = aVar.f68327g;
-        this.f68319h = aVar.f68328h;
-        this.f68320i = aVar.f68329i;
+        this.f68311a = aVar.f68320a;
+        this.f68312b = aVar.f68321b;
+        this.f68313c = aVar.f68322c;
+        this.f68314d = aVar.f68323d;
+        this.f68315e = aVar.f68324e;
+        this.f68316f = aVar.f68325f;
+        this.f68317g = aVar.f68326g;
+        this.f68318h = aVar.f68327h;
+        this.f68319i = aVar.f68328i;
         this.j = aVar.j;
         this.k = aVar.k;
         this.l = aVar.l;

@@ -35,7 +35,7 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f62664a;
+    public static ArrayList<String> f62663a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -114,12 +114,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f62664a = arrayList;
+        f62663a = arrayList;
         arrayList.add("card_no");
-        f62664a.add("valid_date");
-        f62664a.add("cvv2");
-        f62664a.add("identity_code");
-        f62664a.add("phone_number");
+        f62663a.add("valid_date");
+        f62663a.add("cvv2");
+        f62663a.add("identity_code");
+        f62663a.add("phone_number");
     }
 
     public PayUtils() {
@@ -175,7 +175,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             String str3 = str + "加密=" + str2;
-            if (f62664a.contains(str)) {
+            if (f62663a.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }

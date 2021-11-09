@@ -70,7 +70,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53797a;
+        public final /* synthetic */ SecretSettingActivity f53796a;
 
         public a(SecretSettingActivity secretSettingActivity) {
             Interceptable interceptable = $ic;
@@ -87,14 +87,14 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53797a = secretSettingActivity;
+            this.f53796a = secretSettingActivity;
         }
 
         @Override // b.a.r0.c3.b.a.c.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SecretSettingActivity secretSettingActivity = this.f53797a;
+                SecretSettingActivity secretSettingActivity = this.f53796a;
                 secretSettingActivity.showResetSettingDialog("reply", secretSettingActivity.getPageContext().getString(R.string.privacy_setting_thread_reply_decs));
             }
         }
@@ -103,7 +103,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f53797a.sendMessage(new CustomMessage(2002001, new ForbiddenForumActivityConfig(this.f53797a.getPageContext().getPageActivity())));
+                this.f53796a.sendMessage(new CustomMessage(2002001, new ForbiddenForumActivityConfig(this.f53796a.getPageContext().getPageActivity())));
             }
         }
 
@@ -111,7 +111,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                SecretSettingActivity secretSettingActivity = this.f53797a;
+                SecretSettingActivity secretSettingActivity = this.f53796a;
                 secretSettingActivity.showResetSettingDialog("live", secretSettingActivity.getPageContext().getString(R.string.ala_setting_security_mylive));
             }
         }
@@ -120,9 +120,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                PrivacyMarkActivityConfig privacyMarkActivityConfig = new PrivacyMarkActivityConfig(this.f53797a.getPageContext().getPageActivity());
-                privacyMarkActivityConfig.setMarkState(this.f53797a.optionBazhuShowInside, this.f53797a.optionBazhuShowOutside);
-                this.f53797a.sendMessage(new CustomMessage(2002001, privacyMarkActivityConfig));
+                PrivacyMarkActivityConfig privacyMarkActivityConfig = new PrivacyMarkActivityConfig(this.f53796a.getPageContext().getPageActivity());
+                privacyMarkActivityConfig.setMarkState(this.f53796a.optionBazhuShowInside, this.f53796a.optionBazhuShowOutside);
+                this.f53796a.sendMessage(new CustomMessage(2002001, privacyMarkActivityConfig));
                 TiebaStatic.log(new StatisticItem("c14002").param("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
@@ -131,7 +131,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SecretSettingActivity secretSettingActivity = this.f53797a;
+                SecretSettingActivity secretSettingActivity = this.f53796a;
                 secretSettingActivity.showResetSettingDialog("group", secretSettingActivity.getPageContext().getString(R.string.privacy_setting_attention_group));
                 TiebaStatic.log("c10652");
             }
@@ -141,7 +141,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f53797a.sendMessage(new CustomMessage(2002001, new PrivacyPermissionActivityConfig(this.f53797a.getPageContext().getPageActivity())));
+                this.f53796a.sendMessage(new CustomMessage(2002001, new PrivacyPermissionActivityConfig(this.f53796a.getPageContext().getPageActivity())));
             }
         }
 
@@ -149,7 +149,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                SecretSettingActivity secretSettingActivity = this.f53797a;
+                SecretSettingActivity secretSettingActivity = this.f53796a;
                 secretSettingActivity.showResetSettingDialog("like", secretSettingActivity.getPageContext().getString(R.string.my_attention_bar));
                 TiebaStatic.log("c12514");
             }
@@ -159,7 +159,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f53797a.goToBlackListActivity();
+                this.f53796a.goToBlackListActivity();
             }
         }
 
@@ -167,7 +167,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void onBackPressed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f53797a.finish();
+                this.f53796a.finish();
             }
         }
     }
@@ -178,7 +178,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53798a;
+        public final /* synthetic */ SecretSettingActivity f53797a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SecretSettingActivity secretSettingActivity, int i2, boolean z) {
@@ -199,7 +199,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53798a = secretSettingActivity;
+            this.f53797a = secretSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -209,22 +209,22 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f53798a.hideProgressBar();
+            this.f53797a.hideProgressBar();
             if (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage) {
                 PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                 String operation = privacySettingMessage.getOperation();
                 int type = privacySettingMessage.getType();
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    new BdTopToast(this.f53798a).setIcon(true).setContent(this.f53798a.getString(R.string.block_user_success)).show((ViewGroup) this.f53798a.findViewById(16908290));
+                    new BdTopToast(this.f53797a).setIcon(true).setContent(this.f53797a.getString(R.string.block_user_success)).show((ViewGroup) this.f53797a.findViewById(16908290));
                     if (TextUtils.equals("location", operation)) {
                         return;
                     }
-                    this.f53798a.mSetting.n(operation, type);
-                    this.f53798a.mView.r(operation, type);
+                    this.f53797a.mSetting.n(operation, type);
+                    this.f53797a.mView.r(operation, type);
                     return;
                 }
-                new BdTopToast(this.f53798a).setIcon(false).setContent(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53798a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString()).show((ViewGroup) this.f53798a.findViewById(16908290));
-                SecretSettingActivity secretSettingActivity = this.f53798a;
+                new BdTopToast(this.f53797a).setIcon(false).setContent(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53797a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString()).show((ViewGroup) this.f53797a.findViewById(16908290));
+                SecretSettingActivity secretSettingActivity = this.f53797a;
                 secretSettingActivity.updateSelectedOption(secretSettingActivity.mSetting);
             }
         }
@@ -236,7 +236,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53799a;
+        public final /* synthetic */ SecretSettingActivity f53798a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(SecretSettingActivity secretSettingActivity, int i2, int i3) {
@@ -257,18 +257,18 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53799a = secretSettingActivity;
+            this.f53798a = secretSettingActivity;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f53799a.hideProgressBar();
+                this.f53798a.hideProgressBar();
                 if (responsedMessage == null) {
                     return;
                 }
-                this.f53799a.loadSuccess = true;
+                this.f53798a.loadSuccess = true;
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     b.a.r0.c3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
@@ -277,16 +277,16 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     if (privacyData == null) {
                         return;
                     }
-                    this.f53799a.mSetting.l(privacyData);
-                    this.f53799a.mSetting.m();
-                    this.f53799a.mView.p(true);
-                    this.f53799a.mView.s(this.f53799a.mSetting);
-                    SecretSettingActivity secretSettingActivity = this.f53799a;
+                    this.f53798a.mSetting.l(privacyData);
+                    this.f53798a.mSetting.m();
+                    this.f53798a.mView.p(true);
+                    this.f53798a.mView.s(this.f53798a.mSetting);
+                    SecretSettingActivity secretSettingActivity = this.f53798a;
                     secretSettingActivity.updateSelectedOption(secretSettingActivity.mSetting);
-                    TbadkCoreApplication.getInst().setLocationShared(this.f53799a.mSetting.j());
+                    TbadkCoreApplication.getInst().setLocationShared(this.f53798a.mSetting.j());
                     return;
                 }
-                this.f53799a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.f53799a.getResources().getString(R.string.neterror) : responsedMessage.getErrorString());
+                this.f53798a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.f53798a.getResources().getString(R.string.neterror) : responsedMessage.getErrorString());
             }
         }
     }
@@ -297,7 +297,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53800a;
+        public final /* synthetic */ SecretSettingActivity f53799a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(SecretSettingActivity secretSettingActivity, int i2) {
@@ -317,7 +317,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53800a = secretSettingActivity;
+            this.f53799a = secretSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -330,9 +330,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 int k = j.k(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
                 b.a.q0.s.e0.b j2 = b.a.q0.s.e0.b.j();
                 int k2 = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
-                this.f53800a.optionBazhuShowInside = k;
-                this.f53800a.optionBazhuShowOutside = k2;
-                this.f53800a.mView.q(k, k2);
+                this.f53799a.optionBazhuShowInside = k;
+                this.f53799a.optionBazhuShowOutside = k2;
+                this.f53799a.mView.q(k, k2);
             }
         }
     }
@@ -343,10 +343,10 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53801e;
+        public final /* synthetic */ String f53800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53802f;
+        public final /* synthetic */ SecretSettingActivity f53801f;
 
         public e(SecretSettingActivity secretSettingActivity, String str) {
             Interceptable interceptable = $ic;
@@ -363,48 +363,48 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53802f = secretSettingActivity;
-            this.f53801e = str;
+            this.f53801f = secretSettingActivity;
+            this.f53800e = str;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                this.f53802f.showProgressBar();
-                String b2 = ((k) this.f53802f.mMyBar.get(i2)).b();
+                this.f53801f.showProgressBar();
+                String b2 = ((k) this.f53801f.mMyBar.get(i2)).b();
                 int i3 = 7;
                 if (SecretSettingActivity.POSITION_SHOW_ALL_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 1);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 1);
                     i3 = 1;
                 } else if (SecretSettingActivity.POSITION_FRIEND_ONLY_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 2);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 2);
                     i3 = 2;
                 } else if (SecretSettingActivity.POSITION_HIDE_ALL_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 3);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 3);
                     i3 = 3;
                 } else if (SecretSettingActivity.POSITION_REPLY_FANS_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 5);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 5);
                     i3 = 5;
                 } else if (SecretSettingActivity.POSITION_REPLY_ATTENTIONS_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 6);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 6);
                     i3 = 6;
                 } else if (SecretSettingActivity.POSITION_MYSELF_ONLY_TAG.equals(b2)) {
-                    this.f53802f.sendSetPrivacyMessage(this.f53801e, 7);
+                    this.f53801f.sendSetPrivacyMessage(this.f53800e, 7);
                 } else {
                     i3 = 0;
                 }
-                this.f53802f.mDialog.h(i2);
-                if ("group".equals(this.f53801e)) {
-                    this.f53802f.optionGroupSelected = i3;
-                } else if ("post".equals(this.f53801e)) {
-                    this.f53802f.optionForumSelected = i3;
-                } else if ("like".equals(this.f53801e)) {
-                    this.f53802f.optionBarSelected = i3;
-                } else if ("live".equals(this.f53801e)) {
-                    this.f53802f.optionLiveSelected = i3;
-                } else if ("reply".equals(this.f53801e)) {
-                    this.f53802f.optionThreadReplySelected = i3;
+                this.f53801f.mDialog.h(i2);
+                if ("group".equals(this.f53800e)) {
+                    this.f53801f.optionGroupSelected = i3;
+                } else if ("post".equals(this.f53800e)) {
+                    this.f53801f.optionForumSelected = i3;
+                } else if ("like".equals(this.f53800e)) {
+                    this.f53801f.optionBarSelected = i3;
+                } else if ("live".equals(this.f53800e)) {
+                    this.f53801f.optionLiveSelected = i3;
+                } else if ("reply".equals(this.f53800e)) {
+                    this.f53801f.optionThreadReplySelected = i3;
                 }
             }
         }
@@ -416,7 +416,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f53803a;
+        public final /* synthetic */ SecretSettingActivity f53802a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(SecretSettingActivity secretSettingActivity, int i2) {
@@ -436,7 +436,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f53803a = secretSettingActivity;
+            this.f53802a = secretSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -444,8 +444,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f53803a.mSetting.y(((Integer) customResponsedMessage.getData()).intValue());
-                this.f53803a.mView.s(this.f53803a.mSetting);
+                this.f53802a.mSetting.y(((Integer) customResponsedMessage.getData()).intValue());
+                this.f53802a.mView.s(this.f53802a.mSetting);
             }
         }
     }

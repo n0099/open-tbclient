@@ -14,7 +14,7 @@ public final class c implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f72165e;
+    public final SequentialSubscription f72164e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class c implements k {
                 return;
             }
         }
-        this.f72165e = new SequentialSubscription();
+        this.f72164e = new SequentialSubscription();
     }
 
     public void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
             if (kVar != null) {
-                this.f72165e.replace(kVar);
+                this.f72164e.replace(kVar);
                 return;
             }
             throw new IllegalArgumentException("Subscription can not be null");
@@ -47,14 +47,14 @@ public final class c implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72165e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72164e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // h.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72165e.unsubscribe();
+            this.f72164e.unsubscribe();
         }
     }
 }

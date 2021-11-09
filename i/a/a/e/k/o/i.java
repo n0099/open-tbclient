@@ -19,22 +19,22 @@ public class i implements i.a.a.e.o.g.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72333a;
+    public int f72332a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72334b;
+    public int f72333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f72335c;
+    public Activity f72334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayWayView f72336d;
+    public IYYPayWayView f72335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AbsViewEventHandler f72337e;
+    public AbsViewEventHandler f72336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i.a.a.e.k.c f72338f;
+    public i.a.a.e.k.c f72337f;
 
     public i(int i2, int i3, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, i.a.a.e.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -52,12 +52,12 @@ public class i implements i.a.a.e.o.g.c {
             }
         }
         RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i2 + " userChannel:" + i3);
-        this.f72333a = i2;
-        this.f72334b = i3;
-        this.f72335c = activity;
-        this.f72336d = iYYPayWayView;
-        this.f72337e = absViewEventHandler;
-        this.f72338f = cVar;
+        this.f72332a = i2;
+        this.f72333b = i3;
+        this.f72334c = activity;
+        this.f72335d = iYYPayWayView;
+        this.f72336e = absViewEventHandler;
+        this.f72337f = cVar;
     }
 
     @Override // i.a.a.e.o.g.c
@@ -65,9 +65,9 @@ public class i implements i.a.a.e.o.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
-            this.f72338f.g();
-            this.f72338f.b(cancelType, this.f72337e);
-            k.b(this.f72333a, this.f72334b, cancelType);
+            this.f72337f.g();
+            this.f72337f.b(cancelType, this.f72336e);
+            k.b(this.f72332a, this.f72333b, cancelType);
         }
     }
 
@@ -75,6 +75,6 @@ public class i implements i.a.a.e.o.g.c {
     public boolean b(DialogInterface dialogInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f72338f.k(this.f72335c, this.f72336d, this.f72337e) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f72337f.k(this.f72334c, this.f72335d, this.f72336e) : invokeL.booleanValue;
     }
 }

@@ -257,15 +257,15 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
                     this.f21646e.w.N();
                 }
                 EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) this.f21646e.k.get(i2);
-                if (aVar == null || (fragment = aVar.f47634a) == null) {
+                if (aVar == null || (fragment = aVar.f47633a) == null) {
                     return;
                 }
                 if (fragment instanceof EnterForumFragment) {
                     z = ((EnterForumFragment) fragment).isAtTop();
                 } else if (fragment instanceof EnterForumTabFeedFragment) {
                     u.b().e(false);
-                    boolean isAtTop = ((EnterForumTabFeedFragment) aVar.f47634a).isAtTop();
-                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, ((EnterForumTabFeedFragment) aVar.f47634a).getTabName()));
+                    boolean isAtTop = ((EnterForumTabFeedFragment) aVar.f47633a).isAtTop();
+                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, ((EnterForumTabFeedFragment) aVar.f47633a).getTabName()));
                     z = isAtTop;
                 } else {
                     z = true;
@@ -428,7 +428,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
             return;
         }
         EnterForumTabPagerAdapter.a aVar = this.k.get(pullLeftViewPager.getCurrentItem());
-        if (aVar == null || (fragment = aVar.f47634a) == null) {
+        if (aVar == null || (fragment = aVar.f47633a) == null) {
             return;
         }
         fragment.onActivityResult(i2, i3, intent);
@@ -464,9 +464,9 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001631, getPageContext().getUniqueId()));
-            } else if (ListUtils.getItem(this.k, i2) == null || !(this.k.get(i2).f47634a instanceof EnterForumTabFeedFragment)) {
+            } else if (ListUtils.getItem(this.k, i2) == null || !(this.k.get(i2).f47633a instanceof EnterForumTabFeedFragment)) {
             } else {
-                ((EnterForumTabFeedFragment) this.k.get(i2).f47634a).callRefresh(true);
+                ((EnterForumTabFeedFragment) this.k.get(i2).f47633a).callRefresh(true);
             }
         }
     }
@@ -696,7 +696,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
                 return;
             }
             EnterForumTabPagerAdapter.a aVar = this.k.get(pullLeftViewPager.getCurrentItem());
-            if (aVar == null || (fragment = aVar.f47634a) == null || !(fragment instanceof BaseFragment)) {
+            if (aVar == null || (fragment = aVar.f47633a) == null || !(fragment instanceof BaseFragment)) {
                 return;
             }
             ((BaseFragment) fragment).setPrimary(z);
@@ -800,7 +800,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
             if (list != null && list.size() > 0) {
                 for (int i3 = 0; i3 < this.k.size(); i3++) {
                     EnterForumTabPagerAdapter.a aVar = this.k.get(i3);
-                    if (aVar != null && (fragment = aVar.f47634a) != null && (fragment instanceof BaseFragment)) {
+                    if (aVar != null && (fragment = aVar.f47633a) != null && (fragment instanceof BaseFragment)) {
                         ((BaseFragment) fragment).onChangeSkinType(i2);
                     }
                 }
@@ -822,7 +822,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
             if (list != null && list.size() > 0) {
                 for (int i2 = 0; i2 < this.k.size(); i2++) {
                     EnterForumTabPagerAdapter.a aVar = this.k.get(i2);
-                    if (aVar != null && (fragment = aVar.f47634a) != null && (fragment instanceof NoNetworkView.b)) {
+                    if (aVar != null && (fragment = aVar.f47633a) != null && (fragment instanceof NoNetworkView.b)) {
                         ((NoNetworkView.b) fragment).onNetworkChange(z);
                     }
                 }
@@ -841,7 +841,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
             }
             int i2 = -1;
             for (int i3 = 0; i3 < this.k.size(); i3++) {
-                if (str.equals(this.k.get(i3).f47637d)) {
+                if (str.equals(this.k.get(i3).f47636d)) {
                     i2 = i3;
                 }
             }
@@ -884,7 +884,7 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
             EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) ListUtils.getItem(this.k, i2);
             if (aVar != null) {
-                Fragment fragment = aVar.f47634a;
+                Fragment fragment = aVar.f47633a;
                 return fragment instanceof EnterForumTabFeedFragment ? ((EnterForumTabFeedFragment) fragment).getTabName() : "";
             }
             return "";
@@ -974,9 +974,9 @@ public class c extends b.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeL(1048606, this, bundle) == null) {
             this.f21643i = (PullLeftViewPager) this.l.findViewById(R.id.enter_forum_viewpager);
             EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
-            aVar.f47634a = new EnterForumFragment();
-            aVar.f47635b = this.f21639e.getResources().getString(R.string.my_forum);
-            ((EnterForumFragment) aVar.f47634a).setTabViewController(this);
+            aVar.f47633a = new EnterForumFragment();
+            aVar.f47634b = this.f21639e.getResources().getString(R.string.my_forum);
+            ((EnterForumFragment) aVar.f47633a).setTabViewController(this);
             ArrayList arrayList = new ArrayList();
             this.k = arrayList;
             arrayList.add(aVar);

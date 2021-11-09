@@ -82,7 +82,7 @@ public final class d extends TagPayloadReader {
                 lVar.g(lVar2.f32635a, 0, lVar.a());
                 b.i.b.a.j0.a b2 = b.i.b.a.j0.a.b(lVar2);
                 this.f31395d = b2.f32691b;
-                this.f62967a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f32692c, b2.f32693d, -1.0f, b2.f32690a, -1, b2.f32694e, null));
+                this.f62966a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f32692c, b2.f32693d, -1.0f, b2.f32690a, -1, b2.f32694e, null));
                 this.f31396e = true;
             } else if (x == 1 && this.f31396e) {
                 byte[] bArr = this.f31394c.f32635a;
@@ -96,11 +96,11 @@ public final class d extends TagPayloadReader {
                     this.f31394c.J(0);
                     int B = this.f31394c.B();
                     this.f31393b.J(0);
-                    this.f62967a.a(this.f31393b, 4);
-                    this.f62967a.a(lVar, B);
+                    this.f62966a.a(this.f31393b, 4);
+                    this.f62966a.a(lVar, B);
                     i3 = i3 + 4 + B;
                 }
-                this.f62967a.c(j2, this.f31397f == 1 ? 1 : 0, i3, 0, null);
+                this.f62966a.c(j2, this.f31397f == 1 ? 1 : 0, i3, 0, null);
             }
         }
     }

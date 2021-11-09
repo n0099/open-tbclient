@@ -24,13 +24,13 @@ public class UserHeadCoverView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f47685e;
+    public ImageView f47684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47686f;
+    public View f47685f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47687g;
+    public ImageView f47686g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserHeadCoverView(@NonNull Context context) {
@@ -56,21 +56,21 @@ public class UserHeadCoverView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f47685e = new ImageView(context);
+            this.f47684e = new ImageView(context);
             int g2 = l.g(context, R.dimen.tbds78);
-            addView(this.f47685e, new FrameLayout.LayoutParams(g2, g2));
-            this.f47686f = new View(context);
+            addView(this.f47684e, new FrameLayout.LayoutParams(g2, g2));
+            this.f47685f = new View(context);
             int g3 = l.g(context, R.dimen.tbds158);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g3, g3);
             int g4 = l.g(context, R.dimen.tbds26);
             layoutParams.leftMargin = g4;
             layoutParams.topMargin = g4;
-            addView(this.f47686f, layoutParams);
-            this.f47687g = new ImageView(context);
+            addView(this.f47685f, layoutParams);
+            this.f47686g = new ImageView(context);
             int g5 = l.g(context, R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g5, g5);
             layoutParams2.gravity = 85;
-            addView(this.f47687g, layoutParams2);
+            addView(this.f47686g, layoutParams2);
         }
     }
 
@@ -82,42 +82,42 @@ public class UserHeadCoverView extends FrameLayout {
         String str = bVar.f21691a;
         if (str != null) {
             if (!str.equals("1") && !bVar.f21691a.equals("2") && !bVar.f21691a.equals("3")) {
-                this.f47685e.setVisibility(8);
-                this.f47686f.setVisibility(8);
+                this.f47684e.setVisibility(8);
+                this.f47685f.setVisibility(8);
             } else {
-                this.f47685e.setVisibility(0);
-                this.f47686f.setVisibility(0);
+                this.f47684e.setVisibility(0);
+                this.f47685f.setVisibility(0);
                 if (bVar.f21691a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47685e, R.drawable.svg_icon_mask_first30, null);
-                    this.f47686f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47684e, R.drawable.svg_icon_mask_first30, null);
+                    this.f47685f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
                 } else if (bVar.f21691a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47685e, R.drawable.svg_icon_mask_second30, null);
-                    this.f47686f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47684e, R.drawable.svg_icon_mask_second30, null);
+                    this.f47685f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
                 } else if (bVar.f21691a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47685e, R.drawable.svg_icon_mask_third30, null);
-                    this.f47686f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47684e, R.drawable.svg_icon_mask_third30, null);
+                    this.f47685f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
                 }
             }
         } else {
-            this.f47685e.setVisibility(8);
-            this.f47686f.setVisibility(8);
+            this.f47684e.setVisibility(8);
+            this.f47685f.setVisibility(8);
         }
         if (bVar.f21697g) {
             int g2 = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
             layoutParams.gravity = 85;
-            this.f47687g.setLayoutParams(layoutParams);
-            this.f47687g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47687g, R.drawable.ic_icon_mask_v14_n_svg, null);
+            this.f47686g.setLayoutParams(layoutParams);
+            this.f47686g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47686g, R.drawable.ic_icon_mask_v14_n_svg, null);
         } else if (bVar.f21698h) {
             int g3 = l.g(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g3, g3);
             layoutParams2.gravity = 85;
-            this.f47687g.setLayoutParams(layoutParams2);
-            this.f47687g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47687g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            this.f47686g.setLayoutParams(layoutParams2);
+            this.f47686g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47686g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            this.f47687g.setVisibility(8);
+            this.f47686g.setVisibility(8);
         }
     }
 

@@ -66,31 +66,31 @@ public class DxmSdkSensorsDataAPI {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71636a;
+    public String f71635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71637b;
+    public String f71636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DebugMode f71638c;
+    public DebugMode f71637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f71639d;
+    public int f71638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f71640e;
+    public int f71639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f71641f;
+    public boolean f71640f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f71642g;
+    public final Context f71641g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e.a.a f71643h;
+    public final e.a.a f71642h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final e f71644i;
+    public final e f71643i;
     public final i j;
     public final j k;
     public final g l;
@@ -214,19 +214,19 @@ public class DxmSdkSensorsDataAPI {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EventType f71645e;
+        public final /* synthetic */ EventType f71644e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f71646f;
+        public final /* synthetic */ String f71645f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f71647g;
+        public final /* synthetic */ JSONObject f71646g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f71648h;
+        public final /* synthetic */ d f71647h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f71649i;
+        public final /* synthetic */ String f71648i;
         public final /* synthetic */ DxmSdkSensorsDataAPI j;
 
         public b(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI, EventType eventType, String str, JSONObject jSONObject, d dVar, String str2) {
@@ -245,11 +245,11 @@ public class DxmSdkSensorsDataAPI {
                 }
             }
             this.j = dxmSdkSensorsDataAPI;
-            this.f71645e = eventType;
-            this.f71646f = str;
-            this.f71647g = jSONObject;
-            this.f71648h = dVar;
-            this.f71649i = str2;
+            this.f71644e = eventType;
+            this.f71645f = str;
+            this.f71646g = jSONObject;
+            this.f71647h = dVar;
+            this.f71648i = str2;
         }
 
         @Override // java.lang.Runnable
@@ -258,17 +258,17 @@ public class DxmSdkSensorsDataAPI {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f71645e.isTrack()) {
-                        this.j.l(this.f71646f);
+                    if (this.f71644e.isTrack()) {
+                        this.j.l(this.f71645f);
                     }
-                    this.j.m(this.f71645e, this.f71647g);
+                    this.j.m(this.f71644e, this.f71646g);
                     try {
-                        if (this.f71645e.isTrack()) {
+                        if (this.f71644e.isTrack()) {
                             jSONObject = new JSONObject(this.j.n);
                             synchronized (this.j.k) {
                                 SensorsDataUtils.h(this.j.k.b(), jSONObject);
                             }
-                            String i2 = SensorsDataUtils.i(this.j.f71642g);
+                            String i2 = SensorsDataUtils.i(this.j.f71641g);
                             jSONObject.put("$wifi", i2.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING));
                             jSONObject.put("$network_type", i2);
                             try {
@@ -287,27 +287,27 @@ public class DxmSdkSensorsDataAPI {
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
-                        } else if (!this.f71645e.isProfile()) {
+                        } else if (!this.f71644e.isProfile()) {
                             return;
                         } else {
                             jSONObject = new JSONObject();
                         }
                         String str = null;
-                        if (this.f71647g != null) {
+                        if (this.f71646g != null) {
                             try {
-                                if (this.f71647g.has("$lib_detail")) {
-                                    str = this.f71647g.getString("$lib_detail");
-                                    this.f71647g.remove("$lib_detail");
+                                if (this.f71646g.has("$lib_detail")) {
+                                    str = this.f71646g.getString("$lib_detail");
+                                    this.f71646g.remove("$lib_detail");
                                 }
                             } catch (Exception e4) {
                                 e4.printStackTrace();
                             }
-                            SensorsDataUtils.h(this.f71647g, jSONObject);
+                            SensorsDataUtils.h(this.f71646g, jSONObject);
                         }
-                        if (this.f71648h != null) {
+                        if (this.f71647h != null) {
                             try {
                                 if (!jSONObject.has("event_duration") || jSONObject.optDouble("event_duration") <= 0.0d) {
-                                    Double valueOf = Double.valueOf(this.f71648h.a());
+                                    Double valueOf = Double.valueOf(this.f71647h.a());
                                     if (valueOf.doubleValue() > 0.0d) {
                                         jSONObject.put("event_duration", valueOf);
                                     }
@@ -332,7 +332,7 @@ public class DxmSdkSensorsDataAPI {
                         } catch (Exception unused) {
                         }
                         jSONObject3.put("time", System.currentTimeMillis());
-                        jSONObject3.put("type", this.f71645e.getEventType());
+                        jSONObject3.put("type", this.f71644e.getEventType());
                         try {
                             if (jSONObject.has("$project")) {
                                 jSONObject3.put("project", jSONObject.optString("$project"));
@@ -353,12 +353,12 @@ public class DxmSdkSensorsDataAPI {
                             jSONObject3.put("distinct_id", this.j.q());
                         }
                         jSONObject3.put("lib", jSONObject2);
-                        if (this.f71645e == EventType.TRACK) {
-                            jSONObject3.put("event", this.f71646f);
+                        if (this.f71644e == EventType.TRACK) {
+                            jSONObject3.put("event", this.f71645f);
                             jSONObject.put("$is_first_day", this.j.A());
-                        } else if (this.f71645e == EventType.TRACK_SIGNUP) {
-                            jSONObject3.put("event", this.f71646f);
-                            jSONObject3.put("original_id", this.f71649i);
+                        } else if (this.f71644e == EventType.TRACK_SIGNUP) {
+                            jSONObject3.put("event", this.f71645f);
+                            jSONObject3.put("original_id", this.f71648i);
                         }
                         jSONObject2.put("$lib_method", "code");
                         if (TextUtils.isEmpty(str)) {
@@ -369,7 +369,7 @@ public class DxmSdkSensorsDataAPI {
                             }
                         }
                         jSONObject2.put("$lib_detail", str);
-                        this.j.f71643h.b(this.f71645e.getEventType(), jSONObject3);
+                        this.j.f71642h.b(this.f71644e.getEventType(), jSONObject3);
                         k.b("SA.SensorsDataAPI", "track event:\n" + e.a.q.b.b(jSONObject3.toString()));
                     } catch (JSONException unused2) {
                         throw new InvalidDataException("Unexpected property");
@@ -415,9 +415,9 @@ public class DxmSdkSensorsDataAPI {
             }
         }
         this.p = 14;
-        this.f71642g = null;
-        this.f71643h = null;
-        this.f71644i = null;
+        this.f71641g = null;
+        this.f71642h = null;
+        this.f71643i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -559,17 +559,17 @@ public class DxmSdkSensorsDataAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
-                this.f71637b = str;
-                if (!TextUtils.isEmpty(str) && this.f71638c != DebugMode.DEBUG_OFF) {
+                this.f71636b = str;
+                if (!TextUtils.isEmpty(str) && this.f71637c != DebugMode.DEBUG_OFF) {
                     Uri parse = Uri.parse(str);
                     int lastIndexOf = parse.getPath().lastIndexOf(47);
                     if (lastIndexOf != -1) {
-                        this.f71636a = parse.buildUpon().path(parse.getPath().substring(0, lastIndexOf) + "/debug").build().toString();
+                        this.f71635a = parse.buildUpon().path(parse.getPath().substring(0, lastIndexOf) + "/debug").build().toString();
                         return;
                     }
                     return;
                 }
-                this.f71636a = str;
+                this.f71635a = str;
                 n();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -765,9 +765,9 @@ public class DxmSdkSensorsDataAPI {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f71638c = DebugMode.DEBUG_OFF;
+            this.f71637c = DebugMode.DEBUG_OFF;
             o(false);
-            this.f71636a = this.f71637b;
+            this.f71635a = this.f71636b;
         }
     }
 
@@ -781,7 +781,7 @@ public class DxmSdkSensorsDataAPI {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f71643h.c();
+            this.f71642h.c();
         }
     }
 
@@ -790,8 +790,8 @@ public class DxmSdkSensorsDataAPI {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            synchronized (this.f71644i) {
-                b2 = this.f71644i.b();
+            synchronized (this.f71643i) {
+                b2 = this.f71643i.b();
             }
             return b2;
         }
@@ -831,13 +831,13 @@ public class DxmSdkSensorsDataAPI {
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f71640e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f71639e : invokeV.intValue;
     }
 
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f71639d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f71638d : invokeV.intValue;
     }
 
     public String u() {
@@ -873,7 +873,7 @@ public class DxmSdkSensorsDataAPI {
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f71636a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f71635a : (String) invokeV.objValue;
     }
 
     public void x(String str) {
@@ -881,8 +881,8 @@ public class DxmSdkSensorsDataAPI {
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             try {
                 k(str);
-                synchronized (this.f71644i) {
-                    this.f71644i.a(str);
+                synchronized (this.f71643i) {
+                    this.f71643i.a(str);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -893,13 +893,13 @@ public class DxmSdkSensorsDataAPI {
     public boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f71638c.isDebugMode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f71637c.isDebugMode() : invokeV.booleanValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f71638c.isDebugWriteData() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f71637c.isDebugWriteData() : invokeV.booleanValue;
     }
 
     public DxmSdkSensorsDataAPI(Context context, String str, DebugMode debugMode) {
@@ -920,11 +920,11 @@ public class DxmSdkSensorsDataAPI {
             }
         }
         this.p = 14;
-        this.f71642g = context;
-        this.f71638c = debugMode;
+        this.f71641g = context;
+        this.f71637c = debugMode;
         String packageName = context.getApplicationContext().getPackageName();
         try {
-            SensorsDataUtils.b(this.f71642g);
+            SensorsDataUtils.b(this.f71641g);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -941,16 +941,16 @@ public class DxmSdkSensorsDataAPI {
             } else {
                 r = Boolean.valueOf(bundle.getBoolean("com.sensorsdata.analytics.android.EnableLogging", true));
             }
-            this.f71639d = bundle.getInt("com.sensorsdata.analytics.android.FlushInterval", 15000);
-            this.f71640e = bundle.getInt("com.sensorsdata.analytics.android.FlushBulkSize", 100);
-            this.f71641f = bundle.getBoolean("com.sensorsdata.analytics.android.AndroidId", true);
-            k.a("SA.SensorsDataAPI", "mEnableAndroidId :" + this.f71641f);
-            this.f71643h = e.a.a.d(this.f71642g, "dxm.sasdk.sa");
+            this.f71638d = bundle.getInt("com.sensorsdata.analytics.android.FlushInterval", 15000);
+            this.f71639e = bundle.getInt("com.sensorsdata.analytics.android.FlushBulkSize", 100);
+            this.f71640f = bundle.getBoolean("com.sensorsdata.analytics.android.AndroidId", true);
+            k.a("SA.SensorsDataAPI", "mEnableAndroidId :" + this.f71640f);
+            this.f71642h = e.a.a.d(this.f71641g, "dxm.sasdk.sa");
             Future<SharedPreferences> a2 = u.a(context, "dxm.sasdk.sa", new a(this));
-            this.f71644i = new e(a2);
-            if (this.f71641f) {
+            this.f71643i = new e(a2);
+            if (this.f71640f) {
                 try {
-                    String c2 = SensorsDataUtils.c(this.f71642g);
+                    String c2 = SensorsDataUtils.c(this.f71641g);
                     if (SensorsDataUtils.g(c2)) {
                         x(e.a.q.c.b(c2));
                     }
@@ -958,7 +958,7 @@ public class DxmSdkSensorsDataAPI {
                     e3.printStackTrace();
                 }
             }
-            k.a("SA.SensorsDataAPI", "mEnableAndroidId :" + this.f71641f + " ; mDistinctId MD5 = " + this.f71644i.b());
+            k.a("SA.SensorsDataAPI", "mEnableAndroidId :" + this.f71640f + " ; mDistinctId MD5 = " + this.f71643i.b());
             this.j = new i(a2);
             this.k = new j(a2);
             this.l = new g(a2);
@@ -967,7 +967,7 @@ public class DxmSdkSensorsDataAPI {
                 ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new l(this, this.l, this.m));
             }
             if (debugMode != DebugMode.DEBUG_OFF) {
-                String.format(Locale.CHINA, "Initialized the instance of Sensors Analytics SDK with server url '%s', flush interval %d ms, debugMode: %s", this.f71636a, Integer.valueOf(this.f71639d), debugMode);
+                String.format(Locale.CHINA, "Initialized the instance of Sensors Analytics SDK with server url '%s', flush interval %d ms, debugMode: %s", this.f71635a, Integer.valueOf(this.f71638d), debugMode);
             }
             HashMap hashMap = new HashMap();
             hashMap.put("$lib", "Android");
@@ -983,7 +983,7 @@ public class DxmSdkSensorsDataAPI {
                 hashMap.put("$model", Build.MODEL.trim());
             }
             try {
-                hashMap.put("$app_version", this.f71642g.getPackageManager().getPackageInfo(this.f71642g.getPackageName(), 0).versionName);
+                hashMap.put("$app_version", this.f71641g.getPackageManager().getPackageInfo(this.f71641g.getPackageName(), 0).versionName);
             } catch (Exception unused) {
                 DebugMode debugMode2 = DebugMode.DEBUG_OFF;
             }
@@ -991,7 +991,7 @@ public class DxmSdkSensorsDataAPI {
             hashMap.put("$screen_height", Integer.valueOf(displayMetrics.heightPixels));
             hashMap.put("$screen_width", Integer.valueOf(displayMetrics.widthPixels));
             try {
-                WindowManager windowManager = (WindowManager) this.f71642g.getSystemService("window");
+                WindowManager windowManager = (WindowManager) this.f71641g.getSystemService("window");
                 if (Build.VERSION.SDK_INT >= 17) {
                     Point point = new Point();
                     if (windowManager != null) {
@@ -1002,8 +1002,8 @@ public class DxmSdkSensorsDataAPI {
             } catch (Exception unused2) {
                 hashMap.put("$screen_height", Integer.valueOf(displayMetrics.heightPixels));
             }
-            if (this.f71641f) {
-                String c3 = SensorsDataUtils.c(this.f71642g);
+            if (this.f71640f) {
+                String c3 = SensorsDataUtils.c(this.f71641g);
                 k.a("SA.SensorsDataAPI", "device_id android id = " + c3);
                 if (!TextUtils.isEmpty(c3)) {
                     k.a("SA.SensorsDataAPI", "device_id Md5 android id = " + e.a.q.c.b(c3));

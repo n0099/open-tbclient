@@ -17,19 +17,19 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55659a;
+    public int f55658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55660b;
+    public int f55659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55661c;
+    public boolean f55660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MultiMediaAdapter f55662d;
+    public MultiMediaAdapter f55661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f55663e;
+    public a f55662e;
 
     public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, a aVar) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.f55661c = false;
-        this.f55662d = multiMediaAdapter;
-        this.f55663e = aVar;
+        this.f55660c = false;
+        this.f55661d = multiMediaAdapter;
+        this.f55662e = aVar;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -68,20 +68,20 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             super.clearView(recyclerView, viewHolder);
             viewHolder.itemView.setScaleX(1.0f);
             viewHolder.itemView.setScaleY(1.0f);
-            MultiMediaAdapter multiMediaAdapter = this.f55662d;
+            MultiMediaAdapter multiMediaAdapter = this.f55661d;
             if (multiMediaAdapter != null) {
                 multiMediaAdapter.setDragMode(false);
-                this.f55662d.notifyDataChanged();
+                this.f55661d.notifyDataChanged();
             }
-            MultiMediaAdapter multiMediaAdapter2 = this.f55662d;
-            if (multiMediaAdapter2 != null && this.f55659a != this.f55660b && this.f55661c) {
-                this.f55661c = false;
-                if (this.f55663e != null) {
+            MultiMediaAdapter multiMediaAdapter2 = this.f55661d;
+            if (multiMediaAdapter2 != null && this.f55658a != this.f55659b && this.f55660c) {
+                this.f55660c = false;
+                if (this.f55662e != null) {
                     multiMediaAdapter2.resetPlayIndex();
-                    this.f55663e.onMutiItemPosChanged(this.f55659a, this.f55660b);
+                    this.f55662e.onMutiItemPosChanged(this.f55658a, this.f55659b);
                 }
             }
-            a aVar = this.f55663e;
+            a aVar = this.f55662e;
             if (aVar != null) {
                 aVar.setDragMode(-1, 0);
             }
@@ -100,7 +100,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f55663e.isLongPress();
+            this.f55662e.isLongPress();
             return true;
         }
         return invokeV.booleanValue;
@@ -111,10 +111,10 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            this.f55661c = true;
-            this.f55660b = viewHolder2.getAdapterPosition();
-            Collections.swap(this.f55662d.getList(), viewHolder.getAdapterPosition(), this.f55660b);
-            this.f55662d.notifyItemMoved(viewHolder.getAdapterPosition(), this.f55660b);
+            this.f55660c = true;
+            this.f55659b = viewHolder2.getAdapterPosition();
+            Collections.swap(this.f55661d.getList(), viewHolder.getAdapterPosition(), this.f55659b);
+            this.f55661d.notifyItemMoved(viewHolder.getAdapterPosition(), this.f55659b);
             return true;
         }
         return invokeLLL.booleanValue;
@@ -129,17 +129,17 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
                 return;
             }
             if (i2 != 0) {
-                this.f55659a = viewHolder.getAdapterPosition();
+                this.f55658a = viewHolder.getAdapterPosition();
             }
             viewHolder.itemView.setScaleX(1.1f);
             viewHolder.itemView.setScaleY(1.1f);
             int[] iArr = new int[2];
             viewHolder.itemView.getLocationOnScreen(iArr);
             viewHolder.itemView.getLocationInWindow(new int[2]);
-            this.f55662d.setDragMode(true);
-            a aVar = this.f55663e;
+            this.f55661d.setDragMode(true);
+            a aVar = this.f55662e;
             if (aVar != null) {
-                aVar.setDragMode(this.f55659a, iArr[0]);
+                aVar.setDragMode(this.f55658a, iArr[0]);
             }
         }
     }

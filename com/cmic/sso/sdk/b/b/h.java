@@ -38,7 +38,7 @@ public class h extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.f61902b + this.f61903c + this.f61904d + this.f61905e + this.f61906f + this.f61907g + this.f61908h + this.f61909i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
+            return this.f61901b + this.f61902c + this.f61903d + this.f61904e + this.f61905f + this.f61906g + this.f61907h + this.f61908i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
         }
         return (String) invokeL.objValue;
     }
@@ -58,15 +58,15 @@ public class h extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f61901a);
-                jSONObject.put(BaseStatisContent.SDKVER, this.f61902b);
-                jSONObject.put("appid", this.f61903c);
-                jSONObject.put(BaseStatisContent.IMSI, this.f61904d);
-                jSONObject.put("operatortype", this.f61905e);
-                jSONObject.put("networktype", this.f61906f);
-                jSONObject.put("mobilebrand", this.f61907g);
-                jSONObject.put("mobilemodel", this.f61908h);
-                jSONObject.put("mobilesystem", this.f61909i);
+                jSONObject.put("ver", this.f61900a);
+                jSONObject.put(BaseStatisContent.SDKVER, this.f61901b);
+                jSONObject.put("appid", this.f61902c);
+                jSONObject.put(BaseStatisContent.IMSI, this.f61903d);
+                jSONObject.put("operatortype", this.f61904e);
+                jSONObject.put("networktype", this.f61905f);
+                jSONObject.put("mobilebrand", this.f61906g);
+                jSONObject.put("mobilemodel", this.f61907h);
+                jSONObject.put("mobilesystem", this.f61908i);
                 jSONObject.put("clienttype", this.j);
                 jSONObject.put("interfacever", this.k);
                 jSONObject.put("expandparams", this.l);
@@ -95,7 +95,7 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f61901a + "&" + this.f61902b + "&" + this.f61903c + "&" + this.f61904d + "&" + this.f61905e + "&" + this.f61906f + "&" + this.f61907g + "&" + this.f61908h + "&" + this.f61909i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
+            return this.f61900a + "&" + this.f61901b + "&" + this.f61902c + "&" + this.f61903d + "&" + this.f61904e + "&" + this.f61905f + "&" + this.f61906g + "&" + this.f61907h + "&" + this.f61908i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
         }
         return (String) invokeV.objValue;
     }

@@ -173,13 +173,13 @@ public final class g {
         Transform transform = frameEntity.transform;
         if (transform != null) {
             float[] fArr = new float[9];
-            Float f7 = transform.f67790a;
+            Float f7 = transform.f67789a;
             float floatValue3 = f7 != null ? f7.floatValue() : 1.0f;
-            Float f8 = transform.f67791b;
+            Float f8 = transform.f67790b;
             float floatValue4 = f8 != null ? f8.floatValue() : 0.0f;
-            Float f9 = transform.f67792c;
+            Float f9 = transform.f67791c;
             float floatValue5 = f9 != null ? f9.floatValue() : 0.0f;
-            Float f10 = transform.f67793d;
+            Float f10 = transform.f67792d;
             float floatValue6 = f10 != null ? f10.floatValue() : 1.0f;
             Float f11 = transform.tx;
             float floatValue7 = f11 != null ? f11.floatValue() : 0.0f;

@@ -16,7 +16,7 @@ public final class az implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f56821a;
+    public final /* synthetic */ FeedbackHotActivity f56820a;
 
     public az(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class az implements View.OnClickListener {
                 return;
             }
         }
-        this.f56821a = feedbackHotActivity;
+        this.f56820a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -49,24 +49,24 @@ public final class az implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        view2 = this.f56821a.l;
+        view2 = this.f56820a.l;
         view2.setVisibility(0);
-        linearLayout = this.f56821a.f56755h;
+        linearLayout = this.f56820a.f56754h;
         linearLayout.setVisibility(8);
-        if (!com.baidu.ufosdk.b.d.b(this.f56821a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f56821a.getApplicationContext()).contains("NONE")) {
-            this.f56821a.a();
-            linearLayout3 = this.f56821a.f56755h;
+        if (!com.baidu.ufosdk.b.d.b(this.f56820a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f56820a.getApplicationContext()).contains("NONE")) {
+            this.f56820a.a();
+            linearLayout3 = this.f56820a.f56754h;
             linearLayout3.setVisibility(8);
-            webView = this.f56821a.j;
+            webView = this.f56820a.j;
             webView.setVisibility(0);
             return;
         }
-        view3 = this.f56821a.l;
+        view3 = this.f56820a.l;
         view3.setVisibility(8);
-        Context applicationContext = this.f56821a.getApplicationContext();
-        textView = this.f56821a.m;
+        Context applicationContext = this.f56820a.getApplicationContext();
+        textView = this.f56820a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.f56821a.f56755h;
+        linearLayout2 = this.f56820a.f56754h;
         linearLayout2.setVisibility(0);
     }
 }

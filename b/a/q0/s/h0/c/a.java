@@ -247,10 +247,10 @@ public class a implements d {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
                 this.f13103d.setLength(0L);
-                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57309e);
+                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57308e);
                 this.f13103d.writeInt(0);
-                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57310f);
-                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57311g);
+                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57309f);
+                this.f13103d.writeBytes(com.baidu.wallet.base.audio.b.f57310g);
                 this.f13103d.writeInt(Integer.reverseBytes(16));
                 this.f13103d.writeShort(Short.reverseBytes((short) 1));
                 this.f13103d.writeShort(Short.reverseBytes(this.j));

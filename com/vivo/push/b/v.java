@@ -15,10 +15,10 @@ public final class v extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f70236a;
+    public ArrayList<String> f70235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f70237b;
+    public ArrayList<String> f70236b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2) {
@@ -38,8 +38,8 @@ public final class v extends u {
                 return;
             }
         }
-        this.f70236a = null;
-        this.f70237b = null;
+        this.f70235a = null;
+        this.f70236b = null;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -47,21 +47,21 @@ public final class v extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("content", this.f70236a);
-            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f70237b);
+            aVar.a("content", this.f70235a);
+            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f70236b);
         }
     }
 
     public final ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70236a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70235a : (ArrayList) invokeV.objValue;
     }
 
     public final List<String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70237b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70236b : (List) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -76,8 +76,8 @@ public final class v extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f70236a = aVar.b("content");
-            this.f70237b = aVar.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            this.f70235a = aVar.b("content");
+            this.f70236b = aVar.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 }

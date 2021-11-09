@@ -14,13 +14,13 @@ public class ConsumeTimeUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TimeResult f58008a;
+    public TimeResult f58007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58009b;
+    public String f58008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58010c;
+    public String f58009c;
 
     /* loaded from: classes10.dex */
     public final class TimeResult {
@@ -28,19 +28,19 @@ public class ConsumeTimeUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f58011a;
+        public long f58010a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58012b;
+        public long f58011b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f58013c;
+        public long f58012c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58014d;
+        public int f58013d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConsumeTimeUtils f58015e;
+        public final /* synthetic */ ConsumeTimeUtils f58014e;
 
         public TimeResult(ConsumeTimeUtils consumeTimeUtils) {
             Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public class ConsumeTimeUtils {
                     return;
                 }
             }
-            this.f58015e = consumeTimeUtils;
-            this.f58011a = 0L;
-            this.f58012b = 0L;
-            this.f58013c = 0L;
-            this.f58014d = 0;
+            this.f58014e = consumeTimeUtils;
+            this.f58010a = 0L;
+            this.f58011b = 0L;
+            this.f58012c = 0L;
+            this.f58013d = 0;
         }
 
         public String buildLog() {
@@ -69,8 +69,8 @@ public class ConsumeTimeUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                if (this.f58015e.f58010c != null) {
-                    sb.append(this.f58015e.f58010c + ":");
+                if (this.f58014e.f58009c != null) {
+                    sb.append(this.f58014e.f58009c + ":");
                 }
                 sb.append(" task last " + getDurationMesc() + " millisecond about " + getDurationSecond() + " second");
                 return sb.toString();
@@ -81,7 +81,7 @@ public class ConsumeTimeUtils {
         public long getDurationMesc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58012b - this.f58011a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58011b - this.f58010a : invokeV.longValue;
         }
 
         public int getDurationSecond() {
@@ -93,47 +93,47 @@ public class ConsumeTimeUtils {
         public long getEndTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58012b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58011b : invokeV.longValue;
         }
 
         public long getStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58011a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58010a : invokeV.longValue;
         }
 
         public void logd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogUtil.d(this.f58015e.f58009b, buildLog());
+                LogUtil.d(this.f58014e.f58008b, buildLog());
             }
         }
 
         public void loge() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogUtil.e(this.f58015e.f58009b, buildLog(), new Throwable());
+                LogUtil.e(this.f58014e.f58008b, buildLog(), new Throwable());
             }
         }
 
         public void logi() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                LogUtil.i(this.f58015e.f58009b, buildLog());
+                LogUtil.i(this.f58014e.f58008b, buildLog());
             }
         }
 
         public void logv() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                LogUtil.v(this.f58015e.f58009b, buildLog());
+                LogUtil.v(this.f58014e.f58008b, buildLog());
             }
         }
 
         public void logw() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogUtil.w(this.f58015e.f58009b, buildLog());
+                LogUtil.w(this.f58014e.f58008b, buildLog());
             }
         }
 
@@ -142,7 +142,7 @@ public class ConsumeTimeUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 String buildLog = buildLog();
-                LogUtil.v(this.f58015e.f58009b, buildLog);
+                LogUtil.v(this.f58014e.f58008b, buildLog);
                 return buildLog;
             }
             return (String) invokeV.objValue;
@@ -162,15 +162,15 @@ public class ConsumeTimeUtils {
                 return;
             }
         }
-        this.f58009b = "ConsumeTime";
+        this.f58008b = "ConsumeTime";
     }
 
     public TimeResult finish() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f58008a.f58012b = SystemClock.uptimeMillis();
-            return this.f58008a;
+            this.f58007a.f58011b = SystemClock.uptimeMillis();
+            return this.f58007a;
         }
         return (TimeResult) invokeV.objValue;
     }
@@ -178,14 +178,14 @@ public class ConsumeTimeUtils {
     public void setPrefix(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f58010c = str;
+            this.f58009c = str;
         }
     }
 
     public void setTAGString(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f58009b = str;
+            this.f58008b = str;
         }
     }
 
@@ -194,8 +194,8 @@ public class ConsumeTimeUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             TimeResult timeResult = new TimeResult(this);
-            this.f58008a = timeResult;
-            timeResult.f58011a = SystemClock.uptimeMillis();
+            this.f58007a = timeResult;
+            timeResult.f58010a = SystemClock.uptimeMillis();
             return this;
         }
         return (ConsumeTimeUtils) invokeV.objValue;

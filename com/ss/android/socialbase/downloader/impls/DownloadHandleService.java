@@ -17,7 +17,7 @@ public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69508a;
+    public static final String f69507a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f69508a = DownloadHandleService.class.getSimpleName();
+        f69507a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {
@@ -66,10 +66,10 @@ public class DownloadHandleService extends Service {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f69509a;
+                public final /* synthetic */ int f69508a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadHandleService f69510b;
+                public final /* synthetic */ DownloadHandleService f69509b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,8 +86,8 @@ public class DownloadHandleService extends Service {
                             return;
                         }
                     }
-                    this.f69510b = this;
-                    this.f69509a = intExtra;
+                    this.f69509b = this;
+                    this.f69508a = intExtra;
                 }
 
                 @Override // java.lang.Runnable
@@ -95,7 +95,7 @@ public class DownloadHandleService extends Service {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.ss.android.socialbase.downloader.downloader.d.a().o(this.f69509a);
+                            com.ss.android.socialbase.downloader.downloader.d.a().o(this.f69508a);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }

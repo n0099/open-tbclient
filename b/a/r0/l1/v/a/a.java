@@ -64,14 +64,14 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
                 LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
                 String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
                 LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting a2 = this.f20418e.a(id, data.f50481a);
+                ChatSetting a2 = this.f20418e.a(id, data.f50480a);
                 if (a2 == null) {
                     return a(loadDraftMessage.getCmd());
                 }
                 String draft = a2.getDraft();
                 LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-                aVar.f50482a = draft;
-                String str = data.f50481a;
+                aVar.f50481a = draft;
+                String str = data.f50480a;
                 try {
                     loadDraftResponsedMessage.decodeInBackGround(this.f20419f, aVar);
                 } catch (Exception e2) {

@@ -88,10 +88,10 @@ public class f {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50189b == null || aVar.f50188a == null) {
+            if (aVar.f50188b == null || aVar.f50187a == null) {
                 return;
             }
-            this.f20020a.f20018g.addAll(aVar.f50189b);
+            this.f20020a.f20018g.addAll(aVar.f50188b);
             this.f20020a.f20014c.addAdapters(new ArrayList(this.f20020a.f20018g));
         }
     }
@@ -140,8 +140,8 @@ public class f {
             this.f20018g.add(this.f20017f);
             e();
             MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-            aVar.f50189b = new ArrayList();
-            aVar.f50188a = this.f20012a;
+            aVar.f50188b = new ArrayList();
+            aVar.f50187a = this.f20012a;
             MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
         }
     }

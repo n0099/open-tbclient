@@ -81,9 +81,44 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51849e;
+        public final /* synthetic */ FaceGroupMakeActivity f51848e;
 
         public a(FaceGroupMakeActivity faceGroupMakeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceGroupMakeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51848e = faceGroupMakeActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f51848e.onBack();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceGroupMakeActivity f51849e;
+
+        public b(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,73 +139,38 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51849e.onBack();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51850e;
-
-        public b(FaceGroupMakeActivity faceGroupMakeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {faceGroupMakeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51850e = faceGroupMakeActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51850e.mChoosedImageList == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51849e.mChoosedImageList == null) {
                 return;
             }
-            String trim = this.f51850e.mEditName.getText().toString().trim();
+            String trim = this.f51849e.mEditName.getText().toString().trim();
             if (!TextUtils.isEmpty(trim)) {
-                if (this.f51850e.mChoosedImageList.size() - 1 >= 8) {
-                    if (this.f51850e.mChoosedImageList.size() - 1 > 24) {
-                        this.f51850e.showToast(R.string.face_group_add_pic_max);
+                if (this.f51849e.mChoosedImageList.size() - 1 >= 8) {
+                    if (this.f51849e.mChoosedImageList.size() - 1 > 24) {
+                        this.f51849e.showToast(R.string.face_group_add_pic_max);
                         return;
                     } else if (j.z()) {
-                        if (this.f51850e.isBarEmotion() && this.f51850e.mChoosedData == null) {
-                            this.f51850e.showToast(R.string.input_one_bar);
+                        if (this.f51849e.isBarEmotion() && this.f51849e.mChoosedData == null) {
+                            this.f51849e.showToast(R.string.input_one_bar);
                             return;
                         }
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f51850e.mChoosedImageList);
-                        arrayList.remove(this.f51850e.mAddIconData);
-                        b.a.r0.f2.g.e.l().A(trim, arrayList, null, this.f51850e.mChoosedData != null ? this.f51850e.mChoosedData.forum_id : 0);
+                        arrayList.addAll(this.f51849e.mChoosedImageList);
+                        arrayList.remove(this.f51849e.mAddIconData);
+                        b.a.r0.f2.g.e.l().A(trim, arrayList, null, this.f51849e.mChoosedData != null ? this.f51849e.mChoosedData.forum_id : 0);
                         Intent intent = new Intent();
                         intent.putExtra("uploading", true);
-                        this.f51850e.setResult(-1, intent);
-                        this.f51850e.finish();
+                        this.f51849e.setResult(-1, intent);
+                        this.f51849e.finish();
                         return;
                     } else {
-                        this.f51850e.showToast(R.string.neterror);
+                        this.f51849e.showToast(R.string.neterror);
                         return;
                     }
                 }
-                this.f51850e.showToast(R.string.face_group_pic_less_tip);
+                this.f51849e.showToast(R.string.face_group_pic_less_tip);
                 return;
             }
-            this.f51850e.showToast(R.string.face_group_empty_name_tip);
+            this.f51849e.showToast(R.string.face_group_empty_name_tip);
         }
     }
 
@@ -180,7 +180,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51851a;
+        public final /* synthetic */ FaceGroupMakeActivity f51850a;
 
         public c(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f51851a = faceGroupMakeActivity;
+            this.f51850a = faceGroupMakeActivity;
         }
 
         @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.x(this.f51851a.mActivity, this.f51851a.mEditName);
+                l.x(this.f51850a.mActivity, this.f51850a.mEditName);
             }
         }
     }
@@ -215,9 +215,44 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51852e;
+        public final /* synthetic */ FaceGroupMakeActivity f51851e;
 
         public d(FaceGroupMakeActivity faceGroupMakeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceGroupMakeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51851e = faceGroupMakeActivity;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f51851e.mChooseBarTv.setMaxWidth(((this.f51851e.mBazhuTitleLayout.getWidth() - this.f51851e.mPublishTxtTv.getWidth()) - this.f51851e.ivArrow.getWidth()) - l.g(this.f51851e.getPageContext().getPageActivity(), R.dimen.ds3));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class e implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceGroupMakeActivity f51852e;
+
+        public e(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -235,24 +270,26 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             this.f51852e = faceGroupMakeActivity;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51852e.mChooseBarTv.setMaxWidth(((this.f51852e.mBazhuTitleLayout.getWidth() - this.f51852e.mPublishTxtTv.getWidth()) - this.f51852e.ivArrow.getWidth()) - l.g(this.f51852e.getPageContext().getPageActivity(), R.dimen.ds3));
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                b.a.r0.f2.g.e.l().i();
+                this.f51852e.finish();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class e implements a.e {
+    public class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ FaceGroupMakeActivity f51853e;
 
-        public e(FaceGroupMakeActivity faceGroupMakeActivity) {
+        public f(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -275,43 +312,6 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                b.a.r0.f2.g.e.l().i();
-                this.f51853e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class f implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51854e;
-
-        public f(FaceGroupMakeActivity faceGroupMakeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {faceGroupMakeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51854e = faceGroupMakeActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
             }
         }
     }
@@ -322,10 +322,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f51855e;
+        public int f51854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f51856f;
+        public final /* synthetic */ FaceGroupMakeActivity f51855f;
 
         public g(FaceGroupMakeActivity faceGroupMakeActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -342,8 +342,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f51856f = faceGroupMakeActivity;
-            this.f51855e = i2;
+            this.f51855f = faceGroupMakeActivity;
+            this.f51854e = i2;
         }
 
         @Override // android.text.InputFilter
@@ -351,10 +351,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                if (spanned == null || charSequence == null || (m0.b(spanned.toString()) - (i5 - i4)) + m0.b(charSequence.toString()) <= this.f51855e) {
+                if (spanned == null || charSequence == null || (m0.b(spanned.toString()) - (i5 - i4)) + m0.b(charSequence.toString()) <= this.f51854e) {
                     return charSequence;
                 }
-                this.f51856f.showToast(R.string.package_add_name_max);
+                this.f51855f.showToast(R.string.package_add_name_max);
                 return "";
             }
             return (CharSequence) invokeCommon.objValue;

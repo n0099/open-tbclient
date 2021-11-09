@@ -54,13 +54,13 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49768g;
+    public String f49767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49769h;
+    public String f49768h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f49770i;
+    public String f49769i;
     public int j;
     public View k;
     public NestedScrollWebView l;
@@ -79,7 +79,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f49771a;
+        public final /* synthetic */ TabWebFragment f49770a;
 
         public a(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
                     return;
                 }
             }
-            this.f49771a = tabWebFragment;
+            this.f49770a = tabWebFragment;
         }
 
         @Override // b.a.r0.l3.n0.c
@@ -104,8 +104,8 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                if (this.f49771a.n != null) {
-                    return this.f49771a.n.b(this.f49771a.l, str, jsPromptResult);
+                if (this.f49770a.n != null) {
+                    return this.f49770a.n.b(this.f49770a.l, str, jsPromptResult);
                 }
                 return false;
             }
@@ -119,7 +119,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f49772a;
+        public final /* synthetic */ TabWebFragment f49771a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(TabWebFragment tabWebFragment, int i2) {
@@ -139,17 +139,17 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
                     return;
                 }
             }
-            this.f49772a = tabWebFragment;
+            this.f49771a = tabWebFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || StringUtils.isNull(this.f49772a.mUrl)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || StringUtils.isNull(this.f49771a.mUrl)) {
                 return;
             }
-            this.f49772a.forceRefresh();
+            this.f49771a.forceRefresh();
         }
     }
 
@@ -159,7 +159,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f49773e;
+        public final /* synthetic */ TabWebFragment f49772e;
 
         public c(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
                     return;
                 }
             }
-            this.f49773e = tabWebFragment;
+            this.f49772e = tabWebFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -184,9 +184,9 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (j.z()) {
-                    this.f49773e.forceRefresh();
+                    this.f49772e.forceRefresh();
                 } else {
-                    this.f49773e.showToast(R.string.neterror);
+                    this.f49772e.showToast(R.string.neterror);
                 }
             }
         }
@@ -198,7 +198,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f49774a;
+        public final /* synthetic */ TabWebFragment f49773a;
 
         public d(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
                     return;
                 }
             }
-            this.f49774a = tabWebFragment;
+            this.f49773a = tabWebFragment;
         }
 
         @Override // android.webkit.WebViewClient
@@ -223,36 +223,36 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.f49774a.p = false;
-                TabWebFragment tabWebFragment = this.f49774a;
+                this.f49773a.p = false;
+                TabWebFragment tabWebFragment = this.f49773a;
                 tabWebFragment.mUrl = str;
-                if (tabWebFragment.l == null || this.f49774a.m == null) {
+                if (tabWebFragment.l == null || this.f49773a.m == null) {
                     return;
                 }
                 webView.getProgress();
-                if (this.f49774a.q) {
-                    this.f49774a.l.stopLoading();
-                    this.f49774a.l.setVisibility(8);
-                    this.f49774a.m.setVisibility(0);
-                    TabWebFragment tabWebFragment2 = this.f49774a;
+                if (this.f49773a.q) {
+                    this.f49773a.l.stopLoading();
+                    this.f49773a.l.setVisibility(8);
+                    this.f49773a.m.setVisibility(0);
+                    TabWebFragment tabWebFragment2 = this.f49773a;
                     tabWebFragment2.hideLoadingView(tabWebFragment2.m);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                    TabWebFragment tabWebFragment3 = this.f49774a;
-                    tabWebFragment3.showNetRefreshView(tabWebFragment3.m, inst.getString(R.string.url_not_found), null, inst.getString(R.string.refresh), false, this.f49774a.t);
+                    TabWebFragment tabWebFragment3 = this.f49773a;
+                    tabWebFragment3.showNetRefreshView(tabWebFragment3.m, inst.getString(R.string.url_not_found), null, inst.getString(R.string.refresh), false, this.f49773a.t);
                     return;
                 }
-                this.f49774a.o = false;
-                this.f49774a.l.setVisibility(0);
-                this.f49774a.m.setVisibility(8);
-                TabWebFragment tabWebFragment4 = this.f49774a;
+                this.f49773a.o = false;
+                this.f49773a.l.setVisibility(0);
+                this.f49773a.m.setVisibility(8);
+                TabWebFragment tabWebFragment4 = this.f49773a;
                 tabWebFragment4.hideLoadingView(tabWebFragment4.m);
-                TabWebFragment tabWebFragment5 = this.f49774a;
+                TabWebFragment tabWebFragment5 = this.f49773a;
                 tabWebFragment5.hideNetRefreshView(tabWebFragment5.m);
-                String title = this.f49774a.l.getTitle();
+                String title = this.f49773a.l.getTitle();
                 if (TextUtils.isEmpty(title)) {
                     return;
                 }
-                this.f49774a.setUrlTitle(title);
+                this.f49773a.setUrlTitle(title);
             }
         }
 
@@ -261,17 +261,17 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                if (this.f49774a.l == null || this.f49774a.m == null) {
+                if (this.f49773a.l == null || this.f49773a.m == null) {
                     return;
                 }
-                this.f49774a.q = false;
-                if (this.f49774a.o) {
-                    this.f49774a.p = true;
-                    this.f49774a.m.setVisibility(0);
-                    TabWebFragment tabWebFragment = this.f49774a;
+                this.f49773a.q = false;
+                if (this.f49773a.o) {
+                    this.f49773a.p = true;
+                    this.f49773a.m.setVisibility(0);
+                    TabWebFragment tabWebFragment = this.f49773a;
                     tabWebFragment.showLoadingView(tabWebFragment.m);
                 }
-                this.f49774a.mUrl = str;
+                this.f49773a.mUrl = str;
             }
         }
 
@@ -280,18 +280,18 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                this.f49774a.q = true;
-                if (this.f49774a.l == null || this.f49774a.m == null) {
+                this.f49773a.q = true;
+                if (this.f49773a.l == null || this.f49773a.m == null) {
                     return;
                 }
-                this.f49774a.l.stopLoading();
-                this.f49774a.l.setVisibility(8);
-                this.f49774a.m.setVisibility(0);
-                TabWebFragment tabWebFragment = this.f49774a;
+                this.f49773a.l.stopLoading();
+                this.f49773a.l.setVisibility(8);
+                this.f49773a.m.setVisibility(0);
+                TabWebFragment tabWebFragment = this.f49773a;
                 tabWebFragment.hideLoadingView(tabWebFragment.m);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                TabWebFragment tabWebFragment2 = this.f49774a;
-                tabWebFragment2.showNetRefreshView(tabWebFragment2.m, inst.getString(R.string.url_not_found), null, inst.getString(R.string.refresh), false, this.f49774a.t);
+                TabWebFragment tabWebFragment2 = this.f49773a;
+                tabWebFragment2.showNetRefreshView(tabWebFragment2.m, inst.getString(R.string.url_not_found), null, inst.getString(R.string.refresh), false, this.f49773a.t);
             }
         }
 
@@ -311,27 +311,27 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || this.f49774a.getPageContext() == null || this.f49774a.l == null) {
+                if (TextUtils.isEmpty(str) || this.f49773a.getPageContext() == null || this.f49773a.l == null) {
                     return false;
                 }
-                if (this.f49774a.o) {
-                    this.f49774a.o = false;
+                if (this.f49773a.o) {
+                    this.f49773a.o = false;
                     return false;
-                } else if (!this.f49774a.u(str) || TbadkCoreApplication.isLogin() || this.f49774a.getPageContext() == null) {
-                    if (this.f49774a.l != null && this.f49774a.l.isShown()) {
-                        if (!this.f49774a.isNeedNativeWebViewOpen(str)) {
-                            if (this.f49774a.r) {
-                                return UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f49774a.getPageContext(), new String[]{str}) == 0;
+                } else if (!this.f49773a.u(str) || TbadkCoreApplication.isLogin() || this.f49773a.getPageContext() == null) {
+                    if (this.f49773a.l != null && this.f49773a.l.isShown()) {
+                        if (!this.f49773a.isNeedNativeWebViewOpen(str)) {
+                            if (this.f49773a.r) {
+                                return UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f49773a.getPageContext(), new String[]{str}) == 0;
                             }
-                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f49774a.getPageContext(), new String[]{str}, true);
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f49773a.getPageContext(), new String[]{str}, true);
                         } else {
-                            int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f49774a.getPageContext(), new String[]{str});
+                            int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f49773a.getPageContext(), new String[]{str});
                             return dealOneLinkWithOutJumpWebView == 0 || dealOneLinkWithOutJumpWebView == 1;
                         }
                     }
                     return true;
                 } else {
-                    ViewHelper.skipToLoginActivity(this.f49774a.getPageContext().getPageActivity());
+                    ViewHelper.skipToLoginActivity(this.f49773a.getPageContext().getPageActivity());
                     return false;
                 }
             }
@@ -345,7 +345,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabWebFragment f49775a;
+        public final /* synthetic */ TabWebFragment f49774a;
 
         public e(TabWebFragment tabWebFragment) {
             Interceptable interceptable = $ic;
@@ -362,7 +362,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
                     return;
                 }
             }
-            this.f49775a = tabWebFragment;
+            this.f49774a = tabWebFragment;
         }
 
         @Override // android.webkit.DownloadListener
@@ -373,7 +373,7 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             }
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                this.f49775a.startActivity(intent);
+                this.f49774a.startActivity(intent);
             }
         }
 
@@ -556,16 +556,16 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
             if (getArguments() != null) {
                 Bundle arguments = getArguments();
                 this.j = arguments.getInt("tab_type");
-                this.f49768g = arguments.getString("tab_name");
-                this.f49769h = arguments.getString("tab_code");
-                this.f49770i = arguments.getString(TAB_URL);
+                this.f49767g = arguments.getString("tab_name");
+                this.f49768h = arguments.getString("tab_code");
+                this.f49769i = arguments.getString(TAB_URL);
             } else if (bundle != null) {
                 this.j = bundle.getInt("tab_type");
-                this.f49768g = bundle.getString("tab_name");
-                this.f49769h = bundle.getString("tab_code");
-                this.f49770i = bundle.getString(TAB_URL);
+                this.f49767g = bundle.getString("tab_name");
+                this.f49768h = bundle.getString("tab_code");
+                this.f49769i = bundle.getString(TAB_URL);
             }
-            this.mUrl = this.f49770i;
+            this.mUrl = this.f49769i;
             b.a.r0.l3.n0.a aVar = new b.a.r0.l3.n0.a();
             this.n = aVar;
             aVar.a(new XiubaTbJsBridge(getPageContext()));
@@ -671,9 +671,9 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             if (bundle != null) {
-                bundle.putString("tab_name", this.f49768g);
-                bundle.putString("tab_code", this.f49769h);
-                bundle.putString(TAB_URL, this.f49770i);
+                bundle.putString("tab_name", this.f49767g);
+                bundle.putString("tab_code", this.f49768h);
+                bundle.putString(TAB_URL, this.f49769i);
                 bundle.putInt("tab_type", this.j);
             }
         }
@@ -739,8 +739,8 @@ public class TabWebFragment extends BaseWebViewFragment implements n0 {
         if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f49768g);
-            statisticItem.param("obj_type", this.f49769h);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f49767g);
+            statisticItem.param("obj_type", this.f49768h);
             TiebaStatic.log(statisticItem);
         }
     }

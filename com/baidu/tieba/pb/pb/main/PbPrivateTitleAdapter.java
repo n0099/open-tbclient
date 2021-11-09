@@ -37,10 +37,10 @@ public class PbPrivateTitleAdapter extends n<o, PbPrivateTitleViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f52437a;
+        public View f52436a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52438b;
+        public TextView f52437b;
         public int mSkinType;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,15 +65,15 @@ public class PbPrivateTitleAdapter extends n<o, PbPrivateTitleViewHolder> {
             if (view == null) {
                 return;
             }
-            this.f52437a = view.findViewById(i.background);
-            this.f52438b = (TextView) view.findViewById(i.title);
+            this.f52436a = view.findViewById(i.background);
+            this.f52437b = (TextView) view.findViewById(i.title);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(l.pb_private_block_title));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(h.icon_pure_barrules_careful12, f.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.f(b.a.e.e.p.l.g(tbPageContext.getContext(), g.tbds31));
             eMRichTextAnyIconSpan.d(b.a.e.e.p.l.g(tbPageContext.getContext(), g.M_W_X002));
             eMRichTextAnyIconSpan.b(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.f52438b.setText(spannableStringBuilder);
+            this.f52437b.setText(spannableStringBuilder);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
@@ -81,10 +81,10 @@ public class PbPrivateTitleAdapter extends n<o, PbPrivateTitleViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (this.mSkinType != i2) {
-                    c d2 = c.d(this.f52438b);
+                    c d2 = c.d(this.f52437b);
                     d2.v(f.CAM_X0109);
                     d2.A(l.F_X01);
-                    c d3 = c.d(this.f52437a);
+                    c d3 = c.d(this.f52436a);
                     d3.n(l.J_X05);
                     d3.f(f.CAM_X0204);
                 }

@@ -36,13 +36,13 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f59465a = "PayUtils";
+    public static String f59464a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59466b = "";
+    public static final String f59465b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f59467c;
+    public static ArrayList<String> f59466c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -88,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f59467c = arrayList;
+        f59466c = arrayList;
         arrayList.add("card_no");
-        f59467c.add("valid_date");
-        f59467c.add("cvv2");
-        f59467c.add("identity_code");
-        f59467c.add("phone_number");
+        f59466c.add("valid_date");
+        f59466c.add("cvv2");
+        f59466c.add("identity_code");
+        f59466c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +132,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f59467c.contains(str)) {
+            if (f59466c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }

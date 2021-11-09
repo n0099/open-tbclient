@@ -48,19 +48,19 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47757e;
+    public boolean f47756e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47758f;
+    public int f47757f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47759g;
+    public String f47758g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47760h;
+    public String f47759h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47761i;
+    public int f47760i;
     public boolean j;
     public b.a.r0.o0.l.b k;
     public int l;
@@ -80,7 +80,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumTabFeedNetModel f47762a;
+        public final /* synthetic */ EnterForumTabFeedNetModel f47761a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2, int i3) {
@@ -101,7 +101,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47762a = enterForumTabFeedNetModel;
+            this.f47761a = enterForumTabFeedNetModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -109,8 +109,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             b.a.r0.o0.l.d.a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f47762a.f47757e = false;
-                if (responsedMessage == null || this.f47762a.n == null || this.f47762a.n.f21801b == null) {
+                this.f47761a.f47756e = false;
+                if (responsedMessage == null || this.f47761a.n == null || this.f47761a.n.f21801b == null) {
                     return;
                 }
                 if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
@@ -118,24 +118,24 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 } else {
                     aVar = responsedMessage instanceof TabFeedListSocketResponsedMessage ? ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData : null;
                 }
-                this.f47762a.o = aVar;
-                this.f47762a.mErrorCode = responsedMessage.getError();
-                this.f47762a.mErrorString = responsedMessage.getErrorString();
+                this.f47761a.o = aVar;
+                this.f47761a.mErrorCode = responsedMessage.getError();
+                this.f47761a.mErrorString = responsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
-                errorData.setError_code(this.f47762a.mErrorCode);
-                errorData.setError_msg(this.f47762a.mErrorString);
-                if (this.f47762a.mErrorCode != 0 || aVar == null) {
-                    this.f47762a.k.onServerError(errorData);
+                errorData.setError_code(this.f47761a.mErrorCode);
+                errorData.setError_msg(this.f47761a.mErrorString);
+                if (this.f47761a.mErrorCode != 0 || aVar == null) {
+                    this.f47761a.k.onServerError(errorData);
                     return;
                 }
-                if (aVar != null && this.f47762a.p != null) {
-                    aVar.e().add(0, this.f47762a.p);
-                    if (this.f47762a.m != null && this.f47762a.m.containsKey(this.f47762a.p.s1())) {
-                        this.f47762a.m.remove(this.f47762a.p.s1());
+                if (aVar != null && this.f47761a.p != null) {
+                    aVar.e().add(0, this.f47761a.p);
+                    if (this.f47761a.m != null && this.f47761a.m.containsKey(this.f47761a.p.s1())) {
+                        this.f47761a.m.remove(this.f47761a.p.s1());
                     }
-                    this.f47762a.p = null;
+                    this.f47761a.p = null;
                 }
-                this.f47762a.R(aVar, true);
+                this.f47761a.R(aVar, true);
             }
         }
     }
@@ -146,10 +146,49 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumTabFeedNetModel f47763a;
+        public final /* synthetic */ EnterForumTabFeedNetModel f47762a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {enterForumTabFeedNetModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47762a = enterForumTabFeedNetModel;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.f47762a.N(customResponsedMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EnterForumTabFeedNetModel f47763a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -175,45 +214,6 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.f47763a.N(customResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumTabFeedNetModel f47764a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {enterForumTabFeedNetModel, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47764a = enterForumTabFeedNetModel;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f47764a.N(customResponsedMessage);
             }
         }
     }
@@ -263,7 +263,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumTabFeedNetModel f47765a;
+        public final /* synthetic */ EnterForumTabFeedNetModel f47764a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2) {
@@ -283,7 +283,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47765a = enterForumTabFeedNetModel;
+            this.f47764a = enterForumTabFeedNetModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -293,13 +293,13 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof m1)) {
                 m1 m1Var = (m1) customResponsedMessage.getData();
-                if (m1Var.f13399a == 2 && (str = m1Var.f13400b) != null && str.equals(this.f47765a.f47759g)) {
+                if (m1Var.f13399a == 2 && (str = m1Var.f13400b) != null && str.equals(this.f47764a.f47758g)) {
                     int k = l.k(TbadkCoreApplication.getInst());
                     int i2 = l.i(TbadkCoreApplication.getInst());
                     float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                    requestGetMyPostNetMessage.setTag(this.f47765a.getUniqueId());
+                    requestGetMyPostNetMessage.setTag(this.f47764a.getUniqueId());
                     requestGetMyPostNetMessage.setParams(b.a.e.e.m.b.g(m1Var.f13401c, 0L), 0L, 0L, k, i2, f2, i3);
                     requestGetMyPostNetMessage.setBFrom("push");
                     MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
@@ -314,7 +314,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumTabFeedNetModel f47766a;
+        public final /* synthetic */ EnterForumTabFeedNetModel f47765a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(EnterForumTabFeedNetModel enterForumTabFeedNetModel, int i2, int i3) {
@@ -335,7 +335,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47766a = enterForumTabFeedNetModel;
+            this.f47765a = enterForumTabFeedNetModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -354,9 +354,9 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 }
                 d2 d2Var = new d2();
                 d2Var.Y2(responseData.data.thread_info);
-                this.f47766a.p = d2Var;
-                if (this.f47766a.o != null) {
-                    this.f47766a.refresh();
+                this.f47765a.p = d2Var;
+                if (this.f47765a.o != null) {
+                    this.f47765a.refresh();
                 }
             }
         }
@@ -380,8 +380,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47757e = false;
-        this.f47758f = 1;
+        this.f47756e = false;
+        this.f47757f = 1;
         this.j = true;
         this.q = new a(this, CmdConfigHttp.CMD_TAB_FEED_LIST, 309651);
         this.r = new b(this, 2016488);
@@ -395,7 +395,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         this.m = new HashMap<>();
         this.n = new b.a.r0.o0.l.d.b();
         this.k = bVar;
-        this.f47761i = b.a.q0.s.e0.b.j().k("home_page_max_thread_count", 300);
+        this.f47760i = b.a.q0.s.e0.b.j().k("home_page_max_thread_count", 300);
         registerListener(this.r);
         registerListener(this.s);
         this.u.setTag(getUniqueId());
@@ -542,16 +542,16 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
             tabFeedListRequestMessage.loadType = i2;
-            tabFeedListRequestMessage.tabCode = this.f47760h;
-            tabFeedListRequestMessage.tabName = this.f47759g;
+            tabFeedListRequestMessage.tabCode = this.f47759h;
+            tabFeedListRequestMessage.tabName = this.f47758g;
             if (i2 == 2) {
-                tabFeedListRequestMessage.pn = this.f47758f + 1;
+                tabFeedListRequestMessage.pn = this.f47757f + 1;
             } else if (i2 != 1) {
                 return;
             } else {
                 tabFeedListRequestMessage.pn = 1;
             }
-            this.f47757e = true;
+            this.f47756e = true;
             sendMessage(tabFeedListRequestMessage);
         }
     }
@@ -566,12 +566,12 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         boolean z2 = this.j;
         bVar.f21807h = z2;
         if (!z2) {
-            this.f47758f++;
+            this.f47757f++;
         } else {
             bVar.f21805f = z ? ListUtils.getCount(e2) : -1;
             P(e2, aVar.d());
         }
-        if (this.l + ListUtils.getCount(e2) > this.f47761i) {
+        if (this.l + ListUtils.getCount(e2) > this.f47760i) {
             this.n.f21804e = M();
         }
         ArrayList<n> V = V(e2);
@@ -620,8 +620,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public void U(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.f47760h = str;
-            this.f47759g = str2;
+            this.f47759h = str;
+            this.f47758g = str2;
         }
     }
 
@@ -779,7 +779,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.cancelMessage();
-            this.f47757e = false;
+            this.f47756e = false;
         }
     }
 
@@ -802,7 +802,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f47757e) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f47756e) {
             return;
         }
         this.j = false;
@@ -811,7 +811,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.f47757e) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.f47756e) {
             return;
         }
         this.j = true;

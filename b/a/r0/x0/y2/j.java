@@ -431,10 +431,10 @@ public class j extends b.a.r0.x0.p2.j {
             return;
         }
         n nVar = this.f26145c;
-        if ((nVar instanceof FrsTabViewController) && ((FrsTabViewController) nVar).z() != null && (((FrsTabViewController) this.f26145c).z().f49027b instanceof r0)) {
+        if ((nVar instanceof FrsTabViewController) && ((FrsTabViewController) nVar).z() != null && (((FrsTabViewController) this.f26145c).z().f49026b instanceof r0)) {
             FrsTabViewController.o z = ((FrsTabViewController) this.f26145c).z();
-            c0(z.f49026a, (r0) z.f49027b);
-            f0(z.f49026a);
+            c0(z.f49025a, (r0) z.f49026b);
+            f0(z.f49025a);
             return;
         }
         this.f26143a.j1(this.q);

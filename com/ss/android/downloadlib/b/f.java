@@ -23,7 +23,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f68719a;
+    public static Handler f68718a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class f {
                 return;
             }
         }
-        f68719a = new Handler(Looper.getMainLooper());
+        f68718a = new Handler(Looper.getMainLooper());
     }
 
     public static void b(@NonNull com.ss.android.downloadad.api.a.b bVar, int i2) {
@@ -52,10 +52,10 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.ss.android.downloadad.api.a.b f68724a;
+            public final /* synthetic */ com.ss.android.downloadad.api.a.b f68723a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f68725b;
+            public final /* synthetic */ int f68724b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -72,8 +72,8 @@ public class f {
                         return;
                     }
                 }
-                this.f68724a = bVar;
-                this.f68725b = i2;
+                this.f68723a = bVar;
+                this.f68724b = i2;
             }
 
             @Override // java.lang.Runnable
@@ -81,20 +81,20 @@ public class f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     int i3 = 1;
-                    if (l.c(this.f68724a.e())) {
+                    if (l.c(this.f68723a.e())) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (!this.f68724a.aa()) {
+                            if (!this.f68723a.aa()) {
                                 i3 = 2;
                             }
                             jSONObject.putOpt("deeplink_source", Integer.valueOf(i3));
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, this.f68724a);
+                        com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, this.f68723a);
                         return;
                     }
-                    f.b(this.f68724a, this.f68725b - 1);
+                    f.b(this.f68723a, this.f68724b - 1);
                 }
             }
         }, i(bVar) * 1000);
@@ -167,13 +167,13 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f68720a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b f68719a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f68721b;
+                public final /* synthetic */ long f68720b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ h f68722c;
+                public final /* synthetic */ h f68721c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,9 +190,9 @@ public class f {
                             return;
                         }
                     }
-                    this.f68720a = bVar;
-                    this.f68721b = r7;
-                    this.f68722c = hVar;
+                    this.f68719a = bVar;
+                    this.f68720b = r7;
+                    this.f68721c = hVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1983a
@@ -205,7 +205,7 @@ public class f {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f68723a;
+                            public final /* synthetic */ AnonymousClass1 f68722a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -222,27 +222,27 @@ public class f {
                                         return;
                                     }
                                 }
-                                this.f68723a = this;
+                                this.f68722a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    boolean c2 = l.c(this.f68723a.f68720a.e());
-                                    long e2 = f.e(this.f68723a.f68720a);
-                                    if (!c2 || e2 >= System.currentTimeMillis() - this.f68723a.f68721b) {
-                                        long h2 = f.h(this.f68723a.f68720a);
+                                    boolean c2 = l.c(this.f68722a.f68719a.e());
+                                    long e2 = f.e(this.f68722a.f68719a);
+                                    if (!c2 || e2 >= System.currentTimeMillis() - this.f68722a.f68720b) {
+                                        long h2 = f.h(this.f68722a.f68719a);
                                         long currentTimeMillis = System.currentTimeMillis();
-                                        AnonymousClass1 anonymousClass1 = this.f68723a;
-                                        if (currentTimeMillis - anonymousClass1.f68721b > h2) {
-                                            com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", this.f68723a.f68720a);
+                                        AnonymousClass1 anonymousClass1 = this.f68722a;
+                                        if (currentTimeMillis - anonymousClass1.f68720b > h2) {
+                                            com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", this.f68722a.f68719a);
                                             return;
                                         }
-                                        anonymousClass1.f68720a.l(true);
-                                        com.ss.android.downloadlib.d.a.a().a("deeplink_delay_invoke", this.f68723a.f68720a);
-                                        this.f68723a.f68722c.a(true);
-                                        com.ss.android.downloadad.api.a.b bVar2 = this.f68723a.f68720a;
+                                        anonymousClass1.f68719a.l(true);
+                                        com.ss.android.downloadlib.d.a.a().a("deeplink_delay_invoke", this.f68722a.f68719a);
+                                        this.f68722a.f68721c.a(true);
+                                        com.ss.android.downloadad.api.a.b bVar2 = this.f68722a.f68719a;
                                         f.b(bVar2, f.j(bVar2));
                                     }
                                 }

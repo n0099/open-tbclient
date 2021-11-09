@@ -25,9 +25,58 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72350a;
+        public final /* synthetic */ IResult f72349a;
 
         public a(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f72349a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f72349a) == null) {
+                return;
+            }
+            iResult.onSuccess(productListResult, payCallBackBean);
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72349a) == null) {
+                return;
+            }
+            iResult.onFail(i2, str, payCallBackBean);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements IResult<MyBalanceResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IResult f72350a;
+
+        public b(IResult iResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,13 +97,13 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
-        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
+        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f72350a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f72350a) == null) {
                 return;
             }
-            iResult.onSuccess(productListResult, payCallBackBean);
+            iResult.onSuccess(myBalanceResult, payCallBackBean);
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
@@ -69,14 +118,14 @@ public class d {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements IResult<MyBalanceResult> {
+    public static class c implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ IResult f72351a;
 
-        public b(IResult iResult) {
+        public c(IResult iResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,59 +146,10 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
-        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
-                return;
-            }
-            iResult.onSuccess(myBalanceResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
-                return;
-            }
-            iResult.onFail(i2, str, payCallBackBean);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements IResult<BannerConfigResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72352a;
-
-        public c(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f72352a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
         public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f72352a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
                 return;
             }
             iResult.onSuccess(bannerConfigResult, payCallBackBean);
@@ -159,7 +159,7 @@ public class d {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72352a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);

@@ -70,18 +70,18 @@ public class f implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
                 }
                 LoadHistoryMessage.a data = customMessage.getData();
                 LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.f20425f);
-                LinkedList<ChatMessage> g2 = this.f20424e.g(data.f50486d, data.f50483a, data.f50484b, data.f50485c);
+                LinkedList<ChatMessage> g2 = this.f20424e.g(data.f50485d, data.f50482a, data.f50483b, data.f50484c);
                 if (g2 == null) {
                     return a(this.f20425f);
                 }
                 LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.f50483a == null) {
-                    aVar.f50489c = true;
+                if (data.f50482a == null) {
+                    aVar.f50488c = true;
                 } else {
-                    aVar.f50489c = false;
+                    aVar.f50488c = false;
                 }
-                aVar.f50488b = g2;
-                aVar.f50487a = data.f50486d;
+                aVar.f50487b = g2;
+                aVar.f50486a = data.f50485d;
                 try {
                     loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
                 } catch (Exception e2) {

@@ -11,7 +11,7 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64812a;
+    public static final String f64811a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,13 +27,13 @@ public final class k {
                 return;
             }
         }
-        f64812a = b() + "ksad-android-3.3.11.4";
+        f64811a = b() + "ksad-android-3.3.11.4";
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f64812a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f64811a : (String) invokeV.objValue;
     }
 
     public static String b() {

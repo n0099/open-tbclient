@@ -14,7 +14,7 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f72625i;
+    public final int f72624i;
     public final int j;
 
     /* loaded from: classes3.dex */
@@ -54,7 +54,7 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
                     if (get() || !compareAndSet(false, true)) {
                         operatorBufferWithSize$BufferSkip.e(a.c(j, operatorBufferWithSize$BufferSkip.j));
                     } else {
-                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f72625i), a.c(operatorBufferWithSize$BufferSkip.j - operatorBufferWithSize$BufferSkip.f72625i, j - 1)));
+                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f72624i), a.c(operatorBufferWithSize$BufferSkip.j - operatorBufferWithSize$BufferSkip.f72624i, j - 1)));
                     }
                 }
             }

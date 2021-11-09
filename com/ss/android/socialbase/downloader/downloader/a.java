@@ -28,29 +28,29 @@ public abstract class a implements o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f69247e = "a";
+    public static final String f69246e = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<List<DownloadTask>> f69248a;
+    public final SparseArray<List<DownloadTask>> f69247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f69249b;
+    public volatile boolean f69248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f69250c;
+    public volatile boolean f69249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f69251d;
+    public volatile boolean f69250d;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Service> f69252f;
+    public WeakReference<Service> f69251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f69253g;
+    public Handler f69252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f69254h;
+    public Runnable f69253h;
 
     static {
         InterceptResult invokeClinit;
@@ -80,16 +80,16 @@ public abstract class a implements o {
                 return;
             }
         }
-        this.f69248a = new SparseArray<>();
-        this.f69249b = false;
-        this.f69251d = false;
-        this.f69253g = new Handler(Looper.getMainLooper());
-        this.f69254h = new Runnable(this) { // from class: com.ss.android.socialbase.downloader.downloader.a.1
+        this.f69247a = new SparseArray<>();
+        this.f69248b = false;
+        this.f69250d = false;
+        this.f69252g = new Handler(Looper.getMainLooper());
+        this.f69253h = new Runnable(this) { // from class: com.ss.android.socialbase.downloader.downloader.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f69255a;
+            public final /* synthetic */ a f69254a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -106,7 +106,7 @@ public abstract class a implements o {
                         return;
                     }
                 }
-                this.f69255a = this;
+                this.f69254a = this;
             }
 
             @Override // java.lang.Runnable
@@ -114,15 +114,15 @@ public abstract class a implements o {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (com.ss.android.socialbase.downloader.c.a.a()) {
-                        com.ss.android.socialbase.downloader.c.a.b(a.f69247e, "tryDownload: 2 try");
+                        com.ss.android.socialbase.downloader.c.a.b(a.f69246e, "tryDownload: 2 try");
                     }
-                    if (this.f69255a.f69249b) {
+                    if (this.f69254a.f69248b) {
                         return;
                     }
                     if (com.ss.android.socialbase.downloader.c.a.a()) {
-                        com.ss.android.socialbase.downloader.c.a.b(a.f69247e, "tryDownload: 2 error");
+                        com.ss.android.socialbase.downloader.c.a.b(a.f69246e, "tryDownload: 2 error");
                     }
-                    this.f69255a.startService(c.N(), null);
+                    this.f69254a.startService(c.N(), null);
                 }
             }
         };
@@ -146,7 +146,7 @@ public abstract class a implements o {
     public void a(WeakReference weakReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, weakReference) == null) {
-            this.f69252f = weakReference;
+            this.f69251f = weakReference;
         }
     }
 
@@ -155,9 +155,9 @@ public abstract class a implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String str = f69247e;
-            com.ss.android.socialbase.downloader.c.a.c(str, "isServiceForeground = " + this.f69250c);
-            return this.f69250c;
+            String str = f69246e;
+            com.ss.android.socialbase.downloader.c.a.c(str, "isServiceForeground = " + this.f69249c);
+            return this.f69249c;
         }
         return invokeV.booleanValue;
     }
@@ -180,7 +180,7 @@ public abstract class a implements o {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f69249b = false;
+            this.f69248b = false;
         }
     }
 
@@ -188,11 +188,11 @@ public abstract class a implements o {
         SparseArray<List<DownloadTask>> clone;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.f69248a) {
-                String str = f69247e;
-                com.ss.android.socialbase.downloader.c.a.b(str, "resumePendingTask pendingTasks.size:" + this.f69248a.size());
-                clone = this.f69248a.clone();
-                this.f69248a.clear();
+            synchronized (this.f69247a) {
+                String str = f69246e;
+                com.ss.android.socialbase.downloader.c.a.b(str, "resumePendingTask pendingTasks.size:" + this.f69247a.size());
+                clone = this.f69247a.clone();
+                this.f69247a.clear();
             }
             com.ss.android.socialbase.downloader.impls.a C = c.C();
             if (C != null) {
@@ -200,7 +200,7 @@ public abstract class a implements o {
                     List<DownloadTask> list = clone.get(clone.keyAt(i2));
                     if (list != null) {
                         for (DownloadTask downloadTask : list) {
-                            String str2 = f69247e;
+                            String str2 = f69246e;
                             com.ss.android.socialbase.downloader.c.a.b(str2, "resumePendingTask key:" + downloadTask.getDownloadId());
                             C.a(downloadTask);
                         }
@@ -213,11 +213,11 @@ public abstract class a implements o {
     @Override // com.ss.android.socialbase.downloader.downloader.o
     public void startService() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f69249b) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f69248b) {
             return;
         }
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f69247e, "startService");
+            com.ss.android.socialbase.downloader.c.a.b(f69246e, "startService");
         }
         startService(c.N(), null);
     }
@@ -238,7 +238,7 @@ public abstract class a implements o {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69249b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69248b : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
@@ -246,7 +246,7 @@ public abstract class a implements o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            com.ss.android.socialbase.downloader.c.a.b(f69247e, "onBind Abs");
+            com.ss.android.socialbase.downloader.c.a.b(f69246e, "onBind Abs");
             return new Binder();
         }
         return (IBinder) invokeL.objValue;
@@ -258,33 +258,33 @@ public abstract class a implements o {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, downloadTask) == null) || downloadTask == null) {
             return;
         }
-        if (!this.f69249b) {
+        if (!this.f69248b) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f69247e, "tryDownload but service is not alive");
+                com.ss.android.socialbase.downloader.c.a.b(f69246e, "tryDownload but service is not alive");
             }
             if (com.ss.android.socialbase.downloader.i.a.a(262144)) {
                 a(downloadTask);
-                if (!this.f69251d) {
+                if (!this.f69250d) {
                     if (com.ss.android.socialbase.downloader.c.a.a()) {
-                        com.ss.android.socialbase.downloader.c.a.b(f69247e, "tryDownload: 1");
+                        com.ss.android.socialbase.downloader.c.a.b(f69246e, "tryDownload: 1");
                     }
                     startService(c.N(), null);
-                    this.f69251d = true;
+                    this.f69250d = true;
                     return;
                 }
-                this.f69253g.removeCallbacks(this.f69254h);
-                this.f69253g.postDelayed(this.f69254h, 10L);
+                this.f69252g.removeCallbacks(this.f69253h);
+                this.f69252g.postDelayed(this.f69253h, 10L);
                 return;
             }
             a(downloadTask);
             startService(c.N(), null);
             return;
         }
-        com.ss.android.socialbase.downloader.c.a.b(f69247e, "tryDownload when isServiceAlive");
+        com.ss.android.socialbase.downloader.c.a.b(f69246e, "tryDownload when isServiceAlive");
         e();
         com.ss.android.socialbase.downloader.impls.a C = c.C();
         if (C != null) {
-            String str = f69247e;
+            String str = f69246e;
             com.ss.android.socialbase.downloader.c.a.b(str, "tryDownload current task: " + downloadTask.getDownloadId());
             C.a(downloadTask);
         }
@@ -294,20 +294,20 @@ public abstract class a implements o {
     public void a(int i2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) {
-            WeakReference<Service> weakReference = this.f69252f;
+            WeakReference<Service> weakReference = this.f69251f;
             if (weakReference != null && weakReference.get() != null) {
-                String str = f69247e;
-                com.ss.android.socialbase.downloader.c.a.c(str, "startForeground  id = " + i2 + ", service = " + this.f69252f.get() + ",  isServiceAlive = " + this.f69249b);
+                String str = f69246e;
+                com.ss.android.socialbase.downloader.c.a.c(str, "startForeground  id = " + i2 + ", service = " + this.f69251f.get() + ",  isServiceAlive = " + this.f69248b);
                 try {
-                    this.f69252f.get().startForeground(i2, notification);
-                    this.f69250c = true;
+                    this.f69251f.get().startForeground(i2, notification);
+                    this.f69249c = true;
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return;
                 }
             }
-            com.ss.android.socialbase.downloader.c.a.d(f69247e, "startForeground: downloadService is null, do nothing!");
+            com.ss.android.socialbase.downloader.c.a.d(f69246e, "startForeground: downloadService is null, do nothing!");
         }
     }
 
@@ -315,14 +315,14 @@ public abstract class a implements o {
     public void a(boolean z) {
         WeakReference<Service> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (weakReference = this.f69252f) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (weakReference = this.f69251f) == null || weakReference.get() == null) {
             return;
         }
-        String str = f69247e;
-        com.ss.android.socialbase.downloader.c.a.c(str, "stopForeground  service = " + this.f69252f.get() + ",  isServiceAlive = " + this.f69249b);
+        String str = f69246e;
+        com.ss.android.socialbase.downloader.c.a.c(str, "stopForeground  service = " + this.f69251f.get() + ",  isServiceAlive = " + this.f69248b);
         try {
-            this.f69250c = false;
-            this.f69252f.get().stopForeground(z);
+            this.f69249c = false;
+            this.f69251f.get().stopForeground(z);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -334,19 +334,19 @@ public abstract class a implements o {
             return;
         }
         int downloadId = downloadTask.getDownloadId();
-        synchronized (this.f69248a) {
-            String str = f69247e;
-            com.ss.android.socialbase.downloader.c.a.b(str, "pendDownloadTask pendingTasks.size:" + this.f69248a.size() + " downloadId:" + downloadId);
-            List<DownloadTask> list = this.f69248a.get(downloadId);
+        synchronized (this.f69247a) {
+            String str = f69246e;
+            com.ss.android.socialbase.downloader.c.a.b(str, "pendDownloadTask pendingTasks.size:" + this.f69247a.size() + " downloadId:" + downloadId);
+            List<DownloadTask> list = this.f69247a.get(downloadId);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f69248a.put(downloadId, list);
+                this.f69247a.put(downloadId, list);
             }
-            String str2 = f69247e;
+            String str2 = f69246e;
             com.ss.android.socialbase.downloader.c.a.b(str2, "before pendDownloadTask taskArray.size:" + list.size());
             list.add(downloadTask);
-            String str3 = f69247e;
-            com.ss.android.socialbase.downloader.c.a.b(str3, "after pendDownloadTask pendingTasks.size:" + this.f69248a.size());
+            String str3 = f69246e;
+            com.ss.android.socialbase.downloader.c.a.b(str3, "after pendDownloadTask pendingTasks.size:" + this.f69247a.size());
         }
     }
 

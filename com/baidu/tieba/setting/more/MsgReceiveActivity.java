@@ -31,9 +31,74 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f53854a;
+        public final /* synthetic */ MsgReceiveActivity f53853a;
 
         public a(MsgReceiveActivity msgReceiveActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgReceiveActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53853a = msgReceiveActivity;
+        }
+
+        @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
+        public void a(int i2, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                if (i2 == 8) {
+                    if (z) {
+                        return;
+                    }
+                    if (z2) {
+                        this.f53853a.mView.h().turnOffNoCallback();
+                        this.f53853a.mView.n(false);
+                        this.f53853a.mView.p(false);
+                        return;
+                    }
+                    this.f53853a.mView.h().turnOnNoCallback();
+                    this.f53853a.mView.n(true);
+                    this.f53853a.mView.p(true);
+                } else if (i2 == 9) {
+                    if (z) {
+                        return;
+                    }
+                    if (z2) {
+                        this.f53853a.mView.j().turnOffNoCallback();
+                    } else {
+                        this.f53853a.mView.j().turnOnNoCallback();
+                    }
+                } else if (i2 == 7) {
+                    if (z) {
+                        d.d().P(z2);
+                    } else if (z2) {
+                        this.f53853a.mView.g().turnOffNoCallback();
+                    } else {
+                        this.f53853a.mView.g().turnOnNoCallback();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements OfficialAccountPushModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MsgReceiveActivity f53854a;
+
+        public b(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,76 +116,11 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             this.f53854a = msgReceiveActivity;
         }
 
-        @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
-        public void a(int i2, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (i2 == 8) {
-                    if (z) {
-                        return;
-                    }
-                    if (z2) {
-                        this.f53854a.mView.h().turnOffNoCallback();
-                        this.f53854a.mView.n(false);
-                        this.f53854a.mView.p(false);
-                        return;
-                    }
-                    this.f53854a.mView.h().turnOnNoCallback();
-                    this.f53854a.mView.n(true);
-                    this.f53854a.mView.p(true);
-                } else if (i2 == 9) {
-                    if (z) {
-                        return;
-                    }
-                    if (z2) {
-                        this.f53854a.mView.j().turnOffNoCallback();
-                    } else {
-                        this.f53854a.mView.j().turnOnNoCallback();
-                    }
-                } else if (i2 == 7) {
-                    if (z) {
-                        d.d().P(z2);
-                    } else if (z2) {
-                        this.f53854a.mView.g().turnOffNoCallback();
-                    } else {
-                        this.f53854a.mView.g().turnOnNoCallback();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements OfficialAccountPushModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f53855a;
-
-        public b(MsgReceiveActivity msgReceiveActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgReceiveActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53855a = msgReceiveActivity;
-        }
-
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f53855a.mView != null) {
-                this.f53855a.mView.o(arrayList);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f53854a.mView != null) {
+                this.f53854a.mView.o(arrayList);
             }
         }
     }

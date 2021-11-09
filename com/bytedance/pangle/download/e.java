@@ -30,7 +30,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ZeusParam zeusParam = com.bytedance.pangle.i.a().f61439b;
+            ZeusParam zeusParam = com.bytedance.pangle.i.a().f61438b;
             String host = zeusParam.getHost();
             if (TextUtils.isEmpty(host)) {
                 host = "https://plugin-patch-api.bytedance.com/api/plugin/config/v2/";

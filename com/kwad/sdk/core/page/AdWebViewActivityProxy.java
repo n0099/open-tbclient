@@ -68,7 +68,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
         InterceptResult invokeV;
         AdTemplate adTemplate;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? d.f65521a == 2 && c.p() && !TextUtils.isEmpty(com.kwad.sdk.core.response.b.c.s(this.mAdTemplate)) && (adTemplate = this.mAdTemplate) != null && adTemplate.mIsFromContent : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? d.f65520a == 2 && c.p() && !TextUtils.isEmpty(com.kwad.sdk.core.response.b.c.s(this.mAdTemplate)) && (adTemplate = this.mAdTemplate) != null && adTemplate.mIsFromContent : invokeV.booleanValue;
     }
 
     private boolean isFormAdExitInterceptEnable() {
@@ -132,10 +132,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f64826a;
+                public final /* synthetic */ String f64825a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdWebViewActivityProxy f64827b;
+                public final /* synthetic */ AdWebViewActivityProxy f64826b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -152,8 +152,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                             return;
                         }
                     }
-                    this.f64827b = this;
-                    this.f64826a = stringExtra;
+                    this.f64826b = this;
+                    this.f64825a = stringExtra;
                 }
 
                 @Override // java.lang.Runnable
@@ -161,14 +161,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Rect rect = new Rect();
-                        DisplayMetrics displayMetrics = this.f64827b.getActivity().getResources().getDisplayMetrics();
+                        DisplayMetrics displayMetrics = this.f64826b.getActivity().getResources().getDisplayMetrics();
                         int i2 = displayMetrics.widthPixels;
                         rect.right = i2;
                         rect.left = i2 - (i2 / 4);
                         int i3 = (int) (displayMetrics.heightPixels * 0.83f);
                         rect.bottom = i3;
                         rect.top = i3 - (((i2 / 4) * 16) / 9);
-                        new com.kwad.sdk.splashscreen.a(this.f64827b.getActivity(), this.f64826a, false, null).a(rect);
+                        new com.kwad.sdk.splashscreen.a(this.f64826b.getActivity(), this.f64825a, false, null).a(rect);
                     }
                 }
             });
@@ -208,6 +208,74 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ AdWebViewActivityProxy f64827a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f64827a = this;
+                    }
+
+                    @Override // com.kwad.sdk.core.page.widget.b.a
+                    public void a(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            com.kwad.sdk.core.report.a.e(this.f64827a.mAdTemplate, 104);
+                            dialogInterface.dismiss();
+                        }
+                    }
+
+                    @Override // com.kwad.sdk.core.page.widget.b.a
+                    public void b(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
+                            AdWebViewActivityProxy.super.onBackPressed();
+                            com.kwad.sdk.core.report.a.e(this.f64827a.mAdTemplate, 105);
+                        }
+                    }
+
+                    @Override // com.kwad.sdk.core.page.widget.b.a
+                    public void c(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
+                            com.kwad.sdk.core.report.a.e(this.f64827a.mAdTemplate, 106);
+                            dialogInterface.dismiss();
+                        }
+                    }
+                });
+                com.kwad.sdk.core.report.a.c(this.mAdTemplate, 103, null);
+                bVar2.show();
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.page.b.a
+    public void onCloseBtnClicked(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            if (isAggregateAdOpen()) {
+                com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
+                if (bVar != null) {
+                    bVar.a(getActivity(), this.mAdTemplate, 2);
+                }
+            } else if (isFormAdExitInterceptEnable()) {
+                com.kwad.sdk.core.page.widget.b bVar2 = new com.kwad.sdk.core.page.widget.b(getActivity(), new b.a(this) { // from class: com.kwad.sdk.core.page.AdWebViewActivityProxy.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
                     public final /* synthetic */ AdWebViewActivityProxy f64828a;
 
                     {
@@ -241,7 +309,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public void b(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                            AdWebViewActivityProxy.super.onBackPressed();
+                            this.f64828a.finish();
                             com.kwad.sdk.core.report.a.e(this.f64828a.mAdTemplate, 105);
                         }
                     }
@@ -251,74 +319,6 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
                             com.kwad.sdk.core.report.a.e(this.f64828a.mAdTemplate, 106);
-                            dialogInterface.dismiss();
-                        }
-                    }
-                });
-                com.kwad.sdk.core.report.a.c(this.mAdTemplate, 103, null);
-                bVar2.show();
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.core.page.b.a
-    public void onCloseBtnClicked(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if (isAggregateAdOpen()) {
-                com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
-                if (bVar != null) {
-                    bVar.a(getActivity(), this.mAdTemplate, 2);
-                }
-            } else if (isFormAdExitInterceptEnable()) {
-                com.kwad.sdk.core.page.widget.b bVar2 = new com.kwad.sdk.core.page.widget.b(getActivity(), new b.a(this) { // from class: com.kwad.sdk.core.page.AdWebViewActivityProxy.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdWebViewActivityProxy f64829a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f64829a = this;
-                    }
-
-                    @Override // com.kwad.sdk.core.page.widget.b.a
-                    public void a(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f64829a.mAdTemplate, 104);
-                            dialogInterface.dismiss();
-                        }
-                    }
-
-                    @Override // com.kwad.sdk.core.page.widget.b.a
-                    public void b(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                            this.f64829a.finish();
-                            com.kwad.sdk.core.report.a.e(this.f64829a.mAdTemplate, 105);
-                        }
-                    }
-
-                    @Override // com.kwad.sdk.core.page.widget.b.a
-                    public void c(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f64829a.mAdTemplate, 106);
                             dialogInterface.dismiss();
                         }
                     }

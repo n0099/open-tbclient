@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f49229e;
+    public FunAdButton f49228e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -87,8 +87,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds channelNativeAds = funNativeAd.getChannelNativeAds();
-            this.f49229e.setTag(oVar);
-            a aVar = new a(this.f49229e, oVar);
+            this.f49228e.setTag(oVar);
+            a aVar = new a(this.f49228e, oVar);
             if (channelNativeAds != null) {
                 Object obj = channelNativeAds.ksNative;
                 if (obj instanceof KsNativeAd) {
@@ -286,7 +286,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f49229e = this.adButton;
+            this.f49228e = this.adButton;
         }
     }
 

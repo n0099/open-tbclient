@@ -19,13 +19,13 @@ public final class m<T> implements d.b<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f71930e;
+    public final h.g f71929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f71931f;
+    public final boolean f71930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f71932g;
+    public final int f71931g;
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends h.j<T> implements h.n.a {
@@ -33,7 +33,7 @@ public final class m<T> implements d.b<T, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final h.j<? super T> f71933i;
+        public final h.j<? super T> f71932i;
         public final g.a j;
         public final boolean k;
         public final Queue<Object> l;
@@ -51,7 +51,7 @@ public final class m<T> implements d.b<T, T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f71934e;
+            public final /* synthetic */ a f71933e;
 
             public C2052a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public final class m<T> implements d.b<T, T> {
                         return;
                     }
                 }
-                this.f71934e = aVar;
+                this.f71933e = aVar;
             }
 
             @Override // h.f
@@ -77,8 +77,8 @@ public final class m<T> implements d.b<T, T> {
                 if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || j <= 0) {
                     return;
                 }
-                h.o.a.a.b(this.f71934e.o, j);
-                this.f71934e.i();
+                h.o.a.a.b(this.f71933e.o, j);
+                this.f71933e.i();
             }
         }
 
@@ -99,10 +99,10 @@ public final class m<T> implements d.b<T, T> {
             }
             this.o = new AtomicLong();
             this.p = new AtomicLong();
-            this.f71933i = jVar;
+            this.f71932i = jVar;
             this.j = gVar.createWorker();
             this.k = z;
-            i2 = i2 <= 0 ? h.o.d.f.f72078g : i2;
+            i2 = i2 <= 0 ? h.o.d.f.f72077g : i2;
             this.m = i2 - (i2 >> 2);
             if (f0.b()) {
                 this.l = new h.o.d.j.r(i2);
@@ -119,7 +119,7 @@ public final class m<T> implements d.b<T, T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long j = this.r;
                 Queue<Object> queue = this.l;
-                h.j<? super T> jVar = this.f71933i;
+                h.j<? super T> jVar = this.f71932i;
                 long j2 = 1;
                 do {
                     long j3 = this.o.get();
@@ -204,7 +204,7 @@ public final class m<T> implements d.b<T, T> {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                h.j<? super T> jVar = this.f71933i;
+                h.j<? super T> jVar = this.f71932i;
                 jVar.f(new C2052a(this));
                 jVar.b(this.j);
                 jVar.b(this);
@@ -271,9 +271,9 @@ public final class m<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f71930e = gVar;
-        this.f71931f = z;
-        this.f71932g = i2 <= 0 ? h.o.d.f.f72078g : i2;
+        this.f71929e = gVar;
+        this.f71930f = z;
+        this.f71931g = i2 <= 0 ? h.o.d.f.f72077g : i2;
     }
 
     @Override // h.d.b, h.n.f
@@ -285,11 +285,11 @@ public final class m<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            h.g gVar = this.f71930e;
+            h.g gVar = this.f71929e;
             if ((gVar instanceof h.o.c.e) || (gVar instanceof h.o.c.j)) {
                 return jVar;
             }
-            a aVar = new a(gVar, jVar, this.f71931f, this.f71932g);
+            a aVar = new a(gVar, jVar, this.f71930f, this.f71931g);
             aVar.h();
             return aVar;
         }

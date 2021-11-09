@@ -19,7 +19,7 @@ public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60923a = "NetUtils";
+    public static final String f60922a = "NetUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetUtils() {

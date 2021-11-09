@@ -27,10 +27,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64755a = "GlobalThreadPools";
+    public static String f64754a = "GlobalThreadPools";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, WeakReference<ExecutorService>> f64756b;
+    public static Map<String, WeakReference<ExecutorService>> f64755b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -101,20 +101,20 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AtomicInteger f64757a;
+        public static final AtomicInteger f64756a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ThreadGroup f64758b;
+        public final ThreadGroup f64757b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final AtomicInteger f64759c;
+        public final AtomicInteger f64758c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f64760d;
+        public final String f64759d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f64761e;
+        public final int f64760e;
 
         static {
             InterceptResult invokeClinit;
@@ -129,7 +129,7 @@ public class b {
                     return;
                 }
             }
-            f64757a = new AtomicInteger(1);
+            f64756a = new AtomicInteger(1);
         }
 
         public d(int i2, String str) {
@@ -147,10 +147,10 @@ public class b {
                     return;
                 }
             }
-            this.f64759c = new AtomicInteger(1);
-            this.f64761e = i2;
-            this.f64758b = Thread.currentThread().getThreadGroup();
-            this.f64760d = "ksad-" + str + f64757a.getAndIncrement() + "-thread-";
+            this.f64758c = new AtomicInteger(1);
+            this.f64760e = i2;
+            this.f64757b = Thread.currentThread().getThreadGroup();
+            this.f64759d = "ksad-" + str + f64756a.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -158,12 +158,12 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f64758b;
-                Thread thread = new Thread(threadGroup, runnable, this.f64760d + this.f64759c.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f64757b;
+                Thread thread = new Thread(threadGroup, runnable, this.f64759d + this.f64758c.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
-                thread.setPriority(this.f64761e);
+                thread.setPriority(this.f64760e);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -231,25 +231,25 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f64762a = "lruDiskCache";
+        public static String f64761a = "lruDiskCache";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f64763b = "ksImageLoaderTask";
+        public static String f64762b = "ksImageLoaderTask";
 
         /* renamed from: c  reason: collision with root package name */
-        public static String f64764c = "report";
+        public static String f64763c = "report";
 
         /* renamed from: d  reason: collision with root package name */
-        public static String f64765d = "appInstallManager";
+        public static String f64764d = "appInstallManager";
 
         /* renamed from: e  reason: collision with root package name */
-        public static String f64766e = "diskAndHttpIO";
+        public static String f64765e = "diskAndHttpIO";
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f64767f = "async";
+        public static String f64766f = "async";
 
         /* renamed from: g  reason: collision with root package name */
-        public static String f64768g = "async-schedule";
+        public static String f64767g = "async-schedule";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -309,15 +309,15 @@ public class b {
                 return;
             }
         }
-        f64756b = new ConcurrentHashMap();
+        f64755b = new ConcurrentHashMap();
     }
 
     public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forDiskLruCache");
-            return a(g.f64762a, new f());
+            com.kwad.sdk.core.d.a.a(f64754a, "forDiskLruCache");
+            return a(g.f64761a, new f());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -330,10 +330,10 @@ public class b {
             if (str == null) {
                 return interfaceC1906b.a();
             }
-            WeakReference<ExecutorService> weakReference = f64756b.get(str);
+            WeakReference<ExecutorService> weakReference = f64755b.get(str);
             if (weakReference == null || weakReference.get() == null) {
                 ExecutorService a2 = interfaceC1906b.a();
-                f64756b.put(str, new WeakReference<>(a2));
+                f64755b.put(str, new WeakReference<>(a2));
                 return a2;
             }
             return weakReference.get();
@@ -344,7 +344,7 @@ public class b {
     public static ExecutorService b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(g.f64762a, new f()) : (ExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(g.f64761a, new f()) : (ExecutorService) invokeV.objValue;
     }
 
     public static synchronized ExecutorService c() {
@@ -353,8 +353,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (b.class) {
-                com.kwad.sdk.core.d.a.a(f64755a, "forKsImageLoaderTask");
-                a2 = a(g.f64763b, new e());
+                com.kwad.sdk.core.d.a.a(f64754a, "forKsImageLoaderTask");
+                a2 = a(g.f64762b, new e());
             }
             return a2;
         }
@@ -367,8 +367,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (b.class) {
-                com.kwad.sdk.core.d.a.a(f64755a, "forKsImageLoaderCachedImages");
-                a2 = a(g.f64763b, new e());
+                com.kwad.sdk.core.d.a.a(f64754a, "forKsImageLoaderCachedImages");
+                a2 = a(g.f64762b, new e());
             }
             return a2;
         }
@@ -379,8 +379,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forKsImageLoaderTaskDistributor");
-            return a(g.f64763b, new e());
+            com.kwad.sdk.core.d.a.a(f64754a, "forKsImageLoaderTaskDistributor");
+            return a(g.f64762b, new e());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -391,8 +391,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (b.class) {
-                com.kwad.sdk.core.d.a.a(f64755a, "forBaseBatchReporter");
-                a2 = a(g.f64764c, new h());
+                com.kwad.sdk.core.d.a.a(f64754a, "forBaseBatchReporter");
+                a2 = a(g.f64763c, new h());
             }
             return a2;
         }
@@ -405,8 +405,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (b.class) {
-                com.kwad.sdk.core.d.a.a(f64755a, "forAdReportManager");
-                a2 = a(g.f64764c, new h());
+                com.kwad.sdk.core.d.a.a(f64754a, "forAdReportManager");
+                a2 = a(g.f64763c, new h());
             }
             return a2;
         }
@@ -417,8 +417,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forBaseNetwork");
-            return a(g.f64766e, new c());
+            com.kwad.sdk.core.d.a.a(f64754a, "forBaseNetwork");
+            return a(g.f64765e, new c());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -427,8 +427,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forFileHelper");
-            return a(g.f64766e, new c());
+            com.kwad.sdk.core.d.a.a(f64754a, "forFileHelper");
+            return a(g.f64765e, new c());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -437,8 +437,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forAppCacheManager");
-            return a(g.f64765d, new a());
+            com.kwad.sdk.core.d.a.a(f64754a, "forAppCacheManager");
+            return a(g.f64764d, new a());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -447,8 +447,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forAppInstallCheckManager");
-            return a(g.f64765d, new a());
+            com.kwad.sdk.core.d.a.a(f64754a, "forAppInstallCheckManager");
+            return a(g.f64764d, new a());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -457,8 +457,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forHttpCacheServer");
-            return a(g.f64766e, new c());
+            com.kwad.sdk.core.d.a.a(f64754a, "forHttpCacheServer");
+            return a(g.f64765e, new c());
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -467,7 +467,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forAppStatusHelper");
+            com.kwad.sdk.core.d.a.a(f64754a, "forAppStatusHelper");
             return Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.kwad.sdk.core.i.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -506,8 +506,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forAsync");
-            return a(g.f64767f, new InterfaceC1906b() { // from class: com.kwad.sdk.core.i.b.2
+            com.kwad.sdk.core.d.a.a(f64754a, "forAsync");
+            return a(g.f64766f, new InterfaceC1906b() { // from class: com.kwad.sdk.core.i.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -530,7 +530,7 @@ public class b {
                 public ExecutorService a() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f64767f)) : (ExecutorService) invokeV2.objValue;
+                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f64766f)) : (ExecutorService) invokeV2.objValue;
                 }
             });
         }
@@ -541,8 +541,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            com.kwad.sdk.core.d.a.a(f64755a, "forAsyncSchedule");
-            ExecutorService a2 = a(g.f64768g, new InterfaceC1906b() { // from class: com.kwad.sdk.core.i.b.3
+            com.kwad.sdk.core.d.a.a(f64754a, "forAsyncSchedule");
+            ExecutorService a2 = a(g.f64767g, new InterfaceC1906b() { // from class: com.kwad.sdk.core.i.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -565,10 +565,10 @@ public class b {
                 public ExecutorService a() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? new ScheduledThreadPoolExecutor(1, new d(5, g.f64768g)) : (ExecutorService) invokeV2.objValue;
+                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? new ScheduledThreadPoolExecutor(1, new d(5, g.f64767g)) : (ExecutorService) invokeV2.objValue;
                 }
             });
-            return a2 instanceof ScheduledExecutorService ? (ScheduledExecutorService) a2 : new ScheduledThreadPoolExecutor(1, new d(5, g.f64768g));
+            return a2 instanceof ScheduledExecutorService ? (ScheduledExecutorService) a2 : new ScheduledThreadPoolExecutor(1, new d(5, g.f64767g));
         }
         return (ScheduledExecutorService) invokeV.objValue;
     }

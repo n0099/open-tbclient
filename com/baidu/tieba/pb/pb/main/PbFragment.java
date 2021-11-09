@@ -317,27 +317,27 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final AbsListView.OnScrollListener d2;
 
     /* renamed from: e  reason: collision with root package name */
-    public AbsPbActivity f52221e;
+    public AbsPbActivity f52220e;
     public b.a.q0.s.g0.c e1;
     public final b.a.e.a.e e2;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52222f;
+    public boolean f52221f;
     public BdUniqueId f1;
     public final c3 f2;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f52223g;
+    public boolean f52222g;
     public Runnable g1;
     public final f.g g2;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.k0.b f52224h;
+    public b.a.r0.k0.b f52223h;
     public b.a.r0.k2.u.f.w0 h1;
     public boolean h2;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.k2.u.f.c1.b f52225i;
+    public b.a.r0.k2.u.f.c1.b f52224i;
     public int[] i0;
     public b.a.e.l.d.a i1;
     public final BdListView.p i2;
@@ -458,7 +458,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52226a;
+        public final /* synthetic */ PbFragment f52225a;
 
         public a0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -475,14 +475,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52226a = pbFragment;
+            this.f52225a = pbFragment;
         }
 
         @Override // com.baidu.tieba.pb.view.PbInterviewStatusView.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f52226a.E0.x3(!this.f52226a.R);
+                this.f52225a.E0.x3(!this.f52225a.R);
             }
         }
     }
@@ -493,7 +493,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52227e;
+        public final /* synthetic */ PbFragment f52226e;
 
         /* loaded from: classes9.dex */
         public class a implements i.e {
@@ -501,13 +501,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PopupDialog f52228e;
+            public final /* synthetic */ PopupDialog f52227e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ View f52229f;
+            public final /* synthetic */ View f52228f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a1 f52230g;
+            public final /* synthetic */ a1 f52229g;
 
             public a(a1 a1Var, PopupDialog popupDialog, View view) {
                 Interceptable interceptable = $ic;
@@ -524,13 +524,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52230g = a1Var;
-                this.f52228e = popupDialog;
-                this.f52229f = view;
+                this.f52229g = a1Var;
+                this.f52227e = popupDialog;
+                this.f52228f = view;
             }
 
             /* JADX WARN: Code restructure failed: missing block: B:18:0x0051, code lost:
-                if (r4.f52230g.f52227e.x0.c1() != 3) goto L7;
+                if (r4.f52229g.f52226e.x0.c1() != 3) goto L7;
              */
             /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
             /* JADX WARN: Removed duplicated region for block: B:30:0x00d9  */
@@ -545,37 +545,37 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (interceptable != null && interceptable.invokeLIL(1048576, this, iVar, i2, view) != null) {
                     return;
                 }
-                this.f52228e.dismiss();
+                this.f52227e.dismiss();
                 int i3 = 3;
-                if (this.f52230g.f52227e.x0.c1() != 1 || i2 != 1) {
-                    if (this.f52230g.f52227e.x0.c1() == 2 && i2 == 0) {
+                if (this.f52229g.f52226e.x0.c1() != 1 || i2 != 1) {
+                    if (this.f52229g.f52226e.x0.c1() == 2 && i2 == 0) {
                         i3 = 1;
-                    } else if (this.f52230g.f52227e.x0.c1() == 3 && i2 != 2) {
+                    } else if (this.f52229g.f52226e.x0.c1() == 3 && i2 != 2) {
                         i3 = 2;
                     } else if (i2 == 2) {
                     }
                     TiebaStatic.log("c12097");
-                    TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f52229f.getId() != b.a.r0.k2.i.pb_sort ? 1 : 0).param("obj_type", i3));
-                    if (this.f52230g.f52227e.x0.P0().f18762f != null && this.f52230g.f52227e.x0.P0().f18762f.size() > i2) {
-                        i2 = this.f52230g.f52227e.x0.P0().f18762f.get(i2).sort_type.intValue();
+                    TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f52228f.getId() != b.a.r0.k2.i.pb_sort ? 1 : 0).param("obj_type", i3));
+                    if (this.f52229g.f52226e.x0.P0().f18762f != null && this.f52229g.f52226e.x0.P0().f18762f.size() > i2) {
+                        i2 = this.f52229g.f52226e.x0.P0().f18762f.get(i2).sort_type.intValue();
                     }
-                    v2 = this.f52230g.f52227e.x0.v2(i2);
-                    this.f52229f.setTag(Integer.valueOf(this.f52230g.f52227e.x0.b1()));
+                    v2 = this.f52229g.f52226e.x0.v2(i2);
+                    this.f52228f.setTag(Integer.valueOf(this.f52229g.f52226e.x0.b1()));
                     if (v2) {
                         return;
                     }
-                    this.f52230g.f52227e.m = true;
-                    this.f52230g.f52227e.E0.E2(true);
+                    this.f52229g.f52226e.m = true;
+                    this.f52229g.f52226e.E0.E2(true);
                     return;
                 }
                 i3 = 0;
                 TiebaStatic.log("c12097");
-                TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f52229f.getId() != b.a.r0.k2.i.pb_sort ? 1 : 0).param("obj_type", i3));
-                if (this.f52230g.f52227e.x0.P0().f18762f != null) {
-                    i2 = this.f52230g.f52227e.x0.P0().f18762f.get(i2).sort_type.intValue();
+                TiebaStatic.log(new StatisticItem("c12097").param("obj_source", this.f52228f.getId() != b.a.r0.k2.i.pb_sort ? 1 : 0).param("obj_type", i3));
+                if (this.f52229g.f52226e.x0.P0().f18762f != null) {
+                    i2 = this.f52229g.f52226e.x0.P0().f18762f.get(i2).sort_type.intValue();
                 }
-                v2 = this.f52230g.f52227e.x0.v2(i2);
-                this.f52229f.setTag(Integer.valueOf(this.f52230g.f52227e.x0.b1()));
+                v2 = this.f52229g.f52226e.x0.v2(i2);
+                this.f52228f.setTag(Integer.valueOf(this.f52229g.f52226e.x0.b1()));
                 if (v2) {
                 }
             }
@@ -596,20 +596,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52227e = pbFragment;
+            this.f52226e = pbFragment;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:899:0x2095, code lost:
-            if (r39.f52227e.E0.S0.f19462c.getView().getTop() <= ((r39.f52227e.E0.P0() == null || r39.f52227e.E0.P0().c() == null) ? 0 : r39.f52227e.E0.P0().c().getBottom())) goto L840;
+            if (r39.f52226e.E0.S0.f19462c.getView().getTop() <= ((r39.f52226e.E0.P0() == null || r39.f52226e.E0.P0().c() == null) ? 0 : r39.f52226e.E0.P0().c().getBottom())) goto L840;
          */
         /* JADX WARN: Code restructure failed: missing block: B:900:0x2097, code lost:
             r14 = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:902:0x20a4, code lost:
-            if (r0 >= b.a.r0.k2.u.f.a1.k.c(r39.f52227e.getListView())) goto L840;
+            if (r0 >= b.a.r0.k2.u.f.a1.k.c(r39.f52226e.getListView())) goto L840;
          */
         /* JADX WARN: Code restructure failed: missing block: B:924:0x214b, code lost:
-            if ((r39.f52227e.E0.S0.f19462c.getView().getTop() - r39.f52227e.E0.f19406h.f19282a.getBottom()) < (r39.f52227e.E0.S0.f19462c.mDivideLineTop.getHeight() + 10)) goto L840;
+            if ((r39.f52226e.E0.S0.f19462c.getView().getTop() - r39.f52226e.E0.f19406h.f19282a.getBottom()) < (r39.f52226e.E0.S0.f19462c.mDivideLineTop.getHeight() + 10)) goto L840;
          */
         /* JADX WARN: Removed duplicated region for block: B:1171:0x2a05  */
         /* JADX WARN: Removed duplicated region for block: B:1172:0x2a1a  */
@@ -655,96 +655,96 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             int i8;
             String name2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && this.f52227e.isAdded()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && this.f52226e.isAdded()) {
                 if (!(view instanceof TbListTextView) || !(view.getParent() instanceof TbRichTextView)) {
-                    if (view == this.f52227e.E0.H0() && this.f52227e.getPageContext().getPageActivity() != null && this.f52227e.x0 != null) {
-                        this.f52227e.sendMessage(new CustomMessage(2002001, new FoldCommentActivityConfig(this.f52227e.getPageContext().getPageActivity(), this.f52227e.x0.f1())));
+                    if (view == this.f52226e.E0.H0() && this.f52226e.getPageContext().getPageActivity() != null && this.f52226e.x0 != null) {
+                        this.f52226e.sendMessage(new CustomMessage(2002001, new FoldCommentActivityConfig(this.f52226e.getPageContext().getPageActivity(), this.f52226e.x0.f1())));
                         StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_CLICK);
                         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        statisticItem2.param("fid", this.f52227e.x0.getForumId());
-                        statisticItem2.param("fname", this.f52227e.x0.q0());
-                        statisticItem2.param("tid", this.f52227e.x0.f1());
+                        statisticItem2.param("fid", this.f52226e.x0.getForumId());
+                        statisticItem2.param("fname", this.f52226e.x0.q0());
+                        statisticItem2.param("tid", this.f52226e.x0.f1());
                         TiebaStatic.log(statisticItem2);
                     }
-                    if (view == this.f52227e.E0.J0()) {
-                        if (this.f52227e.m) {
+                    if (view == this.f52226e.E0.J0()) {
+                        if (this.f52226e.m) {
                             return;
                         }
-                        if (this.f52227e.x0.B1(true)) {
-                            this.f52227e.m = true;
-                            this.f52227e.E0.R2();
+                        if (this.f52226e.x0.B1(true)) {
+                            this.f52226e.m = true;
+                            this.f52226e.E0.R2();
                         }
-                    } else if (view != this.f52227e.E0.f19406h.m()) {
-                        if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().k()) {
-                            if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().d()) {
-                                if (view == this.f52227e.E0.f19406h.f19287f) {
-                                    if (this.f52227e.E0.S(this.f52227e.x0.D0())) {
-                                        this.f52227e.stopVoice();
+                    } else if (view != this.f52226e.E0.f19406h.m()) {
+                        if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().k()) {
+                            if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().d()) {
+                                if (view == this.f52226e.E0.f19406h.f19287f) {
+                                    if (this.f52226e.E0.S(this.f52226e.x0.D0())) {
+                                        this.f52226e.stopVoice();
                                         return;
                                     }
-                                    this.f52227e.n = false;
-                                    this.f52227e.j = false;
-                                    b.a.e.e.p.l.x(this.f52227e.f52221e, this.f52227e.E0.f19406h.f19287f);
-                                    this.f52227e.f52221e.finish();
-                                } else if (view != this.f52227e.E0.p0() && (this.f52227e.E0.f19406h.n() == null || (view != this.f52227e.E0.f19406h.n().l() && view != this.f52227e.E0.f19406h.n().m()))) {
-                                    if (view == this.f52227e.E0.x0()) {
-                                        if (this.f52227e.x0 != null) {
-                                            b.a.q0.m.a.l(this.f52227e.getPageContext().getPageActivity(), this.f52227e.x0.P0().O().w1().b());
+                                    this.f52226e.n = false;
+                                    this.f52226e.j = false;
+                                    b.a.e.e.p.l.x(this.f52226e.f52220e, this.f52226e.E0.f19406h.f19287f);
+                                    this.f52226e.f52220e.finish();
+                                } else if (view != this.f52226e.E0.p0() && (this.f52226e.E0.f19406h.n() == null || (view != this.f52226e.E0.f19406h.n().l() && view != this.f52226e.E0.f19406h.n().m()))) {
+                                    if (view == this.f52226e.E0.x0()) {
+                                        if (this.f52226e.x0 != null) {
+                                            b.a.q0.m.a.l(this.f52226e.getPageContext().getPageActivity(), this.f52226e.x0.P0().O().w1().b());
                                         }
-                                    } else if (view != this.f52227e.E0.f19406h.f19284c) {
-                                        if (view == this.f52227e.E0.f19406h.f19285d) {
+                                    } else if (view != this.f52226e.E0.f19406h.f19284c) {
+                                        if (view == this.f52226e.E0.f19406h.f19285d) {
                                             if (b.a.q0.d1.o.a()) {
                                                 return;
                                             }
-                                            if (this.f52227e.x0 != null && this.f52227e.x0.P0() != null) {
-                                                ArrayList<PostData> F = this.f52227e.x0.P0().F();
-                                                if ((F == null || F.size() <= 0) && this.f52227e.x0.d1()) {
-                                                    b.a.e.e.p.l.M(this.f52227e.getPageContext().getPageActivity(), this.f52227e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
+                                            if (this.f52226e.x0 != null && this.f52226e.x0.P0() != null) {
+                                                ArrayList<PostData> F = this.f52226e.x0.P0().F();
+                                                if ((F == null || F.size() <= 0) && this.f52226e.x0.d1()) {
+                                                    b.a.e.e.p.l.M(this.f52226e.getPageContext().getPageActivity(), this.f52226e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
                                                     return;
                                                 }
-                                                TiebaStatic.log(new StatisticItem("c12378").param("tid", this.f52227e.x0.f1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f52227e.x0.getForumId()));
-                                                if (!this.f52227e.E0.F1()) {
-                                                    this.f52227e.E0.o2();
+                                                TiebaStatic.log(new StatisticItem("c12378").param("tid", this.f52226e.x0.f1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f52226e.x0.getForumId()));
+                                                if (!this.f52226e.E0.F1()) {
+                                                    this.f52226e.E0.o2();
                                                 }
-                                                this.f52227e.openMore();
+                                                this.f52226e.openMore();
                                             } else {
-                                                b.a.e.e.p.l.M(this.f52227e.getPageContext().getPageActivity(), this.f52227e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
+                                                b.a.e.e.p.l.M(this.f52226e.getPageContext().getPageActivity(), this.f52226e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
                                                 return;
                                             }
                                         } else if (view.getId() == b.a.r0.k2.i.pb_god_user_tip_content) {
                                             if (b.a.e.e.p.j.z()) {
-                                                this.f52227e.E0.B2(true);
-                                                this.f52227e.E0.o2();
-                                                if (this.f52227e.m) {
+                                                this.f52226e.E0.B2(true);
+                                                this.f52226e.E0.o2();
+                                                if (this.f52226e.m) {
                                                     return;
                                                 }
-                                                this.f52227e.m = true;
-                                                this.f52227e.E0.u3();
-                                                this.f52227e.stopVoice();
-                                                this.f52227e.E0.Q2();
-                                                this.f52227e.x0.t2(this.f52227e.P2());
-                                                TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
+                                                this.f52226e.m = true;
+                                                this.f52226e.E0.u3();
+                                                this.f52226e.stopVoice();
+                                                this.f52226e.E0.Q2();
+                                                this.f52226e.x0.t2(this.f52226e.P2());
+                                                TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
                                             } else {
-                                                this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                 return;
                                             }
                                         } else if (view.getId() != b.a.r0.k2.i.pb_editor_tool_collection) {
-                                            if ((this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().i()) && view.getId() != b.a.r0.k2.i.floor_owner_reply && view.getId() != b.a.r0.k2.i.reply_title) {
-                                                if (this.f52227e.E0.f19406h.n() != null && view == this.f52227e.E0.f19406h.n().e()) {
-                                                    this.f52227e.E0.f19406h.k();
+                                            if ((this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().i()) && view.getId() != b.a.r0.k2.i.floor_owner_reply && view.getId() != b.a.r0.k2.i.reply_title) {
+                                                if (this.f52226e.E0.f19406h.n() != null && view == this.f52226e.E0.f19406h.n().e()) {
+                                                    this.f52226e.E0.f19406h.k();
                                                 } else if (view.getId() == b.a.r0.k2.i.share_num_container) {
-                                                    if (!this.f52227e.E2(11009)) {
+                                                    if (!this.f52226e.E2(11009)) {
                                                         return;
                                                     }
-                                                    this.f52227e.c3(3);
+                                                    this.f52226e.c3(3);
                                                 } else if (view.getId() != b.a.r0.k2.i.pb_editor_tool_share) {
-                                                    if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().j()) {
-                                                        if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().q()) {
-                                                            if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().p()) {
-                                                                if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().n()) {
-                                                                    if (this.f52227e.E0.B0() == view) {
-                                                                        if (this.f52227e.E0.B0().getIndicateStatus()) {
-                                                                            b.a.r0.k2.r.f P02 = this.f52227e.x0.P0();
+                                                    if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().j()) {
+                                                        if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().q()) {
+                                                            if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().p()) {
+                                                                if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().n()) {
+                                                                    if (this.f52226e.E0.B0() == view) {
+                                                                        if (this.f52226e.E0.B0().getIndicateStatus()) {
+                                                                            b.a.r0.k2.r.f P02 = this.f52226e.x0.P0();
                                                                             if (P02 != null && P02.O() != null && P02.O().j1() != null) {
                                                                                 String d3 = P02.O().j1().d();
                                                                                 if (StringUtils.isNull(d3)) {
@@ -755,39 +755,39 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                         } else {
                                                                             b.a.r0.l3.l0.a.d("c10725", null);
                                                                         }
-                                                                        this.f52227e.goInterviewLivePage();
-                                                                    } else if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().g()) {
-                                                                        if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().c()) {
-                                                                            if (this.f52227e.E0.f19406h.n() != null && view == this.f52227e.E0.f19406h.n().f()) {
+                                                                        this.f52226e.goInterviewLivePage();
+                                                                    } else if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().g()) {
+                                                                        if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().c()) {
+                                                                            if (this.f52226e.E0.f19406h.n() != null && view == this.f52226e.E0.f19406h.n().f()) {
                                                                                 if (b.a.e.e.p.j.z()) {
-                                                                                    SparseArray<Object> F0 = this.f52227e.E0.F0(this.f52227e.x0.P0(), this.f52227e.x0.d1(), 1);
+                                                                                    SparseArray<Object> F0 = this.f52226e.E0.F0(this.f52226e.x0.P0(), this.f52226e.x0.d1(), 1);
                                                                                     if (F0 != null) {
                                                                                         if (StringUtils.isNull((String) F0.get(b.a.r0.k2.i.tag_del_multi_forum))) {
-                                                                                            this.f52227e.E0.W1(((Integer) F0.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F0.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F0.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F0.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
+                                                                                            this.f52226e.E0.W1(((Integer) F0.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F0.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F0.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F0.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
                                                                                         } else {
-                                                                                            this.f52227e.E0.X1(((Integer) F0.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F0.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F0.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F0.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue(), (String) F0.get(b.a.r0.k2.i.tag_del_multi_forum));
+                                                                                            this.f52226e.E0.X1(((Integer) F0.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F0.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F0.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F0.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue(), (String) F0.get(b.a.r0.k2.i.tag_del_multi_forum));
                                                                                         }
                                                                                     }
-                                                                                    this.f52227e.E0.f19406h.k();
+                                                                                    this.f52226e.E0.f19406h.k();
                                                                                 } else {
-                                                                                    this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                                                    this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                                                     return;
                                                                                 }
                                                                             } else if (view.getId() != b.a.r0.k2.i.sub_pb_more && view.getId() != b.a.r0.k2.i.sub_pb_item && view.getId() != b.a.r0.k2.i.pb_floor_reply_more && view.getId() != b.a.r0.k2.i.new_sub_pb_list_richText) {
                                                                                 if (view.getId() == b.a.r0.k2.i.pb_post_reply_count) {
-                                                                                    if (this.f52227e.x0 == null) {
+                                                                                    if (this.f52226e.x0 == null) {
                                                                                         return;
                                                                                     }
                                                                                     StatisticItem statisticItem3 = new StatisticItem("c13398");
-                                                                                    statisticItem3.param("tid", this.f52227e.x0.f1());
-                                                                                    statisticItem3.param("fid", this.f52227e.x0.getForumId());
+                                                                                    statisticItem3.param("tid", this.f52226e.x0.f1());
+                                                                                    statisticItem3.param("fid", this.f52226e.x0.getForumId());
                                                                                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                                                     statisticItem3.param("obj_locate", 5);
                                                                                     TiebaStatic.log(statisticItem3);
-                                                                                    if (view.getId() == b.a.r0.k2.i.pb_post_reply_count && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52227e.getActivity(), "pb_chakanhuifu"))) {
-                                                                                        this.f52227e.X = view;
+                                                                                    if (view.getId() == b.a.r0.k2.i.pb_post_reply_count && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52226e.getActivity(), "pb_chakanhuifu"))) {
+                                                                                        this.f52226e.X = view;
                                                                                         return;
-                                                                                    } else if (!this.f52227e.checkUpIsLogin() || !(view.getTag() instanceof SparseArray)) {
+                                                                                    } else if (!this.f52226e.checkUpIsLogin() || !(view.getTag() instanceof SparseArray)) {
                                                                                         return;
                                                                                     } else {
                                                                                         SparseArray sparseArray2 = (SparseArray) view.getTag();
@@ -802,64 +802,64 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                             copy.param("obj_locate", 8);
                                                                                             TiebaStatic.log(copy);
                                                                                         }
-                                                                                        if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null) {
+                                                                                        if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null) {
                                                                                             return;
                                                                                         }
-                                                                                        String f1 = this.f52227e.x0.f1();
+                                                                                        String f1 = this.f52226e.x0.f1();
                                                                                         String G = postData.G();
-                                                                                        int V = this.f52227e.x0.P0() != null ? this.f52227e.x0.P0().V() : 0;
-                                                                                        AbsPbActivity.e v3 = this.f52227e.v3(G);
+                                                                                        int V = this.f52226e.x0.P0() != null ? this.f52226e.x0.P0().V() : 0;
+                                                                                        AbsPbActivity.e v3 = this.f52226e.v3(G);
                                                                                         if (v3 == null) {
                                                                                             return;
                                                                                         }
-                                                                                        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f52227e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, null, V, postData.R(), this.f52227e.x0.P0().d(), false, postData.t().getIconInfo(), 5).addBigImageData(v3.f52184a, v3.f52185b, v3.f52190g, v3.j);
-                                                                                        addBigImageData.setKeyPageStartFrom(this.f52227e.x0.O0());
-                                                                                        addBigImageData.setFromFrsForumId(this.f52227e.x0.getFromForumId());
-                                                                                        addBigImageData.setWorksInfoData(this.f52227e.x0.k1());
-                                                                                        addBigImageData.setKeyFromForumId(this.f52227e.x0.getForumId());
-                                                                                        addBigImageData.setTiebaPlusData(this.f52227e.x0.F(), this.f52227e.x0.B(), this.f52227e.x0.C(), this.f52227e.x0.A(), this.f52227e.x0.G());
-                                                                                        addBigImageData.setBjhData(this.f52227e.x0.j0());
-                                                                                        if (this.f52227e.x0.P0().o() != null) {
-                                                                                            addBigImageData.setHasForumRule(this.f52227e.x0.P0().o().has_forum_rule.intValue());
+                                                                                        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f52226e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, null, V, postData.R(), this.f52226e.x0.P0().d(), false, postData.t().getIconInfo(), 5).addBigImageData(v3.f52183a, v3.f52184b, v3.f52189g, v3.j);
+                                                                                        addBigImageData.setKeyPageStartFrom(this.f52226e.x0.O0());
+                                                                                        addBigImageData.setFromFrsForumId(this.f52226e.x0.getFromForumId());
+                                                                                        addBigImageData.setWorksInfoData(this.f52226e.x0.k1());
+                                                                                        addBigImageData.setKeyFromForumId(this.f52226e.x0.getForumId());
+                                                                                        addBigImageData.setTiebaPlusData(this.f52226e.x0.F(), this.f52226e.x0.B(), this.f52226e.x0.C(), this.f52226e.x0.A(), this.f52226e.x0.G());
+                                                                                        addBigImageData.setBjhData(this.f52226e.x0.j0());
+                                                                                        if (this.f52226e.x0.P0().o() != null) {
+                                                                                            addBigImageData.setHasForumRule(this.f52226e.x0.P0().o().has_forum_rule.intValue());
                                                                                         }
-                                                                                        if (this.f52227e.x0.P0().U() != null) {
-                                                                                            addBigImageData.setIsManager(this.f52227e.x0.P0().U().getIs_manager());
+                                                                                        if (this.f52226e.x0.P0().U() != null) {
+                                                                                            addBigImageData.setIsManager(this.f52226e.x0.P0().U().getIs_manager());
                                                                                         }
-                                                                                        if (this.f52227e.x0.P0().l().getDeletedReasonInfo() != null) {
-                                                                                            addBigImageData.setDeletedReasonInfoIsGrayCaleForum(this.f52227e.x0.P0().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                                                                                            addBigImageData.setDeletedReasonInfoIsIsBoomGrow(this.f52227e.x0.P0().l().getDeletedReasonInfo().is_boomgrow.intValue());
+                                                                                        if (this.f52226e.x0.P0().l().getDeletedReasonInfo() != null) {
+                                                                                            addBigImageData.setDeletedReasonInfoIsGrayCaleForum(this.f52226e.x0.P0().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
+                                                                                            addBigImageData.setDeletedReasonInfoIsIsBoomGrow(this.f52226e.x0.P0().l().getDeletedReasonInfo().is_boomgrow.intValue());
                                                                                         }
-                                                                                        if (this.f52227e.x0.P0().l() != null) {
-                                                                                            addBigImageData.setForumHeadUrl(this.f52227e.x0.P0().l().getImage_url());
-                                                                                            addBigImageData.setUserLevel(this.f52227e.x0.P0().l().getUser_level());
+                                                                                        if (this.f52226e.x0.P0().l() != null) {
+                                                                                            addBigImageData.setForumHeadUrl(this.f52226e.x0.P0().l().getImage_url());
+                                                                                            addBigImageData.setUserLevel(this.f52226e.x0.P0().l().getUser_level());
                                                                                         }
-                                                                                        if (this.f52227e.E0 != null) {
-                                                                                            addBigImageData.setMainPostMaskVisibly(this.f52227e.E0.v0(this.f52227e.x0.J, this.f52227e.x0.d1()).U || postData.U);
+                                                                                        if (this.f52226e.E0 != null) {
+                                                                                            addBigImageData.setMainPostMaskVisibly(this.f52226e.E0.v0(this.f52226e.x0.J, this.f52226e.x0.d1()).U || postData.U);
                                                                                         }
-                                                                                        this.f52227e.sendMessage(new CustomMessage(2002001, addBigImageData));
+                                                                                        this.f52226e.sendMessage(new CustomMessage(2002001, addBigImageData));
                                                                                     }
                                                                                 } else if (view.getId() == b.a.r0.k2.i.pb_post_reply || view.getId() == b.a.r0.k2.i.post_info_commont_img || view.getId() == b.a.r0.k2.i.pb_floor_comment_container) {
-                                                                                    if (this.f52227e.x0 == null) {
+                                                                                    if (this.f52226e.x0 == null) {
                                                                                         return;
                                                                                     }
                                                                                     if (view.getId() == b.a.r0.k2.i.pb_post_reply) {
                                                                                         StatisticItem statisticItem5 = new StatisticItem("c13398");
-                                                                                        statisticItem5.param("tid", this.f52227e.x0.f1());
-                                                                                        statisticItem5.param("fid", this.f52227e.x0.getForumId());
+                                                                                        statisticItem5.param("tid", this.f52226e.x0.f1());
+                                                                                        statisticItem5.param("fid", this.f52226e.x0.getForumId());
                                                                                         statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                                                         statisticItem5.param("obj_locate", 6);
                                                                                         TiebaStatic.log(statisticItem5);
                                                                                     }
                                                                                     if (view.getId() == b.a.r0.k2.i.post_info_commont_img) {
-                                                                                        if (!DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52227e.getActivity(), "pb_huifu_louzhonglou"))) {
-                                                                                            this.f52227e.Y = view;
+                                                                                        if (!DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52226e.getActivity(), "pb_huifu_louzhonglou"))) {
+                                                                                            this.f52226e.Y = view;
                                                                                             return;
                                                                                         }
-                                                                                    } else if (view.getId() == b.a.r0.k2.i.pb_post_reply && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52227e.getActivity(), "pb_huifu_louzhonglou"))) {
-                                                                                        this.f52227e.Y = view;
+                                                                                    } else if (view.getId() == b.a.r0.k2.i.pb_post_reply && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52226e.getActivity(), "pb_huifu_louzhonglou"))) {
+                                                                                        this.f52226e.Y = view;
                                                                                         return;
                                                                                     }
-                                                                                    if (!this.f52227e.checkUpIsLogin() || !(view.getTag() instanceof SparseArray)) {
+                                                                                    if (!this.f52226e.checkUpIsLogin() || !(view.getTag() instanceof SparseArray)) {
                                                                                         return;
                                                                                     }
                                                                                     SparseArray sparseArray3 = (SparseArray) view.getTag();
@@ -873,295 +873,295 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                         copy2.param("obj_locate", 8);
                                                                                         TiebaStatic.log(copy2);
                                                                                     } else if (view.getId() == b.a.r0.k2.i.post_info_commont_img || view.getId() == b.a.r0.k2.i.pb_floor_comment_container) {
-                                                                                        TiebaStatic.log(new StatisticItem("c13700").param("tid", this.f52227e.x0.g1()).param("fid", this.f52227e.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData2.G()).param("obj_source", 1).param("obj_type", 3));
+                                                                                        TiebaStatic.log(new StatisticItem("c13700").param("tid", this.f52226e.x0.g1()).param("fid", this.f52226e.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData2.G()).param("obj_source", 1).param("obj_type", 3));
                                                                                     }
-                                                                                    if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null || this.f52227e.getPbView().N0() == null || postData2.t() == null || postData2.A() == 1) {
+                                                                                    if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null || this.f52226e.getPbView().N0() == null || postData2.t() == null || postData2.A() == 1) {
                                                                                         return;
                                                                                     }
-                                                                                    if (this.f52227e.getPbView().O0() != null) {
-                                                                                        this.f52227e.getPbView().O0().c();
+                                                                                    if (this.f52226e.getPbView().O0() != null) {
+                                                                                        this.f52226e.getPbView().O0().c();
                                                                                     }
-                                                                                    if (this.f52227e.s0 && postData2.O() != null && postData2.O().size() != 0) {
-                                                                                        this.f52227e.Y3(postData2, true);
+                                                                                    if (this.f52226e.s0 && postData2.O() != null && postData2.O().size() != 0) {
+                                                                                        this.f52226e.Y3(postData2, true);
                                                                                     } else {
                                                                                         b.a.r0.k2.r.s sVar = new b.a.r0.k2.r.s();
-                                                                                        sVar.A(this.f52227e.x0.P0().l());
-                                                                                        sVar.E(this.f52227e.x0.P0().O());
+                                                                                        sVar.A(this.f52226e.x0.P0().l());
+                                                                                        sVar.E(this.f52226e.x0.P0().O());
                                                                                         sVar.C(postData2);
-                                                                                        this.f52227e.getPbView().N0().S(sVar);
-                                                                                        this.f52227e.getPbView().N0().setPostId(postData2.G());
-                                                                                        this.f52227e.o3(view, postData2.t().getUserId(), "", postData2);
-                                                                                        if (this.f52227e.S0 != null) {
-                                                                                            this.f52227e.E0.v2(this.f52227e.S0.D());
+                                                                                        this.f52226e.getPbView().N0().S(sVar);
+                                                                                        this.f52226e.getPbView().N0().setPostId(postData2.G());
+                                                                                        this.f52226e.o3(view, postData2.t().getUserId(), "", postData2);
+                                                                                        if (this.f52226e.S0 != null) {
+                                                                                            this.f52226e.E0.v2(this.f52226e.S0.D());
                                                                                         }
                                                                                     }
                                                                                 } else if (view.getId() != b.a.r0.k2.i.pb_floor_feedback) {
-                                                                                    if (view != this.f52227e.E0.z0()) {
-                                                                                        if (view == this.f52227e.E0.f19406h.o()) {
-                                                                                            this.f52227e.E0.Y2();
-                                                                                        } else if (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().o()) {
-                                                                                            if (this.f52227e.E0.f19406h.n() != null && view == this.f52227e.E0.f19406h.n().h()) {
+                                                                                    if (view != this.f52226e.E0.z0()) {
+                                                                                        if (view == this.f52226e.E0.f19406h.o()) {
+                                                                                            this.f52226e.E0.Y2();
+                                                                                        } else if (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().o()) {
+                                                                                            if (this.f52226e.E0.f19406h.n() != null && view == this.f52226e.E0.f19406h.n().h()) {
                                                                                                 b.a.q0.t.c.k0 tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
-                                                                                                if (tiebaPlusConfigData != null && (d2 = tiebaPlusConfigData.d(this.f52227e.x0.f1())) != null) {
-                                                                                                    UrlManager.getInstance().dealOneLink(this.f52227e.getPageContext(), new String[]{d2});
-                                                                                                    this.f52227e.E0.f19406h.k();
+                                                                                                if (tiebaPlusConfigData != null && (d2 = tiebaPlusConfigData.d(this.f52226e.x0.f1())) != null) {
+                                                                                                    UrlManager.getInstance().dealOneLink(this.f52226e.getPageContext(), new String[]{d2});
+                                                                                                    this.f52226e.E0.f19406h.k();
                                                                                                     b.a.q0.t.c.k0.a(3);
                                                                                                 }
                                                                                             } else {
                                                                                                 int id = view.getId();
                                                                                                 if (id == b.a.r0.k2.i.pb_u9_text_view) {
-                                                                                                    if (!this.f52227e.checkUpIsLogin() || (i2Var = (b.a.q0.s.q.i2) view.getTag()) == null || StringUtils.isNull(i2Var.I0())) {
+                                                                                                    if (!this.f52226e.checkUpIsLogin() || (i2Var = (b.a.q0.s.q.i2) view.getTag()) == null || StringUtils.isNull(i2Var.I0())) {
                                                                                                         return;
                                                                                                     }
-                                                                                                    TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
-                                                                                                    UrlManager.getInstance().dealOneLink(this.f52227e.getPageContext(), new String[]{i2Var.I0()});
+                                                                                                    TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
+                                                                                                    UrlManager.getInstance().dealOneLink(this.f52226e.getPageContext(), new String[]{i2Var.I0()});
                                                                                                 } else if (id != b.a.r0.k2.i.replybtn && id != b.a.r0.k2.i.cover_reply_content && id != b.a.r0.k2.i.replybtn_top_right && id != b.a.r0.k2.i.cover_reply_content_top_right) {
                                                                                                     if (id == b.a.r0.k2.i.pb_act_btn) {
-                                                                                                        if (this.f52227e.x0.P0() != null && this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().x() != null) {
-                                                                                                            b.a.q0.m.a.l(this.f52227e.getActivity(), this.f52227e.x0.P0().O().x());
-                                                                                                            if (this.f52227e.x0.P0().O().w() != 1) {
-                                                                                                                if (this.f52227e.x0.P0().O().w() == 2) {
-                                                                                                                    TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "show_picture", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
+                                                                                                        if (this.f52226e.x0.P0() != null && this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().x() != null) {
+                                                                                                            b.a.q0.m.a.l(this.f52226e.getActivity(), this.f52226e.x0.P0().O().x());
+                                                                                                            if (this.f52226e.x0.P0().O().w() != 1) {
+                                                                                                                if (this.f52226e.x0.P0().O().w() == 2) {
+                                                                                                                    TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "show_picture", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
                                                                                                                 }
                                                                                                             } else {
-                                                                                                                TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "lottery", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
+                                                                                                                TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "lottery", PrefetchEvent.STATE_CLICK, 1, "page", "pb");
                                                                                                             }
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.lottery_tail) {
                                                                                                         if (view.getTag(b.a.r0.k2.i.tag_pb_lottery_tail_link) instanceof String) {
                                                                                                             String str = (String) view.getTag(b.a.r0.k2.i.tag_pb_lottery_tail_link);
-                                                                                                            TiebaStatic.log(new StatisticItem("c10912").param("fid", this.f52227e.x0.P0().m()).param("tid", this.f52227e.x0.P0().Q()).param("lotterytail", StringUtils.string(str, "_", TbadkCoreApplication.getCurrentAccount())));
-                                                                                                            if (this.f52227e.x0.P0().Q().equals(str)) {
-                                                                                                                this.f52227e.E0.U2(0);
+                                                                                                            TiebaStatic.log(new StatisticItem("c10912").param("fid", this.f52226e.x0.P0().m()).param("tid", this.f52226e.x0.P0().Q()).param("lotterytail", StringUtils.string(str, "_", TbadkCoreApplication.getCurrentAccount())));
+                                                                                                            if (this.f52226e.x0.P0().Q().equals(str)) {
+                                                                                                                this.f52226e.E0.U2(0);
                                                                                                             } else {
-                                                                                                                this.f52227e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f52227e.getActivity()).createNormalCfg(str, (String) null, (String) null, (String) null)));
+                                                                                                                this.f52226e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f52226e.getActivity()).createNormalCfg(str, (String) null, (String) null, (String) null)));
                                                                                                             }
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.pb_item_tail_content) {
-                                                                                                        if (ViewHelper.checkUpIsLogin(this.f52227e.getPageContext().getPageActivity())) {
+                                                                                                        if (ViewHelper.checkUpIsLogin(this.f52226e.getPageContext().getPageActivity())) {
                                                                                                             String string = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.tail_web_view_title);
                                                                                                             String p = b.a.q0.s.e0.b.j().p("tail_link", "");
                                                                                                             if (!StringUtils.isNull(p)) {
                                                                                                                 TiebaStatic.log("c10056");
                                                                                                                 b.a.q0.m.a.p(view.getContext(), string, p, true, true, true);
                                                                                                             }
-                                                                                                            this.f52227e.E0.o2();
+                                                                                                            this.f52226e.E0.o2();
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.join_vote_tv) {
                                                                                                         if (view != null) {
-                                                                                                            b.a.q0.m.a.l(this.f52227e.getActivity(), (String) view.getTag());
+                                                                                                            b.a.q0.m.a.l(this.f52226e.getActivity(), (String) view.getTag());
                                                                                                             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                                                                                                            if (this.f52227e.N2() == 1 && this.f52227e.x0 != null && this.f52227e.x0.P0() != null) {
-                                                                                                                TiebaStatic.log(new StatisticItem("c10397").param("fid", this.f52227e.x0.P0().m()).param("tid", this.f52227e.x0.P0().Q()).param("uid", currentAccount));
+                                                                                                            if (this.f52226e.N2() == 1 && this.f52226e.x0 != null && this.f52226e.x0.P0() != null) {
+                                                                                                                TiebaStatic.log(new StatisticItem("c10397").param("fid", this.f52226e.x0.P0().m()).param("tid", this.f52226e.x0.P0().Q()).param("uid", currentAccount));
                                                                                                             }
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.look_all_tv) {
                                                                                                         if (view != null) {
                                                                                                             String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                                                                                                            b.a.q0.m.a.l(this.f52227e.getActivity(), (String) view.getTag());
-                                                                                                            if (this.f52227e.N2() == 1 && this.f52227e.x0 != null && this.f52227e.x0.P0() != null) {
-                                                                                                                TiebaStatic.log(new StatisticItem("c10507").param("fid", this.f52227e.x0.P0().m()).param("tid", this.f52227e.x0.P0().Q()).param("uid", currentAccount2));
+                                                                                                            b.a.q0.m.a.l(this.f52226e.getActivity(), (String) view.getTag());
+                                                                                                            if (this.f52226e.N2() == 1 && this.f52226e.x0 != null && this.f52226e.x0.P0() != null) {
+                                                                                                                TiebaStatic.log(new StatisticItem("c10507").param("fid", this.f52226e.x0.P0().m()).param("tid", this.f52226e.x0.P0().Q()).param("uid", currentAccount2));
                                                                                                             }
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.manga_prev_btn) {
-                                                                                                        this.f52227e.n3();
+                                                                                                        this.f52226e.n3();
                                                                                                     } else if (id == b.a.r0.k2.i.manga_next_btn) {
-                                                                                                        this.f52227e.l3();
+                                                                                                        this.f52226e.l3();
                                                                                                     } else if (id == b.a.r0.k2.i.yule_head_img_img) {
-                                                                                                        if (this.f52227e.x0 != null && this.f52227e.x0.P0() != null && this.f52227e.x0.P0().A() != null) {
-                                                                                                            b.a.r0.k2.r.f P03 = this.f52227e.x0.P0();
+                                                                                                        if (this.f52226e.x0 != null && this.f52226e.x0.P0() != null && this.f52226e.x0.P0().A() != null) {
+                                                                                                            b.a.r0.k2.r.f P03 = this.f52226e.x0.P0();
                                                                                                             TiebaStatic.log(new StatisticItem("c11679").param("fid", P03.m()));
-                                                                                                            UrlManager.getInstance().dealOneLink(this.f52227e.getPageContext(), new String[]{P03.A().b()});
+                                                                                                            UrlManager.getInstance().dealOneLink(this.f52226e.getPageContext(), new String[]{P03.A().b()});
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.yule_head_img_all_rank) {
-                                                                                                        if (this.f52227e.x0 != null && this.f52227e.x0.P0() != null && this.f52227e.x0.P0().A() != null) {
-                                                                                                            b.a.r0.k2.r.f P04 = this.f52227e.x0.P0();
+                                                                                                        if (this.f52226e.x0 != null && this.f52226e.x0.P0() != null && this.f52226e.x0.P0().A() != null) {
+                                                                                                            b.a.r0.k2.r.f P04 = this.f52226e.x0.P0();
                                                                                                             TiebaStatic.log(new StatisticItem("c11678").param("fid", P04.m()));
-                                                                                                            UrlManager.getInstance().dealOneLink(this.f52227e.getPageContext(), new String[]{P04.A().b()});
+                                                                                                            UrlManager.getInstance().dealOneLink(this.f52226e.getPageContext(), new String[]{P04.A().b()});
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.tv_pb_reply_more) {
-                                                                                                        if (this.f52227e.m1 >= 0) {
-                                                                                                            if (this.f52227e.x0 != null) {
-                                                                                                                this.f52227e.x0.X1();
+                                                                                                        if (this.f52226e.m1 >= 0) {
+                                                                                                            if (this.f52226e.x0 != null) {
+                                                                                                                this.f52226e.x0.X1();
                                                                                                             }
-                                                                                                            if (this.f52227e.x0 == null || this.f52227e.E0.n0() == null) {
+                                                                                                            if (this.f52226e.x0 == null || this.f52226e.E0.n0() == null) {
                                                                                                                 i4 = 0;
                                                                                                             } else {
                                                                                                                 i4 = 0;
-                                                                                                                this.f52227e.E0.n0().c0(this.f52227e.x0.P0(), false);
+                                                                                                                this.f52226e.E0.n0().c0(this.f52226e.x0.P0(), false);
                                                                                                             }
-                                                                                                            this.f52227e.m1 = i4;
-                                                                                                            if (this.f52227e.x0 != null) {
-                                                                                                                this.f52227e.E0.E0().setSelection(this.f52227e.x0.I0());
-                                                                                                                this.f52227e.x0.b2(0, 0);
+                                                                                                            this.f52226e.m1 = i4;
+                                                                                                            if (this.f52226e.x0 != null) {
+                                                                                                                this.f52226e.E0.E0().setSelection(this.f52226e.x0.I0());
+                                                                                                                this.f52226e.x0.b2(0, 0);
                                                                                                             }
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.qq_share_container) {
-                                                                                                        if (!this.f52227e.E2(11009)) {
+                                                                                                        if (!this.f52226e.E2(11009)) {
                                                                                                             return;
                                                                                                         }
-                                                                                                        this.f52227e.c3(8);
+                                                                                                        this.f52226e.c3(8);
                                                                                                     } else if (id == b.a.r0.k2.i.new_sub_pb_list_richText) {
                                                                                                         SparseArray sparseArray4 = view.getTag() instanceof SparseArray ? (SparseArray) view.getTag() : null;
                                                                                                         if (sparseArray4 == null) {
                                                                                                             return;
                                                                                                         }
-                                                                                                        this.f52227e.X3(sparseArray4);
+                                                                                                        this.f52226e.X3(sparseArray4);
                                                                                                     } else if (id == b.a.r0.k2.i.pb_editor_tool_comment_icon) {
-                                                                                                        if (this.f52227e.E0.E0() == null || this.f52227e.x0 == null || this.f52227e.x0.P0() == null) {
+                                                                                                        if (this.f52226e.E0.E0() == null || this.f52226e.x0 == null || this.f52226e.x0.P0() == null) {
                                                                                                             return;
                                                                                                         }
-                                                                                                        int firstVisiblePosition = this.f52227e.E0.E0().getFirstVisiblePosition();
-                                                                                                        View childAt = this.f52227e.E0.E0().getChildAt(0);
+                                                                                                        int firstVisiblePosition = this.f52226e.E0.E0().getFirstVisiblePosition();
+                                                                                                        View childAt = this.f52226e.E0.E0().getChildAt(0);
                                                                                                         int top = childAt == null ? 0 : childAt.getTop();
-                                                                                                        boolean r0 = this.f52227e.x0.P0().r0();
-                                                                                                        boolean z3 = this.f52227e.E0.P0() != null && this.f52227e.E0.P0().g();
-                                                                                                        boolean D1 = this.f52227e.E0.D1();
+                                                                                                        boolean r0 = this.f52226e.x0.P0().r0();
+                                                                                                        boolean z3 = this.f52226e.E0.P0() != null && this.f52226e.E0.P0().g();
+                                                                                                        boolean D1 = this.f52226e.E0.D1();
                                                                                                         boolean z4 = firstVisiblePosition == 0 && top == 0;
-                                                                                                        if (!r0 || this.f52227e.E0.P0() == null || this.f52227e.E0.P0().c() == null) {
+                                                                                                        if (!r0 || this.f52226e.E0.P0() == null || this.f52226e.E0.P0().c() == null) {
                                                                                                             i3 = 0;
                                                                                                         } else {
-                                                                                                            int k = ((int) (b.a.e.e.p.l.k(this.f52227e.getContext()) * 0.5625d)) - this.f52227e.E0.P0().e();
+                                                                                                            int k = ((int) (b.a.e.e.p.l.k(this.f52226e.getContext()) * 0.5625d)) - this.f52226e.E0.P0().e();
                                                                                                             i3 = k;
-                                                                                                            z4 = firstVisiblePosition == 0 && (top == k || top == this.f52227e.E0.P0().c().getHeight() - this.f52227e.E0.P0().e());
+                                                                                                            z4 = firstVisiblePosition == 0 && (top == k || top == this.f52226e.E0.P0().c().getHeight() - this.f52226e.E0.P0().e());
                                                                                                         }
-                                                                                                        this.f52227e.J2(TbadkCoreStatisticKey.KEY_COMMENT_BTN_CLICK);
-                                                                                                        if ((this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().U0() <= 0) || (D1 && z4)) {
-                                                                                                            if (!this.f52227e.checkUpIsLogin()) {
+                                                                                                        this.f52226e.J2(TbadkCoreStatisticKey.KEY_COMMENT_BTN_CLICK);
+                                                                                                        if ((this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().U0() <= 0) || (D1 && z4)) {
+                                                                                                            if (!this.f52226e.checkUpIsLogin()) {
                                                                                                                 return;
                                                                                                             }
-                                                                                                            this.f52227e.processProfessionPermission();
-                                                                                                            if (this.f52227e.x0.P0().O().J() != null) {
-                                                                                                                TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52227e.x0.f52416f).param("fid", this.f52227e.x0.P0().m()).param("obj_locate", 2).param("uid", this.f52227e.x0.P0().O().J().getUserId()));
+                                                                                                            this.f52226e.processProfessionPermission();
+                                                                                                            if (this.f52226e.x0.P0().O().J() != null) {
+                                                                                                                TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52226e.x0.f52415f).param("fid", this.f52226e.x0.P0().m()).param("obj_locate", 2).param("uid", this.f52226e.x0.P0().O().J().getUserId()));
                                                                                                             }
                                                                                                         } else {
-                                                                                                            int i9 = (int) (b.a.e.e.p.l.i(this.f52227e.getContext()) * 0.6d);
+                                                                                                            int i9 = (int) (b.a.e.e.p.l.i(this.f52226e.getContext()) * 0.6d);
                                                                                                             if (r0) {
-                                                                                                                if (this.f52227e.E0.S0 != null && this.f52227e.E0.S0.f19462c != null && this.f52227e.E0.S0.f19462c.getView() != null) {
-                                                                                                                    if (this.f52227e.E0.S0.f19462c.getView().getParent() != null) {
+                                                                                                                if (this.f52226e.E0.S0 != null && this.f52226e.E0.S0.f19462c != null && this.f52226e.E0.S0.f19462c.getView() != null) {
+                                                                                                                    if (this.f52226e.E0.S0.f19462c.getView().getParent() != null) {
                                                                                                                     }
                                                                                                                 }
                                                                                                                 z2 = false;
                                                                                                             } else {
-                                                                                                                if (this.f52227e.E0.M0() != null) {
-                                                                                                                    z2 = this.f52227e.E0.M0().getVisibility() == 0;
-                                                                                                                    if (!z2 && this.f52227e.E0.S0 != null && this.f52227e.E0.S0.f19462c != null && this.f52227e.E0.S0.f19462c.getView() != null && this.f52227e.E0.S0.f19462c.getView().getParent() != null && this.f52227e.E0.f19406h != null && this.f52227e.E0.f19406h.f19282a != null) {
+                                                                                                                if (this.f52226e.E0.M0() != null) {
+                                                                                                                    z2 = this.f52226e.E0.M0().getVisibility() == 0;
+                                                                                                                    if (!z2 && this.f52226e.E0.S0 != null && this.f52226e.E0.S0.f19462c != null && this.f52226e.E0.S0.f19462c.getView() != null && this.f52226e.E0.S0.f19462c.getView().getParent() != null && this.f52226e.E0.f19406h != null && this.f52226e.E0.f19406h.f19282a != null) {
                                                                                                                     }
                                                                                                                 }
                                                                                                                 z2 = false;
                                                                                                             }
                                                                                                             if (z2 || D1) {
-                                                                                                                this.f52227e.k0 = firstVisiblePosition;
-                                                                                                                this.f52227e.l0 = top;
+                                                                                                                this.f52226e.k0 = firstVisiblePosition;
+                                                                                                                this.f52226e.l0 = top;
                                                                                                                 if (firstVisiblePosition > 3 || (firstVisiblePosition == 3 && top < (-i9))) {
-                                                                                                                    this.f52227e.E0.E0().setSelectionFromTop(0, i3 - i9);
-                                                                                                                    this.f52227e.E0.E0().smoothScrollBy(-i9, 500);
+                                                                                                                    this.f52226e.E0.E0().setSelectionFromTop(0, i3 - i9);
+                                                                                                                    this.f52226e.E0.E0().smoothScrollBy(-i9, 500);
                                                                                                                 } else {
-                                                                                                                    this.f52227e.E0.E0().smoothScrollToPosition(0, i3, 500);
+                                                                                                                    this.f52226e.E0.E0().smoothScrollToPosition(0, i3, 500);
                                                                                                                 }
-                                                                                                            } else if (this.f52227e.k0 > 0) {
-                                                                                                                if (this.f52227e.E0.E0().getChildAt(this.f52227e.k0) != null) {
-                                                                                                                    this.f52227e.E0.E0().smoothScrollToPosition(this.f52227e.k0, this.f52227e.l0, 200);
+                                                                                                            } else if (this.f52226e.k0 > 0) {
+                                                                                                                if (this.f52226e.E0.E0().getChildAt(this.f52226e.k0) != null) {
+                                                                                                                    this.f52226e.E0.E0().smoothScrollToPosition(this.f52226e.k0, this.f52226e.l0, 200);
                                                                                                                 } else {
-                                                                                                                    this.f52227e.E0.E0().setSelectionFromTop(this.f52227e.k0, this.f52227e.l0 + i9);
-                                                                                                                    this.f52227e.E0.E0().smoothScrollBy(i9, 500);
+                                                                                                                    this.f52226e.E0.E0().setSelectionFromTop(this.f52226e.k0, this.f52226e.l0 + i9);
+                                                                                                                    this.f52226e.E0.E0().smoothScrollBy(i9, 500);
                                                                                                                 }
                                                                                                             } else {
-                                                                                                                int c2 = b.a.r0.k2.u.f.a1.k.c(this.f52227e.getListView());
-                                                                                                                if (b.a.r0.k2.u.f.a1.k.d(this.f52227e.getListView()) != -1) {
+                                                                                                                int c2 = b.a.r0.k2.u.f.a1.k.c(this.f52226e.getListView());
+                                                                                                                if (b.a.r0.k2.u.f.a1.k.d(this.f52226e.getListView()) != -1) {
                                                                                                                     c2--;
                                                                                                                 }
-                                                                                                                int g2 = b.a.e.e.p.l.g(this.f52227e.getContext(), b.a.r0.k2.g.tbds100);
+                                                                                                                int g2 = b.a.e.e.p.l.g(this.f52226e.getContext(), b.a.r0.k2.g.tbds100);
                                                                                                                 if (c2 < 0) {
-                                                                                                                    c2 = (ListUtils.getCount(this.f52227e.E0.E0().getData()) - 1) + this.f52227e.E0.E0().getHeaderViewsCount();
+                                                                                                                    c2 = (ListUtils.getCount(this.f52226e.E0.E0().getData()) - 1) + this.f52226e.E0.E0().getHeaderViewsCount();
                                                                                                                     g2 = 0;
                                                                                                                 }
                                                                                                                 if (!z3) {
-                                                                                                                    if (!r0 || this.f52227e.E0.P0() == null) {
-                                                                                                                        if (this.f52227e.E0.f19406h != null && this.f52227e.E0.f19406h.f19282a != null) {
-                                                                                                                            fixedNavHeight = this.f52227e.E0.f19406h.f19282a.getFixedNavHeight() - 10;
+                                                                                                                    if (!r0 || this.f52226e.E0.P0() == null) {
+                                                                                                                        if (this.f52226e.E0.f19406h != null && this.f52226e.E0.f19406h.f19282a != null) {
+                                                                                                                            fixedNavHeight = this.f52226e.E0.f19406h.f19282a.getFixedNavHeight() - 10;
                                                                                                                         }
-                                                                                                                        if (this.f52227e.E0.S0 != null || this.f52227e.E0.S0.f19462c == null || this.f52227e.E0.S0.f19462c.getView() == null || this.f52227e.E0.S0.f19462c.getView().getParent() == null) {
-                                                                                                                            this.f52227e.E0.E0().setSelectionFromTop(c2, g2 + i9);
-                                                                                                                            this.f52227e.E0.E0().smoothScrollBy(i9, 500);
+                                                                                                                        if (this.f52226e.E0.S0 != null || this.f52226e.E0.S0.f19462c == null || this.f52226e.E0.S0.f19462c.getView() == null || this.f52226e.E0.S0.f19462c.getView().getParent() == null) {
+                                                                                                                            this.f52226e.E0.E0().setSelectionFromTop(c2, g2 + i9);
+                                                                                                                            this.f52226e.E0.E0().smoothScrollBy(i9, 500);
                                                                                                                         } else if (!z3) {
-                                                                                                                            this.f52227e.E0.E0().smoothScrollToPosition(c2, g2, 200);
+                                                                                                                            this.f52226e.E0.E0().smoothScrollToPosition(c2, g2, 200);
                                                                                                                         } else {
-                                                                                                                            this.f52227e.E0.E0().smoothScrollBy(this.f52227e.E0.S0.f19462c.getView().getTop() - ((int) (b.a.e.e.p.l.k(this.f52227e.getContext()) * 0.5625d)), 500);
+                                                                                                                            this.f52226e.E0.E0().smoothScrollBy(this.f52226e.E0.S0.f19462c.getView().getTop() - ((int) (b.a.e.e.p.l.k(this.f52226e.getContext()) * 0.5625d)), 500);
                                                                                                                         }
                                                                                                                     } else {
-                                                                                                                        fixedNavHeight = this.f52227e.E0.P0().d();
+                                                                                                                        fixedNavHeight = this.f52226e.E0.P0().d();
                                                                                                                     }
                                                                                                                 } else {
-                                                                                                                    fixedNavHeight = (int) (b.a.e.e.p.l.k(this.f52227e.getContext()) * 0.5625d);
+                                                                                                                    fixedNavHeight = (int) (b.a.e.e.p.l.k(this.f52226e.getContext()) * 0.5625d);
                                                                                                                 }
                                                                                                                 g2 += fixedNavHeight;
-                                                                                                                if (this.f52227e.E0.S0 != null) {
+                                                                                                                if (this.f52226e.E0.S0 != null) {
                                                                                                                 }
-                                                                                                                this.f52227e.E0.E0().setSelectionFromTop(c2, g2 + i9);
-                                                                                                                this.f52227e.E0.E0().smoothScrollBy(i9, 500);
+                                                                                                                this.f52226e.E0.E0().setSelectionFromTop(c2, g2 + i9);
+                                                                                                                this.f52226e.E0.E0().smoothScrollBy(i9, 500);
                                                                                                             }
                                                                                                         }
-                                                                                                        if (this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().J() != null) {
-                                                                                                            TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52227e.x0.f52416f).param("fid", this.f52227e.x0.P0().m()).param("obj_locate", 2).param("uid", this.f52227e.x0.P0().O().J().getUserId()));
+                                                                                                        if (this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().J() != null) {
+                                                                                                            TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52226e.x0.f52415f).param("fid", this.f52226e.x0.P0().m()).param("obj_locate", 2).param("uid", this.f52226e.x0.P0().O().J().getUserId()));
                                                                                                         }
                                                                                                     } else if (id == b.a.r0.k2.i.pb_nav_title_forum_image || id == b.a.r0.k2.i.pb_nav_title_forum_name) {
-                                                                                                        if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null || this.f52227e.x0.P0().l() == null || b.a.e.e.p.k.isEmpty(this.f52227e.x0.P0().l().getName())) {
+                                                                                                        if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null || this.f52226e.x0.P0().l() == null || b.a.e.e.p.k.isEmpty(this.f52226e.x0.P0().l().getName())) {
                                                                                                             return;
                                                                                                         }
-                                                                                                        if (this.f52227e.x0.getErrorNo() == 4) {
-                                                                                                            if (!StringUtils.isNull(this.f52227e.x0.q0()) || this.f52227e.x0.g0() == null) {
-                                                                                                                this.f52227e.f52221e.finish();
+                                                                                                        if (this.f52226e.x0.getErrorNo() == 4) {
+                                                                                                            if (!StringUtils.isNull(this.f52226e.x0.q0()) || this.f52226e.x0.g0() == null) {
+                                                                                                                this.f52226e.f52220e.finish();
                                                                                                                 return;
                                                                                                             }
-                                                                                                            name = this.f52227e.x0.g0().f18752b;
+                                                                                                            name = this.f52226e.x0.g0().f18752b;
                                                                                                         } else {
-                                                                                                            name = this.f52227e.x0.P0().l().getName();
+                                                                                                            name = this.f52226e.x0.P0().l().getName();
                                                                                                         }
                                                                                                         if (StringUtils.isNull(name)) {
-                                                                                                            this.f52227e.f52221e.finish();
+                                                                                                            this.f52226e.f52220e.finish();
                                                                                                             return;
                                                                                                         }
-                                                                                                        String q0 = this.f52227e.x0.q0();
-                                                                                                        if (this.f52227e.x0.v0() && q0 != null && q0.equals(name)) {
-                                                                                                            this.f52227e.f52221e.finish();
+                                                                                                        String q0 = this.f52226e.x0.q0();
+                                                                                                        if (this.f52226e.x0.v0() && q0 != null && q0.equals(name)) {
+                                                                                                            this.f52226e.f52220e.finish();
                                                                                                         } else {
-                                                                                                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f52227e.getActivity()).createNormalCfg(this.f52227e.x0.P0().l().getName(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                                                                                                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f52226e.getActivity()).createNormalCfg(this.f52226e.x0.P0().l().getName(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                                                                                                         }
                                                                                                         StatisticItem statisticItem6 = new StatisticItem("c13401");
-                                                                                                        statisticItem6.param("tid", this.f52227e.x0.f1());
-                                                                                                        statisticItem6.param("fid", this.f52227e.x0.getForumId());
+                                                                                                        statisticItem6.param("tid", this.f52226e.x0.f1());
+                                                                                                        statisticItem6.param("fid", this.f52226e.x0.getForumId());
                                                                                                         statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                                                                                        if (this.f52227e.x0.P0().O() != null) {
-                                                                                                            statisticItem6.param("nid", this.f52227e.x0.P0().O().F0());
+                                                                                                        if (this.f52226e.x0.P0().O() != null) {
+                                                                                                            statisticItem6.param("nid", this.f52226e.x0.P0().O().F0());
                                                                                                         }
                                                                                                         TiebaStatic.log(statisticItem6);
                                                                                                     } else if (id != b.a.r0.k2.i.forum_name_text && id != b.a.r0.k2.i.forum_enter_button_one && id != b.a.r0.k2.i.forum_enter_button_two && id != b.a.r0.k2.i.forum_enter_button_three) {
                                                                                                         if ((view instanceof PlayVoiceBntNew) && (view.getParent() instanceof TbRichTextView)) {
-                                                                                                            if (this.f52227e.x0 == null) {
+                                                                                                            if (this.f52226e.x0 == null) {
                                                                                                                 return;
                                                                                                             }
                                                                                                             StatisticItem statisticItem7 = new StatisticItem("c13398");
-                                                                                                            statisticItem7.param("tid", this.f52227e.x0.f1());
-                                                                                                            statisticItem7.param("fid", this.f52227e.x0.getForumId());
+                                                                                                            statisticItem7.param("tid", this.f52226e.x0.f1());
+                                                                                                            statisticItem7.param("fid", this.f52226e.x0.getForumId());
                                                                                                             statisticItem7.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                                                                             statisticItem7.param("obj_locate", 2);
                                                                                                             TiebaStatic.log(statisticItem7);
                                                                                                         } else if (id == b.a.r0.k2.i.pb_thread_post_button) {
-                                                                                                            if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null) {
+                                                                                                            if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null) {
                                                                                                                 return;
                                                                                                             }
-                                                                                                            b.a.r0.k2.r.f P05 = this.f52227e.x0.P0();
-                                                                                                            if (this.f52227e.C0 == null) {
-                                                                                                                PbFragment pbFragment2 = this.f52227e;
+                                                                                                            b.a.r0.k2.r.f P05 = this.f52226e.x0.P0();
+                                                                                                            if (this.f52226e.C0 == null) {
+                                                                                                                PbFragment pbFragment2 = this.f52226e;
                                                                                                                 pbFragment2.C0 = new b.a.r0.k2.r.u(pbFragment2.getPageContext());
                                                                                                             }
                                                                                                             long g3 = b.a.e.e.m.b.g(P05.Q(), 0L);
                                                                                                             long g4 = b.a.e.e.m.b.g(P05.m(), 0L);
                                                                                                             new StatisticItem("c13446").param("forum_id", g4).eventStat();
-                                                                                                            PbFragment pbFragment3 = this.f52227e;
+                                                                                                            PbFragment pbFragment3 = this.f52226e;
                                                                                                             pbFragment3.registerListener(pbFragment3.Y1);
-                                                                                                            this.f52227e.C0.a(g3, g4);
+                                                                                                            this.f52226e.C0.a(g3, g4);
                                                                                                         } else if (id == b.a.r0.k2.i.pb_video_thread_smart_app_layout) {
                                                                                                             if (view.getTag() instanceof SmartApp) {
                                                                                                                 SmartApp smartApp = (SmartApp) view.getTag();
@@ -1169,47 +1169,47 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                                     if (StringUtils.isNull(smartApp.h5_url)) {
                                                                                                                         return;
                                                                                                                     }
-                                                                                                                    b.a.q0.m.a.l(this.f52227e.getActivity(), smartApp.h5_url);
+                                                                                                                    b.a.q0.m.a.l(this.f52226e.getActivity(), smartApp.h5_url);
                                                                                                                 }
-                                                                                                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.f52227e.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", smartApp.name).param("obj_id", smartApp.swan_app_id.longValue()).param("obj_source", AppletsCellView.PB_SHARE_CARD_LITE_PROGRAM_FROM).param("tid", this.f52227e.x0.f1()).param("obj_param1", smartApp.is_game.intValue()));
+                                                                                                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.f52226e.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", smartApp.name).param("obj_id", smartApp.swan_app_id.longValue()).param("obj_source", AppletsCellView.PB_SHARE_CARD_LITE_PROGRAM_FROM).param("tid", this.f52226e.x0.f1()).param("obj_param1", smartApp.is_game.intValue()));
                                                                                                             }
                                                                                                         } else if (id == b.a.r0.k2.i.id_pb_business_promotion_wrapper) {
                                                                                                             if (!(view.getTag() instanceof b.a.q0.s.q.d2)) {
                                                                                                                 return;
                                                                                                             }
                                                                                                             b.a.q0.s.q.d2 d2Var = (b.a.q0.s.q.d2) view.getTag();
-                                                                                                            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f52227e.getActivity()).createNormalCfg(d2Var.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                                                                                                            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f52226e.getActivity()).createNormalCfg(d2Var.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                                                                                                             createNormalCfg.setCallFrom(14);
                                                                                                             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
                                                                                                             TiebaStatic.log(new StatisticItem("common_click").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_locate", 9).param("obj_id", d2Var.T()).param("tid", d2Var.f0()).param("thread_type", d2Var.o1()).param(TiebaStatic.Params.IS_ZP, d2Var.I2() ? 1 : 0));
                                                                                                         } else if (id == b.a.r0.k2.i.id_pb_business_promotion_attention) {
-                                                                                                            if (!(view.getTag() instanceof b.a.q0.s.q.d2) || !this.f52227e.checkUpIsLogin()) {
+                                                                                                            if (!(view.getTag() instanceof b.a.q0.s.q.d2) || !this.f52226e.checkUpIsLogin()) {
                                                                                                                 return;
                                                                                                             }
                                                                                                             b.a.q0.s.q.d2 d2Var2 = (b.a.q0.s.q.d2) view.getTag();
-                                                                                                            if (this.f52227e.V != null) {
-                                                                                                                this.f52227e.V.L(d2Var2.Z(), String.valueOf(d2Var2.T()));
+                                                                                                            if (this.f52226e.V != null) {
+                                                                                                                this.f52226e.V.L(d2Var2.Z(), String.valueOf(d2Var2.T()));
                                                                                                             }
                                                                                                             TiebaStatic.log(new StatisticItem("common_click").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_locate", 11).param("obj_id", d2Var2.T()).param("tid", d2Var2.f0()).param("thread_type", d2Var2.o1()).param(TiebaStatic.Params.IS_ZP, d2Var2.I2() ? 1 : 0));
                                                                                                         } else if (id == b.a.r0.k2.i.pb_floor_right_top_feedback || id == b.a.r0.k2.i.pb_post_op_more) {
                                                                                                             StatisticItem statisticItem8 = new StatisticItem("c13398");
-                                                                                                            statisticItem8.param("tid", this.f52227e.x0.f1());
-                                                                                                            statisticItem8.param("fid", this.f52227e.x0.getForumId());
+                                                                                                            statisticItem8.param("tid", this.f52226e.x0.f1());
+                                                                                                            statisticItem8.param("fid", this.f52226e.x0.getForumId());
                                                                                                             statisticItem8.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                                                                             statisticItem8.param("obj_locate", 7);
                                                                                                             TiebaStatic.log(statisticItem8);
-                                                                                                            PbFragment pbFragment4 = this.f52227e;
-                                                                                                            pbFragment4.f52222f = false;
+                                                                                                            PbFragment pbFragment4 = this.f52226e;
+                                                                                                            pbFragment4.f52221f = false;
                                                                                                             pbFragment4.H2(view);
                                                                                                         }
                                                                                                     } else if (!(view.getTag() instanceof b.a.q0.s.q.d2)) {
                                                                                                         return;
                                                                                                     } else {
                                                                                                         b.a.q0.s.q.d2 d2Var3 = (b.a.q0.s.q.d2) view.getTag();
-                                                                                                        if (this.f52227e.x0.O0() == 3 && this.f52227e.isSimpleForum() && this.f52227e.x0.P0() != null && ListUtils.isEmpty(this.f52227e.x0.P0().p())) {
-                                                                                                            this.f52227e.f52221e.finish();
+                                                                                                        if (this.f52226e.x0.O0() == 3 && this.f52226e.isSimpleForum() && this.f52226e.x0.P0() != null && ListUtils.isEmpty(this.f52226e.x0.P0().p())) {
+                                                                                                            this.f52226e.f52220e.finish();
                                                                                                         } else {
-                                                                                                            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f52227e.getActivity()).createNormalCfg(d2Var3.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                                                                                                            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f52226e.getActivity()).createNormalCfg(d2Var3.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                                                                                                             createNormalCfg2.setCallFrom(14);
                                                                                                             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
                                                                                                         }
@@ -1220,7 +1220,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                         statisticItem9.param("nid", d2Var3.F0());
                                                                                                         TiebaStatic.log(statisticItem9);
                                                                                                     }
-                                                                                                } else if (!this.f52227e.checkUpIsLogin()) {
+                                                                                                } else if (!this.f52226e.checkUpIsLogin()) {
                                                                                                     return;
                                                                                                 } else {
                                                                                                     TiebaStatic.log(new StatisticItem("c11740"));
@@ -1228,17 +1228,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                         SparseArray sparseArray5 = (SparseArray) view.getTag();
                                                                                                         PostData postData3 = (PostData) sparseArray5.get(b.a.r0.k2.i.tag_load_sub_data);
                                                                                                         if (id == b.a.r0.k2.i.replybtn_top_right || id == b.a.r0.k2.i.cover_reply_content_top_right) {
-                                                                                                            TiebaStatic.log(new StatisticItem("c12006").param("tid", this.f52227e.x0.f52416f));
+                                                                                                            TiebaStatic.log(new StatisticItem("c12006").param("tid", this.f52226e.x0.f52415f));
                                                                                                         }
-                                                                                                        if (this.f52227e.J0 == null) {
-                                                                                                            PbFragment pbFragment5 = this.f52227e;
+                                                                                                        if (this.f52226e.J0 == null) {
+                                                                                                            PbFragment pbFragment5 = this.f52226e;
                                                                                                             pbFragment5.J0 = new b.a.q0.s.s.i(pbFragment5.getContext());
-                                                                                                            this.f52227e.J0.m(this.f52227e.V1);
+                                                                                                            this.f52226e.J0.m(this.f52226e.V1);
                                                                                                         }
                                                                                                         ArrayList arrayList = new ArrayList();
-                                                                                                        this.f52227e.isImage(view);
-                                                                                                        if (this.f52227e.isImage(view) && this.f52227e.i1 != null) {
-                                                                                                            this.f52227e.i1.t();
+                                                                                                        this.f52226e.isImage(view);
+                                                                                                        if (this.f52226e.isImage(view) && this.f52226e.i1 != null) {
+                                                                                                            this.f52226e.i1.t();
                                                                                                         }
                                                                                                         if (sparseArray5.get(b.a.r0.k2.i.tag_is_subpb) instanceof Boolean) {
                                                                                                             ((Boolean) sparseArray5.get(b.a.r0.k2.i.tag_is_subpb)).booleanValue();
@@ -1252,37 +1252,37 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                         boolean booleanValue6 = sparseArray5.get(b.a.r0.k2.i.tag_is_self_post) instanceof Boolean ? ((Boolean) sparseArray5.get(b.a.r0.k2.i.tag_is_self_post)).booleanValue() : false;
                                                                                                         if (postData3 != null) {
                                                                                                             if (postData3.M() != null && postData3.M().toString().length() > 0) {
-                                                                                                                b.a.q0.s.s.f fVar8 = new b.a.q0.s.s.f(3, this.f52227e.getString(b.a.r0.k2.l.copy), this.f52227e.J0);
+                                                                                                                b.a.q0.s.s.f fVar8 = new b.a.q0.s.s.f(3, this.f52226e.getString(b.a.r0.k2.l.copy), this.f52226e.J0);
                                                                                                                 SparseArray sparseArray6 = new SparseArray();
                                                                                                                 sparseArray6.put(b.a.r0.k2.i.tag_clip_board, postData3);
                                                                                                                 fVar8.f13556d.setTag(sparseArray6);
                                                                                                                 arrayList.add(fVar8);
                                                                                                             }
-                                                                                                            this.f52227e.m2 = postData3;
+                                                                                                            this.f52226e.m2 = postData3;
                                                                                                         }
-                                                                                                        if (this.f52227e.x0.P0().r()) {
-                                                                                                            String u = this.f52227e.x0.P0().u();
+                                                                                                        if (this.f52226e.x0.P0().r()) {
+                                                                                                            String u = this.f52226e.x0.P0().u();
                                                                                                             if (postData3 != null && !b.a.e.e.p.k.isEmpty(u) && u.equals(postData3.G())) {
                                                                                                                 z = true;
                                                                                                                 if (!z) {
-                                                                                                                    fVar4 = new b.a.q0.s.s.f(4, this.f52227e.getString(b.a.r0.k2.l.remove_mark), this.f52227e.J0);
+                                                                                                                    fVar4 = new b.a.q0.s.s.f(4, this.f52226e.getString(b.a.r0.k2.l.remove_mark), this.f52226e.J0);
                                                                                                                 } else {
-                                                                                                                    fVar4 = new b.a.q0.s.s.f(4, this.f52227e.getString(b.a.r0.k2.l.mark), this.f52227e.J0);
+                                                                                                                    fVar4 = new b.a.q0.s.s.f(4, this.f52226e.getString(b.a.r0.k2.l.mark), this.f52226e.J0);
                                                                                                                 }
                                                                                                                 SparseArray sparseArray7 = new SparseArray();
-                                                                                                                sparseArray7.put(b.a.r0.k2.i.tag_clip_board, this.f52227e.m2);
+                                                                                                                sparseArray7.put(b.a.r0.k2.i.tag_clip_board, this.f52226e.m2);
                                                                                                                 sparseArray7.put(b.a.r0.k2.i.tag_is_subpb, Boolean.FALSE);
                                                                                                                 fVar4.f13556d.setTag(sparseArray7);
                                                                                                                 arrayList.add(fVar4);
-                                                                                                                if (this.f52227e.mIsLogin) {
-                                                                                                                    if (b.a.r0.k2.u.f.f1.a.h(this.f52227e.x0) || booleanValue3 || !booleanValue2) {
-                                                                                                                        if (this.f52227e.j3(booleanValue) && TbadkCoreApplication.isLogin()) {
-                                                                                                                            b.a.q0.s.s.f fVar9 = new b.a.q0.s.s.f(5, this.f52227e.getString(b.a.r0.k2.l.report_text), this.f52227e.J0);
+                                                                                                                if (this.f52226e.mIsLogin) {
+                                                                                                                    if (b.a.r0.k2.u.f.f1.a.h(this.f52226e.x0) || booleanValue3 || !booleanValue2) {
+                                                                                                                        if (this.f52226e.j3(booleanValue) && TbadkCoreApplication.isLogin()) {
+                                                                                                                            b.a.q0.s.s.f fVar9 = new b.a.q0.s.s.f(5, this.f52226e.getString(b.a.r0.k2.l.report_text), this.f52226e.J0);
                                                                                                                             fVar9.f13556d.setTag(str2);
                                                                                                                             arrayList.add(fVar9);
                                                                                                                         }
                                                                                                                     } else {
-                                                                                                                        b.a.q0.s.s.f fVar10 = new b.a.q0.s.s.f(5, this.f52227e.getString(b.a.r0.k2.l.mute_option), this.f52227e.J0);
+                                                                                                                        b.a.q0.s.s.f fVar10 = new b.a.q0.s.s.f(5, this.f52226e.getString(b.a.r0.k2.l.mute_option), this.f52226e.J0);
                                                                                                                         SparseArray sparseArray8 = new SparseArray();
                                                                                                                         sparseArray8.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
                                                                                                                         int i10 = b.a.r0.k2.i.tag_is_mem;
@@ -1347,17 +1347,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                                             int i32 = b.a.r0.k2.i.tag_has_sub_post;
                                                                                                                             sparseArray9.put(i32, sparseArray5.get(i32));
                                                                                                                             if (booleanValue6) {
-                                                                                                                                b.a.q0.s.s.f fVar11 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.delete), this.f52227e.J0);
+                                                                                                                                b.a.q0.s.s.f fVar11 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.delete), this.f52226e.J0);
                                                                                                                                 fVar11.f13556d.setTag(sparseArray9);
                                                                                                                                 fVar6 = fVar11;
-                                                                                                                                fVar5 = new b.a.q0.s.s.f(7, this.f52227e.getString(b.a.r0.k2.l.bar_manager), this.f52227e.J0);
+                                                                                                                                fVar5 = new b.a.q0.s.s.f(7, this.f52226e.getString(b.a.r0.k2.l.bar_manager), this.f52226e.J0);
                                                                                                                                 fVar5.f13556d.setTag(sparseArray9);
                                                                                                                             }
                                                                                                                         } else {
                                                                                                                             sparseArray9.put(b.a.r0.k2.i.tag_should_delete_visible, Boolean.FALSE);
                                                                                                                         }
                                                                                                                         fVar6 = null;
-                                                                                                                        fVar5 = new b.a.q0.s.s.f(7, this.f52227e.getString(b.a.r0.k2.l.bar_manager), this.f52227e.J0);
+                                                                                                                        fVar5 = new b.a.q0.s.s.f(7, this.f52226e.getString(b.a.r0.k2.l.bar_manager), this.f52226e.J0);
                                                                                                                         fVar5.f13556d.setTag(sparseArray9);
                                                                                                                     } else if (booleanValue5) {
                                                                                                                         SparseArray sparseArray10 = new SparseArray();
@@ -1373,10 +1373,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                                         sparseArray10.put(i35, sparseArray5.get(i35));
                                                                                                                         int i36 = b.a.r0.k2.i.tag_has_sub_post;
                                                                                                                         sparseArray10.put(i36, sparseArray5.get(i36));
-                                                                                                                        if (this.f52227e.x0.P0().V() == 1002 && !booleanValue) {
-                                                                                                                            fVar7 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.report_text), this.f52227e.J0);
+                                                                                                                        if (this.f52226e.x0.P0().V() == 1002 && !booleanValue) {
+                                                                                                                            fVar7 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.report_text), this.f52226e.J0);
                                                                                                                         } else {
-                                                                                                                            fVar7 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.delete), this.f52227e.J0);
+                                                                                                                            fVar7 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.delete), this.f52226e.J0);
                                                                                                                         }
                                                                                                                         fVar7.f13556d.setTag(sparseArray10);
                                                                                                                         fVar6 = fVar7;
@@ -1392,33 +1392,33 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                                         arrayList.add(fVar5);
                                                                                                                     }
                                                                                                                 }
-                                                                                                                this.f52227e.J0.j(arrayList);
-                                                                                                                this.f52227e.I0 = new PopupDialog(this.f52227e.getPageContext(), this.f52227e.J0);
-                                                                                                                this.f52227e.I0.showDialog();
+                                                                                                                this.f52226e.J0.j(arrayList);
+                                                                                                                this.f52226e.I0 = new PopupDialog(this.f52226e.getPageContext(), this.f52226e.J0);
+                                                                                                                this.f52226e.I0.showDialog();
                                                                                                             }
                                                                                                         }
                                                                                                         z = false;
                                                                                                         if (!z) {
                                                                                                         }
                                                                                                         SparseArray sparseArray72 = new SparseArray();
-                                                                                                        sparseArray72.put(b.a.r0.k2.i.tag_clip_board, this.f52227e.m2);
+                                                                                                        sparseArray72.put(b.a.r0.k2.i.tag_clip_board, this.f52226e.m2);
                                                                                                         sparseArray72.put(b.a.r0.k2.i.tag_is_subpb, Boolean.FALSE);
                                                                                                         fVar4.f13556d.setTag(sparseArray72);
                                                                                                         arrayList.add(fVar4);
-                                                                                                        if (this.f52227e.mIsLogin) {
+                                                                                                        if (this.f52226e.mIsLogin) {
                                                                                                         }
-                                                                                                        this.f52227e.J0.j(arrayList);
-                                                                                                        this.f52227e.I0 = new PopupDialog(this.f52227e.getPageContext(), this.f52227e.J0);
-                                                                                                        this.f52227e.I0.showDialog();
+                                                                                                        this.f52226e.J0.j(arrayList);
+                                                                                                        this.f52226e.I0 = new PopupDialog(this.f52226e.getPageContext(), this.f52226e.J0);
+                                                                                                        this.f52226e.I0.showDialog();
                                                                                                     }
                                                                                                 }
                                                                                             }
                                                                                         } else {
-                                                                                            this.f52227e.E0.f19406h.l();
-                                                                                            this.f52227e.E0.r3(this.f52227e.p2);
+                                                                                            this.f52226e.E0.f19406h.l();
+                                                                                            this.f52226e.E0.r3(this.f52226e.p2);
                                                                                         }
                                                                                     } else if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                                                                                        this.f52227e.sendMessage(new CustomMessage(2002001, new PushThreadActivityConfig(this.f52227e.getPageContext().getPageActivity(), 24008, b.a.e.e.m.b.g(this.f52227e.x0.P0().m(), 0L), b.a.e.e.m.b.g(this.f52227e.x0.f1(), 0L), b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L), this.f52227e.x0.P0().O().O0())));
+                                                                                        this.f52226e.sendMessage(new CustomMessage(2002001, new PushThreadActivityConfig(this.f52226e.getPageContext().getPageActivity(), 24008, b.a.e.e.m.b.g(this.f52226e.x0.P0().m(), 0L), b.a.e.e.m.b.g(this.f52226e.x0.f1(), 0L), b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L), this.f52226e.x0.P0().O().O0())));
                                                                                     }
                                                                                 } else {
                                                                                     try {
@@ -1431,13 +1431,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                     if (postData4 == null) {
                                                                                         return;
                                                                                     }
-                                                                                    if (this.f52227e.J0 == null) {
-                                                                                        PbFragment pbFragment6 = this.f52227e;
+                                                                                    if (this.f52226e.J0 == null) {
+                                                                                        PbFragment pbFragment6 = this.f52226e;
                                                                                         pbFragment6.J0 = new b.a.q0.s.s.i(pbFragment6.getContext());
-                                                                                        this.f52227e.J0.m(this.f52227e.V1);
+                                                                                        this.f52226e.J0.m(this.f52226e.V1);
                                                                                     }
                                                                                     ArrayList arrayList2 = new ArrayList();
-                                                                                    boolean z5 = this.f52227e.getPbModel().P0() != null && this.f52227e.getPbModel().P0().g0();
+                                                                                    boolean z5 = this.f52226e.getPbModel().P0() != null && this.f52226e.getPbModel().P0().g0();
                                                                                     if (view != null && sparseArray != null) {
                                                                                         boolean booleanValue7 = sparseArray.get(b.a.r0.k2.i.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue() : false;
                                                                                         boolean booleanValue8 = sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue() : false;
@@ -1450,27 +1450,27 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                             boolean z6 = postData4.q().hasAgree;
                                                                                             int s = postData4.s();
                                                                                             if (z6 && s == 5) {
-                                                                                                pbFragment = this.f52227e;
+                                                                                                pbFragment = this.f52226e;
                                                                                                 i2 = b.a.r0.k2.l.action_cancel_dislike;
                                                                                             } else {
-                                                                                                pbFragment = this.f52227e;
+                                                                                                pbFragment = this.f52226e;
                                                                                                 i2 = b.a.r0.k2.l.action_dislike;
                                                                                             }
-                                                                                            b.a.q0.s.s.f fVar12 = new b.a.q0.s.s.f(8, pbFragment.getString(i2), this.f52227e.J0);
+                                                                                            b.a.q0.s.s.f fVar12 = new b.a.q0.s.s.f(8, pbFragment.getString(i2), this.f52226e.J0);
                                                                                             SparseArray sparseArray11 = new SparseArray();
                                                                                             sparseArray11.put(b.a.r0.k2.i.tag_clip_board, postData4);
                                                                                             fVar12.f13556d.setTag(sparseArray11);
                                                                                             arrayList2.add(fVar12);
                                                                                         }
-                                                                                        if (this.f52227e.mIsLogin) {
-                                                                                            if (b.a.r0.k2.u.f.f1.a.h(this.f52227e.x0) || booleanValue9 || !booleanValue8) {
-                                                                                                if ((this.f52227e.j3(booleanValue7) && TbadkCoreApplication.isLogin()) && !z5) {
-                                                                                                    b.a.q0.s.s.f fVar13 = new b.a.q0.s.s.f(5, this.f52227e.getString(b.a.r0.k2.l.report_text), this.f52227e.J0);
+                                                                                        if (this.f52226e.mIsLogin) {
+                                                                                            if (b.a.r0.k2.u.f.f1.a.h(this.f52226e.x0) || booleanValue9 || !booleanValue8) {
+                                                                                                if ((this.f52226e.j3(booleanValue7) && TbadkCoreApplication.isLogin()) && !z5) {
+                                                                                                    b.a.q0.s.s.f fVar13 = new b.a.q0.s.s.f(5, this.f52226e.getString(b.a.r0.k2.l.report_text), this.f52226e.J0);
                                                                                                     fVar13.f13556d.setTag(str3);
                                                                                                     arrayList2.add(fVar13);
                                                                                                 }
                                                                                             } else {
-                                                                                                b.a.q0.s.s.f fVar14 = new b.a.q0.s.s.f(5, this.f52227e.getString(b.a.r0.k2.l.mute_option), this.f52227e.J0);
+                                                                                                b.a.q0.s.s.f fVar14 = new b.a.q0.s.s.f(5, this.f52226e.getString(b.a.r0.k2.l.mute_option), this.f52226e.J0);
                                                                                                 SparseArray sparseArray12 = new SparseArray();
                                                                                                 sparseArray12.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
                                                                                                 int i37 = b.a.r0.k2.i.tag_is_mem;
@@ -1535,17 +1535,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                     int i59 = b.a.r0.k2.i.tag_has_sub_post;
                                                                                                     sparseArray13.put(i59, sparseArray.get(i59));
                                                                                                     if (booleanValue12) {
-                                                                                                        b.a.q0.s.s.f fVar15 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.delete), this.f52227e.J0);
+                                                                                                        b.a.q0.s.s.f fVar15 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.delete), this.f52226e.J0);
                                                                                                         fVar15.f13556d.setTag(sparseArray13);
                                                                                                         fVar2 = fVar15;
-                                                                                                        fVar = new b.a.q0.s.s.f(7, this.f52227e.getString(b.a.r0.k2.l.bar_manager), this.f52227e.J0);
+                                                                                                        fVar = new b.a.q0.s.s.f(7, this.f52226e.getString(b.a.r0.k2.l.bar_manager), this.f52226e.J0);
                                                                                                         fVar.f13556d.setTag(sparseArray13);
                                                                                                     }
                                                                                                 } else {
                                                                                                     sparseArray13.put(b.a.r0.k2.i.tag_should_delete_visible, Boolean.FALSE);
                                                                                                 }
                                                                                                 fVar2 = null;
-                                                                                                fVar = new b.a.q0.s.s.f(7, this.f52227e.getString(b.a.r0.k2.l.bar_manager), this.f52227e.J0);
+                                                                                                fVar = new b.a.q0.s.s.f(7, this.f52226e.getString(b.a.r0.k2.l.bar_manager), this.f52226e.J0);
                                                                                                 fVar.f13556d.setTag(sparseArray13);
                                                                                             } else if (booleanValue11) {
                                                                                                 SparseArray sparseArray14 = new SparseArray();
@@ -1561,10 +1561,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                 sparseArray14.put(i62, sparseArray.get(i62));
                                                                                                 int i63 = b.a.r0.k2.i.tag_has_sub_post;
                                                                                                 sparseArray14.put(i63, sparseArray.get(i63));
-                                                                                                if (this.f52227e.x0.P0().V() == 1002 && !booleanValue7) {
-                                                                                                    fVar3 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.report_text), this.f52227e.J0);
+                                                                                                if (this.f52226e.x0.P0().V() == 1002 && !booleanValue7) {
+                                                                                                    fVar3 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.report_text), this.f52226e.J0);
                                                                                                 } else {
-                                                                                                    fVar3 = new b.a.q0.s.s.f(6, this.f52227e.getString(b.a.r0.k2.l.delete), this.f52227e.J0);
+                                                                                                    fVar3 = new b.a.q0.s.s.f(6, this.f52226e.getString(b.a.r0.k2.l.delete), this.f52226e.J0);
                                                                                                 }
                                                                                                 fVar3.f13556d.setTag(sparseArray14);
                                                                                                 fVar2 = fVar3;
@@ -1580,28 +1580,28 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                                 arrayList2.add(fVar);
                                                                                             }
                                                                                         }
-                                                                                        this.f52227e.J0.j(arrayList2);
-                                                                                        this.f52227e.I0 = new PopupDialog(this.f52227e.getPageContext(), this.f52227e.J0);
-                                                                                        this.f52227e.I0.showDialog();
+                                                                                        this.f52226e.J0.j(arrayList2);
+                                                                                        this.f52226e.I0 = new PopupDialog(this.f52226e.getPageContext(), this.f52226e.J0);
+                                                                                        this.f52226e.I0.showDialog();
                                                                                     }
                                                                                 }
                                                                             } else {
                                                                                 if (view.getId() == b.a.r0.k2.i.new_sub_pb_list_richText) {
                                                                                     StatisticItem statisticItem10 = new StatisticItem("c13398");
-                                                                                    statisticItem10.param("tid", this.f52227e.x0.f1());
-                                                                                    statisticItem10.param("fid", this.f52227e.x0.getForumId());
+                                                                                    statisticItem10.param("tid", this.f52226e.x0.f1());
+                                                                                    statisticItem10.param("fid", this.f52226e.x0.getForumId());
                                                                                     statisticItem10.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                                                     statisticItem10.param("obj_locate", 4);
                                                                                     TiebaStatic.log(statisticItem10);
                                                                                 }
-                                                                                if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52227e.getActivity(), "pb_chakanhuifu"))) {
-                                                                                    this.f52227e.X = view;
+                                                                                if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && !DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52226e.getActivity(), "pb_chakanhuifu"))) {
+                                                                                    this.f52226e.X = view;
                                                                                     return;
-                                                                                } else if (this.f52227e.checkUpIsLogin()) {
-                                                                                    if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null) {
+                                                                                } else if (this.f52226e.checkUpIsLogin()) {
+                                                                                    if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null) {
                                                                                         return;
                                                                                     }
-                                                                                    this.f52227e.E0.c0();
+                                                                                    this.f52226e.E0.c0();
                                                                                     SparseArray sparseArray15 = (SparseArray) view.getTag();
                                                                                     PostData postData5 = (PostData) sparseArray15.get(b.a.r0.k2.i.tag_load_sub_data);
                                                                                     PostData postData6 = (PostData) sparseArray15.get(b.a.r0.k2.i.tag_load_sub_reply_data);
@@ -1623,59 +1623,59 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                         }
                                                                                         TiebaStatic.log(copy3);
                                                                                     }
-                                                                                    String f12 = this.f52227e.x0.f1();
+                                                                                    String f12 = this.f52226e.x0.f1();
                                                                                     String G2 = postData5.G();
                                                                                     String G3 = postData6 != null ? postData6.G() : "";
-                                                                                    int V2 = this.f52227e.x0.P0() != null ? this.f52227e.x0.P0().V() : 0;
-                                                                                    this.f52227e.stopVoice();
+                                                                                    int V2 = this.f52226e.x0.P0() != null ? this.f52226e.x0.P0().V() : 0;
+                                                                                    this.f52226e.stopVoice();
                                                                                     if (view.getId() == b.a.r0.k2.i.replybtn) {
-                                                                                        AbsPbActivity.e v32 = this.f52227e.v3(G2);
-                                                                                        if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null || v32 == null) {
+                                                                                        AbsPbActivity.e v32 = this.f52226e.v3(G2);
+                                                                                        if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null || v32 == null) {
                                                                                             return;
                                                                                         }
-                                                                                        SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.f52227e.getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G2, "pb", true, false, null, true, null, V2, postData5.R(), this.f52227e.x0.P0().d(), false, postData5.t().getIconInfo(), 5).addBigImageData(v32.f52184a, v32.f52185b, v32.f52190g, v32.j);
-                                                                                        addBigImageData2.setKeyPageStartFrom(this.f52227e.x0.O0());
-                                                                                        addBigImageData2.setFromFrsForumId(this.f52227e.x0.getFromForumId());
-                                                                                        addBigImageData2.setWorksInfoData(this.f52227e.x0.k1());
-                                                                                        addBigImageData2.setKeyFromForumId(this.f52227e.x0.getForumId());
-                                                                                        addBigImageData2.setBjhData(this.f52227e.x0.j0());
-                                                                                        addBigImageData2.setTiebaPlusData(this.f52227e.x0.F(), this.f52227e.x0.B(), this.f52227e.x0.C(), this.f52227e.x0.A(), this.f52227e.x0.G());
-                                                                                        this.f52227e.sendMessage(new CustomMessage(2002001, addBigImageData2));
+                                                                                        SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.f52226e.getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G2, "pb", true, false, null, true, null, V2, postData5.R(), this.f52226e.x0.P0().d(), false, postData5.t().getIconInfo(), 5).addBigImageData(v32.f52183a, v32.f52184b, v32.f52189g, v32.j);
+                                                                                        addBigImageData2.setKeyPageStartFrom(this.f52226e.x0.O0());
+                                                                                        addBigImageData2.setFromFrsForumId(this.f52226e.x0.getFromForumId());
+                                                                                        addBigImageData2.setWorksInfoData(this.f52226e.x0.k1());
+                                                                                        addBigImageData2.setKeyFromForumId(this.f52226e.x0.getForumId());
+                                                                                        addBigImageData2.setBjhData(this.f52226e.x0.j0());
+                                                                                        addBigImageData2.setTiebaPlusData(this.f52226e.x0.F(), this.f52226e.x0.B(), this.f52226e.x0.C(), this.f52226e.x0.A(), this.f52226e.x0.G());
+                                                                                        this.f52226e.sendMessage(new CustomMessage(2002001, addBigImageData2));
                                                                                     } else {
                                                                                         TiebaStatic.log("c11742");
-                                                                                        AbsPbActivity.e v33 = this.f52227e.v3(G2);
-                                                                                        if (postData5 == null || this.f52227e.x0 == null || this.f52227e.x0.P0() == null || v33 == null) {
+                                                                                        AbsPbActivity.e v33 = this.f52226e.v3(G2);
+                                                                                        if (postData5 == null || this.f52226e.x0 == null || this.f52226e.x0.P0() == null || v33 == null) {
                                                                                             return;
                                                                                         }
-                                                                                        SubPbActivityConfig addBigImageData3 = new SubPbActivityConfig(this.f52227e.getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G2, "pb", true, false, null, false, G3, V2, postData5.R(), this.f52227e.x0.P0().d(), false, postData5.t().getIconInfo(), 5).addBigImageData(v33.f52184a, v33.f52185b, v33.f52190g, v33.j);
+                                                                                        SubPbActivityConfig addBigImageData3 = new SubPbActivityConfig(this.f52226e.getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G2, "pb", true, false, null, false, G3, V2, postData5.R(), this.f52226e.x0.P0().d(), false, postData5.t().getIconInfo(), 5).addBigImageData(v33.f52183a, v33.f52184b, v33.f52189g, v33.j);
                                                                                         if (!b.a.e.e.p.k.isEmpty(G3)) {
                                                                                             addBigImageData3.setHighLightPostId(G3);
                                                                                             addBigImageData3.setKeyIsUseSpid(true);
                                                                                         }
-                                                                                        addBigImageData3.setKeyFromForumId(this.f52227e.x0.getForumId());
-                                                                                        addBigImageData3.setTiebaPlusData(this.f52227e.x0.F(), this.f52227e.x0.B(), this.f52227e.x0.C(), this.f52227e.x0.A(), this.f52227e.x0.G());
-                                                                                        addBigImageData3.setBjhData(this.f52227e.x0.j0());
-                                                                                        addBigImageData3.setKeyPageStartFrom(this.f52227e.x0.O0());
-                                                                                        addBigImageData3.setFromFrsForumId(this.f52227e.x0.getFromForumId());
-                                                                                        addBigImageData3.setWorksInfoData(this.f52227e.x0.k1());
-                                                                                        if (this.f52227e.E0 != null) {
-                                                                                            addBigImageData3.setMainPostMaskVisibly(this.f52227e.E0.v0(this.f52227e.x0.J, this.f52227e.x0.d1()).U || postData5.U);
+                                                                                        addBigImageData3.setKeyFromForumId(this.f52226e.x0.getForumId());
+                                                                                        addBigImageData3.setTiebaPlusData(this.f52226e.x0.F(), this.f52226e.x0.B(), this.f52226e.x0.C(), this.f52226e.x0.A(), this.f52226e.x0.G());
+                                                                                        addBigImageData3.setBjhData(this.f52226e.x0.j0());
+                                                                                        addBigImageData3.setKeyPageStartFrom(this.f52226e.x0.O0());
+                                                                                        addBigImageData3.setFromFrsForumId(this.f52226e.x0.getFromForumId());
+                                                                                        addBigImageData3.setWorksInfoData(this.f52226e.x0.k1());
+                                                                                        if (this.f52226e.E0 != null) {
+                                                                                            addBigImageData3.setMainPostMaskVisibly(this.f52226e.E0.v0(this.f52226e.x0.J, this.f52226e.x0.d1()).U || postData5.U);
                                                                                         }
-                                                                                        this.f52227e.sendMessage(new CustomMessage(2002001, addBigImageData3));
+                                                                                        this.f52226e.sendMessage(new CustomMessage(2002001, addBigImageData3));
                                                                                     }
                                                                                 } else {
-                                                                                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 3).param("fid", this.f52227e.x0.P0().m()));
+                                                                                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 3).param("fid", this.f52226e.x0.P0().m()));
                                                                                     return;
                                                                                 }
                                                                             }
                                                                         } else if (b.a.e.e.p.j.z()) {
-                                                                            SparseArray<Object> F02 = this.f52227e.E0.F0(this.f52227e.x0.P0(), this.f52227e.x0.d1(), 1);
+                                                                            SparseArray<Object> F02 = this.f52226e.E0.F0(this.f52226e.x0.P0(), this.f52226e.x0.d1(), 1);
                                                                             if (F02 != null) {
-                                                                                this.f52227e.E0.Z1(((Integer) F02.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F02.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F02.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F02.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
+                                                                                this.f52226e.E0.Z1(((Integer) F02.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) F02.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) F02.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) F02.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
                                                                             }
-                                                                            this.f52227e.E0.f19406h.k();
-                                                                            if (this.f52227e.getPbModel() != null && this.f52227e.getPbModel().P0() != null && this.f52227e.getPbModel().P0().O() != null) {
-                                                                                b.a.q0.s.q.d2 O = this.f52227e.getPbModel().P0().O();
+                                                                            this.f52226e.E0.f19406h.k();
+                                                                            if (this.f52226e.getPbModel() != null && this.f52226e.getPbModel().P0() != null && this.f52226e.getPbModel().P0().O() != null) {
+                                                                                b.a.q0.s.q.d2 O = this.f52226e.getPbModel().P0().O();
                                                                                 StatisticItem statisticItem12 = new StatisticItem(CommonStatisticKey.KEY_PB_MORE_DIALOG_MUSK_CLICK);
                                                                                 statisticItem12.param("uid", TbadkCoreApplication.getCurrentAccountId());
                                                                                 statisticItem12.param("tid", O.f0());
@@ -1691,86 +1691,86 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                                                 TiebaStatic.log(statisticItem13);
                                                                             }
                                                                         } else {
-                                                                            this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                                            this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                                             return;
                                                                         }
                                                                     } else if (b.a.e.e.p.j.z()) {
-                                                                        this.f52227e.E0.c0();
-                                                                        SparseArray<Object> F03 = this.f52227e.E0.F0(this.f52227e.x0.P0(), this.f52227e.x0.d1(), 1);
+                                                                        this.f52226e.E0.c0();
+                                                                        SparseArray<Object> F03 = this.f52226e.E0.F0(this.f52226e.x0.P0(), this.f52226e.x0.d1(), 1);
                                                                         if (F03 == null) {
                                                                             return;
                                                                         }
-                                                                        this.f52227e.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52227e.getPageContext().getPageActivity(), this.f52227e.x0.P0().l().getId(), this.f52227e.x0.P0().l().getName(), this.f52227e.x0.P0().O().f0(), String.valueOf(this.f52227e.x0.P0().U().getUserId()), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_name), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_name_show), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_post_id), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_portrait))));
+                                                                        this.f52226e.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52226e.getPageContext().getPageActivity(), this.f52226e.x0.P0().l().getId(), this.f52226e.x0.P0().l().getName(), this.f52226e.x0.P0().O().f0(), String.valueOf(this.f52226e.x0.P0().U().getUserId()), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_name), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_name_show), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_post_id), (String) F03.get(b.a.r0.k2.i.tag_forbid_user_portrait))));
                                                                     } else {
-                                                                        this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                                        this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                                         return;
                                                                     }
                                                                 } else {
                                                                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                                                                     if (skinType == 1) {
-                                                                        this.f52227e.onChangeSkinType(skinType);
+                                                                        this.f52226e.onChangeSkinType(skinType);
                                                                         SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
                                                                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.SET_NIGHT_MODE).param("obj_type", 0).param("obj_source", 1));
                                                                     } else if (skinType == 0 || skinType == 4) {
-                                                                        UtilHelper.showSkinChangeAnimation(this.f52227e.getActivity());
-                                                                        this.f52227e.onChangeSkinType(skinType);
-                                                                        UtilHelper.setNavigationBarBackground(this.f52227e.getActivity(), this.f52227e.getResources().getColor(b.a.r0.k2.f.CAM_X0201_1));
+                                                                        UtilHelper.showSkinChangeAnimation(this.f52226e.getActivity());
+                                                                        this.f52226e.onChangeSkinType(skinType);
+                                                                        UtilHelper.setNavigationBarBackground(this.f52226e.getActivity(), this.f52226e.getResources().getColor(b.a.r0.k2.f.CAM_X0201_1));
                                                                         TbadkCoreApplication.getInst().setSkinType(1);
                                                                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.SET_NIGHT_MODE).param("obj_type", 1).param("obj_source", 1));
                                                                     }
-                                                                    this.f52227e.E0.f19406h.l();
+                                                                    this.f52226e.E0.f19406h.l();
                                                                 }
-                                                            } else if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null || this.f52227e.x0.P0().O() == null) {
+                                                            } else if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null || this.f52226e.x0.P0().O() == null) {
                                                                 return;
                                                             } else {
-                                                                this.f52227e.E0.f19406h.k();
+                                                                this.f52226e.E0.f19406h.k();
                                                                 TiebaStatic.log(new StatisticItem("c13062"));
-                                                                PbFragment pbFragment7 = this.f52227e;
+                                                                PbFragment pbFragment7 = this.f52226e;
                                                                 pbFragment7.Z2(pbFragment7.x0.P0().O().W());
                                                             }
                                                         } else {
-                                                            this.f52227e.E0.c0();
+                                                            this.f52226e.E0.c0();
                                                             if (b.a.e.e.p.j.z()) {
-                                                                if (this.f52227e.m) {
-                                                                    view.setTag(Integer.valueOf(this.f52227e.x0.b1()));
+                                                                if (this.f52226e.m) {
+                                                                    view.setTag(Integer.valueOf(this.f52226e.x0.b1()));
                                                                     return;
                                                                 }
-                                                                this.f52227e.stopVoice();
-                                                                this.f52227e.E0.Q2();
-                                                                PopupDialog popupDialog = new PopupDialog(this.f52227e.getPageContext());
-                                                                if (this.f52227e.x0.P0().f18762f == null || this.f52227e.x0.P0().f18762f.size() <= 0) {
-                                                                    strArr = new String[]{this.f52227e.getResources().getString(b.a.r0.k2.l.sort_type_new), this.f52227e.getResources().getString(b.a.r0.k2.l.sort_type_old)};
+                                                                this.f52226e.stopVoice();
+                                                                this.f52226e.E0.Q2();
+                                                                PopupDialog popupDialog = new PopupDialog(this.f52226e.getPageContext());
+                                                                if (this.f52226e.x0.P0().f18762f == null || this.f52226e.x0.P0().f18762f.size() <= 0) {
+                                                                    strArr = new String[]{this.f52226e.getResources().getString(b.a.r0.k2.l.sort_type_new), this.f52226e.getResources().getString(b.a.r0.k2.l.sort_type_old)};
                                                                 } else {
-                                                                    strArr = new String[this.f52227e.x0.P0().f18762f.size()];
-                                                                    for (int i64 = 0; i64 < this.f52227e.x0.P0().f18762f.size(); i64++) {
-                                                                        strArr[i64] = this.f52227e.x0.P0().f18762f.get(i64).sort_name + this.f52227e.getResources().getString(b.a.r0.k2.l.sort_static);
+                                                                    strArr = new String[this.f52226e.x0.P0().f18762f.size()];
+                                                                    for (int i64 = 0; i64 < this.f52226e.x0.P0().f18762f.size(); i64++) {
+                                                                        strArr[i64] = this.f52226e.x0.P0().f18762f.get(i64).sort_name + this.f52226e.getResources().getString(b.a.r0.k2.l.sort_static);
                                                                     }
                                                                 }
                                                                 popupDialog.setDefaultContentView(null, strArr, new a(this, popupDialog, view));
                                                                 popupDialog.showDialog();
                                                             } else {
-                                                                this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                                this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                                 return;
                                                             }
                                                         }
                                                     } else {
-                                                        this.f52227e.E0.c0();
-                                                        if (this.f52227e.getPbModel().P0().f18763g != 2) {
-                                                            if (this.f52227e.x0.N0() != null) {
-                                                                this.f52227e.E0.w3(this.f52227e.x0.N0(), this.f52227e.mDialogClickListener);
+                                                        this.f52226e.E0.c0();
+                                                        if (this.f52226e.getPbModel().P0().f18763g != 2) {
+                                                            if (this.f52226e.x0.N0() != null) {
+                                                                this.f52226e.E0.w3(this.f52226e.x0.N0(), this.f52226e.mDialogClickListener);
                                                             }
-                                                            TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
+                                                            TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
                                                         } else {
-                                                            this.f52227e.showToast(b.a.r0.k2.l.hot_sort_jump_hint);
+                                                            this.f52226e.showToast(b.a.r0.k2.l.hot_sort_jump_hint);
                                                             return;
                                                         }
                                                     }
-                                                } else if (!(ShareSwitch.isOn() || this.f52227e.checkUpIsLogin()) || (P0 = this.f52227e.x0.P0()) == null) {
+                                                } else if (!(ShareSwitch.isOn() || this.f52226e.checkUpIsLogin()) || (P0 = this.f52226e.x0.P0()) == null) {
                                                     return;
                                                 } else {
                                                     b.a.q0.s.q.d2 O2 = P0.O();
                                                     if (O2 != null && O2.J() != null) {
-                                                        TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52227e.x0.f52416f).param("fid", P0.m()).param("obj_locate", 4).param("uid", O2.J().getUserId()));
+                                                        TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52226e.x0.f52415f).param("fid", P0.m()).param("obj_locate", 4).param("uid", O2.J().getUserId()));
                                                     }
                                                     if (O2 != null) {
                                                         if (O2.M1()) {
@@ -1783,9 +1783,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                             i5 = 5;
                                                         }
                                                         StatisticItem statisticItem14 = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                                                        statisticItem14.param("tid", this.f52227e.x0.f1());
+                                                        statisticItem14.param("tid", this.f52226e.x0.f1());
                                                         statisticItem14.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                                        statisticItem14.param("fid", this.f52227e.x0.getForumId());
+                                                        statisticItem14.param("fid", this.f52226e.x0.getForumId());
                                                         if (view.getId() != b.a.r0.k2.i.share_num_container) {
                                                             statisticItem14.param("obj_locate", 5);
                                                         } else {
@@ -1831,63 +1831,63 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                         if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                                                             statisticItem14.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                                                         }
-                                                        if (this.f52227e.getPbActivity() != null) {
-                                                            b.a.q0.n0.c.e(this.f52227e.getPbActivity(), statisticItem14);
+                                                        if (this.f52226e.getPbActivity() != null) {
+                                                            b.a.q0.n0.c.e(this.f52226e.getPbActivity(), statisticItem14);
                                                         }
-                                                        if (this.f52227e.E0 != null) {
-                                                            statisticItem14.param("obj_param1", this.f52227e.E0.A0());
+                                                        if (this.f52226e.E0 != null) {
+                                                            statisticItem14.param("obj_param1", this.f52226e.E0.A0());
                                                         }
                                                         TiebaStatic.log(statisticItem14);
                                                         if (b.a.e.e.p.l.D()) {
-                                                            this.f52227e.showToast(b.a.r0.k2.l.neterror);
+                                                            this.f52226e.showToast(b.a.r0.k2.l.neterror);
                                                             return;
                                                         } else if (P0 != null) {
-                                                            ArrayList<PostData> F2 = this.f52227e.x0.P0().F();
-                                                            if ((F2 != null && F2.size() > 0) || !this.f52227e.x0.d1()) {
-                                                                this.f52227e.E0.c0();
-                                                                this.f52227e.stopVoice();
+                                                            ArrayList<PostData> F2 = this.f52226e.x0.P0().F();
+                                                            if ((F2 != null && F2.size() > 0) || !this.f52226e.x0.d1()) {
+                                                                this.f52226e.E0.c0();
+                                                                this.f52226e.stopVoice();
                                                                 if (P0.A() != null && !StringUtils.isNull(P0.A().a(), true)) {
-                                                                    TiebaStatic.log(new StatisticItem("c11678").param("fid", this.f52227e.x0.P0().m()));
+                                                                    TiebaStatic.log(new StatisticItem("c11678").param("fid", this.f52226e.x0.P0().m()));
                                                                 }
                                                                 TiebaStatic.log(new StatisticItem("c11939"));
-                                                                if (AntiHelper.e(this.f52227e.getContext(), O2)) {
+                                                                if (AntiHelper.e(this.f52226e.getContext(), O2)) {
                                                                     return;
                                                                 }
-                                                                if (this.f52227e.E0 != null) {
-                                                                    this.f52227e.E0.e0();
-                                                                    this.f52227e.E0.H3(P0);
+                                                                if (this.f52226e.E0 != null) {
+                                                                    this.f52226e.E0.e0();
+                                                                    this.f52226e.E0.H3(P0);
                                                                 }
                                                                 if (!ShareSwitch.isOn()) {
-                                                                    this.f52227e.E0.k3();
-                                                                    this.f52227e.x0.l0().y(CheckRealNameModel.TYPE_PB_SHARE, 6);
+                                                                    this.f52226e.E0.k3();
+                                                                    this.f52226e.x0.l0().y(CheckRealNameModel.TYPE_PB_SHARE, 6);
                                                                 } else {
                                                                     if (view.getId() == b.a.r0.k2.i.pb_editor_tool_share) {
                                                                         i6 = 2;
                                                                     } else {
                                                                         i6 = view.getId() == b.a.r0.k2.i.share_num_container ? 1 : 6;
                                                                     }
-                                                                    if ((b.a.q0.b.d.S() || b.a.q0.b.d.T()) && this.f52227e.E0.H1()) {
-                                                                        int A0 = this.f52227e.E0.A0();
-                                                                        this.f52227e.E0.R();
-                                                                        this.f52227e.b3(b.a.q0.t.g.f.a(), A0);
+                                                                    if ((b.a.q0.b.d.S() || b.a.q0.b.d.T()) && this.f52226e.E0.H1()) {
+                                                                        int A0 = this.f52226e.E0.A0();
+                                                                        this.f52226e.E0.R();
+                                                                        this.f52226e.b3(b.a.q0.t.g.f.a(), A0);
                                                                     } else {
-                                                                        this.f52227e.T3(i6);
+                                                                        this.f52226e.T3(i6);
                                                                     }
                                                                 }
                                                             } else {
-                                                                b.a.e.e.p.l.M(this.f52227e.getPageContext().getPageActivity(), this.f52227e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
+                                                                b.a.e.e.p.l.M(this.f52226e.getPageContext().getPageActivity(), this.f52226e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
                                                                 return;
                                                             }
                                                         } else {
-                                                            b.a.e.e.p.l.M(this.f52227e.getPageContext().getPageActivity(), this.f52227e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
+                                                            b.a.e.e.p.l.M(this.f52226e.getPageContext().getPageActivity(), this.f52226e.getPageContext().getString(b.a.r0.k2.l.pb_no_data_tips));
                                                             return;
                                                         }
                                                     }
                                                     i5 = 1;
                                                     StatisticItem statisticItem142 = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                                                    statisticItem142.param("tid", this.f52227e.x0.f1());
+                                                    statisticItem142.param("tid", this.f52226e.x0.f1());
                                                     statisticItem142.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                                    statisticItem142.param("fid", this.f52227e.x0.getForumId());
+                                                    statisticItem142.param("fid", this.f52226e.x0.getForumId());
                                                     if (view.getId() != b.a.r0.k2.i.share_num_container) {
                                                     }
                                                     statisticItem142.param("obj_name", i5);
@@ -1896,61 +1896,61 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                     }
                                                     if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                                                     }
-                                                    if (this.f52227e.getPbActivity() != null) {
+                                                    if (this.f52226e.getPbActivity() != null) {
                                                     }
-                                                    if (this.f52227e.E0 != null) {
+                                                    if (this.f52226e.E0 != null) {
                                                     }
                                                     TiebaStatic.log(statisticItem142);
                                                     if (b.a.e.e.p.l.D()) {
                                                     }
                                                 }
                                             } else if (b.a.e.e.p.j.z()) {
-                                                this.f52227e.E0.c0();
-                                                if (this.f52227e.E0.f19406h.n() != null && view == this.f52227e.E0.f19406h.n().i() && !this.f52227e.E0.F1()) {
-                                                    this.f52227e.E0.o2();
+                                                this.f52226e.E0.c0();
+                                                if (this.f52226e.E0.f19406h.n() != null && view == this.f52226e.E0.f19406h.n().i() && !this.f52226e.E0.F1()) {
+                                                    this.f52226e.E0.o2();
                                                 }
-                                                if (!this.f52227e.m) {
-                                                    this.f52227e.stopVoice();
-                                                    this.f52227e.E0.Q2();
+                                                if (!this.f52226e.m) {
+                                                    this.f52226e.stopVoice();
+                                                    this.f52226e.E0.Q2();
                                                     if (view.getId() == b.a.r0.k2.i.floor_owner_reply) {
-                                                        u2 = this.f52227e.x0.u2(true, this.f52227e.P2());
+                                                        u2 = this.f52226e.x0.u2(true, this.f52226e.P2());
                                                     } else {
-                                                        u2 = view.getId() == b.a.r0.k2.i.reply_title ? this.f52227e.x0.u2(false, this.f52227e.P2()) : this.f52227e.x0.t2(this.f52227e.P2());
+                                                        u2 = view.getId() == b.a.r0.k2.i.reply_title ? this.f52226e.x0.u2(false, this.f52226e.P2()) : this.f52226e.x0.t2(this.f52226e.P2());
                                                     }
                                                     view.setTag(Boolean.valueOf(u2));
                                                     if (u2) {
                                                         i7 = 1;
-                                                        this.f52227e.E0.B2(true);
-                                                        this.f52227e.E0.u3();
-                                                        this.f52227e.m = true;
-                                                        this.f52227e.E0.E2(true);
+                                                        this.f52226e.E0.B2(true);
+                                                        this.f52226e.E0.u3();
+                                                        this.f52226e.m = true;
+                                                        this.f52226e.E0.E2(true);
                                                     } else {
                                                         i7 = 1;
                                                     }
-                                                    TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "pb_set_host", "pbclick", i7, new Object[0]);
+                                                    TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "pb_set_host", "pbclick", i7, new Object[0]);
                                                 } else {
                                                     view.setTag(Boolean.FALSE);
                                                     return;
                                                 }
                                             } else {
-                                                this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                                this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                                 view.setTag(Boolean.FALSE);
                                                 return;
                                             }
                                         } else if (b.a.e.e.p.j.z()) {
-                                            this.f52227e.E0.c0();
-                                            if (view.getId() != b.a.r0.k2.i.pb_editor_tool_collection || DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52227e.getActivity(), "pb_shoucang"))) {
-                                                if (!this.f52227e.E2(11009) || this.f52227e.x0.h0(this.f52227e.E0.D0()) == null) {
+                                            this.f52226e.E0.c0();
+                                            if (view.getId() != b.a.r0.k2.i.pb_editor_tool_collection || DialogLoginHelper.checkUpIsLogin(new b.a.q0.s.q.t0(this.f52226e.getActivity(), "pb_shoucang"))) {
+                                                if (!this.f52226e.E2(11009) || this.f52226e.x0.h0(this.f52226e.E0.D0()) == null) {
                                                     return;
                                                 }
-                                                this.f52227e.q3();
-                                                if (this.f52227e.x0.P0() != null && this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().J() != null) {
-                                                    TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52227e.x0.f52416f).param("fid", this.f52227e.x0.P0().m()).param("obj_locate", 3).param("uid", this.f52227e.x0.P0().O().J().getUserId()));
+                                                this.f52226e.q3();
+                                                if (this.f52226e.x0.P0() != null && this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().J() != null) {
+                                                    TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f52226e.x0.f52415f).param("fid", this.f52226e.x0.P0().m()).param("obj_locate", 3).param("uid", this.f52226e.x0.P0().O().J().getUserId()));
                                                 }
-                                                if (this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().J() != null && this.f52227e.x0.P0().O().J().getUserId() != null && this.f52227e.z0 != null) {
-                                                    PbFragment pbFragment8 = this.f52227e;
+                                                if (this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().J() != null && this.f52226e.x0.P0().O().J().getUserId() != null && this.f52226e.z0 != null) {
+                                                    PbFragment pbFragment8 = this.f52226e;
                                                     int X2 = pbFragment8.X2(pbFragment8.x0.P0());
-                                                    b.a.q0.s.q.d2 O3 = this.f52227e.x0.P0().O();
+                                                    b.a.q0.s.q.d2 O3 = this.f52226e.x0.P0().O();
                                                     if (O3.M1()) {
                                                         i8 = 2;
                                                     } else if (O3.P1()) {
@@ -1960,122 +1960,122 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                                     } else {
                                                         i8 = O3.O1() ? 5 : 1;
                                                     }
-                                                    TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52227e.x0.f52416f).param("obj_locate", 1).param("obj_id", this.f52227e.x0.P0().O().J().getUserId()).param("obj_type", !this.f52227e.z0.e()).param("obj_source", X2).param("obj_param1", i8));
+                                                    TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52226e.x0.f52415f).param("obj_locate", 1).param("obj_id", this.f52226e.x0.P0().O().J().getUserId()).param("obj_type", !this.f52226e.z0.e()).param("obj_source", X2).param("obj_param1", i8));
                                                 }
                                             } else {
-                                                this.f52227e.Z = view;
+                                                this.f52226e.Z = view;
                                                 return;
                                             }
                                         } else {
-                                            this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                            this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                             return;
                                         }
                                     } else {
-                                        TiebaStatic.eventStat(this.f52227e.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
-                                        if (this.f52227e.x0.P0() != null && this.f52227e.x0.P0().O() != null && this.f52227e.x0.P0().O().E2() && this.f52227e.x0.P0().O().q1() != null) {
+                                        TiebaStatic.eventStat(this.f52226e.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
+                                        if (this.f52226e.x0.P0() != null && this.f52226e.x0.P0().O() != null && this.f52226e.x0.P0().O().E2() && this.f52226e.x0.P0().O().q1() != null) {
                                             TiebaStatic.log(new StatisticItem("c11922"));
                                         }
-                                        if (this.f52227e.x0.getErrorNo() == 4) {
-                                            if (!StringUtils.isNull(this.f52227e.x0.q0()) || this.f52227e.x0.g0() == null) {
-                                                this.f52227e.f52221e.finish();
+                                        if (this.f52226e.x0.getErrorNo() == 4) {
+                                            if (!StringUtils.isNull(this.f52226e.x0.q0()) || this.f52226e.x0.g0() == null) {
+                                                this.f52226e.f52220e.finish();
                                                 return;
                                             }
-                                            name2 = this.f52227e.x0.g0().f18752b;
+                                            name2 = this.f52226e.x0.g0().f18752b;
                                         } else {
-                                            name2 = this.f52227e.x0.P0().l().getName();
+                                            name2 = this.f52226e.x0.P0().l().getName();
                                         }
                                         if (StringUtils.isNull(name2)) {
-                                            this.f52227e.f52221e.finish();
+                                            this.f52226e.f52220e.finish();
                                             return;
                                         }
-                                        String q02 = this.f52227e.x0.q0();
-                                        FrsActivityConfig createNormalCfg3 = new FrsActivityConfig(this.f52227e.getPageContext().getPageActivity()).createNormalCfg(name2, FrsActivityConfig.FRS_FROM_PB);
-                                        if (this.f52227e.x0.v0() && q02 != null && q02.equals(name2)) {
-                                            this.f52227e.f52221e.finish();
+                                        String q02 = this.f52226e.x0.q0();
+                                        FrsActivityConfig createNormalCfg3 = new FrsActivityConfig(this.f52226e.getPageContext().getPageActivity()).createNormalCfg(name2, FrsActivityConfig.FRS_FROM_PB);
+                                        if (this.f52226e.x0.v0() && q02 != null && q02.equals(name2)) {
+                                            this.f52226e.f52220e.finish();
                                         } else {
-                                            this.f52227e.sendMessage(new CustomMessage(2003000, createNormalCfg3));
+                                            this.f52226e.sendMessage(new CustomMessage(2003000, createNormalCfg3));
                                         }
                                     }
                                 } else if (b.a.e.e.p.j.z()) {
-                                    if (this.f52227e.x0.P0() == null || this.f52227e.A0.P()) {
+                                    if (this.f52226e.x0.P0() == null || this.f52226e.A0.P()) {
                                         return;
                                     }
-                                    this.f52227e.E0.c0();
-                                    int i66 = (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().m()) ? (this.f52227e.E0.f19406h.n() == null || view != this.f52227e.E0.f19406h.n().l()) ? view == this.f52227e.E0.p0() ? 2 : 0 : this.f52227e.x0.P0().O().q0() == 1 ? 3 : 6 : this.f52227e.x0.P0().O().r0() == 1 ? 5 : 4;
-                                    ForumData l = this.f52227e.x0.P0().l();
+                                    this.f52226e.E0.c0();
+                                    int i66 = (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().m()) ? (this.f52226e.E0.f19406h.n() == null || view != this.f52226e.E0.f19406h.n().l()) ? view == this.f52226e.E0.p0() ? 2 : 0 : this.f52226e.x0.P0().O().q0() == 1 ? 3 : 6 : this.f52226e.x0.P0().O().r0() == 1 ? 5 : 4;
+                                    ForumData l = this.f52226e.x0.P0().l();
                                     String name3 = l.getName();
                                     String id2 = l.getId();
-                                    String f0 = this.f52227e.x0.P0().O().f0();
-                                    this.f52227e.E0.B3();
-                                    this.f52227e.A0.T(id2, name3, f0, i66, this.f52227e.E0.q0());
+                                    String f0 = this.f52226e.x0.P0().O().f0();
+                                    this.f52226e.E0.B3();
+                                    this.f52226e.A0.T(id2, name3, f0, i66, this.f52226e.E0.q0());
                                 } else {
-                                    this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                                    this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                                     return;
                                 }
                             } else {
-                                this.f52227e.E0.f19406h.l();
-                                if (this.f52227e.x0 != null) {
-                                    this.f52227e.p1.f(this.f52227e.x0.f1());
+                                this.f52226e.E0.f19406h.l();
+                                if (this.f52226e.x0 != null) {
+                                    this.f52226e.p1.f(this.f52226e.x0.f1());
                                 }
-                                if (this.f52227e.x0 == null || !this.f52227e.x0.isPrivacy()) {
-                                    this.f52227e.p1.b();
-                                    int i67 = (TbSingleton.getInstance().mCanCallFans || this.f52227e.getPbModel() == null || this.f52227e.getPbModel().P0() == null || this.f52227e.getPbModel().P0().Q() == null || !this.f52227e.getPbModel().P0().Q().equals(TbSingleton.getInstance().mCallFansTid)) ? 1 : 2;
-                                    if (this.f52227e.getPbModel() != null && this.f52227e.getPbModel().P0() != null) {
-                                        this.f52227e.p1.d(3, i67, this.f52227e.getPbModel().P0().Q());
+                                if (this.f52226e.x0 == null || !this.f52226e.x0.isPrivacy()) {
+                                    this.f52226e.p1.b();
+                                    int i67 = (TbSingleton.getInstance().mCanCallFans || this.f52226e.getPbModel() == null || this.f52226e.getPbModel().P0() == null || this.f52226e.getPbModel().P0().Q() == null || !this.f52226e.getPbModel().P0().Q().equals(TbSingleton.getInstance().mCallFansTid)) ? 1 : 2;
+                                    if (this.f52226e.getPbModel() != null && this.f52226e.getPbModel().P0() != null) {
+                                        this.f52226e.p1.d(3, i67, this.f52226e.getPbModel().P0().Q());
                                     }
                                 } else {
-                                    this.f52227e.showToast(b.a.r0.k2.l.privacy_thread_can_not_use_call_fans);
-                                    if (this.f52227e.getPbModel() == null || this.f52227e.getPbModel().P0() == null) {
+                                    this.f52226e.showToast(b.a.r0.k2.l.privacy_thread_can_not_use_call_fans);
+                                    if (this.f52226e.getPbModel() == null || this.f52226e.getPbModel().P0() == null) {
                                         return;
                                     }
-                                    this.f52227e.p1.d(3, 3, this.f52227e.getPbModel().P0().Q());
+                                    this.f52226e.p1.d(3, 3, this.f52226e.getPbModel().P0().Q());
                                     return;
                                 }
                             }
                         } else if (b.a.e.e.p.j.z()) {
-                            this.f52227e.E0.c0();
-                            this.f52227e.stopVoice();
-                            this.f52227e.E0.Q2();
-                            this.f52227e.E0.k3();
-                            if (this.f52227e.E0.M0() != null) {
-                                this.f52227e.E0.M0().setVisibility(8);
+                            this.f52226e.E0.c0();
+                            this.f52226e.stopVoice();
+                            this.f52226e.E0.Q2();
+                            this.f52226e.E0.k3();
+                            if (this.f52226e.E0.M0() != null) {
+                                this.f52226e.E0.M0().setVisibility(8);
                             }
-                            this.f52227e.x0.p2(1);
-                            if (this.f52227e.f52225i != null) {
-                                this.f52227e.f52225i.x();
+                            this.f52226e.x0.p2(1);
+                            if (this.f52226e.f52224i != null) {
+                                this.f52226e.f52224i.x();
                             }
                         } else {
-                            this.f52227e.showToast(b.a.r0.k2.l.network_not_available);
+                            this.f52226e.showToast(b.a.r0.k2.l.network_not_available);
                             return;
                         }
                     } else {
                         String str4 = (String) view.getTag(b.a.r0.k2.i.forum_name);
                         String str5 = (String) view.getTag(b.a.r0.k2.i.forum_id);
                         String str6 = (String) view.getTag(b.a.r0.k2.i.thread_id);
-                        if (this.f52227e.V != null) {
-                            this.f52227e.V.L(str4, str5);
+                        if (this.f52226e.V != null) {
+                            this.f52226e.V.L(str4, str5);
                         }
-                        TbPageTag l2 = b.a.q0.n0.c.l(this.f52227e.getContext());
+                        TbPageTag l2 = b.a.q0.n0.c.l(this.f52226e.getContext());
                         b.a.r0.k2.u.f.f1.c.a("c14278", str5, str6, TbadkCoreApplication.getCurrentAccount(), l2 != null ? l2.locatePage : "");
                     }
-                    if (this.f52227e.getPageContext().getString(b.a.r0.k2.l.pb_god_reply_title_tag).equals(view.getTag()) && view.getId() == b.a.r0.k2.i.reply_god_title_group) {
-                        String O22 = this.f52227e.O2();
+                    if (this.f52226e.getPageContext().getString(b.a.r0.k2.l.pb_god_reply_title_tag).equals(view.getTag()) && view.getId() == b.a.r0.k2.i.reply_god_title_group) {
+                        String O22 = this.f52226e.O2();
                         if (TextUtils.isEmpty(O22)) {
                             return;
                         }
-                        UrlManager.getInstance().dealOneLink(this.f52227e.getPageContext(), new String[]{O22});
+                        UrlManager.getInstance().dealOneLink(this.f52226e.getPageContext(), new String[]{O22});
                         return;
                     }
                     return;
                 }
                 StatisticItem statisticItem15 = new StatisticItem("c13398");
-                statisticItem15.param("tid", this.f52227e.x0.f1());
-                statisticItem15.param("fid", this.f52227e.x0.getForumId());
+                statisticItem15.param("tid", this.f52226e.x0.f1());
+                statisticItem15.param("fid", this.f52226e.x0.getForumId());
                 statisticItem15.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem15.param("obj_locate", 1);
                 TiebaStatic.log(statisticItem15);
-                if (this.f52227e.A) {
-                    this.f52227e.A = false;
+                if (this.f52226e.A) {
+                    this.f52226e.A = false;
                     return;
                 }
                 TbRichTextView tbRichTextView = (TbRichTextView) view.getParent();
@@ -2083,23 +2083,23 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     Object obj = ((SparseArray) tbRichTextView.getTag()).get(b.a.r0.k2.i.tag_clip_board);
                     if (obj instanceof PostData) {
                         PostData postData7 = (PostData) obj;
-                        if (this.f52227e.x0 == null || this.f52227e.x0.P0() == null || this.f52227e.getPbView().N0() == null || postData7.t() == null || postData7.A() == 1 || !this.f52227e.checkUpIsLogin()) {
+                        if (this.f52226e.x0 == null || this.f52226e.x0.P0() == null || this.f52226e.getPbView().N0() == null || postData7.t() == null || postData7.A() == 1 || !this.f52226e.checkUpIsLogin()) {
                             return;
                         }
-                        if (this.f52227e.getPbView().O0() != null) {
-                            this.f52227e.getPbView().O0().c();
+                        if (this.f52226e.getPbView().O0() != null) {
+                            this.f52226e.getPbView().O0().c();
                         }
                         b.a.r0.k2.r.s sVar2 = new b.a.r0.k2.r.s();
-                        sVar2.A(this.f52227e.x0.P0().l());
-                        sVar2.E(this.f52227e.x0.P0().O());
+                        sVar2.A(this.f52226e.x0.P0().l());
+                        sVar2.E(this.f52226e.x0.P0().O());
                         sVar2.C(postData7);
-                        this.f52227e.getPbView().N0().S(sVar2);
-                        this.f52227e.getPbView().N0().setPostId(postData7.G());
-                        this.f52227e.o3(view, postData7.t().getUserId(), "", postData7);
+                        this.f52226e.getPbView().N0().S(sVar2);
+                        this.f52226e.getPbView().N0().setPostId(postData7.G());
+                        this.f52226e.o3(view, postData7.t().getUserId(), "", postData7);
                         TiebaStatic.log("c11743");
-                        b.a.r0.k2.w.a.b(this.f52227e.x0.P0(), postData7, postData7.k0, 8, 1);
-                        if (this.f52227e.S0 != null) {
-                            this.f52227e.E0.v2(this.f52227e.S0.D());
+                        b.a.r0.k2.w.a.b(this.f52226e.x0.P0(), postData7, postData7.k0, 8, 1);
+                        if (this.f52226e.S0 != null) {
+                            this.f52226e.E0.v2(this.f52226e.S0.D());
                         }
                     }
                 }
@@ -2113,7 +2113,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52231a;
+        public final /* synthetic */ PbFragment f52230a;
 
         public a2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2130,7 +2130,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52231a = pbFragment;
+            this.f52230a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -2198,7 +2198,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.f52231a.getPageContext().getPageActivity());
+                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.f52230a.getPageContext().getPageActivity());
                 boolean g2 = b.a.q0.s.k.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(b.a.r0.k2.f.common_color_10220));
                 if (g2) {
@@ -2246,7 +2246,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52232a;
+        public final /* synthetic */ PbFragment f52231a;
 
         public b(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2263,7 +2263,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52232a = pbFragment;
+            this.f52231a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2273,7 +2273,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.r0.k2.u.f.f1.b.d(this.f52232a.getContext(), this.f52232a.N2(), ShareSwitch.isOn() ? 1 : 6, this.f52232a.x0);
+                return b.a.r0.k2.u.f.f1.b.d(this.f52231a.getContext(), this.f52231a.N2(), ShareSwitch.isOn() ? 1 : 6, this.f52231a.x0);
             }
             return (ShareItem) invokeV.objValue;
         }
@@ -2285,7 +2285,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52233g;
+        public final /* synthetic */ PbFragment f52232g;
 
         public b0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2302,7 +2302,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52233g = pbFragment;
+            this.f52232g = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2312,10 +2312,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tipEvent)) == null) {
-                if (tipEvent.pageId <= 0 || this.f52233g.f52221e.getPageId() != tipEvent.pageId) {
+                if (tipEvent.pageId <= 0 || this.f52232g.f52220e.getPageId() != tipEvent.pageId) {
                     return true;
                 }
-                DefaultNavigationBarCoverTip.makeText(this.f52233g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
+                DefaultNavigationBarCoverTip.makeText(this.f52232g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
                 return true;
             }
             return invokeL.booleanValue;
@@ -2328,7 +2328,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52234a;
+        public final /* synthetic */ PbFragment f52233a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b1(PbFragment pbFragment, int i2) {
@@ -2348,15 +2348,15 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52234a = pbFragment;
+            this.f52233a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.f52234a.x0 != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && StringHelper.equals(((PostWriteCallBackData) customResponsedMessage.getData()).getThreadId(), this.f52234a.x0.f52416f)) {
-                this.f52234a.S3((PostWriteCallBackData) customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.f52233a.x0 != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && StringHelper.equals(((PostWriteCallBackData) customResponsedMessage.getData()).getThreadId(), this.f52233a.x0.f52415f)) {
+                this.f52233a.S3((PostWriteCallBackData) customResponsedMessage.getData());
             }
         }
     }
@@ -2367,7 +2367,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52235a;
+        public final /* synthetic */ PbFragment f52234a;
 
         public b2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2384,7 +2384,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52235a = pbFragment;
+            this.f52234a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -2445,7 +2445,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.f52235a.getPageContext().getPageActivity());
+                GifView gifView = new GifView(this.f52234a.getPageContext().getPageActivity());
                 boolean g2 = b.a.q0.s.k.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(b.a.r0.k2.f.common_color_10220));
                 if (g2) {
@@ -2490,10 +2490,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f52236a;
+        public final /* synthetic */ int f52235a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52237b;
+        public final /* synthetic */ PbFragment f52236b;
 
         public c(PbFragment pbFragment, int i2) {
             Interceptable interceptable = $ic;
@@ -2510,8 +2510,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52237b = pbFragment;
-            this.f52236a = i2;
+            this.f52236b = pbFragment;
+            this.f52235a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2523,7 +2523,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 Bundle bundle = new Bundle();
                 bundle.putInt("source", 2);
                 shareItem.k(bundle);
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f52237b.getContext(), this.f52236a, shareItem, false));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f52236b.getContext(), this.f52235a, shareItem, false));
             }
         }
     }
@@ -2534,10 +2534,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f52238e;
+        public final /* synthetic */ Intent f52237e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52239f;
+        public final /* synthetic */ PbFragment f52238f;
 
         public c0(PbFragment pbFragment, Intent intent) {
             Interceptable interceptable = $ic;
@@ -2554,16 +2554,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52239f = pbFragment;
-            this.f52238e = intent;
+            this.f52238f = pbFragment;
+            this.f52237e = intent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.r0.k2.u.f.s0 s0Var = this.f52239f.E0;
-                s0Var.T2("@" + this.f52238e.getStringExtra("big_pic_type") + " ");
+                b.a.r0.k2.u.f.s0 s0Var = this.f52238f.E0;
+                s0Var.T2("@" + this.f52237e.getStringExtra("big_pic_type") + " ");
             }
         }
     }
@@ -2574,7 +2574,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52240a;
+        public final /* synthetic */ PbFragment f52239a;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -2582,10 +2582,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f52241e;
+            public final /* synthetic */ PostWriteCallBackData f52240e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c1 f52242f;
+            public final /* synthetic */ c1 f52241f;
 
             public a(c1 c1Var, PostWriteCallBackData postWriteCallBackData) {
                 Interceptable interceptable = $ic;
@@ -2602,17 +2602,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52242f = c1Var;
-                this.f52241e = postWriteCallBackData;
+                this.f52241f = c1Var;
+                this.f52240e = postWriteCallBackData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52242f.f52240a.E0 == null || this.f52241e == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52241f.f52239a.E0 == null || this.f52240e == null) {
                     return;
                 }
-                this.f52242f.f52240a.E0.c2(this.f52241e.getmAdverSegmentData(), 2);
+                this.f52241f.f52239a.E0.c2(this.f52240e.getmAdverSegmentData(), 2);
             }
         }
 
@@ -2652,7 +2652,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c1 f52243e;
+            public final /* synthetic */ c1 f52242e;
 
             public c(c1 c1Var) {
                 Interceptable interceptable = $ic;
@@ -2669,7 +2669,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52243e = c1Var;
+                this.f52242e = c1Var;
             }
 
             @Override // b.a.q0.s.s.a.e
@@ -2677,7 +2677,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    this.f52243e.f52240a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52243e.f52240a.getActivity(), 0, 26, 2)));
+                    this.f52242e.f52239a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52242e.f52239a.getActivity(), 0, 26, 2)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 2));
                 }
             }
@@ -2698,7 +2698,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52240a = pbFragment;
+            this.f52239a = pbFragment;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -2710,10 +2710,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     StatisticItem statisticItem = new StatisticItem("c13268");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (this.f52240a.x0.P0() != null) {
-                        statisticItem.param("fid", this.f52240a.x0.P0().m());
+                    if (this.f52239a.x0.P0() != null) {
+                        statisticItem.param("fid", this.f52239a.x0.P0().m());
                     }
-                    statisticItem.param("tid", this.f52240a.x0.f1());
+                    statisticItem.param("tid", this.f52239a.x0.f1());
                     statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     if (writeData != null) {
                         if (b.a.e.e.p.k.isEmpty(writeData.getAtUidListString())) {
@@ -2725,8 +2725,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     }
                     TiebaStatic.log(statisticItem);
                 }
-                this.f52240a.stopVoice();
-                this.f52240a.E0.O2(z, postWriteCallBackData);
+                this.f52239a.stopVoice();
+                this.f52239a.E0.O2(z, postWriteCallBackData);
                 int i2 = -1;
                 if (postWriteCallBackData != null) {
                     i2 = postWriteCallBackData.getErrorCode();
@@ -2736,70 +2736,70 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 }
                 boolean z2 = false;
                 if (z) {
-                    this.f52240a.S3(postWriteCallBackData);
+                    this.f52239a.S3(postWriteCallBackData);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921306));
-                    this.f52240a.H3(antiData, postWriteCallBackData);
+                    this.f52239a.H3(antiData, postWriteCallBackData);
                     if (writeData == null) {
                         return;
                     }
                     String floor = writeData.getFloor();
                     if (writeData == null || writeData.getType() != 2) {
-                        if (this.f52240a.x0.t0()) {
-                            b.a.r0.k2.r.f P0 = this.f52240a.x0.P0();
-                            if (P0 != null && P0.O() != null && P0.O().J() != null && (userId = P0.O().J().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount()) && !PbReplySwitch.getInOn() && this.f52240a.x0.s2()) {
-                                this.f52240a.E0.Q2();
+                        if (this.f52239a.x0.t0()) {
+                            b.a.r0.k2.r.f P0 = this.f52239a.x0.P0();
+                            if (P0 != null && P0.O() != null && P0.O().J() != null && (userId = P0.O().J().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount()) && !PbReplySwitch.getInOn() && this.f52239a.x0.s2()) {
+                                this.f52239a.E0.Q2();
                             }
-                        } else if (!PbReplySwitch.getInOn() && this.f52240a.x0.s2()) {
-                            this.f52240a.E0.Q2();
+                        } else if (!PbReplySwitch.getInOn() && this.f52239a.x0.s2()) {
+                            this.f52239a.E0.Q2();
                         }
                     } else if (floor != null) {
-                        this.f52240a.E0.t1(this.f52240a.x0.P0());
+                        this.f52239a.E0.t1(this.f52239a.x0.P0());
                     }
-                    if (this.f52240a.x0.x0()) {
-                        TiebaStatic.log(new StatisticItem("c10369").param("tid", this.f52240a.x0.f1()));
+                    if (this.f52239a.x0.x0()) {
+                        TiebaStatic.log(new StatisticItem("c10369").param("tid", this.f52239a.x0.f1()));
                     }
                     if (postWriteCallBackData != null && postWriteCallBackData.getmAdverSegmentData() != null) {
                         b.a.e.e.m.e.a().postDelayed(new a(this, postWriteCallBackData), 500L);
                     }
-                    PbFragment pbFragment = this.f52240a;
+                    PbFragment pbFragment = this.f52239a;
                     if (writeData != null && writeData.getType() == 2) {
                         z2 = true;
                     }
                     pbFragment.B2(z2);
-                    if (this.f52240a.g3()) {
-                        this.f52240a.b4();
+                    if (this.f52239a.g3()) {
+                        this.f52239a.b4();
                     }
                 } else if (i2 == 220015) {
-                    this.f52240a.showToast(str);
-                    if (this.f52240a.S0.C() || this.f52240a.S0.E()) {
-                        this.f52240a.S0.A(false, postWriteCallBackData);
+                    this.f52239a.showToast(str);
+                    if (this.f52239a.S0.C() || this.f52239a.S0.E()) {
+                        this.f52239a.S0.A(false, postWriteCallBackData);
                     }
-                    this.f52240a.mContentProcessController.k(postWriteCallBackData);
+                    this.f52239a.mContentProcessController.k(postWriteCallBackData);
                 } else if (i2 == 238010) {
-                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52240a.mReplyPrivacyController;
+                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52239a.mReplyPrivacyController;
                     if (replyPrivacyCheckController != null) {
                         replyPrivacyCheckController.showAttentionDialog(postWriteCallBackData.getReplyPrivacyTip());
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        DefaultNavigationBarCoverTip.makeText(this.f52240a.getActivity(), this.f52240a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52239a.getActivity(), this.f52239a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
                     } else {
-                        DefaultNavigationBarCoverTip.makeText(this.f52240a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52239a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52240a.getActivity());
+                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52239a.getActivity());
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        aVar.setMessage(this.f52240a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
+                        aVar.setMessage(this.f52239a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
                     } else {
                         aVar.setMessage(postWriteCallBackData.getErrorString());
                     }
                     aVar.setNegativeButton(b.a.r0.k2.l.cancel, new b(this));
                     aVar.setPositiveButton(b.a.r0.k2.l.open_now, new c(this));
-                    aVar.create(this.f52240a.getPageContext()).show();
+                    aVar.create(this.f52239a.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
                 } else if (b.a.r0.v3.a.c(i2) || m0Var != null || i2 == 227001) {
                 } else {
-                    this.f52240a.G3(i2, antiData, str);
+                    this.f52239a.G3(i2, antiData, str);
                 }
             }
         }
@@ -2811,7 +2811,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52244a;
+        public final /* synthetic */ PbFragment f52243a;
 
         public c2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2828,7 +2828,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52244a = pbFragment;
+            this.f52243a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -2875,7 +2875,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public TiebaPlusRecommendCard d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new TiebaPlusRecommendCard(this.f52244a.getPageContext().getPageActivity()) : (TiebaPlusRecommendCard) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new TiebaPlusRecommendCard(this.f52243a.getPageContext().getPageActivity()) : (TiebaPlusRecommendCard) invokeV.objValue;
         }
 
         public TiebaPlusRecommendCard h(TiebaPlusRecommendCard tiebaPlusRecommendCard) {
@@ -2899,10 +2899,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f52245a;
+        public final /* synthetic */ int f52244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52246b;
+        public final /* synthetic */ PbFragment f52245b;
 
         public d(PbFragment pbFragment, int i2) {
             Interceptable interceptable = $ic;
@@ -2919,8 +2919,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52246b = pbFragment;
-            this.f52245a = i2;
+            this.f52245b = pbFragment;
+            this.f52244a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2930,11 +2930,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                PbModel pbModel = this.f52246b.getPbModel();
+                PbModel pbModel = this.f52245b.getPbModel();
                 if (pbModel != null) {
-                    pbModel.e2(this.f52245a);
+                    pbModel.e2(this.f52244a);
                 }
-                return b.a.r0.k2.u.f.f1.b.d(this.f52246b.getContext(), this.f52246b.N2(), 2, pbModel);
+                return b.a.r0.k2.u.f.f1.b.d(this.f52245b.getContext(), this.f52245b.N2(), 2, pbModel);
             }
             return (ShareItem) invokeV.objValue;
         }
@@ -2946,7 +2946,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52247a;
+        public final /* synthetic */ PbFragment f52246a;
 
         public d0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -2963,7 +2963,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52247a = pbFragment;
+            this.f52246a = pbFragment;
         }
 
         @Override // com.baidu.tbadk.core.util.ReplyPrivacyCheckController.IAfterAttentionCallBack
@@ -2971,11 +2971,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z) {
                 if (i2 == ReplyPrivacyCheckController.TYPE_THREAD) {
-                    this.f52247a.S0.M(null, null);
-                } else if (i2 == ReplyPrivacyCheckController.TYPE_FLOOR && this.f52247a.E0 != null && this.f52247a.E0.O0() != null && this.f52247a.E0.O0().b() != null) {
-                    this.f52247a.E0.O0().b().F();
+                    this.f52246a.S0.M(null, null);
+                } else if (i2 == ReplyPrivacyCheckController.TYPE_FLOOR && this.f52246a.E0 != null && this.f52246a.E0.O0() != null && this.f52246a.E0.O0().b() != null) {
+                    this.f52246a.E0.O0().b().F();
                 } else if (i2 == ReplyPrivacyCheckController.TYPE_EMOTION_IMAGE) {
-                    PbFragment pbFragment = this.f52247a;
+                    PbFragment pbFragment = this.f52246a;
                     pbFragment.y3(pbFragment.X0);
                 }
             }
@@ -2988,7 +2988,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52248a;
+        public final /* synthetic */ PbFragment f52247a;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -2996,10 +2996,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f52249e;
+            public final /* synthetic */ PostWriteCallBackData f52248e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d1 f52250f;
+            public final /* synthetic */ d1 f52249f;
 
             public a(d1 d1Var, PostWriteCallBackData postWriteCallBackData) {
                 Interceptable interceptable = $ic;
@@ -3016,17 +3016,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52250f = d1Var;
-                this.f52249e = postWriteCallBackData;
+                this.f52249f = d1Var;
+                this.f52248e = postWriteCallBackData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52250f.f52248a.E0 == null || this.f52249e == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52249f.f52247a.E0 == null || this.f52248e == null) {
                     return;
                 }
-                this.f52250f.f52248a.E0.c2(this.f52249e.getmAdverSegmentData(), 2);
+                this.f52249f.f52247a.E0.c2(this.f52248e.getmAdverSegmentData(), 2);
             }
         }
 
@@ -3066,7 +3066,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d1 f52251e;
+            public final /* synthetic */ d1 f52250e;
 
             public c(d1 d1Var) {
                 Interceptable interceptable = $ic;
@@ -3083,7 +3083,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52251e = d1Var;
+                this.f52250e = d1Var;
             }
 
             @Override // b.a.q0.s.s.a.e
@@ -3091,7 +3091,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    this.f52251e.f52248a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52251e.f52248a.getActivity(), 0, 26, 2)));
+                    this.f52250e.f52247a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52250e.f52247a.getActivity(), 0, 26, 2)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 2));
                 }
             }
@@ -3112,7 +3112,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52248a = pbFragment;
+            this.f52247a = pbFragment;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -3122,34 +3122,34 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     StatisticItem statisticItem = new StatisticItem("c13268");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (this.f52248a.x0 != null && this.f52248a.x0.P0() != null) {
-                        statisticItem.param("fid", this.f52248a.x0.P0().m());
+                    if (this.f52247a.x0 != null && this.f52247a.x0.P0() != null) {
+                        statisticItem.param("fid", this.f52247a.x0.P0().m());
                     }
-                    if (this.f52248a.x0 != null) {
-                        statisticItem.param("tid", this.f52248a.x0.f1());
+                    if (this.f52247a.x0 != null) {
+                        statisticItem.param("tid", this.f52247a.x0.f1());
                     }
                     statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem);
                 }
                 if (z) {
-                    b.a.r0.k2.u.f.u0 u0Var = this.f52248a.mContentProcessController;
+                    b.a.r0.k2.u.f.u0 u0Var = this.f52247a.mContentProcessController;
                     if (u0Var != null) {
                         u0Var.d();
                     }
                     if (postWriteCallBackData != null && postWriteCallBackData.getIconStampData() != null) {
-                        b.a.q0.t.h.b.a(this.f52248a.getPageContext(), postWriteCallBackData);
+                        b.a.q0.t.h.b.a(this.f52247a.getPageContext(), postWriteCallBackData);
                     }
                     if (postWriteCallBackData != null && postWriteCallBackData.getmAdverSegmentData() != null) {
                         b.a.e.e.m.e.a().postDelayed(new a(this, postWriteCallBackData), 500L);
                     }
-                    if (this.f52248a.g3()) {
-                        this.f52248a.b4();
+                    if (this.f52247a.g3()) {
+                        this.f52247a.b4();
                         return;
                     }
                     return;
                 }
                 if ((postWriteCallBackData != null ? postWriteCallBackData.getErrorCode() : -1) == 238010) {
-                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52248a.mReplyPrivacyController;
+                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52247a.mReplyPrivacyController;
                     if (replyPrivacyCheckController != null) {
                         replyPrivacyCheckController.showAttentionDialog(postWriteCallBackData.getReplyPrivacyTip());
                         return;
@@ -3158,33 +3158,33 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 }
                 if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        DefaultNavigationBarCoverTip.makeText(this.f52248a.getActivity(), this.f52248a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52247a.getActivity(), this.f52247a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
                     } else {
-                        DefaultNavigationBarCoverTip.makeText(this.f52248a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52247a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52248a.getActivity());
+                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52247a.getActivity());
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        aVar.setMessage(this.f52248a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
+                        aVar.setMessage(this.f52247a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
                     } else {
                         aVar.setMessage(postWriteCallBackData.getErrorString());
                     }
                     aVar.setNegativeButton(b.a.r0.k2.l.cancel, new b(this));
                     aVar.setPositiveButton(b.a.r0.k2.l.open_now, new c(this));
-                    aVar.create(this.f52248a.getPageContext()).show();
+                    aVar.create(this.f52247a.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
                 }
                 if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
                     return;
                 }
-                PbFragment pbFragment = this.f52248a;
+                PbFragment pbFragment = this.f52247a;
                 if (pbFragment.mContentProcessController == null) {
                     return;
                 }
-                if (pbFragment.E0 != null && this.f52248a.E0.O0() != null && this.f52248a.E0.O0().b() != null && this.f52248a.E0.O0().b().x()) {
-                    this.f52248a.E0.O0().b().v(postWriteCallBackData);
+                if (pbFragment.E0 != null && this.f52247a.E0.O0() != null && this.f52247a.E0.O0().b() != null && this.f52247a.E0.O0().b().x()) {
+                    this.f52247a.E0.O0().b().v(postWriteCallBackData);
                 }
-                this.f52248a.mContentProcessController.l(postWriteCallBackData);
+                this.f52247a.mContentProcessController.l(postWriteCallBackData);
             }
         }
     }
@@ -3195,7 +3195,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52252a;
+        public final /* synthetic */ PbFragment f52251a;
 
         public d2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -3212,7 +3212,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52252a = pbFragment;
+            this.f52251a = pbFragment;
         }
 
         @Override // b.a.q0.x.x.b
@@ -3220,16 +3220,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.r0.k2.u.f.u0 u0Var = this.f52252a.mContentProcessController;
-                if (u0Var == null || u0Var.g() == null || !this.f52252a.mContentProcessController.g().d()) {
-                    return !this.f52252a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_FLOOR);
+                b.a.r0.k2.u.f.u0 u0Var = this.f52251a.mContentProcessController;
+                if (u0Var == null || u0Var.g() == null || !this.f52251a.mContentProcessController.g().d()) {
+                    return !this.f52251a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_FLOOR);
                 }
-                PbFragment pbFragment = this.f52252a;
+                PbFragment pbFragment = this.f52251a;
                 pbFragment.showToast(pbFragment.mContentProcessController.g().c());
-                if (this.f52252a.E0 != null && this.f52252a.E0.O0() != null && this.f52252a.E0.O0().b() != null && this.f52252a.E0.O0().b().x()) {
-                    this.f52252a.E0.O0().b().v(this.f52252a.mContentProcessController.h());
+                if (this.f52251a.E0 != null && this.f52251a.E0.O0() != null && this.f52251a.E0.O0().b() != null && this.f52251a.E0.O0().b().x()) {
+                    this.f52251a.E0.O0().b().v(this.f52251a.mContentProcessController.h());
                 }
-                this.f52252a.mContentProcessController.b(true);
+                this.f52251a.mContentProcessController.b(true);
                 return true;
             }
             return invokeV.booleanValue;
@@ -3242,13 +3242,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f52253a;
+        public final /* synthetic */ int f52252a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f52254b;
+        public final /* synthetic */ int f52253b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52255c;
+        public final /* synthetic */ PbFragment f52254c;
 
         public e(PbFragment pbFragment, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -3265,9 +3265,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52255c = pbFragment;
-            this.f52253a = i2;
-            this.f52254b = i3;
+            this.f52254c = pbFragment;
+            this.f52252a = i2;
+            this.f52253b = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3278,9 +3278,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("source", 3);
-                bundle.putInt("obj_param1", this.f52253a);
+                bundle.putInt("obj_param1", this.f52252a);
                 shareItem.k(bundle);
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f52255c.getContext(), this.f52254b, shareItem, false));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f52254c.getContext(), this.f52253b, shareItem, false));
             }
         }
     }
@@ -3291,7 +3291,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52256a;
+        public final /* synthetic */ PbFragment f52255a;
 
         public e0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -3308,29 +3308,29 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52256a = pbFragment;
+            this.f52255a = pbFragment;
         }
 
         @Override // com.baidu.tieba.model.CheckRealNameModel.b
         public void a(int i2, String str, String str2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, obj}) == null) {
-                this.f52256a.E0.g1();
+                this.f52255a.E0.g1();
                 if (CheckRealNameModel.TYPE_PB_SHARE.equals(str2)) {
                     if (i2 == 0) {
                         Integer num = 0;
                         if (obj instanceof Integer) {
                             num = (Integer) obj;
                         }
-                        this.f52256a.T3(num.intValue());
+                        this.f52255a.T3(num.intValue());
                     } else if (i2 == 1990055) {
                         TiebaStatic.log("c12142");
                         b.a.r0.e1.a.d();
                     } else {
                         if (StringUtils.isNull(str)) {
-                            str = this.f52256a.getResources().getString(b.a.r0.k2.l.neterror);
+                            str = this.f52255a.getResources().getString(b.a.r0.k2.l.neterror);
                         }
-                        this.f52256a.showToast(str);
+                        this.f52255a.showToast(str);
                     }
                 }
             }
@@ -3343,7 +3343,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52257a;
+        public final /* synthetic */ PbFragment f52256a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e1(PbFragment pbFragment, int i2, int i3) {
@@ -3364,7 +3364,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52257a = pbFragment;
+            this.f52256a = pbFragment;
         }
 
         @Override // b.a.e.c.g.a
@@ -3374,13 +3374,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            if (((responsedMessage instanceof ThreadPublishHttpResMeesage) || (responsedMessage instanceof ThreadPublishSocketResMessage)) && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag().getId() == this.f52257a.f52221e.getPageId()) {
+            if (((responsedMessage instanceof ThreadPublishHttpResMeesage) || (responsedMessage instanceof ThreadPublishSocketResMessage)) && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag().getId() == this.f52256a.f52220e.getPageId()) {
                 if (responsedMessage.getError() == 0) {
                     b.a.e.e.p.l.L(TbadkCoreApplication.getInst(), b.a.r0.k2.l.thread_distribute_success);
-                    if (this.f52257a.E0 == null || (X0 = this.f52257a.E0.X0()) == null || this.f52257a.E0.E0() == null) {
+                    if (this.f52256a.E0 == null || (X0 = this.f52256a.E0.X0()) == null || this.f52256a.E0.E0() == null) {
                         return;
                     }
-                    this.f52257a.E0.E0().removeHeaderView(X0);
+                    this.f52256a.E0.E0().removeHeaderView(X0);
                     return;
                 }
                 b.a.e.e.p.l.M(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
@@ -3394,7 +3394,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52258a;
+        public final /* synthetic */ PbFragment f52257a;
 
         public e2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -3411,7 +3411,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52258a = pbFragment;
+            this.f52257a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -3459,8 +3459,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.f52258a.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-                playVoiceBntNew.setVoiceManager(this.f52258a.getVoiceManager());
+                PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.f52257a.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+                playVoiceBntNew.setVoiceManager(this.f52257a.getVoiceManager());
                 playVoiceBntNew.setPlayTimeTextView(b.a.r0.k2.g.fontsize28);
                 return playVoiceBntNew;
             }
@@ -3484,7 +3484,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52259a;
+        public final /* synthetic */ PbFragment f52258a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(PbFragment pbFragment, int i2) {
@@ -3504,21 +3504,21 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52259a = pbFragment;
+            this.f52258a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52259a.x0 == null || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean) || ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52258a.x0 == null || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean) || ((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 return;
             }
-            if (this.f52259a.S0 != null) {
-                this.f52259a.E0.v2(this.f52259a.S0.D());
+            if (this.f52258a.S0 != null) {
+                this.f52258a.E0.v2(this.f52258a.S0.D());
             }
-            this.f52259a.E0.o2();
-            this.f52259a.E0.c0();
+            this.f52258a.E0.o2();
+            this.f52258a.E0.c0();
         }
     }
 
@@ -3558,7 +3558,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52260a;
+        public final /* synthetic */ PbFragment f52259a;
 
         public f1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -3575,7 +3575,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52260a = pbFragment;
+            this.f52259a = pbFragment;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.g
@@ -3583,14 +3583,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             long j2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), responsedMessage, Boolean.valueOf(z2), Long.valueOf(j)}) == null) && b.a.q0.q0.k.d().g()) {
-                long currentTimeMillis = !z2 ? System.currentTimeMillis() - this.f52260a.r : j;
-                if (this.f52260a.s == 0) {
-                    this.f52260a.s = currentTimeMillis;
+                long currentTimeMillis = !z2 ? System.currentTimeMillis() - this.f52259a.r : j;
+                if (this.f52259a.s == 0) {
+                    this.f52259a.s = currentTimeMillis;
                 }
                 long j3 = currentTimeMillis;
-                b.a.q0.q0.h hVar = new b.a.q0.q0.h(i2, z, responsedMessage, this.f52260a.v, this.f52260a.u, this.f52260a.s, z2, 0L, 0L, j3);
-                this.f52260a.u = 0L;
-                this.f52260a.v = 0L;
+                b.a.q0.q0.h hVar = new b.a.q0.q0.h(i2, z, responsedMessage, this.f52259a.v, this.f52259a.u, this.f52259a.s, z2, 0L, 0L, j3);
+                this.f52259a.u = 0L;
+                this.f52259a.v = 0L;
                 hVar.c();
                 if (z2) {
                     j2 = j3;
@@ -3599,13 +3599,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 } else {
                     j2 = j3;
                 }
-                if (z2 || this.f52260a.x0 == null || this.f52260a.x0.P0() == null || this.f52260a.x0.P0().O() == null) {
+                if (z2 || this.f52259a.x0 == null || this.f52259a.x0.P0() == null || this.f52259a.x0.P0().O() == null) {
                     return;
                 }
-                int o1 = this.f52260a.x0.P0().O().o1();
+                int o1 = this.f52259a.x0.P0().O().o1();
                 if (o1 == 0 || o1 == 40) {
-                    if (!StringHelper.equals(this.f52260a.Q, "from_personalize")) {
-                        if (StringHelper.equals(this.f52260a.Q, "from_frs")) {
+                    if (!StringHelper.equals(this.f52259a.Q, "from_personalize")) {
+                        if (StringHelper.equals(this.f52259a.Q, "from_frs")) {
                             b.a.q0.q0.h hVar2 = new b.a.q0.q0.h();
                             hVar2.a(1000);
                             hVar2.D = j2;
@@ -3627,7 +3627,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void b(b.a.r0.k2.r.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.f52260a.E0.t1(fVar);
+                this.f52259a.E0.t1(fVar);
             }
         }
 
@@ -3637,33 +3637,33 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fVar, str, Integer.valueOf(i5)}) == null) {
                 if (!z || fVar == null || fVar.W() != null || ListUtils.getCount(fVar.F()) >= 1) {
-                    if (!this.f52260a.p0) {
-                        this.f52260a.p0 = true;
-                    } else if (this.f52260a.getPbModel() != null) {
-                        this.f52260a.getPbModel().X();
+                    if (!this.f52259a.p0) {
+                        this.f52259a.p0 = true;
+                    } else if (this.f52259a.getPbModel() != null) {
+                        this.f52259a.getPbModel().X();
                     }
-                    this.f52260a.l = true;
-                    this.f52260a.E0.P2();
+                    this.f52259a.l = true;
+                    this.f52259a.E0.P2();
                     if (fVar == null || !fVar.m0()) {
-                        PbFragment pbFragment = this.f52260a;
+                        PbFragment pbFragment = this.f52259a;
                         pbFragment.hideLoadingView(pbFragment.E0.a1());
                     }
-                    this.f52260a.E0.i1();
-                    if (this.f52260a.N || this.f52260a.E0.F1()) {
-                        this.f52260a.E0.c1();
-                    } else if (!this.f52260a.E0.y1()) {
-                        this.f52260a.E0.c3(false);
+                    this.f52259a.E0.i1();
+                    if (this.f52259a.N || this.f52259a.E0.F1()) {
+                        this.f52259a.E0.c1();
+                    } else if (!this.f52259a.E0.y1()) {
+                        this.f52259a.E0.c3(false);
                     }
-                    if (this.f52260a.m) {
-                        this.f52260a.m = false;
+                    if (this.f52259a.m) {
+                        this.f52259a.m = false;
                     }
                     if (i5 == 0 && fVar != null) {
-                        this.f52260a.L0 = true;
+                        this.f52259a.L0 = true;
                     }
                     if (fVar != null) {
-                        PbFragment pbFragment2 = this.f52260a;
+                        PbFragment pbFragment2 = this.f52259a;
                         pbFragment2.hideNetRefreshView(pbFragment2.E0.a1());
-                        this.f52260a.E0.X2();
+                        this.f52259a.E0.X2();
                     }
                     ArrayList<PostData> arrayList = null;
                     String R0 = null;
@@ -3673,115 +3673,115 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         if (O != null && O.D2()) {
                             d();
                         } else {
-                            PbFragment pbFragment3 = this.f52260a;
+                            PbFragment pbFragment3 = this.f52259a;
                             pbFragment3.D3(pbFragment3.R0);
                         }
-                        this.f52260a.E0.O0().l(fVar);
-                        this.f52260a.E0.j3();
+                        this.f52259a.E0.O0().l(fVar);
+                        this.f52259a.E0.j3();
                         if (O != null && O.M() != null) {
-                            this.f52260a.f4(O.M());
+                            this.f52259a.f4(O.M());
                         }
-                        if (this.f52260a.S0 != null) {
-                            this.f52260a.E0.v2(this.f52260a.S0.D());
+                        if (this.f52259a.S0 != null) {
+                            this.f52259a.E0.v2(this.f52259a.S0.D());
                         }
                         TbadkCoreApplication.getInst().setDefaultBubble(fVar.U().getBimg_url());
                         TbadkCoreApplication.getInst().setDefaultBubbleEndTime(fVar.U().getBimg_end_time());
                         if (fVar.F() != null && fVar.F().size() >= 1 && fVar.F().get(0) != null) {
-                            this.f52260a.x0.c2(fVar.F().get(0).G());
+                            this.f52259a.x0.c2(fVar.F().get(0).G());
                         } else if (fVar.W() != null) {
-                            this.f52260a.x0.c2(fVar.W().G());
+                            this.f52259a.x0.c2(fVar.W().G());
                         }
-                        if (this.f52260a.S0 != null) {
-                            this.f52260a.S0.N(fVar.d());
-                            this.f52260a.S0.O(fVar.l(), fVar.U());
-                            this.f52260a.S0.s0(O);
-                            this.f52260a.S0.P(this.f52260a.x0.s0(), this.f52260a.x0.f1(), this.f52260a.x0.p0());
+                        if (this.f52259a.S0 != null) {
+                            this.f52259a.S0.N(fVar.d());
+                            this.f52259a.S0.O(fVar.l(), fVar.U());
+                            this.f52259a.S0.s0(O);
+                            this.f52259a.S0.P(this.f52259a.x0.s0(), this.f52259a.x0.f1(), this.f52259a.x0.p0());
                             if (O != null) {
-                                this.f52260a.S0.i0(O.l2());
+                                this.f52259a.S0.i0(O.l2());
                             }
                         }
-                        if (this.f52260a.z0 != null) {
-                            this.f52260a.z0.h(fVar.r());
+                        if (this.f52259a.z0 != null) {
+                            this.f52259a.z0.h(fVar.r());
                         }
                         if (fVar.s() == 1) {
-                            this.f52260a.w = true;
+                            this.f52259a.w = true;
                         } else {
-                            this.f52260a.w = false;
+                            this.f52259a.w = false;
                         }
                         if (fVar.g0()) {
-                            this.f52260a.w = true;
+                            this.f52259a.w = true;
                         }
-                        this.f52260a.E0.w2(this.f52260a.w);
-                        this.f52260a.E0.n3(fVar, i3, i4, this.f52260a.x0.d1(), i5, this.f52260a.x0.z0());
-                        this.f52260a.E0.z3(fVar, this.f52260a.x0.d1());
-                        this.f52260a.E0.E3(this.f52260a.x0.t0());
+                        this.f52259a.E0.w2(this.f52259a.w);
+                        this.f52259a.E0.n3(fVar, i3, i4, this.f52259a.x0.d1(), i5, this.f52259a.x0.z0());
+                        this.f52259a.E0.z3(fVar, this.f52259a.x0.d1());
+                        this.f52259a.E0.E3(this.f52259a.x0.t0());
                         AntiData d2 = fVar.d();
                         if (d2 != null) {
-                            this.f52260a.D = d2.getVoice_message();
-                            if (!StringUtils.isNull(this.f52260a.D) && this.f52260a.S0 != null && this.f52260a.S0.a() != null && (findLauncherById = this.f52260a.S0.a().findLauncherById(6)) != null && !TextUtils.isEmpty(this.f52260a.D)) {
-                                ((View) findLauncherById).setOnClickListener(this.f52260a.B1);
+                            this.f52259a.D = d2.getVoice_message();
+                            if (!StringUtils.isNull(this.f52259a.D) && this.f52259a.S0 != null && this.f52259a.S0.a() != null && (findLauncherById = this.f52259a.S0.a().findLauncherById(6)) != null && !TextUtils.isEmpty(this.f52259a.D)) {
+                                ((View) findLauncherById).setOnClickListener(this.f52259a.B1);
                             }
                         }
-                        if (!this.f52260a.c0 && !ListUtils.isEmpty(this.f52260a.x0.P0().F()) && !this.f52260a.x0.s1()) {
-                            this.f52260a.c0 = true;
-                            this.f52260a.checkEasterEgg(false);
+                        if (!this.f52259a.c0 && !ListUtils.isEmpty(this.f52259a.x0.P0().F()) && !this.f52259a.x0.s1()) {
+                            this.f52259a.c0 = true;
+                            this.f52259a.checkEasterEgg(false);
                         }
-                        if (!TextUtils.isEmpty(this.f52260a.O0)) {
-                            b.a.r0.k2.u.f.a1.k.f(this.f52260a.getListView(), this.f52260a.O0);
-                            this.f52260a.O0 = null;
-                        } else if (this.f52260a.N0) {
-                            this.f52260a.N0 = false;
-                            b.a.r0.k2.u.f.a1.k.e(this.f52260a.getListView());
-                        } else if (this.f52260a.P0) {
-                            this.f52260a.P0 = false;
-                            b.a.r0.k2.u.f.a1.k.g(this.f52260a.getListView());
+                        if (!TextUtils.isEmpty(this.f52259a.O0)) {
+                            b.a.r0.k2.u.f.a1.k.f(this.f52259a.getListView(), this.f52259a.O0);
+                            this.f52259a.O0 = null;
+                        } else if (this.f52259a.N0) {
+                            this.f52259a.N0 = false;
+                            b.a.r0.k2.u.f.a1.k.e(this.f52259a.getListView());
+                        } else if (this.f52259a.P0) {
+                            this.f52259a.P0 = false;
+                            b.a.r0.k2.u.f.a1.k.g(this.f52259a.getListView());
                         } else {
-                            this.f52260a.E0.i3();
+                            this.f52259a.E0.i3();
                         }
-                        this.f52260a.x0.A1(fVar.l(), this.f52260a.F1);
-                        this.f52260a.x0.G1(this.f52260a.H1);
-                        if (this.f52260a.mReplyPrivacyController != null && O != null && O.J() != null) {
+                        this.f52259a.x0.A1(fVar.l(), this.f52259a.F1);
+                        this.f52259a.x0.G1(this.f52259a.H1);
+                        if (this.f52259a.mReplyPrivacyController != null && O != null && O.J() != null) {
                             AttentionHostData attentionHostData = new AttentionHostData();
                             attentionHostData.parserWithMetaData(O.J());
-                            this.f52260a.mReplyPrivacyController.setLikeUserData(attentionHostData);
+                            this.f52259a.mReplyPrivacyController.setLikeUserData(attentionHostData);
                         }
-                        if (this.f52260a.x0 == null || !this.f52260a.x0.r1()) {
-                            if (this.f52260a.E0 != null) {
-                                R0 = this.f52260a.E0.R0();
+                        if (this.f52259a.x0 == null || !this.f52259a.x0.r1()) {
+                            if (this.f52259a.E0 != null) {
+                                R0 = this.f52259a.E0.R0();
                             }
                         } else {
-                            R0 = this.f52260a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs);
+                            R0 = this.f52259a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs);
                         }
                         if (!StringUtils.isNull(R0)) {
-                            this.f52260a.S0.l0(TbSingleton.getInstance().getAdVertiComment(fVar.k0(), fVar.l0(), R0));
+                            this.f52259a.S0.l0(TbSingleton.getInstance().getAdVertiComment(fVar.k0(), fVar.l0(), R0));
                         }
                     } else if (str != null) {
-                        if (this.f52260a.L0 || i5 != 1) {
-                            this.f52260a.showToast(str);
+                        if (this.f52259a.L0 || i5 != 1) {
+                            this.f52259a.showToast(str);
                         } else if (i3 == 3 || i3 == 4 || i3 == 6) {
                             if (i2 == 4) {
-                                if (this.f52260a.x0.g0() != null && !StringUtils.isNull(this.f52260a.x0.g0().f18753c)) {
-                                    this.f52260a.E0.G3(this.f52260a.x0.g0());
+                                if (this.f52259a.x0.g0() != null && !StringUtils.isNull(this.f52259a.x0.g0().f18753c)) {
+                                    this.f52259a.E0.G3(this.f52259a.x0.g0());
                                 } else {
-                                    PbFragment pbFragment4 = this.f52260a;
-                                    pbFragment4.showNetRefreshView(pbFragment4.E0.a1(), this.f52260a.getPageContext().getResources().getString(b.a.r0.k2.l.net_error_text, str, Integer.valueOf(i2)), true);
-                                    PbFragment pbFragment5 = this.f52260a;
+                                    PbFragment pbFragment4 = this.f52259a;
+                                    pbFragment4.showNetRefreshView(pbFragment4.E0.a1(), this.f52259a.getPageContext().getResources().getString(b.a.r0.k2.l.net_error_text, str, Integer.valueOf(i2)), true);
+                                    PbFragment pbFragment5 = this.f52259a;
                                     pbFragment5.setNetRefreshViewEmotionMarginTop(b.a.e.e.p.l.g(pbFragment5.getContext(), b.a.r0.k2.g.ds360));
                                 }
                             } else {
-                                PbFragment pbFragment6 = this.f52260a;
-                                pbFragment6.showNetRefreshView(pbFragment6.E0.a1(), this.f52260a.getPageContext().getResources().getString(b.a.r0.k2.l.net_error_text, str, Integer.valueOf(i2)), true);
-                                PbFragment pbFragment7 = this.f52260a;
+                                PbFragment pbFragment6 = this.f52259a;
+                                pbFragment6.showNetRefreshView(pbFragment6.E0.a1(), this.f52259a.getPageContext().getResources().getString(b.a.r0.k2.l.net_error_text, str, Integer.valueOf(i2)), true);
+                                PbFragment pbFragment7 = this.f52259a;
                                 pbFragment7.setNetRefreshViewEmotionMarginTop(b.a.e.e.p.l.g(pbFragment7.getContext(), b.a.r0.k2.g.ds360));
                             }
-                            this.f52260a.E0.c1();
-                            this.f52260a.E0.b1();
+                            this.f52259a.E0.c1();
+                            this.f52259a.E0.b1();
                         }
                         if (i2 == 4 || i2 == 350008) {
                             JSONObject jSONObject = new JSONObject();
                             try {
-                                jSONObject.put("tid", this.f52260a.x0.f1());
-                                jSONObject.put("fid", this.f52260a.x0.getForumId());
+                                jSONObject.put("tid", this.f52259a.x0.f1());
+                                jSONObject.put("fid", this.f52259a.x0.getForumId());
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -3793,65 +3793,65 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             enterForePvThread.start();
                         }
                         if (i2 != -1) {
-                            if (this.f52260a.x0 != null && this.f52260a.x0.P0() != null) {
-                                arrayList = this.f52260a.x0.P0().F();
+                            if (this.f52259a.x0 != null && this.f52259a.x0.P0() != null) {
+                                arrayList = this.f52259a.x0.P0().F();
                             }
                             if (ListUtils.getCount(arrayList) != 0 && (ListUtils.getCount(arrayList) != 1 || arrayList.get(0) == null || arrayList.get(0).A() != 1)) {
-                                this.f52260a.E0.s2(this.f52260a.getResources().getString(b.a.r0.k2.l.list_no_more_new));
+                                this.f52259a.E0.s2(this.f52259a.getResources().getString(b.a.r0.k2.l.list_no_more_new));
                             } else {
-                                if (this.f52260a.isHostOnlyMode()) {
-                                    this.f52260a.E0.t2(this.f52260a.getResources().getString(b.a.r0.k2.l.pb_no_host_reply));
+                                if (this.f52259a.isHostOnlyMode()) {
+                                    this.f52259a.E0.t2(this.f52259a.getResources().getString(b.a.r0.k2.l.pb_no_host_reply));
                                 } else {
-                                    this.f52260a.E0.t2(this.f52260a.getResources().getString(b.a.r0.k2.l.pb_no_replay));
+                                    this.f52259a.E0.t2(this.f52259a.getResources().getString(b.a.r0.k2.l.pb_no_replay));
                                 }
-                                this.f52260a.E0.t1(this.f52260a.x0.P0());
+                                this.f52259a.E0.t1(this.f52259a.x0.P0());
                             }
                         } else {
-                            this.f52260a.E0.s2("");
+                            this.f52259a.E0.s2("");
                         }
-                        this.f52260a.E0.i0();
+                        this.f52259a.E0.i0();
                     }
-                    if (fVar != null && fVar.m && this.f52260a.s == 0) {
-                        this.f52260a.s = System.currentTimeMillis() - this.f52260a.r;
+                    if (fVar != null && fVar.m && this.f52259a.s == 0) {
+                        this.f52259a.s = System.currentTimeMillis() - this.f52259a.r;
                     }
-                    if (this.f52260a.getPbModel().d1() && this.f52260a.getPbModel().P0().y().c() == 0 && !this.f52260a.getPbModel().q1()) {
+                    if (this.f52259a.getPbModel().d1() && this.f52259a.getPbModel().P0().y().c() == 0 && !this.f52259a.getPbModel().q1()) {
                         return;
                     }
-                    this.f52260a.T0 = true;
+                    this.f52259a.T0 = true;
                     return;
                 }
-                this.f52260a.x0.p2(1);
-                if (this.f52260a.f52225i != null) {
-                    this.f52260a.f52225i.x();
+                this.f52259a.x0.p2(1);
+                if (this.f52259a.f52224i != null) {
+                    this.f52259a.f52224i.x();
                 }
             }
         }
 
         public final void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f52260a.x0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f52259a.x0 == null) {
                 return;
             }
-            if (this.f52260a.S0 == null || !this.f52260a.S0.z) {
+            if (this.f52259a.S0 == null || !this.f52259a.S0.z) {
                 b.a.q0.x.x.d dVar = new b.a.q0.x.x.d();
-                this.f52260a.D3(dVar);
-                PbFragment pbFragment = this.f52260a;
+                this.f52259a.D3(dVar);
+                PbFragment pbFragment = this.f52259a;
                 pbFragment.S0 = (b.a.q0.x.x.e) dVar.a(pbFragment.getContext());
-                this.f52260a.S0.f0(this.f52260a.f52221e.getPageContext());
-                this.f52260a.S0.o0(this.f52260a.X1);
-                this.f52260a.S0.p0(this.f52260a.Y0);
-                this.f52260a.S0.G(this.f52260a.f52221e.getPageContext(), this.f52260a.f52221e.getIntent() == null ? null : this.f52260a.f52221e.getIntent().getExtras());
-                this.f52260a.S0.a().showLinePositionBottom(true);
-                this.f52260a.E0.r2(this.f52260a.S0.a());
-                if (!this.f52260a.x0.D0()) {
-                    this.f52260a.S0.s(this.f52260a.x0.f1());
+                this.f52259a.S0.f0(this.f52259a.f52220e.getPageContext());
+                this.f52259a.S0.o0(this.f52259a.X1);
+                this.f52259a.S0.p0(this.f52259a.Y0);
+                this.f52259a.S0.G(this.f52259a.f52220e.getPageContext(), this.f52259a.f52220e.getIntent() == null ? null : this.f52259a.f52220e.getIntent().getExtras());
+                this.f52259a.S0.a().showLinePositionBottom(true);
+                this.f52259a.E0.r2(this.f52259a.S0.a());
+                if (!this.f52259a.x0.D0()) {
+                    this.f52259a.S0.s(this.f52259a.x0.f1());
                 }
                 if (!TextUtils.isEmpty(TbSingleton.getInstance().getAdVertiComment())) {
-                    this.f52260a.S0.l0(TbSingleton.getInstance().getAdVertiComment());
-                } else if (this.f52260a.x0.r1()) {
-                    this.f52260a.S0.l0(this.f52260a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs));
-                } else if (this.f52260a.E0 != null) {
-                    this.f52260a.S0.l0(this.f52260a.E0.R0());
+                    this.f52259a.S0.l0(TbSingleton.getInstance().getAdVertiComment());
+                } else if (this.f52259a.x0.r1()) {
+                    this.f52259a.S0.l0(this.f52259a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs));
+                } else if (this.f52259a.E0 != null) {
+                    this.f52259a.S0.l0(this.f52259a.E0.R0());
                 }
             }
         }
@@ -3863,7 +3863,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52261a;
+        public final /* synthetic */ PbFragment f52260a;
 
         public f2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -3880,7 +3880,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52261a = pbFragment;
+            this.f52260a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -3922,7 +3922,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public RelativeLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new RelativeLayout(this.f52261a.getPageContext().getPageActivity()) : (RelativeLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new RelativeLayout(this.f52260a.getPageContext().getPageActivity()) : (RelativeLayout) invokeV.objValue;
         }
 
         public RelativeLayout h(RelativeLayout relativeLayout) {
@@ -3938,7 +3938,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52262a;
+        public final /* synthetic */ PbFragment f52261a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(PbFragment pbFragment, int i2) {
@@ -3958,7 +3958,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52262a = pbFragment;
+            this.f52261a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3966,14 +3966,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserPendantData)) {
-                this.f52262a.x0.x2((UserPendantData) customResponsedMessage.getData());
-                if (this.f52262a.E0 != null && this.f52262a.x0 != null) {
-                    this.f52262a.E0.i2(this.f52262a.x0.P0(), this.f52262a.x0.d1(), this.f52262a.x0.Z0(), this.f52262a.E0.V0());
+                this.f52261a.x0.x2((UserPendantData) customResponsedMessage.getData());
+                if (this.f52261a.E0 != null && this.f52261a.x0 != null) {
+                    this.f52261a.E0.i2(this.f52261a.x0.P0(), this.f52261a.x0.d1(), this.f52261a.x0.Z0(), this.f52261a.E0.V0());
                 }
-                if (this.f52262a.E0 == null || this.f52262a.E0.n0() == null) {
+                if (this.f52261a.E0 == null || this.f52261a.E0.n0() == null) {
                     return;
                 }
-                this.f52262a.E0.n0().X();
+                this.f52261a.E0.n0().X();
             }
         }
     }
@@ -3984,7 +3984,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52263a;
+        public final /* synthetic */ PbFragment f52262a;
 
         public g0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -4001,7 +4001,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52263a = pbFragment;
+            this.f52262a = pbFragment;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbFragment.b3
@@ -4009,11 +4009,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (!b.a.e.e.p.j.z()) {
-                    this.f52263a.showToast(b.a.r0.k2.l.network_not_available);
+                    this.f52262a.showToast(b.a.r0.k2.l.network_not_available);
                     return;
                 }
                 Object[] objArr = (Object[]) obj;
-                this.f52263a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52263a.getPageContext().getPageActivity(), this.f52263a.x0.P0().l().getId(), this.f52263a.x0.P0().l().getName(), this.f52263a.x0.P0().O().f0(), String.valueOf(this.f52263a.x0.P0().U().getUserId()), objArr.length > 1 ? String.valueOf(objArr[1]) : "", objArr.length > 3 ? String.valueOf(objArr[3]) : "", objArr.length > 2 ? String.valueOf(objArr[2]) : "", objArr.length > 4 ? String.valueOf(objArr[4]) : "")));
+                this.f52262a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52262a.getPageContext().getPageActivity(), this.f52262a.x0.P0().l().getId(), this.f52262a.x0.P0().l().getName(), this.f52262a.x0.P0().O().f0(), String.valueOf(this.f52262a.x0.P0().U().getUserId()), objArr.length > 1 ? String.valueOf(objArr[1]) : "", objArr.length > 3 ? String.valueOf(objArr[3]) : "", objArr.length > 2 ? String.valueOf(objArr[2]) : "", objArr.length > 4 ? String.valueOf(objArr[4]) : "")));
             }
         }
     }
@@ -4024,7 +4024,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52264a;
+        public final /* synthetic */ PbFragment f52263a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g1(PbFragment pbFragment, int i2) {
@@ -4044,7 +4044,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52264a = pbFragment;
+            this.f52263a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -4052,7 +4052,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof CustomResponsedMessage) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f52264a.e4();
+                this.f52263a.e4();
             }
         }
     }
@@ -4063,7 +4063,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52265a;
+        public final /* synthetic */ PbFragment f52264a;
 
         public g2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -4080,7 +4080,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52265a = pbFragment;
+            this.f52264a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -4126,7 +4126,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public ItemCardView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ItemCardView(this.f52265a.getPageContext().getPageActivity()) : (ItemCardView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ItemCardView(this.f52264a.getPageContext().getPageActivity()) : (ItemCardView) invokeV.objValue;
         }
 
         public ItemCardView h(ItemCardView itemCardView) {
@@ -4146,7 +4146,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52266a;
+        public final /* synthetic */ PbFragment f52265a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(PbFragment pbFragment, int i2) {
@@ -4166,7 +4166,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52266a = pbFragment;
+            this.f52265a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -4177,13 +4177,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 return;
             }
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (this.f52266a.E0 == null) {
+            if (this.f52265a.E0 == null) {
                 return;
             }
             if (booleanValue) {
-                this.f52266a.E0.u3();
+                this.f52265a.E0.u3();
             } else {
-                this.f52266a.E0.i1();
+                this.f52265a.E0.i1();
             }
         }
     }
@@ -4194,7 +4194,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52267a;
+        public final /* synthetic */ PbFragment f52266a;
 
         public h0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -4211,7 +4211,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52267a = pbFragment;
+            this.f52266a = pbFragment;
         }
 
         @Override // b.a.r0.k2.s.c.a
@@ -4229,23 +4229,23 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                if (this.f52267a.isAdded()) {
+                if (this.f52266a.isAdded()) {
                     if (view != null) {
                         if (view.getId() == b.a.r0.k2.i.richText) {
-                            if (this.f52267a.richTextHandleSingleTap(view)) {
+                            if (this.f52266a.richTextHandleSingleTap(view)) {
                                 return true;
                             }
                         } else if (view.getId() == b.a.r0.k2.i.pb_floor_item_layout) {
                             if (view.getTag(b.a.r0.k2.i.tag_from) instanceof SparseArray) {
-                                this.f52267a.X3((SparseArray) view.getTag(b.a.r0.k2.i.tag_from));
+                                this.f52266a.X3((SparseArray) view.getTag(b.a.r0.k2.i.tag_from));
                             }
                         } else if (!(view instanceof TbRichTextView) && view.getId() != b.a.r0.k2.i.pb_post_header_layout) {
-                            if (this.f52267a.E0.A1() && view.getId() == b.a.r0.k2.i.pb_head_user_info_root) {
+                            if (this.f52266a.E0.A1() && view.getId() == b.a.r0.k2.i.pb_head_user_info_root) {
                                 if (view.getTag(b.a.r0.k2.i.tag_user_id) instanceof String) {
                                     TiebaStatic.log(new StatisticItem("c10630").param("obj_id", (String) view.getTag(b.a.r0.k2.i.tag_user_id)));
                                 }
-                                if (this.f52267a.getEventController() != null && this.f52267a.getEventController().f19142b != null) {
-                                    this.f52267a.getEventController().f19142b.onClick(view);
+                                if (this.f52266a.getEventController() != null && this.f52266a.getEventController().f19142b != null) {
+                                    this.f52266a.getEventController().f19142b.onClick(view);
                                 }
                             }
                         } else {
@@ -4253,14 +4253,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             if (sparseArray == null) {
                                 return false;
                             }
-                            this.f52267a.X3(sparseArray);
+                            this.f52266a.X3(sparseArray);
                         }
                     }
-                    if (this.f52267a.S0 != null) {
-                        this.f52267a.E0.v2(this.f52267a.S0.D());
+                    if (this.f52266a.S0 != null) {
+                        this.f52266a.E0.v2(this.f52266a.S0.D());
                     }
-                    this.f52267a.E0.o2();
-                    this.f52267a.E0.c0();
+                    this.f52266a.E0.o2();
+                    this.f52266a.E0.c0();
                     return true;
                 }
                 return true;
@@ -4273,8 +4273,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                if (this.f52267a.isAdded()) {
-                    this.f52267a.doDoubleClick();
+                if (this.f52266a.isAdded()) {
+                    this.f52266a.doDoubleClick();
                     return true;
                 }
                 return true;
@@ -4289,9 +4289,44 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52268a;
+        public final /* synthetic */ PbFragment f52267a;
 
         public h1(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52267a = pbFragment;
+        }
+
+        @Override // b.a.q0.x.x.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f52267a.showProgressBar();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class h2 implements TbRichTextView.z {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52268a;
+
+        public h2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4309,41 +4344,6 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52268a = pbFragment;
         }
 
-        @Override // b.a.q0.x.x.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52268a.showProgressBar();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class h2 implements TbRichTextView.z {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52269a;
-
-        public h2(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52269a = pbFragment;
-        }
-
         /* JADX DEBUG: Multi-variable search result rejected for r3v19, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig$b */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.z
@@ -4354,23 +4354,23 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 try {
                     if ((view.getTag() instanceof TbRichText) && str == null) {
-                        if (this.f52269a.checkUpIsLogin()) {
-                            this.f52269a.E0.N1((TbRichText) view.getTag());
+                        if (this.f52268a.checkUpIsLogin()) {
+                            this.f52268a.E0.N1((TbRichText) view.getTag());
                             TiebaStatic.log(new StatisticItem("c12490"));
                             return;
                         }
                         return;
                     }
                     StatisticItem statisticItem = new StatisticItem("c13398");
-                    statisticItem.param("tid", this.f52269a.x0.f1());
-                    statisticItem.param("fid", this.f52269a.x0.getForumId());
+                    statisticItem.param("tid", this.f52268a.x0.f1());
+                    statisticItem.param("fid", this.f52268a.x0.getForumId());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.param("obj_locate", 3);
                     statisticItem.param("obj_type", z2 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
-                    TiebaStatic.eventStat(this.f52269a.getPageContext().getPageActivity(), "pic_pb", "");
+                    TiebaStatic.eventStat(this.f52268a.getPageContext().getPageActivity(), "pic_pb", "");
                     if (view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info) == null || !(view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo) || !(view instanceof TbImageView)) {
-                        if (this.f52269a.x0.J.g0()) {
+                        if (this.f52268a.x0.J.g0()) {
                             ArrayList<String> arrayList = new ArrayList<>();
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                             TbRichTextView tbRichTextView = null;
@@ -4405,41 +4405,41 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             }
                             Rect rect = new Rect();
                             view.getGlobalVisibleRect(rect);
-                            this.f52269a.M2(rect);
+                            this.f52268a.M2(rect);
                             ImageViewerConfig.b bVar = new ImageViewerConfig.b();
                             bVar.x(arrayList);
                             bVar.B(i3);
                             bVar.C(false);
-                            bVar.F(this.f52269a.x0.a1());
+                            bVar.F(this.f52268a.x0.a1());
                             bVar.w(concurrentHashMap);
                             bVar.H(true);
                             bVar.K(false);
-                            bVar.G(this.f52269a.isHostOnlyMode());
+                            bVar.G(this.f52268a.isHostOnlyMode());
                             bVar.M(rect, UtilHelper.fixedDrawableRect(rect, view));
-                            if (this.f52269a.x0 != null) {
-                                bVar.A(this.f52269a.x0.getFromForumId());
-                                if (this.f52269a.x0.P0() != null) {
-                                    bVar.N(this.f52269a.x0.P0().O());
+                            if (this.f52268a.x0 != null) {
+                                bVar.A(this.f52268a.x0.getFromForumId());
+                                if (this.f52268a.x0.P0() != null) {
+                                    bVar.N(this.f52268a.x0.P0().O());
                                 }
                             }
-                            ImageViewerConfig v = bVar.v(this.f52269a.getPageContext().getPageActivity());
+                            ImageViewerConfig v = bVar.v(this.f52268a.getPageContext().getPageActivity());
                             v.getIntent().putExtra("from", "pb");
-                            this.f52269a.sendMessage(new CustomMessage(2010000, v));
+                            this.f52268a.sendMessage(new CustomMessage(2010000, v));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                             return;
                         }
                         AbsPbActivity.e eVar = new AbsPbActivity.e();
-                        this.f52269a.u3(str, i2, eVar);
-                        if (eVar.f52191h) {
-                            TbRichText h4 = this.f52269a.h4(str, i2);
-                            if (h4 != null && this.f52269a.j2 >= 0 && this.f52269a.j2 < h4.y().size()) {
+                        this.f52268a.u3(str, i2, eVar);
+                        if (eVar.f52190h) {
+                            TbRichText h4 = this.f52268a.h4(str, i2);
+                            if (h4 != null && this.f52268a.j2 >= 0 && this.f52268a.j2 < h4.y().size()) {
                                 ArrayList<String> arrayList2 = new ArrayList<>();
-                                String a2 = b.a.r0.k2.r.g.a(h4.y().get(this.f52269a.j2));
+                                String a2 = b.a.r0.k2.r.g.a(h4.y().get(this.f52268a.j2));
                                 int i7 = 0;
                                 while (true) {
-                                    if (i7 >= eVar.f52184a.size()) {
+                                    if (i7 >= eVar.f52183a.size()) {
                                         break;
-                                    } else if (eVar.f52184a.get(i7).equals(a2)) {
+                                    } else if (eVar.f52183a.get(i7).equals(a2)) {
                                         eVar.j = i7;
                                         arrayList2.add(a2);
                                         break;
@@ -4447,7 +4447,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                         i7++;
                                     }
                                 }
-                                if (h4.getPostId() != 0 && (n0 = this.f52269a.E0.n0()) != null) {
+                                if (h4.getPostId() != 0 && (n0 = this.f52268a.E0.n0()) != null) {
                                     ArrayList<b.a.e.l.e.n> s = n0.s();
                                     if (ListUtils.getCount(s) > 0) {
                                         Iterator<b.a.e.l.e.n> it = s.iterator();
@@ -4457,7 +4457,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                             }
                                             b.a.e.l.e.n next = it.next();
                                             if ((next instanceof PostData) && h4.getPostId() == b.a.e.e.m.b.g(((PostData) next).G(), 0L)) {
-                                                b.a.r0.k2.w.a.b(this.f52269a.x0.P0(), (PostData) next, ((PostData) next).k0, h4.getPostId() == b.a.e.e.m.b.g(this.f52269a.x0.p0(), 0L) ? 1 : 8, 3);
+                                                b.a.r0.k2.w.a.b(this.f52268a.x0.P0(), (PostData) next, ((PostData) next).k0, h4.getPostId() == b.a.e.e.m.b.g(this.f52268a.x0.p0(), 0L) ? 1 : 8, 3);
                                             }
                                         }
                                     }
@@ -4465,78 +4465,78 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
                                 if (!ListUtils.isEmpty(arrayList2)) {
                                     String str2 = arrayList2.get(0);
-                                    concurrentHashMap2.put(str2, eVar.f52185b.get(str2));
+                                    concurrentHashMap2.put(str2, eVar.f52184b.get(str2));
                                 }
                                 Rect rect2 = new Rect();
                                 view.getGlobalVisibleRect(rect2);
-                                this.f52269a.M2(rect2);
+                                this.f52268a.M2(rect2);
                                 ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
                                 bVar2.x(arrayList2);
-                                bVar2.z(eVar.f52186c);
-                                bVar2.y(eVar.f52187d);
-                                bVar2.O(eVar.f52188e);
-                                bVar2.C(eVar.f52190g);
+                                bVar2.z(eVar.f52185c);
+                                bVar2.y(eVar.f52186d);
+                                bVar2.O(eVar.f52187e);
+                                bVar2.C(eVar.f52189g);
                                 bVar2.H(true);
-                                bVar2.J(eVar.f52192i);
-                                bVar2.F(this.f52269a.x0.a1());
+                                bVar2.J(eVar.f52191i);
+                                bVar2.F(this.f52268a.x0.a1());
                                 bVar2.w(concurrentHashMap2);
                                 bVar2.K(false);
-                                bVar2.G(this.f52269a.isHostOnlyMode());
-                                bVar2.L(eVar.f52189f);
+                                bVar2.G(this.f52268a.isHostOnlyMode());
+                                bVar2.L(eVar.f52188f);
                                 bVar2.M(rect2, UtilHelper.fixedDrawableRect(rect2, view));
-                                if (this.f52269a.x0 != null) {
-                                    bVar2.A(this.f52269a.x0.getFromForumId());
-                                    if (this.f52269a.x0.P0() != null) {
-                                        bVar2.N(this.f52269a.x0.P0().O());
+                                if (this.f52268a.x0 != null) {
+                                    bVar2.A(this.f52268a.x0.getFromForumId());
+                                    if (this.f52268a.x0.P0() != null) {
+                                        bVar2.N(this.f52268a.x0.P0().O());
                                     }
                                 }
-                                ImageViewerConfig v2 = bVar2.v(this.f52269a.getPageContext().getPageActivity());
+                                ImageViewerConfig v2 = bVar2.v(this.f52268a.getPageContext().getPageActivity());
                                 v2.getIntent().putExtra("from", "pb");
-                                this.f52269a.sendMessage(new CustomMessage(2010000, v2));
+                                this.f52268a.sendMessage(new CustomMessage(2010000, v2));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                                 return;
                             }
                             return;
                         }
                         ArrayList arrayList3 = new ArrayList();
-                        arrayList3.add(ListUtils.getItem(eVar.f52184a, 0));
+                        arrayList3.add(ListUtils.getItem(eVar.f52183a, 0));
                         ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
                         if (!ListUtils.isEmpty(arrayList3)) {
                             String str3 = (String) arrayList3.get(0);
-                            concurrentHashMap3.put(str3, eVar.f52185b.get(str3));
+                            concurrentHashMap3.put(str3, eVar.f52184b.get(str3));
                         }
                         ImageViewerConfig.b bVar3 = new ImageViewerConfig.b();
                         bVar3.x(arrayList3);
-                        bVar3.z(eVar.f52186c);
-                        bVar3.y(eVar.f52187d);
-                        bVar3.O(eVar.f52188e);
-                        bVar3.C(eVar.f52190g);
+                        bVar3.z(eVar.f52185c);
+                        bVar3.y(eVar.f52186d);
+                        bVar3.O(eVar.f52187e);
+                        bVar3.C(eVar.f52189g);
                         bVar3.H(true);
-                        bVar3.J(eVar.f52184a.get(0));
-                        bVar3.F(this.f52269a.x0.a1());
+                        bVar3.J(eVar.f52183a.get(0));
+                        bVar3.F(this.f52268a.x0.a1());
                         bVar3.w(concurrentHashMap3);
                         bVar3.K(false);
-                        bVar3.G(this.f52269a.isHostOnlyMode());
-                        bVar3.L(eVar.f52189f);
+                        bVar3.G(this.f52268a.isHostOnlyMode());
+                        bVar3.L(eVar.f52188f);
                         bVar3.D(false);
-                        if (this.f52269a.x0 != null) {
-                            bVar3.A(this.f52269a.x0.getFromForumId());
-                            if (this.f52269a.x0.P0() != null) {
-                                bVar3.N(this.f52269a.x0.P0().O());
+                        if (this.f52268a.x0 != null) {
+                            bVar3.A(this.f52268a.x0.getFromForumId());
+                            if (this.f52268a.x0.P0() != null) {
+                                bVar3.N(this.f52268a.x0.P0().O());
                             }
                         }
-                        ImageViewerConfig v3 = bVar3.v(this.f52269a.getPageContext().getPageActivity());
+                        ImageViewerConfig v3 = bVar3.v(this.f52268a.getPageContext().getPageActivity());
                         v3.getIntent().putExtra("from", "pb");
-                        this.f52269a.sendMessage(new CustomMessage(2010000, v3));
+                        this.f52268a.sendMessage(new CustomMessage(2010000, v3));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                         return;
                     }
                     TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info);
                     boolean isGif = ((TbImageView) view).isGif();
                     if (tbRichTextMemeInfo != null && tbRichTextMemeInfo.memeInfo != null) {
-                        this.f52269a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.f52269a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, isGif)));
+                        this.f52268a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.f52268a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, isGif)));
                     }
-                    this.f52269a.W = view;
+                    this.f52268a.W = view;
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -4550,7 +4550,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52270a;
+        public final /* synthetic */ PbFragment f52269a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(PbFragment pbFragment, int i2) {
@@ -4570,7 +4570,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52270a = pbFragment;
+            this.f52269a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -4580,10 +4580,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (this.f52270a.S0 != null) {
-                this.f52270a.E0.v2(this.f52270a.S0.D());
+            if (this.f52269a.S0 != null) {
+                this.f52269a.E0.v2(this.f52269a.S0.D());
             }
-            this.f52270a.E0.c3(false);
+            this.f52269a.E0.c3(false);
         }
     }
 
@@ -4593,7 +4593,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52271a;
+        public final /* synthetic */ PbFragment f52270a;
 
         public i0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -4610,7 +4610,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52271a = pbFragment;
+            this.f52270a = pbFragment;
         }
 
         @Override // b.a.q0.s.s.b.c
@@ -4618,23 +4618,23 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) {
                 if (i2 == 0) {
-                    TiebaStatic.eventStat(this.f52271a.getPageContext().getPageActivity(), "pb_phone_call", NotificationCompat.CATEGORY_CALL);
-                    PbFragment pbFragment = this.f52271a;
+                    TiebaStatic.eventStat(this.f52270a.getPageContext().getPageActivity(), "pb_phone_call", NotificationCompat.CATEGORY_CALL);
+                    PbFragment pbFragment = this.f52270a;
                     pbFragment.K0 = pbFragment.K0.trim();
-                    UtilHelper.callPhone(this.f52271a.getPageContext().getPageActivity(), this.f52271a.K0);
-                    new b.a.r0.k2.u.f.c(this.f52271a.x0.f1(), this.f52271a.K0, "1").start();
+                    UtilHelper.callPhone(this.f52270a.getPageContext().getPageActivity(), this.f52270a.K0);
+                    new b.a.r0.k2.u.f.c(this.f52270a.x0.f1(), this.f52270a.K0, "1").start();
                     bVar.e();
                 } else if (i2 == 1) {
-                    TiebaStatic.eventStat(this.f52271a.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-                    PbFragment pbFragment2 = this.f52271a;
+                    TiebaStatic.eventStat(this.f52270a.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
+                    PbFragment pbFragment2 = this.f52270a;
                     pbFragment2.K0 = pbFragment2.K0.trim();
-                    UtilHelper.smsPhone(this.f52271a.getPageContext().getPageActivity(), this.f52271a.K0);
-                    new b.a.r0.k2.u.f.c(this.f52271a.x0.f1(), this.f52271a.K0, "2").start();
+                    UtilHelper.smsPhone(this.f52270a.getPageContext().getPageActivity(), this.f52270a.K0);
+                    new b.a.r0.k2.u.f.c(this.f52270a.x0.f1(), this.f52270a.K0, "2").start();
                     bVar.e();
                 } else if (i2 == 2) {
-                    PbFragment pbFragment3 = this.f52271a;
+                    PbFragment pbFragment3 = this.f52270a;
                     pbFragment3.K0 = pbFragment3.K0.trim();
-                    UtilHelper.startBaiDuBar(this.f52271a.getPageContext().getPageActivity(), this.f52271a.K0);
+                    UtilHelper.startBaiDuBar(this.f52270a.getPageContext().getPageActivity(), this.f52270a.K0);
                     bVar.e();
                 }
             }
@@ -4647,7 +4647,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52272a;
+        public final /* synthetic */ PbFragment f52271a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i1(PbFragment pbFragment, int i2, boolean z) {
@@ -4668,7 +4668,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52272a = pbFragment;
+            this.f52271a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -4676,21 +4676,21 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.f52272a.E0 != null) {
-                    PbFragment pbFragment = this.f52272a;
+                if (this.f52271a.E0 != null) {
+                    PbFragment pbFragment = this.f52271a;
                     pbFragment.hideLoadingView(pbFragment.E0.a1());
-                    this.f52272a.hideProgressBar();
+                    this.f52271a.hideProgressBar();
                 }
                 if (httpResponsedMessage != null && (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage)) {
                     PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                     if (TextUtils.equals("reply", privacySettingMessage.getOperation())) {
                         int type = privacySettingMessage.getType();
                         if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                            new BdTopToast(this.f52272a.getContext()).setIcon(true).setContent(this.f52272a.getString(b.a.r0.k2.l.block_user_success)).show((ViewGroup) this.f52272a.getView());
-                            this.f52272a.E3(type);
+                            new BdTopToast(this.f52271a.getContext()).setIcon(true).setContent(this.f52271a.getString(b.a.r0.k2.l.block_user_success)).show((ViewGroup) this.f52271a.getView());
+                            this.f52271a.E3(type);
                             return;
                         }
-                        new BdTopToast(this.f52272a.getContext()).setIcon(false).setContent(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f52272a.getResources().getString(b.a.r0.k2.l.neterror) : httpResponsedMessage.getErrorString()).show((ViewGroup) this.f52272a.getView());
+                        new BdTopToast(this.f52271a.getContext()).setIcon(false).setContent(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f52271a.getResources().getString(b.a.r0.k2.l.neterror) : httpResponsedMessage.getErrorString()).show((ViewGroup) this.f52271a.getView());
                     }
                 }
             }
@@ -4703,7 +4703,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52273a;
+        public final /* synthetic */ PbFragment f52272a;
 
         public i2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -4720,7 +4720,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52273a = pbFragment;
+            this.f52272a = pbFragment;
         }
 
         @Override // b.a.q0.s.s.b.c
@@ -4730,14 +4730,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (bVar != null) {
                     bVar.e();
                 }
-                PbFragment pbFragment = this.f52273a;
+                PbFragment pbFragment = this.f52272a;
                 PostData postData = pbFragment.m2;
                 if (postData != null) {
                     if (i2 == 0) {
                         postData.l0(pbFragment.getPageContext().getPageActivity());
-                        this.f52273a.m2 = null;
+                        this.f52272a.m2 = null;
                     } else if (i2 == 1 && pbFragment.checkUpIsLogin()) {
-                        PbFragment pbFragment2 = this.f52273a;
+                        PbFragment pbFragment2 = this.f52272a;
                         pbFragment2.markFloor(pbFragment2.m2);
                     }
                 }
@@ -4751,10 +4751,63 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52274a;
+        public final /* synthetic */ PbFragment f52273a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(PbFragment pbFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52273a = pbFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
+            }
+            b.a.r0.k2.o oVar = (b.a.r0.k2.o) customResponsedMessage.getData();
+            int type = oVar.getType();
+            if (type == 0) {
+                this.f52273a.refreshWrite((b.a.r0.k2.r.s) oVar.a());
+            } else if (type == 1) {
+                this.f52273a.K2((ForumManageModel.b) oVar.a(), false);
+            } else if (type != 2) {
+            } else {
+                if (oVar.a() == null) {
+                    this.f52273a.refreshMark(false, null);
+                } else {
+                    this.f52273a.refreshMark(true, (MarkData) oVar.a());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class j0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52274a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public j0(PbFragment pbFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -4778,85 +4831,32 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
-                return;
-            }
-            b.a.r0.k2.o oVar = (b.a.r0.k2.o) customResponsedMessage.getData();
-            int type = oVar.getType();
-            if (type == 0) {
-                this.f52274a.refreshWrite((b.a.r0.k2.r.s) oVar.a());
-            } else if (type == 1) {
-                this.f52274a.K2((ForumManageModel.b) oVar.a(), false);
-            } else if (type != 2) {
-            } else {
-                if (oVar.a() == null) {
-                    this.f52274a.refreshMark(false, null);
-                } else {
-                    this.f52274a.refreshMark(true, (MarkData) oVar.a());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class j0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52275a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public j0(PbFragment pbFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52275a = pbFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == this.f52275a.f1) {
-                this.f52275a.E0.g1();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == this.f52274a.f1) {
+                this.f52274a.E0.g1();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
-                b.a.r0.k2.r.f P0 = this.f52275a.x0.P0();
+                b.a.r0.k2.r.f P0 = this.f52274a.x0.P0();
                 if (P0 != null) {
                     MuteUser muteUser = new MuteUser();
                     muteUser.setUserId(str);
                     P0.v().add(muteUser);
                 }
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    this.f52275a.e1.c(this.f52275a.d1.getResources().getString(b.a.r0.k2.l.mute_success));
+                    this.f52274a.e1.c(this.f52274a.d1.getResources().getString(b.a.r0.k2.l.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = this.f52275a.d1.getResources().getString(b.a.r0.k2.l.mute_error_beyond_limit);
+                        errorString = this.f52274a.d1.getResources().getString(b.a.r0.k2.l.mute_error_beyond_limit);
                     }
-                    this.f52275a.U3(errorString);
+                    this.f52274a.U3(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 1990043) {
-                    this.f52275a.P3();
+                    this.f52274a.P3();
                 } else {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
                     if (b.a.e.e.p.k.isEmpty(errorString2)) {
-                        errorString2 = this.f52275a.d1.getResources().getString(b.a.r0.k2.l.mute_fail);
+                        errorString2 = this.f52274a.d1.getResources().getString(b.a.r0.k2.l.mute_fail);
                     }
-                    this.f52275a.e1.b(errorString2);
+                    this.f52274a.e1.b(errorString2);
                 }
             }
         }
@@ -4868,9 +4868,84 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52276a;
+        public final /* synthetic */ PbFragment f52275a;
 
         public j1(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52275a = pbFragment;
+        }
+
+        @Override // b.a.q0.i.a.InterfaceC0664a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                this.f52275a.E0.P2();
+                if (z) {
+                    if (this.f52275a.z0 != null) {
+                        this.f52275a.z0.h(z2);
+                    }
+                    this.f52275a.x0.r2(z2);
+                    if (this.f52275a.x0.B0()) {
+                        this.f52275a.p3();
+                    } else {
+                        this.f52275a.E0.t1(this.f52275a.x0.P0());
+                    }
+                    if (z2) {
+                        if (this.f52275a.z0 != null) {
+                            if (this.f52275a.z0.f() == null || this.f52275a.x0 == null || this.f52275a.x0.P0() == null || this.f52275a.x0.P0().O() == null || this.f52275a.x0.P0().O().J() == null) {
+                                return;
+                            }
+                            MarkData f2 = this.f52275a.z0.f();
+                            MetaData J = this.f52275a.x0.P0().O().J();
+                            if (f2 != null && J != null) {
+                                if (!StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), J.getUserId()) && !J.hadConcerned()) {
+                                    this.f52275a.O3(J);
+                                } else {
+                                    this.f52275a.showToast(b.a.r0.k2.l.add_mark_on_pb);
+                                    if (b.a.q0.t.h.a.e(this.f52275a.getContext(), 0)) {
+                                        b.a.q0.t.h.a.g(this.f52275a.getPageContext(), 6, 2000L);
+                                    }
+                                }
+                            } else {
+                                PbFragment pbFragment = this.f52275a;
+                                pbFragment.showToast(pbFragment.getPageContext().getString(b.a.r0.k2.l.add_mark));
+                            }
+                        }
+                        this.f52275a.A2();
+                        return;
+                    }
+                    PbFragment pbFragment2 = this.f52275a;
+                    pbFragment2.showToast(pbFragment2.getPageContext().getString(b.a.r0.k2.l.remove_mark));
+                    return;
+                }
+                PbFragment pbFragment3 = this.f52275a;
+                pbFragment3.showToast(pbFragment3.getPageContext().getString(b.a.r0.k2.l.update_mark_failed));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class j2 implements b.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52276a;
+
+        public j2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4888,81 +4963,6 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52276a = pbFragment;
         }
 
-        @Override // b.a.q0.i.a.InterfaceC0664a
-        public void a(boolean z, boolean z2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                this.f52276a.E0.P2();
-                if (z) {
-                    if (this.f52276a.z0 != null) {
-                        this.f52276a.z0.h(z2);
-                    }
-                    this.f52276a.x0.r2(z2);
-                    if (this.f52276a.x0.B0()) {
-                        this.f52276a.p3();
-                    } else {
-                        this.f52276a.E0.t1(this.f52276a.x0.P0());
-                    }
-                    if (z2) {
-                        if (this.f52276a.z0 != null) {
-                            if (this.f52276a.z0.f() == null || this.f52276a.x0 == null || this.f52276a.x0.P0() == null || this.f52276a.x0.P0().O() == null || this.f52276a.x0.P0().O().J() == null) {
-                                return;
-                            }
-                            MarkData f2 = this.f52276a.z0.f();
-                            MetaData J = this.f52276a.x0.P0().O().J();
-                            if (f2 != null && J != null) {
-                                if (!StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), J.getUserId()) && !J.hadConcerned()) {
-                                    this.f52276a.O3(J);
-                                } else {
-                                    this.f52276a.showToast(b.a.r0.k2.l.add_mark_on_pb);
-                                    if (b.a.q0.t.h.a.e(this.f52276a.getContext(), 0)) {
-                                        b.a.q0.t.h.a.g(this.f52276a.getPageContext(), 6, 2000L);
-                                    }
-                                }
-                            } else {
-                                PbFragment pbFragment = this.f52276a;
-                                pbFragment.showToast(pbFragment.getPageContext().getString(b.a.r0.k2.l.add_mark));
-                            }
-                        }
-                        this.f52276a.A2();
-                        return;
-                    }
-                    PbFragment pbFragment2 = this.f52276a;
-                    pbFragment2.showToast(pbFragment2.getPageContext().getString(b.a.r0.k2.l.remove_mark));
-                    return;
-                }
-                PbFragment pbFragment3 = this.f52276a;
-                pbFragment3.showToast(pbFragment3.getPageContext().getString(b.a.r0.k2.l.update_mark_failed));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class j2 implements b.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52277a;
-
-        public j2(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52277a = pbFragment;
-        }
-
         @Override // b.a.q0.s.s.b.c
         public void a(b.a.q0.s.s.b bVar, int i2, View view) {
             Interceptable interceptable = $ic;
@@ -4970,39 +4970,39 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (bVar != null) {
                     bVar.e();
                 }
-                if (this.f52277a.i1 == null || TextUtils.isEmpty(this.f52277a.j1)) {
+                if (this.f52276a.i1 == null || TextUtils.isEmpty(this.f52276a.j1)) {
                     return;
                 }
                 if (i2 == 0) {
-                    if (this.f52277a.k1 == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52277a.j1));
+                    if (this.f52276a.k1 == null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52276a.j1));
                     } else {
                         d.a aVar = new d.a();
-                        aVar.f11986a = this.f52277a.j1;
+                        aVar.f11986a = this.f52276a.j1;
                         String str = "";
-                        if (this.f52277a.k1.memeInfo.pck_id.intValue() >= 0) {
-                            str = "" + this.f52277a.k1.memeInfo.pck_id;
+                        if (this.f52276a.k1.memeInfo.pck_id.intValue() >= 0) {
+                            str = "" + this.f52276a.k1.memeInfo.pck_id;
                         }
                         aVar.f11987b = str;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                     }
                 } else if (i2 == 1) {
-                    if (this.f52277a.U0 == null) {
-                        this.f52277a.U0 = new PermissionJudgePolicy();
+                    if (this.f52276a.U0 == null) {
+                        this.f52276a.U0 = new PermissionJudgePolicy();
                     }
-                    this.f52277a.U0.clearRequestPermissionList();
-                    this.f52277a.U0.appendRequestPermission(this.f52277a.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                    if (this.f52277a.U0.startRequestPermission(this.f52277a.getPageContext().getPageActivity())) {
+                    this.f52276a.U0.clearRequestPermissionList();
+                    this.f52276a.U0.appendRequestPermission(this.f52276a.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (this.f52276a.U0.startRequestPermission(this.f52276a.getPageContext().getPageActivity())) {
                         return;
                     }
-                    if (this.f52277a.h1 == null) {
-                        PbFragment pbFragment = this.f52277a;
+                    if (this.f52276a.h1 == null) {
+                        PbFragment pbFragment = this.f52276a;
                         pbFragment.h1 = new b.a.r0.k2.u.f.w0(pbFragment.getPageContext());
                     }
-                    this.f52277a.h1.b(this.f52277a.j1, this.f52277a.i1.n());
+                    this.f52276a.h1.b(this.f52276a.j1, this.f52276a.i1.n());
                 }
-                this.f52277a.i1 = null;
-                this.f52277a.j1 = null;
+                this.f52276a.i1 = null;
+                this.f52276a.j1 = null;
             }
         }
     }
@@ -5013,10 +5013,50 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52278a;
+        public final /* synthetic */ PbFragment f52277a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(PbFragment pbFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52277a = pbFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52277a.E0 == null || this.f52277a.E0.n0() == null) {
+                return;
+            }
+            this.f52277a.E0.n0().X();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class k0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52278a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public k0(PbFragment pbFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -5040,58 +5080,18 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52278a.E0 == null || this.f52278a.E0.n0() == null) {
-                return;
-            }
-            this.f52278a.E0.n0().X();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class k0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52279a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k0(PbFragment pbFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52279a = pbFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == this.f52279a.f1) {
-                this.f52279a.E0.g1();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == this.f52278a.f1) {
+                this.f52278a.E0.g1();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    this.f52279a.e1.c(this.f52279a.d1.getResources().getString(b.a.r0.k2.l.un_mute_success));
+                    this.f52278a.e1.c(this.f52278a.d1.getResources().getString(b.a.r0.k2.l.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (b.a.e.e.p.k.isEmpty(muteMessage)) {
-                    muteMessage = this.f52279a.d1.getResources().getString(b.a.r0.k2.l.un_mute_fail);
+                    muteMessage = this.f52278a.d1.getResources().getString(b.a.r0.k2.l.un_mute_fail);
                 }
-                this.f52279a.e1.b(muteMessage);
+                this.f52278a.e1.b(muteMessage);
             }
         }
     }
@@ -5102,7 +5102,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f52280e;
+        public final /* synthetic */ MetaData f52279e;
 
         public k1(PbFragment pbFragment, MetaData metaData) {
             Interceptable interceptable = $ic;
@@ -5119,14 +5119,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52280e = metaData;
+            this.f52279e = metaData;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f52280e.getUserId()).param("obj_locate", 2));
+                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f52279e.getUserId()).param("obj_locate", 2));
                 aVar.dismiss();
             }
         }
@@ -5138,7 +5138,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52281e;
+        public final /* synthetic */ PbFragment f52280e;
 
         public k2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5155,16 +5155,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52281e = pbFragment;
+            this.f52280e = pbFragment;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f52281e.x0 == null || this.f52281e.x0.Y0() == i2 + 1) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f52280e.x0 == null || this.f52280e.x0.Y0() == i2 + 1) {
                 return;
             }
-            PbFragment pbFragment = this.f52281e;
+            PbFragment pbFragment = this.f52280e;
             pbFragment.C3(pbFragment.W2(i2));
         }
     }
@@ -5175,7 +5175,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52282a;
+        public final /* synthetic */ PbFragment f52281a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(PbFragment pbFragment, int i2) {
@@ -5195,7 +5195,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52282a = pbFragment;
+            this.f52281a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -5204,7 +5204,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                b.a.q0.f1.n.f.c(this.f52282a.getPageContext(), this.f52282a, aVar.f12438a, aVar.f12439b, aVar.f12440c);
+                b.a.q0.f1.n.f.c(this.f52281a.getPageContext(), this.f52281a, aVar.f12438a, aVar.f12439b, aVar.f12440c);
             }
         }
     }
@@ -5215,7 +5215,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52283e;
+        public final /* synthetic */ PbFragment f52282e;
 
         public l0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5232,7 +5232,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52283e = pbFragment;
+            this.f52282e = pbFragment;
         }
 
         @Override // android.os.Handler.Callback
@@ -5240,8 +5240,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 2 && this.f52283e.x0 != null && this.f52283e.x0.B0()) {
-                    this.f52283e.p3();
+                if (message.what == 2 && this.f52282e.x0 != null && this.f52282e.x0.B0()) {
+                    this.f52282e.p3();
                 }
                 return false;
             }
@@ -5255,10 +5255,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f52284e;
+        public final /* synthetic */ MetaData f52283e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52285f;
+        public final /* synthetic */ PbFragment f52284f;
 
         public l1(PbFragment pbFragment, MetaData metaData) {
             Interceptable interceptable = $ic;
@@ -5275,17 +5275,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52285f = pbFragment;
-            this.f52284e = metaData;
+            this.f52284f = pbFragment;
+            this.f52283e = metaData;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f52284e.getUserId()).param("obj_locate", 1));
+                TiebaStatic.log(new StatisticItem("c12528").param("obj_id", this.f52283e.getUserId()).param("obj_locate", 1));
                 aVar.dismiss();
-                this.f52285f.B0.l(!this.f52284e.hadConcerned(), this.f52284e.getPortrait(), this.f52284e.getUserId(), this.f52284e.isGod(), "6", this.f52285f.getPageContext().getUniqueId(), this.f52285f.x0.getForumId(), "0");
+                this.f52284f.B0.l(!this.f52283e.hadConcerned(), this.f52283e.getPortrait(), this.f52283e.getUserId(), this.f52283e.isGod(), "6", this.f52284f.getPageContext().getUniqueId(), this.f52284f.x0.getForumId(), "0");
             }
         }
     }
@@ -5296,7 +5296,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52286e;
+        public final /* synthetic */ PbFragment f52285e;
 
         public l2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5313,7 +5313,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52286e = pbFragment;
+            this.f52285e = pbFragment;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -5321,8 +5321,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                PbFragment pbFragment = this.f52286e;
-                pbFragment.f52222f = true;
+                PbFragment pbFragment = this.f52285e;
+                pbFragment.f52221f = true;
                 return pbFragment.H2(view);
             }
             return invokeL.booleanValue;
@@ -5335,10 +5335,50 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52287a;
+        public final /* synthetic */ PbFragment f52286a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(PbFragment pbFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52286a = pbFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52286a.k) {
+                return;
+            }
+            this.f52286a.W3();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class m0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52287a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public m0(PbFragment pbFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -5362,52 +5402,12 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52287a.k) {
-                return;
-            }
-            this.f52287a.W3();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class m0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52288a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m0(PbFragment pbFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52288a = pbFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!this.f52288a.g3() || this.f52288a.f52221e == null || this.f52288a.f52221e.getPbModel() == null || !str.equals(this.f52288a.f52221e.getPbModel().getTopicId())) {
+                if (!this.f52287a.g3() || this.f52287a.f52220e == null || this.f52287a.f52220e.getPbModel() == null || !str.equals(this.f52287a.f52220e.getPbModel().getTopicId())) {
                     return;
                 }
-                this.f52288a.c4(false);
+                this.f52287a.c4(false);
             }
         }
     }
@@ -5418,7 +5418,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52289e;
+        public final /* synthetic */ PbFragment f52288e;
 
         public m1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5435,25 +5435,25 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52289e = pbFragment;
+            this.f52288e = pbFragment;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             ArrayList<PostData> F;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || this.f52289e.x0 == null || this.f52289e.x0.P0() == null || this.f52289e.E0 == null || this.f52289e.E0.n0() == null) {
+            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || this.f52288e.x0 == null || this.f52288e.x0.P0() == null || this.f52288e.E0 == null || this.f52288e.E0.n0() == null) {
                 return;
             }
-            this.f52289e.E0.T1(absListView, i2, i3, i4);
-            if (this.f52289e.f52225i != null) {
-                this.f52289e.f52225i.q(absListView, i2, i3, i4);
+            this.f52288e.E0.T1(absListView, i2, i3, i4);
+            if (this.f52288e.f52224i != null) {
+                this.f52288e.f52224i.q(absListView, i2, i3, i4);
             }
-            if (!this.f52289e.x0.t1() || (F = this.f52289e.x0.P0().F()) == null || F.isEmpty()) {
+            if (!this.f52288e.x0.t1() || (F = this.f52288e.x0.P0().F()) == null || F.isEmpty()) {
                 return;
             }
-            int w = ((i2 + i3) - this.f52289e.E0.n0().w()) - 1;
-            b.a.r0.k2.r.f P0 = this.f52289e.x0.P0();
+            int w = ((i2 + i3) - this.f52288e.E0.n0().w()) - 1;
+            b.a.r0.k2.r.f P0 = this.f52288e.x0.P0();
             if (P0 == null) {
                 return;
             }
@@ -5472,48 +5472,48 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                PbFragment pbFragment = this.f52289e;
-                if (!pbFragment.i3(pbFragment.b1) && this.f52289e.i3(i2)) {
-                    if (this.f52289e.E0 != null) {
-                        this.f52289e.E0.c0();
-                        if (this.f52289e.S0 != null && !this.f52289e.E0.v1()) {
-                            this.f52289e.E0.v2(this.f52289e.S0.D());
+                PbFragment pbFragment = this.f52288e;
+                if (!pbFragment.i3(pbFragment.b1) && this.f52288e.i3(i2)) {
+                    if (this.f52288e.E0 != null) {
+                        this.f52288e.E0.c0();
+                        if (this.f52288e.S0 != null && !this.f52288e.E0.v1()) {
+                            this.f52288e.E0.v2(this.f52288e.S0.D());
                         }
-                        if (!this.f52289e.N) {
-                            this.f52289e.E0.o2();
+                        if (!this.f52288e.N) {
+                            this.f52288e.E0.o2();
                         }
                     }
-                    if (!this.f52289e.x) {
-                        this.f52289e.x = true;
+                    if (!this.f52288e.x) {
+                        this.f52288e.x = true;
                     }
                 }
-                if (this.f52289e.E0 != null) {
-                    this.f52289e.E0.U1(absListView, i2);
+                if (this.f52288e.E0 != null) {
+                    this.f52288e.E0.U1(absListView, i2);
                 }
-                if (this.f52289e.f52225i != null) {
-                    this.f52289e.f52225i.r(absListView, i2);
+                if (this.f52288e.f52224i != null) {
+                    this.f52288e.f52224i.r(absListView, i2);
                 }
-                if (this.f52289e.y == null) {
-                    this.f52289e.y = new b.a.q0.q0.b();
-                    this.f52289e.y.a(1001);
+                if (this.f52288e.y == null) {
+                    this.f52288e.y = new b.a.q0.q0.b();
+                    this.f52288e.y.a(1001);
                 }
                 if (i2 == 0) {
-                    this.f52289e.y.e();
-                    if (this.f52289e.q0 != null) {
-                        BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(this.f52289e.q0);
-                        this.f52289e.q0 = null;
+                    this.f52288e.y.e();
+                    if (this.f52288e.q0 != null) {
+                        BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(this.f52288e.q0);
+                        this.f52288e.q0 = null;
                     }
                 } else {
-                    if (this.f52289e.q0 == null) {
-                        this.f52289e.q0 = BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect("pb", "1", "scroll");
+                    if (this.f52288e.q0 == null) {
+                        this.f52288e.q0 = BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect("pb", "1", "scroll");
                     }
-                    this.f52289e.y.d();
+                    this.f52288e.y.d();
                 }
-                this.f52289e.b1 = i2;
+                this.f52288e.b1 = i2;
                 if (i2 == 0) {
-                    this.f52289e.A3(false, null);
-                    b.a.r0.k3.c.g().h(this.f52289e.getUniqueId(), true);
-                    this.f52289e.checkEasterEgg(true);
+                    this.f52288e.A3(false, null);
+                    b.a.r0.k3.c.g().h(this.f52288e.getUniqueId(), true);
+                    this.f52288e.checkEasterEgg(true);
                 }
             }
         }
@@ -5525,7 +5525,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52290e;
+        public final /* synthetic */ PbFragment f52289e;
 
         public m2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5542,14 +5542,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52290e = pbFragment;
+            this.f52289e = pbFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ItemCardHelper.l(this.f52290e.getContext(), this.f52290e.getUniqueId(), view, (ViewGroup) this.f52290e.getView());
+                ItemCardHelper.l(this.f52289e.getContext(), this.f52289e.getUniqueId(), view, (ViewGroup) this.f52289e.getView());
             }
         }
     }
@@ -5560,10 +5560,49 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52291a;
+        public final /* synthetic */ PbFragment f52290a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n(PbFragment pbFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52290a = pbFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                new BdTopToast(this.f52290a.getContext()).setIcon(false).setContent(this.f52290a.getString(b.a.r0.k2.l.novel_thread_mask_click_tip)).show((ViewGroup) this.f52290a.getView());
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class n0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52291a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public n0(PbFragment pbFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -5587,49 +5626,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                new BdTopToast(this.f52291a.getContext()).setIcon(false).setContent(this.f52291a.getString(b.a.r0.k2.l.novel_thread_mask_click_tip)).show((ViewGroup) this.f52291a.getView());
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class n0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52292a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n0(PbFragment pbFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52292a = pbFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.r0.w3.a) && customResponsedMessage.getOrginalMessage().getTag() == this.f52292a.f1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.r0.w3.a) && customResponsedMessage.getOrginalMessage().getTag() == this.f52291a.f1) {
                 b.a.r0.w3.a aVar = (b.a.r0.w3.a) customResponsedMessage.getData();
-                this.f52292a.E0.g1();
-                SparseArray<Object> sparseArray = (SparseArray) this.f52292a.c1;
+                this.f52291a.E0.g1();
+                SparseArray<Object> sparseArray = (SparseArray) this.f52291a.c1;
                 DataRes dataRes = aVar.f25388a;
                 if (aVar.f25390c == 0 && dataRes != null) {
                     int e2 = b.a.e.e.m.b.e(dataRes.is_mute, 0);
@@ -5646,9 +5646,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 }
                 int intValue = ((Integer) sparseArray.get(b.a.r0.k2.i.tag_from)).intValue();
                 if (intValue == 0) {
-                    this.f52292a.Q3(r2, sparseArray);
+                    this.f52291a.Q3(r2, sparseArray);
                 } else if (intValue == 1) {
-                    this.f52292a.E0.a2(sparseArray, r2);
+                    this.f52291a.E0.a2(sparseArray, r2);
                 }
             }
         }
@@ -5691,7 +5691,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52293a;
+        public final /* synthetic */ PbFragment f52292a;
 
         public n2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5708,14 +5708,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52293a = pbFragment;
+            this.f52292a = pbFragment;
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                ItemCardHelper.x(this.f52293a.getContext(), ItemCardHelper.OrderTipStatus.SUCCESS, (ViewGroup) this.f52293a.getView(), j);
+                ItemCardHelper.x(this.f52292a.getContext(), ItemCardHelper.OrderTipStatus.SUCCESS, (ViewGroup) this.f52292a.getView(), j);
             }
         }
 
@@ -5723,7 +5723,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ItemCardHelper.x(this.f52293a.getContext(), ItemCardHelper.OrderTipStatus.FAIL, (ViewGroup) this.f52293a.getView(), 0L);
+                ItemCardHelper.x(this.f52292a.getContext(), ItemCardHelper.OrderTipStatus.FAIL, (ViewGroup) this.f52292a.getView(), 0L);
             }
         }
     }
@@ -5734,7 +5734,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52294e;
+        public final /* synthetic */ PbFragment f52293e;
 
         public o(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5751,14 +5751,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52294e = pbFragment;
+            this.f52293e = pbFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbFragment pbFragment = this.f52294e;
+                PbFragment pbFragment = this.f52293e;
                 pbFragment.showToast(pbFragment.D);
             }
         }
@@ -5770,7 +5770,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52295a;
+        public final /* synthetic */ PbFragment f52294a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o0(PbFragment pbFragment, int i2) {
@@ -5790,15 +5790,15 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52295a = pbFragment;
+            this.f52294a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f52295a.E0.v1() && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f52295a.doDoubleClick();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f52294a.E0.v1() && (customResponsedMessage.getData() instanceof Integer)) {
+                this.f52294a.doDoubleClick();
             }
         }
     }
@@ -5847,9 +5847,57 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52296a;
+        public final /* synthetic */ PbFragment f52295a;
 
         public o2(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52295a = pbFragment;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbFragment.a3
+        public boolean onBackPressed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f52295a.E0 != null && this.f52295a.E0.O0() != null) {
+                    b.a.r0.k2.u.f.t O0 = this.f52295a.E0.O0();
+                    if (O0.f()) {
+                        O0.d();
+                        return true;
+                    }
+                }
+                if (this.f52295a.E0 == null || !this.f52295a.E0.I1()) {
+                    return false;
+                }
+                this.f52295a.E0.k1();
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class p implements TiePlusEventController.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52296a;
+
+        public p(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -5867,59 +5915,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52296a = pbFragment;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbFragment.a3
-        public boolean onBackPressed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f52296a.E0 != null && this.f52296a.E0.O0() != null) {
-                    b.a.r0.k2.u.f.t O0 = this.f52296a.E0.O0();
-                    if (O0.f()) {
-                        O0.d();
-                        return true;
-                    }
-                }
-                if (this.f52296a.E0 == null || !this.f52296a.E0.I1()) {
-                    return false;
-                }
-                this.f52296a.E0.k1();
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class p implements TiePlusEventController.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52297a;
-
-        public p(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52297a = pbFragment;
-        }
-
         @Override // com.baidu.tbadk.widget.tiejia.TiePlusEventController.d
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52297a.A = true;
+                this.f52296a.A = true;
             }
         }
     }
@@ -5930,7 +5930,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52298a;
+        public final /* synthetic */ PbFragment f52297a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p0(PbFragment pbFragment, int i2) {
@@ -5950,7 +5950,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52298a = pbFragment;
+            this.f52297a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -5959,11 +5959,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             b.a.r0.l3.j0.e eVar;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b.a.r0.l3.j0.e) || (eVar = (b.a.r0.l3.j0.e) customResponsedMessage.getData()) == null || (agreeData = eVar.f20602b) == null || agreeData.agreeType != 2 || this.f52298a.E0 == null || !b.a.q0.b.d.T() || b.a.r0.k2.u.f.f1.b.k(this.f52298a.x0.f52416f)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b.a.r0.l3.j0.e) || (eVar = (b.a.r0.l3.j0.e) customResponsedMessage.getData()) == null || (agreeData = eVar.f20602b) == null || agreeData.agreeType != 2 || this.f52297a.E0 == null || !b.a.q0.b.d.T() || b.a.r0.k2.u.f.f1.b.k(this.f52297a.x0.f52415f)) {
                 return;
             }
-            this.f52298a.E0.v3();
-            b.a.r0.k2.u.f.f1.b.b(this.f52298a.x0.f52416f);
+            this.f52297a.E0.v3();
+            b.a.r0.k2.u.f.f1.b.b(this.f52297a.x0.f52415f);
         }
     }
 
@@ -5973,7 +5973,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52299a;
+        public final /* synthetic */ PbFragment f52298a;
 
         public p1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -5990,42 +5990,42 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52299a = pbFragment;
+            this.f52298a = pbFragment;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && this.f52299a.isAdded()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && this.f52298a.isAdded()) {
                 boolean z = false;
                 if (obj != null) {
-                    switch (this.f52299a.A0.getLoadDataMode()) {
+                    switch (this.f52298a.A0.getLoadDataMode()) {
                         case 0:
-                            this.f52299a.x0.o1();
+                            this.f52298a.x0.o1();
                             ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                            this.f52299a.K2(bVar, (bVar.f54252e != 1002 || bVar.f54253f) ? true : true);
+                            this.f52298a.K2(bVar, (bVar.f54251e != 1002 || bVar.f54252f) ? true : true);
                             return;
                         case 1:
                             ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                            this.f52299a.E0.k0(1, dVar.f54256a, dVar.f54257b, true);
+                            this.f52298a.E0.k0(1, dVar.f54255a, dVar.f54256b, true);
                             return;
                         case 2:
                         case 3:
                         case 4:
                         case 5:
-                            PbFragment pbFragment = this.f52299a;
+                            PbFragment pbFragment = this.f52298a;
                             pbFragment.L2(pbFragment.A0.getLoadDataMode(), (ForumManageModel.g) obj);
                             return;
                         case 6:
                             ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                            this.f52299a.E0.k0(this.f52299a.A0.getLoadDataMode(), gVar.f54270a, gVar.f54271b, false);
-                            this.f52299a.E0.V1(gVar.f54272c);
+                            this.f52298a.E0.k0(this.f52298a.A0.getLoadDataMode(), gVar.f54269a, gVar.f54270b, false);
+                            this.f52298a.E0.V1(gVar.f54271c);
                             return;
                         default:
                             return;
                     }
                 }
-                this.f52299a.E0.k0(this.f52299a.A0.getLoadDataMode(), false, null, false);
+                this.f52298a.E0.k0(this.f52298a.A0.getLoadDataMode(), false, null, false);
             }
         }
     }
@@ -6036,7 +6036,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52300e;
+        public final /* synthetic */ PbFragment f52299e;
 
         public p2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6053,17 +6053,17 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52300e = pbFragment;
+            this.f52299e = pbFragment;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!this.f52300e.k && z && !this.f52300e.x0.F0()) {
-                    this.f52300e.x3();
+                if (!this.f52299e.k && z && !this.f52299e.x0.F0()) {
+                    this.f52299e.x3();
                 }
-                PbFragment pbFragment = this.f52300e;
+                PbFragment pbFragment = this.f52299e;
                 pbFragment.setNetRefreshViewEmotionMarginTop(b.a.e.e.p.l.g(pbFragment.getContext(), b.a.r0.k2.g.ds360));
             }
         }
@@ -6075,10 +6075,80 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52301a;
+        public final /* synthetic */ PbFragment f52300a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public q(PbFragment pbFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52300a = pbFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.q0.s.q.j0)) {
+                b.a.q0.s.q.j0 j0Var = (b.a.q0.s.q.j0) customResponsedMessage.getData();
+                d1.a aVar = new d1.a();
+                int i2 = j0Var.f13358a;
+                String str = j0Var.f13359b;
+                aVar.f13270a = j0Var.f13361d;
+                b.a.r0.k2.r.f P0 = this.f52300a.x0.P0();
+                if (P0 == null) {
+                    return;
+                }
+                if (this.f52300a.x0.s0() != null && this.f52300a.x0.s0().getUserIdLong() == j0Var.p) {
+                    this.f52300a.E0.h2(j0Var.l, this.f52300a.x0.P0(), this.f52300a.x0.d1(), this.f52300a.x0.Z0());
+                }
+                if (P0.F() == null || P0.F().size() < 1 || P0.F().get(0) == null) {
+                    return;
+                }
+                long g2 = b.a.e.e.m.b.g(P0.F().get(0).G(), 0L);
+                long g3 = b.a.e.e.m.b.g(this.f52300a.x0.f1(), 0L);
+                if (g2 == j0Var.n && g3 == j0Var.m) {
+                    b.a.q0.s.q.d1 F = P0.F().get(0).F();
+                    if (F == null) {
+                        F = new b.a.q0.s.q.d1();
+                    }
+                    ArrayList<d1.a> a2 = F.a();
+                    if (a2 == null) {
+                        a2 = new ArrayList<>();
+                    }
+                    a2.add(0, aVar);
+                    F.e(F.b() + j0Var.l);
+                    F.d(a2);
+                    P0.F().get(0).p0(F);
+                    this.f52300a.E0.n0().X();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class q0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52301a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public q0(PbFragment pbFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -6102,76 +6172,6 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.q0.s.q.j0)) {
-                b.a.q0.s.q.j0 j0Var = (b.a.q0.s.q.j0) customResponsedMessage.getData();
-                d1.a aVar = new d1.a();
-                int i2 = j0Var.f13358a;
-                String str = j0Var.f13359b;
-                aVar.f13270a = j0Var.f13361d;
-                b.a.r0.k2.r.f P0 = this.f52301a.x0.P0();
-                if (P0 == null) {
-                    return;
-                }
-                if (this.f52301a.x0.s0() != null && this.f52301a.x0.s0().getUserIdLong() == j0Var.p) {
-                    this.f52301a.E0.h2(j0Var.l, this.f52301a.x0.P0(), this.f52301a.x0.d1(), this.f52301a.x0.Z0());
-                }
-                if (P0.F() == null || P0.F().size() < 1 || P0.F().get(0) == null) {
-                    return;
-                }
-                long g2 = b.a.e.e.m.b.g(P0.F().get(0).G(), 0L);
-                long g3 = b.a.e.e.m.b.g(this.f52301a.x0.f1(), 0L);
-                if (g2 == j0Var.n && g3 == j0Var.m) {
-                    b.a.q0.s.q.d1 F = P0.F().get(0).F();
-                    if (F == null) {
-                        F = new b.a.q0.s.q.d1();
-                    }
-                    ArrayList<d1.a> a2 = F.a();
-                    if (a2 == null) {
-                        a2 = new ArrayList<>();
-                    }
-                    a2.add(0, aVar);
-                    F.e(F.b() + j0Var.l);
-                    F.d(a2);
-                    P0.F().get(0).p0(F);
-                    this.f52301a.E0.n0().X();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class q0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52302a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public q0(PbFragment pbFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52302a = pbFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
@@ -6179,7 +6179,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (!(data instanceof String) || TextUtils.isEmpty((String) data)) {
                 return;
             }
-            this.f52302a.l1 = true;
+            this.f52301a.l1 = true;
         }
     }
 
@@ -6220,7 +6220,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52303a;
+        public final /* synthetic */ PbFragment f52302a;
 
         public q2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6237,7 +6237,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52303a = pbFragment;
+            this.f52302a = pbFragment;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -6281,7 +6281,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                LinearLayout linearLayout = new LinearLayout(this.f52303a.getPageContext().getPageActivity());
+                LinearLayout linearLayout = new LinearLayout(this.f52302a.getPageContext().getPageActivity());
                 linearLayout.setId(b.a.r0.k2.i.pb_text_voice_layout);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 linearLayout.setLayoutParams(layoutParams);
@@ -6311,7 +6311,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52304a;
+        public final /* synthetic */ PbFragment f52303a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r(PbFragment pbFragment, int i2) {
@@ -6331,20 +6331,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52304a = pbFragment;
+            this.f52303a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52304a.x0 == null || this.f52304a.x0.P0() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52303a.x0 == null || this.f52303a.x0.P0() == null) {
                 return;
             }
-            this.f52304a.x0.P0().a();
-            this.f52304a.x0.o1();
-            if (this.f52304a.E0.n0() != null) {
-                this.f52304a.E0.t1(this.f52304a.x0.P0());
+            this.f52303a.x0.P0().a();
+            this.f52303a.x0.o1();
+            if (this.f52303a.E0.n0() != null) {
+                this.f52303a.E0.t1(this.f52303a.x0.P0());
             }
             MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
         }
@@ -6356,7 +6356,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52305e;
+        public final /* synthetic */ PbFragment f52304e;
 
         public r0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6373,33 +6373,33 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52305e = pbFragment;
+            this.f52304e = pbFragment;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f52305e.hideKeyBroad();
-                b.a.q0.s.q.b1 N0 = this.f52305e.x0.N0();
-                int L0 = this.f52305e.E0.L0();
+                this.f52304e.hideKeyBroad();
+                b.a.q0.s.q.b1 N0 = this.f52304e.x0.N0();
+                int L0 = this.f52304e.E0.L0();
                 if (L0 <= 0) {
-                    this.f52305e.showToast(b.a.r0.k2.l.pb_page_error);
+                    this.f52304e.showToast(b.a.r0.k2.l.pb_page_error);
                 } else if (N0 == null || L0 <= N0.h()) {
-                    this.f52305e.E0.c0();
-                    this.f52305e.stopVoice();
-                    this.f52305e.E0.Q2();
+                    this.f52304e.E0.c0();
+                    this.f52304e.stopVoice();
+                    this.f52304e.E0.Q2();
                     if (b.a.e.e.p.j.z()) {
-                        this.f52305e.x0.p2(this.f52305e.E0.L0());
-                        if (this.f52305e.f52225i != null) {
-                            this.f52305e.f52225i.x();
+                        this.f52304e.x0.p2(this.f52304e.E0.L0());
+                        if (this.f52304e.f52224i != null) {
+                            this.f52304e.f52224i.x();
                         }
                     } else {
-                        this.f52305e.showToast(b.a.r0.k2.l.neterror);
+                        this.f52304e.showToast(b.a.r0.k2.l.neterror);
                     }
                     aVar.dismiss();
                 } else {
-                    this.f52305e.showToast(b.a.r0.k2.l.pb_page_error);
+                    this.f52304e.showToast(b.a.r0.k2.l.pb_page_error);
                 }
             }
         }
@@ -6433,7 +6433,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52306e;
+        public final /* synthetic */ PbFragment f52305e;
 
         public r2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6450,7 +6450,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52306e = pbFragment;
+            this.f52305e = pbFragment;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -6458,14 +6458,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                FrameLayout frameLayout = (FrameLayout) this.f52306e.getPageContext().getPageActivity().getWindow().getDecorView();
+                FrameLayout frameLayout = (FrameLayout) this.f52305e.getPageContext().getPageActivity().getWindow().getDecorView();
                 for (int i2 = 0; i2 < frameLayout.getChildCount(); i2++) {
                     View childAt = frameLayout.getChildAt(i2);
                     if ((childAt instanceof FrameLayout) && childAt.getTag() != null && "PraiseContainerView".equals(childAt.getTag()) && ((FrameLayout) childAt).getChildCount() <= 0) {
                         break;
                     }
                 }
-                this.f52306e.f52224h.c(motionEvent);
+                this.f52305e.f52223h.c(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -6478,7 +6478,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52307a;
+        public final /* synthetic */ PbFragment f52306a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public s(PbFragment pbFragment, int i2) {
@@ -6498,21 +6498,21 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52307a = pbFragment;
+            this.f52306a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52307a.x0 == null || this.f52307a.x0.P0() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52306a.x0 == null || this.f52306a.x0.P0() == null) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            this.f52307a.I2(str);
-            this.f52307a.x0.o1();
-            if (!TextUtils.isEmpty(str) && this.f52307a.x0.P0().F() != null) {
-                ArrayList<PostData> F = this.f52307a.x0.P0().F();
+            this.f52306a.I2(str);
+            this.f52306a.x0.o1();
+            if (!TextUtils.isEmpty(str) && this.f52306a.x0.P0().F() != null) {
+                ArrayList<PostData> F = this.f52306a.x0.P0().F();
                 b.a.r0.l3.j0.p pVar = null;
                 Iterator<PostData> it = F.iterator();
                 while (true) {
@@ -6530,20 +6530,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 }
                 if (pVar != null) {
                     F.remove(pVar);
-                    if (this.f52307a.E0.n0() != null && this.f52307a.E0.n0().s() != null) {
-                        this.f52307a.E0.n0().s().remove(pVar);
+                    if (this.f52306a.E0.n0() != null && this.f52306a.E0.n0().s() != null) {
+                        this.f52306a.E0.n0().s().remove(pVar);
                     }
-                    if (this.f52307a.E0.E0() != null && this.f52307a.E0.E0().getData() != null) {
-                        this.f52307a.E0.E0().getData().remove(pVar);
+                    if (this.f52306a.E0.E0() != null && this.f52306a.E0.E0().getData() != null) {
+                        this.f52306a.E0.E0().getData().remove(pVar);
                     }
-                    if (this.f52307a.E0.n0() != null) {
-                        this.f52307a.E0.n0().X();
+                    if (this.f52306a.E0.n0() != null) {
+                        this.f52306a.E0.n0().X();
                         return;
                     }
                 }
             }
-            if (this.f52307a.E0.n0() != null) {
-                this.f52307a.E0.t1(this.f52307a.x0.P0());
+            if (this.f52306a.E0.n0() != null) {
+                this.f52306a.E0.t1(this.f52306a.x0.P0());
             }
         }
     }
@@ -6554,7 +6554,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52308e;
+        public final /* synthetic */ PbFragment f52307e;
 
         public s0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6571,7 +6571,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52308e = pbFragment;
+            this.f52307e = pbFragment;
         }
 
         @Override // b.a.q0.s.s.i.e
@@ -6579,15 +6579,15 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             SparseArray sparseArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f52308e.I0 != null) {
-                    this.f52308e.I0.dismiss();
+                if (this.f52307e.I0 != null) {
+                    this.f52307e.I0.dismiss();
                 }
-                this.f52308e.d4(i2);
+                this.f52307e.d4(i2);
                 int i3 = 4;
                 switch (i2) {
                     case -4:
                         View view2 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_share);
-                        this.f52308e.w3(view2);
+                        this.f52307e.w3(view2);
                         if (view2 != null) {
                             view2.performClick();
                             return;
@@ -6595,7 +6595,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     case -3:
                         View view3 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_reply);
-                        this.f52308e.w3(view3);
+                        this.f52307e.w3(view3);
                         if (view3 != null) {
                             view3.performClick();
                             return;
@@ -6605,7 +6605,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         View view4 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_zan_2);
                         if (view4 != null) {
                             AgreeView agreeView = (AgreeView) view4;
-                            this.f52308e.w3(view4);
+                            this.f52307e.w3(view4);
                             if (agreeView.getImgDisagree() != null) {
                                 agreeView.getImgDisagree().performClick();
                                 return;
@@ -6616,7 +6616,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     case -1:
                         View view5 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_zan_2);
                         if (view5 != null) {
-                            this.f52308e.w3(view5);
+                            this.f52307e.w3(view5);
                             AgreeView agreeView2 = (AgreeView) view5;
                             if (agreeView2.getImgAgree() != null) {
                                 agreeView2.getImgAgree().performClick();
@@ -6629,63 +6629,63 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     default:
                         return;
                     case 1:
-                        if (this.f52308e.i1 == null || TextUtils.isEmpty(this.f52308e.j1)) {
+                        if (this.f52307e.i1 == null || TextUtils.isEmpty(this.f52307e.j1)) {
                             return;
                         }
-                        if (this.f52308e.k1 == null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52308e.j1));
+                        if (this.f52307e.k1 == null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52307e.j1));
                         } else {
                             d.a aVar = new d.a();
-                            aVar.f11986a = this.f52308e.j1;
+                            aVar.f11986a = this.f52307e.j1;
                             String str = "";
-                            if (this.f52308e.k1.memeInfo.pck_id.intValue() >= 0) {
-                                str = "" + this.f52308e.k1.memeInfo.pck_id;
+                            if (this.f52307e.k1.memeInfo.pck_id.intValue() >= 0) {
+                                str = "" + this.f52307e.k1.memeInfo.pck_id;
                             }
                             aVar.f11987b = str;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                         }
-                        this.f52308e.i1 = null;
-                        this.f52308e.j1 = null;
+                        this.f52307e.i1 = null;
+                        this.f52307e.j1 = null;
                         return;
                     case 2:
-                        if (this.f52308e.i1 == null || TextUtils.isEmpty(this.f52308e.j1)) {
+                        if (this.f52307e.i1 == null || TextUtils.isEmpty(this.f52307e.j1)) {
                             return;
                         }
-                        if (this.f52308e.U0 == null) {
-                            this.f52308e.U0 = new PermissionJudgePolicy();
+                        if (this.f52307e.U0 == null) {
+                            this.f52307e.U0 = new PermissionJudgePolicy();
                         }
-                        this.f52308e.U0.clearRequestPermissionList();
-                        this.f52308e.U0.appendRequestPermission(this.f52308e.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f52308e.U0.startRequestPermission(this.f52308e.getPageContext().getPageActivity())) {
+                        this.f52307e.U0.clearRequestPermissionList();
+                        this.f52307e.U0.appendRequestPermission(this.f52307e.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.f52307e.U0.startRequestPermission(this.f52307e.getPageContext().getPageActivity())) {
                             return;
                         }
-                        if (this.f52308e.h1 == null) {
-                            PbFragment pbFragment = this.f52308e;
+                        if (this.f52307e.h1 == null) {
+                            PbFragment pbFragment = this.f52307e;
                             pbFragment.h1 = new b.a.r0.k2.u.f.w0(pbFragment.getPageContext());
                         }
-                        this.f52308e.h1.b(this.f52308e.j1, this.f52308e.i1.n());
-                        this.f52308e.i1 = null;
-                        this.f52308e.j1 = null;
+                        this.f52307e.h1.b(this.f52307e.j1, this.f52307e.i1.n());
+                        this.f52307e.i1 = null;
+                        this.f52307e.j1 = null;
                         return;
                     case 3:
-                        PbFragment pbFragment2 = this.f52308e;
+                        PbFragment pbFragment2 = this.f52307e;
                         PostData postData = pbFragment2.m2;
                         if (postData != null) {
                             postData.l0(pbFragment2.getPageContext().getPageActivity());
-                            this.f52308e.m2 = null;
+                            this.f52307e.m2 = null;
                             return;
                         }
                         return;
                     case 4:
                         TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 2));
-                        if (this.f52308e.checkUpIsLogin()) {
-                            this.f52308e.r3(view);
-                            if (this.f52308e.x0.P0().O() == null || this.f52308e.x0.P0().O().J() == null || this.f52308e.x0.P0().O().J().getUserId() == null || this.f52308e.z0 == null) {
+                        if (this.f52307e.checkUpIsLogin()) {
+                            this.f52307e.r3(view);
+                            if (this.f52307e.x0.P0().O() == null || this.f52307e.x0.P0().O().J() == null || this.f52307e.x0.P0().O().J().getUserId() == null || this.f52307e.z0 == null) {
                                 return;
                             }
-                            PbFragment pbFragment3 = this.f52308e;
+                            PbFragment pbFragment3 = this.f52307e;
                             int X2 = pbFragment3.X2(pbFragment3.x0.P0());
-                            b.a.q0.s.q.d2 O = this.f52308e.x0.P0().O();
+                            b.a.q0.s.q.d2 O = this.f52307e.x0.P0().O();
                             if (O.M1()) {
                                 i3 = 2;
                             } else if (O.P1()) {
@@ -6693,19 +6693,19 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             } else if (!O.N1()) {
                                 i3 = O.O1() ? 5 : 1;
                             }
-                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52308e.x0.f52416f).param("obj_locate", 2).param("obj_id", this.f52308e.x0.P0().O().J().getUserId()).param("obj_type", !this.f52308e.z0.e()).param("obj_source", X2).param("obj_param1", i3));
+                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52307e.x0.f52415f).param("obj_locate", 2).param("obj_id", this.f52307e.x0.P0().O().J().getUserId()).param("obj_type", !this.f52307e.z0.e()).param("obj_source", X2).param("obj_param1", i3));
                             return;
                         }
                         return;
                     case 5:
                         if (!b.a.e.e.p.j.z()) {
-                            this.f52308e.showToast(b.a.r0.k2.l.network_not_available);
+                            this.f52307e.showToast(b.a.r0.k2.l.network_not_available);
                             return;
                         }
                         Object tag = view.getTag();
                         if (tag instanceof String) {
                             TiebaStatic.log(new StatisticItem("c13079"));
-                            this.f52308e.Z2((String) tag);
+                            this.f52307e.Z2((String) tag);
                             return;
                         } else if (tag instanceof SparseArray) {
                             TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
@@ -6713,7 +6713,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             if ((sparseArray2.get(b.a.r0.k2.i.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue()) {
                                 sparseArray2.put(b.a.r0.k2.i.tag_from, 0);
                                 sparseArray2.put(b.a.r0.k2.i.tag_check_mute_from, 2);
-                                this.f52308e.checkMuteState(sparseArray2);
+                                this.f52307e.checkMuteState(sparseArray2);
                                 return;
                             }
                             return;
@@ -6726,27 +6726,27 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             boolean booleanValue = ((Boolean) sparseArray3.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue();
                             int intValue = ((Integer) sparseArray3.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue();
                             boolean booleanValue2 = ((Boolean) sparseArray3.get(b.a.r0.k2.i.tag_has_sub_post)).booleanValue();
-                            boolean isHost = this.f52308e.getPbActivity().isHost(TbadkCoreApplication.getCurrentAccount());
+                            boolean isHost = this.f52307e.getPbActivity().isHost(TbadkCoreApplication.getCurrentAccount());
                             if (isHost) {
                                 if (!booleanValue2) {
-                                    this.f52308e.J3(sparseArray3, intValue, booleanValue);
+                                    this.f52307e.J3(sparseArray3, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.f52308e.E0.Y1(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
+                                    this.f52307e.E0.Y1(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
                                     return;
                                 }
                             } else if (booleanValue && !booleanValue2) {
-                                this.f52308e.J3(sparseArray3, intValue, booleanValue);
+                                this.f52307e.J3(sparseArray3, intValue, booleanValue);
                                 return;
                             } else {
-                                this.f52308e.E0.W1(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue);
+                                this.f52307e.E0.W1(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue);
                                 return;
                             }
                         }
                         return;
                     case 7:
                         if (!b.a.e.e.p.j.z()) {
-                            this.f52308e.showToast(b.a.r0.k2.l.network_not_available);
+                            this.f52307e.showToast(b.a.r0.k2.l.network_not_available);
                             return;
                         }
                         SparseArray<Object> sparseArray4 = (SparseArray) view.getTag();
@@ -6759,7 +6759,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         boolean booleanValue6 = sparseArray4.get(b.a.r0.k2.i.tag_is_self_post) instanceof Boolean ? ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_is_self_post)).booleanValue() : false;
                         if (!booleanValue3) {
                             if (booleanValue4) {
-                                this.f52308e.E0.W1(((Integer) sparseArray4.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) sparseArray4.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
+                                this.f52307e.E0.W1(((Integer) sparseArray4.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) sparseArray4.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
                                 return;
                             }
                             return;
@@ -6767,29 +6767,29 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             if (booleanValue6) {
                                 sparseArray4.put(b.a.r0.k2.i.tag_check_mute_from, 2);
                             }
-                            this.f52308e.E0.b2(view);
+                            this.f52307e.E0.b2(view);
                             return;
                         } else {
                             sparseArray4.put(b.a.r0.k2.i.tag_from, 1);
                             sparseArray4.put(b.a.r0.k2.i.tag_check_mute_from, 2);
-                            this.f52308e.checkMuteState(sparseArray4);
+                            this.f52307e.checkMuteState(sparseArray4);
                             return;
                         }
                     case 8:
-                        if (this.f52308e.checkUpIsLogin() && (sparseArray = (SparseArray) view.getTag()) != null) {
+                        if (this.f52307e.checkUpIsLogin() && (sparseArray = (SparseArray) view.getTag()) != null) {
                             PostData postData2 = (PostData) sparseArray.get(b.a.r0.k2.i.tag_clip_board);
                             if (postData2.q() == null) {
                                 return;
                             }
-                            this.f52308e.F2(postData2.q());
+                            this.f52307e.F2(postData2.q());
                             return;
                         }
                         return;
                     case 9:
-                        if (!this.f52308e.checkUpIsLogin() || this.f52308e.x0 == null || this.f52308e.x0.P0() == null) {
+                        if (!this.f52307e.checkUpIsLogin() || this.f52307e.x0 == null || this.f52307e.x0.P0() == null) {
                             return;
                         }
-                        this.f52308e.f52221e.showBlockDialog(b.a.r0.v3.a.b(view));
+                        this.f52307e.f52220e.showBlockDialog(b.a.r0.v3.a.b(view));
                         return;
                 }
             }
@@ -6802,7 +6802,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52309a;
+        public final /* synthetic */ PbFragment f52308a;
 
         public s1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6819,7 +6819,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52309a = pbFragment;
+            this.f52308a = pbFragment;
         }
 
         @Override // b.a.q0.x.x.b
@@ -6827,16 +6827,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.r0.k2.u.f.u0 u0Var = this.f52309a.mContentProcessController;
-                if (u0Var == null || u0Var.e() == null || !this.f52309a.mContentProcessController.e().d()) {
-                    return !this.f52309a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_THREAD);
+                b.a.r0.k2.u.f.u0 u0Var = this.f52308a.mContentProcessController;
+                if (u0Var == null || u0Var.e() == null || !this.f52308a.mContentProcessController.e().d()) {
+                    return !this.f52308a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_THREAD);
                 }
-                PbFragment pbFragment = this.f52309a;
+                PbFragment pbFragment = this.f52308a;
                 pbFragment.showToast(pbFragment.mContentProcessController.e().c());
-                if (this.f52309a.S0 != null && (this.f52309a.S0.C() || this.f52309a.S0.E())) {
-                    this.f52309a.S0.A(false, this.f52309a.mContentProcessController.h());
+                if (this.f52308a.S0 != null && (this.f52308a.S0.C() || this.f52308a.S0.E())) {
+                    this.f52308a.S0.A(false, this.f52308a.mContentProcessController.h());
                 }
-                this.f52309a.mContentProcessController.a(true);
+                this.f52308a.mContentProcessController.a(true);
                 return true;
             }
             return invokeV.booleanValue;
@@ -6849,10 +6849,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f52310a;
+        public final int f52309a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52311b;
+        public final /* synthetic */ PbFragment f52310b;
 
         public s2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -6869,35 +6869,35 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52311b = pbFragment;
-            this.f52310a = (int) TbadkCoreApplication.getInst().getResources().getDimension(b.a.r0.k2.g.ds98);
+            this.f52310b = pbFragment;
+            this.f52309a = (int) TbadkCoreApplication.getInst().getResources().getDimension(b.a.r0.k2.g.ds98);
         }
 
         @Override // b.a.r0.k0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || !e(i3) || this.f52311b.E0 == null || this.f52311b.f52225i == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || !e(i3) || this.f52310b.E0 == null || this.f52310b.f52224i == null) {
                 return;
             }
-            this.f52311b.f52225i.u(true);
-            if (Math.abs(i3) > this.f52310a) {
-                this.f52311b.f52225i.l();
+            this.f52310b.f52224i.u(true);
+            if (Math.abs(i3) > this.f52309a) {
+                this.f52310b.f52224i.l();
             }
-            if (this.f52311b.getIsMangaThread()) {
-                this.f52311b.E0.h1();
-                this.f52311b.E0.q2();
+            if (this.f52310b.getIsMangaThread()) {
+                this.f52310b.E0.h1();
+                this.f52310b.E0.q2();
             }
         }
 
         @Override // b.a.r0.k0.a.b
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || !e(i3) || this.f52311b.E0 == null || this.f52311b.f52225i == null) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || !e(i3) || this.f52310b.E0 == null || this.f52310b.f52224i == null) {
                 return;
             }
-            this.f52311b.E0.s3();
-            this.f52311b.f52225i.u(false);
-            this.f52311b.f52225i.x();
+            this.f52310b.E0.s3();
+            this.f52310b.f52224i.u(false);
+            this.f52310b.f52224i.x();
         }
 
         @Override // b.a.r0.k0.a.b
@@ -6966,16 +6966,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f52312e;
+        public final /* synthetic */ SparseArray f52311e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f52313f;
+        public final /* synthetic */ int f52312f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f52314g;
+        public final /* synthetic */ boolean f52313g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52315h;
+        public final /* synthetic */ PbFragment f52314h;
 
         public t0(PbFragment pbFragment, SparseArray sparseArray, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -6992,10 +6992,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52315h = pbFragment;
-            this.f52312e = sparseArray;
-            this.f52313f = i2;
-            this.f52314g = z;
+            this.f52314h = pbFragment;
+            this.f52311e = sparseArray;
+            this.f52312f = i2;
+            this.f52313g = z;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -7005,7 +7005,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 if (aVar != null) {
                     aVar.dismiss();
                 }
-                this.f52315h.deleteThreadDirect(((Integer) this.f52312e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52312e.get(b.a.r0.k2.i.tag_del_post_id), this.f52313f, this.f52314g);
+                this.f52314h.deleteThreadDirect(((Integer) this.f52311e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52311e.get(b.a.r0.k2.i.tag_del_post_id), this.f52312f, this.f52313g);
             }
         }
     }
@@ -7016,7 +7016,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52316e;
+        public final /* synthetic */ PbFragment f52315e;
 
         public t1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -7033,20 +7033,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52316e = pbFragment;
+            this.f52315e = pbFragment;
         }
 
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (this.f52316e.getIsMangaThread()) {
-                    this.f52316e.f52221e.finish();
+                if (this.f52315e.getIsMangaThread()) {
+                    this.f52315e.f52220e.finish();
                 }
-                if (!this.f52316e.x0.F1(true)) {
-                    this.f52316e.E0.j0();
+                if (!this.f52315e.x0.F1(true)) {
+                    this.f52315e.E0.j0();
                 } else {
-                    TiebaStatic.eventStat(this.f52316e.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f52315e.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
                 }
             }
         }
@@ -7090,7 +7090,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52317a;
+        public final /* synthetic */ PbFragment f52316a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(PbFragment pbFragment, int i2) {
@@ -7110,21 +7110,21 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52317a = pbFragment;
+            this.f52316a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean) || this.f52317a.E0 == null || this.f52317a.x0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean) || this.f52316a.E0 == null || this.f52316a.x0 == null) {
                 return;
             }
-            this.f52317a.E0.W(false);
-            if (this.f52317a.x0.B1(false)) {
-                this.f52317a.E0.R2();
-            } else if (this.f52317a.x0.P0() != null) {
-                this.f52317a.E0.k2();
+            this.f52316a.E0.W(false);
+            if (this.f52316a.x0.B1(false)) {
+                this.f52316a.E0.R2();
+            } else if (this.f52316a.x0.P0() != null) {
+                this.f52316a.E0.k2();
             }
         }
     }
@@ -7165,7 +7165,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52318e;
+        public final /* synthetic */ PbFragment f52317e;
 
         public u1(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -7182,45 +7182,45 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52318e = pbFragment;
+            this.f52317e = pbFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f52318e.h2 && this.f52318e.getIsMangaThread()) {
-                    this.f52318e.l3();
+                if (this.f52317e.h2 && this.f52317e.getIsMangaThread()) {
+                    this.f52317e.l3();
                 }
-                if (this.f52318e.mIsLogin) {
-                    if (!this.f52318e.o0 && this.f52318e.E0 != null && this.f52318e.E0.T() && this.f52318e.x0 != null) {
+                if (this.f52317e.mIsLogin) {
+                    if (!this.f52317e.o0 && this.f52317e.E0 != null && this.f52317e.E0.T() && this.f52317e.x0 != null) {
                         StatisticItem statisticItem = new StatisticItem("c13999");
-                        statisticItem.param("tid", this.f52318e.x0.f1());
-                        statisticItem.param("fid", this.f52318e.x0.getForumId());
+                        statisticItem.param("tid", this.f52317e.x0.f1());
+                        statisticItem.param("fid", this.f52317e.x0.getForumId());
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                         int i2 = 5;
-                        if (this.f52318e.x0.v0()) {
+                        if (this.f52317e.x0.v0()) {
                             i2 = 4;
-                        } else if (this.f52318e.x0.w0()) {
+                        } else if (this.f52317e.x0.w0()) {
                             i2 = 3;
-                        } else if (this.f52318e.x0.y0()) {
+                        } else if (this.f52317e.x0.y0()) {
                             i2 = 1;
                         }
                         statisticItem.param("obj_type", i2);
                         TiebaStatic.log(statisticItem);
-                        this.f52318e.o0 = true;
+                        this.f52317e.o0 = true;
                     }
-                    if (this.f52318e.x0.B1(false)) {
-                        this.f52318e.E0.R2();
-                        TiebaStatic.eventStat(this.f52318e.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-                    } else if (this.f52318e.u0 == null || !this.f52318e.u0.d()) {
-                        if (this.f52318e.x0.P0() != null) {
-                            this.f52318e.E0.k2();
+                    if (this.f52317e.x0.B1(false)) {
+                        this.f52317e.E0.R2();
+                        TiebaStatic.eventStat(this.f52317e.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+                    } else if (this.f52317e.u0 == null || !this.f52317e.u0.d()) {
+                        if (this.f52317e.x0.P0() != null) {
+                            this.f52317e.E0.k2();
                         }
                     } else {
-                        this.f52318e.E0.R2();
+                        this.f52317e.E0.R2();
                     }
-                    this.f52318e.h2 = true;
+                    this.f52317e.h2 = true;
                 }
             }
         }
@@ -7232,9 +7232,54 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52319a;
+        public final /* synthetic */ PbFragment f52318a;
 
         public u2(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52318a = pbFragment;
+        }
+
+        @Override // b.a.r0.k2.u.f.p.b
+        public void a(int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
+                if (StringUtils.isNull(str)) {
+                    if (i2 == 0) {
+                        this.f52318a.showToast(b.a.r0.k2.l.upgrage_toast_dialog);
+                    } else {
+                        this.f52318a.showToast(b.a.r0.k2.l.neterror);
+                    }
+                } else if (i2 != 0 && !TextUtils.isEmpty(str2)) {
+                    this.f52318a.E0.a0(str);
+                } else {
+                    this.f52318a.showToast(str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class v implements GetSugMatchWordsModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52319a;
+
+        public v(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -7252,34 +7297,33 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52319a = pbFragment;
         }
 
-        @Override // b.a.r0.k2.u.f.p.b
-        public void a(int i2, String str, String str2) {
+        @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.b
+        public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
-                if (StringUtils.isNull(str)) {
-                    if (i2 == 0) {
-                        this.f52319a.showToast(b.a.r0.k2.l.upgrage_toast_dialog);
-                    } else {
-                        this.f52319a.showToast(b.a.r0.k2.l.neterror);
-                    }
-                } else if (i2 != 0 && !TextUtils.isEmpty(str2)) {
-                    this.f52319a.E0.a0(str);
-                } else {
-                    this.f52319a.showToast(str);
-                }
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+                BdLog.e(str);
             }
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.b
+        public void onSuccess(List<String> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || this.f52319a.E0 == null) {
+                return;
+            }
+            this.f52319a.E0.V2(list);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class v implements GetSugMatchWordsModel.b {
+    public class v0 implements c.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ PbFragment f52320a;
 
-        public v(PbFragment pbFragment) {
+        public v0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -7297,50 +7341,6 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52320a = pbFragment;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.b
-        public void onFail(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                BdLog.e(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.b
-        public void onSuccess(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || this.f52320a.E0 == null) {
-                return;
-            }
-            this.f52320a.E0.V2(list);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class v0 implements c.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52321a;
-
-        public v0(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52321a = pbFragment;
-        }
-
         @Override // b.a.r0.x0.q2.a.c.d
         public void a(boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -7352,10 +7352,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
-                if (this.f52321a.S0 != null && this.f52321a.S0.a() != null) {
-                    this.f52321a.S0.a().sendAction(new b.a.q0.x.a(45, 27, null));
+                if (this.f52320a.S0 != null && this.f52320a.S0.a() != null) {
+                    this.f52320a.S0.a().sendAction(new b.a.q0.x.a(45, 27, null));
                 }
-                this.f52321a.E0.V();
+                this.f52320a.E0.V();
             }
         }
 
@@ -7373,9 +7373,45 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52322e;
+        public final /* synthetic */ PbFragment f52321e;
 
         public v1(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52321e = pbFragment;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52321e.x0 == null) {
+                return;
+            }
+            this.f52321e.x0.loadData();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class v2 implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52322e;
+
+        public v2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -7393,54 +7429,18 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52322e = pbFragment;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52322e.x0 == null) {
-                return;
-            }
-            this.f52322e.x0.loadData();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class v2 implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52323e;
-
-        public v2(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52323e = pbFragment;
-        }
-
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (Build.VERSION.SDK_INT < 11) {
                     aVar.dismiss();
-                    ((TbPageContext) this.f52323e.d1).showToast(b.a.r0.k2.l.frs_header_games_unavailable);
+                    ((TbPageContext) this.f52322e.d1).showToast(b.a.r0.k2.l.frs_header_games_unavailable);
                     return;
                 }
                 TiebaStatic.log("c10025");
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f52323e.d1.getPageActivity(), 2, true, 4);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f52322e.d1.getPageActivity(), 2, true, 4);
                 if (!StringUtils.isNULL("4010001001")) {
                     memberPayActivityConfig.setSceneId("4010001001");
                 }
@@ -7455,7 +7455,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52324a;
+        public final /* synthetic */ PbFragment f52323a;
 
         public w(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -7472,22 +7472,22 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52324a = pbFragment;
+            this.f52323a = pbFragment;
         }
 
         @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f52324a.I1 = false;
-                if (this.f52324a.J1 == null) {
+                this.f52323a.I1 = false;
+                if (this.f52323a.J1 == null) {
                     return;
                 }
-                b.a.r0.k2.r.f P0 = this.f52324a.x0.P0();
+                b.a.r0.k2.r.f P0 = this.f52323a.x0.P0();
                 if (P0.O().L0().getIsLike() == 1) {
-                    this.f52324a.g4(0);
+                    this.f52323a.g4(0);
                 } else {
-                    this.f52324a.g4(1);
+                    this.f52323a.g4(1);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004004, P0.O()));
             }
@@ -7497,14 +7497,14 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f52324a.I1 = false;
-                if (this.f52324a.J1 == null || str == null) {
+                this.f52323a.I1 = false;
+                if (this.f52323a.J1 == null || str == null) {
                     return;
                 }
                 if (AntiHelper.m(i2, str)) {
-                    AntiHelper.u(this.f52324a.getPageContext().getPageActivity(), str);
+                    AntiHelper.u(this.f52323a.getPageContext().getPageActivity(), str);
                 } else {
-                    this.f52324a.showToast(str);
+                    this.f52323a.showToast(str);
                 }
             }
         }
@@ -7552,7 +7552,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52325a;
+        public final /* synthetic */ PbFragment f52324a;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -7560,10 +7560,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f52326e;
+            public final /* synthetic */ CustomDialogData f52325e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ w1 f52327f;
+            public final /* synthetic */ w1 f52326f;
 
             public a(w1 w1Var, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -7580,15 +7580,15 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52327f = w1Var;
-                this.f52326e = customDialogData;
+                this.f52326f = w1Var;
+                this.f52325e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.a.r0.k2.t.c.a(this.f52327f.f52325a.getPageContext(), this.f52326e).show();
+                    b.a.r0.k2.t.c.a(this.f52326f.f52324a.getPageContext(), this.f52325e).show();
                 }
             }
         }
@@ -7608,7 +7608,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52325a = pbFragment;
+            this.f52324a = pbFragment;
         }
 
         @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
@@ -7663,9 +7663,48 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52328a;
+        public final /* synthetic */ PbFragment f52327a;
 
         public x(PbFragment pbFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52327a = pbFragment;
+        }
+
+        @Override // b.a.r0.k2.u.f.c1.b.h
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.f52327a.setNavigationBarShowFlag(z);
+                if (this.f52327a.E0.B0() != null && z) {
+                    this.f52327a.E0.x3(false);
+                }
+                this.f52327a.E0.Q1(z);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class x0 implements SortSwitchButton.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFragment f52328a;
+
+        public x0(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -7683,69 +7722,30 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.f52328a = pbFragment;
         }
 
-        @Override // b.a.r0.k2.u.f.c1.b.h
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f52328a.setNavigationBarShowFlag(z);
-                if (this.f52328a.E0.B0() != null && z) {
-                    this.f52328a.E0.x3(false);
-                }
-                this.f52328a.E0.Q1(z);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class x0 implements SortSwitchButton.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52329a;
-
-        public x0(PbFragment pbFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52329a = pbFragment;
-        }
-
         @Override // com.baidu.tieba.view.SortSwitchButton.f
         public boolean a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f52329a.E0.c0();
+                this.f52328a.E0.c0();
                 boolean z = false;
                 if (b.a.e.e.p.j.z()) {
-                    if (this.f52329a.x0 != null && !this.f52329a.x0.isLoading) {
-                        this.f52329a.stopVoice();
-                        this.f52329a.E0.Q2();
+                    if (this.f52328a.x0 != null && !this.f52328a.x0.isLoading) {
+                        this.f52328a.stopVoice();
+                        this.f52328a.E0.Q2();
                         z = true;
-                        if (this.f52329a.x0.P0() != null && this.f52329a.x0.P0().f18762f != null && this.f52329a.x0.P0().f18762f.size() > i2) {
-                            int intValue = this.f52329a.x0.P0().f18762f.get(i2).sort_type.intValue();
-                            TiebaStatic.log(new StatisticItem("c13699").param("tid", this.f52329a.x0.g1()).param("fid", this.f52329a.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", b(intValue)));
-                            if (this.f52329a.x0.v2(intValue)) {
-                                this.f52329a.m = true;
-                                this.f52329a.E0.E2(true);
+                        if (this.f52328a.x0.P0() != null && this.f52328a.x0.P0().f18762f != null && this.f52328a.x0.P0().f18762f.size() > i2) {
+                            int intValue = this.f52328a.x0.P0().f18762f.get(i2).sort_type.intValue();
+                            TiebaStatic.log(new StatisticItem("c13699").param("tid", this.f52328a.x0.g1()).param("fid", this.f52328a.x0.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", b(intValue)));
+                            if (this.f52328a.x0.v2(intValue)) {
+                                this.f52328a.m = true;
+                                this.f52328a.E0.E2(true);
                             }
                         }
                     }
                     return z;
                 }
-                this.f52329a.showToast(b.a.r0.k2.l.network_not_available);
+                this.f52328a.showToast(b.a.r0.k2.l.network_not_available);
                 return false;
             }
             return invokeI.booleanValue;
@@ -7773,16 +7773,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarkData f52330e;
+        public final /* synthetic */ MarkData f52329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MarkData f52331f;
+        public final /* synthetic */ MarkData f52330f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f52332g;
+        public final /* synthetic */ b.a.q0.s.s.a f52331g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52333h;
+        public final /* synthetic */ PbFragment f52332h;
 
         public x1(PbFragment pbFragment, MarkData markData, MarkData markData2, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -7799,10 +7799,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52333h = pbFragment;
-            this.f52330e = markData;
-            this.f52331f = markData2;
-            this.f52332g = aVar;
+            this.f52332h = pbFragment;
+            this.f52329e = markData;
+            this.f52330f = markData2;
+            this.f52331g = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -7810,21 +7810,21 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                if (this.f52333h.z0 != null) {
-                    if (this.f52333h.z0.e()) {
-                        this.f52333h.z0.d();
-                        this.f52333h.z0.h(false);
+                if (this.f52332h.z0 != null) {
+                    if (this.f52332h.z0.e()) {
+                        this.f52332h.z0.d();
+                        this.f52332h.z0.h(false);
                     }
-                    this.f52333h.z0.i(this.f52330e);
-                    this.f52333h.z0.h(true);
-                    this.f52333h.z0.a();
+                    this.f52332h.z0.i(this.f52329e);
+                    this.f52332h.z0.h(true);
+                    this.f52332h.z0.a();
                 }
-                this.f52331f.setPostId(this.f52330e.getPostId());
+                this.f52330f.setPostId(this.f52329e.getPostId());
                 Intent intent = new Intent();
-                intent.putExtra("mark", this.f52331f);
-                this.f52333h.f52221e.setResult(-1, intent);
-                this.f52332g.dismiss();
-                this.f52333h.Z3();
+                intent.putExtra("mark", this.f52330f);
+                this.f52332h.f52220e.setResult(-1, intent);
+                this.f52331g.dismiss();
+                this.f52332h.Z3();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921531, Boolean.TRUE));
             }
         }
@@ -7866,19 +7866,19 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f52334e;
+        public final /* synthetic */ SparseArray f52333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f52335f;
+        public final /* synthetic */ boolean f52334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f52336g;
+        public final /* synthetic */ String f52335g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f52337h;
+        public final /* synthetic */ String f52336h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52338i;
+        public final /* synthetic */ PbFragment f52337i;
 
         public y(PbFragment pbFragment, SparseArray sparseArray, boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -7895,30 +7895,30 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52338i = pbFragment;
-            this.f52334e = sparseArray;
-            this.f52335f = z;
-            this.f52336g = str;
-            this.f52337h = str2;
+            this.f52337i = pbFragment;
+            this.f52333e = sparseArray;
+            this.f52334f = z;
+            this.f52335g = str;
+            this.f52336h = str2;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f52338i.I0 != null) {
-                    this.f52338i.I0.dismiss();
+                if (this.f52337i.I0 != null) {
+                    this.f52337i.I0.dismiss();
                 }
                 if (i2 == 0) {
-                    this.f52338i.E0.W1(((Integer) this.f52334e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52334e.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) this.f52334e.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) this.f52334e.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
+                    this.f52337i.E0.W1(((Integer) this.f52333e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52333e.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) this.f52333e.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) this.f52333e.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
                 } else if (i2 == 1) {
-                    String str = (String) this.f52334e.get(b.a.r0.k2.i.tag_user_mute_mute_username);
-                    String str2 = (String) this.f52334e.get(b.a.r0.k2.i.tag_user_mute_thread_id);
-                    String str3 = (String) this.f52334e.get(b.a.r0.k2.i.tag_user_mute_post_id);
+                    String str = (String) this.f52333e.get(b.a.r0.k2.i.tag_user_mute_mute_username);
+                    String str2 = (String) this.f52333e.get(b.a.r0.k2.i.tag_user_mute_thread_id);
+                    String str3 = (String) this.f52333e.get(b.a.r0.k2.i.tag_user_mute_post_id);
                     UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
-                    userMuteAddAndDelCustomMessage.setData(this.f52335f, this.f52336g, str, str2, str3, 1, this.f52337h, this.f52338i.f1);
-                    userMuteAddAndDelCustomMessage.setTag(this.f52338i.f1);
-                    this.f52338i.V3(this.f52335f, userMuteAddAndDelCustomMessage, this.f52337h, str, (String) this.f52334e.get(b.a.r0.k2.i.tag_user_mute_mute_nameshow));
+                    userMuteAddAndDelCustomMessage.setData(this.f52334f, this.f52335g, str, str2, str3, 1, this.f52336h, this.f52337i.f1);
+                    userMuteAddAndDelCustomMessage.setTag(this.f52337i.f1);
+                    this.f52337i.V3(this.f52334f, userMuteAddAndDelCustomMessage, this.f52336h, str, (String) this.f52333e.get(b.a.r0.k2.i.tag_user_mute_mute_nameshow));
                 }
             }
         }
@@ -7930,13 +7930,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f52339e;
+        public final /* synthetic */ String f52338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f52340f;
+        public final /* synthetic */ String f52339f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52341g;
+        public final /* synthetic */ PbFragment f52340g;
 
         /* loaded from: classes9.dex */
         public class a implements TextWatcher {
@@ -7944,7 +7944,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ y0 f52342e;
+            public final /* synthetic */ y0 f52341e;
 
             public a(y0 y0Var) {
                 Interceptable interceptable = $ic;
@@ -7961,20 +7961,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52342e = y0Var;
+                this.f52341e = y0Var;
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 b.a.r0.k2.u.f.u0 u0Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52342e.f52341g.mContentProcessController) == null || u0Var.g() == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52341e.f52340g.mContentProcessController) == null || u0Var.g() == null) {
                     return;
                 }
-                if (!this.f52342e.f52341g.mContentProcessController.g().e()) {
-                    this.f52342e.f52341g.mContentProcessController.b(false);
+                if (!this.f52341e.f52340g.mContentProcessController.g().e()) {
+                    this.f52341e.f52340g.mContentProcessController.b(false);
                 }
-                this.f52342e.f52341g.mContentProcessController.g().l(false);
+                this.f52341e.f52340g.mContentProcessController.g().l(false);
             }
 
             @Override // android.text.TextWatcher
@@ -8007,9 +8007,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52341g = pbFragment;
-            this.f52339e = str;
-            this.f52340f = str2;
+            this.f52340g = pbFragment;
+            this.f52338e = str;
+            this.f52339f = str2;
         }
 
         @Override // java.lang.Runnable
@@ -8018,34 +8018,34 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             int g2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i3 = b.a.e.e.p.l.i(this.f52341g.f52221e.getApplicationContext());
+                int i3 = b.a.e.e.p.l.i(this.f52340g.f52220e.getApplicationContext());
                 if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                     i2 = TbadkCoreApplication.getInst().getKeyboardHeight();
-                    g2 = b.a.e.e.p.l.g(this.f52341g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
+                    g2 = b.a.e.e.p.l.g(this.f52340g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
                 } else {
                     i2 = i3 / 2;
-                    g2 = b.a.e.e.p.l.g(this.f52341g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
+                    g2 = b.a.e.e.p.l.g(this.f52340g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
                 }
                 int i4 = i3 - (i2 + g2);
-                PbFragment pbFragment = this.f52341g;
+                PbFragment pbFragment = this.f52340g;
                 boolean z = true;
                 pbFragment.getPbView().E0().smoothScrollBy((pbFragment.i0[1] + pbFragment.j0) - i4, 50);
-                if (this.f52341g.getPbView().O0() != null) {
-                    this.f52341g.S0.a().setVisibility(8);
-                    this.f52341g.getPbView().O0().n(this.f52339e, this.f52340f, this.f52341g.getPbView().R0(), (this.f52341g.x0 == null || this.f52341g.x0.P0() == null || this.f52341g.x0.P0().O() == null || !this.f52341g.x0.P0().O().Q1()) ? false : false);
-                    b.a.q0.x.x.h b2 = this.f52341g.getPbView().O0().b();
-                    if (b2 != null && this.f52341g.x0 != null && this.f52341g.x0.P0() != null) {
-                        b2.G(this.f52341g.x0.P0().d());
-                        b2.b0(this.f52341g.x0.P0().O());
+                if (this.f52340g.getPbView().O0() != null) {
+                    this.f52340g.S0.a().setVisibility(8);
+                    this.f52340g.getPbView().O0().n(this.f52338e, this.f52339f, this.f52340g.getPbView().R0(), (this.f52340g.x0 == null || this.f52340g.x0.P0() == null || this.f52340g.x0.P0().O() == null || !this.f52340g.x0.P0().O().Q1()) ? false : false);
+                    b.a.q0.x.x.h b2 = this.f52340g.getPbView().O0().b();
+                    if (b2 != null && this.f52340g.x0 != null && this.f52340g.x0.P0() != null) {
+                        b2.G(this.f52340g.x0.P0().d());
+                        b2.b0(this.f52340g.x0.P0().O());
                     }
-                    if (this.f52341g.mContentProcessController.f() == null && this.f52341g.getPbView().O0().b().t() != null) {
-                        this.f52341g.getPbView().O0().b().t().f(new a(this));
-                        PbFragment pbFragment2 = this.f52341g;
+                    if (this.f52340g.mContentProcessController.f() == null && this.f52340g.getPbView().O0().b().t() != null) {
+                        this.f52340g.getPbView().O0().b().t().f(new a(this));
+                        PbFragment pbFragment2 = this.f52340g;
                         pbFragment2.mContentProcessController.n(pbFragment2.getPbView().O0().b().t().h());
-                        this.f52341g.getPbView().O0().b().M(this.f52341g.a1);
+                        this.f52340g.getPbView().O0().b().M(this.f52340g.a1);
                     }
                 }
-                this.f52341g.getPbView().c1();
+                this.f52340g.getPbView().c1();
             }
         }
     }
@@ -8056,13 +8056,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarkData f52343e;
+        public final /* synthetic */ MarkData f52342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f52344f;
+        public final /* synthetic */ b.a.q0.s.s.a f52343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52345g;
+        public final /* synthetic */ PbFragment f52344g;
 
         public y1(PbFragment pbFragment, MarkData markData, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -8079,9 +8079,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52345g = pbFragment;
-            this.f52343e = markData;
-            this.f52344f = aVar;
+            this.f52344g = pbFragment;
+            this.f52342e = markData;
+            this.f52343f = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -8090,10 +8090,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
                 Intent intent = new Intent();
-                intent.putExtra("mark", this.f52343e);
-                this.f52345g.f52221e.setResult(-1, intent);
-                this.f52344f.dismiss();
-                this.f52345g.Z3();
+                intent.putExtra("mark", this.f52342e);
+                this.f52344g.f52220e.setResult(-1, intent);
+                this.f52343f.dismiss();
+                this.f52344g.Z3();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921531, Boolean.FALSE));
             }
         }
@@ -8105,10 +8105,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f52346e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f52345e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52347f;
+        public final /* synthetic */ PbFragment f52346f;
 
         public y2(PbFragment pbFragment, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -8125,16 +8125,16 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52347f = pbFragment;
-            this.f52346e = userMuteAddAndDelCustomMessage;
+            this.f52346f = pbFragment;
+            this.f52345e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f52347f.E0.k3();
-                MessageManager.getInstance().sendMessage(this.f52346e);
+                this.f52346f.E0.k3();
+                MessageManager.getInstance().sendMessage(this.f52345e);
                 aVar.dismiss();
             }
         }
@@ -8146,7 +8146,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52348a;
+        public final /* synthetic */ PbFragment f52347a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public z(PbFragment pbFragment, int i2) {
@@ -8166,7 +8166,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52348a = pbFragment;
+            this.f52347a = pbFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -8179,18 +8179,18 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
                 if (updateAttentionMessage.getData().l != null) {
-                    if (updateAttentionMessage.getOrginalMessage().getTag() != this.f52348a.getUniqueId() || AntiHelper.t(this.f52348a.getActivity(), updateAttentionMessage.getData().l, PbFragment.A2) == null) {
+                    if (updateAttentionMessage.getOrginalMessage().getTag() != this.f52347a.getUniqueId() || AntiHelper.t(this.f52347a.getActivity(), updateAttentionMessage.getData().l, PbFragment.A2) == null) {
                         return;
                     }
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                 } else if (updateAttentionMessage.getData().f45667a) {
-                    if (this.f52348a.getFirstPostData().t() != null && this.f52348a.getFirstPostData().t().getGodUserData() != null) {
-                        this.f52348a.getFirstPostData().t().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
+                    if (this.f52347a.getFirstPostData().t() != null && this.f52347a.getFirstPostData().t().getGodUserData() != null) {
+                        this.f52347a.getFirstPostData().t().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
                     }
-                    if (this.f52348a.x0 == null || this.f52348a.x0.P0() == null || this.f52348a.x0.P0().O() == null || this.f52348a.x0.P0().O().J() == null) {
+                    if (this.f52347a.x0 == null || this.f52347a.x0.P0() == null || this.f52347a.x0.P0().O() == null || this.f52347a.x0.P0().O().J() == null) {
                         return;
                     }
-                    this.f52348a.x0.P0().O().J().setHadConcerned(updateAttentionMessage.isAttention());
+                    this.f52347a.x0.P0().O().J().setHadConcerned(updateAttentionMessage.isAttention());
                 }
             }
         }
@@ -8202,13 +8202,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f52349a;
+        public final /* synthetic */ String f52348a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f52350b;
+        public final /* synthetic */ String f52349b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52351c;
+        public final /* synthetic */ PbFragment f52350c;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -8216,7 +8216,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ z0 f52352e;
+            public final /* synthetic */ z0 f52351e;
 
             /* renamed from: com.baidu.tieba.pb.pb.main.PbFragment$z0$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
@@ -8225,7 +8225,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f52353e;
+                public final /* synthetic */ a f52352e;
 
                 public C1752a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -8242,20 +8242,20 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                             return;
                         }
                     }
-                    this.f52353e = aVar;
+                    this.f52352e = aVar;
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     b.a.r0.k2.u.f.u0 u0Var;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52353e.f52352e.f52351c.mContentProcessController) == null || u0Var.g() == null) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52352e.f52351e.f52350c.mContentProcessController) == null || u0Var.g() == null) {
                         return;
                     }
-                    if (!this.f52353e.f52352e.f52351c.mContentProcessController.g().e()) {
-                        this.f52353e.f52352e.f52351c.mContentProcessController.b(false);
+                    if (!this.f52352e.f52351e.f52350c.mContentProcessController.g().e()) {
+                        this.f52352e.f52351e.f52350c.mContentProcessController.b(false);
                     }
-                    this.f52353e.f52352e.f52351c.mContentProcessController.g().l(false);
+                    this.f52352e.f52351e.f52350c.mContentProcessController.g().l(false);
                 }
 
                 @Override // android.text.TextWatcher
@@ -8288,7 +8288,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         return;
                     }
                 }
-                this.f52352e = z0Var;
+                this.f52351e = z0Var;
             }
 
             @Override // java.lang.Runnable
@@ -8297,7 +8297,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 int g2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int i3 = b.a.e.e.p.l.i(this.f52352e.f52351c.getContext());
+                    int i3 = b.a.e.e.p.l.i(this.f52351e.f52350c.getContext());
                     if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                         i2 = TbadkCoreApplication.getInst().getKeyboardHeight();
                         g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds410);
@@ -8306,28 +8306,28 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds410);
                     }
                     int i4 = i3 - (i2 + g2);
-                    PbFragment pbFragment = this.f52352e.f52351c;
+                    PbFragment pbFragment = this.f52351e.f52350c;
                     boolean z = true;
                     pbFragment.getPbView().E0().smoothScrollBy((pbFragment.i0[1] + pbFragment.j0) - i4, 50);
-                    if (this.f52352e.f52351c.getPbView().O0() != null) {
-                        this.f52352e.f52351c.S0.a().setVisibility(8);
-                        z = (this.f52352e.f52351c.x0 == null || this.f52352e.f52351c.x0.P0() == null || this.f52352e.f52351c.x0.P0().O() == null || !this.f52352e.f52351c.x0.P0().O().Q1()) ? false : false;
-                        b.a.r0.k2.u.f.t O0 = this.f52352e.f52351c.getPbView().O0();
-                        z0 z0Var = this.f52352e;
-                        O0.n(z0Var.f52349a, z0Var.f52350b, z0Var.f52351c.getPbView().R0(), z);
-                        b.a.q0.x.x.h b2 = this.f52352e.f52351c.getPbView().O0().b();
-                        if (b2 != null && this.f52352e.f52351c.x0 != null && this.f52352e.f52351c.x0.P0() != null) {
-                            b2.G(this.f52352e.f52351c.x0.P0().d());
-                            b2.b0(this.f52352e.f52351c.x0.P0().O());
+                    if (this.f52351e.f52350c.getPbView().O0() != null) {
+                        this.f52351e.f52350c.S0.a().setVisibility(8);
+                        z = (this.f52351e.f52350c.x0 == null || this.f52351e.f52350c.x0.P0() == null || this.f52351e.f52350c.x0.P0().O() == null || !this.f52351e.f52350c.x0.P0().O().Q1()) ? false : false;
+                        b.a.r0.k2.u.f.t O0 = this.f52351e.f52350c.getPbView().O0();
+                        z0 z0Var = this.f52351e;
+                        O0.n(z0Var.f52348a, z0Var.f52349b, z0Var.f52350c.getPbView().R0(), z);
+                        b.a.q0.x.x.h b2 = this.f52351e.f52350c.getPbView().O0().b();
+                        if (b2 != null && this.f52351e.f52350c.x0 != null && this.f52351e.f52350c.x0.P0() != null) {
+                            b2.G(this.f52351e.f52350c.x0.P0().d());
+                            b2.b0(this.f52351e.f52350c.x0.P0().O());
                         }
-                        if (this.f52352e.f52351c.mContentProcessController.f() == null && this.f52352e.f52351c.getPbView().O0().b().t() != null) {
-                            this.f52352e.f52351c.getPbView().O0().b().t().f(new C1752a(this));
-                            PbFragment pbFragment2 = this.f52352e.f52351c;
+                        if (this.f52351e.f52350c.mContentProcessController.f() == null && this.f52351e.f52350c.getPbView().O0().b().t() != null) {
+                            this.f52351e.f52350c.getPbView().O0().b().t().f(new C1752a(this));
+                            PbFragment pbFragment2 = this.f52351e.f52350c;
                             pbFragment2.mContentProcessController.n(pbFragment2.getPbView().O0().b().t().h());
-                            this.f52352e.f52351c.getPbView().O0().b().M(this.f52352e.f52351c.a1);
+                            this.f52351e.f52350c.getPbView().O0().b().M(this.f52351e.f52350c.a1);
                         }
                     }
-                    this.f52352e.f52351c.getPbView().c1();
+                    this.f52351e.f52350c.getPbView().c1();
                 }
             }
         }
@@ -8347,9 +8347,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52351c = pbFragment;
-            this.f52349a = str;
-            this.f52350b = str2;
+            this.f52350c = pbFragment;
+            this.f52348a = str;
+            this.f52349b = str2;
         }
 
         @Override // b.a.r0.x0.q2.a.c.d
@@ -8381,13 +8381,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarkData f52354e;
+        public final /* synthetic */ MarkData f52353e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f52355f;
+        public final /* synthetic */ b.a.q0.s.s.a f52354f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52356g;
+        public final /* synthetic */ PbFragment f52355g;
 
         public z1(PbFragment pbFragment, MarkData markData, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -8404,9 +8404,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52356g = pbFragment;
-            this.f52354e = markData;
-            this.f52355f = aVar;
+            this.f52355g = pbFragment;
+            this.f52353e = markData;
+            this.f52354f = aVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -8415,15 +8415,15 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
                 dialogInterface.dismiss();
                 int[] iArr = new int[2];
-                if (this.f52356g.E0 != null && this.f52356g.E0.a1() != null) {
-                    this.f52356g.E0.a1().getLocationOnScreen(iArr);
+                if (this.f52355g.E0 != null && this.f52355g.E0.a1() != null) {
+                    this.f52355g.E0.a1().getLocationOnScreen(iArr);
                 }
                 if (iArr[0] > 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("mark", this.f52354e);
-                    this.f52356g.f52221e.setResult(-1, intent);
-                    this.f52355f.dismiss();
-                    this.f52356g.Z3();
+                    intent.putExtra("mark", this.f52353e);
+                    this.f52355g.f52220e.setResult(-1, intent);
+                    this.f52354f.dismiss();
+                    this.f52355g.Z3();
                 }
             }
         }
@@ -8435,7 +8435,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52357a;
+        public final /* synthetic */ PbFragment f52356a;
 
         public z2(PbFragment pbFragment) {
             Interceptable interceptable = $ic;
@@ -8452,7 +8452,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     return;
                 }
             }
-            this.f52357a = pbFragment;
+            this.f52356a = pbFragment;
         }
 
         @Override // b.a.r0.k2.u.f.c0.b
@@ -8461,7 +8461,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            this.f52357a.E0.A3(str);
+            this.f52356a.E0.A3(str);
         }
 
         @Override // b.a.r0.k2.u.f.c0.b
@@ -8502,8 +8502,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 return;
             }
         }
-        this.f52222f = true;
-        this.f52223g = false;
+        this.f52221f = true;
+        this.f52222g = false;
         this.k = false;
         this.l = false;
         this.n = true;
@@ -8807,7 +8807,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         }
         R3();
         PrivacySettingMessage privacySettingMessage = new PrivacySettingMessage("reply", i3);
-        privacySettingMessage.setTid(this.x0.f52416f);
+        privacySettingMessage.setTid(this.x0.f52415f);
         sendMessage(privacySettingMessage);
     }
 
@@ -8955,11 +8955,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 Intent intent = new Intent();
                 intent.putExtra("type", 0);
                 intent.putExtra("tid", this.x0.f1());
-                this.f52221e.setResult(-1, intent);
+                this.f52220e.setResult(-1, intent);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, this.x0.f1()));
             if (a4()) {
-                this.f52221e.finish();
+                this.f52220e.finish();
             }
         }
     }
@@ -9270,7 +9270,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 } else {
                     b4 = b.a.r0.k2.u.f.f1.a.b(arrayList, this.m2.q(), sparseArray, this.J0);
                 }
-                b.a.r0.k2.u.f.f1.a.k(b4, this.f52222f);
+                b.a.r0.k2.u.f.f1.a.k(b4, this.f52221f);
                 b.a.r0.k2.u.f.f1.a.e(b4);
                 this.J0.n(b.a.r0.k2.u.f.f1.a.f(this.m2));
                 if (b.a.q0.b.d.F()) {
@@ -9281,7 +9281,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 PopupDialog popupDialog = new PopupDialog(getPageContext(), this.J0);
                 this.I0 = popupDialog;
                 popupDialog.showDialog();
-                TiebaStatic.log(new StatisticItem("c13272").param("tid", this.x0.f52416f).param("fid", this.x0.getForumId()).param("uid", this.x0.P0().O().J().getUserId()).param("post_id", this.x0.y()).param("obj_source", booleanValue ? 2 : 1));
+                TiebaStatic.log(new StatisticItem("c13272").param("tid", this.x0.f52415f).param("fid", this.x0.getForumId()).param("uid", this.x0.P0().O().J().getUserId()).param("post_id", this.x0.y()).param("obj_source", booleanValue ? 2 : 1));
                 return true;
             }
             return true;
@@ -9377,9 +9377,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void K2(ForumManageModel.b bVar, boolean z3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048596, this, bVar, z3) == null) && bVar != null && isAdded()) {
-            String string = !TextUtils.isEmpty(bVar.f54249b) ? bVar.f54249b : getString(b.a.r0.k2.l.delete_fail);
+            String string = !TextUtils.isEmpty(bVar.f54248b) ? bVar.f54248b : getString(b.a.r0.k2.l.delete_fail);
             int i3 = 0;
-            if (bVar.f54250c == 1211066) {
+            if (bVar.f54249c == 1211066) {
                 hideProgressBar();
                 b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(getPageContext().getPageActivity());
                 aVar.setMessage(string);
@@ -9387,18 +9387,18 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 aVar.setCancelable(true);
                 aVar.create(getPageContext());
                 aVar.show();
-            } else if (bVar.f54251d != 0) {
-                this.E0.k0(0, bVar.f54248a, bVar.f54249b, z3);
+            } else if (bVar.f54250d != 0) {
+                this.E0.k0(0, bVar.f54247a, bVar.f54248b, z3);
             }
-            if (bVar.f54248a) {
-                int i4 = bVar.f54251d;
+            if (bVar.f54247a) {
+                int i4 = bVar.f54250d;
                 if (i4 == 1) {
                     ArrayList<PostData> F = this.x0.P0().F();
                     int size = F.size();
                     while (true) {
                         if (i3 >= size) {
                             break;
-                        } else if (bVar.f54254g.equals(F.get(i3).G())) {
+                        } else if (bVar.f54253g.equals(F.get(i3).G())) {
                             F.remove(i3);
                             break;
                         } else {
@@ -9418,7 +9418,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         while (true) {
                             if (i6 >= F2.get(i5).O().size()) {
                                 break;
-                            } else if (bVar.f54254g.equals(F2.get(i5).O().get(i6).G())) {
+                            } else if (bVar.f54253g.equals(F2.get(i5).O().get(i6).G())) {
                                 F2.get(i5).O().remove(i6);
                                 F2.get(i5).l();
                                 z4 = true;
@@ -9427,7 +9427,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                                 i6++;
                             }
                         }
-                        F2.get(i5).n(bVar.f54254g);
+                        F2.get(i5).n(bVar.f54253g);
                     }
                     if (z4) {
                         this.E0.t1(this.x0.P0());
@@ -9493,8 +9493,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (!(interceptable == null || interceptable.invokeIL(1048598, this, i3, gVar) == null) || gVar == null) {
             return;
         }
-        this.E0.k0(this.A0.getLoadDataMode(), gVar.f54270a, gVar.f54271b, false);
-        if (gVar.f54270a) {
+        this.E0.k0(this.A0.getLoadDataMode(), gVar.f54269a, gVar.f54270b, false);
+        if (gVar.f54269a) {
             this.F0 = true;
             if (i3 == 2 || i3 == 3) {
                 this.G0 = true;
@@ -9519,8 +9519,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.E0.I3(this.x0.P0(), this.x0.d1());
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.f54271b)) {
-            string = gVar.f54271b;
+        if (gVar != null && !TextUtils.isEmpty(gVar.f54270b)) {
+            string = gVar.f54270b;
         } else {
             string = getString(b.a.r0.k2.l.operation_failed);
         }
@@ -10055,7 +10055,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (v3 == null) {
             return;
         }
-        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G, "pb", true, false, null, false, null, V, postData.R(), this.x0.P0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 5).addBigImageData(v3.f52184a, v3.f52185b, v3.f52190g, v3.j);
+        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(f12, G, "pb", true, false, null, false, null, V, postData.R(), this.x0.P0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 5).addBigImageData(v3.f52183a, v3.f52184b, v3.f52189g, v3.j);
         addBigImageData.setKeyPageStartFrom(this.x0.O0());
         addBigImageData.setFromFrsForumId(this.x0.getFromForumId());
         addBigImageData.setWorksInfoData(this.x0.k1());
@@ -10089,7 +10089,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void Z3() {
         AbsPbActivity absPbActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048627, this) == null) || (absPbActivity = this.f52221e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048627, this) == null) || (absPbActivity = this.f52220e) == null) {
             return;
         }
         absPbActivity.superCloseActivity();
@@ -10118,7 +10118,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         if (h02 == null) {
                             Intent intent = new Intent();
                             intent.putExtra("mark", n02);
-                            this.f52221e.setResult(-1, intent);
+                            this.f52220e.setResult(-1, intent);
                             return true;
                         } else if (h02.getPostId() != null && !h02.getPostId().equals(n02.getPostId())) {
                             b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(getPageContext().getPageActivity());
@@ -10132,13 +10132,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         } else {
                             Intent intent2 = new Intent();
                             intent2.putExtra("mark", n02);
-                            this.f52221e.setResult(-1, intent2);
+                            this.f52220e.setResult(-1, intent2);
                         }
                     }
                     return true;
                 }
                 if (this.x0.P0() != null && this.x0.P0().F() != null && this.x0.P0().F().size() > 0 && this.x0.z0()) {
-                    this.f52221e.setResult(1);
+                    this.f52220e.setResult(1);
                 }
                 return true;
             }
@@ -10185,10 +10185,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void b4() {
         AbsPbActivity absPbActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048633, this) == null) || (absPbActivity = this.f52221e) == null || absPbActivity.getPbModel() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048633, this) == null) || (absPbActivity = this.f52220e) == null || absPbActivity.getPbModel() == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c14396").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.f52221e.getPbModel().f1()).param("topic_id", this.f52221e.getPbModel().getTopicId()).param(TiebaStatic.Params.TOPIC_TYPE, this.f52221e.getPbModel().j1()));
+        TiebaStatic.log(new StatisticItem("c14396").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.f52220e.getPbModel().f1()).param("topic_id", this.f52220e.getPbModel().getTopicId()).param(TiebaStatic.Params.TOPIC_TYPE, this.f52220e.getPbModel().j1()));
     }
 
     public final void c3(int i3) {
@@ -10209,10 +10209,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void c4(boolean z3) {
         AbsPbActivity absPbActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048635, this, z3) == null) || (absPbActivity = this.f52221e) == null || absPbActivity.getPbModel() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048635, this, z3) == null) || (absPbActivity = this.f52220e) == null || absPbActivity.getPbModel() == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(!z3 ? "c14397" : "c14398").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.f52221e.getPbModel().f1()).param("topic_id", this.f52221e.getPbModel().getTopicId()).param(TiebaStatic.Params.TOPIC_TYPE, this.f52221e.getPbModel().j1()));
+        TiebaStatic.log(new StatisticItem(!z3 ? "c14397" : "c14398").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.f52220e.getPbModel().f1()).param("topic_id", this.f52220e.getPbModel().getTopicId()).param(TiebaStatic.Params.TOPIC_TYPE, this.f52220e.getPbModel().j1()));
     }
 
     public void checkEasterEgg(boolean z3) {
@@ -10308,12 +10308,12 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void d3(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, bundle) == null) {
-            b.a.q0.i.a c4 = b.a.q0.i.a.c(this.f52221e);
+            b.a.q0.i.a c4 = b.a.q0.i.a.c(this.f52220e);
             this.z0 = c4;
             if (c4 != null) {
                 c4.j(this.c2);
             }
-            ForumManageModel forumManageModel = new ForumManageModel(this.f52221e);
+            ForumManageModel forumManageModel = new ForumManageModel(this.f52220e);
             this.A0 = forumManageModel;
             forumManageModel.setLoadDataCallBack(this.e2);
             this.B0 = new b.a.q0.t.e.a(getPageContext());
@@ -10325,7 +10325,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void d4(int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048641, this, i3) == null) {
-            TiebaStatic.log(new StatisticItem("c14000").param("tid", this.x0.f52416f).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", String.valueOf(b.a.r0.k2.u.f.f1.a.m(i3))));
+            TiebaStatic.log(new StatisticItem("c14000").param("tid", this.x0.f52415f).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", String.valueOf(b.a.r0.k2.u.f.f1.a.m(i3))));
         }
     }
 
@@ -10363,7 +10363,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 while (true) {
                     if (i4 >= list.get(i3).O().size()) {
                         break;
-                    } else if (bVar.f54254g.equals(list.get(i3).O().get(i4).G())) {
+                    } else if (bVar.f54253g.equals(list.get(i3).O().get(i4).G())) {
                         list.get(i3).O().remove(i4);
                         list.get(i3).l();
                         z3 = true;
@@ -10372,7 +10372,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                         i4++;
                     }
                 }
-                list.get(i3).n(bVar.f54254g);
+                list.get(i3).n(bVar.f54253g);
             }
             if (z3) {
                 s0Var.t1(this.x0.P0());
@@ -10490,7 +10490,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             return;
         }
         this.z2 = uVar;
-        this.f52223g = true;
+        this.f52222g = true;
         this.E0.l2();
         this.E0.D2(this.y2);
     }
@@ -10556,7 +10556,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                     intent.putExtra("guess_like_data", q3);
                     intent.putExtra("KEY_SMART_FRS_POSITION", this.n1);
                 }
-                this.f52221e.setResult(-1, intent);
+                this.f52220e.setResult(-1, intent);
             }
             if (a4()) {
                 if (this.x0 != null && (s0Var = this.E0) != null && s0Var.E0() != null) {
@@ -10586,8 +10586,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
-            AbsPbActivity absPbActivity = this.f52221e;
-            return (absPbActivity == null || absPbActivity.getPbModel() == null || this.f52221e.getPbModel().O0() != 17) ? false : true;
+            AbsPbActivity absPbActivity = this.f52220e;
+            return (absPbActivity == null || absPbActivity.getPbModel() == null || this.f52220e.getPbModel().O0() != 17) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -10672,7 +10672,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public b.a.r0.k2.u.f.c1.a getEventController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.f52221e.getEventController() : (b.a.r0.k2.u.f.c1.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.f52220e.getEventController() : (b.a.r0.k2.u.f.c1.a) invokeV.objValue;
     }
 
     public PostData getFirstPostData() {
@@ -10727,7 +10727,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public boolean getIsMangaThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? (!this.f52223g && this.w2 == -1 && this.x2 == -1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? (!this.f52222g && this.w2 == -1 && this.x2 == -1) ? false : true : invokeV.booleanValue;
     }
 
     @Override // b.a.q0.f1.n.i
@@ -10765,7 +10765,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public AbsPbActivity getPbActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.f52221e : (AbsPbActivity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.f52220e : (AbsPbActivity) invokeV.objValue;
     }
 
     public b.a.q0.x.x.e getPbEditor() {
@@ -10798,7 +10798,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public b.a.r0.k2.u.f.c1.b getPbNavigationAnimDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) ? this.f52225i : (b.a.r0.k2.u.f.c1.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) ? this.f52224i : (b.a.r0.k2.u.f.c1.b) invokeV.objValue;
     }
 
     public b.a.r0.k2.u.f.e1.a getPbRecThreadController() {
@@ -10971,7 +10971,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             } else if (MessageManager.getInstance().findTask(CmdConfigHttp.SPECIAL_PAGE_HTTP_CMD) == null || this.x0.P0() == null || this.x0.P0().O() == null || this.x0.P0().O().j1() == null) {
             } else {
                 sendMessage(new CustomMessage(2002001, new InterviewLiveActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.x0.P0().O().j1().g(), this.x0.P0().O().j1().f(), this.x0.P0().O().j1().b(), this.x0.P0().O().j1().c(), this.x0.P0().O().r0(), this.x0.P0().O().q0())));
-                this.f52221e.finish();
+                this.f52220e.finish();
             }
         }
     }
@@ -11028,10 +11028,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
 
     public void hideKeyBroad() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048698, this) == null) || this.f52221e == null || getPageContext() == null || getPageContext().getPageActivity() == null || this.f52221e.getCurrentFocus() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048698, this) == null) || this.f52220e == null || getPageContext() == null || getPageContext().getPageActivity() == null || this.f52220e.getCurrentFocus() == null) {
             return;
         }
-        b.a.e.e.p.l.x(getPageContext().getPageActivity(), this.f52221e.getCurrentFocus());
+        b.a.e.e.p.l.x(getPageContext().getPageActivity(), this.f52220e.getCurrentFocus());
     }
 
     public void hideKeyboardAndEditor() {
@@ -11161,7 +11161,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             ViewHelper.skipToLoginActivity(getActivity());
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(getPageContext().getPageActivity(), this.z2.a(), this.x2, 0)));
-            this.f52221e.finish();
+            this.f52220e.finish();
         }
     }
 
@@ -11181,7 +11181,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
     public final void m3(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048712, this, bundle) == null) {
-            PbModel pbModel = this.f52221e.getPbModel();
+            PbModel pbModel = this.f52220e.getPbModel();
             this.x0 = pbModel;
             if (pbModel.m0() != null) {
                 this.x0.m0().c(this.v2);
@@ -11190,7 +11190,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 this.x0.L0().f(this.r1);
             }
             if (StringUtils.isNull(this.x0.f1())) {
-                this.f52221e.finish();
+                this.f52220e.finish();
             } else if (!"from_tieba_kuang".equals(this.Q) || this.Q == null) {
             } else {
                 this.x0.j2(6);
@@ -11238,7 +11238,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             ViewHelper.skipToLoginActivity(getActivity());
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(getPageContext().getPageActivity(), this.z2.a(), this.w2, 0)));
-            this.f52221e.finish();
+            this.f52220e.finish();
         }
     }
 
@@ -11278,7 +11278,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             super.onActivityCreated(bundle);
             getBaseFragmentActivity().hideLoadingView(getBaseFragmentActivity().findViewById(b.a.r0.k2.i.container));
             this.Z1.c(true, 0, 3, 0, ((VideoPbViewModel) ViewModelProviders.of(getActivity()).get(VideoPbViewModel.class)).getFirstLoadData(), "", 1);
-            this.f52221e.getTiePlusEventController().addEventAckedCallbackWeaked(this.t0);
+            this.f52220e.getTiePlusEventController().addEventAckedCallbackWeaked(this.t0);
         }
     }
 
@@ -11404,7 +11404,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048719, this, context) == null) {
             super.onAttach(context);
-            this.f52221e = (AbsPbActivity) context;
+            this.f52220e = (AbsPbActivity) context;
         }
     }
 
@@ -11487,7 +11487,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (interceptable == null || interceptable.invokeL(1048724, this, bundle) == null) {
             this.t = System.currentTimeMillis();
             this.d1 = getPageContext();
-            Intent intent = this.f52221e.getIntent();
+            Intent intent = this.f52220e.getIntent();
             if (intent != null) {
                 this.r = intent.getLongExtra("TibaStatic.StartTime", System.currentTimeMillis());
                 this.Q = intent.getStringExtra("from");
@@ -11507,7 +11507,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
                 this.O0 = intent.getStringExtra("high_light_post_id");
                 this.P0 = intent.getBooleanExtra("key_jump_to_top", false);
                 if (getIsMangaThread()) {
-                    this.f52221e.setUseStyleImmersiveSticky(false);
+                    this.f52220e.setUseStyleImmersiveSticky(false);
                 }
                 String stringExtra = intent.getStringExtra(PbActivityConfig.KEY_VIDEO_SOURCE);
                 this.T = stringExtra;
@@ -11556,11 +11556,11 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             D3(gVar);
             b.a.q0.x.x.e eVar = (b.a.q0.x.x.e) this.R0.a(getActivity());
             this.S0 = eVar;
-            eVar.f0(this.f52221e.getPageContext());
+            eVar.f0(this.f52220e.getPageContext());
             this.S0.o0(this.X1);
             this.S0.p0(this.Y0);
             this.S0.h0(1);
-            this.S0.G(this.f52221e.getPageContext(), bundle);
+            this.S0.G(this.f52220e.getPageContext(), bundle);
             this.S0.a().addHideLauncher(new b.a.q0.x.k(getActivity()));
             this.S0.a().showLinePositionBottom(true);
             F3(true);
@@ -11600,10 +11600,10 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             b.a.r0.k2.u.f.s0 s0Var4 = this.E0;
             if (s0Var4 != null && s0Var4.Y0() != null && this.E0.W0() != null) {
                 b.a.r0.k2.u.f.c1.b bVar = new b.a.r0.k2.u.f.c1.b(getActivity(), this.E0.Y0(), this.E0.W0(), this.E0.M0());
-                this.f52225i = bVar;
+                this.f52224i = bVar;
                 bVar.t(this.K1);
             }
-            if (this.f52223g && (s0Var = this.E0) != null && s0Var.W0() != null) {
+            if (this.f52222g && (s0Var = this.E0) != null && s0Var.W0() != null) {
                 this.E0.W0().setVisibility(8);
             }
             b.a.q0.s.g0.c cVar = new b.a.q0.s.g0.c();
@@ -11617,7 +11617,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             registerListener(this.z1);
             registerListener(this.A1);
             this.D1.setSelfListener(true);
-            this.D1.setTag(this.f52221e.getUniqueId());
+            this.D1.setTag(this.f52220e.getUniqueId());
             this.D1.setPriority(-1);
             MessageManager.getInstance().registerListener(this.D1);
             registerResponsedEventListener(TipEvent.class, this.M1);
@@ -11665,9 +11665,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048725, this, layoutInflater, viewGroup, bundle)) == null) {
             this.E0 = new b.a.r0.k2.u.f.s0(this, this.mCommonOnClickListener, this.O1);
             b.a.r0.k0.b bVar = new b.a.r0.k0.b(getActivity());
-            this.f52224h = bVar;
+            this.f52223h = bVar;
             bVar.i(B2);
-            this.f52224h.d(this.u2);
+            this.f52223h.d(this.u2);
             this.E0.J2(this.d2);
             this.E0.I2(this.i2);
             this.E0.C2(this.g2);
@@ -11678,8 +11678,8 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             this.E0.H2(this.t2);
             this.E0.F2(this.f2);
             this.E0.F3(this.mIsLogin);
-            if (this.f52221e.getIntent() != null) {
-                this.E0.y2(this.f52221e.getIntent().getBooleanExtra("KEY_IS_INTERVIEW_LIVE", false));
+            if (this.f52220e.getIntent() != null) {
+                this.E0.y2(this.f52220e.getIntent().getBooleanExtra("KEY_IS_INTERVIEW_LIVE", false));
             }
             this.E0.N0().setFromForumId(this.x0.getFromForumId());
             this.E0.r2(this.S0.a());
@@ -11751,7 +11751,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (bVar != null) {
                 bVar.c();
             }
-            b.a.r0.k2.u.f.c1.b bVar2 = this.f52225i;
+            b.a.r0.k2.u.f.c1.b bVar2 = this.f52224i;
             if (bVar2 != null) {
                 bVar2.k();
             }
@@ -12251,9 +12251,9 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         this.E0.Q2();
         this.z0.i(h02);
         if (!this.z0.e()) {
-            if (this.E0 != null && this.x0 != null && b.a.q0.b.d.T() && !b.a.r0.k2.u.f.f1.b.k(this.x0.f52416f)) {
+            if (this.E0 != null && this.x0 != null && b.a.q0.b.d.T() && !b.a.r0.k2.u.f.f1.b.k(this.x0.f52415f)) {
                 this.E0.v3();
-                b.a.r0.k2.u.f.f1.b.b(this.x0.f52416f);
+                b.a.r0.k2.u.f.f1.b.b(this.x0.f52415f);
             }
             this.z0.a();
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "pb_collect", "pbclick", 1, new Object[0]);
@@ -12477,7 +12477,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             if (voiceManager != null) {
                 voiceManager.stopPlay();
             }
-            AbsPbActivity absPbActivity = this.f52221e;
+            AbsPbActivity absPbActivity = this.f52220e;
             if (absPbActivity != null) {
                 absPbActivity.stopVoice();
             }
@@ -12514,13 +12514,13 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (h4 == null || (tbRichTextData = h4.y().get(this.j2)) == null) {
             return;
         }
-        eVar.f52189f = String.valueOf(h4.getPostId());
-        eVar.f52184a = new ArrayList<>();
-        eVar.f52185b = new ConcurrentHashMap<>();
+        eVar.f52188f = String.valueOf(h4.getPostId());
+        eVar.f52183a = new ArrayList<>();
+        eVar.f52184b = new ConcurrentHashMap<>();
         if (!tbRichTextData.C().D()) {
-            eVar.f52191h = false;
+            eVar.f52190h = false;
             String a4 = b.a.r0.k2.r.g.a(tbRichTextData);
-            eVar.f52184a.add(a4);
+            eVar.f52183a.add(a4);
             ImageUrlData imageUrlData = new ImageUrlData();
             imageUrlData.imageUrl = str;
             if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
@@ -12536,44 +12536,44 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             imageUrlData.postId = h4.getPostId();
             imageUrlData.mIsReserver = this.x0.a1();
             imageUrlData.mIsSeeHost = this.x0.t0();
-            eVar.f52185b.put(a4, imageUrlData);
+            eVar.f52184b.put(a4, imageUrlData);
             if (P0 != null) {
                 if (P0.l() != null) {
-                    eVar.f52186c = P0.l().getName();
-                    eVar.f52187d = P0.l().getId();
+                    eVar.f52185c = P0.l().getName();
+                    eVar.f52186d = P0.l().getId();
                 }
                 if (P0.O() != null) {
-                    eVar.f52188e = P0.O().f0();
+                    eVar.f52187e = P0.O().f0();
                 }
-                eVar.f52190g = P0.s() == 1;
+                eVar.f52189g = P0.s() == 1;
             }
-            imageUrlData.threadId = b.a.e.e.m.b.g(eVar.f52188e, -1L);
+            imageUrlData.threadId = b.a.e.e.m.b.g(eVar.f52187e, -1L);
             return;
         }
-        eVar.f52191h = true;
+        eVar.f52190h = true;
         int size = P0.F().size();
         this.l2 = false;
         eVar.j = -1;
-        int R2 = P0.j() != null ? R2(P0.j().M(), h4, i3, i3, eVar.f52184a, eVar.f52185b) : i3;
+        int R2 = P0.j() != null ? R2(P0.j().M(), h4, i3, i3, eVar.f52183a, eVar.f52184b) : i3;
         for (int i4 = 0; i4 < size; i4++) {
             PostData postData = P0.F().get(i4);
             if (postData.G() == null || P0.j() == null || P0.j().G() == null || !postData.G().equals(P0.j().G())) {
-                R2 = R2(postData.M(), h4, R2, i3, eVar.f52184a, eVar.f52185b);
+                R2 = R2(postData.M(), h4, R2, i3, eVar.f52183a, eVar.f52184b);
             }
         }
-        if (eVar.f52184a.size() > 0) {
-            ArrayList<String> arrayList = eVar.f52184a;
-            eVar.f52192i = arrayList.get(arrayList.size() - 1);
+        if (eVar.f52183a.size() > 0) {
+            ArrayList<String> arrayList = eVar.f52183a;
+            eVar.f52191i = arrayList.get(arrayList.size() - 1);
         }
         if (P0 != null) {
             if (P0.l() != null) {
-                eVar.f52186c = P0.l().getName();
-                eVar.f52187d = P0.l().getId();
+                eVar.f52185c = P0.l().getName();
+                eVar.f52186d = P0.l().getId();
             }
             if (P0.O() != null) {
-                eVar.f52188e = P0.O().f0();
+                eVar.f52187e = P0.O().f0();
             }
-            eVar.f52190g = P0.s() == 1;
+            eVar.f52189g = P0.s() == 1;
         }
         eVar.j = R2;
     }
@@ -12629,7 +12629,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
         if (sparseArray == null) {
             sparseArray = new SparseArray();
         }
-        sparseArray.put(b.a.r0.k2.i.pb_track_more_obj_source, Integer.valueOf(this.f52222f ? 2 : 3));
+        sparseArray.put(b.a.r0.k2.i.pb_track_more_obj_source, Integer.valueOf(this.f52221f ? 2 : 3));
         view.setTag(sparseArray);
     }
 
@@ -12651,7 +12651,7 @@ public class PbFragment extends BaseFragment implements b.a.q0.f1.n.i, VoiceMana
             return;
         }
         if (this.U == null) {
-            b.a.r0.k2.u.f.b1.f.a aVar = new b.a.r0.k2.u.f.b1.f.a(this.f52221e);
+            b.a.r0.k2.u.f.b1.f.a aVar = new b.a.r0.k2.u.f.b1.f.a(this.f52220e);
             this.U = aVar;
             aVar.n(this.Y0);
             this.U.m(this.X1);

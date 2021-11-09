@@ -26,7 +26,7 @@ public class AchievementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementActivity f48362e;
+        public final /* synthetic */ AchievementActivity f48361e;
 
         public a(AchievementActivity achievementActivity) {
             Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class AchievementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48362e = achievementActivity;
+            this.f48361e = achievementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48362e.thanksLetter.h(false);
-                this.f48362e.inviteLetter.h(true);
+                this.f48361e.thanksLetter.h(false);
+                this.f48361e.inviteLetter.h(true);
             }
         }
     }

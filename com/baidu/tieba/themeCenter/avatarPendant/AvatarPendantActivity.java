@@ -50,7 +50,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantActivity f54503a;
+        public final /* synthetic */ AvatarPendantActivity f54502a;
 
         public a(AvatarPendantActivity avatarPendantActivity) {
             Interceptable interceptable = $ic;
@@ -67,22 +67,22 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                     return;
                 }
             }
-            this.f54503a = avatarPendantActivity;
+            this.f54502a = avatarPendantActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
         public void a(int i2, String str, e eVar, List<b.a.r0.r3.d.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                AvatarPendantActivity avatarPendantActivity = this.f54503a;
+                AvatarPendantActivity avatarPendantActivity = this.f54502a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.f());
                 if (i2 == 0) {
-                    this.f54503a.mView.m(eVar, list);
+                    this.f54502a.mView.m(eVar, list);
                 } else {
-                    this.f54503a.showToast(str);
-                    this.f54503a.mView.l();
+                    this.f54502a.showToast(str);
+                    this.f54502a.mView.l();
                 }
-                this.f54503a.mHasListData = !ListUtils.isEmpty(list);
+                this.f54502a.mHasListData = !ListUtils.isEmpty(list);
             }
         }
     }
@@ -93,7 +93,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantActivity f54504e;
+        public final /* synthetic */ AvatarPendantActivity f54503e;
 
         public b(AvatarPendantActivity avatarPendantActivity) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                     return;
                 }
             }
-            this.f54504e = avatarPendantActivity;
+            this.f54503e = avatarPendantActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                BdListViewHelper.c(this.f54504e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
+                BdListViewHelper.c(this.f54503e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
             }
         }
     }

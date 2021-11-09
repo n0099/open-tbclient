@@ -22,32 +22,32 @@ public class c implements g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ArrayList<String> f69660e;
+    public static final ArrayList<String> f69659e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f69661a;
+    public final String f69660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f69662b;
+    public final long f69661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f69663c;
+    public List<com.ss.android.socialbase.downloader.model.c> f69662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f69664d;
+    public final Object f69663d;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f69665f;
+    public Map<String, String> f69664f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69666g;
+    public int f69665g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f69667h;
+    public long f69666h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f69668i;
+    public boolean f69667i;
     public boolean j;
     public g k;
 
@@ -65,13 +65,13 @@ public class c implements g {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>(6);
-        f69660e = arrayList;
+        f69659e = arrayList;
         arrayList.add("Content-Length");
-        f69660e.add("Content-Range");
-        f69660e.add("Transfer-Encoding");
-        f69660e.add(Util.ACCEPT_RANGES);
-        f69660e.add(Util.ETAG);
-        f69660e.add("Content-Disposition");
+        f69659e.add("Content-Range");
+        f69659e.add("Transfer-Encoding");
+        f69659e.add(Util.ACCEPT_RANGES);
+        f69659e.add(Util.ETAG);
+        f69659e.add("Content-Disposition");
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) {
@@ -89,44 +89,44 @@ public class c implements g {
                 return;
             }
         }
-        this.f69665f = null;
-        this.f69664d = new Object();
-        this.f69661a = str;
-        this.f69663c = list;
-        this.f69662b = j;
+        this.f69664f = null;
+        this.f69663d = new Object();
+        this.f69660a = str;
+        this.f69662c = list;
+        this.f69661b = j;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void a() throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f69665f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f69664f == null) {
             try {
                 this.j = true;
-                this.k = com.ss.android.socialbase.downloader.downloader.c.a(this.f69661a, this.f69663c);
-                synchronized (this.f69664d) {
+                this.k = com.ss.android.socialbase.downloader.downloader.c.a(this.f69660a, this.f69662c);
+                synchronized (this.f69663d) {
                     if (this.k != null) {
                         HashMap hashMap = new HashMap();
-                        this.f69665f = hashMap;
+                        this.f69664f = hashMap;
                         a(this.k, hashMap);
-                        this.f69666g = this.k.b();
-                        this.f69667h = System.currentTimeMillis();
-                        this.f69668i = a(this.f69666g);
+                        this.f69665g = this.k.b();
+                        this.f69666h = System.currentTimeMillis();
+                        this.f69667i = a(this.f69665g);
                     }
                     this.j = false;
-                    this.f69664d.notifyAll();
+                    this.f69663d.notifyAll();
                 }
             } catch (Throwable th) {
-                synchronized (this.f69664d) {
+                synchronized (this.f69663d) {
                     if (this.k != null) {
                         HashMap hashMap2 = new HashMap();
-                        this.f69665f = hashMap2;
+                        this.f69664f = hashMap2;
                         a(this.k, hashMap2);
-                        this.f69666g = this.k.b();
-                        this.f69667h = System.currentTimeMillis();
-                        this.f69668i = a(this.f69666g);
+                        this.f69665g = this.k.b();
+                        this.f69666h = System.currentTimeMillis();
+                        this.f69667i = a(this.f69665g);
                     }
                     this.j = false;
-                    this.f69664d.notifyAll();
+                    this.f69663d.notifyAll();
                     throw th;
                 }
             }
@@ -143,7 +143,7 @@ public class c implements g {
     public int b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69666g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69665g : invokeV.intValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
@@ -159,9 +159,9 @@ public class c implements g {
     public void d() throws InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this.f69664d) {
-                if (this.j && this.f69665f == null) {
-                    this.f69664d.wait();
+            synchronized (this.f69663d) {
+                if (this.j && this.f69664f == null) {
+                    this.f69663d.wait();
                 }
             }
         }
@@ -170,13 +170,13 @@ public class c implements g {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69668i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69667i : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? System.currentTimeMillis() - this.f69667h < b.f69655b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? System.currentTimeMillis() - this.f69666h < b.f69654b : invokeV.booleanValue;
     }
 
     public boolean g() {
@@ -188,13 +188,13 @@ public class c implements g {
     public List<com.ss.android.socialbase.downloader.model.c> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f69663c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f69662c : (List) invokeV.objValue;
     }
 
     public Map<String, String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f69665f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f69664f : (Map) invokeV.objValue;
     }
 
     private void a(g gVar, Map<String, String> map) {
@@ -202,7 +202,7 @@ public class c implements g {
         if (!(interceptable == null || interceptable.invokeLL(65538, this, gVar, map) == null) || gVar == null || map == null) {
             return;
         }
-        Iterator<String> it = f69660e.iterator();
+        Iterator<String> it = f69659e.iterator();
         while (it.hasNext()) {
             String next = it.next();
             map.put(next, gVar.a(next));
@@ -214,7 +214,7 @@ public class c implements g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Map<String, String> map = this.f69665f;
+            Map<String, String> map = this.f69664f;
             if (map != null) {
                 return map.get(str);
             }

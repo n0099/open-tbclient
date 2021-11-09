@@ -20,7 +20,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<byte[]> f61384a;
+    public static final AtomicReference<byte[]> f61383a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class a {
                 return;
             }
         }
-        f61384a = new AtomicReference<>();
+        f61383a = new AtomicReference<>();
     }
 
     public static o a(String str) {
@@ -135,13 +135,13 @@ public final class a {
                 try {
                     InputStream inputStream3 = jarFile.getInputStream(jarEntry);
                     try {
-                        byte[] andSet = f61384a.getAndSet(null);
+                        byte[] andSet = f61383a.getAndSet(null);
                         if (andSet == null) {
                             andSet = new byte[4096];
                         }
                         do {
                         } while (inputStream3.read(andSet, 0, andSet.length) != -1);
-                        f61384a.set(andSet);
+                        f61383a.set(andSet);
                         Certificate[][] certificateArr = {jarEntry.getCertificates()};
                         if (inputStream3 != null) {
                             try {

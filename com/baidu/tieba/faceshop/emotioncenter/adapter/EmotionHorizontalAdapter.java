@@ -28,7 +28,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f48028a;
+        public EmotionHorizontalView f48027a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionGridViewHolder(View view) {
@@ -48,13 +48,13 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                     return;
                 }
             }
-            this.f48028a = (EmotionHorizontalView) view;
+            this.f48027a = (EmotionHorizontalView) view;
         }
 
         public void setData(b bVar) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f48028a) == null || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f48027a) == null || bVar == null) {
                 return;
             }
             emotionHorizontalView.setData(bVar.f23454e);

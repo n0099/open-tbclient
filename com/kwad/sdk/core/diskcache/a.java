@@ -27,29 +27,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f64357g;
+    public static volatile a f64356g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f64358a;
+    public Future f64357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f64359b;
+    public File f64358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f64360c;
+    public final ExecutorService f64359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PackageManager f64361d;
+    public PackageManager f64360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f64362e;
+    public final f f64361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f64363f;
+    public volatile boolean f64362f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Callable<PackageInfo> f64364h;
+    public final Callable<PackageInfo> f64363h;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class a {
                 return;
             }
         }
-        this.f64360c = b.k();
-        this.f64363f = false;
-        this.f64364h = new Callable<PackageInfo>(this) { // from class: com.kwad.sdk.core.diskcache.a.1
+        this.f64359c = b.k();
+        this.f64362f = false;
+        this.f64363h = new Callable<PackageInfo>(this) { // from class: com.kwad.sdk.core.diskcache.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f64365a;
+            public final /* synthetic */ a f64364a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -90,7 +90,7 @@ public class a {
                         return;
                     }
                 }
-                this.f64365a = this;
+                this.f64364a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -102,10 +102,10 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     synchronized (a.class) {
-                        if (this.f64365a.f64359b != null && this.f64365a.f64359b.exists()) {
-                            for (File file : this.f64365a.b(this.f64365a.f64359b)) {
-                                if (file.getName().endsWith(".apk") && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a2 = this.f64365a.a(file)) != null) {
-                                    this.f64365a.f64362e.a(file);
+                        if (this.f64364a.f64358b != null && this.f64364a.f64358b.exists()) {
+                            for (File file : this.f64364a.b(this.f64364a.f64358b)) {
+                                if (file.getName().endsWith(".apk") && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a2 = this.f64364a.a(file)) != null) {
+                                    this.f64364a.f64361e.a(file);
                                     return a2;
                                 }
                             }
@@ -117,14 +117,14 @@ public class a {
                 return (PackageInfo) invokeV.objValue;
             }
         };
-        this.f64362e = new com.kwad.sdk.core.download.c.a(context);
+        this.f64361e = new com.kwad.sdk.core.download.c.a(context);
         try {
-            this.f64359b = al.c(context);
-            this.f64361d = context.getPackageManager();
+            this.f64358b = al.c(context);
+            this.f64360d = context.getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
-        this.f64363f = true;
+        this.f64362f = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,8 +135,8 @@ public class a {
             if (file != null && file.exists()) {
                 try {
                     if (file.exists() & (!file.isDirectory())) {
-                        PackageInfo packageArchiveInfo = this.f64361d.getPackageArchiveInfo(file.getPath(), 65);
-                        if (this.f64361d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                        PackageInfo packageArchiveInfo = this.f64360d.getPackageArchiveInfo(file.getPath(), 65);
+                        if (this.f64360d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
                             return null;
                         }
                         return packageArchiveInfo;
@@ -154,14 +154,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f64357g == null) {
+            if (f64356g == null) {
                 synchronized (a.class) {
-                    if (f64357g == null) {
-                        f64357g = new a(context);
+                    if (f64356g == null) {
+                        f64356g = new a(context);
                     }
                 }
             }
-            return f64357g;
+            return f64356g;
         }
         return (a) invokeL.objValue;
     }
@@ -174,7 +174,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f64366a;
+                public final /* synthetic */ a f64365a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -191,7 +191,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f64366a = this;
+                    this.f64365a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -232,10 +232,10 @@ public class a {
     public void a() {
         File file;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64363f && (file = this.f64359b) != null && file.exists()) {
-            Future future = this.f64358a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64362f && (file = this.f64358b) != null && file.exists()) {
+            Future future = this.f64357a;
             if (future == null || future.isDone()) {
-                this.f64358a = this.f64360c.submit(this.f64364h);
+                this.f64357a = this.f64359c.submit(this.f64363h);
             }
         }
     }

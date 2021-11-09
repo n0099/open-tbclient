@@ -23,10 +23,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48332a;
+        public boolean f48331a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f48333b;
+        public boolean f48332b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,26 +45,26 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48332a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48331a : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48333b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48332b : invokeV.booleanValue;
         }
 
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f48332a = z;
+                this.f48331a = z;
             }
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f48333b = z;
+                this.f48332b = z;
             }
         }
     }

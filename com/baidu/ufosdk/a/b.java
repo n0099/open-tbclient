@@ -14,22 +14,22 @@ public final class b extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56635a;
+    public Context f56634a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56636b;
+    public boolean f56635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56637c;
+    public boolean f56636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f56638d;
+    public boolean f56637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f56639e;
+    public final long f56638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56640f;
+    public String f56639f;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -46,25 +46,25 @@ public final class b extends Thread {
                 return;
             }
         }
-        this.f56636b = false;
-        this.f56637c = false;
-        this.f56638d = false;
-        this.f56639e = 300L;
-        this.f56640f = "";
-        this.f56635a = context;
+        this.f56635b = false;
+        this.f56636c = false;
+        this.f56637d = false;
+        this.f56638e = 300L;
+        this.f56639f = "";
+        this.f56634a = context;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f56636b = true;
+            this.f56635b = true;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f56636b = false;
+            this.f56635b = false;
         }
     }
 
@@ -73,22 +73,22 @@ public final class b extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String str = UfoSDK.clientid;
-            this.f56640f = str;
+            this.f56639f = str;
             if (str.length() == 0) {
                 return;
             }
-            while (!this.f56636b) {
+            while (!this.f56635b) {
                 c.b("@@@@@@@@@@@@@@@@@@@@@");
                 try {
                     Thread.sleep(300L);
                 } catch (InterruptedException e2) {
                     c.a("Interrupted!", e2);
                 }
-                if (!this.f56637c) {
-                    com.baidu.ufosdk.e.a.c(this.f56635a);
+                if (!this.f56636c) {
+                    com.baidu.ufosdk.e.a.c(this.f56634a);
                 }
                 try {
-                    if (!this.f56638d) {
+                    if (!this.f56637d) {
                         Thread.sleep(com.baidu.ufosdk.b.ai * 1000);
                     }
                 } catch (InterruptedException unused) {

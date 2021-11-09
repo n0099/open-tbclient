@@ -13,11 +13,11 @@ public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f56393b;
+    public static volatile LibraryLoader f56392b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f56394a;
+    public final int f56393a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,10 +39,10 @@ public class LibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f56393b == null) {
+            if (f56392b == null) {
                 return 0;
             }
-            return f56393b.f56394a;
+            return f56392b.f56393a;
         }
         return invokeV.intValue;
     }

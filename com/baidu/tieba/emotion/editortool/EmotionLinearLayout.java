@@ -16,10 +16,10 @@ public class EmotionLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f47534e;
+    public View f47533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47535f;
+    public boolean f47534f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionLinearLayout(Context context) {
@@ -46,10 +46,10 @@ public class EmotionLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f47535f) {
+            if (this.f47534f) {
                 canvas.save();
-                canvas.translate(this.f47534e.getLeft(), this.f47534e.getTop());
-                this.f47534e.draw(canvas);
+                canvas.translate(this.f47533e.getLeft(), this.f47533e.getTop());
+                this.f47533e.draw(canvas);
                 canvas.restore();
             }
         }
@@ -61,12 +61,12 @@ public class EmotionLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             View childAt = getChildAt(0);
-            if (this.f47534e == null || childAt == null) {
+            if (this.f47533e == null || childAt == null) {
                 return;
             }
-            int measuredWidth = childAt.getMeasuredWidth() - this.f47534e.getMeasuredWidth();
-            View view = this.f47534e;
-            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f47534e.getMeasuredHeight());
+            int measuredWidth = childAt.getMeasuredWidth() - this.f47533e.getMeasuredWidth();
+            View view = this.f47533e;
+            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f47533e.getMeasuredHeight());
         }
     }
 
@@ -75,9 +75,9 @@ public class EmotionLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            View view = this.f47534e;
+            View view = this.f47533e;
             if (view != null) {
-                this.f47534e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f47534e.getLayoutParams().height));
+                this.f47533e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f47533e.getLayoutParams().height));
             }
         }
     }
@@ -85,14 +85,14 @@ public class EmotionLinearLayout extends LinearLayout {
     public void setNewView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f47534e = view;
+            this.f47533e = view;
         }
     }
 
     public void setNewViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f47535f = z;
+            this.f47534f = z;
             invalidate();
         }
     }

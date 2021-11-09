@@ -38,10 +38,10 @@ public class BankCardDetectionAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f57293a;
+                public final /* synthetic */ RouterCallback f57292a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDetectionAction f57294b;
+                public final /* synthetic */ BankCardDetectionAction f57293b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,31 +58,31 @@ public class BankCardDetectionAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f57294b = this;
-                    this.f57293a = routerCallback;
+                    this.f57293b = this;
+                    this.f57292a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.bankdetection.BankcardDetectionController.IDetectionListener
                 public void onFail(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f57293a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f57292a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("errorMsg", str);
                     hashMap2.put("errCode", Integer.valueOf(i2));
-                    this.f57293a.onResult(1, hashMap2);
+                    this.f57292a.onResult(1, hashMap2);
                 }
 
                 @Override // com.baidu.wallet.bankdetection.BankcardDetectionController.IDetectionListener
                 public void onResult(String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f57293a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f57292a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("card_num", str);
-                    this.f57293a.onResult(0, hashMap2);
+                    this.f57292a.onResult(0, hashMap2);
                 }
             });
         }

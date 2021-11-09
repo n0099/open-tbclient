@@ -56,10 +56,10 @@ public class GetQRScanCodeResultAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f60852a;
+                public final /* synthetic */ RouterCallback f60851a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GetQRScanCodeResultAction f60853b;
+                public final /* synthetic */ GetQRScanCodeResultAction f60852b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,8 +76,8 @@ public class GetQRScanCodeResultAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f60853b = this;
-                    this.f60852a = routerCallback;
+                    this.f60852b = this;
+                    this.f60851a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.qrcodescanner.IScanCodeListener
@@ -90,7 +90,7 @@ public class GetQRScanCodeResultAction implements RouterAction {
                         }
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("value", str);
-                        RouterCallback routerCallback2 = this.f60852a;
+                        RouterCallback routerCallback2 = this.f60851a;
                         if (routerCallback2 != null) {
                             routerCallback2.onResult(0, hashMap3);
                         }
@@ -102,11 +102,11 @@ public class GetQRScanCodeResultAction implements RouterAction {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                         QRScanCodeActivity.mLightAppListener = null;
-                        if (this.f60852a != null) {
+                        if (this.f60851a != null) {
                             HashMap hashMap3 = new HashMap();
                             hashMap3.put("errCode", Integer.valueOf(i2));
                             hashMap3.put("errorMsg", str);
-                            this.f60852a.onResult(1, hashMap3);
+                            this.f60851a.onResult(1, hashMap3);
                         }
                     }
                 }

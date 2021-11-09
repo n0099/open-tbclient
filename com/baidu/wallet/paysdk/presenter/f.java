@@ -13,7 +13,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseBeanActivity f59873a;
+    public PayBaseBeanActivity f59872a;
 
     public f(PayBaseBeanActivity payBaseBeanActivity) {
         Interceptable interceptable = $ic;
@@ -30,22 +30,22 @@ public class f {
                 return;
             }
         }
-        this.f59873a = payBaseBeanActivity;
+        this.f59872a = payBaseBeanActivity;
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) || this.f59873a == null || bindFastRequest == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) || this.f59872a == null || bindFastRequest == null) {
             return;
         }
         PayRequestCache.BindCategory category = BindFastRequest.getCategory(bindFastRequest.getmBindFrom());
         if (PayRequestCache.BindCategory.Initiative != category && PayRequestCache.BindCategory.Pwd != category) {
             if (PayRequestCache.BindCategory.Other == category) {
-                this.f59873a.setFlagPaySdk();
+                this.f59872a.setFlagPaySdk();
                 return;
             }
             return;
         }
-        this.f59873a.setFlagActiveBindCard();
+        this.f59872a.setFlagActiveBindCard();
     }
 }

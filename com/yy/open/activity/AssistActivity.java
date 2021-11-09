@@ -53,9 +53,45 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71580e;
+        public final /* synthetic */ AssistActivity f71579e;
 
         public a(AssistActivity assistActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {assistActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f71579e = assistActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                AssistActivity assistActivity = this.f71579e;
+                assistActivity.mWebView.loadUrl(assistActivity.mURL);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AssistActivity f71580e;
+
+        public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,43 +113,7 @@ public final class AssistActivity extends Activity {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f71580e;
-                assistActivity.mWebView.loadUrl(assistActivity.mURL);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71581e;
-
-        public b(AssistActivity assistActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {assistActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f71581e = assistActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f71581e.finish();
+                this.f71580e.finish();
             }
         }
     }
@@ -124,7 +124,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71582a;
+        public final /* synthetic */ AssistActivity f71581a;
 
         public c(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f71582a = assistActivity;
+            this.f71581a = assistActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -149,7 +149,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.f71582a.mProgressView.setVisibility(8);
+                this.f71581a.mProgressView.setVisibility(8);
             }
         }
 
@@ -158,18 +158,18 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.f71582a.mProgressView.setVisibility(0);
-                this.f71582a.mWebView.setVisibility(0);
-                this.f71582a.mTextView.setVisibility(8);
+                this.f71581a.mProgressView.setVisibility(0);
+                this.f71581a.mWebView.setVisibility(0);
+                this.f71581a.mTextView.setVisibility(8);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) && this.f71582a.mURL.equals(str2)) {
-                this.f71582a.mTextView.setVisibility(0);
-                this.f71582a.mWebView.setVisibility(4);
+            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) && this.f71581a.mURL.equals(str2)) {
+                this.f71581a.mTextView.setVisibility(0);
+                this.f71581a.mWebView.setVisibility(4);
             }
         }
 
@@ -180,10 +180,10 @@ public final class AssistActivity extends Activity {
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);
                 int primaryError = sslError.getPrimaryError();
                 String str = primaryError != 0 ? primaryError != 1 ? primaryError != 2 ? primaryError != 3 ? primaryError != 4 ? "发生SSL一般错误" : "证书日期无效" : "证书颁发机构不受信任" : "证书主机名不匹配" : "证书已过期" : "证书尚未生效";
-                this.f71582a.mProgressView.setVisibility(0);
-                this.f71582a.mWebView.setVisibility(0);
-                this.f71582a.mTextView.setVisibility(8);
-                this.f71582a.mTextView.setText(str);
+                this.f71581a.mProgressView.setVisibility(0);
+                this.f71581a.mWebView.setVisibility(0);
+                this.f71581a.mTextView.setVisibility(8);
+                this.f71581a.mTextView.setText(str);
                 sslErrorHandler.cancel();
             }
         }
@@ -210,9 +210,9 @@ public final class AssistActivity extends Activity {
                             jSONObject.put("resMsg", queryParameter2);
                             intent.putExtra("resjson", jSONObject.toString());
                             if ("0".equals(queryParameter)) {
-                                this.f71582a.setResult(444111001, intent);
+                                this.f71581a.setResult(444111001, intent);
                             } else {
-                                this.f71582a.setResult(444222104, intent);
+                                this.f71581a.setResult(444222104, intent);
                             }
                         } else {
                             String queryParameter6 = Uri.parse(str).getQueryParameter("access_code");
@@ -225,12 +225,12 @@ public final class AssistActivity extends Activity {
                             jSONObject2.put("resMsg", queryParameter2);
                             intent.putExtra("resjson", jSONObject2.toString());
                             if ("0".equals(queryParameter)) {
-                                this.f71582a.setResult(444111001, intent);
+                                this.f71581a.setResult(444111001, intent);
                             } else {
-                                this.f71582a.setResult(444222104, intent);
+                                this.f71581a.setResult(444222104, intent);
                             }
                         }
-                        this.f71582a.finish();
+                        this.f71581a.finish();
                         return true;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -253,9 +253,9 @@ public final class AssistActivity extends Activity {
                             jSONObject3.put("resMsg", queryParameter9);
                             intent2.putExtra("resjson", jSONObject3.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f71582a.setResult(444111003, intent2);
+                                this.f71581a.setResult(444111003, intent2);
                             } else {
-                                this.f71582a.setResult(444222106, intent2);
+                                this.f71581a.setResult(444222106, intent2);
                             }
                         } else if ("2".equals(queryParameter10)) {
                             String queryParameter13 = Uri.parse(str).getQueryParameter("token");
@@ -266,9 +266,9 @@ public final class AssistActivity extends Activity {
                             jSONObject4.put("token", queryParameter13);
                             intent2.putExtra("resjson", jSONObject4.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f71582a.setResult(444222108, intent2);
+                                this.f71581a.setResult(444222108, intent2);
                             } else {
-                                this.f71582a.setResult(444222110, intent2);
+                                this.f71581a.setResult(444222110, intent2);
                             }
                         } else {
                             String str2 = "appType:" + queryParameter10;
@@ -282,12 +282,12 @@ public final class AssistActivity extends Activity {
                             jSONObject5.put("resMsg", queryParameter9);
                             intent2.putExtra("resjson", jSONObject5.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f71582a.setResult(444111003, intent2);
+                                this.f71581a.setResult(444111003, intent2);
                             } else {
-                                this.f71582a.setResult(444222106, intent2);
+                                this.f71581a.setResult(444222106, intent2);
                             }
                         }
-                        this.f71582a.finish();
+                        this.f71581a.finish();
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
@@ -306,9 +306,45 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71583a;
+        public final /* synthetic */ AssistActivity f71582a;
 
         public d(AssistActivity assistActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {assistActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f71582a = assistActivity;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onProgressChanged(WebView webView, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
+                super.onProgressChanged(webView, i2);
+                this.f71582a.mProgressView.a(i2);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class e implements DownloadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AssistActivity f71583a;
+
+        public e(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -326,48 +362,12 @@ public final class AssistActivity extends Activity {
             this.f71583a = assistActivity;
         }
 
-        @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-                super.onProgressChanged(webView, i2);
-                this.f71583a.mProgressView.a(i2);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class e implements DownloadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71584a;
-
-        public e(AssistActivity assistActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {assistActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f71584a = assistActivity;
-        }
-
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 try {
-                    this.f71584a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                    this.f71583a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -381,13 +381,13 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f71585e;
+        public int f71584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f71586f;
+        public Paint f71585f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71587g;
+        public final /* synthetic */ AssistActivity f71586g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -407,12 +407,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f71587g = assistActivity;
+            this.f71586g = assistActivity;
             Paint paint = new Paint();
-            this.f71586f = paint;
+            this.f71585f = paint;
             paint.setColor(-731575);
-            this.f71586f.setAntiAlias(true);
-            this.f71586f.setStyle(Paint.Style.FILL);
+            this.f71585f.setAntiAlias(true);
+            this.f71585f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -423,7 +423,7 @@ public final class AssistActivity extends Activity {
                 } else if (i2 < 0) {
                     i2 = 0;
                 }
-                this.f71585e = i2;
+                this.f71584e = i2;
                 invalidate();
             }
         }
@@ -433,7 +433,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f71585e / 100.0f) * getWidth(), getHeight(), this.f71586f);
+                canvas.drawRect(0.0f, 0.0f, (this.f71584e / 100.0f) * getWidth(), getHeight(), this.f71585f);
                 super.onDraw(canvas);
             }
         }
@@ -454,7 +454,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f71588a;
+        public final /* synthetic */ AssistActivity f71587a;
 
         public g(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -471,7 +471,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f71588a = assistActivity;
+            this.f71587a = assistActivity;
         }
 
         @JavascriptInterface

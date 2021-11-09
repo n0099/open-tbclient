@@ -77,7 +77,7 @@ public final class a {
                 stringBuffer.append(this.f29140f);
                 stringBuffer.append(TrackUI.SEPERATOR);
                 stringBuffer.append(this.f29141g);
-                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f56626c, a.f29138c.toString());
+                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f56625c, a.f29138c.toString());
             }
         }
     }

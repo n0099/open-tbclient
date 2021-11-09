@@ -16,22 +16,22 @@ public class BorderTipTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57458a;
+    public int f57457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57459b;
+    public int f57458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57460c;
+    public int f57459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57461d;
+    public int f57460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ColorStateList f57462e;
+    public ColorStateList f57461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f57463f;
+    public Drawable f57462f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BorderTipTextView(Context context, AttributeSet attributeSet) {
@@ -52,12 +52,12 @@ public class BorderTipTextView extends TextView {
                 return;
             }
         }
-        this.f57458a = getPaddingLeft();
-        this.f57459b = getPaddingRight();
-        this.f57460c = getPaddingTop();
-        this.f57461d = getPaddingBottom();
-        this.f57462e = getTextColors();
-        this.f57463f = getBackground();
+        this.f57457a = getPaddingLeft();
+        this.f57458b = getPaddingRight();
+        this.f57459c = getPaddingTop();
+        this.f57460d = getPaddingBottom();
+        this.f57461e = getTextColors();
+        this.f57462f = getBackground();
     }
 
     public void setText(CharSequence charSequence, boolean z) {
@@ -70,10 +70,10 @@ public class BorderTipTextView extends TextView {
                 setPadding(6, 0, 6, 2);
                 return;
             }
-            setBackgroundDrawable(this.f57463f);
-            setTextColor(this.f57462e);
+            setBackgroundDrawable(this.f57462f);
+            setTextColor(this.f57461e);
             setText(charSequence);
-            setPadding(this.f57458a, this.f57460c, this.f57459b, this.f57461d);
+            setPadding(this.f57457a, this.f57459c, this.f57458b, this.f57460d);
         }
     }
 }

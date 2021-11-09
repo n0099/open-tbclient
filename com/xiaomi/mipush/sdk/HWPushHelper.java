@@ -19,7 +19,7 @@ public class HWPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f70573a;
+    public static boolean f70572a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,12 +68,12 @@ public class HWPushHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String a2 = i.a(e.f70622a);
+            String a2 = i.a(e.f70621a);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f70608c);
+            String a4 = ae.a(context).a(at.f70607c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -88,7 +88,7 @@ public class HWPushHelper {
     public static boolean needConnect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f70573a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f70572a : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -156,7 +156,7 @@ public class HWPushHelper {
     public static void registerHuaWeiAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f70622a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f70621a)) == null) {
             return;
         }
         a2.register();
@@ -190,7 +190,7 @@ public class HWPushHelper {
     public static void setNeedConnect(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f70573a = z;
+            f70572a = z;
         }
     }
 
@@ -223,7 +223,7 @@ public class HWPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
-            i.a(context, e.f70622a, str);
+            i.a(context, e.f70621a, str);
         }
     }
 }

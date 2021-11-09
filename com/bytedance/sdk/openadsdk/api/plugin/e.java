@@ -32,16 +32,16 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ScheduledExecutorService f61667a;
+    public static ScheduledExecutorService f61666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f61668b;
+    public static SharedPreferences f61667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f61669c;
+    public static volatile boolean f61668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f61670d;
+    public static Map<String, String> f61669d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,9 +57,9 @@ public final class e {
                 return;
             }
         }
-        f61667a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
-        f61669c = false;
-        f61670d = new HashMap();
+        f61666a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
+        f61668c = false;
+        f61669d = new HashMap();
     }
 
     public static void c(String str, JSONObject jSONObject) {
@@ -74,17 +74,17 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f61669c) {
+        } else if (f61668c) {
         } else {
-            f61667a.execute(new Runnable(str, jSONObject) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
+            f61666a.execute(new Runnable(str, jSONObject) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61671a;
+                public final /* synthetic */ String f61670a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f61672b;
+                public final /* synthetic */ JSONObject f61671b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,15 +101,15 @@ public final class e {
                             return;
                         }
                     }
-                    this.f61671a = str;
-                    this.f61672b = jSONObject;
+                    this.f61670a = str;
+                    this.f61671b = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        e.b(e.d(this.f61671a, this.f61672b));
+                        e.b(e.d(this.f61670a, this.f61671b));
                     }
                 }
             });
@@ -135,8 +135,8 @@ public final class e {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("model", Build.MODEL);
                 jSONObject4.put("vendor", Build.MANUFACTURER);
-                jSONObject4.put("imei", f61670d.get("imei"));
-                jSONObject4.put("oaid", f61670d.get("oaid"));
+                jSONObject4.put("imei", f61669d.get("imei"));
+                jSONObject4.put("oaid", f61669d.get("oaid"));
                 jSONObject3.put("device_info", jSONObject4);
                 jSONArray.put(jSONObject3);
                 jSONObject2.put("stats_list", jSONArray);
@@ -150,7 +150,7 @@ public final class e {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f61668b = context.getSharedPreferences("tt_sdk_settings", 0);
+            f61667b = context.getSharedPreferences("tt_sdk_settings", 0);
         }
     }
 
@@ -158,7 +158,7 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
-            SharedPreferences sharedPreferences = f61668b;
+            SharedPreferences sharedPreferences = f61667b;
             return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
         }
         return (String) invokeL.objValue;
@@ -201,27 +201,27 @@ public final class e {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f61669c) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f61668c) {
             return;
         }
         try {
-            f61669c = true;
-            f61667a.shutdown();
+            f61668c = true;
+            f61666a.shutdown();
         } catch (Throwable unused) {
         }
     }
 
     public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundle) == null) || f61669c) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundle) == null) || f61668c) {
             return;
         }
-        f61667a.execute(new Runnable(bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
+        f61666a.execute(new Runnable(bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Bundle f61673a;
+            public final /* synthetic */ Bundle f61672a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -238,14 +238,14 @@ public final class e {
                         return;
                     }
                 }
-                this.f61673a = bundle;
+                this.f61672a = bundle;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    e.b(this.f61673a);
+                    e.b(this.f61672a);
                 }
             }
         });
@@ -256,12 +256,12 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, adConfig) == null) || adConfig == null) {
             return;
         }
-        f61670d.put("appid", adConfig.getAppId());
+        f61669d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f61670d.put("oaid", customController.getDevOaid());
-                f61670d.put("imei", customController.getDevImei());
+                f61669d.put("oaid", customController.getDevOaid());
+                f61669d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

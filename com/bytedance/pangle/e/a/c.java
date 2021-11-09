@@ -14,13 +14,13 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f61377a;
+    public InputStream f61376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61378b;
+    public boolean f61377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61379c;
+    public int f61378c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class c {
     public final void a(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
-            this.f61377a = inputStream;
-            this.f61378b = false;
-            this.f61379c = 0;
+            this.f61376a = inputStream;
+            this.f61377b = false;
+            this.f61378c = 0;
         }
     }
 
@@ -50,24 +50,24 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = 0;
-            if (this.f61378b) {
+            if (this.f61377b) {
                 for (int i3 = 24; i3 >= 0; i3 -= 8) {
-                    int read = this.f61377a.read();
+                    int read = this.f61376a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f61379c++;
+                    this.f61378c++;
                     i2 |= read << i3;
                 }
                 return i2;
             }
             int i4 = 0;
             while (i2 != 32) {
-                int read2 = this.f61377a.read();
+                int read2 = this.f61376a.read();
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f61379c++;
+                this.f61378c++;
                 i4 |= read2 << i2;
                 i2 += 8;
             }
@@ -79,8 +79,8 @@ public final class c {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long skip = this.f61377a.skip(4L);
-            this.f61379c = (int) (this.f61379c + skip);
+            long skip = this.f61376a.skip(4L);
+            this.f61378c = (int) (this.f61378c + skip);
             if (skip != 4) {
                 throw new EOFException();
             }

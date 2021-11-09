@@ -51,11 +51,11 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
                 return null;
             }
             SaveDraftMessage.a data = customMessage.getData();
-            ChatSetting a2 = this.f20420e.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.f50509b);
+            ChatSetting a2 = this.f20420e.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.f50508b);
             if (a2 == null) {
                 return null;
             }
-            a2.setDraft(data.f50508a);
+            a2.setDraft(data.f50507a);
             this.f20420e.h(a2);
             return customResponsedMessage;
         }

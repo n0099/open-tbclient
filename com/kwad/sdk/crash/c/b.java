@@ -24,32 +24,32 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f65447a;
+    public static final String f65446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f65448b;
+    public static File f65447b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f65449c;
+    public e f65448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f65450d;
+    public AtomicInteger f65449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f65451e;
+    public File f65450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f65452f;
+    public File f65451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f65453g;
+    public File f65452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f65454h;
+    public File f65453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public File f65455i;
+    public File f65454i;
     public com.kwad.sdk.crash.report.c j;
 
     static {
@@ -65,7 +65,7 @@ public abstract class b {
                 return;
             }
         }
-        f65447a = UUID.randomUUID().toString();
+        f65446a = UUID.randomUUID().toString();
     }
 
     public b() {
@@ -81,17 +81,17 @@ public abstract class b {
                 return;
             }
         }
-        this.f65450d = new AtomicInteger();
+        this.f65449d = new AtomicInteger();
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            f65448b = file;
+            f65447b = file;
             if (file.exists()) {
                 return;
             }
-            f65448b.mkdirs();
+            f65447b.mkdirs();
         }
     }
 
@@ -104,17 +104,17 @@ public abstract class b {
     public void a(File file, e eVar, com.kwad.sdk.crash.report.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, eVar, cVar) == null) {
-            this.f65451e = file;
+            this.f65450e = file;
             if (!file.exists()) {
-                this.f65451e.mkdirs();
+                this.f65450e.mkdirs();
             }
-            File file2 = this.f65451e;
-            this.f65452f = new File(file2, f65447a + "-" + this.f65450d + ".dump");
-            File file3 = this.f65451e;
-            this.f65453g = new File(file3, f65447a + "-" + this.f65450d + ".log");
-            File file4 = this.f65451e;
-            this.f65454h = new File(file4, f65447a + "-" + this.f65450d + ".jtrace");
-            this.f65449c = eVar;
+            File file2 = this.f65450e;
+            this.f65451f = new File(file2, f65446a + "-" + this.f65449d + ".dump");
+            File file3 = this.f65450e;
+            this.f65452g = new File(file3, f65446a + "-" + this.f65449d + ".log");
+            File file4 = this.f65450e;
+            this.f65453h = new File(file4, f65446a + "-" + this.f65449d + ".jtrace");
+            this.f65448c = eVar;
             this.j = cVar;
         }
     }
@@ -124,12 +124,12 @@ public abstract class b {
     public void b() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (listFiles = this.f65451e.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.c.b.1
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (listFiles = this.f65450e.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.c.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f65456a;
+            public final /* synthetic */ b f65455a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -146,7 +146,7 @@ public abstract class b {
                         return;
                     }
                 }
-                this.f65456a = this;
+                this.f65455a = this;
             }
 
             @Override // java.io.FileFilter
@@ -170,14 +170,14 @@ public abstract class b {
     public void b(File file) {
         File file2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, file) == null) || (file2 = f65448b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, file) == null) || (file2 = f65447b) == null) {
             return;
         }
         if (!file2.exists()) {
-            f65448b.mkdirs();
+            f65447b.mkdirs();
         }
         try {
-            g.a(file.getParentFile().getParentFile(), f65448b);
+            g.a(file.getParentFile().getParentFile(), f65447b);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }

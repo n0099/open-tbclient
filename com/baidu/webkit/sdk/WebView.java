@@ -2207,7 +2207,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             boolean a2 = true ^ secureProcessor.a();
             if (obj != null && !TextUtils.isEmpty(str)) {
                 secureProcessor.d().put(str, obj);
-                secureProcessor.f60943d = null;
+                secureProcessor.f60942d = null;
             }
             if (!a2 || getEnableJsPrompt()) {
                 return;
@@ -2691,14 +2691,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             a secureProcessor = getSecureProcessor();
-            if (secureProcessor.f60942c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-                HashMap<String, Object> hashMap = secureProcessor.f60941b;
+            if (secureProcessor.f60941c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+                HashMap<String, Object> hashMap = secureProcessor.f60940b;
                 if (hashMap != null) {
                     hashMap.clear();
-                    secureProcessor.f60941b = null;
+                    secureProcessor.f60940b = null;
                 }
-                if (secureProcessor.f60942c.getWebViewClient() != null) {
-                    secureProcessor.f60943d = null;
+                if (secureProcessor.f60941c.getWebViewClient() != null) {
+                    secureProcessor.f60942d = null;
                 }
             }
             checkThread();
@@ -4296,11 +4296,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
             a secureProcessor = getSecureProcessor();
             boolean z = true;
-            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f60942c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f60941c.getContext().getPackageName().contains("com.baidu.searchbox")) {
                 boolean z2 = !secureProcessor.a();
                 secureProcessor.d().remove(str);
-                if (secureProcessor.f60942c.getWebViewClient() != null) {
-                    secureProcessor.f60943d = null;
+                if (secureProcessor.f60941c.getWebViewClient() != null) {
+                    secureProcessor.f60942d = null;
                 }
                 z = z2;
             }

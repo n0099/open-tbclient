@@ -42,7 +42,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f53739e;
+        public final /* synthetic */ NewUserRedPackageActivity f53738e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f53739e = newUserRedPackageActivity;
+            this.f53738e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f53739e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f53739e.mBgImage.getId()) {
+                if (view.getId() != this.f53738e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f53738e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f53739e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f53739e.getPageContext(), new String[]{this.f53739e.mData.clickUrl});
-                                this.f53739e.finish();
+                            if (this.f53738e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f53738e.getPageContext(), new String[]{this.f53738e.mData.clickUrl});
+                                this.f53738e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f53739e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f53739e.getActivity(), true, 25046)));
+                        this.f53738e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f53738e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f53739e.finish();
+                this.f53738e.finish();
             }
         }
     }

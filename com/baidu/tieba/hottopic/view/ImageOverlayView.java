@@ -27,19 +27,19 @@ public class ImageOverlayView extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50066e;
+    public int f50065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50067f;
+    public int f50066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50068g;
+    public int f50067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50069h;
+    public int f50068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50070i;
+    public int f50069i;
     public int j;
     public List<l> k;
 
@@ -70,15 +70,15 @@ public class ImageOverlayView extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = 0; i2 < this.f50066e; i2++) {
+            for (int i2 = 0; i2 < this.f50065e; i2++) {
                 HeadImageView headImageView = new HeadImageView(getContext());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f50067f, this.f50068g));
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f50066f, this.f50067g));
                 headImageView.setIsRound(true);
                 headImageView.setBorderSurroundContent(true);
                 headImageView.setDrawBorder(true);
-                headImageView.setBorderWidth(this.f50069h);
+                headImageView.setBorderWidth(this.f50068h);
                 headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                headImageView.setBorderColor(SkinManager.getColor(this.f50070i));
+                headImageView.setBorderColor(SkinManager.getColor(this.f50069i));
                 headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(headImageView);
             }
@@ -105,11 +105,11 @@ public class ImageOverlayView extends ViewGroup {
     public void init(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f50066e = i2;
-            this.f50067f = i3;
-            this.f50068g = i4;
-            this.f50069h = i5;
-            this.f50070i = i6;
+            this.f50065e = i2;
+            this.f50066f = i3;
+            this.f50067g = i4;
+            this.f50068h = i5;
+            this.f50069i = i6;
             this.j = i7;
             a();
         }
@@ -121,7 +121,7 @@ public class ImageOverlayView extends ViewGroup {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof HeadImageView) {
-                    ((HeadImageView) childAt).setBorderColor(SkinManager.getColor(this.f50070i));
+                    ((HeadImageView) childAt).setBorderColor(SkinManager.getColor(this.f50069i));
                 }
             }
         }
@@ -134,9 +134,9 @@ public class ImageOverlayView extends ViewGroup {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            for (int i6 = 0; i6 < this.f50066e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-                childAt.layout(paddingLeft, paddingTop, this.f50067f + paddingLeft, this.f50068g + paddingTop);
-                paddingLeft += this.f50067f - this.j;
+            for (int i6 = 0; i6 < this.f50065e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+                childAt.layout(paddingLeft, paddingTop, this.f50066f + paddingLeft, this.f50067g + paddingTop);
+                paddingLeft += this.f50066f - this.j;
             }
         }
     }
@@ -146,8 +146,8 @@ public class ImageOverlayView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
             int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int i4 = this.f50066e;
-            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f50067f * i4)) - ((i4 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f50068g, i3));
+            int i4 = this.f50065e;
+            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f50066f * i4)) - ((i4 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f50067g, i3));
         }
     }
 
@@ -158,7 +158,7 @@ public class ImageOverlayView extends ViewGroup {
             return;
         }
         this.k = list;
-        for (int i2 = 0; i2 < this.f50066e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
+        for (int i2 = 0; i2 < this.f50065e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
             if (i2 >= list.size()) {
                 headImageView.setVisibility(8);
             } else {
@@ -168,7 +168,7 @@ public class ImageOverlayView extends ViewGroup {
                     return;
                 }
                 headImageView.setUserId(String.valueOf(lVar.f18470a));
-                headImageView.startLoad(lVar.f18471b, 12, this.f50067f, this.f50068g, false);
+                headImageView.startLoad(lVar.f18471b, 12, this.f50066f, this.f50067g, false);
             }
         }
     }
@@ -199,7 +199,7 @@ public class ImageOverlayView extends ViewGroup {
             Collections.swap(list, existUserIndex, list.size() - 1);
         } else {
             ListUtils.add(this.k, 0, lVar);
-            if (this.k.size() > this.f50066e) {
+            if (this.k.size() > this.f50065e) {
                 List<l> list2 = this.k;
                 ListUtils.remove(list2, list2.size() - 1);
             }

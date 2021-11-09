@@ -14,10 +14,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f69153a = 4;
+    public static int f69152a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC1986a f69154b;
+    public static AbstractC1986a f69153b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
@@ -81,7 +81,7 @@ public class a {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f69153a = i2;
+            f69152a = i2;
         }
     }
 
@@ -102,10 +102,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69153a <= 4) {
+        if (f69152a <= 4) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69154b;
+        AbstractC1986a abstractC1986a = f69153b;
         if (abstractC1986a != null) {
             abstractC1986a.c(b(str), str2);
         }
@@ -116,10 +116,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69153a <= 5) {
+        if (f69152a <= 5) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69154b;
+        AbstractC1986a abstractC1986a = f69153b;
         if (abstractC1986a != null) {
             abstractC1986a.e(b(str), str2);
         }
@@ -130,10 +130,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69153a <= 6) {
+        if (f69152a <= 6) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69154b;
+        AbstractC1986a abstractC1986a = f69153b;
         if (abstractC1986a != null) {
             abstractC1986a.d(b(str), str2);
         }
@@ -142,7 +142,7 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f69153a <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f69152a <= 3 : invokeV.booleanValue;
     }
 
     public static void a(String str, String str2) {
@@ -150,8 +150,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
             return;
         }
-        int i2 = f69153a;
-        AbstractC1986a abstractC1986a = f69154b;
+        int i2 = f69152a;
+        AbstractC1986a abstractC1986a = f69153b;
         if (abstractC1986a != null) {
             abstractC1986a.a(b(str), str2);
         }
@@ -162,10 +162,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69153a <= 3) {
+        if (f69152a <= 3) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69154b;
+        AbstractC1986a abstractC1986a = f69153b;
         if (abstractC1986a != null) {
             abstractC1986a.b(b(str), str2);
         }
@@ -191,10 +191,10 @@ public class a {
             if (str2 == null && th == null) {
                 return;
             }
-            if (f69153a <= 6) {
+            if (f69152a <= 6) {
                 b(str);
             }
-            AbstractC1986a abstractC1986a = f69154b;
+            AbstractC1986a abstractC1986a = f69153b;
             if (abstractC1986a != null) {
                 abstractC1986a.a(b(str), str2, th);
             }

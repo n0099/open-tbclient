@@ -28,17 +28,17 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69574a = "o";
+    public static final String f69573a = "o";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile com.ss.android.socialbase.downloader.downloader.i f69575b;
+    public volatile com.ss.android.socialbase.downloader.downloader.i f69574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> f69576c;
+    public com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> f69575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.m f69577d;
+    public com.ss.android.socialbase.downloader.downloader.m f69576d;
 
     static {
         InterceptResult invokeClinit;
@@ -68,20 +68,20 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
                 return;
             }
         }
-        this.f69577d = new p();
+        this.f69576d = new p();
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> z = com.ss.android.socialbase.downloader.downloader.c.z();
-        this.f69576c = z;
+        this.f69575c = z;
         z.a(this);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2);
+            this.f69574b.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -99,11 +99,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return false;
             }
             try {
-                return this.f69575b.b(i2);
+                return this.f69574b.b(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -115,11 +115,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048609, this, i2) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048609, this, i2) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.c(i2);
+            this.f69574b.c(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -128,11 +128,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048615, this, i2) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048615, this, i2) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.d(i2);
+            this.f69574b.d(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -143,11 +143,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return 0L;
             }
             try {
-                return this.f69575b.e(i2);
+                return this.f69574b.e(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0L;
@@ -161,11 +161,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return 0;
             }
             try {
-                return this.f69575b.f(i2);
+                return this.f69574b.f(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0;
@@ -179,11 +179,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return false;
             }
             try {
-                return this.f69575b.g(i2);
+                return this.f69574b.g(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -197,11 +197,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.h(i2);
+            if (this.f69574b == null) {
+                return this.f69576d.h(i2);
             }
             try {
-                return this.f69575b.h(i2);
+                return this.f69574b.h(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -215,11 +215,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i2)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.i(i2);
+            if (this.f69574b == null) {
+                return this.f69576d.i(i2);
             }
             try {
-                return this.f69575b.i(i2);
+                return this.f69574b.i(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -232,12 +232,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.j(i2);
+            if (this.f69574b == null) {
+                this.f69576d.j(i2);
                 return;
             }
             try {
-                this.f69575b.j(i2);
+                this.f69574b.j(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -248,7 +248,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void k(int i2) {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048627, this, i2) == null) || (oVar = this.f69576c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048627, this, i2) == null) || (oVar = this.f69575c) == null) {
             return;
         }
         oVar.a(i2);
@@ -259,11 +259,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return false;
             }
             try {
-                return this.f69575b.k(i2);
+                return this.f69574b.k(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -277,11 +277,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i2)) == null) {
-            if (this.f69575b == null) {
+            if (this.f69574b == null) {
                 return com.ss.android.socialbase.downloader.downloader.d.a().b(i2);
             }
             try {
-                return this.f69575b.m(i2);
+                return this.f69574b.m(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return -1;
@@ -295,11 +295,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.n(i2);
+            if (this.f69574b == null) {
+                return this.f69576d.n(i2);
             }
             try {
-                return this.f69575b.n(i2);
+                return this.f69574b.n(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -312,12 +312,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.o(i2);
+            if (this.f69574b == null) {
+                this.f69576d.o(i2);
                 return;
             }
             try {
-                this.f69575b.o(i2);
+                this.f69574b.o(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -329,11 +329,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i2)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.p(i2);
+            if (this.f69574b == null) {
+                return this.f69576d.p(i2);
             }
             try {
-                return this.f69575b.p(i2);
+                return this.f69574b.p(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -347,9 +347,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i2)) == null) {
-            if (this.f69575b != null) {
+            if (this.f69574b != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.a(this.f69575b.q(i2));
+                    return com.ss.android.socialbase.downloader.i.g.a(this.f69574b.q(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -365,9 +365,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i2)) == null) {
-            if (this.f69575b != null) {
+            if (this.f69574b != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.a(this.f69575b.r(i2));
+                    return com.ss.android.socialbase.downloader.i.g.a(this.f69574b.r(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -383,9 +383,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i2)) == null) {
-            if (this.f69575b != null) {
+            if (this.f69574b != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.a(this.f69575b.s(i2));
+                    return com.ss.android.socialbase.downloader.i.g.a(this.f69574b.s(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -400,7 +400,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void startService() {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || (oVar = this.f69576c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || (oVar = this.f69575c) == null) {
             return;
         }
         oVar.startService();
@@ -409,11 +409,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, z);
+            this.f69574b.a(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -431,11 +431,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.c(str);
+            if (this.f69574b == null) {
+                return this.f69576d.c(str);
             }
             try {
-                return this.f69575b.c(str);
+                return this.f69574b.c(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -449,11 +449,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.d();
+            if (this.f69574b == null) {
+                return this.f69576d.d();
             }
             try {
-                return this.f69575b.b();
+                return this.f69574b.b();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -467,9 +467,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
-            if (this.f69575b != null) {
+            if (this.f69574b != null) {
                 try {
-                    return this.f69575b.d(str);
+                    return this.f69574b.d(str);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -484,12 +484,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.f();
+            if (this.f69574b == null) {
+                this.f69576d.f();
                 return;
             }
             try {
-                this.f69575b.e();
+                this.f69574b.e();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -500,14 +500,14 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f69575b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f69574b != null : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.n
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.f69575b = null;
+            this.f69574b = null;
         }
     }
 
@@ -516,11 +516,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.b(str);
+            if (this.f69574b == null) {
+                return this.f69576d.b(str);
             }
             try {
-                return this.f69575b.b(str);
+                return this.f69574b.b(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -532,11 +532,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a();
+            this.f69574b.a();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -547,11 +547,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.e();
+            if (this.f69574b == null) {
+                return this.f69576d.e();
             }
             try {
-                return this.f69575b.d();
+                return this.f69574b.d();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -572,11 +572,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.d(str);
+            if (this.f69574b == null) {
+                return this.f69576d.d(str);
             }
             try {
-                return this.f69575b.e(str);
+                return this.f69574b.e(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -588,11 +588,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void c(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.d(i2, z);
+            this.f69574b.d(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -603,11 +603,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.a(str);
+            if (this.f69574b == null) {
+                return this.f69576d.a(str);
             }
             try {
-                return this.f69575b.a(str);
+                return this.f69574b.a(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -620,12 +620,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void b(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.b(list);
+            if (this.f69574b == null) {
+                this.f69576d.b(list);
                 return;
             }
             try {
-                this.f69575b.b(list);
+                this.f69574b.b(list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -637,11 +637,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, downloadInfo)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.c(downloadInfo);
+            if (this.f69574b == null) {
+                return this.f69576d.c(downloadInfo);
             }
             try {
-                return this.f69575b.b(downloadInfo);
+                return this.f69574b.b(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -661,12 +661,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void b(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.b(i2, z);
+            if (this.f69574b == null) {
+                this.f69576d.b(i2, z);
                 return;
             }
             try {
-                this.f69575b.b(i2, z);
+                this.f69574b.b(i2, z);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -677,12 +677,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.a(list);
+            if (this.f69574b == null) {
+                this.f69576d.a(list);
                 return;
             }
             try {
-                this.f69575b.a(list);
+                this.f69574b.a(list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -692,11 +692,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69187b), fVar.ordinal(), z);
+            this.f69574b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69186b), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -705,11 +705,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.b(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69187b), fVar.ordinal(), z);
+            this.f69574b.b(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69186b), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -720,13 +720,13 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (this.f69575b == null) {
-                com.ss.android.socialbase.downloader.c.a.d(f69574a, "isServiceForeground, aidlService is null");
+            if (this.f69574b == null) {
+                com.ss.android.socialbase.downloader.c.a.d(f69573a, "isServiceForeground, aidlService is null");
                 return false;
             }
-            com.ss.android.socialbase.downloader.c.a.c(f69574a, "aidlService.isServiceForeground");
+            com.ss.android.socialbase.downloader.c.a.c(f69573a, "aidlService.isServiceForeground");
             try {
-                return this.f69575b.f();
+                return this.f69574b.f();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -738,11 +738,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69187b), fVar.ordinal(), z, z2);
+            this.f69574b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.f69186b), fVar.ordinal(), z, z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -753,11 +753,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, downloadInfo)) == null) {
-            if (this.f69575b == null) {
-                return this.f69577d.a(downloadInfo);
+            if (this.f69574b == null) {
+                return this.f69576d.a(downloadInfo);
             }
             try {
-                this.f69575b.a(downloadInfo);
+                this.f69574b.a(downloadInfo);
                 return false;
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -771,7 +771,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void b(DownloadTask downloadTask) {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, downloadTask) == null) || downloadTask == null || (oVar = this.f69576c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, downloadTask) == null) || downloadTask == null || (oVar = this.f69575c) == null) {
             return;
         }
         oVar.c(downloadTask);
@@ -781,12 +781,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048601, this, i2, list) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.b(i2, list);
+            if (this.f69574b == null) {
+                this.f69576d.b(i2, list);
                 return;
             }
             try {
-                this.f69575b.a(i2, list);
+                this.f69574b.a(i2, list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -797,14 +797,14 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(int i2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048587, this, i2, notification) == null) {
-            if (this.f69575b == null) {
-                com.ss.android.socialbase.downloader.c.a.d(f69574a, "startForeground, aidlService is null");
+            if (this.f69574b == null) {
+                com.ss.android.socialbase.downloader.c.a.d(f69573a, "startForeground, aidlService is null");
                 return;
             }
-            String str = f69574a;
+            String str = f69573a;
             com.ss.android.socialbase.downloader.c.a.c(str, "aidlService.startForeground, id = " + i2);
             try {
-                this.f69575b.a(i2, notification);
+                this.f69574b.a(i2, notification);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -815,13 +815,13 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (this.f69575b == null) {
-                com.ss.android.socialbase.downloader.c.a.d(f69574a, "stopForeground, aidlService is null");
+            if (this.f69574b == null) {
+                com.ss.android.socialbase.downloader.c.a.d(f69573a, "stopForeground, aidlService is null");
                 return;
             }
-            com.ss.android.socialbase.downloader.c.a.c(f69574a, "aidlService.stopForeground");
+            com.ss.android.socialbase.downloader.c.a.c(f69573a, "aidlService.stopForeground");
             try {
-                this.f69575b.a(z2);
+                this.f69574b.a(z2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -832,7 +832,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(DownloadTask downloadTask) {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, downloadTask) == null) || downloadTask == null || (oVar = this.f69576c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, downloadTask) == null) || downloadTask == null || (oVar = this.f69575c) == null) {
             return;
         }
         oVar.b(downloadTask);
@@ -841,11 +841,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i2, list) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i2, list) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.b(i2, list);
+            this.f69574b.b(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -855,12 +855,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bVar) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.a(bVar);
+            if (this.f69574b == null) {
+                this.f69576d.a(bVar);
                 return;
             }
             try {
-                this.f69575b.a(bVar);
+                this.f69574b.a(bVar);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -871,12 +871,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(int i2, int i3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.a(i2, i3, j);
+            if (this.f69574b == null) {
+                this.f69576d.a(i2, i3, j);
                 return;
             }
             try {
-                this.f69575b.a(i2, i3, j);
+                this.f69574b.a(i2, i3, j);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -887,12 +887,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(int i2, int i3, int i4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.a(i2, i3, i4, j);
+            if (this.f69574b == null) {
+                this.f69576d.a(i2, i3, i4, j);
                 return;
             }
             try {
-                this.f69575b.a(i2, i3, i4, j);
+                this.f69574b.a(i2, i3, i4, j);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -903,12 +903,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            if (this.f69575b == null) {
-                this.f69577d.a(i2, i3, i4, i5);
+            if (this.f69574b == null) {
+                this.f69576d.a(i2, i3, i4, i5);
                 return;
             }
             try {
-                this.f69575b.a(i2, i3, i4, i5);
+                this.f69574b.a(i2, i3, i4, i5);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -918,11 +918,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(ak akVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, akVar) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, akVar) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(com.ss.android.socialbase.downloader.i.g.a(akVar));
+            this.f69574b.a(com.ss.android.socialbase.downloader.i.g.a(akVar));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -931,11 +931,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, i3);
+            this.f69574b.a(i2, i3);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -944,11 +944,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, z zVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, zVar) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, zVar) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, com.ss.android.socialbase.downloader.i.g.a(zVar));
+            this.f69574b.a(i2, com.ss.android.socialbase.downloader.i.g.a(zVar));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -958,14 +958,14 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     public void a(IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, iBinder) == null) {
-            this.f69575b = i.a.a(iBinder);
+            this.f69574b = i.a.a(iBinder);
             if (com.ss.android.socialbase.downloader.i.f.a()) {
                 a(new ak(this) { // from class: com.ss.android.socialbase.downloader.impls.o.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ o f69578a;
+                    public final /* synthetic */ o f69577a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -982,7 +982,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
                                 return;
                             }
                         }
-                        this.f69578a = this;
+                        this.f69577a = this;
                     }
 
                     @Override // com.ss.android.socialbase.downloader.depend.ak
@@ -1011,11 +1011,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f69575b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f69574b == null) {
             return;
         }
         try {
-            this.f69575b.a(i2, j);
+            this.f69574b.a(i2, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

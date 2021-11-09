@@ -284,8 +284,8 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             long j61 = this.mInitMsgSevenEndTimestamp - this.mInitMsgSevenStartTimestamp;
             long j62 = this.mInitMsgEightEndTimestamp - this.mInitMsgEightStartTimestamp;
             long j63 = this.mInitMsgNineEndTimestamp - this.mInitMsgNineStartTimestamp;
-            long splashActivityStartTime = SpeedStatsManager.getInstance().getSplashActivityStartTime() - this.mAppCreateEndTimestamp;
-            if (j3 < 0 || j3 > 60000 || j6 < 0 || j6 > 60000 || splashActivityStartTime < 0 || splashActivityStartTime > 60000 || j9 < 0 || j9 > 60000 || j11 < 0 || j11 > 60000 || j13 < 0 || j13 > 60000 || j15 < 0 || j15 > 60000 || j17 < 0 || j17 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j23 < 0 || j23 > 60000 || j25 < 0 || j25 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j30 < 0 || j30 > 60000 || j32 < 0 || j32 > 60000 || j34 < 0 || j34 > 60000 || j36 < 0 || j36 > 60000 || j38 < 0 || j38 > 60000 || j40 < 0 || j40 > 60000 || j41 < 0 || j41 > 60000 || j43 < 0 || j43 > 60000 || j45 < 0 || j45 > 60000 || j47 < 0 || j47 > 60000 || j49 < 0 || j49 > 60000 || j51 < 0 || j51 > 60000 || j53 < 0 || j53 > 60000 || j54 < 0 || j54 > 60000 || j55 < 0 || j55 > 60000 || j56 < 0 || j56 > 60000 || j57 < 0 || j57 > 60000 || j58 < 0 || j58 > 60000 || j59 < 0 || j59 > 60000 || j60 < 0 || j60 > 60000 || j61 < 0 || j61 > 60000 || j62 < 0 || j62 > 60000 || j63 < 0 || j63 > 60000 || j4 < 0 || j4 > 60000) {
+            long activityStartTime = SpeedStatsManager.getInstance().getActivityStartTime() - this.mAppCreateEndTimestamp;
+            if (j3 < 0 || j3 > 60000 || j6 < 0 || j6 > 60000 || activityStartTime < 0 || activityStartTime > 60000 || j9 < 0 || j9 > 60000 || j11 < 0 || j11 > 60000 || j13 < 0 || j13 > 60000 || j15 < 0 || j15 > 60000 || j17 < 0 || j17 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j23 < 0 || j23 > 60000 || j25 < 0 || j25 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j30 < 0 || j30 > 60000 || j32 < 0 || j32 > 60000 || j34 < 0 || j34 > 60000 || j36 < 0 || j36 > 60000 || j38 < 0 || j38 > 60000 || j40 < 0 || j40 > 60000 || j41 < 0 || j41 > 60000 || j43 < 0 || j43 > 60000 || j45 < 0 || j45 > 60000 || j47 < 0 || j47 > 60000 || j49 < 0 || j49 > 60000 || j51 < 0 || j51 > 60000 || j53 < 0 || j53 > 60000 || j54 < 0 || j54 > 60000 || j55 < 0 || j55 > 60000 || j56 < 0 || j56 > 60000 || j57 < 0 || j57 > 60000 || j58 < 0 || j58 > 60000 || j59 < 0 || j59 > 60000 || j60 < 0 || j60 > 60000 || j61 < 0 || j61 > 60000 || j62 < 0 || j62 > 60000 || j63 < 0 || j63 > 60000 || j4 < 0 || j4 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
@@ -330,7 +330,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             hashMap.put(INIT_MSG_EIGHT, String.valueOf(j62));
             hashMap.put(INIT_MSG_NINE, String.valueOf(j63));
             hashMap.put(ON_APP_START_END, String.valueOf(j4));
-            hashMap.put(ON_APP_END_2_ACTIVITY_START_GAP, String.valueOf(splashActivityStartTime));
+            hashMap.put(ON_APP_END_2_ACTIVITY_START_GAP, String.valueOf(activityStartTime));
             for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                 hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
             }

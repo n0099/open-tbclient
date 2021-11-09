@@ -13,10 +13,10 @@ public final class u implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UPSNotificationMessage f70281a;
+    public final /* synthetic */ UPSNotificationMessage f70280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f70282b;
+    public final /* synthetic */ t f70281b;
 
     public u(t tVar, UPSNotificationMessage uPSNotificationMessage) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class u implements Runnable {
                 return;
             }
         }
-        this.f70282b = tVar;
-        this.f70281a = uPSNotificationMessage;
+        this.f70281b = tVar;
+        this.f70280a = uPSNotificationMessage;
     }
 
     @Override // java.lang.Runnable
@@ -42,10 +42,10 @@ public final class u implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t tVar = this.f70282b;
-            PushMessageCallback pushMessageCallback = ((ab) tVar).f70246b;
-            context = tVar.f70428a;
-            pushMessageCallback.onNotificationMessageClicked(context, this.f70281a);
+            t tVar = this.f70281b;
+            PushMessageCallback pushMessageCallback = ((ab) tVar).f70245b;
+            context = tVar.f70427a;
+            pushMessageCallback.onNotificationMessageClicked(context, this.f70280a);
         }
     }
 }

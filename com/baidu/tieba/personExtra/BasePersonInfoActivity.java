@@ -70,9 +70,49 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f53036e;
+        public final /* synthetic */ BasePersonInfoActivity f53035e;
 
         public a(BasePersonInfoActivity basePersonInfoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {basePersonInfoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53035e = basePersonInfoActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                BasePersonInfoActivity basePersonInfoActivity = this.f53035e;
+                if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
+                    b.a.q0.s.b0.b.g(this.f53035e.getPageContext().getPageActivity(), 200, false);
+                }
+                this.f53035e.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BasePersonInfoActivity f53036e;
+
+        public b(BasePersonInfoActivity basePersonInfoActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,53 +135,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.f53036e;
-                if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    b.a.q0.s.b0.b.g(this.f53036e.getPageContext().getPageActivity(), 200, false);
-                }
-                this.f53036e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f53037e;
-
-        public b(BasePersonInfoActivity basePersonInfoActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {basePersonInfoActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53037e = basePersonInfoActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                BasePersonInfoActivity basePersonInfoActivity = this.f53037e;
                 basePersonInfoActivity.wantPrivcay = f.a(basePersonInfoActivity.getPrivacyType()) % 3;
-                int privacyType = this.f53037e.getPrivacyType();
+                int privacyType = this.f53036e.getPrivacyType();
                 String str = privacyType != 2 ? privacyType != 3 ? privacyType != 4 ? privacyType != 5 ? "" : "friend" : "post" : "group" : "like";
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                 httpMessage.addParam("opt", str);
-                httpMessage.addParam("val", String.valueOf(this.f53037e.wantPrivcay + 1));
-                this.f53037e.sendMessage(httpMessage);
+                httpMessage.addParam("val", String.valueOf(this.f53036e.wantPrivcay + 1));
+                this.f53036e.sendMessage(httpMessage);
             }
         }
     }
@@ -152,7 +152,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f53038a;
+        public final /* synthetic */ BasePersonInfoActivity f53037a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(BasePersonInfoActivity basePersonInfoActivity, int i2) {
@@ -172,7 +172,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
             }
-            this.f53038a = basePersonInfoActivity;
+            this.f53037a = basePersonInfoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,16 +182,16 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        f.c(this.f53038a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.f53038a.wantPrivcay]);
-                        SkinManager.setNavbarIconSrc(this.f53038a.mPrivacyButton, BasePersonInfoActivity.PRIVACY_IMAGE_LIST_BLACK[this.f53038a.wantPrivcay], BasePersonInfoActivity.PRIVACY_IMAGE_LIST[this.f53038a.wantPrivcay]);
-                        BasePersonInfoActivity basePersonInfoActivity = this.f53038a;
-                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.PRIVACY_INFO_TEXT_LIST[this.f53038a.wantPrivcay]), R.drawable.icon_toast_info);
+                        f.c(this.f53037a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.f53037a.wantPrivcay]);
+                        SkinManager.setNavbarIconSrc(this.f53037a.mPrivacyButton, BasePersonInfoActivity.PRIVACY_IMAGE_LIST_BLACK[this.f53037a.wantPrivcay], BasePersonInfoActivity.PRIVACY_IMAGE_LIST[this.f53037a.wantPrivcay]);
+                        BasePersonInfoActivity basePersonInfoActivity = this.f53037a;
+                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.PRIVACY_INFO_TEXT_LIST[this.f53037a.wantPrivcay]), R.drawable.icon_toast_info);
                         return;
                     }
-                    this.f53038a.showToast(httpResponsedMessage.getErrorString());
+                    this.f53037a.showToast(httpResponsedMessage.getErrorString());
                     return;
                 }
-                BasePersonInfoActivity basePersonInfoActivity2 = this.f53038a;
+                BasePersonInfoActivity basePersonInfoActivity2 = this.f53037a;
                 basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.neterror));
             }
         }

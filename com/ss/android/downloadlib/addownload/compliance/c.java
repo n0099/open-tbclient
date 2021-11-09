@@ -26,7 +26,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f68592a;
+        public static c f68591a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
                     return;
                 }
             }
-            f68592a = new c(null);
+            f68591a = new c(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68592a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68591a : (c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

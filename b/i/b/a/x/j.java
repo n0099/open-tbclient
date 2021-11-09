@@ -64,10 +64,10 @@ public final class j implements AudioProcessor {
         this.f32864c = -1;
         this.f32865d = -1;
         this.f32869h = -1;
-        ByteBuffer byteBuffer = AudioProcessor.f62942a;
+        ByteBuffer byteBuffer = AudioProcessor.f62941a;
         this.f32870i = byteBuffer;
         this.j = byteBuffer.asShortBuffer();
-        this.k = AudioProcessor.f62942a;
+        this.k = AudioProcessor.f62941a;
         this.f32863b = -1;
     }
 
@@ -146,7 +146,7 @@ public final class j implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f32866e = new i(this.f32865d, this.f32864c, this.f32867f, this.f32868g, this.f32869h);
-            this.k = AudioProcessor.f62942a;
+            this.k = AudioProcessor.f62941a;
             this.l = 0L;
             this.m = 0L;
             this.n = false;
@@ -159,7 +159,7 @@ public final class j implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ByteBuffer byteBuffer = this.k;
-            this.k = AudioProcessor.f62942a;
+            this.k = AudioProcessor.f62941a;
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
@@ -239,10 +239,10 @@ public final class j implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.f32866e = null;
-            ByteBuffer byteBuffer = AudioProcessor.f62942a;
+            ByteBuffer byteBuffer = AudioProcessor.f62941a;
             this.f32870i = byteBuffer;
             this.j = byteBuffer.asShortBuffer();
-            this.k = AudioProcessor.f62942a;
+            this.k = AudioProcessor.f62941a;
             this.f32864c = -1;
             this.f32865d = -1;
             this.f32869h = -1;

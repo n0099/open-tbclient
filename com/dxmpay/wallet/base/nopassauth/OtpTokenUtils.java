@@ -31,10 +31,10 @@ public final class OtpTokenUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f62328a = 0;
+    public static long f62327a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f62329b = 10;
+    public static int f62328b = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -221,13 +221,13 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f57386b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f57385b, 0L)).longValue() : invokeL.longValue;
     }
 
     public static void setmSyncWithServerTime(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f57386b, Long.valueOf(j));
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f57385b, Long.valueOf(j));
         }
     }
 
@@ -239,7 +239,7 @@ public final class OtpTokenUtils {
             HttpsURLConnection httpsURLConnection2 = null;
             try {
                 try {
-                    f62328a = 0L;
+                    f62327a = 0L;
                     httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
                 } catch (Throwable th) {
                     th = th;
@@ -251,10 +251,10 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f62329b * 1000);
+                httpsURLConnection.setConnectTimeout(f62328b * 1000);
                 httpsURLConnection.setHostnameVerifier(new a());
                 httpsURLConnection.connect();
-                f62328a = httpsURLConnection.getDate() / 1000;
+                f62327a = httpsURLConnection.getDate() / 1000;
                 if (httpsURLConnection != null) {
                     try {
                         InputStream a2 = a(httpsURLConnection);
@@ -266,7 +266,7 @@ public final class OtpTokenUtils {
                     }
                     httpsURLConnection.disconnect();
                 }
-                return (System.currentTimeMillis() / 1000) - f62328a;
+                return (System.currentTimeMillis() / 1000) - f62327a;
             } catch (Exception e4) {
                 e = e4;
                 httpsURLConnection2 = httpsURLConnection;

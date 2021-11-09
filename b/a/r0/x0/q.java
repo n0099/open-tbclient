@@ -566,8 +566,8 @@ public class q {
                     this.f26175a.e0 = i2;
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921397, Integer.valueOf(i2));
                     CustomMessage customMessage = new CustomMessage(2921397);
-                    if (this.f26175a.f26160a != null && this.f26175a.f26160a.getTabController() != null && this.f26175a.f26160a.getTabController().z() != null && (this.f26175a.f26160a.getTabController().z().f49027b instanceof BaseFragment)) {
-                        customMessage.setTag(((BaseFragment) this.f26175a.f26160a.getTabController().z().f49027b).getUniqueId());
+                    if (this.f26175a.f26160a != null && this.f26175a.f26160a.getTabController() != null && this.f26175a.f26160a.getTabController().z() != null && (this.f26175a.f26160a.getTabController().z().f49026b instanceof BaseFragment)) {
+                        customMessage.setTag(((BaseFragment) this.f26175a.f26160a.getTabController().z().f49026b).getUniqueId());
                         customResponsedMessage.setOrginalMessage(customMessage);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -1163,7 +1163,7 @@ public class q {
                 return;
             }
             FrsFragment frsFragment = this.f26160a;
-            boolean z2 = (frsFragment == null || frsFragment.getTabController() == null || this.f26160a.getTabController().z() == null) ? true : this.f26160a.getTabController().z().f49027b instanceof FrsAllThreadFragment;
+            boolean z2 = (frsFragment == null || frsFragment.getTabController() == null || this.f26160a.getTabController().z() == null) ? true : this.f26160a.getTabController().z().f49026b instanceof FrsAllThreadFragment;
             if (!z && z2) {
                 this.O.q(true);
                 this.O.n(this.P, this.Q, this.G, true);

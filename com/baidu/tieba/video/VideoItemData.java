@@ -95,7 +95,7 @@ public class VideoItemData implements Serializable, Parcelable {
     public int play_count;
     public String post_id;
     @Nullable
-    public List<PbContent> richTitle;
+    public transient List<PbContent> richTitle;
     public String share_num;
     public String tags;
     public transient d2 threadData;

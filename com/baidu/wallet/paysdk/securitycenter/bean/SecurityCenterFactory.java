@@ -31,7 +31,7 @@ public final class SecurityCenterFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static SecurityCenterFactory f59900a;
+        public static SecurityCenterFactory f59899a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public final class SecurityCenterFactory implements IBeanFactory {
                     return;
                 }
             }
-            f59900a = new SecurityCenterFactory(null);
+            f59899a = new SecurityCenterFactory(null);
         }
     }
 
@@ -58,7 +58,7 @@ public final class SecurityCenterFactory implements IBeanFactory {
     public static SecurityCenterFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59900a : (SecurityCenterFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59899a : (SecurityCenterFactory) invokeV.objValue;
     }
 
     public SecurityCenterFactory() {

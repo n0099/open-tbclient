@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<InterfaceC1809a> f59470a;
+    public final List<InterfaceC1809a> f59469a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -37,7 +37,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f59472a;
+        public static final Pattern f59471a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            f59472a = Pattern.compile("^[A-z0-9*]{1,50}$");
+            f59471a = Pattern.compile("^[A-z0-9*]{1,50}$");
         }
 
         public b() {
@@ -74,7 +74,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59472a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59471a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
@@ -87,7 +87,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f59473a;
+        public static final Pattern f59472a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            f59473a = Pattern.compile("^[HM]\\d{8,10}$");
+            f59472a = Pattern.compile("^[HM]\\d{8,10}$");
         }
 
         public c() {
@@ -124,7 +124,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59473a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59472a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ c(AnonymousClass1 anonymousClass1) {
@@ -137,7 +137,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f59474a;
+        public static final Pattern f59473a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -153,7 +153,7 @@ public class a {
                     return;
                 }
             }
-            f59474a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+            f59473a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
         }
 
         public d() {
@@ -174,7 +174,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59474a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59473a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ d(AnonymousClass1 anonymousClass1) {
@@ -221,7 +221,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f59475a;
+        public static final Pattern f59474a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -237,7 +237,7 @@ public class a {
                     return;
                 }
             }
-            f59475a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
+            f59474a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
         }
 
         public f() {
@@ -258,7 +258,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59475a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f59474a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ f(AnonymousClass1 anonymousClass1) {
@@ -297,7 +297,7 @@ public class a {
             if (TextUtils.isEmpty(charSequence)) {
                 return false;
             }
-            for (InterfaceC1809a interfaceC1809a : this.f59470a) {
+            for (InterfaceC1809a interfaceC1809a : this.f59469a) {
                 if (interfaceC1809a.a(charSequence)) {
                     return true;
                 }
@@ -322,21 +322,21 @@ public class a {
                 return;
             }
         }
-        this.f59470a = new ArrayList();
+        this.f59469a = new ArrayList();
         if (a(j, 2L)) {
-            this.f59470a.add(new d(null));
+            this.f59469a.add(new d(null));
         }
         if (a(j, 4L)) {
-            this.f59470a.add(new f(null));
+            this.f59469a.add(new f(null));
         }
         if (a(j, 8L)) {
-            this.f59470a.add(new c(null));
+            this.f59469a.add(new c(null));
         }
         if (a(j, 16L)) {
-            this.f59470a.add(new e(null));
+            this.f59469a.add(new e(null));
         }
         if (a(j, 1L)) {
-            this.f59470a.add(new b(null));
+            this.f59469a.add(new b(null));
         }
     }
 }

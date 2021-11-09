@@ -10,10 +10,10 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f69566a;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m f69565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f69567b;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m f69566b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -35,23 +35,23 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z && com.ss.android.socialbase.downloader.downloader.c.S()) {
-                if (f69567b == null) {
+                if (f69566b == null) {
                     synchronized (l.class) {
-                        if (f69567b == null) {
-                            f69567b = com.ss.android.socialbase.downloader.downloader.c.T().b();
+                        if (f69566b == null) {
+                            f69566b = com.ss.android.socialbase.downloader.downloader.c.T().b();
                         }
                     }
                 }
-                return f69567b;
+                return f69566b;
             }
-            if (f69566a == null) {
+            if (f69565a == null) {
                 synchronized (l.class) {
-                    if (f69566a == null) {
-                        f69566a = new p();
+                    if (f69565a == null) {
+                        f69565a = new p();
                     }
                 }
             }
-            return f69566a;
+            return f69565a;
         }
         return (com.ss.android.socialbase.downloader.downloader.m) invokeZ.objValue;
     }

@@ -13,10 +13,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f71846a;
+    public static final d f71845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f71847b;
+    public static final d f71846b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h.a$a  reason: collision with other inner class name */
@@ -25,7 +25,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final C2046a f71848a;
+        public static final C2046a f71847a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public final class a {
                     return;
                 }
             }
-            f71848a = new C2046a();
+            f71847a = new C2046a();
         }
 
         public C2046a() {
@@ -74,7 +74,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f71849a;
+        public static final b f71848a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -90,7 +90,7 @@ public final class a {
                     return;
                 }
             }
-            f71849a = new b();
+            f71848a = new b();
         }
 
         public b() {
@@ -123,7 +123,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f71850a;
+        public static final c f71849a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -139,7 +139,7 @@ public final class a {
                     return;
                 }
             }
-            f71850a = new c();
+            f71849a = new c();
         }
 
         public c() {
@@ -185,10 +185,10 @@ public final class a {
                 return;
             }
         }
-        c cVar = c.f71850a;
-        f71846a = cVar;
-        f71847b = cVar;
-        b bVar = b.f71849a;
-        C2046a c2046a = C2046a.f71848a;
+        c cVar = c.f71849a;
+        f71845a = cVar;
+        f71846b = cVar;
+        b bVar = b.f71848a;
+        C2046a c2046a = C2046a.f71847a;
     }
 }

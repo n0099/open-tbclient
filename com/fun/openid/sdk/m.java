@@ -30,7 +30,7 @@ public class m implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             q.a(context).getClass();
-            if (!q.f62912b) {
+            if (!q.f62911b) {
                 FunOpenIDSdk.isLogEnabled();
                 aVar.a(false, null);
                 return;

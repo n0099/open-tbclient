@@ -63,10 +63,10 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f63545f;
+        public final C f63544f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RegularContiguousSet f63546g;
+        public final /* synthetic */ RegularContiguousSet f63545g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RegularContiguousSet regularContiguousSet, Comparable comparable) {
@@ -86,8 +86,8 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                     return;
                 }
             }
-            this.f63546g = regularContiguousSet;
-            this.f63545f = (C) this.f63546g.last();
+            this.f63545g = regularContiguousSet;
+            this.f63544f = (C) this.f63545g.last();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,10 +97,10 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2)) == null) {
-                if (RegularContiguousSet.equalsOrThrow(c2, this.f63545f)) {
+                if (RegularContiguousSet.equalsOrThrow(c2, this.f63544f)) {
                     return null;
                 }
-                return this.f63546g.domain.next(c2);
+                return this.f63545g.domain.next(c2);
             }
             return (C) invokeL.objValue;
         }
@@ -112,10 +112,10 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f63547f;
+        public final C f63546f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RegularContiguousSet f63548g;
+        public final /* synthetic */ RegularContiguousSet f63547g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RegularContiguousSet regularContiguousSet, Comparable comparable) {
@@ -135,8 +135,8 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                     return;
                 }
             }
-            this.f63548g = regularContiguousSet;
-            this.f63547f = (C) this.f63548g.first();
+            this.f63547g = regularContiguousSet;
+            this.f63546f = (C) this.f63547g.first();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -146,10 +146,10 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2)) == null) {
-                if (RegularContiguousSet.equalsOrThrow(c2, this.f63547f)) {
+                if (RegularContiguousSet.equalsOrThrow(c2, this.f63546f)) {
                     return null;
                 }
-                return this.f63548g.domain.previous(c2);
+                return this.f63547g.domain.previous(c2);
             }
             return (C) invokeL.objValue;
         }

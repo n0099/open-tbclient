@@ -17,17 +17,17 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f68141c = 60000;
+    public static long f68140c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f68142d;
+    public static final ConcurrentHashMap<String, Boolean> f68141d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.sdk.base.framework.a.a.c<String, String> f68143a;
+    public final com.sdk.base.framework.a.a.c<String, String> f68142a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68144b;
+    public int f68143b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,8 +43,8 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f68142d = concurrentHashMap;
-        concurrentHashMap.put(j.f68165a.toString(), Boolean.TRUE);
+        f68141d = concurrentHashMap;
+        concurrentHashMap.put(j.f68164a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
 
@@ -82,16 +82,16 @@ public final class d {
                 return;
             }
         }
-        this.f68144b = 102400;
-        this.f68144b = 102400;
-        f68141c = 60000L;
-        this.f68143a = new e(this, 102400);
+        this.f68143b = 102400;
+        this.f68143b = 102400;
+        f68140c = 60000L;
+        this.f68142a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f68141c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f68140c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -100,7 +100,7 @@ public final class d {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f68142d.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = f68141d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();
@@ -113,7 +113,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                return this.f68143a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+                return this.f68142a.a((com.sdk.base.framework.a.a.c<String, String>) str);
             }
             return null;
         }
@@ -125,6 +125,6 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || str == null || str2 == null || j < 1) {
             return;
         }
-        this.f68143a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f68142a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

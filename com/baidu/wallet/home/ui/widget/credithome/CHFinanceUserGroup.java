@@ -23,7 +23,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f58432a;
+    public List<BaseItemView> f58431a;
     public LinearLayout mList;
     public CHTitleView mTitle;
 
@@ -45,7 +45,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58432a = new ArrayList();
+        this.f58431a = new ArrayList();
     }
 
     private void a() {
@@ -59,7 +59,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
             CHFinanceUserItem cHFinanceUserItem = new CHFinanceUserItem(getContext());
             cHFinanceUserItem.setData(dataItemArr[i2], getWalletInterface());
             this.mList.addView(cHFinanceUserItem);
-            this.f58432a.add(cHFinanceUserItem);
+            this.f58431a.add(cHFinanceUserItem);
         }
     }
 
@@ -67,7 +67,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58432a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58431a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -120,6 +120,6 @@ public class CHFinanceUserGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58432a = new ArrayList();
+        this.f58431a = new ArrayList();
     }
 }

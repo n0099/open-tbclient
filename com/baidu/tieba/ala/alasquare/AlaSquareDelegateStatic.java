@@ -340,7 +340,7 @@ public class AlaSquareDelegateStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.x0.g f46853a;
+        public final /* synthetic */ b.a.r0.x0.g f46852a;
 
         public i(b.a.r0.x0.g gVar) {
             Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.f46853a = gVar;
+            this.f46852a = gVar;
         }
 
         @Override // b.a.q0.h0.b
@@ -366,7 +366,7 @@ public class AlaSquareDelegateStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LiveTabYYSubFragment newInstance = LiveTabYYSubFragment.newInstance(false, 2);
-                newInstance.setForumInfo(this.f46853a.b(), this.f46853a.c());
+                newInstance.setForumInfo(this.f46852a.b(), this.f46852a.c());
                 b.a.q0.h0.c cVar = new b.a.q0.h0.c();
                 cVar.f12612a = newInstance;
                 cVar.f12616e = 1120;

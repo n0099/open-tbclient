@@ -38,7 +38,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostSearchActivity f53396e;
+        public final /* synthetic */ PostSearchActivity f53395e;
 
         public a(PostSearchActivity postSearchActivity) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f53396e = postSearchActivity;
+            this.f53395e = postSearchActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -76,7 +76,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f53396e.stateTabClick(i2);
+                this.f53395e.stateTabClick(i2);
             }
         }
     }

@@ -25,13 +25,13 @@ public class YoungsterVerifyModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53899e;
+    public b f53898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f53900f;
+    public TbPageContext<?> f53899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f53901g;
+    public HttpMessageListener f53900g;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -39,7 +39,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YoungsterVerifyModel f53902a;
+        public final /* synthetic */ YoungsterVerifyModel f53901a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(YoungsterVerifyModel youngsterVerifyModel, int i2) {
@@ -59,7 +59,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53902a = youngsterVerifyModel;
+            this.f53901a = youngsterVerifyModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,21 +70,21 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f53902a.mErrorCode = httpResponsedMessage.getError();
-            this.f53902a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f53902a.mErrorString)) {
-                str = this.f53902a.mErrorString;
+            this.f53901a.mErrorCode = httpResponsedMessage.getError();
+            this.f53901a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f53901a.mErrorString)) {
+                str = this.f53901a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f53902a.mErrorCode);
+            errorData.setError_code(this.f53901a.mErrorCode);
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
             if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().f15305a) {
-                this.f53902a.f53899e.onSuccess();
+                this.f53901a.f53898e.onSuccess();
             } else {
-                this.f53902a.f53899e.onError(errorData);
+                this.f53901a.f53898e.onError(errorData);
             }
         }
     }
@@ -115,11 +115,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f53901g = aVar;
-        this.f53900f = tbPageContext;
+        this.f53900g = aVar;
+        this.f53899f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f53901g);
-        this.f53899e = bVar;
+        registerListener(this.f53900g);
+        this.f53898e = bVar;
     }
 
     public void B(String str) {
@@ -128,7 +128,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
             httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
             httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-            this.f53900f.sendMessage(httpMessage);
+            this.f53899f.sendMessage(httpMessage);
         }
     }
 

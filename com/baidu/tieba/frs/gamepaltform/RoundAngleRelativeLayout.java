@@ -21,19 +21,19 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f48593e;
+    public float f48592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f48594f;
+    public float f48593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48595g;
+    public float f48594g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f48596h;
+    public float f48595h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f48597i;
+    public Paint f48596i;
     public Paint j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -59,24 +59,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f48595g <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f48594g <= 0.0f) {
             return;
         }
         int height = getHeight();
         Path path = new Path();
         float f2 = height;
-        path.moveTo(0.0f, f2 - this.f48595g);
+        path.moveTo(0.0f, f2 - this.f48594g);
         path.lineTo(0.0f, f2);
-        path.lineTo(this.f48595g, f2);
-        float f3 = this.f48595g;
+        path.lineTo(this.f48594g, f2);
+        float f3 = this.f48594g;
         path.arcTo(new RectF(0.0f, f2 - (f3 * 2.0f), f3 * 2.0f, f2), 90.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f48597i);
+        canvas.drawPath(path, this.f48596i);
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f48596h <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f48595h <= 0.0f) {
             return;
         }
         int height = getHeight();
@@ -84,45 +84,45 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
         Path path = new Path();
         float f2 = width;
         float f3 = height;
-        path.moveTo(f2 - this.f48596h, f3);
+        path.moveTo(f2 - this.f48595h, f3);
         path.lineTo(f2, f3);
-        path.lineTo(f2, f3 - this.f48596h);
-        float f4 = this.f48596h;
+        path.lineTo(f2, f3 - this.f48595h);
+        float f4 = this.f48595h;
         path.arcTo(new RectF(f2 - (f4 * 2.0f), f3 - (f4 * 2.0f), f2, f3), 0.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f48597i);
+        canvas.drawPath(path, this.f48596i);
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f48593e <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f48592e <= 0.0f) {
             return;
         }
         Path path = new Path();
-        path.moveTo(0.0f, this.f48593e);
+        path.moveTo(0.0f, this.f48592e);
         path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.f48593e, 0.0f);
-        float f2 = this.f48593e;
+        path.lineTo(this.f48592e, 0.0f);
+        float f2 = this.f48592e;
         path.arcTo(new RectF(0.0f, 0.0f, f2 * 2.0f, f2 * 2.0f), -90.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f48597i);
+        canvas.drawPath(path, this.f48596i);
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f48594f <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f48593f <= 0.0f) {
             return;
         }
         int width = getWidth();
         Path path = new Path();
         float f2 = width;
-        path.moveTo(f2 - this.f48594f, 0.0f);
+        path.moveTo(f2 - this.f48593f, 0.0f);
         path.lineTo(f2, 0.0f);
-        path.lineTo(f2, this.f48594f);
-        float f3 = this.f48594f;
+        path.lineTo(f2, this.f48593f);
+        float f3 = this.f48593f;
         path.arcTo(new RectF(f2 - (f3 * 2.0f), 0.0f, f2, f3 * 2.0f), 0.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f48597i);
+        canvas.drawPath(path, this.f48596i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -142,24 +142,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setBottomLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f48595g = f2;
+            this.f48594g = f2;
         }
     }
 
     public void setBottomRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f48596h = f2;
+            this.f48595h = f2;
         }
     }
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f48593e = f2;
-            this.f48595g = f2;
-            this.f48594f = f2;
-            this.f48596h = f2;
+            this.f48592e = f2;
+            this.f48594g = f2;
+            this.f48593f = f2;
+            this.f48595h = f2;
             invalidate();
         }
     }
@@ -167,14 +167,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setTopLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.f48593e = f2;
+            this.f48592e = f2;
         }
     }
 
     public void setTopRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f48594f = f2;
+            this.f48593f = f2;
         }
     }
 
@@ -219,11 +219,11 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
             }
         }
         Paint paint = new Paint();
-        this.f48597i = paint;
+        this.f48596i = paint;
         paint.setColor(-1);
-        this.f48597i.setAntiAlias(true);
-        this.f48597i.setStyle(Paint.Style.FILL);
-        this.f48597i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f48596i.setAntiAlias(true);
+        this.f48596i.setStyle(Paint.Style.FILL);
+        this.f48596i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
         this.j = paint2;
         paint2.setXfermode(null);

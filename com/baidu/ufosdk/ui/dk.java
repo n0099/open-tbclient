@@ -11,7 +11,7 @@ public final class dk implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f56927a;
+    public final /* synthetic */ FeedbackListActivity f56926a;
 
     public dk(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -28,18 +28,18 @@ public final class dk implements View.OnClickListener {
                 return;
             }
         }
-        this.f56927a = feedbackListActivity;
+        this.f56926a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f56927a.setResult(0);
-            this.f56927a.finish();
+            this.f56926a.setResult(0);
+            this.f56926a.finish();
             try {
                 com.baidu.ufosdk.f.c.d("执行动画...");
-                this.f56927a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f56927a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f56927a.getApplicationContext(), "ufo_slide_out_to_right"));
+                this.f56926a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f56926a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f56926a.getApplicationContext(), "ufo_slide_out_to_right"));
             } catch (Exception unused) {
                 com.baidu.ufosdk.f.c.d("执行动画失败！！");
             }

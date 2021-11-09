@@ -27,19 +27,19 @@ public class ScreenLockHeaderView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53747e;
+    public TextView f53746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53748f;
+    public View f53747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f53749g;
+    public View f53748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53750h;
+    public TextView f53749h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53751i;
+    public TextView f53750i;
     public TextView j;
     public View k;
     public d l;
@@ -66,11 +66,11 @@ public class ScreenLockHeaderView extends LinearLayout {
             }
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.f53747e = (TextView) findViewById(R.id.friend_name_show1);
-        this.f53748f = findViewById(R.id.friend_name_layout);
-        this.f53749g = findViewById(R.id.msg_content_layout);
-        this.f53750h = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.f53751i = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.f53746e = (TextView) findViewById(R.id.friend_name_show1);
+        this.f53747f = findViewById(R.id.friend_name_layout);
+        this.f53748g = findViewById(R.id.msg_content_layout);
+        this.f53749h = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.f53750i = (TextView) findViewById(R.id.one_msg_content_show1);
         this.j = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.k = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
@@ -129,8 +129,8 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, onClickListener, onClickListener2) == null) {
             this.m.setOnClickListener(onClickListener);
-            this.f53748f.setOnClickListener(onClickListener2);
-            this.f53749g.setOnClickListener(onClickListener2);
+            this.f53747f.setOnClickListener(onClickListener2);
+            this.f53748g.setOnClickListener(onClickListener2);
         }
     }
 
@@ -151,9 +151,9 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
             this.l = dVar;
-            this.f53747e.setText(dVar.f15012a);
-            this.f53750h.setText(refreshLastTime(dVar.l));
-            this.f53751i.setText(dVar.f15016e);
+            this.f53746e.setText(dVar.f15012a);
+            this.f53749h.setText(refreshLastTime(dVar.l));
+            this.f53750i.setText(dVar.f15016e);
             this.j.setText(refreshUnreadCount(dVar.f15020i));
         }
     }

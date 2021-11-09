@@ -115,9 +115,53 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50196a;
+        public final /* synthetic */ TalkableActivity f50195a;
 
         public a(TalkableActivity talkableActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {talkableActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50195a = talkableActivity;
+        }
+
+        @Override // b.a.e.a.e
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+                    LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+                    MsglistModel msglistModel = this.f50195a.mListModel;
+                    if (msglistModel != null) {
+                        msglistModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+                        return;
+                    }
+                    return;
+                }
+                this.f50195a.showToast(TbadkCoreApplication.getInst().getString(R.string.pic_parser_error));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements a.b<ChatMessage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TalkableActivity f50196a;
+
+        public b(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,33 +179,26 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             this.f50196a = talkableActivity;
         }
 
-        @Override // b.a.e.a.e
-        public void c(Object obj) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.q0.d0.a.b
+        /* renamed from: b */
+        public void a(int i2, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-                    LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-                    MsglistModel msglistModel = this.f50196a.mListModel;
-                    if (msglistModel != null) {
-                        msglistModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
-                        return;
-                    }
-                    return;
-                }
-                this.f50196a.showToast(TbadkCoreApplication.getInst().getString(R.string.pic_parser_error));
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, chatMessage) == null) {
+                this.f50196a.mListView.updateAdapter(i2, chatMessage);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements a.b<ChatMessage> {
+    public class c extends i0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ TalkableActivity f50197a;
 
-        public b(TalkableActivity talkableActivity) {
+        public c(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,43 +216,6 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             this.f50197a = talkableActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d0.a.b
-        /* renamed from: b */
-        public void a(int i2, ChatMessage chatMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, chatMessage) == null) {
-                this.f50197a.mListView.updateAdapter(i2, chatMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends i0<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50198a;
-
-        public c(TalkableActivity talkableActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {talkableActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50198a = talkableActivity;
-        }
-
         @Override // b.a.q0.d1.i0
         public Object doInBackground() {
             InterceptResult invokeV;
@@ -223,7 +223,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    Bitmap c2 = w0.c(0, this.f50198a.getPageContext().getContext(), null, this.f50198a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
+                    Bitmap c2 = w0.c(0, this.f50197a.getPageContext().getContext(), null, this.f50197a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
                     if (c2 != null && FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null && (resizeBitmap = BitmapHelper.resizeBitmap(c2, 100)) != null) {
                         FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85);
                     }
@@ -241,13 +241,13 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f50199a;
+        public final /* synthetic */ String f50198a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f50200b;
+        public final /* synthetic */ String f50199b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50201c;
+        public final /* synthetic */ TalkableActivity f50200c;
 
         public d(TalkableActivity talkableActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -264,21 +264,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50201c = talkableActivity;
-            this.f50199a = str;
-            this.f50200b = str2;
+            this.f50200c = talkableActivity;
+            this.f50198a = str;
+            this.f50199b = str2;
         }
 
         @Override // b.a.q0.d1.q
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f50201c.mLocalPicModel = new LocalPicModel(this.f50199a, this.f50200b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                TalkableActivity talkableActivity = this.f50201c;
+                this.f50200c.mLocalPicModel = new LocalPicModel(this.f50198a, this.f50199b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                TalkableActivity talkableActivity = this.f50200c;
                 talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
-                this.f50201c.mLocalPicModel.getData();
-                this.f50201c.mListView.hideMore();
-                this.f50201c.writeImagesInfo.clear();
+                this.f50200c.mLocalPicModel.getData();
+                this.f50200c.mListView.hideMore();
+                this.f50200c.writeImagesInfo.clear();
             }
         }
     }
@@ -289,7 +289,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50202a;
+        public final /* synthetic */ TalkableActivity f50201a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(TalkableActivity talkableActivity, int i2) {
@@ -309,7 +309,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50202a = talkableActivity;
+            this.f50201a = talkableActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -318,7 +318,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                b.a.q0.f1.n.f.b(this.f50202a.getPageContext(), aVar.f12438a, aVar.f12439b, aVar.f12440c);
+                b.a.q0.f1.n.f.b(this.f50201a.getPageContext(), aVar.f12438a, aVar.f12439b, aVar.f12440c);
             }
         }
     }
@@ -329,10 +329,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50203e;
+        public final /* synthetic */ String f50202e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50204f;
+        public final /* synthetic */ TalkableActivity f50203f;
 
         public f(TalkableActivity talkableActivity, String str) {
             Interceptable interceptable = $ic;
@@ -349,15 +349,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50204f = talkableActivity;
-            this.f50203e = str;
+            this.f50203f = talkableActivity;
+            this.f50202e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50204f.mListModel.sendTextMessage(this.f50203e);
+                this.f50203f.mListModel.sendTextMessage(this.f50202e);
             }
         }
     }
@@ -368,7 +368,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50205a;
+        public final /* synthetic */ TalkableActivity f50204a;
 
         public g(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
@@ -385,7 +385,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50205a = talkableActivity;
+            this.f50204a = talkableActivity;
         }
 
         @Override // b.a.e.a.e
@@ -393,31 +393,31 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (!b.a.e.e.p.j.z()) {
-                    AbsMsglistView absMsglistView = this.f50205a.mListView;
+                    AbsMsglistView absMsglistView = this.f50204a.mListView;
                     if (absMsglistView != null) {
                         absMsglistView.displayNoNetwork();
                     }
                 } else {
-                    AbsMsglistView absMsglistView2 = this.f50205a.mListView;
+                    AbsMsglistView absMsglistView2 = this.f50204a.mListView;
                     if (absMsglistView2 != null) {
                         absMsglistView2.hideNoNetwork();
                     }
                 }
-                switch (this.f50205a.mListModel.getLoadDataMode()) {
+                switch (this.f50204a.mListModel.getLoadDataMode()) {
                     case 1:
-                        if (this.f50205a.preTime > -1) {
-                            this.f50205a.preTime = -1L;
+                        if (this.f50204a.preTime > -1) {
+                            this.f50204a.preTime = -1L;
                         }
-                        AbsMsglistView absMsglistView3 = this.f50205a.mListView;
+                        AbsMsglistView absMsglistView3 = this.f50204a.mListView;
                         if (absMsglistView3 != null) {
                             absMsglistView3.closeProgress();
-                            TalkableActivity talkableActivity = this.f50205a;
+                            TalkableActivity talkableActivity = this.f50204a;
                             talkableActivity.mListView.refreshGo2New(talkableActivity.mListModel.getData());
                             return;
                         }
                         return;
                     case 2:
-                        TalkableActivity talkableActivity2 = this.f50205a;
+                        TalkableActivity talkableActivity2 = this.f50204a;
                         AbsMsglistView absMsglistView4 = talkableActivity2.mListView;
                         if (absMsglistView4 != null) {
                             absMsglistView4.refreshPrepage(talkableActivity2.mListModel.getData());
@@ -425,7 +425,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         }
                         return;
                     case 3:
-                        TalkableActivity talkableActivity3 = this.f50205a;
+                        TalkableActivity talkableActivity3 = this.f50204a;
                         AbsMsglistView absMsglistView5 = talkableActivity3.mListView;
                         if (absMsglistView5 != null) {
                             absMsglistView5.refreshCheckNew(talkableActivity3.mListModel.getData());
@@ -434,7 +434,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         return;
                     case 4:
                     case 12:
-                        TalkableActivity talkableActivity4 = this.f50205a;
+                        TalkableActivity talkableActivity4 = this.f50204a;
                         AbsMsglistView absMsglistView6 = talkableActivity4.mListView;
                         if (absMsglistView6 != null) {
                             absMsglistView6.refreshGo2New(talkableActivity4.mListModel.getData());
@@ -446,7 +446,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     case 7:
                     case 13:
                     case 14:
-                        TalkableActivity talkableActivity5 = this.f50205a;
+                        TalkableActivity talkableActivity5 = this.f50204a;
                         AbsMsglistView absMsglistView7 = talkableActivity5.mListView;
                         if (absMsglistView7 != null) {
                             absMsglistView7.refreshNormal(talkableActivity5.mListModel.getData());
@@ -454,29 +454,29 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         }
                         return;
                     case 8:
-                        AbsMsglistView absMsglistView8 = this.f50205a.mListView;
+                        AbsMsglistView absMsglistView8 = this.f50204a.mListView;
                         if (absMsglistView8 == null || !(obj instanceof String)) {
                             return;
                         }
                         String str = (String) obj;
                         absMsglistView8.setDraft(str);
-                        this.f50205a.mListModel.setDraft(str);
+                        this.f50204a.mListModel.setDraft(str);
                         return;
                     case 9:
-                        this.f50205a.isNeedSaveDraft = false;
-                        this.f50205a.finish();
+                        this.f50204a.isNeedSaveDraft = false;
+                        this.f50204a.finish();
                         return;
                     case 10:
-                        AbsMsglistView absMsglistView9 = this.f50205a.mListView;
+                        AbsMsglistView absMsglistView9 = this.f50204a.mListView;
                         if (absMsglistView9 == null || !(obj instanceof String)) {
                             return;
                         }
                         absMsglistView9.refreshHeaderFooter((String) obj, true);
                         return;
                     case 11:
-                        TbadkCoreApplication.getInst().login(this.f50205a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f50205a.getPageContext().getContext())));
-                        this.f50205a.isNeedSaveDraft = false;
-                        this.f50205a.finish();
+                        TbadkCoreApplication.getInst().login(this.f50204a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f50204a.getPageContext().getContext())));
+                        this.f50204a.isNeedSaveDraft = false;
+                        this.f50204a.finish();
                         return;
                     default:
                         return;
@@ -491,10 +491,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f50206e;
+        public final /* synthetic */ int f50205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50207f;
+        public final /* synthetic */ TalkableActivity f50206f;
 
         public h(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -511,8 +511,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50207f = talkableActivity;
-            this.f50206e = i2;
+            this.f50206f = talkableActivity;
+            this.f50205e = i2;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -520,7 +520,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50207f.reSendMsg(this.f50206e);
+                this.f50206f.reSendMsg(this.f50205e);
             }
         }
     }
@@ -531,10 +531,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f50208e;
+        public final /* synthetic */ int f50207e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f50209f;
+        public final /* synthetic */ TalkableActivity f50208f;
 
         public i(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -551,8 +551,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f50209f = talkableActivity;
-            this.f50208e = i2;
+            this.f50208f = talkableActivity;
+            this.f50207e = i2;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -560,7 +560,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50209f.deleteMsg(this.f50208e);
+                this.f50208f.deleteMsg(this.f50207e);
             }
         }
     }

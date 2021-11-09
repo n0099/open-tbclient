@@ -52,7 +52,7 @@ public class AdvertSDKStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                b.a.r0.u.a.e.m();
+                b.a.r0.u.a.e.l();
             }
         }
     }
@@ -303,7 +303,7 @@ public class AdvertSDKStatic {
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            b.a.r0.u.a.e.m();
+            b.a.r0.u.a.e.l();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

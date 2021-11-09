@@ -21,20 +21,20 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f68545a;
+    public static volatile d f68544a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68546b;
+    public long f68545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f68547c;
+    public ConcurrentHashMap<String, e> f68546c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Integer> f68548d;
+    public HashMap<String, Integer> f68547d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f68549e;
+    public List<String> f68548e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,24 +49,24 @@ public class d {
                 return;
             }
         }
-        this.f68546b = 0L;
-        this.f68547c = new ConcurrentHashMap<>();
-        this.f68548d = new HashMap<>();
-        this.f68549e = new CopyOnWriteArrayList();
+        this.f68545b = 0L;
+        this.f68546c = new ConcurrentHashMap<>();
+        this.f68547d = new HashMap<>();
+        this.f68548e = new CopyOnWriteArrayList();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68545a == null) {
+            if (f68544a == null) {
                 synchronized (d.class) {
-                    if (f68545a == null) {
-                        f68545a = new d();
+                    if (f68544a == null) {
+                        f68544a = new d();
                     }
                 }
             }
-            return f68545a;
+            return f68544a;
         }
         return (d) invokeV.objValue;
     }
@@ -74,13 +74,13 @@ public class d {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68546b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68545b : invokeV.longValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f68546b = System.currentTimeMillis();
+            this.f68545b = System.currentTimeMillis();
         }
     }
 
@@ -91,11 +91,11 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            if (this.f68548d == null) {
-                this.f68548d = new HashMap<>();
+            if (this.f68547d == null) {
+                this.f68547d = new HashMap<>();
             }
-            if (this.f68548d.containsKey(str)) {
-                return this.f68548d.get(str).intValue();
+            if (this.f68547d.containsKey(str)) {
+                return this.f68547d.get(str).intValue();
             }
             return 0;
         }
@@ -107,7 +107,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f68547c.put(str, eVar);
+        this.f68546c.put(str, eVar);
     }
 
     public void a(String str) {
@@ -115,7 +115,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f68547c.remove(str);
+        this.f68546c.remove(str);
     }
 
     @WorkerThread

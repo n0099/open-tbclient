@@ -54,7 +54,7 @@ public abstract class k<E> extends m<E> {
     public final boolean j(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f0.f72120a.c(this, k, j, j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f0.f72119a.c(this, k, j, j2) : invokeCommon.booleanValue;
     }
 
     public final long k() {

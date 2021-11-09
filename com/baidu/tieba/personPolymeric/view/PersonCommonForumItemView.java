@@ -30,17 +30,17 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public BarImageView avatar;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53248e;
+    public int f53247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f53249f;
+    public Context f53248f;
     public TextView forumName;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f53250g;
+    public f f53249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f53251h;
+    public View.OnClickListener f53250h;
     public TextView postThread;
     public TextView threadNumber;
     public TextView threadStr;
@@ -51,7 +51,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonCommonForumItemView f53252e;
+        public final /* synthetic */ PersonCommonForumItemView f53251e;
 
         public a(PersonCommonForumItemView personCommonForumItemView) {
             Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class PersonCommonForumItemView extends RelativeLayout {
                     return;
                 }
             }
-            this.f53252e = personCommonForumItemView;
+            this.f53251e = personCommonForumItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f53252e.f53250g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f53251e.f53249g == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
             TiebaStatic.log(new StatisticItem("c11594"));
-            String str = this.f53252e.f53250g.f22294f;
+            String str = this.f53251e.f53249g.f22294f;
             if (k.isForumName(str)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f53252e.f53249f).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f53251e.f53248f).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
             }
         }
     }
@@ -104,8 +104,8 @@ public class PersonCommonForumItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f53248e = 3;
-        this.f53249f = context;
+        this.f53247e = 3;
+        this.f53248f = context;
         LayoutInflater.from(getContext()).inflate(R.layout.person_info_common_forum_item, (ViewGroup) this, true);
         c();
         d();
@@ -125,35 +125,35 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f53251h = new a(this);
+            this.f53250h = new a(this);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f53248e != TbadkCoreApplication.getInst().getSkinType()) {
+            if (this.f53247e != TbadkCoreApplication.getInst().getSkinType()) {
                 SkinManager.setViewTextColor(this.forumName, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.postThread, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.threadStr, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.threadNumber, R.color.CAM_X0302);
                 SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
             }
-            this.f53248e = TbadkCoreApplication.getInst().getSkinType();
+            this.f53247e = TbadkCoreApplication.getInst().getSkinType();
         }
     }
 
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f53250g = fVar;
+            this.f53249g = fVar;
             this.avatar.startLoad(fVar.f22295g, 10, false);
             TextView textView = this.forumName;
-            textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f22294f, 7, "...") + this.f53249f.getString(R.string.forum));
+            textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f22294f, 7, "...") + this.f53248f.getString(R.string.forum));
             this.threadNumber.setText(StringHelper.numberUniformFormat((long) fVar.f22296h));
-            this.postThread.setText(String.format(this.f53249f.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f22297i)));
+            this.postThread.setText(String.format(this.f53248f.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f22297i)));
             if (getRootView() != null) {
-                getRootView().setOnClickListener(this.f53251h);
+                getRootView().setOnClickListener(this.f53250h);
             }
             onChangeSkinType();
         }

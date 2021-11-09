@@ -12,10 +12,10 @@ public /* synthetic */ class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f71418a;
+    public static final /* synthetic */ int[] f71417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f71419b;
+    public static final /* synthetic */ int[] f71418b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,31 +32,31 @@ public /* synthetic */ class as {
             }
         }
         int[] iArr = new int[hm.values().length];
-        f71419b = iArr;
+        f71418b = iArr;
         try {
-            iArr[hm.f71112a.ordinal()] = 1;
+            iArr[hm.f71111a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f71419b[hm.f71113b.ordinal()] = 2;
+            f71418b[hm.f71112b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f71419b[hm.f71114c.ordinal()] = 3;
+            f71418b[hm.f71113c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f71419b[hm.f71115d.ordinal()] = 4;
+            f71418b[hm.f71114d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         int[] iArr2 = new int[hl.values().length];
-        f71418a = iArr2;
+        f71417a = iArr2;
         try {
-            iArr2[hl.f71110a.ordinal()] = 1;
+            iArr2[hl.f71109a.ordinal()] = 1;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f71418a[hl.f71111b.ordinal()] = 2;
+            f71417a[hl.f71110b.ordinal()] = 2;
         } catch (NoSuchFieldError unused6) {
         }
     }

@@ -184,7 +184,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
                 }
             }
             GLES20.glClear(16640);
-            GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+            GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glUseProgram(this.mProgram);

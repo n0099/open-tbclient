@@ -35,32 +35,32 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ExecutorService f61346e;
+    public static final ExecutorService f61345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile h f61347f;
+    public static volatile h f61346f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f61348a;
+    public volatile long f61347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PluginDownloadBean> f61349b;
+    public List<PluginDownloadBean> f61348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<PluginDownloadBean> f61350c;
+    public List<PluginDownloadBean> f61349c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61351d;
+    public boolean f61350d;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<PluginDownloadBean> f61352g;
+    public List<PluginDownloadBean> f61351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Long> f61353h;
+    public Map<String, Long> f61352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f61354i;
+    public Handler f61353i;
     public Runnable j;
 
     static {
@@ -76,7 +76,7 @@ public class h {
                 return;
             }
         }
-        f61346e = Executors.newSingleThreadExecutor();
+        f61345e = Executors.newSingleThreadExecutor();
     }
 
     public h() {
@@ -92,13 +92,13 @@ public class h {
                 return;
             }
         }
-        this.f61352g = new CopyOnWriteArrayList();
-        this.f61349b = new CopyOnWriteArrayList();
-        this.f61353h = new ConcurrentHashMap();
-        this.f61350c = new CopyOnWriteArrayList();
-        this.f61354i = new Handler(Looper.getMainLooper());
+        this.f61351g = new CopyOnWriteArrayList();
+        this.f61348b = new CopyOnWriteArrayList();
+        this.f61352h = new ConcurrentHashMap();
+        this.f61349c = new CopyOnWriteArrayList();
+        this.f61353i = new Handler(Looper.getMainLooper());
         this.j = null;
-        this.f61351d = false;
+        this.f61350d = false;
     }
 
     public static void c(PluginDownloadBean pluginDownloadBean) {
@@ -112,14 +112,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61347f == null) {
+            if (f61346f == null) {
                 synchronized (h.class) {
-                    if (f61347f == null) {
-                        f61347f = new h();
+                    if (f61346f == null) {
+                        f61346f = new h();
                     }
                 }
             }
-            return f61347f;
+            return f61346f;
         }
         return (h) invokeV.objValue;
     }
@@ -128,7 +128,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "asyncFetchPlugins start");
-            f61346e.execute(new c(this));
+            f61345e.execute(new c(this));
         }
     }
 
@@ -152,18 +152,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, list)) == null) {
             synchronized (this) {
-                this.f61352g.clear();
-                this.f61349b.clear();
-                this.f61350c.clear();
+                this.f61351g.clear();
+                this.f61348b.clear();
+                this.f61349c.clear();
                 for (PluginDownloadBean pluginDownloadBean : list) {
                     if (pluginDownloadBean.mDownloadType == 0) {
-                        this.f61349b.add(pluginDownloadBean);
+                        this.f61348b.add(pluginDownloadBean);
                     } else if (pluginDownloadBean.mDownloadType == 1) {
-                        this.f61350c.add(pluginDownloadBean);
+                        this.f61349c.add(pluginDownloadBean);
                     }
                 }
-                this.f61351d = true;
-                list2 = this.f61349b;
+                this.f61350d = true;
+                list2 = this.f61348b;
             }
             return list2;
         }
@@ -246,7 +246,7 @@ public class h {
                     plugin2.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
                     plugin2.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
                 }
-                PluginProvider pluginProvider = com.bytedance.pangle.i.a().f61439b.getPluginProvider();
+                PluginProvider pluginProvider = com.bytedance.pangle.i.a().f61438b.getPluginProvider();
                 if (pluginProvider != null && pluginProvider.useLocalPlugin()) {
                     PluginManager.getInstance().installFromDownloadDir();
                 } else {
@@ -267,17 +267,17 @@ public class h {
         }
         Runnable runnable = this.j;
         if (runnable != null) {
-            this.f61354i.removeCallbacks(runnable);
+            this.f61353i.removeCallbacks(runnable);
         }
         Runnable runnable2 = new Runnable(this, j) { // from class: com.bytedance.pangle.download.h.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f61356a;
+            public final /* synthetic */ long f61355a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h f61357b;
+            public final /* synthetic */ h f61356b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -294,23 +294,23 @@ public class h {
                         return;
                     }
                 }
-                this.f61357b = this;
-                this.f61356a = j;
+                this.f61356b = this;
+                this.f61355a = j;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (!b.a().f61315a) {
-                        this.f61357b.b();
+                    if (!b.a().f61314a) {
+                        this.f61356b.b();
                     }
-                    this.f61357b.f61354i.postDelayed(this, this.f61356a * 1000);
+                    this.f61356b.f61353i.postDelayed(this, this.f61355a * 1000);
                 }
             }
         };
         this.j = runnable2;
-        this.f61354i.postDelayed(runnable2, j * 1000);
+        this.f61353i.postDelayed(runnable2, j * 1000);
     }
 
     public final boolean a(String str) {
@@ -323,7 +323,7 @@ public class h {
                 plugin2 = Zeus.getPlugin(str);
             } catch (Exception unused) {
             }
-            if (plugin2 == null || plugin2.isLoaded() || (((l = this.f61353h.get(str)) != null && System.currentTimeMillis() - l.longValue() < 5000) || !com.bytedance.pangle.a.f61231a.booleanValue())) {
+            if (plugin2 == null || plugin2.isLoaded() || (((l = this.f61352h.get(str)) != null && System.currentTimeMillis() - l.longValue() < 5000) || !com.bytedance.pangle.a.f61230a.booleanValue())) {
                 return false;
             }
             d a2 = d.a();
@@ -345,15 +345,15 @@ public class h {
                 return false;
             }
             JSONArray optJSONArray = new JSONObject(a4).getJSONObject("data").optJSONArray("plugin");
-            this.f61353h.put(str, Long.valueOf(System.currentTimeMillis()));
+            this.f61352h.put(str, Long.valueOf(System.currentTimeMillis()));
             if (optJSONArray.length() <= 0) {
                 return false;
             }
             PluginDownloadBean a5 = e.a(optJSONArray.getJSONObject(0));
             if (!a5.isOffline && !a5.isRevert) {
                 synchronized (this) {
-                    if (!a(a5, this.f61349b, false)) {
-                        a(a5, this.f61350c, true);
+                    if (!a(a5, this.f61348b, false)) {
+                        a(a5, this.f61349c, true);
                     }
                 }
                 return true;

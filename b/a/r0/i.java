@@ -99,7 +99,6 @@ public class i {
             this.f17811a.sendMessage(new CustomMessage(2015002, createNormalCfg));
             this.f17811a.finish();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_END_STAMP_KEY);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.f17811a.getClass().getSimpleName()).param("obj_param1", 4));
         }
     }

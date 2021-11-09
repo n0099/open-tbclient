@@ -1613,7 +1613,7 @@ public class s0 {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13701").param("tid", this.f19454e.f19401c.getPbModel().g1()).param("fid", this.f19454e.f19401c.getPbModel().P0().m()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f19454e.f19401c.getPbModel().f52416f).param("fid", this.f19454e.f19401c.getPbModel().P0().m()).param("obj_locate", 1).param("uid", this.f19454e.f19401c.getPbModel().P0().O().J().getUserId()));
+                TiebaStatic.log(new StatisticItem("c13402").param("tid", this.f19454e.f19401c.getPbModel().f52415f).param("fid", this.f19454e.f19401c.getPbModel().P0().m()).param("obj_locate", 1).param("uid", this.f19454e.f19401c.getPbModel().P0().O().J().getUserId()));
             }
         }
     }

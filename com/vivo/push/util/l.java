@@ -25,19 +25,19 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70395a;
+    public Context f70394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f70396b;
+    public InsideNotificationItem f70395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70397c;
+    public long f70396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f70398d;
+    public boolean f70397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f70399e;
+    public int f70398e;
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
         Interceptable interceptable = $ic;
@@ -54,11 +54,11 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                 return;
             }
         }
-        this.f70399e = 0;
-        this.f70395a = context;
-        this.f70396b = insideNotificationItem;
-        this.f70397c = j;
-        this.f70398d = z;
+        this.f70398e = 0;
+        this.f70394a = context;
+        this.f70395b = insideNotificationItem;
+        this.f70396c = j;
+        this.f70397d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,9 +86,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, strArr)) == null) {
-            this.f70399e = ClientConfigManagerImpl.getInstance(this.f70395a).getNotifyStyle();
+            this.f70398e = ClientConfigManagerImpl.getInstance(this.f70394a).getNotifyStyle();
             InputStream inputStream2 = null;
-            if (!this.f70398d) {
+            if (!this.f70397d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }
@@ -159,9 +159,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         List<Bitmap> list2 = list;
         super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        if (this.f70396b != null) {
-            w.b().a("com.vivo.push.notify_key", this.f70397c);
-            NotifyAdapterUtil.pushNotification(this.f70395a, list2, this.f70396b, this.f70397c, this.f70399e);
+        if (this.f70395b != null) {
+            w.b().a("com.vivo.push.notify_key", this.f70396c);
+            NotifyAdapterUtil.pushNotification(this.f70394a, list2, this.f70395b, this.f70396c, this.f70398e);
         }
     }
 }

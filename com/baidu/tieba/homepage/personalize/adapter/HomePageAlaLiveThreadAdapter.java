@@ -78,7 +78,7 @@ public class HomePageAlaLiveThreadAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaLiveThreadAdapter f49679b;
+        public final /* synthetic */ HomePageAlaLiveThreadAdapter f49678b;
 
         public a(HomePageAlaLiveThreadAdapter homePageAlaLiveThreadAdapter) {
             Interceptable interceptable = $ic;
@@ -95,12 +95,12 @@ public class HomePageAlaLiveThreadAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f49679b = homePageAlaLiveThreadAdapter;
+            this.f49678b = homePageAlaLiveThreadAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:51:0x01fb, code lost:
-            if (r13.getId() == r12.f49679b.o.S().getId()) goto L50;
+            if (r13.getId() == r12.f49678b.o.S().getId()) goto L50;
          */
         @Override // b.a.r0.b0.c0
         /* renamed from: d */
@@ -111,20 +111,20 @@ public class HomePageAlaLiveThreadAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
-                LinearLayout linearLayout = this.f49679b.o.A;
+                LinearLayout linearLayout = this.f49678b.o.A;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
                 int i2 = 1;
                 int i3 = 0;
                 if (linearLayout != view) {
-                    if (view == this.f49679b.o.p.getCommentContainer()) {
-                        this.f49679b.i0(jVar, view);
+                    if (view == this.f49678b.o.p.getCommentContainer()) {
+                        this.f49678b.i0(jVar, view);
                         i2 = 5;
                     } else {
-                        if (view == this.f49679b.o.q.getCommentContainer()) {
-                            this.f49679b.i0(jVar, view);
+                        if (view == this.f49678b.o.q.getCommentContainer()) {
+                            this.f49678b.i0(jVar, view);
                         } else {
-                            if (this.f49679b.o.Q() == null || view.getId() != this.f49679b.o.Q().getId()) {
-                                if (this.f49679b.o.S() != null) {
+                            if (this.f49678b.o.Q() == null || view.getId() != this.f49678b.o.Q().getId()) {
+                                if (this.f49678b.o.S() != null) {
                                 }
                             } else if (jVar.getThreadData() != null && jVar.getThreadData().l1() != null && jVar.getThreadData().l1().isLegalYYLiveData()) {
                                 d2 threadData = jVar.getThreadData();
@@ -173,7 +173,7 @@ public class HomePageAlaLiveThreadAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
                     statisticItem2.param("obj_source", jVar.t());
                     statisticItem2.param(TiebaStatic.Params.OBJ_FLOOR, jVar.q());
                     statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
-                    statisticItem2.param(TiebaStatic.Params.OBJ_PARAM4, s0.d(this.f49679b.o.getContext()) ? 1 : 0);
+                    statisticItem2.param(TiebaStatic.Params.OBJ_PARAM4, s0.d(this.f49678b.o.getContext()) ? 1 : 0);
                     if (jVar.getThreadData() != null) {
                         statisticItem2.param("fid", jVar.getThreadData().T());
                         statisticItem2.param("fname", jVar.getThreadData().Z());
@@ -183,7 +183,7 @@ public class HomePageAlaLiveThreadAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
                     b.a.r0.h1.h.m.a.b(jVar.f14748e, jVar.t(), jVar.q(), 1);
                 }
                 if (i2 != 0) {
-                    b.a.r0.h1.h.m.a.c(jVar.f14748e, this.f49679b.m, jVar.q(), i2);
+                    b.a.r0.h1.h.m.a.c(jVar.f14748e, this.f49678b.m, jVar.q(), i2);
                 }
                 TbSingleton.getInstance().saveHomeRecommendItemClickTime();
             }

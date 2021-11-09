@@ -11,16 +11,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f66903a;
+    public final long f66902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f66904b;
+    public final long f66903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f66905c;
+    public final long f66904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f66906d;
+    public final long f66905d;
 
     public a(long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class a {
                 return;
             }
         }
-        this.f66903a = j;
-        this.f66904b = j2;
-        this.f66905c = j3;
-        this.f66906d = j4;
+        this.f66902a = j;
+        this.f66903b = j2;
+        this.f66904c = j3;
+        this.f66905d = j4;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.f.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.f66903a), Long.valueOf(this.f66905c), Long.valueOf(this.f66904b)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.f.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.f66902a), Long.valueOf(this.f66904c), Long.valueOf(this.f66903b)) : (String) invokeV.objValue;
     }
 }

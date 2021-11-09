@@ -30,13 +30,13 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.f2.h.e.a.a f51931e;
+    public b.a.r0.f2.h.e.a.a f51930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f51932f;
+    public List<String> f51931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f51933g;
+    public final HttpMessageListener f51932g;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -44,7 +44,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionModel f51934a;
+        public final /* synthetic */ SingleThreadEmotionModel f51933a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SingleThreadEmotionModel singleThreadEmotionModel, int i2) {
@@ -64,7 +64,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f51934a = singleThreadEmotionModel;
+            this.f51933a = singleThreadEmotionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,11 +73,11 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
-                if (this.f51934a.f51931e != null) {
+                if (this.f51933a.f51930e != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        this.f51934a.f51931e.onSuccess(this.f51934a.A(singleThreadEmotionResponseMessage.data.pkg_list));
+                        this.f51933a.f51930e.onSuccess(this.f51933a.A(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
-                        this.f51934a.f51931e.onFail();
+                        this.f51933a.f51930e.onFail();
                     }
                 }
             }
@@ -90,7 +90,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionModel f51935e;
+        public final /* synthetic */ SingleThreadEmotionModel f51934e;
 
         public b(SingleThreadEmotionModel singleThreadEmotionModel) {
             Interceptable interceptable = $ic;
@@ -107,25 +107,25 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f51935e = singleThreadEmotionModel;
+            this.f51934e = singleThreadEmotionModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51935e.D();
+                this.f51934e.D();
                 List<MyEmotionGroupData> f2 = b.a.r0.f2.c.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f2 != null && !f2.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f2) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            this.f51935e.F(myEmotionGroupData.getGroupId());
+                            this.f51934e.F(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
-                SingleThreadEmotionModel singleThreadEmotionModel = this.f51935e;
+                SingleThreadEmotionModel singleThreadEmotionModel = this.f51934e;
                 e.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
@@ -137,7 +137,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<SingleThreadEmotionModel> f51936e;
+        public WeakReference<SingleThreadEmotionModel> f51935e;
 
         public c(SingleThreadEmotionModel singleThreadEmotionModel, SingleThreadEmotionModel singleThreadEmotionModel2) {
             Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f51936e = new WeakReference<>(singleThreadEmotionModel2);
+            this.f51935e = new WeakReference<>(singleThreadEmotionModel2);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SingleThreadEmotionModel singleThreadEmotionModel;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f51936e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f51935e.get()) == null) {
                 return;
             }
             singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
@@ -181,12 +181,12 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                 return;
             }
         }
-        this.f51933g = new a(this, CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
-        this.f51932f = new ArrayList();
+        this.f51932g = new a(this, CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
+        this.f51931f = new ArrayList();
         registerTask();
-        this.f51933g.setTag(getUniqueId());
-        this.f51933g.setSelfListener(true);
-        registerListener(this.f51933g);
+        this.f51932g.setTag(getUniqueId());
+        this.f51932g.setSelfListener(true);
+        registerListener(this.f51932g);
     }
 
     public final List<EmotionPackageData> A(List<EmotionPackageData> list) {
@@ -217,7 +217,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f51932f);
+                arrayList = new ArrayList(this.f51931f);
             }
             return arrayList;
         }
@@ -226,17 +226,17 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
 
     public void C() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f51933g == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f51932g == null) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f51933g);
+        MessageManager.getInstance().unRegisterListener(this.f51932g);
     }
 
     public final synchronized void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f51932f.clear();
+                this.f51931f.clear();
             }
         }
     }
@@ -244,7 +244,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public void E(b.a.r0.f2.h.e.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f51931e = aVar;
+            this.f51930e = aVar;
         }
     }
 
@@ -252,7 +252,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             synchronized (this) {
-                this.f51932f.add(str);
+                this.f51931f.add(str);
             }
         }
     }

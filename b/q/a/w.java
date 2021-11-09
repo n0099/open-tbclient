@@ -39,16 +39,16 @@ public class w implements r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             H5Activity h5Activity = this.f33546a;
-            if (a2.d(h5Activity.f70482e, h5Activity.f70485h)) {
-                this.f33546a.f70485h = System.currentTimeMillis();
+            if (a2.d(h5Activity.f70481e, h5Activity.f70484h)) {
+                this.f33546a.f70484h = System.currentTimeMillis();
                 H5Activity h5Activity2 = this.f33546a;
-                a2.a(h5Activity2.f70478a, str, h5Activity2.f70482e, h5Activity2.f70486i, str2);
-                y2 a2 = c3.a(this.f33546a.f70478a);
-                a2.h(new g3(this.f33546a.f70482e), str);
+                a2.a(h5Activity2.f70477a, str, h5Activity2.f70481e, h5Activity2.f70485i, str2);
+                y2 a2 = c3.a(this.f33546a.f70477a);
+                a2.h(new g3(this.f33546a.f70481e), str);
                 a2.l("desc", str2);
                 a2.m();
-                q0.c(this.f33546a.f70482e.getId() + this.f33546a.f70483f, "is_click", null);
-                r0.p(this.f33546a.f70482e, str2);
+                q0.c(this.f33546a.f70481e.getId() + this.f33546a.f70482f, "is_click", null);
+                r0.p(this.f33546a.f70481e, str2);
                 return true;
             }
             return true;
@@ -60,7 +60,7 @@ public class w implements r {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f33546a.f70484g = str;
+            this.f33546a.f70483g = str;
         }
     }
 }

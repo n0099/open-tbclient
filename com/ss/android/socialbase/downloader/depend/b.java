@@ -13,7 +13,7 @@ public abstract class b implements v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f69211a;
+    public boolean f69210a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class b implements v {
                 return;
             }
         }
-        this.f69211a = false;
+        this.f69210a = false;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.v
@@ -37,13 +37,13 @@ public abstract class b implements v {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f69211a = true;
+        this.f69210a = true;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.v
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69211a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69210a : invokeV.booleanValue;
     }
 }

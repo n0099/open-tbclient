@@ -16,16 +16,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f69421a;
+    public Object f69420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f69422b;
+    public Queue<b> f69421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f69423c;
+    public a f69422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f69424d;
+    public Handler f69423d;
 
     /* loaded from: classes2.dex */
     public class a extends HandlerThread {
@@ -33,7 +33,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f69425a;
+        public final /* synthetic */ g f69424a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, String str) {
@@ -53,7 +53,7 @@ public class g {
                     return;
                 }
             }
-            this.f69425a = gVar;
+            this.f69424a = gVar;
         }
 
         @Override // android.os.HandlerThread
@@ -62,12 +62,12 @@ public class g {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onLooperPrepared();
                 Looper looper = getLooper();
-                synchronized (this.f69425a.f69421a) {
-                    this.f69425a.f69424d = new Handler(looper);
+                synchronized (this.f69424a.f69420a) {
+                    this.f69424a.f69423d = new Handler(looper);
                 }
-                while (!this.f69425a.f69422b.isEmpty()) {
-                    b bVar = (b) this.f69425a.f69422b.poll();
-                    this.f69425a.f69424d.postDelayed(bVar.f69426a, bVar.f69427b);
+                while (!this.f69424a.f69421b.isEmpty()) {
+                    b bVar = (b) this.f69424a.f69421b.poll();
+                    this.f69424a.f69423d.postDelayed(bVar.f69425a, bVar.f69426b);
                 }
             }
         }
@@ -79,13 +79,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f69426a;
+        public Runnable f69425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f69427b;
+        public long f69426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f69428c;
+        public final /* synthetic */ g f69427c;
 
         public b(g gVar, Runnable runnable, long j) {
             Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public class g {
                     return;
                 }
             }
-            this.f69428c = gVar;
-            this.f69426a = runnable;
-            this.f69427b = j;
+            this.f69427c = gVar;
+            this.f69425a = runnable;
+            this.f69426b = j;
         }
     }
 
@@ -123,22 +123,22 @@ public class g {
                 return;
             }
         }
-        this.f69421a = new Object();
-        this.f69422b = new ConcurrentLinkedQueue();
-        this.f69423c = new a(this, str);
+        this.f69420a = new Object();
+        this.f69421b = new ConcurrentLinkedQueue();
+        this.f69422c = new a(this, str);
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f69423c.quit();
+            this.f69422c.quit();
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f69423c.start();
+            this.f69422c.start();
         }
     }
 
@@ -152,15 +152,15 @@ public class g {
     public void a(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
-            if (this.f69424d == null) {
-                synchronized (this.f69421a) {
-                    if (this.f69424d == null) {
-                        this.f69422b.add(new b(this, runnable, j));
+            if (this.f69423d == null) {
+                synchronized (this.f69420a) {
+                    if (this.f69423d == null) {
+                        this.f69421b.add(new b(this, runnable, j));
                         return;
                     }
                 }
             }
-            this.f69424d.postDelayed(runnable, j);
+            this.f69423d.postDelayed(runnable, j);
         }
     }
 }

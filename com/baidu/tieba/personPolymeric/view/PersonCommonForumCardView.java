@@ -21,7 +21,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f53247i;
+    public Context f53246i;
     public List<f> j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
@@ -45,7 +45,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             }
         }
         this.k = new ArrayList();
-        this.f53247i = context;
+        this.f53246i = context;
     }
 
     public final void f() {
@@ -57,7 +57,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f53247i) - l.g(this.f53247i, R.dimen.tbds88)) - l.g(this.f53247i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f53246i) - l.g(this.f53246i, R.dimen.tbds88)) - l.g(this.f53246i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }

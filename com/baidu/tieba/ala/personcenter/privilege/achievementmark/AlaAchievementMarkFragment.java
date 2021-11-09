@@ -37,19 +37,19 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.w.l.g.c.c.a f47190e;
+    public b.a.r0.w.l.g.c.c.a f47189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaPersonCenterPrivilegeMarkModel f47191f;
+    public AlaPersonCenterPrivilegeMarkModel f47190f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f47192g;
+    public g f47191g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AchievementMarkDialog f47193h;
+    public AchievementMarkDialog f47192h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AlaPersonCenterPrivilegeMarkModel.b f47194i;
+    public AlaPersonCenterPrivilegeMarkModel.b f47193i;
     public View.OnClickListener j;
     public a.c k;
 
@@ -59,9 +59,44 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaAchievementMarkFragment f47195a;
+        public final /* synthetic */ AlaAchievementMarkFragment f47194a;
 
         public a(AlaAchievementMarkFragment alaAchievementMarkFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaAchievementMarkFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47194a = alaAchievementMarkFragment;
+        }
+
+        @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.AchievementMarkDialog.i
+        public void a(boolean z, b.a.r0.w.l.g.c.b.b bVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) && z) {
+                this.f47194a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements AlaPersonCenterPrivilegeMarkModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlaAchievementMarkFragment f47195a;
+
+        public b(AlaAchievementMarkFragment alaAchievementMarkFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,62 +114,27 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.f47195a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.AchievementMarkDialog.i
-        public void a(boolean z, b.a.r0.w.l.g.c.b.b bVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) && z) {
-                this.f47195a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements AlaPersonCenterPrivilegeMarkModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaAchievementMarkFragment f47196a;
-
-        public b(AlaAchievementMarkFragment alaAchievementMarkFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaAchievementMarkFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47196a = alaAchievementMarkFragment;
-        }
-
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.b
         public void a(int i2, String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) {
-                this.f47196a.hideLoadingView();
+                this.f47195a.hideLoadingView();
                 if (i2 != 0 && !StringUtils.isNull(str)) {
-                    if (this.f47196a.f47190e != null) {
+                    if (this.f47195a.f47189e != null) {
                         if (j.z()) {
-                            this.f47196a.f47190e.h(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
+                            this.f47195a.f47189e.h(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                         } else {
-                            this.f47196a.f47190e.h(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, this.f47196a.j);
+                            this.f47195a.f47189e.h(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, this.f47195a.j);
                         }
-                        this.f47196a.f47190e.g(null, null);
+                        this.f47195a.f47189e.g(null, null);
                     }
                 } else if (obj == null) {
-                    this.f47196a.f47190e.g(null, null);
+                    this.f47195a.f47189e.g(null, null);
                 } else if (obj instanceof AlaAchievementMarkResponsedMessage) {
                     AlaAchievementMarkResponsedMessage alaAchievementMarkResponsedMessage = (AlaAchievementMarkResponsedMessage) obj;
-                    if (this.f47196a.f47190e != null) {
-                        this.f47196a.f47190e.d();
-                        this.f47196a.f47190e.g(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
+                    if (this.f47195a.f47189e != null) {
+                        this.f47195a.f47189e.d();
+                        this.f47195a.f47189e.g(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
                     }
                 }
             }
@@ -147,7 +147,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAchievementMarkFragment f47197e;
+        public final /* synthetic */ AlaAchievementMarkFragment f47196e;
 
         public c(AlaAchievementMarkFragment alaAchievementMarkFragment) {
             Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
                     return;
                 }
             }
-            this.f47197e = alaAchievementMarkFragment;
+            this.f47196e = alaAchievementMarkFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -172,10 +172,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (j.z()) {
-                    this.f47197e.g();
+                    this.f47196e.g();
                     return;
                 }
-                AlaAchievementMarkFragment alaAchievementMarkFragment = this.f47197e;
+                AlaAchievementMarkFragment alaAchievementMarkFragment = this.f47196e;
                 alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.no_network_guide));
             }
         }
@@ -239,7 +239,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
                 return;
             }
         }
-        this.f47194i = new b(this);
+        this.f47193i = new b(this);
         this.j = new c(this);
         this.k = new d(this);
     }
@@ -247,10 +247,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f47191f == null) {
-                this.f47191f = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.f47194i);
+            if (this.f47190f == null) {
+                this.f47190f = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.f47193i);
             }
-            this.f47191f.y();
+            this.f47190f.y();
         }
     }
 
@@ -274,10 +274,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public final void hideLoadingView() {
         b.a.r0.w.l.g.c.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f47192g == null || (aVar = this.f47190e) == null || aVar.c() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f47191g == null || (aVar = this.f47189e) == null || aVar.c() == null) {
             return;
         }
-        this.f47192g.dettachView(this.f47190e.c());
+        this.f47191g.dettachView(this.f47189e.c());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -285,7 +285,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            g gVar = this.f47192g;
+            g gVar = this.f47191g;
             if (gVar != null) {
                 gVar.onChangeSkinType();
             }
@@ -298,11 +298,11 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f47190e = new b.a.r0.w.l.g.c.c.a(getPageContext(), this.k);
+            this.f47189e = new b.a.r0.w.l.g.c.c.a(getPageContext(), this.k);
             showLoadingView();
             g();
-            this.f47193h = new AchievementMarkDialog(getPageContext(), new a(this));
-            return this.f47190e.c();
+            this.f47192h = new AchievementMarkDialog(getPageContext(), new a(this));
+            return this.f47189e.c();
         }
         return (View) invokeLLL.objValue;
     }
@@ -312,11 +312,11 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel = this.f47191f;
+            AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel = this.f47190f;
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            AchievementMarkDialog achievementMarkDialog = this.f47193h;
+            AchievementMarkDialog achievementMarkDialog = this.f47192h;
             if (achievementMarkDialog != null) {
                 achievementMarkDialog.onDestroy();
             }
@@ -338,14 +338,14 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public final void showLoadingView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f47192g == null) {
-                this.f47192g = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+            if (this.f47191g == null) {
+                this.f47191g = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
             }
-            b.a.r0.w.l.g.c.c.a aVar = this.f47190e;
+            b.a.r0.w.l.g.c.c.a aVar = this.f47189e;
             if (aVar == null || aVar.c() == null) {
                 return;
             }
-            this.f47192g.attachView(this.f47190e.c(), false);
+            this.f47191g.attachView(this.f47189e.c(), false);
         }
     }
 }

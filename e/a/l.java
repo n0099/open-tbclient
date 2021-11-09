@@ -23,19 +23,19 @@ public class l implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f71669e;
+    public Integer f71668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f71670f;
+    public final Object f71669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DxmSdkSensorsDataAPI f71671g;
+    public final DxmSdkSensorsDataAPI f71670g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f71672h;
+    public final g f71671h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final f f71673i;
+    public final f f71672i;
 
     static {
         InterceptResult invokeClinit;
@@ -68,11 +68,11 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f71669e = 0;
-        this.f71670f = new Object();
-        this.f71671g = dxmSdkSensorsDataAPI;
-        this.f71672h = gVar;
-        this.f71673i = fVar;
+        this.f71668e = 0;
+        this.f71669f = new Object();
+        this.f71670g = dxmSdkSensorsDataAPI;
+        this.f71671h = gVar;
+        this.f71672i = fVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -115,20 +115,20 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             try {
-                synchronized (this.f71670f) {
-                    if (this.f71669e.intValue() == 0) {
-                        if (this.f71673i.b() == null) {
-                            this.f71673i.a(j.format(Long.valueOf(System.currentTimeMillis())));
+                synchronized (this.f71669f) {
+                    if (this.f71668e.intValue() == 0) {
+                        if (this.f71672i.b() == null) {
+                            this.f71672i.a(j.format(Long.valueOf(System.currentTimeMillis())));
                         }
-                        this.f71672h.b().booleanValue();
+                        this.f71671h.b().booleanValue();
                         try {
-                            this.f71671g.i();
+                            this.f71670g.i();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f71671g.F();
+                        this.f71670g.F();
                     }
-                    this.f71669e = Integer.valueOf(this.f71669e.intValue() + 1);
+                    this.f71668e = Integer.valueOf(this.f71668e.intValue() + 1);
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -141,18 +141,18 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             try {
-                synchronized (this.f71670f) {
-                    Integer valueOf = Integer.valueOf(this.f71669e.intValue() - 1);
-                    this.f71669e = valueOf;
+                synchronized (this.f71669f) {
+                    Integer valueOf = Integer.valueOf(this.f71668e.intValue() - 1);
+                    this.f71668e = valueOf;
                     if (valueOf.intValue() == 0) {
                         try {
-                            this.f71671g.K();
-                            this.f71671g.j();
+                            this.f71670g.K();
+                            this.f71670g.j();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                         try {
-                            this.f71671g.p();
+                            this.f71670g.p();
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }

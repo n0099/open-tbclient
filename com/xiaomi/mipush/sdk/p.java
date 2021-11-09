@@ -16,7 +16,7 @@ public final class p extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f70637a;
+    public final /* synthetic */ Context f70636a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ie f100a;
@@ -37,7 +37,7 @@ public final class p extends ai.a {
             }
         }
         this.f100a = ieVar;
-        this.f70637a = context;
+        this.f70636a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -56,6 +56,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.f70637a.getApplicationContext()).a((an) this.f100a, hf.f71079i, true, (hs) null, true);
+        an.a(this.f70636a.getApplicationContext()).a((an) this.f100a, hf.f71078i, true, (hs) null, true);
     }
 }

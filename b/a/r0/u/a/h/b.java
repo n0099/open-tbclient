@@ -14,15 +14,13 @@ public interface b {
 
     void a();
 
-    void b();
+    AdLoadState b();
 
-    AdLoadState c();
+    void c(d dVar);
 
-    void d(d dVar);
+    String d();
 
     void destroy();
-
-    String e();
 
     void show();
 }

@@ -6,29 +6,29 @@ import java.util.LinkedList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f67509a;
+    public final boolean f67508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final i f67510b;
+    public final i f67509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<Long> f67511c;
+    public final LinkedList<Long> f67510c;
 
     public e(boolean z, i iVar, LinkedList<Long> linkedList) {
-        this.f67509a = z;
-        this.f67510b = iVar;
-        this.f67511c = linkedList;
+        this.f67508a = z;
+        this.f67509b = iVar;
+        this.f67510c = linkedList;
     }
 
     public i a() {
-        return this.f67510b;
+        return this.f67509b;
     }
 
     public LinkedList<Long> b() {
-        return this.f67511c;
+        return this.f67510c;
     }
 
     public boolean c() {
-        return this.f67509a;
+        return this.f67508a;
     }
 }

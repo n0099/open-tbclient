@@ -14,7 +14,7 @@ public class a extends d.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f61362a;
+    public static volatile a f61361a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -35,14 +35,14 @@ public class a extends d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61362a == null) {
+            if (f61361a == null) {
                 synchronized (a.class) {
-                    if (f61362a == null) {
-                        f61362a = new a();
+                    if (f61361a == null) {
+                        f61361a = new a();
                     }
                 }
             }
-            return f61362a;
+            return f61361a;
         }
         return (a) invokeV.objValue;
     }

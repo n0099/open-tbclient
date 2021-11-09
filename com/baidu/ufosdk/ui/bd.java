@@ -14,7 +14,7 @@ public final class bd extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bc f56827a;
+    public final /* synthetic */ bc f56826a;
 
     public bd(bc bcVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class bd extends TimerTask {
                 return;
             }
         }
-        this.f56827a = bcVar;
+        this.f56826a = bcVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -43,11 +43,11 @@ public final class bd extends TimerTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Message message = new Message();
             message.what = 3;
-            handler = this.f56827a.f56826a.r;
+            handler = this.f56826a.f56825a.r;
             handler.sendMessage(message);
-            timer = this.f56827a.f56826a.q;
+            timer = this.f56826a.f56825a.q;
             timer.cancel();
-            timer2 = this.f56827a.f56826a.q;
+            timer2 = this.f56826a.f56825a.q;
             timer2.purge();
         }
     }

@@ -27,20 +27,20 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f68761a;
+    public ExecutorService f68760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f68762b;
+    public ExecutorService f68761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f68763c;
+    public ScheduledExecutorService f68762c;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f68765a;
+        public static d f68764a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,14 +56,14 @@ public class d {
                     return;
                 }
             }
-            f68765a = new d();
+            f68764a = new d();
         }
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68765a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68764a : (d) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {
@@ -77,16 +77,16 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f68762b == null) {
+            if (this.f68761b == null) {
                 synchronized (d.class) {
-                    if (this.f68762b == null) {
+                    if (this.f68761b == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f68762b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                        this.f68761b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
                     }
                 }
             }
-            return this.f68762b;
+            return this.f68761b;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -95,14 +95,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f68763c == null) {
+            if (this.f68762c == null) {
                 synchronized (d.class) {
-                    if (this.f68763c == null) {
-                        this.f68763c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                    if (this.f68762c == null) {
+                        this.f68762c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
                     }
                 }
             }
-            return this.f68763c;
+            return this.f68762c;
         }
         return (ScheduledExecutorService) invokeV.objValue;
     }
@@ -115,7 +115,7 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68764a;
+                public final /* synthetic */ d f68763a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,7 +132,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68764a = this;
+                    this.f68763a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -217,16 +217,16 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f68761a == null) {
+            if (this.f68760a == null) {
                 synchronized (d.class) {
-                    if (this.f68761a == null) {
+                    if (this.f68760a == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f68761a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-CPUThreadPool"));
+                        this.f68760a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-CPUThreadPool"));
                     }
                 }
             }
-            return this.f68761a;
+            return this.f68760a;
         }
         return (ExecutorService) invokeV.objValue;
     }

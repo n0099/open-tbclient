@@ -101,16 +101,16 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f50510e;
+        public final /* synthetic */ long f50509e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromGameCenterMsgData f50511f;
+        public final /* synthetic */ ShareFromGameCenterMsgData f50510f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f50512g;
+        public final /* synthetic */ Game2GroupShareDialogView f50511g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50513h;
+        public final /* synthetic */ PersonGroupActivity f50512h;
 
         public a(PersonGroupActivity personGroupActivity, long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, Game2GroupShareDialogView game2GroupShareDialogView) {
             Interceptable interceptable = $ic;
@@ -127,26 +127,26 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                     return;
                 }
             }
-            this.f50513h = personGroupActivity;
-            this.f50510e = j;
-            this.f50511f = shareFromGameCenterMsgData;
-            this.f50512g = game2GroupShareDialogView;
+            this.f50512h = personGroupActivity;
+            this.f50509e = j;
+            this.f50510f = shareFromGameCenterMsgData;
+            this.f50511g = game2GroupShareDialogView;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                long t = b.a.r0.l1.k.b.o().t(String.valueOf(this.f50510e), 1);
-                MessageUtils.createGroupChatMessage(t, 9, this.f50511f.toChatMessageContent(), this.f50510e);
-                MessageUtils.createGroupChatMessage(t + 1, 1, this.f50512g.getLeaveMsg(), this.f50510e);
+                long t = b.a.r0.l1.k.b.o().t(String.valueOf(this.f50509e), 1);
+                MessageUtils.createGroupChatMessage(t, 9, this.f50510f.toChatMessageContent(), this.f50509e);
+                MessageUtils.createGroupChatMessage(t + 1, 1, this.f50511g.getLeaveMsg(), this.f50509e);
                 aVar.dismiss();
-                this.f50513h.setResult(-1);
+                this.f50512h.setResult(-1);
                 if (!j.z()) {
-                    PersonGroupActivity personGroupActivity = this.f50513h;
+                    PersonGroupActivity personGroupActivity = this.f50512h;
                     personGroupActivity.showToast(personGroupActivity.getPageContext().getContext().getString(R.string.no_network_guide));
                 }
-                this.f50513h.finish();
+                this.f50512h.finish();
             }
         }
     }
@@ -157,10 +157,10 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f50514e;
+        public final /* synthetic */ Game2GroupShareDialogView f50513e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50515f;
+        public final /* synthetic */ PersonGroupActivity f50514f;
 
         public b(PersonGroupActivity personGroupActivity, Game2GroupShareDialogView game2GroupShareDialogView) {
             Interceptable interceptable = $ic;
@@ -177,8 +177,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                     return;
                 }
             }
-            this.f50515f = personGroupActivity;
-            this.f50514e = game2GroupShareDialogView;
+            this.f50514f = personGroupActivity;
+            this.f50513e = game2GroupShareDialogView;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -186,7 +186,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                ((InputMethodManager) this.f50515f.getSystemService("input_method")).hideSoftInputFromWindow(this.f50514e.getWindowToken(), 2);
+                ((InputMethodManager) this.f50514f.getSystemService("input_method")).hideSoftInputFromWindow(this.f50513e.getWindowToken(), 2);
             }
         }
     }
@@ -197,10 +197,62 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50516a;
+        public final /* synthetic */ PersonGroupActivity f50515a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonGroupActivity personGroupActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personGroupActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50515a = personGroupActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage.isSuccess()) {
+                    if (httpResponsedMessage.getError() == 0) {
+                        b.a.q0.s.l.f.c(3, PersonGroupActivity.PRIVATESTATE[this.f50515a.wantPrivcay]);
+                        SkinManager.setNavbarIconSrc(this.f50515a.mPrivacyButton, PersonGroupActivity.PRIVACY_IMAGE_LIST_DEEP[this.f50515a.wantPrivcay], PersonGroupActivity.PRIVACY_IMAGE_LIST[this.f50515a.wantPrivcay]);
+                        PersonGroupActivity personGroupActivity = this.f50515a;
+                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[this.f50515a.wantPrivcay]), R.drawable.icon_toast_info);
+                        this.f50515a.mPrivacyButton.setContentDescription(this.f50515a.getPageContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[b.a.q0.s.l.f.a(3) % 3]));
+                        return;
+                    }
+                    this.f50515a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f50515a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
+                    return;
+                }
+                PersonGroupActivity personGroupActivity2 = this.f50515a;
+                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.neterror));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d extends b.a.e.c.g.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonGroupActivity f50516a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(PersonGroupActivity personGroupActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -222,58 +274,6 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage.isSuccess()) {
-                    if (httpResponsedMessage.getError() == 0) {
-                        b.a.q0.s.l.f.c(3, PersonGroupActivity.PRIVATESTATE[this.f50516a.wantPrivcay]);
-                        SkinManager.setNavbarIconSrc(this.f50516a.mPrivacyButton, PersonGroupActivity.PRIVACY_IMAGE_LIST_DEEP[this.f50516a.wantPrivcay], PersonGroupActivity.PRIVACY_IMAGE_LIST[this.f50516a.wantPrivcay]);
-                        PersonGroupActivity personGroupActivity = this.f50516a;
-                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[this.f50516a.wantPrivcay]), R.drawable.icon_toast_info);
-                        this.f50516a.mPrivacyButton.setContentDescription(this.f50516a.getPageContext().getString(PersonGroupActivity.PRIVACY_INFO_TEXT_LIST[b.a.q0.s.l.f.a(3) % 3]));
-                        return;
-                    }
-                    this.f50516a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f50516a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
-                    return;
-                }
-                PersonGroupActivity personGroupActivity2 = this.f50516a;
-                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.neterror));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d extends b.a.e.c.g.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50517a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(PersonGroupActivity personGroupActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personGroupActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50517a = personGroupActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             ResponseUserPermissionMessage responseUserPermissionMessage;
             Interceptable interceptable = $ic;
@@ -282,23 +282,23 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                     responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
                 } catch (Exception unused) {
                 } catch (Throwable th) {
-                    this.f50517a.hideProgressBar();
+                    this.f50516a.hideProgressBar();
                     throw th;
                 }
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.f50517a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.f50517a.getResources().getString(R.string.neterror) : responseUserPermissionMessage.getErrorString());
-                    this.f50517a.hideProgressBar();
+                    this.f50516a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.f50516a.getResources().getString(R.string.neterror) : responseUserPermissionMessage.getErrorString());
+                    this.f50516a.hideProgressBar();
                     return;
                 }
                 GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
                 if (groupPermData != null) {
                     if (groupPermData.isCreatePersonal()) {
-                        this.f50517a.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.f50517a.getPageContext().getContext(), 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+                        this.f50516a.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.f50516a.getPageContext().getContext(), 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
                     } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                        this.f50517a.showToast(groupPermData.getCreatePersonalTip());
+                        this.f50516a.showToast(groupPermData.getCreatePersonalTip());
                     }
                 }
-                this.f50517a.hideProgressBar();
+                this.f50516a.hideProgressBar();
             }
         }
     }
@@ -309,9 +309,44 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50518e;
+        public final /* synthetic */ PersonGroupActivity f50517e;
 
         public e(PersonGroupActivity personGroupActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personGroupActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50517e = personGroupActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f50517e.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonGroupActivity f50518e;
+
+        public f(PersonGroupActivity personGroupActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -333,20 +368,20 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50518e.finish();
+                this.f50518e.sendUserPermissionMessage();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class f implements View.OnClickListener {
+    public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonGroupActivity f50519e;
 
-        public f(PersonGroupActivity personGroupActivity) {
+        public g(PersonGroupActivity personGroupActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -368,20 +403,20 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50519e.sendUserPermissionMessage();
+                this.f50519e.sendMessage(new CustomMessage(2002001, new AddGroupActivityConfig(this.f50519e.getPageContext().getPageActivity())));
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class g implements View.OnClickListener {
+    public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonGroupActivity f50520e;
 
-        public g(PersonGroupActivity personGroupActivity) {
+        public h(PersonGroupActivity personGroupActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,46 +438,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50520e.sendMessage(new CustomMessage(2002001, new AddGroupActivityConfig(this.f50520e.getPageContext().getPageActivity())));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonGroupActivity f50521e;
-
-        public h(PersonGroupActivity personGroupActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personGroupActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50521e = personGroupActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50521e.wantPrivcay = b.a.q0.s.l.f.a(3) % 3;
+                this.f50520e.wantPrivcay = b.a.q0.s.l.f.a(3) % 3;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                 httpMessage.addParam("opt", "group");
-                httpMessage.addParam("val", String.valueOf(this.f50521e.wantPrivcay + 1));
-                this.f50521e.sendMessage(httpMessage);
+                httpMessage.addParam("val", String.valueOf(this.f50520e.wantPrivcay + 1));
+                this.f50520e.sendMessage(httpMessage);
             }
         }
     }

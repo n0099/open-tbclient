@@ -91,14 +91,14 @@ public class y1 {
             this.f33577b.stopSelf();
             y2 a3 = c3.a(this.f33577b.getApplicationContext());
             g3 g3Var = new g3(this.f33576a);
-            String str = this.f33577b.f70507a;
+            String str = this.f33577b.f70506a;
             try {
                 a3.f33579b = c3.d("witr", g3Var);
                 a3.l("msg", c3.b(str));
             } catch (JSONException unused) {
             }
             a3.m();
-            r0.z(this.f33576a, this.f33577b.getApplicationContext(), this.f33577b.f70507a);
+            r0.z(this.f33576a, this.f33577b.getApplicationContext(), this.f33577b.f70506a);
         }
     }
 

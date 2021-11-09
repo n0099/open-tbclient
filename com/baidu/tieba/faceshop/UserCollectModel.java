@@ -32,7 +32,7 @@ public class UserCollectModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f47978e;
+    public final HttpMessageListener f47977e;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class UserCollectModel extends FaceBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f47979e;
+        public final /* synthetic */ UserCollectModel f47978e;
 
         public a(UserCollectModel userCollectModel) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f47979e = userCollectModel;
+            this.f47978e = userCollectModel;
         }
 
         @Override // java.lang.Runnable
@@ -88,7 +88,7 @@ public class UserCollectModel extends FaceBaseModel {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
-                this.f47979e.sendMessage(httpMessage);
+                this.f47978e.sendMessage(httpMessage);
                 b.a.r0.f2.d.s(currentTimeMillis);
             }
         }
@@ -100,7 +100,7 @@ public class UserCollectModel extends FaceBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f47980a;
+        public final /* synthetic */ UserCollectModel f47979a;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -108,7 +108,7 @@ public class UserCollectModel extends FaceBaseModel {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f47981e;
+            public final /* synthetic */ b f47980e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class UserCollectModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.f47981e = bVar;
+                this.f47980e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -133,7 +133,7 @@ public class UserCollectModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f47981e.f47980a.cancelLoadData();
+                        this.f47980e.f47979a.cancelLoadData();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -159,7 +159,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f47980a = userCollectModel;
+            this.f47979a = userCollectModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,12 +186,12 @@ public class UserCollectModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f47978e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+        this.f47977e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f47978e.setTag(getUniqueId());
-        this.f47978e.setSelfListener(true);
-        registerListener(this.f47978e);
+        this.f47977e.setTag(getUniqueId());
+        this.f47977e.setSelfListener(true);
+        registerListener(this.f47977e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -199,7 +199,7 @@ public class UserCollectModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47978e);
+            MessageManager.getInstance().unRegisterListener(this.f47977e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
             return true;
         }

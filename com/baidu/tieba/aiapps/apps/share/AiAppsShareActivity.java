@@ -29,7 +29,7 @@ public class AiAppsShareActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AiAppsShareActivity f46840a;
+        public final /* synthetic */ AiAppsShareActivity f46839a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AiAppsShareActivity aiAppsShareActivity, int i2) {
@@ -49,7 +49,7 @@ public class AiAppsShareActivity extends Activity {
                     return;
                 }
             }
-            this.f46840a = aiAppsShareActivity;
+            this.f46839a = aiAppsShareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class AiAppsShareActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366, Boolean.FALSE));
-                this.f46840a.finish();
+                this.f46839a.finish();
             }
         }
     }

@@ -74,8 +74,8 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
                 }
                 OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
                 OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.f20426e);
-                aVar2.f50505b = k;
-                aVar2.f50504a = u;
+                aVar2.f50504b = k;
+                aVar2.f50503a = u;
                 try {
                     officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar2);
                 } catch (Exception e2) {

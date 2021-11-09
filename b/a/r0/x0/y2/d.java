@@ -164,7 +164,7 @@ public class d implements b.a.r0.x0.x1.e.d {
             if (this.f26852e.f26842a.getTabController().H(502) == null || this.f26852e.f26842a.getTabController().z() == null) {
                 this.f26852e.B(-1);
             } else {
-                this.f26852e.f26846e.h(this.f26852e.f26842a.getForumId(), this.f26852e.f26842a.getTabController().z().f49026a);
+                this.f26852e.f26846e.h(this.f26852e.f26842a.getForumId(), this.f26852e.f26842a.getTabController().z().f49025a);
             }
             this.f26852e.j();
         }

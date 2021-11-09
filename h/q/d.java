@@ -13,16 +13,16 @@ public class d<T> implements h.e<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<? super T> f72126e;
+    public final h.e<? super T> f72125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f72127f;
+    public boolean f72126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f72128g;
+    public volatile boolean f72127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f72129h;
+    public a f72128h;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -30,10 +30,10 @@ public class d<T> implements h.e<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f72130a;
+        public Object[] f72129a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f72131b;
+        public int f72130b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public class d<T> implements h.e<T> {
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i2 = this.f72131b;
-                Object[] objArr = this.f72130a;
+                int i2 = this.f72130b;
+                Object[] objArr = this.f72129a;
                 if (objArr == null) {
                     objArr = new Object[16];
-                    this.f72130a = objArr;
+                    this.f72129a = objArr;
                 } else if (i2 == objArr.length) {
                     Object[] objArr2 = new Object[(i2 >> 2) + i2];
                     System.arraycopy(objArr, 0, objArr2, 0, i2);
-                    this.f72130a = objArr2;
+                    this.f72129a = objArr2;
                     objArr = objArr2;
                 }
                 objArr[i2] = obj;
-                this.f72131b = i2 + 1;
+                this.f72130b = i2 + 1;
             }
         }
     }
@@ -84,31 +84,31 @@ public class d<T> implements h.e<T> {
                 return;
             }
         }
-        this.f72126e = eVar;
+        this.f72125e = eVar;
     }
 
     @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72128g) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72127g) {
             return;
         }
         synchronized (this) {
-            if (this.f72128g) {
+            if (this.f72127g) {
                 return;
             }
-            this.f72128g = true;
-            if (this.f72127f) {
-                a aVar = this.f72129h;
+            this.f72127g = true;
+            if (this.f72126f) {
+                a aVar = this.f72128h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f72129h = aVar;
+                    this.f72128h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f72127f = true;
-            this.f72126e.onCompleted();
+            this.f72126f = true;
+            this.f72125e.onCompleted();
         }
     }
 
@@ -117,25 +117,25 @@ public class d<T> implements h.e<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             h.m.a.e(th);
-            if (this.f72128g) {
+            if (this.f72127g) {
                 return;
             }
             synchronized (this) {
-                if (this.f72128g) {
+                if (this.f72127g) {
                     return;
                 }
-                this.f72128g = true;
-                if (this.f72127f) {
-                    a aVar = this.f72129h;
+                this.f72127g = true;
+                if (this.f72126f) {
+                    a aVar = this.f72128h;
                     if (aVar == null) {
                         aVar = new a();
-                        this.f72129h = aVar;
+                        this.f72128h = aVar;
                     }
                     aVar.a(NotificationLite.c(th));
                     return;
                 }
-                this.f72127f = true;
-                this.f72126e.onError(th);
+                this.f72126f = true;
+                this.f72125e.onError(th);
             }
         }
     }
@@ -150,54 +150,54 @@ public class d<T> implements h.e<T> {
     public void onNext(T t) {
         Object[] objArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f72128g) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f72127g) {
             return;
         }
         synchronized (this) {
-            if (this.f72128g) {
+            if (this.f72127g) {
                 return;
             }
-            if (this.f72127f) {
-                a aVar = this.f72129h;
+            if (this.f72126f) {
+                a aVar = this.f72128h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f72129h = aVar;
+                    this.f72128h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f72127f = true;
+            this.f72126f = true;
             try {
-                this.f72126e.onNext(t);
+                this.f72125e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f72129h;
+                        a aVar2 = this.f72128h;
                         if (aVar2 == null) {
-                            this.f72127f = false;
+                            this.f72126f = false;
                             return;
                         }
-                        this.f72129h = null;
-                        for (Object obj : aVar2.f72130a) {
+                        this.f72128h = null;
+                        for (Object obj : aVar2.f72129a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f72126e, obj)) {
-                                    this.f72128g = true;
+                                if (NotificationLite.a(this.f72125e, obj)) {
+                                    this.f72127g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f72128g = true;
+                                this.f72127g = true;
                                 h.m.a.e(th);
-                                this.f72126e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f72125e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f72128g = true;
-                h.m.a.g(th2, this.f72126e, t);
+                this.f72127g = true;
+                h.m.a.g(th2, this.f72125e, t);
             }
         }
     }

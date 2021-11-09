@@ -36,19 +36,19 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f55272e;
+    public FrameLayout f55271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f55273f;
+    public FrameLayout f55272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55274g;
+    public TextView f55273g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55275h;
+    public ImageView f55274h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f55276i;
+    public Paint f55275i;
     public int j;
     public int k;
     public RectF l;
@@ -66,10 +66,10 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f55277e;
+        public final /* synthetic */ b f55276e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FollowUserSpinnerBtn f55278f;
+        public final /* synthetic */ FollowUserSpinnerBtn f55277f;
 
         public a(FollowUserSpinnerBtn followUserSpinnerBtn, b bVar) {
             Interceptable interceptable = $ic;
@@ -86,18 +86,18 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
                     return;
                 }
             }
-            this.f55278f = followUserSpinnerBtn;
-            this.f55277e = bVar;
+            this.f55277f = followUserSpinnerBtn;
+            this.f55276e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f55277e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f55276e) == null) {
                 return;
             }
-            bVar.a(!this.f55278f.p, false);
+            bVar.a(!this.f55277f.p, false);
         }
     }
 
@@ -150,21 +150,21 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.f55272e = (FrameLayout) findViewById(R.id.leftBox);
-            this.f55273f = (FrameLayout) findViewById(R.id.rightBox);
-            this.f55274g = (TextView) findViewById(R.id.title);
-            this.f55275h = (ImageView) findViewById(R.id.arrow);
+            this.f55271e = (FrameLayout) findViewById(R.id.leftBox);
+            this.f55272f = (FrameLayout) findViewById(R.id.rightBox);
+            this.f55273g = (TextView) findViewById(R.id.title);
+            this.f55274h = (ImageView) findViewById(R.id.arrow);
             Paint paint = new Paint(1);
-            this.f55276i = paint;
+            this.f55275i = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f55276i.setStrokeCap(Paint.Cap.ROUND);
-            this.f55276i.setStrokeWidth(l.g(context, R.dimen.tbds3));
+            this.f55275i.setStrokeCap(Paint.Cap.ROUND);
+            this.f55275i.setStrokeWidth(l.g(context, R.dimen.tbds3));
             this.l = new RectF();
             this.m = new Path();
             this.j = R.color.CAM_X0105;
             Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
             this.o = pureDrawable;
-            this.f55275h.setImageDrawable(pureDrawable);
+            this.f55274h.setImageDrawable(pureDrawable);
         }
     }
 
@@ -186,9 +186,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
             canvas.clipPath(this.m);
             super.draw(canvas);
             if (this.r) {
-                this.f55276i.setColor(SkinManager.getColor(this.j));
-                float right = this.f55272e.getRight();
-                canvas.drawLine(right, this.f55275h.getTop(), right, this.f55275h.getBottom(), this.f55276i);
+                this.f55275i.setColor(SkinManager.getColor(this.j));
+                float right = this.f55271e.getRight();
+                canvas.drawLine(right, this.f55274h.getTop(), right, this.f55274h.getBottom(), this.f55275i);
             }
         }
     }
@@ -196,17 +196,17 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
     public ImageView getArrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55275h : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55274h : (ImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             setBackgroundColor(SkinManager.getColor(this.k));
-            SkinManager.setViewTextColor(this.f55274g, this.j);
+            SkinManager.setViewTextColor(this.f55273g, this.j);
             Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
             this.o = pureDrawable;
-            this.f55275h.setImageDrawable(pureDrawable);
+            this.f55274h.setImageDrawable(pureDrawable);
             invalidate();
         }
     }
@@ -236,7 +236,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.s = bVar;
-            this.f55273f.setOnClickListener(new a(this, bVar));
+            this.f55272f.setOnClickListener(new a(this, bVar));
         }
     }
 
@@ -244,21 +244,21 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.r = z;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f55274g.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f55273g.getLayoutParams();
             if (z) {
-                this.f55273f.setVisibility(0);
+                this.f55272f.setVisibility(0);
                 layoutParams.leftMargin = u;
                 layoutParams.rightMargin = v;
                 layoutParams.gravity = 16;
                 layoutParams.width = -2;
             } else {
-                this.f55273f.setVisibility(8);
+                this.f55272f.setVisibility(8);
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
                 layoutParams.gravity = 17;
                 layoutParams.width = t;
             }
-            this.f55274g.setLayoutParams(layoutParams);
+            this.f55273g.setLayoutParams(layoutParams);
             requestLayout();
         }
     }
@@ -283,7 +283,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements b.a.q0.s.g0.t.
                 this.j = R.color.CAM_X0105;
                 this.k = R.color.CAM_X0901;
             }
-            this.f55274g.setText(this.n);
+            this.f55273g.setText(this.n);
             requestLayout();
             onChangeSkinType(0);
             if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {

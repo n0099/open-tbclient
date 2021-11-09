@@ -19,7 +19,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50143common;
+    public CommonReq f50142common;
     public long fid;
     public String firstDir;
     public boolean isVideoTopic;
@@ -82,7 +82,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50143common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50142common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -118,7 +118,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, commonReq) == null) {
-            this.f50143common = commonReq;
+            this.f50142common = commonReq;
         }
     }
 

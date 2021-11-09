@@ -146,13 +146,13 @@ public class d extends j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
                 d dVar = this.f26081a;
-                if (dVar.f26144b == null || dVar.f26143a == null || dVar.f26146d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f54258a) || this.f26081a.f26144b.getFrsViewData() == null) {
+                if (dVar.f26144b == null || dVar.f26143a == null || dVar.f26146d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f54257a) || this.f26081a.f26144b.getFrsViewData() == null) {
                     return;
                 }
-                String str = eVar.f54258a;
-                String str2 = eVar.f54259b;
-                String str3 = eVar.f54260c;
-                if (eVar.f54261d == 4) {
+                String str = eVar.f54257a;
+                String str2 = eVar.f54258b;
+                String str3 = eVar.f54259c;
+                if (eVar.f54260d == 4) {
                     FrsViewData frsViewData = this.f26081a.f26144b.getFrsViewData();
                     d2 threadDataById = frsViewData.getThreadDataById(str);
                     frsViewData.removeThreadData(threadDataById);
@@ -439,22 +439,22 @@ public class d extends j {
             if (i2 == 1) {
                 FrsTabViewController.o z = this.f26144b.getTabController().z();
                 if (z != null) {
-                    Fragment fragment = z.f49027b;
+                    Fragment fragment = z.f49026b;
                     if (fragment instanceof FrsCommonTabFragment) {
                         ((FrsCommonTabFragment) fragment).addThreadData(y0Var);
                     }
                 }
             } else if (i2 == 2) {
                 FrsTabViewController.o G = this.f26144b.getTabController().G(301);
-                if (G == null || !(G.f49027b instanceof FrsGoodFragment)) {
+                if (G == null || !(G.f49026b instanceof FrsGoodFragment)) {
                     return;
                 }
                 this.f26145c.b(301);
-                ((FrsGoodFragment) G.f49027b).addThreadData(y0Var);
+                ((FrsGoodFragment) G.f49026b).addThreadData(y0Var);
             } else if (y0Var.h1() > 0) {
                 FrsTabViewController.o G2 = this.f26144b.getTabController().G(y0Var.h1());
                 if (G2 != null) {
-                    Fragment fragment2 = G2.f49027b;
+                    Fragment fragment2 = G2.f49026b;
                     if (fragment2 instanceof FrsCommonTabFragment) {
                         ((FrsCommonTabFragment) fragment2).addThreadData(y0Var);
                     }
@@ -465,7 +465,7 @@ public class d extends j {
                 }
                 FrsTabViewController.o G3 = this.f26144b.getTabController().G(this.f26144b.getTabController().C());
                 if (G3 != null) {
-                    Fragment fragment3 = G3.f49027b;
+                    Fragment fragment3 = G3.f49026b;
                     if (fragment3 instanceof FrsNewAreaFragment) {
                         b(y0Var, (FrsNewAreaFragment) fragment3);
                     } else {

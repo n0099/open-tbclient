@@ -38,19 +38,19 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48529e;
+    public String f48528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48530f;
+    public String f48529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48531g;
+    public String f48530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.x0.c2.a.e.d f48532h;
+    public b.a.r0.x0.c2.a.e.d f48531h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.x0.c2.a.c.b f48533i;
+    public b.a.r0.x0.c2.a.c.b f48532i;
     public boolean j;
     public b.a.r0.x0.c2.a.d.b k;
     public b.a.r0.x0.c2.a.d.a l;
@@ -64,7 +64,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameStrategyMainFragment f48534e;
+        public final /* synthetic */ FrsGameStrategyMainFragment f48533e;
 
         public a(FrsGameStrategyMainFragment frsGameStrategyMainFragment) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                     return;
                 }
             }
-            this.f48534e = frsGameStrategyMainFragment;
+            this.f48533e = frsGameStrategyMainFragment;
         }
 
         @Override // b.a.r0.x0.c2.a.d.b
@@ -89,22 +89,22 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i4)}) == null) {
                 if (i2 != 0 || i3 != 0 || !ListUtils.isEmpty(list2)) {
-                    if (this.f48534e.f48532h != null) {
-                        this.f48534e.j = false;
-                        FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.f48534e;
-                        frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f48532h.f());
-                        this.f48534e.f48532h.c(i2, i3, list, list2, z, z2, i4);
+                    if (this.f48533e.f48531h != null) {
+                        this.f48533e.j = false;
+                        FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.f48533e;
+                        frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f48531h.f());
+                        this.f48533e.f48531h.c(i2, i3, list, list2, z, z2, i4);
                         if (i2 == 0 && i3 == 0) {
-                            this.f48534e.f48532h.l(list2, z2);
+                            this.f48533e.f48531h.l(list2, z2);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.f48534e;
-                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f48532h.f(), this.f48534e.getResources().getString(R.string.no_data_text), false);
-                FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.f48534e;
+                FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.f48533e;
+                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f48531h.f(), this.f48533e.getResources().getString(R.string.no_data_text), false);
+                FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.f48533e;
                 frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.ds240));
             }
         }
@@ -114,18 +114,18 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
                 if (i2 != 0 || i3 != 0) {
-                    if (this.f48534e.f48532h != null) {
-                        this.f48534e.j = false;
-                        FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.f48534e;
-                        frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f48532h.f());
-                        this.f48534e.f48532h.m(i2, i3, str);
+                    if (this.f48533e.f48531h != null) {
+                        this.f48533e.j = false;
+                        FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.f48533e;
+                        frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f48531h.f());
+                        this.f48533e.f48531h.m(i2, i3, str);
                         return;
                     }
                     return;
                 }
-                FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.f48534e;
-                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f48532h.f(), str, false);
-                FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.f48534e;
+                FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.f48533e;
+                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f48531h.f(), str, false);
+                FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.f48533e;
                 frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.ds240));
             }
         }
@@ -137,7 +137,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameStrategyMainFragment f48535a;
+        public final /* synthetic */ FrsGameStrategyMainFragment f48534a;
 
         public b(FrsGameStrategyMainFragment frsGameStrategyMainFragment) {
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                     return;
                 }
             }
-            this.f48535a = frsGameStrategyMainFragment;
+            this.f48534a = frsGameStrategyMainFragment;
         }
 
         @Override // b.a.r0.x0.c2.a.d.a
@@ -162,8 +162,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (this.f48535a.f48533i != null) {
-                    return this.f48535a.f48533i.a(i2);
+                if (this.f48534a.f48532i != null) {
+                    return this.f48534a.f48532i.a(i2);
                 }
                 return null;
             }
@@ -173,19 +173,19 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         @Override // b.a.r0.x0.c2.a.d.a
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f48535a.f48533i == null) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f48534a.f48532i == null) {
                 return;
             }
-            this.f48535a.f48533i.b(i2, i3);
+            this.f48534a.f48532i.b(i2, i3);
         }
 
         @Override // b.a.r0.x0.c2.a.d.a
         public void c(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || this.f48535a.f48533i == null) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || this.f48534a.f48532i == null) {
                 return;
             }
-            this.f48535a.f48533i.c(i2, i3);
+            this.f48534a.f48532i.c(i2, i3);
         }
 
         @Override // b.a.r0.x0.c2.a.d.a
@@ -193,8 +193,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
-                if (this.f48535a.f48533i != null) {
-                    return this.f48535a.f48533i.d(i2, i3);
+                if (this.f48534a.f48532i != null) {
+                    return this.f48534a.f48532i.d(i2, i3);
                 }
                 return false;
             }
@@ -206,8 +206,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f48535a.f48533i != null) {
-                    return this.f48535a.f48533i.getForumId();
+                if (this.f48534a.f48532i != null) {
+                    return this.f48534a.f48532i.getForumId();
                 }
                 return null;
             }
@@ -221,10 +221,53 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameStrategyMainFragment f48536a;
+        public final /* synthetic */ FrsGameStrategyMainFragment f48535a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsGameStrategyMainFragment frsGameStrategyMainFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsGameStrategyMainFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48535a = frsGameStrategyMainFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || TextUtils.isEmpty((String) customResponsedMessage.getData())) {
+                return;
+            }
+            String[] split = ((String) customResponsedMessage.getData()).split("_");
+            if (split.length == 2 && "FrsGoodsTab".equals(split[0])) {
+                this.f48535a.forceRefresh();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FrsGameStrategyMainFragment f48536a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(FrsGameStrategyMainFragment frsGameStrategyMainFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -248,60 +291,17 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || TextUtils.isEmpty((String) customResponsedMessage.getData())) {
-                return;
-            }
-            String[] split = ((String) customResponsedMessage.getData()).split("_");
-            if (split.length == 2 && "FrsGoodsTab".equals(split[0])) {
-                this.f48536a.forceRefresh();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameStrategyMainFragment f48537a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(FrsGameStrategyMainFragment frsGameStrategyMainFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsGameStrategyMainFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48537a = frsGameStrategyMainFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001617) {
-                if (this.f48537a.f48532h == null || this.f48537a.f48532h.e() == null || this.f48537a.f48532h.e().getNavBarIsShow()) {
+                if (this.f48536a.f48531h == null || this.f48536a.f48531h.e() == null || this.f48536a.f48531h.e().getNavBarIsShow()) {
                     return;
                 }
-                this.f48537a.f48532h.e().showNavigationBarWithAnimation();
-            } else if (customResponsedMessage.getCmd() != 2001618 || this.f48537a.f48532h == null || this.f48537a.f48532h.e() == null || !this.f48537a.f48532h.e().getNavBarIsShow()) {
+                this.f48536a.f48531h.e().showNavigationBarWithAnimation();
+            } else if (customResponsedMessage.getCmd() != 2001618 || this.f48536a.f48531h == null || this.f48536a.f48531h.e() == null || !this.f48536a.f48531h.e().getNavBarIsShow()) {
             } else {
-                this.f48537a.f48532h.e().hideNavigationBarWithAnimation();
+                this.f48536a.f48531h.e().hideNavigationBarWithAnimation();
             }
         }
     }
@@ -328,19 +328,19 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
 
     public final void forceRefresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.j || this.f48532h == null || !j.z()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.j || this.f48531h == null || !j.z()) {
             return;
         }
-        this.f48532h.d();
+        this.f48531h.d();
     }
 
     public final void g() {
         b.a.r0.x0.c2.a.c.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.n && (bVar = this.f48533i) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.n && (bVar = this.f48532i) != null) {
             bVar.b(0, 0);
             this.n = false;
-            b.a.r0.x0.c2.a.e.d dVar = this.f48532h;
+            b.a.r0.x0.c2.a.e.d dVar = this.f48531h;
             if (dVar != null) {
                 this.j = true;
                 showLoadingView(dVar.f());
@@ -351,7 +351,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public String getFid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48529e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48528e : (String) invokeV.objValue;
     }
 
     @Override // b.a.r0.x0.q0
@@ -359,7 +359,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b.a.r0.x0.c2.a.e.d dVar = this.f48532h;
+            b.a.r0.x0.c2.a.e.d dVar = this.f48531h;
             if (dVar != null) {
                 return dVar.e();
             }
@@ -385,7 +385,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b.a.r0.x0.c2.a.e.d dVar = this.f48532h;
+            b.a.r0.x0.c2.a.e.d dVar = this.f48531h;
             if (dVar != null) {
                 dVar.h(i2);
             }
@@ -398,16 +398,16 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             if (bundle != null) {
-                this.f48529e = bundle.getString("fid");
-                this.f48530f = bundle.getString("name");
-                this.f48531g = bundle.getString(KEY_FROM);
+                this.f48528e = bundle.getString("fid");
+                this.f48529f = bundle.getString("name");
+                this.f48530g = bundle.getString(KEY_FROM);
             } else if (getArguments() != null) {
-                this.f48529e = getArguments().getString("fid");
-                this.f48530f = getArguments().getString("name");
-                this.f48531g = getArguments().getString(KEY_FROM);
+                this.f48528e = getArguments().getString("fid");
+                this.f48529f = getArguments().getString("name");
+                this.f48530g = getArguments().getString(KEY_FROM);
             }
-            b.a.r0.x0.c2.a.c.b bVar = new b.a.r0.x0.c2.a.c.b(getActivity(), getUniqueId(), b.a.e.e.m.b.g(this.f48529e, 0L), this.f48530f);
-            this.f48533i = bVar;
+            b.a.r0.x0.c2.a.c.b bVar = new b.a.r0.x0.c2.a.c.b(getActivity(), getUniqueId(), b.a.e.e.m.b.g(this.f48528e, 0L), this.f48529f);
+            this.f48532i = bVar;
             bVar.t(this.k);
         }
     }
@@ -419,13 +419,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.frs_game_strategy_layout, (ViewGroup) null);
             b.a.r0.x0.c2.a.e.d dVar = new b.a.r0.x0.c2.a.e.d(this, inflate);
-            this.f48532h = dVar;
-            dVar.j(this.f48531g);
-            this.f48532h.k(this.l);
-            this.f48532h.h(TbadkCoreApplication.getInst().getSkinType());
-            if (FROM_SINGLE_ACT.equals(this.f48531g)) {
+            this.f48531h = dVar;
+            dVar.j(this.f48530g);
+            this.f48531h.k(this.l);
+            this.f48531h.h(TbadkCoreApplication.getInst().getSkinType());
+            if (FROM_SINGLE_ACT.equals(this.f48530g)) {
                 g();
-                getNavigationBar().setCenterTextTitle(this.f48530f);
+                getNavigationBar().setCenterTextTitle(this.f48529f);
             }
             return inflate;
         }
@@ -437,11 +437,11 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            b.a.r0.x0.c2.a.c.b bVar = this.f48533i;
+            b.a.r0.x0.c2.a.c.b bVar = this.f48532i;
             if (bVar != null) {
                 bVar.q();
             }
-            b.a.r0.x0.c2.a.e.d dVar = this.f48532h;
+            b.a.r0.x0.c2.a.e.d dVar = this.f48531h;
             if (dVar != null) {
                 dVar.i();
             }
@@ -452,15 +452,15 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            b.a.r0.x0.c2.a.c.b bVar = this.f48533i;
+            b.a.r0.x0.c2.a.c.b bVar = this.f48532i;
             if (bVar != null) {
                 bVar.b(0, 0);
             }
-            b.a.r0.x0.c2.a.e.d dVar = this.f48532h;
+            b.a.r0.x0.c2.a.e.d dVar = this.f48531h;
             if (dVar != null) {
                 hideNetRefreshView(dVar.f());
                 this.j = true;
-                showLoadingView(this.f48532h.f());
+                showLoadingView(this.f48531h.f());
             }
         }
     }
@@ -498,16 +498,16 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString("fid", this.f48529e);
-            bundle.putString("name", this.f48530f);
-            bundle.putString(KEY_FROM, this.f48531g);
+            bundle.putString("fid", this.f48528e);
+            bundle.putString("name", this.f48529f);
+            bundle.putString(KEY_FROM, this.f48530g);
         }
     }
 
     public void setFid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f48529e = str;
+            this.f48528e = str;
         }
     }
 }

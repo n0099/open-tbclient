@@ -14,7 +14,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68910a;
+    public static final String f68909a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,6 +57,6 @@ public class a {
             }
         }
         sb.append(SmallTailInfo.EMOTION_SUFFIX);
-        f68910a = sb.toString();
+        f68909a = sb.toString();
     }
 }
