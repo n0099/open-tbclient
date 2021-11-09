@@ -24,22 +24,22 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f51509a;
+    public View f51508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f51510b;
+    public BaseFragmentActivity f51509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbImageView f51511c;
+    public TbImageView f51510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f51512d;
+    public TextView f51511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51513e;
+    public TextView f51512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f51514f;
+    public TbImageView f51513f;
     public TbImageView mNewIcon;
     public ImageView mRedDotIcon;
 
@@ -61,20 +61,20 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51509a = view;
-        this.f51510b = baseFragmentActivity;
-        this.f51511c = (TbImageView) view.findViewById(R.id.privilege_icon);
-        this.f51512d = (TextView) this.f51509a.findViewById(R.id.privilege_name);
-        this.f51513e = (TextView) this.f51509a.findViewById(R.id.privilege_desc);
-        this.f51514f = (TbImageView) this.f51509a.findViewById(R.id.privilege_spread_icon);
-        this.mNewIcon = (TbImageView) this.f51509a.findViewById(R.id.privilege_new_icon);
-        this.mRedDotIcon = (ImageView) this.f51509a.findViewById(R.id.privilege_red_dot);
+        this.f51508a = view;
+        this.f51509b = baseFragmentActivity;
+        this.f51510c = (TbImageView) view.findViewById(R.id.privilege_icon);
+        this.f51511d = (TextView) this.f51508a.findViewById(R.id.privilege_name);
+        this.f51512e = (TextView) this.f51508a.findViewById(R.id.privilege_desc);
+        this.f51513f = (TbImageView) this.f51508a.findViewById(R.id.privilege_spread_icon);
+        this.mNewIcon = (TbImageView) this.f51508a.findViewById(R.id.privilege_new_icon);
+        this.mRedDotIcon = (ImageView) this.f51508a.findViewById(R.id.privilege_red_dot);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f51510b.getPageContext(), this.f51509a);
+            a.a(this.f51509b.getPageContext(), this.f51508a);
             this.mNewIcon.setImageResource(R.drawable.icon_new_privilege);
         }
     }
@@ -84,24 +84,24 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.f51511c.setIsRound(false);
+        this.f51510c.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f51511c.setDefaultBgResource(R.color.img_bg_color);
+            this.f51510c.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f51511c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f51510c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f51511c.startLoad(fVar.c(), 10, false);
-        this.f51512d.setText(fVar.g());
+        this.f51510c.startLoad(fVar.c(), 10, false);
+        this.f51511d.setText(fVar.g());
         if (!TbadkCoreApplication.isLogin()) {
-            this.f51514f.setVisibility(4);
+            this.f51513f.setVisibility(4);
         } else {
-            this.f51514f.setVisibility(0);
-            this.f51513e.setText(fVar.a());
+            this.f51513f.setVisibility(0);
+            this.f51512e.setText(fVar.a());
         }
         if (StringUtils.isNull(fVar.e())) {
-            this.f51514f.setVisibility(4);
+            this.f51513f.setVisibility(4);
         } else {
-            this.f51514f.setVisibility(0);
+            this.f51513f.setVisibility(0);
         }
         this.mNewIcon.setAutoChangeStyle(false);
         if (TbadkCoreApplication.isLogin() && fVar.d() > 0) {

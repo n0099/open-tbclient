@@ -24,7 +24,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryActivity f46976a;
+        public final /* synthetic */ AlaRecentHistoryActivity f46975a;
 
         public a(AlaRecentHistoryActivity alaRecentHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
                     return;
                 }
             }
-            this.f46976a = alaRecentHistoryActivity;
+            this.f46975a = alaRecentHistoryActivity;
         }
 
         @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener

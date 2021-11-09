@@ -15,7 +15,7 @@ public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f51523a;
+    public g f51522a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,7 +35,7 @@ public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51523a = new g(baseFragmentActivity, view);
+        this.f51522a = new g(baseFragmentActivity, view);
     }
 
     public void fillView(n nVar) {
@@ -43,7 +43,7 @@ public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) || nVar == null) {
             return;
         }
-        this.f51523a.c(nVar);
-        this.f51523a.e();
+        this.f51522a.c(nVar);
+        this.f51522a.e();
     }
 }

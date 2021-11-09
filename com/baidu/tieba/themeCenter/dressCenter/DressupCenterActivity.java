@@ -27,7 +27,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DressupCenterActivity f54607a;
+        public final /* synthetic */ DressupCenterActivity f54606a;
 
         public a(DressupCenterActivity dressupCenterActivity) {
             Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     return;
                 }
             }
-            this.f54607a = dressupCenterActivity;
+            this.f54606a = dressupCenterActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
         public void a(int i2, String str, List<b.a.r0.r3.h.a> list, e eVar, List<d> list2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, list, eVar, list2}) == null) {
-                DressupCenterActivity dressupCenterActivity = this.f54607a;
+                DressupCenterActivity dressupCenterActivity = this.f54606a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
                 if (i2 == 0) {
-                    this.f54607a.mView.m(list, eVar, list2, this.f54607a.mModel.D());
+                    this.f54606a.mView.m(list, eVar, list2, this.f54606a.mModel.D());
                     return;
                 }
-                this.f54607a.showToast(str);
-                this.f54607a.mView.l();
+                this.f54606a.showToast(str);
+                this.f54606a.mView.l();
             }
         }
     }

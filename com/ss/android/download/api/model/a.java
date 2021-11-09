@@ -12,19 +12,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68330a;
+    public String f68329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68331b;
+    public String f68330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68332c;
+    public String f68331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68333d;
+    public String f68332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68334e;
+    public String f68333e;
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -33,19 +33,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68335a;
+        public String f68334a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f68336b;
+        public String f68335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68337c;
+        public String f68336c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68338d;
+        public String f68337d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f68339e;
+        public String f68338e;
 
         public C1964a() {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f68335a = str;
+                this.f68334a = str;
                 return this;
             }
             return (C1964a) invokeL.objValue;
@@ -75,7 +75,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f68336b = str;
+                this.f68335b = str;
                 return this;
             }
             return (C1964a) invokeL.objValue;
@@ -85,7 +85,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f68338d = str;
+                this.f68337d = str;
                 return this;
             }
             return (C1964a) invokeL.objValue;
@@ -95,7 +95,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f68339e = str;
+                this.f68338e = str;
                 return this;
             }
             return (C1964a) invokeL.objValue;
@@ -123,11 +123,11 @@ public class a {
                 return;
             }
         }
-        this.f68331b = "";
-        this.f68330a = c1964a.f68335a;
-        this.f68331b = c1964a.f68336b;
-        this.f68332c = c1964a.f68337c;
-        this.f68333d = c1964a.f68338d;
-        this.f68334e = c1964a.f68339e;
+        this.f68330b = "";
+        this.f68329a = c1964a.f68334a;
+        this.f68330b = c1964a.f68335b;
+        this.f68331c = c1964a.f68336c;
+        this.f68332d = c1964a.f68337d;
+        this.f68333e = c1964a.f68338e;
     }
 }

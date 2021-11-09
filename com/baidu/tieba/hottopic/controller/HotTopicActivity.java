@@ -98,7 +98,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f50004a;
+        public final /* synthetic */ HotTopicActivity f50003a;
 
         public a(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f50004a = hotTopicActivity;
+            this.f50003a = hotTopicActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
@@ -141,7 +141,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f50005a;
+        public final /* synthetic */ HotTopicActivity f50004a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotTopicActivity hotTopicActivity, int i2, int i3) {
@@ -162,7 +162,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f50005a = hotTopicActivity;
+            this.f50004a = hotTopicActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -174,19 +174,19 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = this.f50005a.getResources().getString(h.neterror);
+                        errorString2 = this.f50004a.getResources().getString(h.neterror);
                     } else {
                         errorString2 = getMyPostHttpResponseMessage.getErrorString();
                     }
-                    this.f50005a.handleGetMyPostResponse(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                    this.f50004a.handleGetMyPostResponse(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = this.f50005a.getResources().getString(h.neterror);
+                        errorString = this.f50004a.getResources().getString(h.neterror);
                     } else {
                         errorString = getMyPostSocketResponseMessage.getErrorString();
                     }
-                    this.f50005a.handleGetMyPostResponse(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                    this.f50004a.handleGetMyPostResponse(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                 }
             }
         }
@@ -198,7 +198,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f50006a;
+        public final /* synthetic */ HotTopicActivity f50005a;
 
         public c(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -215,19 +215,19 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f50006a = hotTopicActivity;
+            this.f50005a = hotTopicActivity;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!AntiHelper.m(this.f50006a.likeModel.getErrorCode(), this.f50006a.likeModel.getErrorString())) {
-                    if (StringUtils.isNull(this.f50006a.likeModel.getErrorString())) {
+                if (!AntiHelper.m(this.f50005a.likeModel.getErrorCode(), this.f50005a.likeModel.getErrorString())) {
+                    if (StringUtils.isNull(this.f50005a.likeModel.getErrorString())) {
                         return;
                     }
-                    l.M(TbadkCoreApplication.getInst(), this.f50006a.likeModel.getErrorString());
-                } else if (AntiHelper.w(this.f50006a.getActivity(), this.f50006a.likeModel.getErrorString(), this.f50006a.likeModel.getErrorCode(), this.f50006a.mAntiInjectListener) != null) {
+                    l.M(TbadkCoreApplication.getInst(), this.f50005a.likeModel.getErrorString());
+                } else if (AntiHelper.w(this.f50005a.getActivity(), this.f50005a.likeModel.getErrorString(), this.f50005a.likeModel.getErrorCode(), this.f50005a.mAntiInjectListener) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                 }
             }
@@ -240,9 +240,48 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f50007e;
+        public final /* synthetic */ HotTopicActivity f50006e;
 
         public d(HotTopicActivity hotTopicActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50006e = hotTopicActivity;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+                if (!ViewHelper.checkUpIsLogin(this.f50006e.getActivity())) {
+                }
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class e implements NoNetworkView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotTopicActivity f50007e;
+
+        public e(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,58 +299,19 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             this.f50007e = hotTopicActivity;
         }
 
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (!ViewHelper.checkUpIsLogin(this.f50007e.getActivity())) {
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class e implements NoNetworkView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f50008e;
-
-        public e(HotTopicActivity hotTopicActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50008e = hotTopicActivity;
-        }
-
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f50008e.mainView.E(!z);
-                if (!z || this.f50008e.hotTopicModel == null || ListUtils.getItem(this.f50008e.mHotTopicDataList, this.f50008e.mainView.q()) == null) {
+                this.f50007e.mainView.E(!z);
+                if (!z || this.f50007e.hotTopicModel == null || ListUtils.getItem(this.f50007e.mHotTopicDataList, this.f50007e.mainView.q()) == null) {
                     return;
                 }
-                b.a.r0.j1.l.e eVar = (b.a.r0.j1.l.e) this.f50008e.mHotTopicDataList.get(this.f50008e.mainView.q());
+                b.a.r0.j1.l.e eVar = (b.a.r0.j1.l.e) this.f50007e.mHotTopicDataList.get(this.f50007e.mainView.q());
                 if (eVar == null || ListUtils.isEmpty(eVar.i())) {
-                    this.f50008e.mainView.x();
-                    this.f50008e.mainView.N();
-                    this.f50008e.loadHotTopicData();
+                    this.f50007e.mainView.x();
+                    this.f50007e.mainView.N();
+                    this.f50007e.loadHotTopicData();
                 }
             }
         }

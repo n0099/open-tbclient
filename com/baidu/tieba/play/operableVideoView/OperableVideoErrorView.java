@@ -19,7 +19,7 @@ public class OperableVideoErrorView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f53311e;
+    public TBSpecificationBtn f53310e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OperableVideoErrorView(Context context) {
@@ -47,17 +47,17 @@ public class OperableVideoErrorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LinearLayout.inflate(context, R.layout.operable_video_error, this);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
-            this.f53311e = tBSpecificationBtn;
+            this.f53310e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-            this.f53311e.setText(getResources().getString(R.string.click_retry));
-            this.f53311e.setConfig(new a());
+            this.f53310e.setText(getResources().getString(R.string.click_retry));
+            this.f53310e.setConfig(new a());
         }
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f53311e.setOnClickListener(onClickListener);
+            this.f53310e.setOnClickListener(onClickListener);
         }
     }
 

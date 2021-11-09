@@ -11,34 +11,34 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67618a;
+    public int f67617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67619b = String.valueOf(-1);
+    public String f67618b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67620c = "";
+    public String f67619c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67621d = "";
+    public String f67620d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67622e = -1;
+    public int f67621e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67623f = "";
+    public String f67622f = "";
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67624a;
+        public String f67623a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f67625b;
+        public String f67624b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f67626c;
+        public String f67625c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -62,23 +62,23 @@ public class e {
         }
 
         public String a() {
-            return this.f67626c;
+            return this.f67625c;
         }
 
         public void a(String str) {
-            this.f67624a = str;
+            this.f67623a = str;
         }
 
         public void b(String str) {
-            this.f67625b = str;
+            this.f67624b = str;
         }
 
         public void c(String str) {
-            this.f67626c = str;
+            this.f67625c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f67624a + ExtendedMessageFormat.QUOTE + ", message='" + this.f67625b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f67626c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PublicKeyStatus{code='" + this.f67623a + ExtendedMessageFormat.QUOTE + ", message='" + this.f67624b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f67625c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -190,54 +190,54 @@ public class e {
     }
 
     public int a() {
-        return this.f67618a;
+        return this.f67617a;
     }
 
     public void a(int i2) {
-        this.f67618a = i2;
+        this.f67617a = i2;
     }
 
     public void a(String str) {
-        this.f67619b = str;
+        this.f67618b = str;
     }
 
     public String b() {
-        return this.f67619b;
+        return this.f67618b;
     }
 
     public void b(int i2) {
-        this.f67622e = i2;
+        this.f67621e = i2;
     }
 
     public void b(String str) {
-        this.f67620c = str;
+        this.f67619c = str;
     }
 
     public String c() {
-        return this.f67620c;
+        return this.f67619c;
     }
 
     public void c(String str) {
-        this.f67621d = str;
+        this.f67620d = str;
     }
 
     public String d() {
-        return this.f67621d;
+        return this.f67620d;
     }
 
     public void d(String str) {
-        this.f67623f = str;
+        this.f67622f = str;
     }
 
     public int e() {
-        return this.f67622e;
+        return this.f67621e;
     }
 
     public String f() {
-        return this.f67623f;
+        return this.f67622f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f67618a + ", taskId='" + this.f67619b + ExtendedMessageFormat.QUOTE + ", title='" + this.f67620c + ExtendedMessageFormat.QUOTE + ", content='" + this.f67621d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f67622e + ", params='" + this.f67623f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "SecurityMessage{timestamp=" + this.f67617a + ", taskId='" + this.f67618b + ExtendedMessageFormat.QUOTE + ", title='" + this.f67619c + ExtendedMessageFormat.QUOTE + ", content='" + this.f67620d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f67621e + ", params='" + this.f67622f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

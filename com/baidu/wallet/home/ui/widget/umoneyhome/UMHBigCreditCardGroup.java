@@ -29,28 +29,28 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f58550a;
+    public View f58549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f58551b;
+    public NetImageView f58550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f58552c;
+    public TextView f58551c;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f58553e;
+    public NetImageView f58552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UMHBigCreditCardContentView f58554f;
+    public UMHBigCreditCardContentView f58553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UMHBigCreditCardStateContentView f58555g;
+    public UMHBigCreditCardStateContentView f58554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f58556h;
+    public LinearLayout f58555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public UMHBigCreditCardRepayTipView f58557i;
+    public UMHBigCreditCardRepayTipView f58556i;
     public List<BaseItemView> j;
     public boolean k;
 
@@ -87,14 +87,14 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_group_layout"), this);
-            this.f58550a = findViewById(ResUtils.id(getContext(), "umh_big_credit_card_background"));
-            this.f58551b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_logo"));
-            this.f58552c = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_text"));
-            this.f58553e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_eye"));
-            this.f58554f = (UMHBigCreditCardContentView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_group"));
-            this.f58555g = (UMHBigCreditCardStateContentView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_shengpi_content_group"));
-            this.f58556h = (LinearLayout) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_promotion_tips_group"));
-            this.f58557i = (UMHBigCreditCardRepayTipView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_repay_tips_group"));
+            this.f58549a = findViewById(ResUtils.id(getContext(), "umh_big_credit_card_background"));
+            this.f58550b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_logo"));
+            this.f58551c = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_text"));
+            this.f58552e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_title_eye"));
+            this.f58553f = (UMHBigCreditCardContentView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_group"));
+            this.f58554g = (UMHBigCreditCardStateContentView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_shengpi_content_group"));
+            this.f58555h = (LinearLayout) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_promotion_tips_group"));
+            this.f58556i = (UMHBigCreditCardRepayTipView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_repay_tips_group"));
         }
     }
 
@@ -113,7 +113,7 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.f58553e && !CheckUtils.isFastDoubleClick()) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.f58552e && !CheckUtils.isFastDoubleClick()) {
             onEyeMaskChanged();
             getWalletInterface().onEyeMaskBtnClick();
         }
@@ -124,8 +124,8 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onEyeMaskChanged();
-            if (this.f58553e != null) {
-                this.f58553e.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_umh_eye_close" : "wallet_home_umh_eye_open"));
+            if (this.f58552e != null) {
+                this.f58552e.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_umh_eye_close" : "wallet_home_umh_eye_open"));
             }
         }
     }
@@ -135,39 +135,39 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if ("603".equals(this.mConfigData.getGroup_layout())) {
-                this.f58550a.setVisibility("0".equals(this.mConfigData.group_has_background) ? 4 : 0);
+                this.f58549a.setVisibility("0".equals(this.mConfigData.group_has_background) ? 4 : 0);
                 this.k = true;
             } else {
-                this.f58550a.setVisibility("1".equals(this.mConfigData.group_has_background) ? 0 : 4);
+                this.f58549a.setVisibility("1".equals(this.mConfigData.group_has_background) ? 0 : 4);
                 this.k = false;
             }
-            NetImageView netImageView = this.f58551b;
+            NetImageView netImageView = this.f58550b;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.list[0].logo);
-            this.f58552c.setText(this.mConfigData.list[0].name);
+            this.f58551c.setText(this.mConfigData.list[0].name);
             if (!TextUtils.isEmpty(this.mConfigData.list[0].label)) {
-                this.f58554f.setVisibility(0);
-                this.f58555g.setVisibility(8);
-                this.f58554f.setIsManYiDai(this.k);
-                this.f58554f.setData(this.mConfigData.list[0], getWalletInterface());
-                this.j.add(this.f58554f);
+                this.f58553f.setVisibility(0);
+                this.f58554g.setVisibility(8);
+                this.f58553f.setIsManYiDai(this.k);
+                this.f58553f.setData(this.mConfigData.list[0], getWalletInterface());
+                this.j.add(this.f58553f);
             } else {
-                this.f58554f.setVisibility(8);
-                this.f58555g.setVisibility(0);
-                this.f58555g.setIsManYiDai(this.k);
-                this.f58555g.setData(this.mConfigData.list[0], getWalletInterface());
-                this.j.add(this.f58555g);
+                this.f58553f.setVisibility(8);
+                this.f58554g.setVisibility(0);
+                this.f58554g.setIsManYiDai(this.k);
+                this.f58554g.setData(this.mConfigData.list[0], getWalletInterface());
+                this.j.add(this.f58554g);
             }
             if (this.mConfigData.list[0].repay != null) {
-                this.f58556h.setVisibility(8);
-                this.f58557i.setVisibility(0);
-                this.f58557i.setIsManYiDai(this.k);
-                this.f58557i.setData(this.mConfigData.list[0], getWalletInterface());
-                this.j.add(this.f58557i);
+                this.f58555h.setVisibility(8);
+                this.f58556i.setVisibility(0);
+                this.f58556i.setIsManYiDai(this.k);
+                this.f58556i.setData(this.mConfigData.list[0], getWalletInterface());
+                this.j.add(this.f58556i);
             } else {
-                this.f58557i.setVisibility(8);
+                this.f58556i.setVisibility(8);
                 HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
                 if (dataItemArr[0].icons != null && dataItemArr[0].icons.length > 0) {
-                    this.f58556h.setVisibility(0);
+                    this.f58555h.setVisibility(0);
                     HomeCfgResponse.DataItem[] dataItemArr2 = this.mConfigData.list;
                     int length = dataItemArr2[0].icons.length <= 4 ? dataItemArr2[0].icons.length : 4;
                     int i2 = 0;
@@ -181,21 +181,21 @@ public class UMHBigCreditCardGroup extends BaseItemLayout implements View.OnClic
                             i2++;
                             uMHBigCreditCardPromotionTipView.setData(dataIcon, dataItemArr3[0].icons[i2]);
                         }
-                        this.f58556h.addView(uMHBigCreditCardPromotionTipView);
+                        this.f58555h.addView(uMHBigCreditCardPromotionTipView);
                         i2++;
                     }
                 } else {
-                    this.f58556h.setVisibility(8);
+                    this.f58555h.setVisibility(8);
                 }
             }
             HomeCfgResponse.DataItem[] dataItemArr4 = this.mConfigData.list;
             if (dataItemArr4[0].value3 != null && TextUtils.equals(dataItemArr4[0].value3, "1")) {
-                this.f58553e.setVisibility(8);
+                this.f58552e.setVisibility(8);
                 return;
             }
-            this.f58553e.setVisibility(0);
-            this.f58553e.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_umh_eye_close" : "wallet_home_umh_eye_open"));
-            this.f58553e.setOnClickListener(this);
+            this.f58552e.setVisibility(0);
+            this.f58552e.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_umh_eye_close" : "wallet_home_umh_eye_open"));
+            this.f58552e.setOnClickListener(this);
         }
     }
 

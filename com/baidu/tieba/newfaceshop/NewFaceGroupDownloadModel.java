@@ -30,7 +30,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f51805e;
+    public final HttpMessageListener f51804e;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -44,13 +44,13 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b.a.r0.f2.f.a f51806a;
+            public final /* synthetic */ b.a.r0.f2.f.a f51805a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Boolean f51807b;
+            public final /* synthetic */ Boolean f51806b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f51808c;
+            public final /* synthetic */ b f51807c;
 
             /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
@@ -59,10 +59,10 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f51809a;
+                public final /* synthetic */ String f51808a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ C1738a f51810b;
+                public final /* synthetic */ C1738a f51809b;
 
                 public C1739a(C1738a c1738a, String str) {
                     Interceptable interceptable = $ic;
@@ -79,8 +79,8 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                             return;
                         }
                     }
-                    this.f51810b = c1738a;
-                    this.f51809a = str;
+                    this.f51809b = c1738a;
+                    this.f51808a = str;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -89,17 +89,17 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                        int f2 = b.a.r0.s0.a.c().f(this.f51810b.f51806a);
+                        int f2 = b.a.r0.s0.a.c().f(this.f51809b.f51805a);
                         if (f2 == 0) {
                             return Boolean.FALSE;
                         }
                         EmotionGroupData emotionGroupData = new EmotionGroupData();
-                        emotionGroupData.setGroupId(this.f51810b.f51806a.f16427a);
+                        emotionGroupData.setGroupId(this.f51809b.f51805a.f16427a);
                         emotionGroupData.setEmotionsCount(f2);
-                        emotionGroupData.setHeight(this.f51810b.f51806a.f16431e.get(0).f16436i);
-                        emotionGroupData.setWidth(this.f51810b.f51806a.f16431e.get(0).j);
+                        emotionGroupData.setHeight(this.f51809b.f51805a.f16431e.get(0).f16436i);
+                        emotionGroupData.setWidth(this.f51809b.f51805a.f16431e.get(0).j);
                         emotionGroupData.setDownloadTime(System.currentTimeMillis());
-                        emotionGroupData.setGroupName(this.f51810b.f51806a.f16428b);
+                        emotionGroupData.setGroupName(this.f51809b.f51805a.f16428b);
                         emotionGroupData.setStatus(1);
                         if (g.k().e(emotionGroupData)) {
                             return Boolean.valueOf(g.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
@@ -116,19 +116,19 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                         if (bool != null && bool.booleanValue()) {
                             MessageManager.getInstance().runTask(2004603, (Class) null);
-                            if (this.f51810b.f51807b.booleanValue()) {
+                            if (this.f51809b.f51806b.booleanValue()) {
                                 d.m().w();
                             }
-                            b bVar = this.f51810b.f51808c;
+                            b bVar = this.f51809b.f51807c;
                             if (bVar != null) {
-                                bVar.onSuccess(this.f51809a);
+                                bVar.onSuccess(this.f51808a);
                             }
                             b.a.r0.s0.z.a aVar = new b.a.r0.s0.z.a();
                             aVar.f23489a = 0;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, aVar));
                             return;
                         }
-                        b bVar2 = this.f51810b.f51808c;
+                        b bVar2 = this.f51809b.f51807c;
                         if (bVar2 != null) {
                             bVar2.onFail("failed to download");
                         }
@@ -154,9 +154,9 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.f51806a = aVar2;
-                this.f51807b = bool;
-                this.f51808c = bVar;
+                this.f51805a = aVar2;
+                this.f51806b = bool;
+                this.f51807c = bVar;
             }
 
             @Override // b.a.r0.f2.e.b
@@ -164,7 +164,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     BdLog.e("FaceDownload:" + str);
-                    b bVar = this.f51808c;
+                    b bVar = this.f51807c;
                     if (bVar != null) {
                         bVar.onFail(str);
                     }
@@ -178,7 +178,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
             public void onProgress(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    b bVar = this.f51808c;
+                    b bVar = this.f51807c;
                     if (bVar != null) {
                         bVar.onProgress(i2);
                     }
@@ -260,12 +260,12 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f51805e = new a(this, CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
+        this.f51804e = new a(this, CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f51805e.setTag(getUniqueId());
-        this.f51805e.setSelfListener(true);
-        registerListener(this.f51805e);
+        this.f51804e.setTag(getUniqueId());
+        this.f51804e.setSelfListener(true);
+        registerListener(this.f51804e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -273,7 +273,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f51805e);
+            MessageManager.getInstance().unRegisterListener(this.f51804e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
             return true;
         }

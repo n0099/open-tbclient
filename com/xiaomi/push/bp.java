@@ -14,7 +14,7 @@ public class bp implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70724a;
+    public Context f70723a;
 
     /* renamed from: a  reason: collision with other field name */
     public com.xiaomi.clientreport.processor.c f163a;
@@ -36,7 +36,7 @@ public class bp implements Runnable {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f70724a = context;
+            this.f70723a = context;
         }
     }
 
@@ -60,13 +60,13 @@ public class bp implements Runnable {
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
                 if (this.f163a instanceof IEventProcessor) {
-                    a2 = bt.a(this.f70724a);
+                    a2 = bt.a(this.f70723a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 } else if (!(this.f163a instanceof IPerfProcessor)) {
                     return;
                 } else {
-                    a2 = bt.a(this.f70724a);
+                    a2 = bt.a(this.f70723a);
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }

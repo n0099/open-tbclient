@@ -310,7 +310,7 @@ public abstract class ProtoAdapter<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ProtoAdapter f68296a;
+        public final /* synthetic */ ProtoAdapter f68295a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(ProtoAdapter protoAdapter, FieldEncoding fieldEncoding, Class cls) {
@@ -331,7 +331,7 @@ public abstract class ProtoAdapter<E> {
                     return;
                 }
             }
-            this.f68296a = protoAdapter;
+            this.f68295a = protoAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -340,7 +340,7 @@ public abstract class ProtoAdapter<E> {
         public List<E> decode(b.o.a.c cVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Collections.singletonList(this.f68296a.decode(cVar)) : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Collections.singletonList(this.f68295a.decode(cVar)) : (List) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -351,7 +351,7 @@ public abstract class ProtoAdapter<E> {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, list) == null) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f68296a.encode(dVar, (b.o.a.d) list.get(i2));
+                    this.f68295a.encode(dVar, (b.o.a.d) list.get(i2));
                 }
             }
         }
@@ -377,7 +377,7 @@ public abstract class ProtoAdapter<E> {
                 int size = list.size();
                 int i2 = 0;
                 for (int i3 = 0; i3 < size; i3++) {
-                    i2 += this.f68296a.encodedSize(list.get(i3));
+                    i2 += this.f68295a.encodedSize(list.get(i3));
                 }
                 return i2;
             }
@@ -415,7 +415,7 @@ public abstract class ProtoAdapter<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ProtoAdapter f68297a;
+        public final /* synthetic */ ProtoAdapter f68296a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(ProtoAdapter protoAdapter, FieldEncoding fieldEncoding, Class cls) {
@@ -436,7 +436,7 @@ public abstract class ProtoAdapter<E> {
                     return;
                 }
             }
-            this.f68297a = protoAdapter;
+            this.f68296a = protoAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -445,7 +445,7 @@ public abstract class ProtoAdapter<E> {
         public List<E> decode(b.o.a.c cVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Collections.singletonList(this.f68297a.decode(cVar)) : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Collections.singletonList(this.f68296a.decode(cVar)) : (List) invokeL.objValue;
         }
 
         public void b(b.o.a.d dVar, List<E> list) {
@@ -463,7 +463,7 @@ public abstract class ProtoAdapter<E> {
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, dVar, i2, list) == null) {
                 int size = list.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.f68297a.encodeWithTag(dVar, i2, list.get(i3));
+                    this.f68296a.encodeWithTag(dVar, i2, list.get(i3));
                 }
             }
         }
@@ -487,7 +487,7 @@ public abstract class ProtoAdapter<E> {
                 int size = list.size();
                 int i3 = 0;
                 for (int i4 = 0; i4 < size; i4++) {
-                    i3 += this.f68297a.encodedSizeWithTag(i2, list.get(i4));
+                    i3 += this.f68296a.encodedSizeWithTag(i2, list.get(i4));
                 }
                 return i3;
             }
@@ -1036,10 +1036,10 @@ public abstract class ProtoAdapter<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProtoAdapter<K> f68298a;
+        public final ProtoAdapter<K> f68297a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProtoAdapter<V> f68299b;
+        public final ProtoAdapter<V> f68298b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
@@ -1060,8 +1060,8 @@ public abstract class ProtoAdapter<E> {
                     return;
                 }
             }
-            this.f68298a = protoAdapter;
-            this.f68299b = protoAdapter2;
+            this.f68297a = protoAdapter;
+            this.f68298b = protoAdapter2;
         }
 
         public Map.Entry<K, V> a(b.o.a.c cVar) {
@@ -1079,8 +1079,8 @@ public abstract class ProtoAdapter<E> {
         public void encode(b.o.a.d dVar, Map.Entry<K, V> entry) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, entry) == null) {
-                this.f68298a.encodeWithTag(dVar, 1, entry.getKey());
-                this.f68299b.encodeWithTag(dVar, 2, entry.getValue());
+                this.f68297a.encodeWithTag(dVar, 1, entry.getKey());
+                this.f68298b.encodeWithTag(dVar, 2, entry.getValue());
             }
         }
 
@@ -1090,7 +1090,7 @@ public abstract class ProtoAdapter<E> {
         public int encodedSize(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.f68298a.encodedSizeWithTag(1, entry.getKey()) + this.f68299b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.f68297a.encodedSizeWithTag(1, entry.getKey()) + this.f68298b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
@@ -1106,7 +1106,7 @@ public abstract class ProtoAdapter<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final p<K, V> f68300a;
+        public final p<K, V> f68299a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public q(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
@@ -1127,7 +1127,7 @@ public abstract class ProtoAdapter<E> {
                     return;
                 }
             }
-            this.f68300a = new p<>(protoAdapter, protoAdapter2);
+            this.f68299a = new p<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1145,9 +1145,9 @@ public abstract class ProtoAdapter<E> {
                     if (f2 == -1) {
                         break;
                     } else if (f2 == 1) {
-                        k = this.f68300a.f68298a.decode(cVar);
+                        k = this.f68299a.f68297a.decode(cVar);
                     } else if (f2 == 2) {
-                        v = this.f68300a.f68299b.decode(cVar);
+                        v = this.f68299a.f68298b.decode(cVar);
                     }
                 }
                 cVar.d(c2);
@@ -1176,7 +1176,7 @@ public abstract class ProtoAdapter<E> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, dVar, i2, map) == null) {
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    this.f68300a.encodeWithTag(dVar, i2, entry);
+                    this.f68299a.encodeWithTag(dVar, i2, entry);
                 }
             }
         }
@@ -1199,7 +1199,7 @@ public abstract class ProtoAdapter<E> {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, map)) == null) {
                 int i3 = 0;
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    i3 += this.f68300a.encodedSizeWithTag(i2, entry);
+                    i3 += this.f68299a.encodedSizeWithTag(i2, entry);
                 }
                 return i3;
             }

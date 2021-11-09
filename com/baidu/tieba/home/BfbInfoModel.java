@@ -19,10 +19,10 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49340e;
+    public b f49339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f49341f;
+    public b.a.e.c.g.a f49340f;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -30,7 +30,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BfbInfoModel f49342a;
+        public final /* synthetic */ BfbInfoModel f49341a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BfbInfoModel bfbInfoModel, int i2, int i3) {
@@ -51,7 +51,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                     return;
                 }
             }
-            this.f49342a = bfbInfoModel;
+            this.f49341a = bfbInfoModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -64,8 +64,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                 UserBfbInfo userBfbInfo = null;
                 if (responsedMessage.getError() != 0) {
-                    if (this.f49342a.f49340e != null) {
-                        this.f49342a.f49340e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    if (this.f49341a.f49339e != null) {
+                        this.f49341a.f49339e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
@@ -75,8 +75,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                     userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                 }
-                if (this.f49342a.f49340e != null) {
-                    this.f49342a.f49340e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                if (this.f49341a.f49339e != null) {
+                    this.f49341a.f49339e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 return;
             }
         }
-        this.f49341f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        this.f49340f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
         z();
         y();
     }
@@ -113,7 +113,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f49340e = bVar;
+            this.f49339e = bVar;
         }
     }
 
@@ -141,7 +141,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f49341f);
+            MessageManager.getInstance().unRegisterListener(this.f49340f);
             MessageManager.getInstance().unRegisterTask(309366);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
         }
@@ -150,7 +150,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(this.f49341f);
+            registerListener(this.f49340f);
         }
     }
 

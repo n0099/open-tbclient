@@ -25,7 +25,7 @@ public class XMJobService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Service f71366a;
+    public static Service f71365a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,7 +38,7 @@ public class XMJobService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Binder f71367a;
+        public Binder f71366a;
 
         /* renamed from: a  reason: collision with other field name */
         public Handler f843a;
@@ -50,7 +50,7 @@ public class XMJobService extends Service {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public JobService f71368a;
+            public JobService f71367a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public HandlerC2029a(JobService jobService) {
@@ -70,7 +70,7 @@ public class XMJobService extends Service {
                         return;
                     }
                 }
-                this.f71368a = jobService;
+                this.f71367a = jobService;
             }
 
             @Override // android.os.Handler
@@ -79,7 +79,7 @@ public class XMJobService extends Service {
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                     JobParameters jobParameters = (JobParameters) message.obj;
                     com.xiaomi.channel.commonutils.logger.b.m73a("Job finished " + jobParameters.getJobId());
-                    this.f71368a.jobFinished(jobParameters, false);
+                    this.f71367a.jobFinished(jobParameters, false);
                     if (jobParameters.getJobId() == 1) {
                         er.a(false);
                     }
@@ -102,8 +102,8 @@ public class XMJobService extends Service {
                     return;
                 }
             }
-            this.f71367a = null;
-            this.f71367a = (Binder) com.xiaomi.push.bh.a((Object) this, "onBind", new Intent());
+            this.f71366a = null;
+            this.f71366a = (Binder) com.xiaomi.push.bh.a((Object) this, "onBind", new Intent());
             com.xiaomi.push.bh.a((Object) this, "attachBaseContext", service);
         }
 
@@ -187,9 +187,9 @@ public class XMJobService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f842a = new a(this).f71367a;
+                this.f842a = new a(this).f71366a;
             }
-            f71366a = this;
+            f71365a = this;
         }
     }
 
@@ -198,7 +198,7 @@ public class XMJobService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            f71366a = null;
+            f71365a = null;
         }
     }
 }

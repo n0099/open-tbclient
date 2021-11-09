@@ -24,19 +24,19 @@ public class BasicTaskItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51452e;
+    public Context f51451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51453f;
+    public View f51452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f51454g;
+    public TbImageView f51453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51455h;
+    public TextView f51454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51456i;
+    public TextView f51455i;
     public TextView j;
     public View k;
     public View l;
@@ -60,24 +60,24 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51452e = context;
+        this.f51451e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51452e).inflate(R.layout.index_task_item, this);
-            this.f51453f = inflate;
+            View inflate = LayoutInflater.from(this.f51451e).inflate(R.layout.index_task_item, this);
+            this.f51452f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f51454g = (TbImageView) this.f51453f.findViewById(R.id.task_icon);
-            this.f51455h = (TextView) this.f51453f.findViewById(R.id.txt_title);
-            this.f51456i = (TextView) this.f51453f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f51453f.findViewById(R.id.txt_status);
+            this.f51453g = (TbImageView) this.f51452f.findViewById(R.id.task_icon);
+            this.f51454h = (TextView) this.f51452f.findViewById(R.id.txt_title);
+            this.f51455i = (TextView) this.f51452f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f51452f.findViewById(R.id.txt_status);
             this.j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f51453f.findViewById(R.id.divider_line);
+            this.k = this.f51452f.findViewById(R.id.divider_line);
         }
     }
 
@@ -91,7 +91,7 @@ public class BasicTaskItemView extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f51452e), this.f51453f);
+            a.a((TbPageContext) j.a(this.f51451e), this.f51452f);
         }
     }
 
@@ -102,16 +102,16 @@ public class BasicTaskItemView extends LinearLayout {
         }
         this.l.setTag(oVar);
         this.j.setTag(oVar);
-        this.f51454g.startLoad(oVar.b(), 10, false);
-        this.f51455h.setText(oVar.f());
-        this.f51456i.setText(oVar.a());
+        this.f51453g.startLoad(oVar.b(), 10, false);
+        this.f51454h.setText(oVar.f());
+        this.f51455i.setText(oVar.a());
         if (oVar.c()) {
-            this.j.setText(this.f51452e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+            this.j.setText(this.f51451e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
             this.j.setBackgroundDrawable(null);
             return;
         }
-        this.j.setText(this.f51452e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+        this.j.setText(this.f51451e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
         this.j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
         this.j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
     }
@@ -141,7 +141,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51452e = context;
+        this.f51451e = context;
         this.m = onClickListener;
         a();
     }
@@ -165,7 +165,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51452e = context;
+        this.f51451e = context;
         a();
     }
 
@@ -188,7 +188,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51452e = context;
+        this.f51451e = context;
         a();
     }
 }

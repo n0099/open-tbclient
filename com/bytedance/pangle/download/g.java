@@ -16,7 +16,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile g f61345a;
+    public static volatile g f61344a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -37,14 +37,14 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61345a == null) {
+            if (f61344a == null) {
                 synchronized (g.class) {
-                    if (f61345a == null) {
-                        f61345a = new g();
+                    if (f61344a == null) {
+                        f61344a = new g();
                     }
                 }
             }
-            return f61345a;
+            return f61344a;
         }
         return (g) invokeV.objValue;
     }
@@ -54,12 +54,12 @@ public class g {
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             h a2 = h.a();
             b a3 = b.a();
-            a3.f61316b.add(new a(a2) { // from class: com.bytedance.pangle.download.h.1
+            a3.f61315b.add(new a(a2) { // from class: com.bytedance.pangle.download.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a */
-                public final /* synthetic */ h f61355a;
+                public final /* synthetic */ h f61354a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,14 +76,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f61355a = a2;
+                    this.f61354a = a2;
                 }
 
                 @Override // com.bytedance.pangle.download.a
                 public final void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61355a.b();
+                        this.f61354a.b();
                     }
                 }
 
@@ -91,7 +91,7 @@ public class g {
                 public final void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f61355a.a(1800L);
+                        this.f61354a.a(1800L);
                     }
                 }
             });
@@ -100,7 +100,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a */
-                public final /* synthetic */ b f61319a;
+                public final /* synthetic */ b f61318a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,7 +117,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f61319a = r6;
+                    this.f61318a = r6;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -159,20 +159,20 @@ public class g {
                 public final void onActivityStarted(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        if (this.f61319a.f61318e == 0) {
-                            this.f61319a.f61315a = false;
-                            b bVar = this.f61319a;
-                            if (!bVar.f61317c) {
-                                for (a aVar : bVar.f61316b) {
+                        if (this.f61318a.f61317e == 0) {
+                            this.f61318a.f61314a = false;
+                            b bVar = this.f61318a;
+                            if (!bVar.f61316c) {
+                                for (a aVar : bVar.f61315b) {
                                     aVar.b();
                                 }
-                                this.f61319a.f61317c = true;
+                                this.f61318a.f61316c = true;
                             }
-                            for (a aVar2 : this.f61319a.f61316b) {
+                            for (a aVar2 : this.f61318a.f61315b) {
                                 aVar2.a();
                             }
                         }
-                        b.c(this.f61319a);
+                        b.c(this.f61318a);
                     }
                 }
 
@@ -180,10 +180,10 @@ public class g {
                 public final void onActivityStopped(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                        b.d(this.f61319a);
-                        if (this.f61319a.f61318e == 0) {
-                            this.f61319a.f61315a = true;
-                            Iterator it = this.f61319a.f61316b.iterator();
+                        b.d(this.f61318a);
+                        if (this.f61318a.f61317e == 0) {
+                            this.f61318a.f61314a = true;
+                            Iterator it = this.f61318a.f61315b.iterator();
                             while (it.hasNext()) {
                                 it.next();
                             }

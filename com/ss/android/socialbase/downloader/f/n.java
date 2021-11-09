@@ -16,10 +16,10 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final JSONObject f69372a;
+    public final JSONObject f69371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69373b;
+    public int f69372b;
 
     public n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class n {
                 return;
             }
         }
-        this.f69372a = jSONObject;
+        this.f69371a = jSONObject;
     }
 
     private int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f69372a.optInt("url_balance", 2) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f69371a.optInt("url_balance", 2) : invokeV.intValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f69373b = b(i2);
+            this.f69372b = b(i2);
         }
     }
 
@@ -67,26 +67,26 @@ public class n {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69372a.optInt("buffer_count", 512) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69371a.optInt("buffer_count", 512) : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69372a.optInt("buffer_size", 8192) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69371a.optInt("buffer_size", 8192) : invokeV.intValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69372a.optInt("segment_mode", 1) == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69371a.optInt("segment_mode", 1) == 0 : invokeV.booleanValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long optInt = this.f69372a.optInt("segment_min_kb", 512) * 1024;
+            long optInt = this.f69371a.optInt("segment_min_kb", 512) * 1024;
             if (optInt < 65536) {
                 return 65536L;
             }
@@ -99,7 +99,7 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long optInt = this.f69372a.optInt("segment_min_init_mb", 10) * 1048576;
+            long optInt = this.f69371a.optInt("segment_min_init_mb", 10) * 1048576;
             if (optInt < 5242880) {
                 return 5242880L;
             }
@@ -112,7 +112,7 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            long optInt = this.f69372a.optInt("segment_max_kb", 0) * 1048576;
+            long optInt = this.f69371a.optInt("segment_max_kb", 0) * 1048576;
             if (optInt < g()) {
                 return -1L;
             }
@@ -125,7 +125,7 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            long optInt = this.f69372a.optInt("connect_timeout", -1);
+            long optInt = this.f69371a.optInt("connect_timeout", -1);
             if (optInt >= 2000) {
                 return optInt;
             }
@@ -138,7 +138,7 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            long optInt = this.f69372a.optInt("read_timeout", -1);
+            long optInt = this.f69371a.optInt("read_timeout", -1);
             if (optInt >= PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                 return optInt;
             }
@@ -150,32 +150,32 @@ public class n {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69372a.optInt("ip_strategy", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69371a.optInt("ip_strategy", 0) : invokeV.intValue;
     }
 
     public float m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (float) this.f69372a.optDouble("main_ratio", 0.0d) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (float) this.f69371a.optDouble("main_ratio", 0.0d) : invokeV.floatValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f69372a.optInt("ratio_segment", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f69371a.optInt("ratio_segment", 0) : invokeV.intValue;
     }
 
     public float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Math.min(Math.max(0.0f, (float) this.f69372a.optDouble("poor_speed_ratio", 0.0d)), 1.0f) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Math.min(Math.max(0.0f, (float) this.f69371a.optDouble("poor_speed_ratio", 0.0d)), 1.0f) : invokeV.floatValue;
     }
 
     private int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            int optInt = this.f69372a.optInt("thread_count", 4);
+            int optInt = this.f69371a.optInt("thread_count", 4);
             if (optInt > 16) {
                 optInt = 16;
             }
@@ -193,7 +193,7 @@ public class n {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69373b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69372b : invokeV.intValue;
     }
 
     @NonNull

@@ -35,25 +35,25 @@ public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b.i.b.a.b0.a f62968a;
+    public static final b.i.b.a.b0.a f62967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f62969b;
+    public static final Pattern f62968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<b, List<b.i.b.a.b0.a>> f62970c;
+    public static final HashMap<b, List<b.i.b.a.b0.a>> f62969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SparseIntArray f62971d;
+    public static final SparseIntArray f62970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SparseIntArray f62972e;
+    public static final SparseIntArray f62971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f62973f;
+    public static final Map<String, Integer> f62972f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f62974g;
+    public static int f62973g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -99,10 +99,10 @@ public final class MediaCodecUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f62975a;
+        public final String f62974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f62976b;
+        public final boolean f62975b;
 
         public b(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -119,8 +119,8 @@ public final class MediaCodecUtil {
                     return;
                 }
             }
-            this.f62975a = str;
-            this.f62976b = z;
+            this.f62974a = str;
+            this.f62975b = z;
         }
 
         public boolean equals(Object obj) {
@@ -134,7 +134,7 @@ public final class MediaCodecUtil {
                     return false;
                 }
                 b bVar = (b) obj;
-                return TextUtils.equals(this.f62975a, bVar.f62975a) && this.f62976b == bVar.f62976b;
+                return TextUtils.equals(this.f62974a, bVar.f62974a) && this.f62975b == bVar.f62975b;
             }
             return invokeL.booleanValue;
         }
@@ -143,8 +143,8 @@ public final class MediaCodecUtil {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.f62975a;
-                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f62976b ? 1231 : 1237);
+                String str = this.f62974a;
+                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f62975b ? 1231 : 1237);
             }
             return invokeV.intValue;
         }
@@ -223,10 +223,10 @@ public final class MediaCodecUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f62977a;
+        public final int f62976a;
 
         /* renamed from: b  reason: collision with root package name */
-        public MediaCodecInfo[] f62978b;
+        public MediaCodecInfo[] f62977b;
 
         public e(boolean z) {
             Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public final class MediaCodecUtil {
                     return;
                 }
             }
-            this.f62977a = z ? 1 : 0;
+            this.f62976a = z ? 1 : 0;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.c
@@ -252,7 +252,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e();
-                return this.f62978b[i2];
+                return this.f62977b[i2];
             }
             return (MediaCodecInfo) invokeI.objValue;
         }
@@ -270,7 +270,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 e();
-                return this.f62978b.length;
+                return this.f62977b.length;
             }
             return invokeV.intValue;
         }
@@ -287,8 +287,8 @@ public final class MediaCodecUtil {
 
         public final void e() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f62978b == null) {
-                this.f62978b = new MediaCodecList(this.f62977a).getCodecInfos();
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f62977b == null) {
+                this.f62977b = new MediaCodecList(this.f62976a).getCodecInfos();
             }
         }
     }
@@ -306,62 +306,62 @@ public final class MediaCodecUtil {
                 return;
             }
         }
-        f62968a = b.i.b.a.b0.a.r("OMX.google.raw.decoder");
-        f62969b = Pattern.compile("^\\D?(\\d+)$");
-        f62970c = new HashMap<>();
-        f62974g = -1;
+        f62967a = b.i.b.a.b0.a.r("OMX.google.raw.decoder");
+        f62968b = Pattern.compile("^\\D?(\\d+)$");
+        f62969c = new HashMap<>();
+        f62973g = -1;
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f62971d = sparseIntArray;
+        f62970d = sparseIntArray;
         sparseIntArray.put(66, 1);
-        f62971d.put(77, 2);
-        f62971d.put(88, 4);
-        f62971d.put(100, 8);
+        f62970d.put(77, 2);
+        f62970d.put(88, 4);
+        f62970d.put(100, 8);
         SparseIntArray sparseIntArray2 = new SparseIntArray();
-        f62972e = sparseIntArray2;
+        f62971e = sparseIntArray2;
         sparseIntArray2.put(10, 1);
-        f62972e.put(11, 4);
-        f62972e.put(12, 8);
-        f62972e.put(13, 16);
-        f62972e.put(20, 32);
-        f62972e.put(21, 64);
-        f62972e.put(22, 128);
-        f62972e.put(30, 256);
-        f62972e.put(31, 512);
-        f62972e.put(32, 1024);
-        f62972e.put(40, 2048);
-        f62972e.put(41, 4096);
-        f62972e.put(42, 8192);
-        f62972e.put(50, 16384);
-        f62972e.put(51, 32768);
-        f62972e.put(52, 65536);
+        f62971e.put(11, 4);
+        f62971e.put(12, 8);
+        f62971e.put(13, 16);
+        f62971e.put(20, 32);
+        f62971e.put(21, 64);
+        f62971e.put(22, 128);
+        f62971e.put(30, 256);
+        f62971e.put(31, 512);
+        f62971e.put(32, 1024);
+        f62971e.put(40, 2048);
+        f62971e.put(41, 4096);
+        f62971e.put(42, 8192);
+        f62971e.put(50, 16384);
+        f62971e.put(51, 32768);
+        f62971e.put(52, 65536);
         HashMap hashMap = new HashMap();
-        f62973f = hashMap;
+        f62972f = hashMap;
         hashMap.put("L30", 1);
-        f62973f.put("L60", 4);
-        f62973f.put("L63", 16);
-        f62973f.put("L90", 64);
-        f62973f.put("L93", 256);
-        f62973f.put("L120", 1024);
-        f62973f.put("L123", 4096);
-        f62973f.put("L150", 16384);
-        f62973f.put("L153", 65536);
-        f62973f.put("L156", 262144);
-        f62973f.put("L180", 1048576);
-        f62973f.put("L183", 4194304);
-        f62973f.put("L186", 16777216);
-        f62973f.put("H30", 2);
-        f62973f.put("H60", 8);
-        f62973f.put("H63", 32);
-        f62973f.put("H90", 128);
-        f62973f.put("H93", 512);
-        f62973f.put("H120", 2048);
-        f62973f.put("H123", 8192);
-        f62973f.put("H150", 32768);
-        f62973f.put("H153", 131072);
-        f62973f.put("H156", 524288);
-        f62973f.put("H180", 2097152);
-        f62973f.put("H183", 8388608);
-        f62973f.put("H186", 33554432);
+        f62972f.put("L60", 4);
+        f62972f.put("L63", 16);
+        f62972f.put("L90", 64);
+        f62972f.put("L93", 256);
+        f62972f.put("L120", 1024);
+        f62972f.put("L123", 4096);
+        f62972f.put("L150", 16384);
+        f62972f.put("L153", 65536);
+        f62972f.put("L156", 262144);
+        f62972f.put("L180", 1048576);
+        f62972f.put("L183", 4194304);
+        f62972f.put("L186", 16777216);
+        f62972f.put("H30", 2);
+        f62972f.put("H60", 8);
+        f62972f.put("H63", 32);
+        f62972f.put("H90", 128);
+        f62972f.put("H93", 512);
+        f62972f.put("H120", 2048);
+        f62972f.put("H123", 8192);
+        f62972f.put("H150", 32768);
+        f62972f.put("H153", 131072);
+        f62972f.put("H156", 524288);
+        f62972f.put("H180", 2097152);
+        f62972f.put("H183", 8388608);
+        f62972f.put("H186", 33554432);
     }
 
     public static void a(List<b.i.b.a.b0.a> list) {
@@ -448,12 +448,12 @@ public final class MediaCodecUtil {
                     String str3 = "Ignoring malformed AVC codec string: " + str;
                     return null;
                 }
-                Integer valueOf3 = Integer.valueOf(f62971d.get(num.intValue()));
+                Integer valueOf3 = Integer.valueOf(f62970d.get(num.intValue()));
                 if (valueOf3 == null) {
                     String str4 = "Unknown AVC profile: " + num;
                     return null;
                 }
-                Integer valueOf4 = Integer.valueOf(f62972e.get(valueOf.intValue()));
+                Integer valueOf4 = Integer.valueOf(f62971e.get(valueOf.intValue()));
                 if (valueOf4 == null) {
                     String str5 = "Unknown AVC level: " + valueOf;
                     return null;
@@ -542,7 +542,7 @@ public final class MediaCodecUtil {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
             synchronized (MediaCodecUtil.class) {
                 b bVar = new b(str, z);
-                List<b.i.b.a.b0.a> list = f62970c.get(bVar);
+                List<b.i.b.a.b0.a> list = f62969c.get(bVar);
                 if (list != null) {
                     return list;
                 }
@@ -555,7 +555,7 @@ public final class MediaCodecUtil {
                 }
                 a(h2);
                 List<b.i.b.a.b0.a> unmodifiableList = Collections.unmodifiableList(h2);
-                f62970c.put(bVar, unmodifiableList);
+                f62969c.put(bVar, unmodifiableList);
                 return unmodifiableList;
             }
         }
@@ -569,7 +569,7 @@ public final class MediaCodecUtil {
             c cVar2 = cVar;
             try {
                 ArrayList arrayList = new ArrayList();
-                String str = bVar.f62975a;
+                String str = bVar.f62974a;
                 int c2 = cVar.c();
                 boolean d2 = cVar.d();
                 int i2 = 0;
@@ -588,11 +588,11 @@ public final class MediaCodecUtil {
                                     boolean b2 = cVar2.b(str, capabilitiesForType);
                                     boolean c3 = c(name);
                                     if (d2) {
-                                        if (bVar.f62976b != b2) {
+                                        if (bVar.f62975b != b2) {
                                         }
                                         arrayList.add(b.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     }
-                                    if (!d2 && !bVar.f62976b) {
+                                    if (!d2 && !bVar.f62975b) {
                                         arrayList.add(b.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     } else if (!d2 && b2) {
                                         arrayList.add(b.i.b.a.b0.a.q(name + ".secure", str, capabilitiesForType, c3, true));
@@ -632,7 +632,7 @@ public final class MediaCodecUtil {
                 String str2 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
             }
-            Matcher matcher = f62969b.matcher(strArr[1]);
+            Matcher matcher = f62968b.matcher(strArr[1]);
             if (!matcher.matches()) {
                 String str3 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
@@ -646,7 +646,7 @@ public final class MediaCodecUtil {
             } else {
                 i2 = 2;
             }
-            Integer num = f62973f.get(strArr[3]);
+            Integer num = f62972f.get(strArr[3]);
             if (num == null) {
                 String str5 = "Unknown HEVC level string: " + matcher.group(1);
                 return null;
@@ -659,7 +659,7 @@ public final class MediaCodecUtil {
     public static b.i.b.a.b0.a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f62968a : (b.i.b.a.b0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f62967a : (b.i.b.a.b0.a) invokeV.objValue;
     }
 
     public static boolean k(MediaCodecInfo mediaCodecInfo, String str, boolean z) {
@@ -699,7 +699,7 @@ public final class MediaCodecUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f62974g == -1) {
+            if (f62973g == -1) {
                 int i2 = 0;
                 b.i.b.a.b0.a f2 = f("video/avc", false);
                 if (f2 != null) {
@@ -712,9 +712,9 @@ public final class MediaCodecUtil {
                     }
                     i2 = Math.max(i3, v.f32661a >= 21 ? 345600 : 172800);
                 }
-                f62974g = i2;
+                f62973g = i2;
             }
-            return f62974g;
+            return f62973g;
         }
         return invokeV.intValue;
     }

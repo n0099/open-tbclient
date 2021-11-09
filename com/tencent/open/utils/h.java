@@ -17,11 +17,11 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f70150a;
+    public static h f70149a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f70151b;
+    public volatile WeakReference<SharedPreferences> f70150b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class h {
                 return;
             }
         }
-        this.f70151b = null;
+        this.f70150b = null;
     }
 
     public static synchronized h a() {
@@ -60,10 +60,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (h.class) {
-                if (f70150a == null) {
-                    f70150a = new h();
+                if (f70149a == null) {
+                    f70149a = new h();
                 }
-                hVar = f70150a;
+                hVar = f70149a;
             }
             return hVar;
         }
@@ -74,8 +74,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.f70151b == null || this.f70151b.get() == null) {
-                this.f70151b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+            if (this.f70150b == null || this.f70150b.get() == null) {
+                this.f70150b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
             }
             try {
                 String host = new URL(str).getHost();
@@ -83,7 +83,7 @@ public class h {
                     SLog.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                     return str;
                 }
-                String string = this.f70151b.get().getString(host, null);
+                String string = this.f70150b.get().getString(host, null);
                 if (string != null && !host.equals(string)) {
                     String replace = str.replace(host, string);
                     SLog.v("openSDK_LOG.ServerSetting", "return environment url : " + replace);

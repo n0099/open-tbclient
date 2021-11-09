@@ -2,6 +2,7 @@ package com.alipay.sdk.app;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -59,7 +60,7 @@ public final class c {
         }
         f34037c = new c("SUCCEEDED", 0, 9000, "处理成功");
         f34038d = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
-        f34039e = new c("CANCELED", 2, 6001, "用户取消");
+        f34039e = new c("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
         f34040f = new c("NETWORK_ERROR", 3, 6002, "网络连接异常");
         f34041g = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
         f34042h = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");

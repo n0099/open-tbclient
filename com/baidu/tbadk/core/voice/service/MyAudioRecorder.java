@@ -344,10 +344,10 @@ public class MyAudioRecorder implements d {
                             RandomAccessFile randomAccessFile = new RandomAccessFile(this.f45658d, "rw");
                             this.f45660f = randomAccessFile;
                             randomAccessFile.setLength(0L);
-                            this.f45660f.writeBytes(b.f57309e);
+                            this.f45660f.writeBytes(b.f57308e);
                             this.f45660f.writeInt(0);
-                            this.f45660f.writeBytes(b.f57310f);
-                            this.f45660f.writeBytes(b.f57311g);
+                            this.f45660f.writeBytes(b.f57309f);
+                            this.f45660f.writeBytes(b.f57310g);
                             this.f45660f.writeInt(Integer.reverseBytes(16));
                             this.f45660f.writeShort(Short.reverseBytes((short) 1));
                             this.f45660f.writeShort(Short.reverseBytes(this.f45661g));

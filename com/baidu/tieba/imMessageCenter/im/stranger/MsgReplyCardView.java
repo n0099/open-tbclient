@@ -33,7 +33,7 @@ public class MsgReplyCardView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgReplyCardView f50766e;
+        public final /* synthetic */ MsgReplyCardView f50765e;
 
         public a(MsgReplyCardView msgReplyCardView) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class MsgReplyCardView extends e {
                     return;
                 }
             }
-            this.f50766e = msgReplyCardView;
+            this.f50765e = msgReplyCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50766e.f19988b.onItemViewClick(view, 14, this.f50766e.f19992f, 0L);
+                this.f50765e.f19988b.onItemViewClick(view, 14, this.f50765e.f19992f, 0L);
             }
         }
     }

@@ -12,7 +12,7 @@ public class z implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C2028a f70646a;
+    public final /* synthetic */ MiTinyDataClient.a.C2028a f70645a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f105a;
@@ -32,7 +32,7 @@ public class z implements Runnable {
                 return;
             }
         }
-        this.f70646a = c2028a;
+        this.f70645a = c2028a;
         this.f105a = hjVar;
     }
 
@@ -40,8 +40,8 @@ public class z implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f70646a.f59a.add(this.f105a);
-            this.f70646a.a();
+            this.f70645a.f59a.add(this.f105a);
+            this.f70645a.a();
         }
     }
 }

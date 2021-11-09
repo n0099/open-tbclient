@@ -53,7 +53,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186a, false);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69185a, false);
     }
 
     public void addNotificationListener(int i2, IDownloadListener iDownloadListener) {
@@ -61,7 +61,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69188c, false);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187c, false);
     }
 
     public void addSubThreadListener(int i2, IDownloadListener iDownloadListener) {
@@ -69,7 +69,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187b, false);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186b, false);
     }
 
     public boolean canResume(int i2) {
@@ -269,7 +269,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048611, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186a, false);
+        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69185a, false);
     }
 
     public void removeNotificationListener(int i2, IDownloadListener iDownloadListener) {
@@ -277,7 +277,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048612, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69188c, false);
+        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187c, false);
     }
 
     public void removeSubThreadListener(int i2, IDownloadListener iDownloadListener) {
@@ -285,14 +285,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048613, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187b, false);
+        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186b, false);
     }
 
     @Deprecated
     public void removeTaskMainListener(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69186a, true);
+            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69185a, true);
         }
     }
 
@@ -300,7 +300,7 @@ public class b {
     public void removeTaskNotificationListener(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69188c, true);
+            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69187c, true);
         }
     }
 
@@ -308,7 +308,7 @@ public class b {
     public void removeTaskSubListener(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69187b, true);
+            d.a().a(i2, null, com.ss.android.socialbase.downloader.constants.f.f69186b, true);
         }
     }
 
@@ -389,7 +389,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048626, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186a, true);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69185a, true);
     }
 
     @Deprecated
@@ -398,7 +398,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048628, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69188c, true);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187c, true);
     }
 
     public void setReserveWifiStatusListener(r rVar) {
@@ -414,7 +414,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeIL(1048630, this, i2, iDownloadListener) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69187b, true);
+        d.a().b(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186b, true);
     }
 
     public void setThrottleNetSpeed(int i2, long j) {
@@ -495,6 +495,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Integer.valueOf(i2), iDownloadListener, Boolean.valueOf(z)}) == null) || iDownloadListener == null) {
             return;
         }
-        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69186a, true, z);
+        d.a().a(i2, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.f69185a, true, z);
     }
 }

@@ -188,7 +188,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             long j19 = this.mConcernTabFragmentEndTimeStamp - this.mConcernTabFragmentStartTimeStamp;
             long j20 = this.mHotTopicTabFragmentEndTimeStamp - this.mHotTopicTabFragmentStartTimeStamp;
             long j21 = this.mPersonalizeTabFragmentEndTimeStamp - this.mPersonalizeTabFragmentStartTimeStamp;
-            if (j3 < 0 || j3 > 60000 || j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j20 < 0 || j20 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000) {
+            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mHomeTabOnAttachStartStamp, this.mHomeFragmentOnResumeEndStamp);
+            if (j3 < 0 || j3 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j20 < 0 || j20 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
@@ -211,7 +212,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             hashMap.put(CONCERN_TAB_DURATION, String.valueOf(j19));
             hashMap.put(HOT_TOPIC_TAB_DURATION, String.valueOf(j20));
             hashMap.put(PERSONALIZE_TAB_DURATION, String.valueOf(j21));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put(SpeedStatsMainTable.ATTACH_WINDOW_STAGE, jsonData);

@@ -45,19 +45,19 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48386e;
+    public String f48385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48387f;
+    public String f48386f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48388g;
+    public String f48387g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48389h;
+    public String f48388h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeListView f48390i;
+    public BdTypeListView f48389i;
     public g j;
     public PbListView k;
     public b.a.r0.x0.r1.f l;
@@ -76,9 +76,44 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationFragment f48391e;
+        public final /* synthetic */ VideoAggregationFragment f48390e;
 
         public a(VideoAggregationFragment videoAggregationFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoAggregationFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48390e = videoAggregationFragment;
+        }
+
+        @Override // b.a.q0.s.g0.f.g
+        public void onListPullRefresh(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.f48390e.m.e();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoAggregationFragment f48391e;
+
+        public b(VideoAggregationFragment videoAggregationFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,24 +131,36 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.f48391e = videoAggregationFragment;
         }
 
-        @Override // b.a.q0.s.g0.f.g
-        public void onListPullRefresh(boolean z) {
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f48391e.m.e();
+            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || this.f48391e.l == null) {
+                return;
             }
+            if (i2 > this.f48391e.l.c() || i2 + i3 < this.f48391e.l.c()) {
+                this.f48391e.l.b();
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || i2 != 0 || absListView.getLastVisiblePosition() <= absListView.getCount() - 2 || absListView.getFirstVisiblePosition() == 0) {
+                return;
+            }
+            this.f48391e.m.d();
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements AbsListView.OnScrollListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoAggregationFragment f48392e;
 
-        public b(VideoAggregationFragment videoAggregationFragment) {
+        public c(VideoAggregationFragment videoAggregationFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,36 +178,25 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.f48392e = videoAggregationFragment;
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || this.f48392e.l == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f48392e.g();
+                this.f48392e.m.e();
             }
-            if (i2 > this.f48392e.l.c() || i2 + i3 < this.f48392e.l.c()) {
-                this.f48392e.l.b();
-            }
-        }
-
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || i2 != 0 || absListView.getLastVisiblePosition() <= absListView.getCount() - 2 || absListView.getFirstVisiblePosition() == 0) {
-                return;
-            }
-            this.f48392e.m.d();
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements View.OnClickListener {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoAggregationFragment f48393e;
 
-        public c(VideoAggregationFragment videoAggregationFragment) {
+        public d(VideoAggregationFragment videoAggregationFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,46 +217,10 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48393e.g();
-                this.f48393e.m.e();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationFragment f48394e;
-
-        public d(VideoAggregationFragment videoAggregationFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoAggregationFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48394e = videoAggregationFragment;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48394e.getActivity() == null || this.f48394e.getActivity().isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48393e.getActivity() == null || this.f48393e.getActivity().isFinishing()) {
                 return;
             }
-            this.f48394e.getActivity().finish();
+            this.f48393e.getActivity().finish();
         }
     }
 
@@ -230,10 +230,53 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationFragment f48395a;
+        public final /* synthetic */ VideoAggregationFragment f48394a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(VideoAggregationFragment videoAggregationFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoAggregationFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48394a = videoAggregationFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z()) {
+                if (this.f48394a.q != null) {
+                    this.f48394a.m.e();
+                } else if (j.x() && this.f48394a.l != null && this.f48394a.l.e()) {
+                    this.f48394a.getPageContext().showToast(R.string.video_mobile_play_tips);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class f extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoAggregationFragment f48395a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(VideoAggregationFragment videoAggregationFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -256,53 +299,10 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z()) {
-                if (this.f48395a.q != null) {
-                    this.f48395a.m.e();
-                } else if (j.x() && this.f48395a.l != null && this.f48395a.l.e()) {
-                    this.f48395a.getPageContext().showToast(R.string.video_mobile_play_tips);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class f extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationFragment f48396a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(VideoAggregationFragment videoAggregationFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoAggregationFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48396a = videoAggregationFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && this.f48396a.l != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.f45667a) {
-                this.f48396a.l.f(data.f45669c, data.f45670d);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && this.f48395a.l != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.f45667a) {
+                this.f48395a.l.f(data.f45669c, data.f45670d);
             }
         }
     }
@@ -346,14 +346,14 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (noDataView = this.q) != null && noDataView.getVisibility() == 0) {
             this.q.setVisibility(8);
-            this.f48390i.setVisibility(0);
+            this.f48389i.setVisibility(0);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f48387f)) {
+            if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f48386f)) {
                 this.n.setCenterTextTitle(getPageContext().getString(R.string.video_aggregation_title));
             } else {
                 this.n.setCenterTextTitle(getPageContext().getString(R.string.video_middle_page_title));
@@ -368,7 +368,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == null) {
             return;
         }
-        this.f48390i.completePullRefreshPostDelayed(0L);
+        this.f48389i.completePullRefreshPostDelayed(0L);
         hideLoadingView(this.o);
     }
 
@@ -384,14 +384,14 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             }
             this.q.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.q.setVisibility(0);
-            this.f48390i.setVisibility(8);
+            this.f48389i.setVisibility(8);
         }
     }
 
     public void notifyVideo(int i2) {
         b.a.r0.x0.r1.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f48390i == null || (fVar = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f48389i == null || (fVar = this.l) == null) {
             return;
         }
         if (i2 == 1 && fVar.e()) {
@@ -437,17 +437,17 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             super.onCreate(bundle);
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f48386e = arguments.getString("PARAM_FID");
-                this.f48387f = arguments.getString("PARAM_FROM");
-                this.f48388g = arguments.getString("st_type");
-                this.f48389h = arguments.getString("yuelaou_locate");
+                this.f48385e = arguments.getString("PARAM_FID");
+                this.f48386f = arguments.getString("PARAM_FROM");
+                this.f48387g = arguments.getString("st_type");
+                this.f48388h = arguments.getString("yuelaou_locate");
             }
             i iVar = new i(getPageContext(), this);
             this.m = iVar;
-            iVar.g(this.f48386e);
-            this.m.f(this.f48387f);
-            this.m.i(this.f48388g);
-            this.m.h(this.f48389h);
+            iVar.g(this.f48385e);
+            this.m.f(this.f48386f);
+            this.m.i(this.f48387g);
+            this.m.h(this.f48388h);
             this.m.e();
             registerListener(this.s);
             registerListener(this.t);
@@ -528,22 +528,22 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             if (!j.z()) {
                 this.p.setVisibility(0);
             }
-            this.f48390i = (BdTypeListView) view.findViewById(R.id.listView);
+            this.f48389i = (BdTypeListView) view.findViewById(R.id.listView);
             g gVar = new g(getPageContext());
             this.j = gVar;
             gVar.i();
             this.j.a(new a(this));
             this.j.U(getUniqueId());
-            this.f48390i.setPullRefresh(this.j);
+            this.f48389i.setPullRefresh(this.j);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.k = pbListView;
             pbListView.a();
             this.k.z();
             this.k.C(getResources().getString(R.string.list_has_no_more));
             this.k.Q();
-            this.f48390i.setNextPage(this.k);
-            this.f48390i.setOnScrollListener(new b(this));
-            this.l = new b.a.r0.x0.r1.f(getPageContext(), this.f48390i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f48387f));
+            this.f48389i.setNextPage(this.k);
+            this.f48389i.setOnScrollListener(new b(this));
+            this.l = new b.a.r0.x0.r1.f(getPageContext(), this.f48389i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f48386f));
             showLoadingView();
         }
     }

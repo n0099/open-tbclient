@@ -37,19 +37,19 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53234e;
+    public TextView f53233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadPendantView f53235f;
+    public HeadPendantView f53234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f53236g;
+    public View f53235g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f53237h;
+    public View f53236h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f53238i;
+    public boolean f53237i;
     public Animation.AnimationListener j;
 
     /* loaded from: classes9.dex */
@@ -58,7 +58,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LikeButtonWithHeadPortrait f53239a;
+        public final /* synthetic */ LikeButtonWithHeadPortrait f53238a;
 
         public a(LikeButtonWithHeadPortrait likeButtonWithHeadPortrait) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
                     return;
                 }
             }
-            this.f53239a = likeButtonWithHeadPortrait;
+            this.f53238a = likeButtonWithHeadPortrait;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f53239a.showHeadPortraitOnly();
+                this.f53238a.showHeadPortraitOnly();
             }
         }
 
@@ -128,11 +128,11 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.view_like_button_with_head_portrait, this);
             HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.head_img);
-            this.f53235f = headPendantView;
+            this.f53234f = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.f53234e = (TextView) findViewById(R.id.btn_like);
-            this.f53236g = findViewById(R.id.view_background);
-            this.f53237h = findViewById(R.id.right_circular_view);
+            this.f53233e = (TextView) findViewById(R.id.btn_like);
+            this.f53235g = findViewById(R.id.view_background);
+            this.f53236h = findViewById(R.id.right_circular_view);
         }
     }
 
@@ -147,10 +147,10 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f53236g, R.drawable.shape_person_top_like_bg);
-            SkinManager.setBackgroundResource(this.f53237h, R.drawable.shape_person_top_like_bg);
-            this.f53234e.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_nav_follow), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this.f53234e, R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(this.f53235g, R.drawable.shape_person_top_like_bg);
+            SkinManager.setBackgroundResource(this.f53236h, R.drawable.shape_person_top_like_bg);
+            this.f53233e.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_nav_follow), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.f53233e, R.color.CAM_X0106);
         }
     }
 
@@ -159,7 +159,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
-            if (this.f53238i) {
+            if (this.f53237i) {
                 return;
             }
             Context context = getContext();
@@ -177,13 +177,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
     public void showHeadPortraitOnly() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f53235f.clearAnimation();
-            this.f53234e.clearAnimation();
-            this.f53236g.clearAnimation();
-            this.f53237h.clearAnimation();
-            this.f53234e.setVisibility(8);
-            this.f53236g.setVisibility(8);
-            this.f53237h.setVisibility(8);
+            this.f53234f.clearAnimation();
+            this.f53233e.clearAnimation();
+            this.f53235g.clearAnimation();
+            this.f53236h.clearAnimation();
+            this.f53233e.setVisibility(8);
+            this.f53235g.setVisibility(8);
+            this.f53236h.setVisibility(8);
         }
     }
 
@@ -197,39 +197,39 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
     public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f53238i = z;
-            if (getWidth() == 0 || this.f53235f.getWidth() == 0) {
+            this.f53237i = z;
+            if (getWidth() == 0 || this.f53234f.getWidth() == 0) {
                 return;
             }
             if (z) {
-                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.f53235f.getWidth() / 2), 0.0f, 0.0f);
+                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.f53234f.getWidth() / 2), 0.0f, 0.0f);
                 translateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation.setDuration(300L);
                 translateAnimation.setFillAfter(true);
                 translateAnimation.setAnimationListener(this.j);
                 translateAnimation.setStartOffset(150L);
-                this.f53235f.startAnimation(translateAnimation);
-                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.f53235f.getWidth() / 2)), 0.0f, 0.0f);
+                this.f53234f.startAnimation(translateAnimation);
+                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.f53234f.getWidth() / 2)), 0.0f, 0.0f);
                 translateAnimation2.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation2.setDuration(300L);
                 translateAnimation2.setFillAfter(true);
                 translateAnimation2.setStartOffset(150L);
-                this.f53237h.startAnimation(translateAnimation2);
+                this.f53236h.startAnimation(translateAnimation2);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setDuration(150L);
                 alphaAnimation.setFillAfter(true);
-                this.f53234e.startAnimation(alphaAnimation);
-                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.f53235f.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+                this.f53233e.startAnimation(alphaAnimation);
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.f53234f.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
                 scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 scaleAnimation.setDuration(300L);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setStartOffset(150L);
-                this.f53236g.startAnimation(scaleAnimation);
+                this.f53235g.startAnimation(scaleAnimation);
                 setClickable(false);
                 return;
             }
-            this.f53234e.setVisibility(0);
-            this.f53236g.setVisibility(0);
+            this.f53233e.setVisibility(0);
+            this.f53235g.setVisibility(0);
             setClickable(true);
         }
     }

@@ -12,7 +12,7 @@ public class MultiPartHeaders {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56485a;
+    public String f56484a;
 
     public MultiPartHeaders() {
         Interceptable interceptable = $ic;
@@ -33,6 +33,6 @@ public class MultiPartHeaders {
     public String getIdentifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56485a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56484a : (String) invokeV.objValue;
     }
 }

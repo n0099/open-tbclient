@@ -50,7 +50,7 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f46665a;
+        public final /* synthetic */ XiubaTbJsBridge f46664a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -70,7 +70,7 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
                     return;
                 }
             }
-            this.f46665a = xiubaTbJsBridge;
+            this.f46664a = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +79,7 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
             Object data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (data = customResponsedMessage.getData()) != null && (data instanceof Intent) && "com.xiu8.baidu.activity".equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
-                this.f46665a.callInstallListener();
+                this.f46664a.callInstallListener();
             }
         }
     }
@@ -90,10 +90,10 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f46666a;
+        public boolean f46665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f46667b;
+        public final /* synthetic */ XiubaTbJsBridge f46666b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -113,7 +113,7 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
                     return;
                 }
             }
-            this.f46667b = xiubaTbJsBridge;
+            this.f46666b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,16 +128,16 @@ public class XiubaTbJsBridge implements b.a.r0.l3.n0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f46666a) {
-                                this.f46666a = true;
-                                this.f46667b.callDownloadListener(1);
+                            if (!this.f46665a) {
+                                this.f46665a = true;
+                                this.f46666b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f46667b.callDownloadListener(2);
-                            this.f46666a = false;
+                            this.f46666b.callDownloadListener(2);
+                            this.f46665a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f46667b.callDownloadListener(0);
-                            this.f46666a = false;
+                            this.f46666b.callDownloadListener(0);
+                            this.f46665a = false;
                         }
                     }
                 }

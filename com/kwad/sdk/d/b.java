@@ -15,10 +15,10 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65538c;
+    public String f65537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65539d;
+    public boolean f65538d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@Nullable JSONObject jSONObject) {
@@ -38,27 +38,27 @@ public class b extends c {
                 return;
             }
         }
-        this.f65539d = false;
+        this.f65538d = false;
     }
 
     @Override // com.kwad.sdk.d.c
     public String a(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) ? this.f65538c : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) ? this.f65537c : (String) invokeL.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f65538c = str;
+            this.f65537c = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f65539d = z;
+            this.f65538d = z;
         }
     }
 
@@ -66,6 +66,6 @@ public class b extends c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65539d ? this.f65541b : super.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65538d ? this.f65540b : super.a() : invokeV.booleanValue;
     }
 }

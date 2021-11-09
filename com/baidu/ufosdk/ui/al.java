@@ -10,7 +10,7 @@ public final class al implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ak f56807a;
+    public final /* synthetic */ ak f56806a;
 
     public al(ak akVar) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public final class al implements Runnable {
                 return;
             }
         }
-        this.f56807a = akVar;
+        this.f56806a = akVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f56807a.f56806a.getApplicationContext());
+            com.baidu.ufosdk.e.a.a(this.f56806a.f56805a.getApplicationContext());
         }
     }
 }

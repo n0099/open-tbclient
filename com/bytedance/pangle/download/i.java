@@ -16,16 +16,16 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f61358a;
+    public static final boolean f61357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f61359b;
+    public static a f61358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61360c;
+    public static String f61359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f61361d;
+    public static int f61360d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -61,10 +61,10 @@ public final class i {
                 return;
             }
         }
-        f61358a = Build.VERSION.SDK_INT > 19;
-        f61360c = "";
-        f61361d = -1;
-        f61359b = new a();
+        f61357a = Build.VERSION.SDK_INT > 19;
+        f61359c = "";
+        f61360d = -1;
+        f61358b = new a();
     }
 
     public static String a(Context context) {
@@ -73,17 +73,17 @@ public final class i {
         DisplayMetrics displayMetrics2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(f61360c) && context != null) {
+            if (TextUtils.isEmpty(f61359c) && context != null) {
                 int i2 = 0;
                 int i3 = (context == null || (displayMetrics = context.getResources().getDisplayMetrics()) == null) ? 0 : displayMetrics.widthPixels;
                 if (context != null && (displayMetrics2 = context.getResources().getDisplayMetrics()) != null) {
                     i2 = displayMetrics2.heightPixels;
                 }
                 if (i3 > 0 && i2 > 0) {
-                    f61360c = i3 + "*" + i2;
+                    f61359c = i3 + "*" + i2;
                 }
             }
-            return f61360c;
+            return f61359c;
         }
         return (String) invokeL.objValue;
     }
@@ -92,10 +92,10 @@ public final class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f61361d == -1 && context != null) {
-                f61361d = context.getApplicationContext().getResources().getDisplayMetrics().densityDpi;
+            if (f61360d == -1 && context != null) {
+                f61360d = context.getApplicationContext().getResources().getDisplayMetrics().densityDpi;
             }
-            return f61361d;
+            return f61360d;
         }
         return invokeL.intValue;
     }

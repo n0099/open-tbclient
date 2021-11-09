@@ -18,7 +18,7 @@ public final class gv {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f71053a;
+        public ew f71052a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f460a;
@@ -60,12 +60,12 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             int a2 = fn.a(exc2);
             if (a2 != 0) {
-                aVar.f71053a = ew.a(ew.l.a() + a2);
+                aVar.f71052a = ew.a(ew.l.a() + a2);
             }
-            if (aVar.f71053a == null) {
-                aVar.f71053a = ew.t;
+            if (aVar.f71052a == null) {
+                aVar.f71052a = ew.t;
             }
-            if (aVar.f71053a == ew.t) {
+            if (aVar.f71052a == ew.t) {
                 aVar.f460a = str;
             }
             return aVar;
@@ -107,19 +107,19 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             if (a2 != 0) {
                 ew a3 = ew.a(ew.v.a() + a2);
-                aVar.f71053a = a3;
+                aVar.f71052a = a3;
                 if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
                     ewVar = ew.F;
                 }
-                ewVar2 = aVar.f71053a;
+                ewVar2 = aVar.f71052a;
                 if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
                     aVar.f460a = str;
                 }
                 return aVar;
             }
             ewVar = ew.E;
-            aVar.f71053a = ewVar;
-            ewVar2 = aVar.f71053a;
+            aVar.f71052a = ewVar;
+            ewVar2 = aVar.f71052a;
             if (ewVar2 != ew.D) {
             }
             aVar.f460a = str;
@@ -156,11 +156,11 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.O;
             } else if (a2 == 499) {
-                aVar.f71053a = ew.R;
+                aVar.f71052a = ew.R;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.Q;
                 }
-                ewVar2 = aVar.f71053a;
+                ewVar2 = aVar.f71052a;
                 if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
                     aVar.f460a = str;
                 }
@@ -168,8 +168,8 @@ public final class gv {
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
             }
-            aVar.f71053a = ewVar;
-            ewVar2 = aVar.f71053a;
+            aVar.f71052a = ewVar;
+            ewVar2 = aVar.f71052a;
             if (ewVar2 != ew.O) {
             }
             aVar.f460a = str;
@@ -203,11 +203,11 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.aa;
             } else if (a2 == 499) {
-                aVar.f71053a = ew.ad;
+                aVar.f71052a = ew.ad;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.ac;
                 }
-                ewVar2 = aVar.f71053a;
+                ewVar2 = aVar.f71052a;
                 if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
                     aVar.f460a = str;
                 }
@@ -215,8 +215,8 @@ public final class gv {
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
             }
-            aVar.f71053a = ewVar;
-            ewVar2 = aVar.f71053a;
+            aVar.f71052a = ewVar;
+            ewVar2 = aVar.f71052a;
             if (ewVar2 != ew.aa) {
             }
             aVar.f460a = str;

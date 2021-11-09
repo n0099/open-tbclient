@@ -7,21 +7,21 @@ import kotlin.coroutines.CoroutineContext;
 public final class ThreadState {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object[] f72563a;
+    public Object[] f72562a;
     public final CoroutineContext context;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72564i;
+    public int f72563i;
 
     public ThreadState(CoroutineContext coroutineContext, int i2) {
         this.context = coroutineContext;
-        this.f72563a = new Object[i2];
+        this.f72562a = new Object[i2];
     }
 
     public final void append(Object obj) {
-        Object[] objArr = this.f72563a;
-        int i2 = this.f72564i;
-        this.f72564i = i2 + 1;
+        Object[] objArr = this.f72562a;
+        int i2 = this.f72563i;
+        this.f72563i = i2 + 1;
         objArr[i2] = obj;
     }
 
@@ -30,13 +30,13 @@ public final class ThreadState {
     }
 
     public final void start() {
-        this.f72564i = 0;
+        this.f72563i = 0;
     }
 
     public final Object take() {
-        Object[] objArr = this.f72563a;
-        int i2 = this.f72564i;
-        this.f72564i = i2 + 1;
+        Object[] objArr = this.f72562a;
+        int i2 = this.f72563i;
+        this.f72563i = i2 + 1;
         return objArr[i2];
     }
 }

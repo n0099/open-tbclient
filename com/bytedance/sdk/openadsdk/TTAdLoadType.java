@@ -17,7 +17,7 @@ public final class TTAdLoadType {
     public static final TTAdLoadType UNKNOWN;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ TTAdLoadType[] f61573a;
+    public static final /* synthetic */ TTAdLoadType[] f61572a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class TTAdLoadType {
         PRELOAD = new TTAdLoadType("PRELOAD", 1);
         TTAdLoadType tTAdLoadType = new TTAdLoadType("LOAD", 2);
         LOAD = tTAdLoadType;
-        f61573a = new TTAdLoadType[]{UNKNOWN, PRELOAD, tTAdLoadType};
+        f61572a = new TTAdLoadType[]{UNKNOWN, PRELOAD, tTAdLoadType};
     }
 
     public TTAdLoadType(String str, int i2) {
@@ -68,6 +68,6 @@ public final class TTAdLoadType {
     public static TTAdLoadType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TTAdLoadType[]) f61573a.clone() : (TTAdLoadType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TTAdLoadType[]) f61572a.clone() : (TTAdLoadType[]) invokeV.objValue;
     }
 }

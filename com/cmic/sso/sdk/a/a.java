@@ -23,7 +23,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f61822a;
+        public static final /* synthetic */ int[] f61821a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,13 +40,13 @@ public class a {
                 }
             }
             int[] iArr = new int[EnumC1851a.values().length];
-            f61822a = iArr;
+            f61821a = iArr;
             try {
-                iArr[EnumC1851a.f61825c.ordinal()] = 1;
+                iArr[EnumC1851a.f61824c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f61822a[EnumC1851a.f61824b.ordinal()] = 2;
+                f61821a[EnumC1851a.f61823b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -59,16 +59,16 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC1851a f61823a;
+        public static final EnumC1851a f61822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1851a f61824b;
+        public static final EnumC1851a f61823b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC1851a f61825c;
+        public static final EnumC1851a f61824c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1851a[] f61826d;
+        public static final /* synthetic */ EnumC1851a[] f61825d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,11 +84,11 @@ public class a {
                     return;
                 }
             }
-            f61823a = new EnumC1851a(RomUtils.UNKNOWN, 0);
-            f61824b = new EnumC1851a("SAMSUNG", 1);
+            f61822a = new EnumC1851a(RomUtils.UNKNOWN, 0);
+            f61823b = new EnumC1851a("SAMSUNG", 1);
             EnumC1851a enumC1851a = new EnumC1851a("HUAWEI", 2);
-            f61825c = enumC1851a;
-            f61826d = new EnumC1851a[]{f61823a, f61824b, enumC1851a};
+            f61824c = enumC1851a;
+            f61825d = new EnumC1851a[]{f61822a, f61823b, enumC1851a};
         }
 
         public EnumC1851a(String str, int i2) {
@@ -119,7 +119,7 @@ public class a {
         public static EnumC1851a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1851a[]) f61826d.clone() : (EnumC1851a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1851a[]) f61825d.clone() : (EnumC1851a[]) invokeV.objValue;
         }
     }
 
@@ -135,12 +135,12 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = Build.BRAND;
             if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                return EnumC1851a.f61824b;
+                return EnumC1851a.f61823b;
             }
             if (str.equalsIgnoreCase("Huawei")) {
-                return EnumC1851a.f61825c;
+                return EnumC1851a.f61824c;
             }
-            return EnumC1851a.f61823a;
+            return EnumC1851a.f61822a;
         }
         return (EnumC1851a) invokeV.objValue;
     }
@@ -149,7 +149,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC1851a)) == null) {
-            int i2 = AnonymousClass1.f61822a[enumC1851a.ordinal()];
+            int i2 = AnonymousClass1.f61821a[enumC1851a.ordinal()];
             if (i2 != 1) {
                 return i2 != 2 ? -1 : 1;
             }

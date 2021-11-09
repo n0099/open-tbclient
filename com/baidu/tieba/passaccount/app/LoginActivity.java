@@ -85,9 +85,75 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginActivity f52034e;
+        public final /* synthetic */ LoginActivity f52033e;
 
         public a(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52033e = loginActivity;
+        }
+
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
+        public void beforeSuccess(SapiAccount sapiAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onFinish();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                this.f52033e.loginResult = -1;
+                this.f52033e.finishForResult(0);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
+                this.f52033e.mWebAuthResult = webAuthResult;
+                this.f52033e.mPassActivity = webAuthResult.activity;
+                b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                this.f52033e.passLoginSucc();
+                this.f52033e.loginResult = 0;
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f52034e;
+
+        public b(LoginActivity loginActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,14 +212,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends WebAuthListener {
+    public class c extends WebAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ LoginActivity f52035e;
 
-        public b(LoginActivity loginActivity) {
+        public c(LoginActivity loginActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +257,6 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
                 this.f52035e.loginResult = -1;
                 this.f52035e.finishForResult(0);
             }
@@ -204,73 +269,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
                 this.f52035e.mWebAuthResult = webAuthResult;
                 this.f52035e.mPassActivity = webAuthResult.activity;
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
                 this.f52035e.passLoginSucc();
                 this.f52035e.loginResult = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginActivity f52036e;
-
-        public c(LoginActivity loginActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {loginActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52036e = loginActivity;
-        }
-
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                super.onFinish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.f52036e.loginResult = -1;
-                this.f52036e.finishForResult(0);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
-                this.f52036e.mWebAuthResult = webAuthResult;
-                this.f52036e.mPassActivity = webAuthResult.activity;
-                this.f52036e.passLoginSucc();
-                this.f52036e.loginResult = 0;
             }
         }
     }
@@ -281,7 +281,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoginActivity f52037a;
+        public final /* synthetic */ LoginActivity f52036a;
 
         /* loaded from: classes9.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -289,7 +289,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f52038e;
+            public final /* synthetic */ d f52037e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -306,14 +306,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                         return;
                     }
                 }
-                this.f52038e = dVar;
+                this.f52037e = dVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    this.f52038e.f52037a.destroyWaitingDialog();
+                    this.f52037e.f52036a.destroyWaitingDialog();
                 }
             }
         }
@@ -333,7 +333,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                     return;
                 }
             }
-            this.f52037a = loginActivity;
+            this.f52036a = loginActivity;
         }
 
         @Override // b.a.q0.s.l.a.InterfaceC0685a
@@ -341,12 +341,12 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
                 b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
-                this.f52037a.closeLoadingDialog();
-                this.f52037a.showToast(str2);
-                if (this.f52037a.mPassActivity instanceof BaseSSOLoginActivity) {
-                    this.f52037a.mPassActivity.finish();
+                this.f52036a.closeLoadingDialog();
+                this.f52036a.showToast(str2);
+                if (this.f52036a.mPassActivity instanceof BaseSSOLoginActivity) {
+                    this.f52036a.mPassActivity.finish();
                 }
-                this.f52037a.finishForResult(0);
+                this.f52036a.finishForResult(0);
             }
         }
 
@@ -354,8 +354,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f52037a.getLoadingDialog() == null || !this.f52037a.getLoadingDialog().c()) {
-                    LoginActivity loginActivity = this.f52037a;
+                if (this.f52036a.getLoadingDialog() == null || !this.f52036a.getLoadingDialog().c()) {
+                    LoginActivity loginActivity = this.f52036a;
                     loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.sapi_logining), new a(this));
                 }
             }
@@ -366,17 +366,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-                TiebaStatic.log(new StatisticItem("c12948").param("obj_type", this.f52037a.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, this.f52037a.mFromUrl));
-                this.f52037a.closeLoadingDialog();
+                TiebaStatic.log(new StatisticItem("c12948").param("obj_type", this.f52036a.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, this.f52036a.mFromUrl));
+                this.f52036a.closeLoadingDialog();
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
-                    this.f52037a.goToMainEntrance(accountData);
+                    this.f52036a.goToMainEntrance(accountData);
                     if (b.a.q0.b.d.f()) {
                         b.a.q0.a.d.y().r();
                         return;
                     }
                     return;
                 }
-                this.f52037a.showInputDialog(accountData);
+                this.f52036a.showInputDialog(accountData);
             }
         }
     }
@@ -387,10 +387,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f52039e;
+        public final /* synthetic */ AccountData f52038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LoginActivity f52040f;
+        public final /* synthetic */ LoginActivity f52039f;
 
         public e(LoginActivity loginActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -407,15 +407,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                     return;
                 }
             }
-            this.f52040f = loginActivity;
-            this.f52039e = accountData;
+            this.f52039f = loginActivity;
+            this.f52038e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.q0.s.l.c.g(this.f52039e);
+                b.a.q0.s.l.c.g(this.f52038e);
                 b.a.q0.s.a0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
@@ -427,7 +427,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoginActivity f52041a;
+        public final /* synthetic */ LoginActivity f52040a;
 
         public f(LoginActivity loginActivity) {
             Interceptable interceptable = $ic;
@@ -444,18 +444,18 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                     return;
                 }
             }
-            this.f52041a = loginActivity;
+            this.f52040a = loginActivity;
         }
 
         @Override // b.a.q0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
-                TbadkCoreApplication.getInst().setTbs(this.f52041a.mOldTbs);
-                if (this.f52041a.mWebAuthResult != null) {
-                    this.f52041a.mWebAuthResult.finishActivity();
+                TbadkCoreApplication.getInst().setTbs(this.f52040a.mOldTbs);
+                if (this.f52040a.mWebAuthResult != null) {
+                    this.f52040a.mWebAuthResult.finishActivity();
                 }
-                this.f52041a.finish();
+                this.f52040a.finish();
             }
         }
     }

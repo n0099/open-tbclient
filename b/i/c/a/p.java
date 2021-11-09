@@ -48,12 +48,12 @@ public final class p extends BroadcastReceiver {
                 this.f32954b.p();
                 int i2 = extras.getInt("install.status");
                 if (i2 == 1 || i2 == 2 || i2 == 3) {
-                    this.f32953a.a(com.google.ar.core.p.f63129a);
+                    this.f32953a.a(com.google.ar.core.p.f63128a);
                 } else if (i2 == 4) {
-                    this.f32953a.a(com.google.ar.core.p.f63131c);
+                    this.f32953a.a(com.google.ar.core.p.f63130c);
                 } else if (i2 != 6) {
                 } else {
-                    this.f32953a.a(com.google.ar.core.p.f63130b);
+                    this.f32953a.a(com.google.ar.core.p.f63129b);
                 }
             }
         }

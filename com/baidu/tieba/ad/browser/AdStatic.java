@@ -50,7 +50,7 @@ public class AdStatic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f46646a = true;
+    public static boolean f46645a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -614,7 +614,7 @@ public class AdStatic {
         if (interceptable == null || interceptable.invokeLLLL(65554, null, context, str, str2, bundle) == null) {
             TiebaStatic.eventStat(context, "url_1", null);
             String h2 = h(str);
-            if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f46646a) {
+            if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f46645a) {
                 TiebaStatic.eventStat(context, "url_2", null);
                 o(context, str, str2, bundle);
                 return;

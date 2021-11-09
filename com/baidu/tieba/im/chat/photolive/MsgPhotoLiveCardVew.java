@@ -56,9 +56,66 @@ public class MsgPhotoLiveCardVew extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f50333e;
+        public final /* synthetic */ MsgPhotoLiveCardVew f50332e;
 
         public a(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgPhotoLiveCardVew};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50332e = msgPhotoLiveCardVew;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50332e.t <= 0) {
+                return;
+            }
+            c photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+            if (this.f50332e.v != 1) {
+                if (this.f50332e.v != 3) {
+                    if (this.f50332e.v != 4) {
+                        if (this.f50332e.v == 5) {
+                            TiebaStatic.log(TbadkCoreStatisticKey.CHANDE_OLD_SUCCESS);
+                        }
+                    } else {
+                        TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_SUCCESS);
+                    }
+                } else {
+                    TiebaStatic.log(TbadkCoreStatisticKey.FANS_REMIND_CLICK);
+                }
+            } else {
+                TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
+                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f50332e.t)) > 0) {
+                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f50332e;
+                    msgPhotoLiveCardVew.u = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.t));
+                }
+            }
+            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f50332e;
+            msgPhotoLiveCardVew2.O(msgPhotoLiveCardVew2.v);
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MsgPhotoLiveCardVew f50333e;
+
+        public b(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,65 +136,8 @@ public class MsgPhotoLiveCardVew extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50333e.t <= 0) {
-                return;
-            }
-            c photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
-            if (this.f50333e.v != 1) {
-                if (this.f50333e.v != 3) {
-                    if (this.f50333e.v != 4) {
-                        if (this.f50333e.v == 5) {
-                            TiebaStatic.log(TbadkCoreStatisticKey.CHANDE_OLD_SUCCESS);
-                        }
-                    } else {
-                        TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_SUCCESS);
-                    }
-                } else {
-                    TiebaStatic.log(TbadkCoreStatisticKey.FANS_REMIND_CLICK);
-                }
-            } else {
-                TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f50333e.t)) > 0) {
-                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f50333e;
-                    msgPhotoLiveCardVew.u = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.t));
-                }
-            }
-            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f50333e;
-            msgPhotoLiveCardVew2.O(msgPhotoLiveCardVew2.v);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f50334e;
-
-        public b(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgPhotoLiveCardVew};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50334e = msgPhotoLiveCardVew;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50334e.M(view);
+                this.f50333e.M(view);
             }
         }
     }

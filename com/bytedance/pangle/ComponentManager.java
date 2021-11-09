@@ -95,7 +95,7 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter);
-                    a2.f61475b.put(pluginBroadcastReceiver, aVar);
+                    a2.f61474b.put(pluginBroadcastReceiver, aVar);
                     a2.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
                 }
@@ -126,22 +126,22 @@ public class ComponentManager {
             return;
         }
         com.bytedance.pangle.receiver.c a2 = com.bytedance.pangle.receiver.c.a();
-        for (Map.Entry<String, c.a> entry : a2.f61474a.entrySet()) {
+        for (Map.Entry<String, c.a> entry : a2.f61473a.entrySet()) {
             c.a value = entry.getValue();
             if (value != null && pluginBroadcastReceiver != null) {
                 try {
-                    if (value.f61478b.size() > 0 && (remove = value.f61478b.remove(pluginBroadcastReceiver))) {
-                        ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "unregisterReceiver->[移除Action]:" + value.f61477a + ",receiver.hashCode()=" + pluginBroadcastReceiver.hashCode() + ",是否成功，success:" + remove);
+                    if (value.f61477b.size() > 0 && (remove = value.f61477b.remove(pluginBroadcastReceiver))) {
+                        ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "unregisterReceiver->[移除Action]:" + value.f61476a + ",receiver.hashCode()=" + pluginBroadcastReceiver.hashCode() + ",是否成功，success:" + remove);
                     }
                 } catch (Throwable th) {
-                    ZeusLogger.e(ZeusLogger.TAG_RECEIVER, "unregisterReceiver-plugin-receiver->action:" + value.f61477a + "[exception]:", th);
+                    ZeusLogger.e(ZeusLogger.TAG_RECEIVER, "unregisterReceiver-plugin-receiver->action:" + value.f61476a + "[exception]:", th);
                 }
             }
-            BroadcastReceiver broadcastReceiver = a2.f61475b.get(pluginBroadcastReceiver);
+            BroadcastReceiver broadcastReceiver = a2.f61474b.get(pluginBroadcastReceiver);
             if (broadcastReceiver != null) {
                 try {
-                    a2.f61476c.remove(Integer.valueOf(broadcastReceiver.hashCode()));
-                    a2.f61475b.remove(pluginBroadcastReceiver);
+                    a2.f61475c.remove(Integer.valueOf(broadcastReceiver.hashCode()));
+                    a2.f61474b.remove(pluginBroadcastReceiver);
                     context.unregisterReceiver(broadcastReceiver);
                 } catch (Throwable th2) {
                     ZeusLogger.e(ZeusLogger.TAG_RECEIVER, "unregisterReceiver-移除系统注册的广播发生异常:", th2);
@@ -207,9 +207,9 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter, str, handler);
-                    a2.f61475b.put(pluginBroadcastReceiver, aVar);
+                    a2.f61474b.put(pluginBroadcastReceiver, aVar);
                     if (handler != null) {
-                        a2.f61476c.add(Integer.valueOf(aVar.hashCode()));
+                        a2.f61475c.add(Integer.valueOf(aVar.hashCode()));
                     }
                     a2.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
@@ -230,7 +230,7 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null && Build.VERSION.SDK_INT >= 26) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter, i2);
-                    a2.f61475b.put(pluginBroadcastReceiver, aVar);
+                    a2.f61474b.put(pluginBroadcastReceiver, aVar);
                     a2.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
                 }
@@ -250,9 +250,9 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null && Build.VERSION.SDK_INT >= 26) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter, str, handler, i2);
-                    a2.f61475b.put(pluginBroadcastReceiver, aVar);
+                    a2.f61474b.put(pluginBroadcastReceiver, aVar);
                     if (handler != null) {
-                        a2.f61476c.add(Integer.valueOf(aVar.hashCode()));
+                        a2.f61475c.add(Integer.valueOf(aVar.hashCode()));
                     }
                     a2.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;

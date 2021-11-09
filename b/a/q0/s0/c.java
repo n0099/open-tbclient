@@ -333,11 +333,11 @@ public class c extends b.a.e.h.j.e.b {
                         if (errorCode != -100) {
                             switch (errorCode) {
                                 case NetWorkError.NETWORK_CONNECT_EXCEPTION /* -22 */:
-                                    return SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY;
+                                    return SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY;
                                 case NetWorkError.NETWORK_UNKNOWN_HOST_EXCEPTION /* -21 */:
-                                    return SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY;
+                                    return SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
                                 case -20:
-                                    return SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY;
+                                    return SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY;
                                 case -19:
                                     return 3004;
                                 default:
@@ -392,9 +392,9 @@ public class c extends b.a.e.h.j.e.b {
                         case 3003:
                         case 3004:
                         case 3005:
-                        case SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY /* 3007 */:
-                        case SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY /* 3008 */:
-                        case SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY /* 3009 */:
+                        case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY /* 3007 */:
+                        case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY /* 3008 */:
+                        case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY /* 3009 */:
                             string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_net);
                             break;
                         case 3006:

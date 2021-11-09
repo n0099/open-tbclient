@@ -36,10 +36,10 @@ public class d5 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GifImageView gifImageView = this.f33292e;
-            gifImageView.f70513b = null;
-            gifImageView.f70512a = null;
-            gifImageView.f70518g = null;
-            gifImageView.f70517f = false;
+            gifImageView.f70512b = null;
+            gifImageView.f70511a = null;
+            gifImageView.f70517g = null;
+            gifImageView.f70516f = false;
         }
     }
 }

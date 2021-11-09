@@ -28,19 +28,19 @@ public class PbTopTipView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52548e;
+    public int f52547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52549f;
+    public boolean f52548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f52550g;
+    public Animation f52549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f52551h;
+    public Animation f52550h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f52552i;
+    public Runnable f52551i;
     public b.a.r0.k0.b j;
     public a.b k;
     public Runnable l;
@@ -51,7 +51,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52553e;
+        public final /* synthetic */ PbTopTipView f52552e;
 
         public a(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52553e = pbTopTipView;
+            this.f52552e = pbTopTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52553e.g();
+                this.f52552e.g();
             }
         }
     }
@@ -86,7 +86,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52554a;
+        public final /* synthetic */ PbTopTipView f52553a;
 
         public b(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52554a = pbTopTipView;
+            this.f52553a = pbTopTipView;
         }
 
         @Override // b.a.r0.k0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3) && this.f52554a.f52549f) {
-                this.f52554a.g();
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3) && this.f52553a.f52548f) {
+                this.f52553a.g();
             }
         }
 
@@ -148,7 +148,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52555e;
+        public final /* synthetic */ PbTopTipView f52554e;
 
         public c(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52555e = pbTopTipView;
+            this.f52554e = pbTopTipView;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f52555e.j.c(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f52554e.j.c(motionEvent) : invokeLL.booleanValue;
         }
     }
 
@@ -182,7 +182,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52556a;
+        public final /* synthetic */ PbTopTipView f52555a;
 
         public d(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -199,16 +199,16 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52556a = pbTopTipView;
+            this.f52555a = pbTopTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f52556a.onDestroy();
-                this.f52556a.setVisibility(8);
-                b.a.e.e.m.e.a().postDelayed(this.f52556a.l, 600L);
+                this.f52555a.onDestroy();
+                this.f52555a.setVisibility(8);
+                b.a.e.e.m.e.a().postDelayed(this.f52555a.l, 600L);
             }
         }
 
@@ -233,7 +233,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52557a;
+        public final /* synthetic */ PbTopTipView f52556a;
 
         public e(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -250,17 +250,17 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52557a = pbTopTipView;
+            this.f52556a = pbTopTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f52557a.f52548e <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f52556a.f52547e <= 0) {
                 return;
             }
-            PbTopTipView pbTopTipView = this.f52557a;
-            pbTopTipView.postDelayed(pbTopTipView.f52552i, this.f52557a.f52548e);
+            PbTopTipView pbTopTipView = this.f52556a;
+            pbTopTipView.postDelayed(pbTopTipView.f52551i, this.f52556a.f52547e);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -284,7 +284,7 @@ public class PbTopTipView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f52558e;
+        public final /* synthetic */ PbTopTipView f52557e;
 
         public f(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -301,17 +301,17 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f52558e = pbTopTipView;
+            this.f52557e = pbTopTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ViewGroup viewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f52558e.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f52557e.getParent()) == null) {
                 return;
             }
-            viewGroup.removeView(this.f52558e);
+            viewGroup.removeView(this.f52557e);
         }
     }
 
@@ -333,8 +333,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f52548e = 3000;
-        this.f52552i = new a(this);
+        this.f52547e = 3000;
+        this.f52551i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         h();
@@ -343,11 +343,11 @@ public class PbTopTipView extends TextView {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52549f = false;
-            removeCallbacks(this.f52552i);
+            this.f52548f = false;
+            removeCallbacks(this.f52551i);
             if (getParent() != null) {
                 clearAnimation();
-                startAnimation(this.f52550g);
+                startAnimation(this.f52549g);
             }
         }
     }
@@ -360,19 +360,19 @@ public class PbTopTipView extends TextView {
             bVar.d(this.k);
             setOnTouchListener(new c(this));
             setupPaddings();
-            this.f52551h = AnimationUtils.loadAnimation(getContext(), b.a.r0.k2.e.push_top_in);
-            this.f52550g = AnimationUtils.loadAnimation(getContext(), b.a.r0.k2.e.push_top_out);
+            this.f52550h = AnimationUtils.loadAnimation(getContext(), b.a.r0.k2.e.push_top_in);
+            this.f52549g = AnimationUtils.loadAnimation(getContext(), b.a.r0.k2.e.push_top_out);
             setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(g.fontsize30));
-            this.f52550g.setAnimationListener(new d(this));
-            this.f52551h.setDuration(400L);
-            this.f52551h.setAnimationListener(new e(this));
+            this.f52549g.setAnimationListener(new d(this));
+            this.f52550h.setDuration(400L);
+            this.f52550h.setAnimationListener(new e(this));
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f52549f = false;
+            this.f52548f = false;
             onDestroy();
             ViewGroup viewGroup = (ViewGroup) getParent();
             if (viewGroup != null) {
@@ -401,7 +401,7 @@ public class PbTopTipView extends TextView {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            removeCallbacks(this.f52552i);
+            removeCallbacks(this.f52551i);
             clearAnimation();
             b.a.e.e.m.e.a().removeCallbacks(this.l);
         }
@@ -410,7 +410,7 @@ public class PbTopTipView extends TextView {
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f52548e = i2;
+            this.f52547e = i2;
         }
     }
 
@@ -437,8 +437,8 @@ public class PbTopTipView extends TextView {
         layoutParams.addRule(10);
         relativeLayout.addView(this, layoutParams);
         onChangeSkinType(i2);
-        startAnimation(this.f52551h);
-        this.f52549f = true;
+        startAnimation(this.f52550h);
+        this.f52548f = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -460,8 +460,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f52548e = 3000;
-        this.f52552i = new a(this);
+        this.f52547e = 3000;
+        this.f52551i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         h();
@@ -486,8 +486,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f52548e = 3000;
-        this.f52552i = new a(this);
+        this.f52547e = 3000;
+        this.f52551i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         h();

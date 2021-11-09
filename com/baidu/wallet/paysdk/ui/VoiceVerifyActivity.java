@@ -80,7 +80,7 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ VoiceVerifyActivity f60337a;
+                public final /* synthetic */ VoiceVerifyActivity f60336a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -101,17 +101,17 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                             return;
                         }
                     }
-                    this.f60337a = this;
+                    this.f60336a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VoiceVerifyActivity voiceVerifyActivity = this.f60337a;
+                        VoiceVerifyActivity voiceVerifyActivity = this.f60336a;
                         voiceVerifyActivity.mSendSms.setText(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall"));
-                        this.f60337a.mSendSms.setTextSize(1, 16.0f);
-                        this.f60337a.mSendSms.setEnabled(true);
+                        this.f60336a.mSendSms.setTextSize(1, 16.0f);
+                        this.f60336a.mSendSms.setEnabled(true);
                     }
                 }
 
@@ -119,9 +119,9 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                 public void onTick(long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                        this.f60337a.mSendSms.setEnabled(false);
-                        this.f60337a.mSendSms.setTextSize(1, 12.0f);
-                        VoiceVerifyActivity voiceVerifyActivity = this.f60337a;
+                        this.f60336a.mSendSms.setEnabled(false);
+                        this.f60336a.mSendSms.setTextSize(1, 12.0f);
+                        VoiceVerifyActivity voiceVerifyActivity = this.f60336a;
                         voiceVerifyActivity.mSendSms.setText(String.format(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall_timer"), Integer.valueOf((int) (j / 1000))));
                     }
                 }

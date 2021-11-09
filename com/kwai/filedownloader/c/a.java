@@ -27,7 +27,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f66848a;
+            public IBinder f66847a;
 
             public C1942a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f66848a = iBinder;
+                this.f66847a = iBinder;
             }
 
             @Override // com.kwai.filedownloader.c.a
@@ -60,7 +60,7 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f66848a.transact(1, obtain, null, 1);
+                        this.f66847a.transact(1, obtain, null, 1);
                     } finally {
                         obtain.recycle();
                     }
@@ -71,7 +71,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66848a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66847a : (IBinder) invokeV.objValue;
             }
         }
 

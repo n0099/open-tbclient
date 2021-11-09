@@ -80,6 +80,39 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ KSRewardVideoActivityProxy f66008a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f66008a = this;
+            }
+
+            @Override // com.kwad.sdk.reward.a.f
+            public void a() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f66008a.mIsBackEnable = true;
+                }
+            }
+        };
+        this.mAdOpenInteractionListener = new com.kwad.sdk.reward.a.c(this) { // from class: com.kwad.sdk.reward.KSRewardVideoActivityProxy.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
             public final /* synthetic */ KSRewardVideoActivityProxy f66009a;
 
             {
@@ -98,39 +131,6 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
                     }
                 }
                 this.f66009a = this;
-            }
-
-            @Override // com.kwad.sdk.reward.a.f
-            public void a() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f66009a.mIsBackEnable = true;
-                }
-            }
-        };
-        this.mAdOpenInteractionListener = new com.kwad.sdk.reward.a.c(this) { // from class: com.kwad.sdk.reward.KSRewardVideoActivityProxy.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ KSRewardVideoActivityProxy f66010a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.f66010a = this;
             }
 
             @Override // com.kwad.sdk.reward.a.c, com.kwad.sdk.reward.a.b
@@ -157,7 +157,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
             public void a(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                    this.f66010a.notifyPageDismiss(z);
+                    this.f66009a.notifyPageDismiss(z);
                 }
             }
 
@@ -185,7 +185,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
             public void e() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                    this.f66010a.notifyRewardVerify();
+                    this.f66009a.notifyRewardVerify();
                 }
             }
         };
@@ -263,7 +263,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             int d2 = com.kwad.sdk.core.response.b.a.d(this.mAdInfo);
             int e2 = com.kwad.sdk.core.response.b.a.e(this.mAdInfo);
-            if (this.mCallerContext.f66015e == 1) {
+            if (this.mCallerContext.f66014e == 1) {
                 if (d2 > e2) {
                     return false;
                 }
@@ -301,7 +301,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         this.mPageDismissCalled = true;
         if (z) {
             adTemplate = this.mAdTemplate;
-            jSONObject = this.mCallerContext.f66014d;
+            jSONObject = this.mCallerContext.f66013d;
         } else {
             adTemplate = this.mAdTemplate;
             i2 = 6;
@@ -377,18 +377,18 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a aVar = new a();
-            aVar.f66017g = getActivity();
-            aVar.f66012b = this.mAdOpenInteractionListener;
-            aVar.f66015e = this.mScreenOrientation;
+            aVar.f66016g = getActivity();
+            aVar.f66011b = this.mAdOpenInteractionListener;
+            aVar.f66014e = this.mScreenOrientation;
             KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-            aVar.f66013c = ksVideoPlayConfig;
-            aVar.f66014d = this.mReportExtData;
-            aVar.f66018h = this.mRootContainer;
+            aVar.f66012c = ksVideoPlayConfig;
+            aVar.f66013d = this.mReportExtData;
+            aVar.f66017h = this.mRootContainer;
             AdTemplate adTemplate = this.mAdTemplate;
-            aVar.f66016f = adTemplate;
+            aVar.f66015f = adTemplate;
             com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig, this.rewardType == 2);
-            aVar.f66019i = aVar2;
-            aVar.f66011a.add(aVar2);
+            aVar.f66018i = aVar2;
+            aVar.f66010a.add(aVar2);
             if (com.kwad.sdk.core.response.b.a.v(this.mAdInfo)) {
                 aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
             }

@@ -18,10 +18,10 @@ public class c implements com.kwad.sdk.collector.model.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64202a;
+    public String f64201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f64203b;
+    public List<String> f64202b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class c implements com.kwad.sdk.collector.model.d {
                 return;
             }
         }
-        this.f64203b = new ArrayList();
+        this.f64202b = new ArrayList();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64202a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64201a : (String) invokeV.objValue;
     }
 
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64203b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64202b : (List) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -58,13 +58,13 @@ public class c implements com.kwad.sdk.collector.model.d {
             return;
         }
         try {
-            this.f64202a = jSONObject.optString("packageName");
+            this.f64201a = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("paths");
             if (optJSONArray != null) {
-                this.f64203b.clear();
+                this.f64202b.clear();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f64203b.add(optJSONArray.getString(i2));
+                    this.f64202b.add(optJSONArray.getString(i2));
                 }
             }
         } catch (Exception e2) {
@@ -79,8 +79,8 @@ public class c implements com.kwad.sdk.collector.model.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "packageName", this.f64202a);
-            q.a(jSONObject, "paths", this.f64203b);
+            q.a(jSONObject, "packageName", this.f64201a);
+            q.a(jSONObject, "paths", this.f64202b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

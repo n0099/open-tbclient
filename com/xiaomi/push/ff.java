@@ -16,7 +16,7 @@ public class ff {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public XmlPullParser f70941a;
+    public XmlPullParser f70940a;
 
     public ff() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class ff {
         }
         try {
             XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-            this.f70941a = newPullParser;
+            this.f70940a = newPullParser;
             newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
         } catch (XmlPullParserException unused) {
         }
@@ -43,32 +43,32 @@ public class ff {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, flVar)) == null) {
-            this.f70941a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
-            this.f70941a.next();
-            int eventType = this.f70941a.getEventType();
-            String name = this.f70941a.getName();
+            this.f70940a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+            this.f70940a.next();
+            int eventType = this.f70940a.getEventType();
+            String name = this.f70940a.getName();
             if (eventType == 2) {
                 if (name.equals("message")) {
-                    return gk.a(this.f70941a);
+                    return gk.a(this.f70940a);
                 }
                 if (name.equals("iq")) {
-                    return gk.a(this.f70941a, flVar);
+                    return gk.a(this.f70940a, flVar);
                 }
                 if (name.equals("presence")) {
-                    return gk.m355a(this.f70941a);
+                    return gk.m355a(this.f70940a);
                 }
-                if (this.f70941a.getName().equals("stream")) {
+                if (this.f70940a.getName().equals("stream")) {
                     return null;
                 }
-                if (this.f70941a.getName().equals("error")) {
-                    throw new fw(gk.m356a(this.f70941a));
+                if (this.f70940a.getName().equals("error")) {
+                    throw new fw(gk.m356a(this.f70940a));
                 }
-                if (!this.f70941a.getName().equals("warning")) {
-                    this.f70941a.getName().equals("bind");
+                if (!this.f70940a.getName().equals("warning")) {
+                    this.f70940a.getName().equals("bind");
                     return null;
                 }
-                this.f70941a.next();
-                this.f70941a.getName().equals("multi-login");
+                this.f70940a.next();
+                this.f70940a.getName().equals("multi-login");
                 return null;
             }
             return null;

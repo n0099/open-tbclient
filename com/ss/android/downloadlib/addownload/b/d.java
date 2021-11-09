@@ -23,17 +23,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f68505a;
+    public static volatile d f68504a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f68506c;
+    public static final String[] f68505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f68507d;
+    public static final int[] f68506d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<a> f68508b;
+    public final LinkedList<a> f68507b;
 
     /* renamed from: com.ss.android.downloadlib.addownload.b.d$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -48,19 +48,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68509a;
+        public final String f68508a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f68510b;
+        public final int f68509b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f68511c;
+        public final String f68510c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f68512d;
+        public final String f68511d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f68513e;
+        public final long f68512e;
 
         public /* synthetic */ a(String str, int i2, String str2, String str3, long j, AnonymousClass1 anonymousClass1) {
             this(str, i2, str2, str3, j);
@@ -81,11 +81,11 @@ public class d {
                     return;
                 }
             }
-            this.f68509a = str;
-            this.f68510b = i2;
-            this.f68511c = str2 != null ? str2.toLowerCase() : null;
-            this.f68512d = str3 != null ? str3.toLowerCase() : null;
-            this.f68513e = j;
+            this.f68508a = str;
+            this.f68509b = i2;
+            this.f68510c = str2 != null ? str2.toLowerCase() : null;
+            this.f68511d = str3 != null ? str3.toLowerCase() : null;
+            this.f68512e = j;
         }
     }
 
@@ -102,8 +102,8 @@ public class d {
                 return;
             }
         }
-        f68506c = new String[]{"com", "android", "ss"};
-        f68507d = new int[]{3101, 3102, 3103, 3201, 3202, 3203};
+        f68505c = new String[]{"com", "android", "ss"};
+        f68506d = new int[]{3101, 3102, 3103, 3201, 3202, 3203};
     }
 
     public d() {
@@ -119,21 +119,21 @@ public class d {
                 return;
             }
         }
-        this.f68508b = new LinkedList<>();
+        this.f68507b = new LinkedList<>();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68505a == null) {
+            if (f68504a == null) {
                 synchronized (d.class) {
-                    if (f68505a == null) {
-                        f68505a = new d();
+                    if (f68504a == null) {
+                        f68504a = new d();
                     }
                 }
             }
-            return f68505a;
+            return f68504a;
         }
         return (d) invokeV.objValue;
     }
@@ -164,10 +164,10 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (this.f68508b) {
-                Iterator<a> it = this.f68508b.iterator();
+            synchronized (this.f68507b) {
+                Iterator<a> it = this.f68507b.iterator();
                 while (it.hasNext()) {
-                    if (str.equals(it.next().f68509a)) {
+                    if (str.equals(it.next().f68508a)) {
                         it.remove();
                         return;
                     }
@@ -184,8 +184,8 @@ public class d {
             if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
                 return;
             }
-            synchronized (this.f68508b) {
-                this.f68508b.add(c2);
+            synchronized (this.f68507b) {
+                this.f68507b.add(c2);
             }
         }
     }
@@ -210,24 +210,24 @@ public class d {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (this.f68508b.isEmpty()) {
+            if (this.f68507b.isEmpty()) {
                 return null;
             }
             String N = bVar.N();
             String e2 = bVar.e();
             String J = bVar.J();
             int I = bVar.I();
-            int length = f68507d.length;
+            int length = f68506d.length;
             a[] aVarArr = new a[length];
-            synchronized (this.f68508b) {
-                Iterator<a> it = this.f68508b.iterator();
+            synchronized (this.f68507b) {
+                Iterator<a> it = this.f68507b.iterator();
                 PackageInfo packageInfo = null;
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     next = it.next();
-                    if (next.f68513e >= bVar.C()) {
+                    if (next.f68512e >= bVar.C()) {
                         if (TextUtils.isEmpty(N)) {
                             if (packageInfo == null) {
                                 packageInfo = l.a(bVar);
@@ -239,12 +239,12 @@ public class d {
                                 }
                             }
                         }
-                        if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f68512d)) {
+                        if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f68511d)) {
                             N = N.toLowerCase();
-                            if (N.equals(next.f68512d)) {
+                            if (N.equals(next.f68511d)) {
                                 aVarArr[0] = next;
                                 break;
-                            } else if (N.contains(next.f68512d) || next.f68512d.contains(N)) {
+                            } else if (N.contains(next.f68511d) || next.f68511d.contains(N)) {
                                 break;
                             }
                         }
@@ -256,12 +256,12 @@ public class d {
                                 e2 = packageInfo.packageName;
                             }
                         }
-                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f68509a)) {
+                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f68508a)) {
                             e2 = e2.toLowerCase();
-                            if (e2.contains(next.f68509a) || next.f68509a.contains(e2)) {
+                            if (e2.contains(next.f68508a) || next.f68508a.contains(e2)) {
                                 break;
                             } else if (aVarArr[3] == null) {
-                                if (a(e2, next.f68509a)) {
+                                if (a(e2, next.f68508a)) {
                                     aVarArr[3] = next;
                                 }
                             }
@@ -275,9 +275,9 @@ public class d {
                                     J = packageInfo.versionName;
                                 }
                             }
-                            if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f68511c)) {
+                            if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f68510c)) {
                                 J = J.toLowerCase();
-                                if (J.equals(next.f68511c)) {
+                                if (J.equals(next.f68510c)) {
                                     aVarArr[4] = next;
                                 }
                             }
@@ -290,7 +290,7 @@ public class d {
                                         I = packageInfo.versionCode;
                                     }
                                 }
-                                if (I == next.f68510b) {
+                                if (I == next.f68509b) {
                                     aVarArr[5] = next;
                                 }
                             }
@@ -301,7 +301,7 @@ public class d {
             }
             for (i2 = 0; i2 < length; i2++) {
                 if (aVarArr[i2] != null) {
-                    return new Pair<>(aVarArr[i2], Integer.valueOf(f68507d[i2]));
+                    return new Pair<>(aVarArr[i2], Integer.valueOf(f68506d[i2]));
                 }
             }
             return null;
@@ -317,11 +317,11 @@ public class d {
                 return null;
             }
             b();
-            synchronized (this.f68508b) {
-                Iterator<a> it = this.f68508b.iterator();
+            synchronized (this.f68507b) {
+                Iterator<a> it = this.f68507b.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
-                    if (next.f68513e > bVar.C()) {
+                    if (next.f68512e > bVar.C()) {
                         return next;
                     }
                 }
@@ -348,7 +348,7 @@ public class d {
                 int i2 = 0;
                 int i3 = 0;
                 for (String str3 : split) {
-                    String[] strArr = f68506c;
+                    String[] strArr = f68505c;
                     int length = strArr.length;
                     int i4 = 0;
                     while (true) {
@@ -396,9 +396,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            synchronized (this.f68508b) {
-                Iterator<a> it = this.f68508b.iterator();
-                while (it.hasNext() && currentTimeMillis - it.next().f68513e > 1800000) {
+            synchronized (this.f68507b) {
+                Iterator<a> it = this.f68507b.iterator();
+                while (it.hasNext() && currentTimeMillis - it.next().f68512e > 1800000) {
                     it.remove();
                 }
             }

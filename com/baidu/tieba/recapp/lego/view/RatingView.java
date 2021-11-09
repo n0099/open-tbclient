@@ -24,10 +24,10 @@ public class RatingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f53546e;
+    public Context f53545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f53547f;
+    public a f53546f;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -35,13 +35,13 @@ public class RatingView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53548a;
+        public String f53547a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53549b;
+        public String f53548b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Double f53550c;
+        public Double f53549c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -83,37 +83,37 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             removeAllViews();
-            a aVar = this.f53547f;
+            a aVar = this.f53546f;
             if (aVar == null) {
                 return;
             }
-            if (!TextUtils.isEmpty(aVar.f53548a)) {
+            if (!TextUtils.isEmpty(aVar.f53547a)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                TextView textView = new TextView(this.f53546e);
-                textView.setText(this.f53547f.f53548a);
-                textView.setTextSize(0, l.g(this.f53546e, R.dimen.fontsize24));
+                TextView textView = new TextView(this.f53545e);
+                textView.setText(this.f53546f.f53547a);
+                textView.setTextSize(0, l.g(this.f53545e, R.dimen.fontsize24));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView.setPadding(0, 0, l.g(this.f53546e, R.dimen.ds30), 0);
+                textView.setPadding(0, 0, l.g(this.f53545e, R.dimen.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.f53547f.f53549b)) {
+            if (!TextUtils.isEmpty(this.f53546f.f53548b)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                TextView textView2 = new TextView(this.f53546e);
-                textView2.setText(this.f53547f.f53549b);
-                textView2.setTextSize(0, l.g(this.f53546e, R.dimen.fontsize24));
+                TextView textView2 = new TextView(this.f53545e);
+                textView2.setText(this.f53546f.f53548b);
+                textView2.setTextSize(0, l.g(this.f53545e, R.dimen.fontsize24));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, l.g(this.f53546e, R.dimen.ds6), 0);
+                textView2.setPadding(0, 0, l.g(this.f53545e, R.dimen.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            Double d2 = this.f53547f.f53550c;
+            Double d2 = this.f53546f.f53549c;
             if (d2 == null || Double.isNaN(d2.doubleValue())) {
                 return;
             }
-            Integer valueOf = Integer.valueOf(this.f53547f.f53550c.intValue());
+            Integer valueOf = Integer.valueOf(this.f53546f.f53549c.intValue());
             if (valueOf.intValue() > 10) {
                 valueOf = 10;
             }
@@ -139,9 +139,9 @@ public class RatingView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-            ImageView imageView = new ImageView(this.f53546e);
+            ImageView imageView = new ImageView(this.f53545e);
             imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            imageView.setPadding(0, 0, l.g(this.f53546e, R.dimen.ds4), 0);
+            imageView.setPadding(0, 0, l.g(this.f53545e, R.dimen.ds4), 0);
             imageView.setImageDrawable(drawable);
             return imageView;
         }
@@ -161,20 +161,20 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             a aVar = new a();
-            aVar.f53549b = "";
+            aVar.f53548b = "";
             if (!TextUtils.isEmpty(str)) {
                 Matcher matcher = Pattern.compile("(.*)\\{(.+)\\}").matcher(str);
                 if (matcher.find()) {
                     try {
                         if (!TextUtils.isEmpty(matcher.group(1))) {
-                            aVar.f53549b = matcher.group(1);
+                            aVar.f53548b = matcher.group(1);
                         }
-                        aVar.f53550c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                        aVar.f53549c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                     } catch (NumberFormatException unused) {
-                        aVar.f53549b = str;
+                        aVar.f53548b = str;
                     }
                 } else {
-                    aVar.f53549b = str;
+                    aVar.f53548b = str;
                 }
             }
             return aVar;
@@ -193,8 +193,8 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             a d2 = d(str2);
-            this.f53547f = d2;
-            d2.f53548a = str;
+            this.f53546f = d2;
+            d2.f53547a = str;
             a();
         }
     }
@@ -218,7 +218,7 @@ public class RatingView extends LinearLayout {
                 return;
             }
         }
-        this.f53546e = context;
+        this.f53545e = context;
         c();
     }
 }

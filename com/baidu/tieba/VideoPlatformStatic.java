@@ -36,7 +36,7 @@ public class VideoPlatformStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f46606a;
+    public static CustomMessageListener f46605a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -116,9 +116,9 @@ public class VideoPlatformStatic {
                 return;
             }
         }
-        f46606a = new a(2007015);
+        f46605a = new a(2007015);
         f();
-        MessageManager.getInstance().registerListener(f46606a);
+        MessageManager.getInstance().registerListener(f46605a);
         e();
     }
 

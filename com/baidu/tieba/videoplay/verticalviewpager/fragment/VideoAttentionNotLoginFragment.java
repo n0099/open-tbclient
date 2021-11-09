@@ -34,19 +34,19 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoItemModel f55153e;
+    public VideoItemModel f55152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55154f;
+    public int f55153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AttentionNotLoginLayout f55155g;
+    public AttentionNotLoginLayout f55154g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55156h;
+    public int f55155h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f55157i;
+    public final CustomMessageListener f55156i;
 
     /* loaded from: classes9.dex */
     public static final class a extends CustomMessageListener {
@@ -54,7 +54,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionNotLoginFragment f55158a;
+        public final /* synthetic */ VideoAttentionNotLoginFragment f55157a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoAttentionNotLoginFragment videoAttentionNotLoginFragment, int i2) {
@@ -74,14 +74,14 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f55158a = videoAttentionNotLoginFragment;
+            this.f55157a = videoAttentionNotLoginFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921612 && this.f55158a.isResumed() && this.f55158a.isVisible()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921612 && this.f55157a.isResumed() && this.f55157a.isVisible()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
             }
         }
@@ -93,7 +93,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionNotLoginFragment f55159a;
+        public final /* synthetic */ VideoAttentionNotLoginFragment f55158a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(VideoAttentionNotLoginFragment videoAttentionNotLoginFragment) {
@@ -111,19 +111,19 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f55159a = videoAttentionNotLoginFragment;
+            this.f55158a = videoAttentionNotLoginFragment;
         }
 
         @Override // com.baidu.tieba.videoplay.view.AttentionNotLoginLayout.a
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.f55159a.f55156h == 2 && !z) {
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.f55158a.f55155h == 2 && !z) {
                 TbSingleton tbSingleton = TbSingleton.getInstance();
                 Intrinsics.checkExpressionValueIsNotNull(tbSingleton, "TbSingleton.getInstance()");
                 if (tbSingleton.isFromFeedVideoClick()) {
                     return;
                 }
-                TbPageContext<BaseFragmentActivity> pageContext = this.f55159a.getPageContext();
+                TbPageContext<BaseFragmentActivity> pageContext = this.f55158a.getPageContext();
                 Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
                 pageContext.getPageActivity().finish();
             }
@@ -136,7 +136,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GestureDetectorCompat f55160e;
+        public final /* synthetic */ GestureDetectorCompat f55159e;
 
         public c(GestureDetectorCompat gestureDetectorCompat) {
             Interceptable interceptable = $ic;
@@ -153,14 +153,14 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f55160e = gestureDetectorCompat;
+            this.f55159e = gestureDetectorCompat;
         }
 
         @Override // android.view.View.OnTouchListener
         public final boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f55160e.onTouchEvent(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f55159e.onTouchEvent(motionEvent) : invokeLL.booleanValue;
         }
     }
 
@@ -200,7 +200,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f55161e;
+        public final /* synthetic */ View f55160e;
 
         public e(View view) {
             Interceptable interceptable = $ic;
@@ -217,7 +217,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f55161e = view;
+            this.f55160e = view;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -231,7 +231,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                     if (tbSingleton.isFromFeedVideoClick()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
                     }
-                    this.f55161e.cancelLongPress();
+                    this.f55160e.cancelLongPress();
                     return true;
                 }
                 return false;
@@ -253,22 +253,22 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                 return;
             }
         }
-        this.f55154f = -1;
-        this.f55157i = new a(this, 2921612);
+        this.f55153f = -1;
+        this.f55156i = new a(this, 2921612);
     }
 
     @Override // b.a.r0.b4.r.a.a
     public VideoItemModel getCurrentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55153e : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55152e : (VideoItemModel) invokeV.objValue;
     }
 
     @Override // b.a.r0.b4.r.a.a
     public int getFragmentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55154f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55153f : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -276,7 +276,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            registerListener(this.f55157i);
+            registerListener(this.f55156i);
         }
     }
 
@@ -285,7 +285,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            AttentionNotLoginLayout attentionNotLoginLayout = this.f55155g;
+            AttentionNotLoginLayout attentionNotLoginLayout = this.f55154g;
             if (attentionNotLoginLayout != null) {
                 attentionNotLoginLayout.onChangeSkinType(i2);
             }
@@ -305,12 +305,12 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                 }
                 String str = (String) obj;
                 Object obj2 = arguments.get("video_data");
-                this.f55153e = obj2 instanceof VideoItemModel ? obj2 : null;
-                this.f55156h = arguments.getInt("current_type");
+                this.f55152e = obj2 instanceof VideoItemModel ? obj2 : null;
+                this.f55155h = arguments.getInt("current_type");
             }
             View inflate = layoutInflater.inflate(g.video_attention_not_login_fragment, viewGroup, false);
             AttentionNotLoginLayout attentionNotLoginLayout = (AttentionNotLoginLayout) inflate.findViewById(f.not_login_layout);
-            this.f55155g = attentionNotLoginLayout;
+            this.f55154g = attentionNotLoginLayout;
             if (attentionNotLoginLayout != null) {
                 attentionNotLoginLayout.setOnAttentionLogin(new b(this));
             }
@@ -325,7 +325,7 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
     public void setFragmentIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f55154f = i2;
+            this.f55153f = i2;
         }
     }
 }

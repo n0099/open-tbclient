@@ -14,13 +14,13 @@ public class a implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f60821a;
+    public float f60820a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60822b;
+    public int f60821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC1829a f60823c;
+    public InterfaceC1829a f60822c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -43,7 +43,7 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.f60822b = 0;
+        this.f60821b = 0;
     }
 
     private float a(MotionEvent motionEvent) {
@@ -60,7 +60,7 @@ public class a implements View.OnTouchListener {
     private void b() {
         InterfaceC1829a interfaceC1829a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC1829a = this.f60823c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC1829a = this.f60822c) == null) {
             return;
         }
         interfaceC1829a.a(false);
@@ -71,28 +71,28 @@ public class a implements View.OnTouchListener {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-            InterfaceC1829a interfaceC1829a = this.f60823c;
+            InterfaceC1829a interfaceC1829a = this.f60822c;
             if (interfaceC1829a != null) {
                 interfaceC1829a.a();
             }
             int action = motionEvent.getAction() & 255;
             if (action == 0) {
-                this.f60822b = 1;
+                this.f60821b = 1;
             } else if (action == 1) {
-                this.f60822b = 0;
+                this.f60821b = 0;
             } else if (action != 2) {
                 if (action == 5) {
-                    this.f60821a = a(motionEvent);
-                    this.f60822b++;
+                    this.f60820a = a(motionEvent);
+                    this.f60821b++;
                 } else if (action == 6) {
-                    this.f60822b--;
+                    this.f60821b--;
                 }
-            } else if (this.f60822b >= 2) {
+            } else if (this.f60821b >= 2) {
                 float a2 = a(motionEvent);
-                if (a2 > this.f60821a) {
+                if (a2 > this.f60820a) {
                     a();
                 }
-                if (a2 < this.f60821a) {
+                if (a2 < this.f60820a) {
                     b();
                 }
             }
@@ -104,7 +104,7 @@ public class a implements View.OnTouchListener {
     private void a() {
         InterfaceC1829a interfaceC1829a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC1829a = this.f60823c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC1829a = this.f60822c) == null) {
             return;
         }
         interfaceC1829a.a(true);
@@ -113,7 +113,7 @@ public class a implements View.OnTouchListener {
     public void a(InterfaceC1829a interfaceC1829a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1829a) == null) {
-            this.f60823c = interfaceC1829a;
+            this.f60822c = interfaceC1829a;
         }
     }
 }

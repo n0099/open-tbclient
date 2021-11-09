@@ -697,7 +697,7 @@ public final class f {
                         return typeVariable;
                     }
                     Type[] k = new f(cVar, null).k(bounds);
-                    return (Types.c.f63691a && Arrays.equals(bounds, k)) ? typeVariable : Types.l(typeVariable.getGenericDeclaration(), typeVariable.getName(), k);
+                    return (Types.c.f63690a && Arrays.equals(bounds, k)) ? typeVariable : Types.l(typeVariable.getGenericDeclaration(), typeVariable.getName(), k);
                 }
                 return new f(cVar, null).j(type);
             }

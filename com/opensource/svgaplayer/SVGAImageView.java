@@ -38,19 +38,19 @@ public class SVGAImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67715e;
+    public boolean f67714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67716f;
+    public int f67715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67717g;
+    public boolean f67716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FillMode f67718h;
+    public FillMode f67717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.n.a.a f67719i;
+    public b.n.a.a f67718i;
     public ValueAnimator j;
     public HashMap k;
 
@@ -122,19 +122,19 @@ public class SVGAImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f67720e;
+        public final /* synthetic */ String f67719e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SVGAParser f67721f;
+        public final /* synthetic */ SVGAParser f67720f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f67722g;
+        public final /* synthetic */ SVGAImageView f67721g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f67723h;
+        public final /* synthetic */ boolean f67722h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f67724i;
+        public final /* synthetic */ boolean f67723i;
 
         /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
@@ -143,7 +143,7 @@ public class SVGAImageView extends ImageView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f67725a;
+            public final /* synthetic */ a f67724a;
 
             /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
@@ -152,10 +152,10 @@ public class SVGAImageView extends ImageView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C1955a f67726e;
+                public final /* synthetic */ C1955a f67725e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ SVGAVideoEntity f67727f;
+                public final /* synthetic */ SVGAVideoEntity f67726f;
 
                 public RunnableC1956a(C1955a c1955a, SVGAVideoEntity sVGAVideoEntity) {
                     Interceptable interceptable = $ic;
@@ -172,29 +172,29 @@ public class SVGAImageView extends ImageView {
                             return;
                         }
                     }
-                    this.f67726e = c1955a;
-                    this.f67727f = sVGAVideoEntity;
+                    this.f67725e = c1955a;
+                    this.f67726f = sVGAVideoEntity;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        this.f67727f.o(this.f67726e.f67725a.f67723h);
-                        this.f67726e.f67725a.f67722g.setVideoItem(this.f67727f);
-                        Drawable drawable = this.f67726e.f67725a.f67722g.getDrawable();
+                        this.f67726f.o(this.f67725e.f67724a.f67722h);
+                        this.f67725e.f67724a.f67721g.setVideoItem(this.f67726f);
+                        Drawable drawable = this.f67725e.f67724a.f67721g.getDrawable();
                         if (!(drawable instanceof b.n.a.b)) {
                             drawable = null;
                         }
                         b.n.a.b bVar = (b.n.a.b) drawable;
                         if (bVar != null) {
-                            ImageView.ScaleType scaleType = this.f67726e.f67725a.f67722g.getScaleType();
+                            ImageView.ScaleType scaleType = this.f67725e.f67724a.f67721g.getScaleType();
                             Intrinsics.checkExpressionValueIsNotNull(scaleType, "scaleType");
                             bVar.e(scaleType);
                         }
-                        a aVar = this.f67726e.f67725a;
-                        if (aVar.f67724i) {
-                            aVar.f67722g.startAnimation();
+                        a aVar = this.f67725e.f67724a;
+                        if (aVar.f67723i) {
+                            aVar.f67721g.startAnimation();
                         }
                     }
                 }
@@ -215,14 +215,14 @@ public class SVGAImageView extends ImageView {
                         return;
                     }
                 }
-                this.f67725a = aVar;
+                this.f67724a = aVar;
             }
 
             @Override // com.opensource.svgaplayer.SVGAParser.b
             public void a(SVGAVideoEntity sVGAVideoEntity) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, sVGAVideoEntity) == null) {
-                    this.f67725a.f67722g.post(new RunnableC1956a(this, sVGAVideoEntity));
+                    this.f67724a.f67721g.post(new RunnableC1956a(this, sVGAVideoEntity));
                 }
             }
 
@@ -249,11 +249,11 @@ public class SVGAImageView extends ImageView {
                     return;
                 }
             }
-            this.f67720e = str;
-            this.f67721f = sVGAParser;
-            this.f67722g = sVGAImageView;
-            this.f67723h = z;
-            this.f67724i = z2;
+            this.f67719e = str;
+            this.f67720f = sVGAParser;
+            this.f67721g = sVGAImageView;
+            this.f67722h = z;
+            this.f67723i = z2;
         }
 
         @Override // java.lang.Runnable
@@ -261,10 +261,10 @@ public class SVGAImageView extends ImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 C1955a c1955a = new C1955a(this);
-                if (!StringsKt__StringsJVMKt.startsWith$default(this.f67720e, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.f67720e, "https://", false, 2, null)) {
-                    this.f67721f.v(this.f67720e, c1955a);
+                if (!StringsKt__StringsJVMKt.startsWith$default(this.f67719e, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.f67719e, "https://", false, 2, null)) {
+                    this.f67720f.v(this.f67719e, c1955a);
                 } else {
-                    this.f67721f.w(new URL(this.f67720e), c1955a);
+                    this.f67720f.w(new URL(this.f67719e), c1955a);
                 }
             }
         }
@@ -276,13 +276,13 @@ public class SVGAImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f67728e;
+        public final /* synthetic */ ValueAnimator f67727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f67729f;
+        public final /* synthetic */ SVGAImageView f67728f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.n.a.b f67730g;
+        public final /* synthetic */ b.n.a.b f67729g;
 
         public b(ValueAnimator valueAnimator, SVGAImageView sVGAImageView, b.n.a.h.b bVar, b.n.a.b bVar2, boolean z) {
             Interceptable interceptable = $ic;
@@ -299,24 +299,24 @@ public class SVGAImageView extends ImageView {
                     return;
                 }
             }
-            this.f67728e = valueAnimator;
-            this.f67729f = sVGAImageView;
-            this.f67730g = bVar2;
+            this.f67727e = valueAnimator;
+            this.f67728f = sVGAImageView;
+            this.f67729g = bVar2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                b.n.a.b bVar = this.f67730g;
-                ValueAnimator animator = this.f67728e;
+                b.n.a.b bVar = this.f67729g;
+                ValueAnimator animator = this.f67727e;
                 Intrinsics.checkExpressionValueIsNotNull(animator, "animator");
                 Object animatedValue = animator.getAnimatedValue();
                 if (animatedValue != null) {
                     bVar.d(((Integer) animatedValue).intValue());
-                    b.n.a.a callback = this.f67729f.getCallback();
+                    b.n.a.a callback = this.f67728f.getCallback();
                     if (callback != null) {
-                        callback.b(this.f67730g.a(), (this.f67730g.a() + 1) / this.f67730g.b().d());
+                        callback.b(this.f67729g.a(), (this.f67729g.a() + 1) / this.f67729g.b().d());
                         return;
                     }
                     return;
@@ -332,16 +332,16 @@ public class SVGAImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67731e;
+        public final /* synthetic */ int f67730e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f67732f;
+        public final /* synthetic */ int f67731f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f67733g;
+        public final /* synthetic */ SVGAImageView f67732g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b.n.a.b f67734h;
+        public final /* synthetic */ b.n.a.b f67733h;
 
         public c(int i2, int i3, SVGAImageView sVGAImageView, b.n.a.h.b bVar, b.n.a.b bVar2, boolean z) {
             Interceptable interceptable = $ic;
@@ -358,17 +358,17 @@ public class SVGAImageView extends ImageView {
                     return;
                 }
             }
-            this.f67731e = i2;
-            this.f67732f = i3;
-            this.f67733g = sVGAImageView;
-            this.f67734h = bVar2;
+            this.f67730e = i2;
+            this.f67731f = i3;
+            this.f67732g = sVGAImageView;
+            this.f67733h = bVar2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f67733g.f67715e = false;
+                this.f67732g.f67714e = false;
             }
         }
 
@@ -376,16 +376,16 @@ public class SVGAImageView extends ImageView {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f67733g.f67715e = false;
-                this.f67733g.stopAnimation();
-                if (!this.f67733g.getClearsAfterStop()) {
-                    if (this.f67733g.getFillMode() == FillMode.Backward) {
-                        this.f67734h.d(this.f67731e);
-                    } else if (this.f67733g.getFillMode() == FillMode.Forward) {
-                        this.f67734h.d(this.f67732f);
+                this.f67732g.f67714e = false;
+                this.f67732g.stopAnimation();
+                if (!this.f67732g.getClearsAfterStop()) {
+                    if (this.f67732g.getFillMode() == FillMode.Backward) {
+                        this.f67733h.d(this.f67730e);
+                    } else if (this.f67732g.getFillMode() == FillMode.Forward) {
+                        this.f67733h.d(this.f67731f);
                     }
                 }
-                b.n.a.a callback = this.f67733g.getCallback();
+                b.n.a.a callback = this.f67732g.getCallback();
                 if (callback != null) {
                     callback.a();
                 }
@@ -396,7 +396,7 @@ public class SVGAImageView extends ImageView {
         public void onAnimationRepeat(Animator animator) {
             b.n.a.a callback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (callback = this.f67733g.getCallback()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (callback = this.f67732g.getCallback()) == null) {
                 return;
             }
             callback.c();
@@ -406,7 +406,7 @@ public class SVGAImageView extends ImageView {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f67733g.f67715e = true;
+                this.f67732g.f67714e = true;
             }
         }
     }
@@ -429,15 +429,15 @@ public class SVGAImageView extends ImageView {
                 return;
             }
         }
-        this.f67717g = true;
-        this.f67718h = FillMode.Forward;
+        this.f67716g = true;
+        this.f67717h = FillMode.Forward;
         b();
     }
 
     private final void setAnimating(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) {
-            this.f67715e = z;
+            this.f67714e = z;
         }
     }
 
@@ -485,16 +485,16 @@ public class SVGAImageView extends ImageView {
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SVGAImageView, 0, 0);
-            this.f67716f = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
-            this.f67717g = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
+            this.f67715f = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
+            this.f67716g = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
             boolean z = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_antiAlias, true);
             boolean z2 = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_autoPlay, true);
             String string = obtainStyledAttributes.getString(R.styleable.SVGAImageView_fillMode);
             if (string != null) {
                 if (Intrinsics.areEqual(string, "0")) {
-                    this.f67718h = FillMode.Backward;
+                    this.f67717h = FillMode.Backward;
                 } else if (Intrinsics.areEqual(string, "1")) {
-                    this.f67718h = FillMode.Forward;
+                    this.f67717h = FillMode.Forward;
                 }
             }
             String string2 = obtainStyledAttributes.getString(R.styleable.SVGAImageView_source);
@@ -518,31 +518,31 @@ public class SVGAImageView extends ImageView {
     public final b.n.a.a getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67719i : (b.n.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67718i : (b.n.a.a) invokeV.objValue;
     }
 
     public final boolean getClearsAfterStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67717g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67716g : invokeV.booleanValue;
     }
 
     public final FillMode getFillMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67718h : (FillMode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67717h : (FillMode) invokeV.objValue;
     }
 
     public final int getLoops() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67716f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67715f : invokeV.intValue;
     }
 
     public final boolean isAnimating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67715e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67714e : invokeV.booleanValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -569,7 +569,7 @@ public class SVGAImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             stopAnimation(false);
-            b.n.a.a aVar = this.f67719i;
+            b.n.a.a aVar = this.f67718i;
             if (aVar != null) {
                 aVar.onPause();
             }
@@ -579,28 +579,28 @@ public class SVGAImageView extends ImageView {
     public final void setCallback(b.n.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f67719i = aVar;
+            this.f67718i = aVar;
         }
     }
 
     public final void setClearsAfterStop(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f67717g = z;
+            this.f67716g = z;
         }
     }
 
     public final void setFillMode(FillMode fillMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, fillMode) == null) {
-            this.f67718h = fillMode;
+            this.f67717h = fillMode;
         }
     }
 
     public final void setLoops(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f67716f = i2;
+            this.f67715f = i2;
         }
     }
 
@@ -661,7 +661,7 @@ public class SVGAImageView extends ImageView {
     public final void stopAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            stopAnimation(this.f67717g);
+            stopAnimation(this.f67716g);
         }
     }
 
@@ -676,7 +676,7 @@ public class SVGAImageView extends ImageView {
                 cVar = new b.n.a.c();
             }
             b.n.a.b bVar = new b.n.a.b(sVGAVideoEntity, cVar);
-            bVar.c(this.f67717g);
+            bVar.c(this.f67716g);
             setImageDrawable(bVar);
         }
     }
@@ -725,7 +725,7 @@ public class SVGAImageView extends ImageView {
                         Intrinsics.checkExpressionValueIsNotNull(animator, "animator");
                         animator.setInterpolator(new LinearInterpolator());
                         animator.setDuration((long) ((((min - max) + 1) * (1000 / b2.c())) / d3));
-                        int i2 = this.f67716f;
+                        int i2 = this.f67715f;
                         animator.setRepeatCount(i2 <= 0 ? VideoItemModel.TYPE_LOADING : i2 - 1);
                         animator.addUpdateListener(new b(animator, this, bVar, bVar2, z));
                         animator.addListener(new c(max, min, this, bVar, bVar2, z));
@@ -792,8 +792,8 @@ public class SVGAImageView extends ImageView {
                 return;
             }
         }
-        this.f67717g = true;
-        this.f67718h = FillMode.Forward;
+        this.f67716g = true;
+        this.f67717h = FillMode.Forward;
         b();
         if (attributeSet != null) {
             a(attributeSet);
@@ -819,8 +819,8 @@ public class SVGAImageView extends ImageView {
                 return;
             }
         }
-        this.f67717g = true;
-        this.f67718h = FillMode.Forward;
+        this.f67716g = true;
+        this.f67717h = FillMode.Forward;
         b();
         if (attributeSet != null) {
             a(attributeSet);
@@ -846,8 +846,8 @@ public class SVGAImageView extends ImageView {
                 return;
             }
         }
-        this.f67717g = true;
-        this.f67718h = FillMode.Forward;
+        this.f67716g = true;
+        this.f67717h = FillMode.Forward;
         b();
         if (attributeSet != null) {
             a(attributeSet);

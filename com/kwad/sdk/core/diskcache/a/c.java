@@ -14,10 +14,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f64395a;
+    public static final Charset f64394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f64396b;
+    public static final Charset f64395b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,8 +33,8 @@ public final class c {
                 return;
             }
         }
-        f64395a = Charset.forName("US-ASCII");
-        f64396b = Charset.forName("UTF-8");
+        f64394a = Charset.forName("US-ASCII");
+        f64395b = Charset.forName("UTF-8");
     }
 
     public static void a(Closeable closeable) {

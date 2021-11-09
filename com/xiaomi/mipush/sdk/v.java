@@ -12,7 +12,7 @@ public final class v implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f70642a;
+    public final /* synthetic */ Context f70641a;
 
     public v(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f70642a = context;
+        this.f70641a = context;
     }
 
     @Override // java.lang.Runnable
@@ -37,10 +37,10 @@ public final class v implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageInfo packageInfo = this.f70642a.getPackageManager().getPackageInfo(this.f70642a.getPackageName(), 4612);
-                u.c(this.f70642a);
-                u.d(this.f70642a, packageInfo);
-                u.c(this.f70642a, packageInfo);
+                PackageInfo packageInfo = this.f70641a.getPackageManager().getPackageInfo(this.f70641a.getPackageName(), 4612);
+                u.c(this.f70641a);
+                u.d(this.f70641a, packageInfo);
+                u.c(this.f70641a, packageInfo);
             } catch (Throwable unused) {
             }
         }

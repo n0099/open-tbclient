@@ -63,18 +63,18 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fVar)) == null) {
             b.i.b.a.i0.a.e(fVar);
             l lVar = new l(16);
-            if (a.a(fVar, lVar).f31847a != v.q(com.baidu.wallet.base.audio.b.f57309e)) {
+            if (a.a(fVar, lVar).f31847a != v.q(com.baidu.wallet.base.audio.b.f57308e)) {
                 return null;
             }
             fVar.c(lVar.f32635a, 0, 4);
             lVar.J(0);
             int i2 = lVar.i();
-            if (i2 != v.q(com.baidu.wallet.base.audio.b.f57310f)) {
+            if (i2 != v.q(com.baidu.wallet.base.audio.b.f57309f)) {
                 String str = "Unsupported RIFF format: " + i2;
                 return null;
             }
             a a2 = a.a(fVar, lVar);
-            while (a2.f31847a != v.q(com.baidu.wallet.base.audio.b.f57311g)) {
+            while (a2.f31847a != v.q(com.baidu.wallet.base.audio.b.f57310g)) {
                 fVar.g((int) a2.f31848b);
                 a2 = a.a(fVar, lVar);
             }
@@ -117,7 +117,7 @@ public final class c {
             while (a2.f31847a != v.q("data")) {
                 String str = "Ignoring unknown WAV chunk: " + a2.f31847a;
                 long j = a2.f31848b + 8;
-                if (a2.f31847a == v.q(com.baidu.wallet.base.audio.b.f57309e)) {
+                if (a2.f31847a == v.q(com.baidu.wallet.base.audio.b.f57308e)) {
                     j = 12;
                 }
                 if (j <= 2147483647L) {

@@ -183,7 +183,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52132a;
+        public final /* synthetic */ FoldCommentActivity f52131a;
 
         public a(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52132a = foldCommentActivity;
+            this.f52131a = foldCommentActivity;
         }
 
         @Override // b.a.e.a.e
@@ -209,21 +209,21 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
                 if (obj != null) {
-                    int loadDataMode = this.f52132a.mForumManageModel.getLoadDataMode();
+                    int loadDataMode = this.f52131a.mForumManageModel.getLoadDataMode();
                     if (loadDataMode == 0) {
-                        this.f52132a.mModel.o1();
+                        this.f52131a.mModel.o1();
                         ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                        this.f52132a.finishDelPost(bVar, (bVar.f54252e != 1002 || bVar.f54253f) ? true : true);
+                        this.f52131a.finishDelPost(bVar, (bVar.f54251e != 1002 || bVar.f54252f) ? true : true);
                         return;
                     } else if (loadDataMode != 1) {
                         return;
                     } else {
                         ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                        this.f52132a.mView.v(1, dVar.f54256a, dVar.f54257b, true);
+                        this.f52131a.mView.v(1, dVar.f54255a, dVar.f54256b, true);
                         return;
                     }
                 }
-                this.f52132a.mView.v(this.f52132a.mForumManageModel.getLoadDataMode(), false, null, false);
+                this.f52131a.mView.v(this.f52131a.mForumManageModel.getLoadDataMode(), false, null, false);
             }
         }
     }
@@ -234,7 +234,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52133e;
+        public final /* synthetic */ FoldCommentActivity f52132e;
 
         public b(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -251,7 +251,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52133e = foldCommentActivity;
+            this.f52132e = foldCommentActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -270,10 +270,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f52134e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f52133e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52135f;
+        public final /* synthetic */ FoldCommentActivity f52134f;
 
         public c(FoldCommentActivity foldCommentActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -290,16 +290,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52135f = foldCommentActivity;
-            this.f52134e = userMuteAddAndDelCustomMessage;
+            this.f52134f = foldCommentActivity;
+            this.f52133e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f52135f.mView.d0();
-                MessageManager.getInstance().sendMessage(this.f52134e);
+                this.f52134f.mView.d0();
+                MessageManager.getInstance().sendMessage(this.f52133e);
                 aVar.dismiss();
             }
         }
@@ -311,7 +311,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52136e;
+        public final /* synthetic */ FoldCommentActivity f52135e;
 
         public d(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -328,7 +328,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52136e = foldCommentActivity;
+            this.f52135e = foldCommentActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -346,7 +346,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52137a;
+        public final /* synthetic */ FoldCommentActivity f52136a;
 
         public e(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -363,14 +363,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52137a = foldCommentActivity;
+            this.f52136a = foldCommentActivity;
         }
 
         @Override // b.a.q0.x.x.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52137a.showProgressBar();
+                this.f52136a.showProgressBar();
             }
         }
     }
@@ -381,7 +381,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52138a;
+        public final /* synthetic */ FoldCommentActivity f52137a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(FoldCommentActivity foldCommentActivity, int i2) {
@@ -401,7 +401,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52138a = foldCommentActivity;
+            this.f52137a = foldCommentActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -411,10 +411,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (this.f52138a.mPbEditor != null) {
-                this.f52138a.mView.W(this.f52138a.mPbEditor.D());
+            if (this.f52137a.mPbEditor != null) {
+                this.f52137a.mView.W(this.f52137a.mPbEditor.D());
             }
-            this.f52138a.mView.a0(false);
+            this.f52137a.mView.a0(false);
         }
     }
 
@@ -424,7 +424,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52139a;
+        public final /* synthetic */ FoldCommentActivity f52138a;
 
         /* loaded from: classes9.dex */
         public class a implements a.e {
@@ -462,7 +462,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f52140e;
+            public final /* synthetic */ g f52139e;
 
             public b(g gVar) {
                 Interceptable interceptable = $ic;
@@ -479,7 +479,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                 }
-                this.f52140e = gVar;
+                this.f52139e = gVar;
             }
 
             @Override // b.a.q0.s.s.a.e
@@ -487,7 +487,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    this.f52140e.f52139a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52140e.f52139a.getActivity(), 0, 26, 2)));
+                    this.f52139e.f52138a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f52139e.f52138a.getActivity(), 0, 26, 2)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 2));
                 }
             }
@@ -508,7 +508,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52139a = foldCommentActivity;
+            this.f52138a = foldCommentActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -518,28 +518,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     StatisticItem statisticItem = new StatisticItem("c13268");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (this.f52139a.mModel != null && this.f52139a.mModel.P0() != null) {
-                        statisticItem.param("fid", this.f52139a.mModel.P0().m());
+                    if (this.f52138a.mModel != null && this.f52138a.mModel.P0() != null) {
+                        statisticItem.param("fid", this.f52138a.mModel.P0().m());
                     }
-                    if (this.f52139a.mModel != null) {
-                        statisticItem.param("tid", this.f52139a.mModel.f1());
+                    if (this.f52138a.mModel != null) {
+                        statisticItem.param("tid", this.f52138a.mModel.f1());
                     }
                     statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem);
                 }
                 if (z) {
-                    u0 u0Var = this.f52139a.mContentProcessController;
+                    u0 u0Var = this.f52138a.mContentProcessController;
                     if (u0Var != null) {
                         u0Var.d();
                     }
                     if (postWriteCallBackData == null || postWriteCallBackData.getIconStampData() == null) {
                         return;
                     }
-                    b.a.q0.t.h.b.a(this.f52139a.getPageContext(), postWriteCallBackData);
+                    b.a.q0.t.h.b.a(this.f52138a.getPageContext(), postWriteCallBackData);
                     return;
                 }
                 if ((postWriteCallBackData != null ? postWriteCallBackData.getErrorCode() : -1) == 238010) {
-                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52139a.mReplyPrivacyController;
+                    ReplyPrivacyCheckController replyPrivacyCheckController = this.f52138a.mReplyPrivacyController;
                     if (replyPrivacyCheckController != null) {
                         replyPrivacyCheckController.showAttentionDialog(postWriteCallBackData.getReplyPrivacyTip());
                         return;
@@ -548,33 +548,33 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        DefaultNavigationBarCoverTip.makeText(this.f52139a.getActivity(), this.f52139a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52138a.getActivity(), this.f52138a.getActivity().getString(b.a.r0.k2.l.current_links_too_much_please_modify_and_publish), null).show();
                     } else {
-                        DefaultNavigationBarCoverTip.makeText(this.f52139a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
+                        DefaultNavigationBarCoverTip.makeText(this.f52138a.getActivity(), postWriteCallBackData.getErrorString(), null).show();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52139a.getActivity());
+                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f52138a.getActivity());
                     if (b.a.e.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        aVar.setMessage(this.f52139a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
+                        aVar.setMessage(this.f52138a.getActivity().getString(b.a.r0.k2.l.open_member_and_add_more_links));
                     } else {
                         aVar.setMessage(postWriteCallBackData.getErrorString());
                     }
                     aVar.setNegativeButton(b.a.r0.k2.l.cancel, new a(this));
                     aVar.setPositiveButton(b.a.r0.k2.l.open_now, new b(this));
-                    aVar.create(this.f52139a.getPageContext()).show();
+                    aVar.create(this.f52138a.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
                 }
                 if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
                     return;
                 }
-                FoldCommentActivity foldCommentActivity = this.f52139a;
+                FoldCommentActivity foldCommentActivity = this.f52138a;
                 if (foldCommentActivity.mContentProcessController == null) {
                     return;
                 }
-                if (foldCommentActivity.mView != null && this.f52139a.mView.y() != null && this.f52139a.mView.y().b() != null && this.f52139a.mView.y().b().x()) {
-                    this.f52139a.mView.y().b().v(postWriteCallBackData);
+                if (foldCommentActivity.mView != null && this.f52138a.mView.y() != null && this.f52138a.mView.y().b() != null && this.f52138a.mView.y().b().x()) {
+                    this.f52138a.mView.y().b().v(postWriteCallBackData);
                 }
-                this.f52139a.mContentProcessController.l(postWriteCallBackData);
+                this.f52138a.mContentProcessController.l(postWriteCallBackData);
             }
         }
     }
@@ -585,7 +585,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52141e;
+        public final /* synthetic */ FoldCommentActivity f52140e;
 
         public h(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -602,16 +602,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52141e = foldCommentActivity;
+            this.f52140e = foldCommentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52141e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52140e.mModel == null) {
                 return;
             }
-            this.f52141e.mModel.loadData();
+            this.f52140e.mModel.loadData();
         }
     }
 
@@ -621,7 +621,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52142a;
+        public final /* synthetic */ FoldCommentActivity f52141a;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -629,10 +629,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f52143e;
+            public final /* synthetic */ CustomDialogData f52142e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ i f52144f;
+            public final /* synthetic */ i f52143f;
 
             public a(i iVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -649,15 +649,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                 }
-                this.f52144f = iVar;
-                this.f52143e = customDialogData;
+                this.f52143f = iVar;
+                this.f52142e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.a.r0.k2.t.c.a(this.f52144f.f52142a.getPageContext(), this.f52143e).show();
+                    b.a.r0.k2.t.c.a(this.f52143f.f52141a.getPageContext(), this.f52142e).show();
                 }
             }
         }
@@ -677,7 +677,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52142a = foldCommentActivity;
+            this.f52141a = foldCommentActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
@@ -702,7 +702,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52145e;
+        public final /* synthetic */ FoldCommentActivity f52144e;
 
         public j(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -719,7 +719,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52145e = foldCommentActivity;
+            this.f52144e = foldCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -731,8 +731,8 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             }
             if ((view instanceof TbListTextView) && (view.getParent() instanceof TbRichTextView)) {
                 StatisticItem statisticItem2 = new StatisticItem("c13398");
-                statisticItem2.param("tid", this.f52145e.mModel.f1());
-                statisticItem2.param("fid", this.f52145e.mModel.getForumId());
+                statisticItem2.param("tid", this.f52144e.mModel.f1());
+                statisticItem2.param("fid", this.f52144e.mModel.getForumId());
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem2.param("obj_locate", 1);
                 TiebaStatic.log(statisticItem2);
@@ -741,47 +741,47 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     Object obj = ((SparseArray) tbRichTextView.getTag()).get(b.a.r0.k2.i.tag_clip_board);
                     if (obj instanceof PostData) {
                         PostData postData = (PostData) obj;
-                        if (this.f52145e.mModel == null || this.f52145e.mModel.P0() == null || postData.t() == null || postData.A() == 1 || !this.f52145e.checkUpIsLogin()) {
+                        if (this.f52144e.mModel == null || this.f52144e.mModel.P0() == null || postData.t() == null || postData.A() == 1 || !this.f52144e.checkUpIsLogin()) {
                             return;
                         }
-                        if (this.f52145e.mView.y() != null) {
-                            this.f52145e.mView.y().c();
+                        if (this.f52144e.mView.y() != null) {
+                            this.f52144e.mView.y().c();
                         }
                         b.a.r0.k2.r.s sVar = new b.a.r0.k2.r.s();
-                        sVar.A(this.f52145e.mModel.P0().l());
-                        sVar.E(this.f52145e.mModel.P0().O());
+                        sVar.A(this.f52144e.mModel.P0().l());
+                        sVar.E(this.f52144e.mModel.P0().O());
                         sVar.C(postData);
-                        this.f52145e.mView.x().S(sVar);
-                        this.f52145e.mView.x().setPostId(postData.G());
-                        this.f52145e.locateSubPbEditor(view, postData.t().getUserId(), "", postData);
+                        this.f52144e.mView.x().S(sVar);
+                        this.f52144e.mView.x().setPostId(postData.G());
+                        this.f52144e.locateSubPbEditor(view, postData.t().getUserId(), "", postData);
                         TiebaStatic.log("c11743");
-                        b.a.r0.k2.w.a.b(this.f52145e.mModel.P0(), postData, postData.k0, 8, 1);
-                        if (this.f52145e.mPbEditor != null) {
-                            this.f52145e.mView.W(this.f52145e.mPbEditor.D());
+                        b.a.r0.k2.w.a.b(this.f52144e.mModel.P0(), postData, postData.k0, 8, 1);
+                        if (this.f52144e.mPbEditor != null) {
+                            this.f52144e.mView.W(this.f52144e.mPbEditor.D());
                         }
                     }
                 }
             } else if (view.getId() != b.a.r0.k2.i.pb_floor_right_top_feedback && view.getId() != b.a.r0.k2.i.pb_post_op_more) {
                 if (view.getId() != b.a.r0.k2.i.sub_pb_more && view.getId() != b.a.r0.k2.i.sub_pb_item && view.getId() != b.a.r0.k2.i.pb_floor_reply_more && view.getId() != b.a.r0.k2.i.new_sub_pb_list_richText) {
-                    if ((view.getId() == b.a.r0.k2.i.pb_post_reply || view.getId() == b.a.r0.k2.i.post_info_commont_img || view.getId() == b.a.r0.k2.i.pb_floor_comment_container) && this.f52145e.mModel != null) {
+                    if ((view.getId() == b.a.r0.k2.i.pb_post_reply || view.getId() == b.a.r0.k2.i.post_info_commont_img || view.getId() == b.a.r0.k2.i.pb_floor_comment_container) && this.f52144e.mModel != null) {
                         if (view.getId() == b.a.r0.k2.i.pb_post_reply) {
                             StatisticItem statisticItem3 = new StatisticItem("c13398");
-                            statisticItem3.param("tid", this.f52145e.mModel.f1());
-                            statisticItem3.param("fid", this.f52145e.mModel.getForumId());
+                            statisticItem3.param("tid", this.f52144e.mModel.f1());
+                            statisticItem3.param("fid", this.f52144e.mModel.getForumId());
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                             statisticItem3.param("obj_locate", 6);
                             TiebaStatic.log(statisticItem3);
                         }
                         if (view.getId() == b.a.r0.k2.i.post_info_commont_img) {
-                            if (!DialogLoginHelper.checkUpIsLogin(new t0(this.f52145e.getActivity(), "pb_huifu_louzhonglou"))) {
-                                this.f52145e.floorReplyView = view;
+                            if (!DialogLoginHelper.checkUpIsLogin(new t0(this.f52144e.getActivity(), "pb_huifu_louzhonglou"))) {
+                                this.f52144e.floorReplyView = view;
                                 return;
                             }
-                        } else if (view.getId() == b.a.r0.k2.i.pb_post_reply && !DialogLoginHelper.checkUpIsLogin(new t0(this.f52145e.getActivity(), "pb_huifu_louzhonglou"))) {
-                            this.f52145e.floorReplyView = view;
+                        } else if (view.getId() == b.a.r0.k2.i.pb_post_reply && !DialogLoginHelper.checkUpIsLogin(new t0(this.f52144e.getActivity(), "pb_huifu_louzhonglou"))) {
+                            this.f52144e.floorReplyView = view;
                             return;
                         }
-                        if (this.f52145e.checkUpIsLogin() && (view.getTag() instanceof SparseArray)) {
+                        if (this.f52144e.checkUpIsLogin() && (view.getTag() instanceof SparseArray)) {
                             SparseArray sparseArray = (SparseArray) view.getTag();
                             if (sparseArray.get(b.a.r0.k2.i.tag_load_sub_data) instanceof PostData) {
                                 PostData postData2 = (PostData) sparseArray.get(b.a.r0.k2.i.tag_load_sub_data);
@@ -791,27 +791,27 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                     copy.param("obj_locate", 8);
                                     TiebaStatic.log(copy);
                                 } else if (view.getId() == b.a.r0.k2.i.post_info_commont_img || view.getId() == b.a.r0.k2.i.pb_floor_comment_container) {
-                                    TiebaStatic.log(new StatisticItem("c13700").param("tid", this.f52145e.mModel.g1()).param("fid", this.f52145e.mModel.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData2.G()).param("obj_source", 1).param("obj_type", 3));
+                                    TiebaStatic.log(new StatisticItem("c13700").param("tid", this.f52144e.mModel.g1()).param("fid", this.f52144e.mModel.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData2.G()).param("obj_source", 1).param("obj_type", 3));
                                 }
-                                if (this.f52145e.mModel == null || this.f52145e.mModel.P0() == null || postData2.t() == null || postData2.A() == 1) {
+                                if (this.f52144e.mModel == null || this.f52144e.mModel.P0() == null || postData2.t() == null || postData2.A() == 1) {
                                     return;
                                 }
-                                if (this.f52145e.mView.y() != null) {
-                                    this.f52145e.mView.y().c();
+                                if (this.f52144e.mView.y() != null) {
+                                    this.f52144e.mView.y().c();
                                 }
-                                if (this.f52145e.showTrisectionAndFeedback && postData2.O() != null && postData2.O().size() != 0) {
-                                    this.f52145e.startSubPbActivity(postData2, true);
+                                if (this.f52144e.showTrisectionAndFeedback && postData2.O() != null && postData2.O().size() != 0) {
+                                    this.f52144e.startSubPbActivity(postData2, true);
                                     return;
                                 }
                                 b.a.r0.k2.r.s sVar2 = new b.a.r0.k2.r.s();
-                                sVar2.A(this.f52145e.mModel.P0().l());
-                                sVar2.E(this.f52145e.mModel.P0().O());
+                                sVar2.A(this.f52144e.mModel.P0().l());
+                                sVar2.E(this.f52144e.mModel.P0().O());
                                 sVar2.C(postData2);
-                                this.f52145e.mView.x().S(sVar2);
-                                this.f52145e.mView.x().setPostId(postData2.G());
-                                this.f52145e.locateSubPbEditor(view, postData2.t().getUserId(), "", postData2);
-                                if (this.f52145e.mPbEditor != null) {
-                                    this.f52145e.mView.W(this.f52145e.mPbEditor.D());
+                                this.f52144e.mView.x().S(sVar2);
+                                this.f52144e.mView.x().setPostId(postData2.G());
+                                this.f52144e.locateSubPbEditor(view, postData2.t().getUserId(), "", postData2);
+                                if (this.f52144e.mPbEditor != null) {
+                                    this.f52144e.mView.W(this.f52144e.mPbEditor.D());
                                     return;
                                 }
                                 return;
@@ -824,19 +824,19 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 if (view.getId() == b.a.r0.k2.i.new_sub_pb_list_richText) {
                     StatisticItem statisticItem4 = new StatisticItem("c13398");
-                    statisticItem4.param("tid", this.f52145e.mModel.f1());
-                    statisticItem4.param("fid", this.f52145e.mModel.getForumId());
+                    statisticItem4.param("tid", this.f52144e.mModel.f1());
+                    statisticItem4.param("fid", this.f52144e.mModel.getForumId());
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem4.param("obj_locate", 4);
                     TiebaStatic.log(statisticItem4);
                 }
-                if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && !DialogLoginHelper.checkUpIsLogin(new t0(this.f52145e.getActivity(), "pb_chakanhuifu"))) {
-                    this.f52145e.moreReplyView = view;
-                } else if (this.f52145e.checkUpIsLogin()) {
-                    if (this.f52145e.mModel == null || this.f52145e.mModel.P0() == null) {
+                if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && !DialogLoginHelper.checkUpIsLogin(new t0(this.f52144e.getActivity(), "pb_chakanhuifu"))) {
+                    this.f52144e.moreReplyView = view;
+                } else if (this.f52144e.checkUpIsLogin()) {
+                    if (this.f52144e.mModel == null || this.f52144e.mModel.P0() == null) {
                         return;
                     }
-                    this.f52145e.mView.u();
+                    this.f52144e.mView.u();
                     SparseArray sparseArray2 = (SparseArray) view.getTag();
                     PostData postData3 = (PostData) sparseArray2.get(b.a.r0.k2.i.tag_load_sub_data);
                     PostData postData4 = (PostData) sparseArray2.get(b.a.r0.k2.i.tag_load_sub_reply_data);
@@ -858,62 +858,62 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         TiebaStatic.log(copy2);
                     }
-                    if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && this.f52145e.mModel != null && this.f52145e.mModel.P0() != null && postData3 != null) {
-                        TiebaStatic.log(new StatisticItem("c14443").param("tid", this.f52145e.mModel.f1()).param("fname", this.f52145e.mModel.P0().n()).param("fid", this.f52145e.mModel.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData3.G()));
+                    if (view.getId() == b.a.r0.k2.i.pb_floor_reply_more && this.f52144e.mModel != null && this.f52144e.mModel.P0() != null && postData3 != null) {
+                        TiebaStatic.log(new StatisticItem("c14443").param("tid", this.f52144e.mModel.f1()).param("fname", this.f52144e.mModel.P0().n()).param("fid", this.f52144e.mModel.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", postData3.G()));
                     }
-                    String f1 = this.f52145e.mModel.f1();
+                    String f1 = this.f52144e.mModel.f1();
                     String G = postData3.G();
                     String G2 = postData4 != null ? postData4.G() : "";
-                    int V = this.f52145e.mModel.P0() != null ? this.f52145e.mModel.P0().V() : 0;
-                    this.f52145e.stopVoice();
+                    int V = this.f52144e.mModel.P0() != null ? this.f52144e.mModel.P0().V() : 0;
+                    this.f52144e.stopVoice();
                     if (view.getId() == b.a.r0.k2.i.replybtn) {
-                        AbsPbActivity.e processSubPbImg = this.f52145e.processSubPbImg(G);
-                        if (this.f52145e.mModel == null || this.f52145e.mModel.P0() == null || processSubPbImg == null) {
+                        AbsPbActivity.e processSubPbImg = this.f52144e.processSubPbImg(G);
+                        if (this.f52144e.mModel == null || this.f52144e.mModel.P0() == null || processSubPbImg == null) {
                             return;
                         }
-                        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f52145e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, true, null, V, postData3.R(), this.f52145e.mModel.P0().d(), false, postData3.t().getIconInfo(), 5).addBigImageData(processSubPbImg.f52184a, processSubPbImg.f52185b, processSubPbImg.f52190g, processSubPbImg.j);
-                        addBigImageData.setKeyPageStartFrom(this.f52145e.mModel.O0());
-                        addBigImageData.setFromFrsForumId(this.f52145e.mModel.getFromForumId());
-                        addBigImageData.setWorksInfoData(this.f52145e.mModel.k1());
-                        addBigImageData.setKeyFromForumId(this.f52145e.mModel.getForumId());
-                        addBigImageData.setBjhData(this.f52145e.mModel.j0());
-                        addBigImageData.setTiebaPlusData(this.f52145e.mModel.F(), this.f52145e.mModel.B(), this.f52145e.mModel.C(), this.f52145e.mModel.A(), this.f52145e.mModel.G());
+                        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f52144e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, true, null, V, postData3.R(), this.f52144e.mModel.P0().d(), false, postData3.t().getIconInfo(), 5).addBigImageData(processSubPbImg.f52183a, processSubPbImg.f52184b, processSubPbImg.f52189g, processSubPbImg.j);
+                        addBigImageData.setKeyPageStartFrom(this.f52144e.mModel.O0());
+                        addBigImageData.setFromFrsForumId(this.f52144e.mModel.getFromForumId());
+                        addBigImageData.setWorksInfoData(this.f52144e.mModel.k1());
+                        addBigImageData.setKeyFromForumId(this.f52144e.mModel.getForumId());
+                        addBigImageData.setBjhData(this.f52144e.mModel.j0());
+                        addBigImageData.setTiebaPlusData(this.f52144e.mModel.F(), this.f52144e.mModel.B(), this.f52144e.mModel.C(), this.f52144e.mModel.A(), this.f52144e.mModel.G());
                         addBigImageData.setFromFoldComment(true);
-                        this.f52145e.sendMessage(new CustomMessage(2002001, addBigImageData));
+                        this.f52144e.sendMessage(new CustomMessage(2002001, addBigImageData));
                         return;
                     }
                     TiebaStatic.log("c11742");
-                    AbsPbActivity.e processSubPbImg2 = this.f52145e.processSubPbImg(G);
-                    if (postData3 == null || this.f52145e.mModel == null || this.f52145e.mModel.P0() == null || processSubPbImg2 == null) {
+                    AbsPbActivity.e processSubPbImg2 = this.f52144e.processSubPbImg(G);
+                    if (postData3 == null || this.f52144e.mModel == null || this.f52144e.mModel.P0() == null || processSubPbImg2 == null) {
                         return;
                     }
-                    SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.f52145e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, G2, V, postData3.R(), this.f52145e.mModel.P0().d(), false, postData3.t().getIconInfo(), 5).addBigImageData(processSubPbImg2.f52184a, processSubPbImg2.f52185b, processSubPbImg2.f52190g, processSubPbImg2.j);
+                    SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.f52144e.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, G2, V, postData3.R(), this.f52144e.mModel.P0().d(), false, postData3.t().getIconInfo(), 5).addBigImageData(processSubPbImg2.f52183a, processSubPbImg2.f52184b, processSubPbImg2.f52189g, processSubPbImg2.j);
                     if (!b.a.e.e.p.k.isEmpty(G2)) {
                         addBigImageData2.setHighLightPostId(G2);
                         addBigImageData2.setKeyIsUseSpid(true);
                     }
-                    addBigImageData2.setKeyFromForumId(this.f52145e.mModel.getForumId());
-                    addBigImageData2.setTiebaPlusData(this.f52145e.mModel.F(), this.f52145e.mModel.B(), this.f52145e.mModel.C(), this.f52145e.mModel.A(), this.f52145e.mModel.G());
-                    addBigImageData2.setBjhData(this.f52145e.mModel.j0());
-                    addBigImageData2.setKeyPageStartFrom(this.f52145e.mModel.O0());
-                    addBigImageData2.setFromFrsForumId(this.f52145e.mModel.getFromForumId());
-                    addBigImageData2.setWorksInfoData(this.f52145e.mModel.k1());
+                    addBigImageData2.setKeyFromForumId(this.f52144e.mModel.getForumId());
+                    addBigImageData2.setTiebaPlusData(this.f52144e.mModel.F(), this.f52144e.mModel.B(), this.f52144e.mModel.C(), this.f52144e.mModel.A(), this.f52144e.mModel.G());
+                    addBigImageData2.setBjhData(this.f52144e.mModel.j0());
+                    addBigImageData2.setKeyPageStartFrom(this.f52144e.mModel.O0());
+                    addBigImageData2.setFromFrsForumId(this.f52144e.mModel.getFromForumId());
+                    addBigImageData2.setWorksInfoData(this.f52144e.mModel.k1());
                     addBigImageData2.setFromFoldComment(true);
-                    this.f52145e.sendMessage(new CustomMessage(2002001, addBigImageData2));
+                    this.f52144e.sendMessage(new CustomMessage(2002001, addBigImageData2));
                 } else {
-                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 3).param("fid", this.f52145e.mModel.P0().m()));
+                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 3).param("fid", this.f52144e.mModel.P0().m()));
                 }
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c13398");
-                statisticItem6.param("tid", this.f52145e.mModel.f1());
-                statisticItem6.param("fid", this.f52145e.mModel.getForumId());
+                statisticItem6.param("tid", this.f52144e.mModel.f1());
+                statisticItem6.param("fid", this.f52144e.mModel.getForumId());
                 statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem6.param("obj_locate", 7);
                 TiebaStatic.log(statisticItem6);
-                if (this.f52145e.mModel != null && this.f52145e.mModel.P0() != null && this.f52145e.postData != null) {
-                    TiebaStatic.log(new StatisticItem("c14441").param("tid", this.f52145e.mModel.f1()).param("fname", this.f52145e.mModel.P0().n()).param("fid", this.f52145e.mModel.P0().m()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f52145e.postData.G()));
+                if (this.f52144e.mModel != null && this.f52144e.mModel.P0() != null && this.f52144e.postData != null) {
+                    TiebaStatic.log(new StatisticItem("c14441").param("tid", this.f52144e.mModel.f1()).param("fname", this.f52144e.mModel.P0().n()).param("fid", this.f52144e.mModel.P0().m()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f52144e.postData.G()));
                 }
-                FoldCommentActivity foldCommentActivity = this.f52145e;
+                FoldCommentActivity foldCommentActivity = this.f52144e;
                 foldCommentActivity.isDialogFromLongClick = false;
                 foldCommentActivity.dealLongClickListener(view);
             }
@@ -926,7 +926,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52146a;
+        public final /* synthetic */ FoldCommentActivity f52145a;
 
         public k(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -943,7 +943,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52146a = foldCommentActivity;
+            this.f52145a = foldCommentActivity;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.g
@@ -963,33 +963,33 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         @Override // com.baidu.tieba.pb.pb.main.PbModel.g
         public void c(boolean z, int i2, int i3, int i4, b.a.r0.k2.r.f fVar, String str, int i5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fVar, str, Integer.valueOf(i5)}) == null) || this.f52146a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fVar, str, Integer.valueOf(i5)}) == null) || this.f52145a.mView == null) {
                 return;
             }
-            this.f52146a.mView.U();
+            this.f52145a.mView.U();
             if (!z) {
-                this.f52146a.onNetOrDataError(i2, str);
+                this.f52145a.onNetOrDataError(i2, str);
                 return;
             }
-            this.f52146a.mView.E();
+            this.f52145a.mView.E();
             if (fVar != null) {
                 if (fVar.s() == 1) {
-                    this.f52146a.mIsFromCDN = true;
+                    this.f52145a.mIsFromCDN = true;
                 } else {
-                    this.f52146a.mIsFromCDN = false;
+                    this.f52145a.mIsFromCDN = false;
                 }
                 String str2 = null;
-                if (this.f52146a.mModel == null || !this.f52146a.mModel.r1()) {
-                    if (this.f52146a.mView != null) {
-                        str2 = this.f52146a.mView.z();
+                if (this.f52145a.mModel == null || !this.f52145a.mModel.r1()) {
+                    if (this.f52145a.mView != null) {
+                        str2 = this.f52145a.mView.z();
                     }
                 } else {
-                    str2 = this.f52146a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs);
+                    str2 = this.f52145a.getPageContext().getString(b.a.r0.k2.l.pb_reply_hint_from_smart_frs);
                 }
                 if (!StringUtils.isNull(str2)) {
-                    this.f52146a.mPbEditor.l0(TbSingleton.getInstance().getAdVertiComment(fVar.k0(), fVar.l0(), str2));
+                    this.f52145a.mPbEditor.l0(TbSingleton.getInstance().getAdVertiComment(fVar.k0(), fVar.l0(), str2));
                 }
-                this.f52146a.mView.S(fVar, this.f52146a.mIsFromCDN);
+                this.f52145a.mView.S(fVar, this.f52145a.mIsFromCDN);
             }
         }
     }
@@ -1000,13 +1000,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f52147e;
+        public final /* synthetic */ String f52146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f52148f;
+        public final /* synthetic */ String f52147f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52149g;
+        public final /* synthetic */ FoldCommentActivity f52148g;
 
         /* loaded from: classes9.dex */
         public class a implements TextWatcher {
@@ -1014,7 +1014,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ l f52150e;
+            public final /* synthetic */ l f52149e;
 
             public a(l lVar) {
                 Interceptable interceptable = $ic;
@@ -1031,20 +1031,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                 }
-                this.f52150e = lVar;
+                this.f52149e = lVar;
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 u0 u0Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52150e.f52149g.mContentProcessController) == null || u0Var.g() == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52149e.f52148g.mContentProcessController) == null || u0Var.g() == null) {
                     return;
                 }
-                if (!this.f52150e.f52149g.mContentProcessController.g().e()) {
-                    this.f52150e.f52149g.mContentProcessController.b(false);
+                if (!this.f52149e.f52148g.mContentProcessController.g().e()) {
+                    this.f52149e.f52148g.mContentProcessController.b(false);
                 }
-                this.f52150e.f52149g.mContentProcessController.g().l(false);
+                this.f52149e.f52148g.mContentProcessController.g().l(false);
             }
 
             @Override // android.text.TextWatcher
@@ -1077,9 +1077,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52149g = foldCommentActivity;
-            this.f52147e = str;
-            this.f52148f = str2;
+            this.f52148g = foldCommentActivity;
+            this.f52146e = str;
+            this.f52147f = str2;
         }
 
         @Override // java.lang.Runnable
@@ -1088,34 +1088,34 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             int g2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i3 = b.a.e.e.p.l.i(this.f52149g.getApplicationContext());
+                int i3 = b.a.e.e.p.l.i(this.f52148g.getApplicationContext());
                 if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                     i2 = TbadkCoreApplication.getInst().getKeyboardHeight();
-                    g2 = b.a.e.e.p.l.g(this.f52149g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
+                    g2 = b.a.e.e.p.l.g(this.f52148g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
                 } else {
                     i2 = i3 / 2;
-                    g2 = b.a.e.e.p.l.g(this.f52149g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
+                    g2 = b.a.e.e.p.l.g(this.f52148g.getPageContext().getPageActivity(), b.a.r0.k2.g.tbds256);
                 }
                 int i4 = i3 - (i2 + g2);
-                FoldCommentActivity foldCommentActivity = this.f52149g;
+                FoldCommentActivity foldCommentActivity = this.f52148g;
                 boolean z = true;
                 foldCommentActivity.mView.w().smoothScrollBy((foldCommentActivity.mReplyFloorLocation[1] + foldCommentActivity.mReplyFloorMeasureHeight) - i4, 50);
-                if (this.f52149g.mView.y() != null) {
-                    this.f52149g.mPbEditor.a().setVisibility(8);
-                    this.f52149g.mView.y().n(this.f52147e, this.f52148f, this.f52149g.mView.z(), (this.f52149g.mModel == null || this.f52149g.mModel.P0() == null || this.f52149g.mModel.P0().O() == null || !this.f52149g.mModel.P0().O().Q1()) ? false : false);
-                    b.a.q0.x.x.h b2 = this.f52149g.mView.y().b();
-                    if (b2 != null && this.f52149g.mModel != null && this.f52149g.mModel.P0() != null) {
-                        b2.G(this.f52149g.mModel.P0().d());
-                        b2.b0(this.f52149g.mModel.P0().O());
+                if (this.f52148g.mView.y() != null) {
+                    this.f52148g.mPbEditor.a().setVisibility(8);
+                    this.f52148g.mView.y().n(this.f52146e, this.f52147f, this.f52148g.mView.z(), (this.f52148g.mModel == null || this.f52148g.mModel.P0() == null || this.f52148g.mModel.P0().O() == null || !this.f52148g.mModel.P0().O().Q1()) ? false : false);
+                    b.a.q0.x.x.h b2 = this.f52148g.mView.y().b();
+                    if (b2 != null && this.f52148g.mModel != null && this.f52148g.mModel.P0() != null) {
+                        b2.G(this.f52148g.mModel.P0().d());
+                        b2.b0(this.f52148g.mModel.P0().O());
                     }
-                    if (this.f52149g.mContentProcessController.f() == null && this.f52149g.mView.y().b().t() != null) {
-                        this.f52149g.mView.y().b().t().f(new a(this));
-                        FoldCommentActivity foldCommentActivity2 = this.f52149g;
+                    if (this.f52148g.mContentProcessController.f() == null && this.f52148g.mView.y().b().t() != null) {
+                        this.f52148g.mView.y().b().t().f(new a(this));
+                        FoldCommentActivity foldCommentActivity2 = this.f52148g;
                         foldCommentActivity2.mContentProcessController.n(foldCommentActivity2.mView.y().b().t().h());
-                        this.f52149g.mView.y().b().M(this.f52149g.mCheckSubFloorCallBack);
+                        this.f52148g.mView.y().b().M(this.f52148g.mCheckSubFloorCallBack);
                     }
                 }
-                this.f52149g.mView.B();
+                this.f52148g.mView.B();
             }
         }
     }
@@ -1126,13 +1126,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f52151a;
+        public final /* synthetic */ String f52150a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f52152b;
+        public final /* synthetic */ String f52151b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52153c;
+        public final /* synthetic */ FoldCommentActivity f52152c;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -1140,7 +1140,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f52154e;
+            public final /* synthetic */ m f52153e;
 
             /* renamed from: com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity$m$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
@@ -1149,7 +1149,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f52155e;
+                public final /* synthetic */ a f52154e;
 
                 public C1750a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -1166,20 +1166,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             return;
                         }
                     }
-                    this.f52155e = aVar;
+                    this.f52154e = aVar;
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     u0 u0Var;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52155e.f52154e.f52153c.mContentProcessController) == null || u0Var.g() == null) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (u0Var = this.f52154e.f52153e.f52152c.mContentProcessController) == null || u0Var.g() == null) {
                         return;
                     }
-                    if (!this.f52155e.f52154e.f52153c.mContentProcessController.g().e()) {
-                        this.f52155e.f52154e.f52153c.mContentProcessController.b(false);
+                    if (!this.f52154e.f52153e.f52152c.mContentProcessController.g().e()) {
+                        this.f52154e.f52153e.f52152c.mContentProcessController.b(false);
                     }
-                    this.f52155e.f52154e.f52153c.mContentProcessController.g().l(false);
+                    this.f52154e.f52153e.f52152c.mContentProcessController.g().l(false);
                 }
 
                 @Override // android.text.TextWatcher
@@ -1212,7 +1212,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                 }
-                this.f52154e = mVar;
+                this.f52153e = mVar;
             }
 
             @Override // java.lang.Runnable
@@ -1221,7 +1221,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 int g2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int i3 = b.a.e.e.p.l.i(this.f52154e.f52153c.getApplicationContext());
+                    int i3 = b.a.e.e.p.l.i(this.f52153e.f52152c.getApplicationContext());
                     if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                         i2 = TbadkCoreApplication.getInst().getKeyboardHeight();
                         g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds410);
@@ -1230,28 +1230,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds410);
                     }
                     int i4 = i3 - (i2 + g2);
-                    FoldCommentActivity foldCommentActivity = this.f52154e.f52153c;
+                    FoldCommentActivity foldCommentActivity = this.f52153e.f52152c;
                     boolean z = true;
                     foldCommentActivity.mView.w().smoothScrollBy((foldCommentActivity.mReplyFloorLocation[1] + foldCommentActivity.mReplyFloorMeasureHeight) - i4, 50);
-                    if (this.f52154e.f52153c.mView.y() != null) {
-                        this.f52154e.f52153c.mPbEditor.a().setVisibility(8);
-                        z = (this.f52154e.f52153c.mModel == null || this.f52154e.f52153c.mModel.P0() == null || this.f52154e.f52153c.mModel.P0().O() == null || !this.f52154e.f52153c.mModel.P0().O().Q1()) ? false : false;
-                        b.a.r0.k2.u.f.t y = this.f52154e.f52153c.mView.y();
-                        m mVar = this.f52154e;
-                        y.n(mVar.f52151a, mVar.f52152b, mVar.f52153c.mView.z(), z);
-                        b.a.q0.x.x.h b2 = this.f52154e.f52153c.mView.y().b();
-                        if (b2 != null && this.f52154e.f52153c.mModel != null && this.f52154e.f52153c.mModel.P0() != null) {
-                            b2.G(this.f52154e.f52153c.mModel.P0().d());
-                            b2.b0(this.f52154e.f52153c.mModel.P0().O());
+                    if (this.f52153e.f52152c.mView.y() != null) {
+                        this.f52153e.f52152c.mPbEditor.a().setVisibility(8);
+                        z = (this.f52153e.f52152c.mModel == null || this.f52153e.f52152c.mModel.P0() == null || this.f52153e.f52152c.mModel.P0().O() == null || !this.f52153e.f52152c.mModel.P0().O().Q1()) ? false : false;
+                        b.a.r0.k2.u.f.t y = this.f52153e.f52152c.mView.y();
+                        m mVar = this.f52153e;
+                        y.n(mVar.f52150a, mVar.f52151b, mVar.f52152c.mView.z(), z);
+                        b.a.q0.x.x.h b2 = this.f52153e.f52152c.mView.y().b();
+                        if (b2 != null && this.f52153e.f52152c.mModel != null && this.f52153e.f52152c.mModel.P0() != null) {
+                            b2.G(this.f52153e.f52152c.mModel.P0().d());
+                            b2.b0(this.f52153e.f52152c.mModel.P0().O());
                         }
-                        if (this.f52154e.f52153c.mContentProcessController.f() == null && this.f52154e.f52153c.mView.y().b().t() != null) {
-                            this.f52154e.f52153c.mView.y().b().t().f(new C1750a(this));
-                            FoldCommentActivity foldCommentActivity2 = this.f52154e.f52153c;
+                        if (this.f52153e.f52152c.mContentProcessController.f() == null && this.f52153e.f52152c.mView.y().b().t() != null) {
+                            this.f52153e.f52152c.mView.y().b().t().f(new C1750a(this));
+                            FoldCommentActivity foldCommentActivity2 = this.f52153e.f52152c;
                             foldCommentActivity2.mContentProcessController.n(foldCommentActivity2.mView.y().b().t().h());
-                            this.f52154e.f52153c.mView.y().b().M(this.f52154e.f52153c.mCheckSubFloorCallBack);
+                            this.f52153e.f52152c.mView.y().b().M(this.f52153e.f52152c.mCheckSubFloorCallBack);
                         }
                     }
-                    this.f52154e.f52153c.mView.B();
+                    this.f52153e.f52152c.mView.B();
                 }
             }
         }
@@ -1271,9 +1271,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52153c = foldCommentActivity;
-            this.f52151a = str;
-            this.f52152b = str2;
+            this.f52152c = foldCommentActivity;
+            this.f52150a = str;
+            this.f52151b = str2;
         }
 
         @Override // b.a.r0.x0.q2.a.c.d
@@ -1305,9 +1305,56 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52156a;
+        public final /* synthetic */ FoldCommentActivity f52155a;
 
         public n(FoldCommentActivity foldCommentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {foldCommentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52155a = foldCommentActivity;
+        }
+
+        @Override // b.a.q0.x.x.b
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                u0 u0Var = this.f52155a.mContentProcessController;
+                if (u0Var == null || u0Var.g() == null || !this.f52155a.mContentProcessController.g().d()) {
+                    return !this.f52155a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_FLOOR);
+                }
+                FoldCommentActivity foldCommentActivity = this.f52155a;
+                foldCommentActivity.showToast(foldCommentActivity.mContentProcessController.g().c());
+                if (this.f52155a.mView != null && this.f52155a.mView.y() != null && this.f52155a.mView.y().b() != null && this.f52155a.mView.y().b().x()) {
+                    this.f52155a.mView.y().b().v(this.f52155a.mContentProcessController.h());
+                }
+                this.f52155a.mContentProcessController.b(true);
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class o implements c.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FoldCommentActivity f52156a;
+
+        public o(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1325,53 +1372,6 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.f52156a = foldCommentActivity;
         }
 
-        @Override // b.a.q0.x.x.b
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                u0 u0Var = this.f52156a.mContentProcessController;
-                if (u0Var == null || u0Var.g() == null || !this.f52156a.mContentProcessController.g().d()) {
-                    return !this.f52156a.checkPrivacyBeforePost(ReplyPrivacyCheckController.TYPE_FLOOR);
-                }
-                FoldCommentActivity foldCommentActivity = this.f52156a;
-                foldCommentActivity.showToast(foldCommentActivity.mContentProcessController.g().c());
-                if (this.f52156a.mView != null && this.f52156a.mView.y() != null && this.f52156a.mView.y().b() != null && this.f52156a.mView.y().b().x()) {
-                    this.f52156a.mView.y().b().v(this.f52156a.mContentProcessController.h());
-                }
-                this.f52156a.mContentProcessController.b(true);
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class o implements c.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52157a;
-
-        public o(FoldCommentActivity foldCommentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {foldCommentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52157a = foldCommentActivity;
-        }
-
         @Override // b.a.r0.x0.q2.a.c.d
         public void a(boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -1383,10 +1383,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
-                if (this.f52157a.mPbEditor != null && this.f52157a.mPbEditor.a() != null) {
-                    this.f52157a.mPbEditor.a().sendAction(new b.a.q0.x.a(45, 27, null));
+                if (this.f52156a.mPbEditor != null && this.f52156a.mPbEditor.a() != null) {
+                    this.f52156a.mPbEditor.a().sendAction(new b.a.q0.x.a(45, 27, null));
                 }
-                this.f52157a.mView.t();
+                this.f52156a.mView.t();
             }
         }
 
@@ -1404,9 +1404,79 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52158a;
+        public final /* synthetic */ FoldCommentActivity f52157a;
 
         public p(FoldCommentActivity foldCommentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {foldCommentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52157a = foldCommentActivity;
+        }
+
+        @Override // b.a.q0.i.a.InterfaceC0664a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (this.f52157a.mMarkModel != null) {
+                        this.f52157a.mMarkModel.h(z2);
+                    }
+                    this.f52157a.mModel.r2(z2);
+                    if (this.f52157a.mModel.B0()) {
+                        this.f52157a.makeFakeMark();
+                    }
+                    if (z2) {
+                        if (this.f52157a.mMarkModel != null) {
+                            if (this.f52157a.mMarkModel.f() == null || this.f52157a.mModel == null || this.f52157a.mModel.P0() == null || this.f52157a.mModel.P0().O() == null || this.f52157a.mModel.P0().O().J() == null) {
+                                return;
+                            }
+                            MarkData f2 = this.f52157a.mMarkModel.f();
+                            MetaData J = this.f52157a.mModel.P0().O().J();
+                            if (f2 != null && J != null) {
+                                if (StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), J.getUserId()) || J.hadConcerned()) {
+                                    this.f52157a.showToast(b.a.r0.k2.l.add_mark_on_pb);
+                                    if (b.a.q0.t.h.a.e(this.f52157a.getActivity(), 0)) {
+                                        b.a.q0.t.h.a.g(this.f52157a.getPageContext(), 6, 2000L);
+                                    }
+                                }
+                            } else {
+                                FoldCommentActivity foldCommentActivity = this.f52157a;
+                                foldCommentActivity.showToast(foldCommentActivity.getPageContext().getString(b.a.r0.k2.l.add_mark));
+                            }
+                        }
+                        this.f52157a.addCollectionStat();
+                        return;
+                    }
+                    FoldCommentActivity foldCommentActivity2 = this.f52157a;
+                    foldCommentActivity2.showToast(foldCommentActivity2.getPageContext().getString(b.a.r0.k2.l.remove_mark));
+                    return;
+                }
+                FoldCommentActivity foldCommentActivity3 = this.f52157a;
+                foldCommentActivity3.showToast(foldCommentActivity3.getPageContext().getString(b.a.r0.k2.l.update_mark_failed));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class q implements TbRichTextView.z {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FoldCommentActivity f52158a;
+
+        public q(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1424,76 +1494,6 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.f52158a = foldCommentActivity;
         }
 
-        @Override // b.a.q0.i.a.InterfaceC0664a
-        public void a(boolean z, boolean z2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                if (z) {
-                    if (this.f52158a.mMarkModel != null) {
-                        this.f52158a.mMarkModel.h(z2);
-                    }
-                    this.f52158a.mModel.r2(z2);
-                    if (this.f52158a.mModel.B0()) {
-                        this.f52158a.makeFakeMark();
-                    }
-                    if (z2) {
-                        if (this.f52158a.mMarkModel != null) {
-                            if (this.f52158a.mMarkModel.f() == null || this.f52158a.mModel == null || this.f52158a.mModel.P0() == null || this.f52158a.mModel.P0().O() == null || this.f52158a.mModel.P0().O().J() == null) {
-                                return;
-                            }
-                            MarkData f2 = this.f52158a.mMarkModel.f();
-                            MetaData J = this.f52158a.mModel.P0().O().J();
-                            if (f2 != null && J != null) {
-                                if (StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), J.getUserId()) || J.hadConcerned()) {
-                                    this.f52158a.showToast(b.a.r0.k2.l.add_mark_on_pb);
-                                    if (b.a.q0.t.h.a.e(this.f52158a.getActivity(), 0)) {
-                                        b.a.q0.t.h.a.g(this.f52158a.getPageContext(), 6, 2000L);
-                                    }
-                                }
-                            } else {
-                                FoldCommentActivity foldCommentActivity = this.f52158a;
-                                foldCommentActivity.showToast(foldCommentActivity.getPageContext().getString(b.a.r0.k2.l.add_mark));
-                            }
-                        }
-                        this.f52158a.addCollectionStat();
-                        return;
-                    }
-                    FoldCommentActivity foldCommentActivity2 = this.f52158a;
-                    foldCommentActivity2.showToast(foldCommentActivity2.getPageContext().getString(b.a.r0.k2.l.remove_mark));
-                    return;
-                }
-                FoldCommentActivity foldCommentActivity3 = this.f52158a;
-                foldCommentActivity3.showToast(foldCommentActivity3.getPageContext().getString(b.a.r0.k2.l.update_mark_failed));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class q implements TbRichTextView.z {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52159a;
-
-        public q(FoldCommentActivity foldCommentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {foldCommentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52159a = foldCommentActivity;
-        }
-
         /* JADX DEBUG: Multi-variable search result rejected for r14v22, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig$b */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.z
@@ -1502,7 +1502,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 try {
                     if (view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info) == null || !(view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo) || !(view instanceof TbImageView)) {
-                        if (this.f52159a.mModel.P0().g0()) {
+                        if (this.f52158a.mModel.P0().g0()) {
                             ArrayList<String> arrayList = new ArrayList<>();
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                             TbRichTextView tbRichTextView = null;
@@ -1534,35 +1534,35 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             bVar.x(arrayList);
                             bVar.B(i3);
                             bVar.C(false);
-                            bVar.F(this.f52159a.mModel.a1());
+                            bVar.F(this.f52158a.mModel.a1());
                             bVar.w(concurrentHashMap);
                             bVar.H(true);
                             bVar.K(false);
-                            bVar.G(this.f52159a.isHostOnlyMode());
-                            if (this.f52159a.mModel != null) {
-                                bVar.A(this.f52159a.mModel.getFromForumId());
-                                if (this.f52159a.mModel.P0() != null) {
-                                    bVar.N(this.f52159a.mModel.P0().O());
+                            bVar.G(this.f52158a.isHostOnlyMode());
+                            if (this.f52158a.mModel != null) {
+                                bVar.A(this.f52158a.mModel.getFromForumId());
+                                if (this.f52158a.mModel.P0() != null) {
+                                    bVar.N(this.f52158a.mModel.P0().O());
                                 }
                             }
-                            ImageViewerConfig v = bVar.v(this.f52159a.getPageContext().getPageActivity());
+                            ImageViewerConfig v = bVar.v(this.f52158a.getPageContext().getPageActivity());
                             v.getIntent().putExtra("from", "pb");
-                            this.f52159a.sendMessage(new CustomMessage(2010000, v));
+                            this.f52158a.sendMessage(new CustomMessage(2010000, v));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                             return;
                         }
                         AbsPbActivity.e eVar = new AbsPbActivity.e();
-                        this.f52159a.processImgUrls(str, i2, eVar);
-                        if (eVar.f52191h) {
-                            TbRichText validImage = this.f52159a.validImage(str, i2);
-                            if (validImage != null && this.f52159a.imgIndex >= 0 && this.f52159a.imgIndex < validImage.y().size()) {
+                        this.f52158a.processImgUrls(str, i2, eVar);
+                        if (eVar.f52190h) {
+                            TbRichText validImage = this.f52158a.validImage(str, i2);
+                            if (validImage != null && this.f52158a.imgIndex >= 0 && this.f52158a.imgIndex < validImage.y().size()) {
                                 ArrayList<String> arrayList2 = new ArrayList<>();
-                                String a2 = b.a.r0.k2.r.g.a(validImage.y().get(this.f52159a.imgIndex));
+                                String a2 = b.a.r0.k2.r.g.a(validImage.y().get(this.f52158a.imgIndex));
                                 int i6 = 0;
                                 while (true) {
-                                    if (i6 >= eVar.f52184a.size()) {
+                                    if (i6 >= eVar.f52183a.size()) {
                                         break;
-                                    } else if (eVar.f52184a.get(i6).equals(a2)) {
+                                    } else if (eVar.f52183a.get(i6).equals(a2)) {
                                         eVar.j = i6;
                                         arrayList2.add(a2);
                                         break;
@@ -1573,74 +1573,74 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
                                 if (!ListUtils.isEmpty(arrayList2)) {
                                     String str2 = arrayList2.get(0);
-                                    concurrentHashMap2.put(str2, eVar.f52185b.get(str2));
+                                    concurrentHashMap2.put(str2, eVar.f52184b.get(str2));
                                 }
                                 ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
                                 bVar2.x(arrayList2);
-                                bVar2.z(eVar.f52186c);
-                                bVar2.y(eVar.f52187d);
-                                bVar2.O(eVar.f52188e);
-                                bVar2.C(eVar.f52190g);
+                                bVar2.z(eVar.f52185c);
+                                bVar2.y(eVar.f52186d);
+                                bVar2.O(eVar.f52187e);
+                                bVar2.C(eVar.f52189g);
                                 bVar2.H(true);
-                                bVar2.J(eVar.f52192i);
-                                bVar2.F(this.f52159a.mModel.a1());
+                                bVar2.J(eVar.f52191i);
+                                bVar2.F(this.f52158a.mModel.a1());
                                 bVar2.w(concurrentHashMap2);
                                 bVar2.K(false);
-                                bVar2.G(this.f52159a.isHostOnlyMode());
-                                bVar2.L(eVar.f52189f);
-                                if (this.f52159a.mModel != null) {
-                                    bVar2.A(this.f52159a.mModel.getFromForumId());
-                                    if (this.f52159a.mModel.P0() != null) {
-                                        bVar2.N(this.f52159a.mModel.P0().O());
+                                bVar2.G(this.f52158a.isHostOnlyMode());
+                                bVar2.L(eVar.f52188f);
+                                if (this.f52158a.mModel != null) {
+                                    bVar2.A(this.f52158a.mModel.getFromForumId());
+                                    if (this.f52158a.mModel.P0() != null) {
+                                        bVar2.N(this.f52158a.mModel.P0().O());
                                     }
                                 }
-                                ImageViewerConfig v2 = bVar2.v(this.f52159a.getPageContext().getPageActivity());
+                                ImageViewerConfig v2 = bVar2.v(this.f52158a.getPageContext().getPageActivity());
                                 v2.getIntent().putExtra("from", "pb");
-                                this.f52159a.sendMessage(new CustomMessage(2010000, v2));
+                                this.f52158a.sendMessage(new CustomMessage(2010000, v2));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                                 return;
                             }
                             return;
                         }
                         ArrayList arrayList3 = new ArrayList();
-                        arrayList3.add(ListUtils.getItem(eVar.f52184a, 0));
+                        arrayList3.add(ListUtils.getItem(eVar.f52183a, 0));
                         ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
                         if (!ListUtils.isEmpty(arrayList3)) {
                             String str3 = (String) arrayList3.get(0);
-                            concurrentHashMap3.put(str3, eVar.f52185b.get(str3));
+                            concurrentHashMap3.put(str3, eVar.f52184b.get(str3));
                         }
                         ImageViewerConfig.b bVar3 = new ImageViewerConfig.b();
                         bVar3.x(arrayList3);
-                        bVar3.z(eVar.f52186c);
-                        bVar3.y(eVar.f52187d);
-                        bVar3.O(eVar.f52188e);
-                        bVar3.C(eVar.f52190g);
+                        bVar3.z(eVar.f52185c);
+                        bVar3.y(eVar.f52186d);
+                        bVar3.O(eVar.f52187e);
+                        bVar3.C(eVar.f52189g);
                         bVar3.H(true);
-                        bVar3.J(eVar.f52184a.get(0));
-                        bVar3.F(this.f52159a.mModel.a1());
+                        bVar3.J(eVar.f52183a.get(0));
+                        bVar3.F(this.f52158a.mModel.a1());
                         bVar3.w(concurrentHashMap3);
                         bVar3.K(false);
-                        bVar3.G(this.f52159a.isHostOnlyMode());
-                        bVar3.L(eVar.f52189f);
+                        bVar3.G(this.f52158a.isHostOnlyMode());
+                        bVar3.L(eVar.f52188f);
                         bVar3.D(false);
-                        if (this.f52159a.mModel != null) {
-                            bVar3.A(this.f52159a.mModel.getFromForumId());
-                            if (this.f52159a.mModel.P0() != null) {
-                                bVar3.N(this.f52159a.mModel.P0().O());
+                        if (this.f52158a.mModel != null) {
+                            bVar3.A(this.f52158a.mModel.getFromForumId());
+                            if (this.f52158a.mModel.P0() != null) {
+                                bVar3.N(this.f52158a.mModel.P0().O());
                             }
                         }
-                        ImageViewerConfig v3 = bVar3.v(this.f52159a.getPageContext().getPageActivity());
+                        ImageViewerConfig v3 = bVar3.v(this.f52158a.getPageContext().getPageActivity());
                         v3.getIntent().putExtra("from", "pb");
-                        this.f52159a.sendMessage(new CustomMessage(2010000, v3));
+                        this.f52158a.sendMessage(new CustomMessage(2010000, v3));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                         return;
                     }
                     TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view.getTag(b.a.r0.k2.i.tag_rich_text_meme_info);
                     boolean isGif = ((TbImageView) view).isGif();
                     if (tbRichTextMemeInfo != null && tbRichTextMemeInfo.memeInfo != null) {
-                        this.f52159a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.f52159a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, isGif)));
+                        this.f52158a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.f52158a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, isGif)));
                     }
-                    this.f52159a.tempView = view;
+                    this.f52158a.tempView = view;
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -1654,9 +1654,51 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52160a;
+        public final /* synthetic */ FoldCommentActivity f52159a;
 
         public r(FoldCommentActivity foldCommentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {foldCommentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52159a = foldCommentActivity;
+        }
+
+        @Override // com.baidu.tbadk.core.util.ReplyPrivacyCheckController.IAfterAttentionCallBack
+        public void sendAfterAttention(boolean z, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z) {
+                if (i2 == ReplyPrivacyCheckController.TYPE_THREAD) {
+                    this.f52159a.mPbEditor.M(null, null);
+                } else if (i2 == ReplyPrivacyCheckController.TYPE_FLOOR && this.f52159a.mView != null && this.f52159a.mView.y() != null && this.f52159a.mView.y().b() != null) {
+                    this.f52159a.mView.y().b().F();
+                } else if (i2 == ReplyPrivacyCheckController.TYPE_EMOTION_IMAGE) {
+                    FoldCommentActivity foldCommentActivity = this.f52159a;
+                    foldCommentActivity.sendEmotion(foldCommentActivity.mEmotionImageData);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class s implements PbFragment.b3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FoldCommentActivity f52160a;
+
+        public s(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1674,58 +1716,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.f52160a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tbadk.core.util.ReplyPrivacyCheckController.IAfterAttentionCallBack
-        public void sendAfterAttention(boolean z, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z) {
-                if (i2 == ReplyPrivacyCheckController.TYPE_THREAD) {
-                    this.f52160a.mPbEditor.M(null, null);
-                } else if (i2 == ReplyPrivacyCheckController.TYPE_FLOOR && this.f52160a.mView != null && this.f52160a.mView.y() != null && this.f52160a.mView.y().b() != null) {
-                    this.f52160a.mView.y().b().F();
-                } else if (i2 == ReplyPrivacyCheckController.TYPE_EMOTION_IMAGE) {
-                    FoldCommentActivity foldCommentActivity = this.f52160a;
-                    foldCommentActivity.sendEmotion(foldCommentActivity.mEmotionImageData);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class s implements PbFragment.b3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52161a;
-
-        public s(FoldCommentActivity foldCommentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {foldCommentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52161a = foldCommentActivity;
-        }
-
         @Override // com.baidu.tieba.pb.pb.main.PbFragment.b3
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (!b.a.e.e.p.j.z()) {
-                    this.f52161a.showToast(b.a.r0.k2.l.network_not_available);
+                    this.f52160a.showToast(b.a.r0.k2.l.network_not_available);
                     return;
                 }
                 Object[] objArr = (Object[]) obj;
-                this.f52161a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52161a.getPageContext().getPageActivity(), this.f52161a.mModel.P0().l().getId(), this.f52161a.mModel.P0().l().getName(), this.f52161a.mModel.P0().O().f0(), String.valueOf(this.f52161a.mModel.P0().U().getUserId()), objArr.length > 1 ? String.valueOf(objArr[1]) : "", objArr.length > 3 ? String.valueOf(objArr[3]) : "", objArr.length > 2 ? String.valueOf(objArr[2]) : "", objArr.length > 4 ? String.valueOf(objArr[4]) : "")));
+                this.f52160a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.f52160a.getPageContext().getPageActivity(), this.f52160a.mModel.P0().l().getId(), this.f52160a.mModel.P0().l().getName(), this.f52160a.mModel.P0().O().f0(), String.valueOf(this.f52160a.mModel.P0().U().getUserId()), objArr.length > 1 ? String.valueOf(objArr[1]) : "", objArr.length > 3 ? String.valueOf(objArr[3]) : "", objArr.length > 2 ? String.valueOf(objArr[2]) : "", objArr.length > 4 ? String.valueOf(objArr[4]) : "")));
             }
         }
     }
@@ -1736,7 +1736,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52162a;
+        public final /* synthetic */ FoldCommentActivity f52161a;
 
         public t(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -1753,7 +1753,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52162a = foldCommentActivity;
+            this.f52161a = foldCommentActivity;
         }
 
         @Override // b.a.r0.k2.s.c.a
@@ -1773,25 +1773,25 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
                 if (view != null) {
                     if (view.getId() == b.a.r0.k2.i.richText) {
-                        if (this.f52162a.richTextHandleSingleTap(view)) {
+                        if (this.f52161a.richTextHandleSingleTap(view)) {
                             return true;
                         }
                     } else if (view.getId() == b.a.r0.k2.i.pb_floor_item_layout) {
                         if (view.getTag(b.a.r0.k2.i.tag_from) instanceof SparseArray) {
-                            this.f52162a.startSubPbActivity((SparseArray) view.getTag(b.a.r0.k2.i.tag_from));
+                            this.f52161a.startSubPbActivity((SparseArray) view.getTag(b.a.r0.k2.i.tag_from));
                         }
                     } else if ((view instanceof TbRichTextView) || view.getId() == b.a.r0.k2.i.pb_post_header_layout) {
                         SparseArray sparseArray = view.getTag() instanceof SparseArray ? (SparseArray) view.getTag() : null;
                         if (sparseArray == null) {
                             return false;
                         }
-                        this.f52162a.startSubPbActivity(sparseArray);
+                        this.f52161a.startSubPbActivity(sparseArray);
                     }
                 }
-                if (this.f52162a.mPbEditor != null) {
-                    this.f52162a.mView.W(this.f52162a.mPbEditor.D());
+                if (this.f52161a.mPbEditor != null) {
+                    this.f52161a.mView.W(this.f52161a.mPbEditor.D());
                 }
-                this.f52162a.mView.R();
+                this.f52161a.mView.R();
                 return true;
             }
             return invokeLL.booleanValue;
@@ -1814,9 +1814,43 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52163e;
+        public final /* synthetic */ FoldCommentActivity f52162e;
 
         public u(FoldCommentActivity foldCommentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {foldCommentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52162e = foldCommentActivity;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f52162e.dealLongClickListener(view) : invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class v implements i.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FoldCommentActivity f52163e;
+
+        public v(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1834,54 +1868,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.f52163e = foldCommentActivity;
         }
 
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f52163e.dealLongClickListener(view) : invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class v implements i.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52164e;
-
-        public v(FoldCommentActivity foldCommentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {foldCommentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52164e = foldCommentActivity;
-        }
-
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             SparseArray sparseArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f52164e.mLongClickDialog != null) {
-                    this.f52164e.mLongClickDialog.dismiss();
+                if (this.f52163e.mLongClickDialog != null) {
+                    this.f52163e.mLongClickDialog.dismiss();
                 }
-                this.f52164e.trackDialogItem(i2);
+                this.f52163e.trackDialogItem(i2);
                 int i3 = 4;
                 switch (i2) {
                     case -4:
                         View view2 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_share);
-                        this.f52164e.putTrackTagToPerformView(view2);
+                        this.f52163e.putTrackTagToPerformView(view2);
                         if (view2 != null) {
                             view2.performClick();
                             return;
@@ -1889,7 +1889,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     case -3:
                         View view3 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_reply);
-                        this.f52164e.putTrackTagToPerformView(view3);
+                        this.f52163e.putTrackTagToPerformView(view3);
                         if (view3 != null) {
                             view3.performClick();
                             return;
@@ -1899,7 +1899,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         View view4 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_zan_2);
                         if (view4 != null) {
                             AgreeView agreeView = (AgreeView) view4;
-                            this.f52164e.putTrackTagToPerformView(view4);
+                            this.f52163e.putTrackTagToPerformView(view4);
                             if (agreeView.getImgDisagree() != null) {
                                 agreeView.getImgDisagree().performClick();
                                 return;
@@ -1910,7 +1910,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     case -1:
                         View view5 = (View) ((SparseArray) view.getTag()).get(b.a.r0.k2.i.pb_dialog_item_zan_2);
                         if (view5 != null) {
-                            this.f52164e.putTrackTagToPerformView(view5);
+                            this.f52163e.putTrackTagToPerformView(view5);
                             AgreeView agreeView2 = (AgreeView) view5;
                             if (agreeView2.getImgAgree() != null) {
                                 agreeView2.getImgAgree().performClick();
@@ -1923,63 +1923,63 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     default:
                         return;
                     case 1:
-                        if (this.f52164e.mSaveBdImage == null || TextUtils.isEmpty(this.f52164e.mSaveImageUrl)) {
+                        if (this.f52163e.mSaveBdImage == null || TextUtils.isEmpty(this.f52163e.mSaveImageUrl)) {
                             return;
                         }
-                        if (this.f52164e.mEmotionInfo == null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52164e.mSaveImageUrl));
+                        if (this.f52163e.mEmotionInfo == null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, this.f52163e.mSaveImageUrl));
                         } else {
                             d.a aVar = new d.a();
-                            aVar.f11986a = this.f52164e.mSaveImageUrl;
+                            aVar.f11986a = this.f52163e.mSaveImageUrl;
                             String str = "";
-                            if (this.f52164e.mEmotionInfo.memeInfo.pck_id.intValue() >= 0) {
-                                str = "" + this.f52164e.mEmotionInfo.memeInfo.pck_id;
+                            if (this.f52163e.mEmotionInfo.memeInfo.pck_id.intValue() >= 0) {
+                                str = "" + this.f52163e.mEmotionInfo.memeInfo.pck_id;
                             }
                             aVar.f11987b = str;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                         }
-                        this.f52164e.mSaveBdImage = null;
-                        this.f52164e.mSaveImageUrl = null;
+                        this.f52163e.mSaveBdImage = null;
+                        this.f52163e.mSaveImageUrl = null;
                         return;
                     case 2:
-                        if (this.f52164e.mSaveBdImage == null || TextUtils.isEmpty(this.f52164e.mSaveImageUrl)) {
+                        if (this.f52163e.mSaveBdImage == null || TextUtils.isEmpty(this.f52163e.mSaveImageUrl)) {
                             return;
                         }
-                        if (this.f52164e.mPermissionJudgement == null) {
-                            this.f52164e.mPermissionJudgement = new PermissionJudgePolicy();
+                        if (this.f52163e.mPermissionJudgement == null) {
+                            this.f52163e.mPermissionJudgement = new PermissionJudgePolicy();
                         }
-                        this.f52164e.mPermissionJudgement.clearRequestPermissionList();
-                        this.f52164e.mPermissionJudgement.appendRequestPermission(this.f52164e.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f52164e.mPermissionJudgement.startRequestPermission(this.f52164e.getPageContext().getPageActivity())) {
+                        this.f52163e.mPermissionJudgement.clearRequestPermissionList();
+                        this.f52163e.mPermissionJudgement.appendRequestPermission(this.f52163e.getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.f52163e.mPermissionJudgement.startRequestPermission(this.f52163e.getPageContext().getPageActivity())) {
                             return;
                         }
-                        if (this.f52164e.mSaveImageHelper == null) {
-                            FoldCommentActivity foldCommentActivity = this.f52164e;
+                        if (this.f52163e.mSaveImageHelper == null) {
+                            FoldCommentActivity foldCommentActivity = this.f52163e;
                             foldCommentActivity.mSaveImageHelper = new w0(foldCommentActivity.getPageContext());
                         }
-                        this.f52164e.mSaveImageHelper.b(this.f52164e.mSaveImageUrl, this.f52164e.mSaveBdImage.n());
-                        this.f52164e.mSaveBdImage = null;
-                        this.f52164e.mSaveImageUrl = null;
+                        this.f52163e.mSaveImageHelper.b(this.f52163e.mSaveImageUrl, this.f52163e.mSaveBdImage.n());
+                        this.f52163e.mSaveBdImage = null;
+                        this.f52163e.mSaveImageUrl = null;
                         return;
                     case 3:
-                        FoldCommentActivity foldCommentActivity2 = this.f52164e;
+                        FoldCommentActivity foldCommentActivity2 = this.f52163e;
                         PostData postData = foldCommentActivity2.postData;
                         if (postData != null) {
                             postData.l0(foldCommentActivity2.getPageContext().getPageActivity());
-                            this.f52164e.postData = null;
+                            this.f52163e.postData = null;
                             return;
                         }
                         return;
                     case 4:
                         TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 2));
-                        if (this.f52164e.checkUpIsLogin()) {
-                            this.f52164e.markFloor(view);
-                            if (this.f52164e.mModel.P0().O() == null || this.f52164e.mModel.P0().O().J() == null || this.f52164e.mModel.P0().O().J().getUserId() == null || this.f52164e.mMarkModel == null) {
+                        if (this.f52163e.checkUpIsLogin()) {
+                            this.f52163e.markFloor(view);
+                            if (this.f52163e.mModel.P0().O() == null || this.f52163e.mModel.P0().O().J() == null || this.f52163e.mModel.P0().O().J().getUserId() == null || this.f52163e.mMarkModel == null) {
                                 return;
                             }
-                            FoldCommentActivity foldCommentActivity3 = this.f52164e;
+                            FoldCommentActivity foldCommentActivity3 = this.f52163e;
                             int threadType = foldCommentActivity3.getThreadType(foldCommentActivity3.mModel.P0());
-                            d2 O = this.f52164e.mModel.P0().O();
+                            d2 O = this.f52163e.mModel.P0().O();
                             if (O.M1()) {
                                 i3 = 2;
                             } else if (O.P1()) {
@@ -1987,19 +1987,19 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             } else if (!O.N1()) {
                                 i3 = O.O1() ? 5 : 1;
                             }
-                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52164e.mModel.f1()).param("obj_locate", 2).param("obj_id", this.f52164e.mModel.P0().O().J().getUserId()).param("obj_type", !this.f52164e.mMarkModel.e()).param("obj_source", threadType).param("obj_param1", i3));
+                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.f52163e.mModel.f1()).param("obj_locate", 2).param("obj_id", this.f52163e.mModel.P0().O().J().getUserId()).param("obj_type", !this.f52163e.mMarkModel.e()).param("obj_source", threadType).param("obj_param1", i3));
                             return;
                         }
                         return;
                     case 5:
                         if (!b.a.e.e.p.j.z()) {
-                            this.f52164e.showToast(b.a.r0.k2.l.network_not_available);
+                            this.f52163e.showToast(b.a.r0.k2.l.network_not_available);
                             return;
                         }
                         Object tag = view.getTag();
                         if (tag instanceof String) {
                             TiebaStatic.log(new StatisticItem("c13079"));
-                            this.f52164e.handleReportClicked((String) tag);
+                            this.f52163e.handleReportClicked((String) tag);
                             return;
                         } else if (tag instanceof SparseArray) {
                             TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
@@ -2007,7 +2007,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             if ((sparseArray2.get(b.a.r0.k2.i.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue()) {
                                 sparseArray2.put(b.a.r0.k2.i.tag_from, 0);
                                 sparseArray2.put(b.a.r0.k2.i.tag_check_mute_from, 2);
-                                this.f52164e.checkMuteState(sparseArray2);
+                                this.f52163e.checkMuteState(sparseArray2);
                                 return;
                             }
                             return;
@@ -2020,27 +2020,27 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             boolean booleanValue = ((Boolean) sparseArray3.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue();
                             int intValue = ((Integer) sparseArray3.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue();
                             boolean booleanValue2 = ((Boolean) sparseArray3.get(b.a.r0.k2.i.tag_has_sub_post)).booleanValue();
-                            boolean isHost = this.f52164e.isHost(TbadkCoreApplication.getCurrentAccount());
+                            boolean isHost = this.f52163e.isHost(TbadkCoreApplication.getCurrentAccount());
                             if (isHost) {
                                 if (!booleanValue2) {
-                                    this.f52164e.showDelNoSubPostDialog(sparseArray3, intValue, booleanValue);
+                                    this.f52163e.showDelNoSubPostDialog(sparseArray3, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.f52164e.mView.N(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
+                                    this.f52163e.mView.N(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue, null, isHost);
                                     return;
                                 }
                             } else if (booleanValue && !booleanValue2) {
-                                this.f52164e.showDelNoSubPostDialog(sparseArray3, intValue, booleanValue);
+                                this.f52163e.showDelNoSubPostDialog(sparseArray3, intValue, booleanValue);
                                 return;
                             } else {
-                                this.f52164e.mView.L(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue);
+                                this.f52163e.mView.L(((Integer) sparseArray3.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray3.get(b.a.r0.k2.i.tag_del_post_id), intValue, booleanValue);
                                 return;
                             }
                         }
                         return;
                     case 7:
                         if (!b.a.e.e.p.j.z()) {
-                            this.f52164e.showToast(b.a.r0.k2.l.network_not_available);
+                            this.f52163e.showToast(b.a.r0.k2.l.network_not_available);
                             return;
                         }
                         SparseArray<Object> sparseArray4 = (SparseArray) view.getTag();
@@ -2052,35 +2052,35 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         boolean booleanValue5 = ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue();
                         if (!booleanValue3) {
                             if (booleanValue4) {
-                                this.f52164e.mView.L(((Integer) sparseArray4.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) sparseArray4.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
+                                this.f52163e.mView.L(((Integer) sparseArray4.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) sparseArray4.get(b.a.r0.k2.i.tag_del_post_id), ((Integer) sparseArray4.get(b.a.r0.k2.i.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(b.a.r0.k2.i.tag_del_post_is_self)).booleanValue());
                                 return;
                             }
                             return;
                         } else if (booleanValue5) {
                             sparseArray4.put(b.a.r0.k2.i.tag_from, 1);
                             sparseArray4.put(b.a.r0.k2.i.tag_check_mute_from, 2);
-                            this.f52164e.checkMuteState(sparseArray4);
+                            this.f52163e.checkMuteState(sparseArray4);
                             return;
                         } else {
                             sparseArray4.put(b.a.r0.k2.i.tag_check_mute_from, 2);
-                            this.f52164e.mView.P(view);
+                            this.f52163e.mView.P(view);
                             return;
                         }
                     case 8:
-                        if (this.f52164e.checkUpIsLogin() && (sparseArray = (SparseArray) view.getTag()) != null) {
+                        if (this.f52163e.checkUpIsLogin() && (sparseArray = (SparseArray) view.getTag()) != null) {
                             PostData postData2 = (PostData) sparseArray.get(b.a.r0.k2.i.tag_clip_board);
                             if (postData2.q() == null) {
                                 return;
                             }
-                            this.f52164e.clickOnDisagree(postData2.q());
+                            this.f52163e.clickOnDisagree(postData2.q());
                             return;
                         }
                         return;
                     case 9:
-                        if (!this.f52164e.checkUpIsLogin() || this.f52164e.mModel == null || this.f52164e.mModel.P0() == null) {
+                        if (!this.f52163e.checkUpIsLogin() || this.f52163e.mModel == null || this.f52163e.mModel.P0() == null) {
                             return;
                         }
-                        this.f52164e.showBlockDialog(b.a.r0.v3.a.b(view));
+                        this.f52163e.showBlockDialog(b.a.r0.v3.a.b(view));
                         return;
                 }
             }
@@ -2093,16 +2093,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f52165e;
+        public final /* synthetic */ SparseArray f52164e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f52166f;
+        public final /* synthetic */ int f52165f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f52167g;
+        public final /* synthetic */ boolean f52166g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52168h;
+        public final /* synthetic */ FoldCommentActivity f52167h;
 
         public w(FoldCommentActivity foldCommentActivity, SparseArray sparseArray, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -2119,10 +2119,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52168h = foldCommentActivity;
-            this.f52165e = sparseArray;
-            this.f52166f = i2;
-            this.f52167g = z;
+            this.f52167h = foldCommentActivity;
+            this.f52164e = sparseArray;
+            this.f52165f = i2;
+            this.f52166g = z;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -2132,7 +2132,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (aVar != null) {
                     aVar.dismiss();
                 }
-                this.f52168h.deleteThreadDirect(((Integer) this.f52165e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52165e.get(b.a.r0.k2.i.tag_del_post_id), this.f52166f, this.f52167g);
+                this.f52167h.deleteThreadDirect(((Integer) this.f52164e.get(b.a.r0.k2.i.tag_del_post_type)).intValue(), (String) this.f52164e.get(b.a.r0.k2.i.tag_del_post_id), this.f52165f, this.f52166g);
             }
         }
     }
@@ -2143,7 +2143,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FoldCommentActivity f52169e;
+        public final /* synthetic */ FoldCommentActivity f52168e;
 
         public x(FoldCommentActivity foldCommentActivity) {
             Interceptable interceptable = $ic;
@@ -2160,7 +2160,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
             }
-            this.f52169e = foldCommentActivity;
+            this.f52168e = foldCommentActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -2577,9 +2577,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         if (!(interceptable == null || interceptable.invokeLZ(65588, this, bVar, z) == null) || bVar == null) {
             return;
         }
-        String string = !TextUtils.isEmpty(bVar.f54249b) ? bVar.f54249b : getString(b.a.r0.k2.l.delete_fail);
+        String string = !TextUtils.isEmpty(bVar.f54248b) ? bVar.f54248b : getString(b.a.r0.k2.l.delete_fail);
         int i2 = 0;
-        if (bVar.f54250c == 1211066) {
+        if (bVar.f54249c == 1211066) {
             hideProgressBar();
             b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(getPageContext().getPageActivity());
             aVar.setMessage(string);
@@ -2587,18 +2587,18 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             aVar.setCancelable(true);
             aVar.create(getPageContext());
             aVar.show();
-        } else if (bVar.f54251d != 0) {
-            this.mView.v(0, bVar.f54248a, bVar.f54249b, z);
+        } else if (bVar.f54250d != 0) {
+            this.mView.v(0, bVar.f54247a, bVar.f54248b, z);
         }
-        if (bVar.f54248a) {
-            int i3 = bVar.f54251d;
+        if (bVar.f54247a) {
+            int i3 = bVar.f54250d;
             if (i3 == 1) {
                 ArrayList<PostData> F = this.mModel.P0().F();
                 int size = F.size();
                 while (true) {
                     if (i2 >= size) {
                         break;
-                    } else if (bVar.f54254g.equals(F.get(i2).G())) {
+                    } else if (bVar.f54253g.equals(F.get(i2).G())) {
                         F.remove(i2);
                         break;
                     } else {
@@ -2617,7 +2617,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     while (true) {
                         if (i5 >= F2.get(i4).O().size()) {
                             break;
-                        } else if (bVar.f54254g.equals(F2.get(i4).O().get(i5).G())) {
+                        } else if (bVar.f54253g.equals(F2.get(i4).O().get(i5).G())) {
                             F2.get(i4).O().remove(i5);
                             F2.get(i4).l();
                             z2 = true;
@@ -2626,7 +2626,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             i5++;
                         }
                     }
-                    F2.get(i4).n(bVar.f54254g);
+                    F2.get(i4).n(bVar.f54253g);
                 }
             }
         }
@@ -3087,13 +3087,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         if (validImage == null || (tbRichTextData = validImage.y().get(this.imgIndex)) == null) {
             return;
         }
-        eVar.f52189f = String.valueOf(validImage.getPostId());
-        eVar.f52184a = new ArrayList<>();
-        eVar.f52185b = new ConcurrentHashMap<>();
+        eVar.f52188f = String.valueOf(validImage.getPostId());
+        eVar.f52183a = new ArrayList<>();
+        eVar.f52184b = new ConcurrentHashMap<>();
         if (!tbRichTextData.C().D()) {
-            eVar.f52191h = false;
+            eVar.f52190h = false;
             String a2 = b.a.r0.k2.r.g.a(tbRichTextData);
-            eVar.f52184a.add(a2);
+            eVar.f52183a.add(a2);
             ImageUrlData imageUrlData = new ImageUrlData();
             imageUrlData.imageUrl = str;
             if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
@@ -3109,44 +3109,44 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             imageUrlData.postId = validImage.getPostId();
             imageUrlData.mIsReserver = this.mModel.a1();
             imageUrlData.mIsSeeHost = this.mModel.t0();
-            eVar.f52185b.put(a2, imageUrlData);
+            eVar.f52184b.put(a2, imageUrlData);
             if (P0 != null) {
                 if (P0.l() != null) {
-                    eVar.f52186c = P0.l().getName();
-                    eVar.f52187d = P0.l().getId();
+                    eVar.f52185c = P0.l().getName();
+                    eVar.f52186d = P0.l().getId();
                 }
                 if (P0.O() != null) {
-                    eVar.f52188e = P0.O().f0();
+                    eVar.f52187e = P0.O().f0();
                 }
-                eVar.f52190g = P0.s() == 1;
+                eVar.f52189g = P0.s() == 1;
             }
-            imageUrlData.threadId = b.a.e.e.m.b.g(eVar.f52188e, -1L);
+            imageUrlData.threadId = b.a.e.e.m.b.g(eVar.f52187e, -1L);
             return;
         }
-        eVar.f52191h = true;
+        eVar.f52190h = true;
         int size = P0.F().size();
         this.index_valid = false;
         eVar.j = -1;
-        int imageIndex = P0.j() != null ? getImageIndex(P0.j().M(), validImage, i2, i2, eVar.f52184a, eVar.f52185b) : i2;
+        int imageIndex = P0.j() != null ? getImageIndex(P0.j().M(), validImage, i2, i2, eVar.f52183a, eVar.f52184b) : i2;
         for (int i3 = 0; i3 < size; i3++) {
             PostData postData = P0.F().get(i3);
             if (postData.G() == null || P0.j() == null || P0.j().G() == null || !postData.G().equals(P0.j().G())) {
-                imageIndex = getImageIndex(postData.M(), validImage, imageIndex, i2, eVar.f52184a, eVar.f52185b);
+                imageIndex = getImageIndex(postData.M(), validImage, imageIndex, i2, eVar.f52183a, eVar.f52184b);
             }
         }
-        if (eVar.f52184a.size() > 0) {
-            ArrayList<String> arrayList = eVar.f52184a;
-            eVar.f52192i = arrayList.get(arrayList.size() - 1);
+        if (eVar.f52183a.size() > 0) {
+            ArrayList<String> arrayList = eVar.f52183a;
+            eVar.f52191i = arrayList.get(arrayList.size() - 1);
         }
         if (P0 != null) {
             if (P0.l() != null) {
-                eVar.f52186c = P0.l().getName();
-                eVar.f52187d = P0.l().getId();
+                eVar.f52185c = P0.l().getName();
+                eVar.f52186d = P0.l().getId();
             }
             if (P0.O() != null) {
-                eVar.f52188e = P0.O().f0();
+                eVar.f52187e = P0.O().f0();
             }
-            eVar.f52190g = P0.s() == 1;
+            eVar.f52189g = P0.s() == 1;
         }
         eVar.j = imageIndex;
     }
@@ -3354,7 +3354,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         if (processSubPbImg == null) {
             return;
         }
-        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, null, V, postData.R(), this.mModel.P0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 5).addBigImageData(processSubPbImg.f52184a, processSubPbImg.f52185b, processSubPbImg.f52190g, processSubPbImg.j);
+        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this).createSubPbActivityConfig(f1, G, "pb", true, false, null, false, null, V, postData.R(), this.mModel.P0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 5).addBigImageData(processSubPbImg.f52183a, processSubPbImg.f52184b, processSubPbImg.f52189g, processSubPbImg.j);
         addBigImageData.setKeyPageStartFrom(this.mModel.O0());
         addBigImageData.setFromFrsForumId(this.mModel.getFromForumId());
         addBigImageData.setWorksInfoData(this.mModel.k1());

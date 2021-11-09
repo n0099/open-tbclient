@@ -42,18 +42,18 @@ public class i5 extends Handler {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
             CloseParentView closeParentView = this.f33346a;
-            closeParentView.f70534a.setText(String.valueOf(closeParentView.f70541h));
+            closeParentView.f70533a.setText(String.valueOf(closeParentView.f70540h));
             CloseParentView closeParentView2 = this.f33346a;
-            if (closeParentView2.f70541h <= 0) {
-                closeParentView2.f70534a.setVisibility(8);
-                this.f33346a.f70534a.setClickable(false);
-                this.f33346a.f70542i.removeMessages(10);
+            if (closeParentView2.f70540h <= 0) {
+                closeParentView2.f70533a.setVisibility(8);
+                this.f33346a.f70533a.setClickable(false);
+                this.f33346a.f70541i.removeMessages(10);
             } else {
-                closeParentView2.f70534a.setVisibility(0);
-                this.f33346a.f70534a.setClickable(true);
+                closeParentView2.f70533a.setVisibility(0);
+                this.f33346a.f70533a.setClickable(true);
             }
-            this.f33346a.f70542i.sendEmptyMessageDelayed(10, 1000L);
-            this.f33346a.f70541h--;
+            this.f33346a.f70541i.sendEmptyMessageDelayed(10, 1000L);
+            this.f33346a.f70540h--;
         }
     }
 }

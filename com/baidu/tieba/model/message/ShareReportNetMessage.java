@@ -19,7 +19,7 @@ public class ShareReportNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f51647common;
+    public CommonReq f51646common;
     public long fid;
     public int from;
     public long tid;
@@ -49,7 +49,7 @@ public class ShareReportNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f73066common = getCommon();
+            builder.f73065common = getCommon();
             builder.fid = Long.valueOf(getFid());
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
@@ -66,7 +66,7 @@ public class ShareReportNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51647common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51646common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -90,7 +90,7 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f51647common = commonReq;
+            this.f51646common = commonReq;
         }
     }
 

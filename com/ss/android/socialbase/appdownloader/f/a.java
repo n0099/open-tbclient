@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, g.a> f68996a;
+    public static final HashMap<String, g.a> f68995a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f68996a = new HashMap<>();
+        f68995a = new HashMap<>();
     }
 
     public static boolean a(JSONArray jSONArray, String str) {
@@ -166,15 +166,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f68996a.containsKey(str)) {
-                g.a aVar = f68996a.get(str);
+            if (f68995a.containsKey(str)) {
+                g.a aVar = f68995a.get(str);
                 if (aVar != null) {
                     return aVar;
                 }
                 return null;
             }
             g.a b2 = g.b(str);
-            f68996a.put(str, b2);
+            f68995a.put(str, b2);
             if (b2 != null) {
                 return b2;
             }

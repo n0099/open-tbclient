@@ -50,31 +50,31 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59375a;
+    public int f59374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f59376b;
+    public RelativeLayout f59375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SafeScrollView f59377c;
+    public SafeScrollView f59376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SafeKeyBoardEditText f59378d;
+    public SafeKeyBoardEditText f59377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NumberSmsView f59379e;
+    public NumberSmsView f59378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59380f;
+    public TextView f59379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59381g;
+    public TextView f59380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59382h;
+    public TextView f59381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f59383i;
+    public TextView f59382i;
     public TextView j;
     public TextView k;
     public BindFastRequest l;
@@ -93,7 +93,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 return;
             }
         }
-        this.f59375a = 6;
+        this.f59374a = 6;
     }
 
     private void e() {
@@ -163,10 +163,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f59387a;
+                        public final /* synthetic */ String f59386a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ NewCheckSmsActivity f59388b;
+                        public final /* synthetic */ NewCheckSmsActivity f59387b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -183,15 +183,15 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                                     return;
                                 }
                             }
-                            this.f59388b = this;
-                            this.f59387a = str;
+                            this.f59387b = this;
+                            this.f59386a = str;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                GlobalUtils.toast(this.f59388b, this.f59387a);
+                                GlobalUtils.toast(this.f59387b, this.f59386a);
                             }
                         }
                     });
@@ -221,10 +221,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f59385a;
+                        public final /* synthetic */ String f59384a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ NewCheckSmsActivity f59386b;
+                        public final /* synthetic */ NewCheckSmsActivity f59385b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -241,15 +241,15 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                                     return;
                                 }
                             }
-                            this.f59386b = this;
-                            this.f59385a = r7;
+                            this.f59385b = this;
+                            this.f59384a = r7;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                NewBindCardEntry.getInstance().newBindCardCallback("0", this.f59385a, false);
+                                NewBindCardEntry.getInstance().newBindCardCallback("0", this.f59384a, false);
                             }
                         }
                     });
@@ -287,7 +287,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 onBackPressed();
             } else if (view == this.k) {
                 b(PayStatServiceEvent.NEW_CLICK_RESEND_SMS);
-                this.f59379e.resetSms();
+                this.f59378e.resetSms();
                 c();
                 b();
                 d();
@@ -313,9 +313,9 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SafeScrollView safeScrollView = this.f59377c;
+            SafeScrollView safeScrollView = this.f59376c;
             if (safeScrollView != null && safeScrollView.isPopupWindowShowing()) {
-                this.f59377c.dismissKeyBoard(this.f59378d);
+                this.f59376c.dismissKeyBoard(this.f59377d);
             }
             BeanManager.getInstance().removeAllBeans("NewCheckSmsActivity");
             CountDownTimer countDownTimer = this.m;
@@ -331,12 +331,12 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     public void onSmsChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f59382h.setVisibility(8);
-            if (i2 == this.f59375a) {
-                this.f59379e.setEnabled(false);
+            this.f59381h.setVisibility(8);
+            if (i2 == this.f59374a) {
+                this.f59378e.setEnabled(false);
                 BindFastRequest bindFastRequest = this.l;
                 if (bindFastRequest != null) {
-                    bindFastRequest.mSmsVCode = this.f59379e.getSms();
+                    bindFastRequest.mSmsVCode = this.f59378e.getSms();
                 }
                 b(PayStatServiceEvent.NEW_CHECK_SMS);
                 if (CardAddResponse.getInstance() != null && CardAddResponse.getInstance().user != null && CardAddResponse.getInstance().user.has_mobile_password == 1) {
@@ -353,7 +353,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f59379e.requestFocus();
+                this.f59378e.requestFocus();
             }
             super.onWindowFocusChanged(z);
         }
@@ -369,25 +369,25 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f59376b = (RelativeLayout) findViewById(R.id.relative_check_sms);
-            this.f59377c = (SafeScrollView) findViewById(R.id.scrollview);
-            this.f59379e = (NumberSmsView) findViewById(R.id.new_check_sms_input_box);
-            this.f59380f = (TextView) findViewById(R.id.tv_new_check_sms_main_title);
-            this.f59381g = (TextView) findViewById(R.id.tv_new_check_sms_subtitle);
-            this.f59382h = (TextView) findViewById(R.id.tv_new_check_sms_error);
+            this.f59375b = (RelativeLayout) findViewById(R.id.relative_check_sms);
+            this.f59376c = (SafeScrollView) findViewById(R.id.scrollview);
+            this.f59378e = (NumberSmsView) findViewById(R.id.new_check_sms_input_box);
+            this.f59379f = (TextView) findViewById(R.id.tv_new_check_sms_main_title);
+            this.f59380g = (TextView) findViewById(R.id.tv_new_check_sms_subtitle);
+            this.f59381h = (TextView) findViewById(R.id.tv_new_check_sms_error);
             this.k = (TextView) findViewById(R.id.tv_new_check_resend_sms_time);
-            this.f59383i = (TextView) findViewById(R.id.tv_new_check_sms_time);
+            this.f59382i = (TextView) findViewById(R.id.tv_new_check_sms_time);
             this.j = (TextView) findViewById(R.id.tv_new_check_sms_tip);
             this.mLeftImg.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.j.setOnClickListener(this);
-            this.f59379e.addNumberSmsChangedListenter(this);
-            this.f59379e.setShowInputMethod(true);
+            this.f59378e.addNumberSmsChangedListenter(this);
+            this.f59378e.setShowInputMethod(true);
             SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) findViewById(R.id.sms_input);
-            this.f59378d = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f59376b, this.f59377c, this.f59379e, false);
-            this.f59378d.setDisablePast(false);
-            this.f59378d.setGap(20);
+            this.f59377d = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f59375b, this.f59376c, this.f59378e, false);
+            this.f59377d.setDisablePast(false);
+            this.f59377d.setGap(20);
             BindFastRequest bindReq = NewBindCardEntry.getInstance().getBindReq();
             this.l = bindReq;
             if (bindReq == null) {
@@ -398,19 +398,19 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
             String sendSmsphone = bindReq.getSendSmsphone();
             if (!TextUtils.isEmpty(sendSmsphone)) {
                 if (sendSmsphone.length() > 4) {
-                    TextView textView = this.f59380f;
+                    TextView textView = this.f59379f;
                     textView.setText("输入尾号" + sendSmsphone.substring(sendSmsphone.length() - 4, sendSmsphone.length()) + "的短信验证码");
                 }
-                TextView textView2 = this.f59381g;
+                TextView textView2 = this.f59380g;
                 textView2.setText("验证码已发送至您的手机号" + ((Object) StringUtils.maskingPhoneNumber(sendSmsphone)));
             }
             if (!TextUtils.isEmpty(this.l.getSmsLength())) {
-                this.f59375a = Integer.parseInt(this.l.getSmsLength());
+                this.f59374a = Integer.parseInt(this.l.getSmsLength());
             }
-            if (this.f59375a < 1) {
-                this.f59375a = 6;
+            if (this.f59374a < 1) {
+                this.f59374a = 6;
             }
-            this.f59379e.initView(this.f59375a);
+            this.f59378e.initView(this.f59374a);
             b();
             c();
         }
@@ -429,7 +429,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewCheckSmsActivity f59384a;
+                public final /* synthetic */ NewCheckSmsActivity f59383a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -450,16 +450,16 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f59384a = this;
+                    this.f59383a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f59384a.k.setEnabled(true);
-                        this.f59384a.k.setVisibility(0);
-                        this.f59384a.f59383i.setVisibility(8);
+                        this.f59383a.k.setEnabled(true);
+                        this.f59383a.k.setVisibility(0);
+                        this.f59383a.f59382i.setVisibility(8);
                     }
                 }
 
@@ -467,10 +467,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 public void onTick(long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                        this.f59384a.f59383i.setVisibility(0);
-                        this.f59384a.k.setVisibility(8);
-                        this.f59384a.k.setEnabled(false);
-                        this.f59384a.f59383i.setText(String.format(ResUtils.getString(this.f59384a.getActivity(), "new_bind_card_check_sms_resend"), Integer.valueOf((int) (j / 1000))));
+                        this.f59383a.f59382i.setVisibility(0);
+                        this.f59383a.k.setVisibility(8);
+                        this.f59383a.k.setEnabled(false);
+                        this.f59383a.f59382i.setText(String.format(ResUtils.getString(this.f59383a.getActivity(), "new_bind_card_check_sms_resend"), Integer.valueOf((int) (j / 1000))));
                     }
                 }
             };
@@ -483,9 +483,9 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f59379e.smsNomal();
-            this.f59382h.setVisibility(8);
-            this.f59379e.requestFocus();
+            this.f59378e.smsNomal();
+            this.f59381h.setVisibility(8);
+            this.f59378e.requestFocus();
         }
     }
 
@@ -515,10 +515,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f59389a;
+                public final /* synthetic */ String f59388a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NewCheckSmsActivity f59390b;
+                public final /* synthetic */ NewCheckSmsActivity f59389b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -535,20 +535,20 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f59390b = this;
-                    this.f59389a = str;
+                    this.f59389b = this;
+                    this.f59388a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f59390b.f59379e.setEnabled(true);
-                        this.f59390b.f59379e.resetSms();
-                        this.f59390b.f59379e.requestFocus();
-                        this.f59390b.f59379e.smsError();
-                        this.f59390b.f59382h.setVisibility(0);
-                        this.f59390b.f59382h.setText(this.f59389a);
+                        this.f59389b.f59378e.setEnabled(true);
+                        this.f59389b.f59378e.resetSms();
+                        this.f59389b.f59378e.requestFocus();
+                        this.f59389b.f59378e.smsError();
+                        this.f59389b.f59381h.setVisibility(0);
+                        this.f59389b.f59381h.setText(this.f59388a);
                     }
                 }
             });

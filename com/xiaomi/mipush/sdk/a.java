@@ -23,7 +23,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f70581a;
+    public Set<String> f70580a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f70581a = new HashSet();
+        this.f70580a = new HashSet();
     }
 
     public static void a(Application application) {
@@ -89,15 +89,15 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f70581a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f70580a.contains(stringExtra)) {
             return;
         }
-        this.f70581a.add(stringExtra);
+        this.f70580a.add(stringExtra);
         if (intExtra == 3000) {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
             m289a = ek.m289a(intExtra);
-            i2 = SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY;
+            i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
         } else if (intExtra != 1000) {
             return;
         } else {

@@ -66,7 +66,7 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsSplitAlaShareItemAdapter f47166b;
+        public final /* synthetic */ FrsSplitAlaShareItemAdapter f47165b;
 
         public a(FrsSplitAlaShareItemAdapter frsSplitAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
                     return;
                 }
             }
-            this.f47166b = frsSplitAlaShareItemAdapter;
+            this.f47165b = frsSplitAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,11 +100,11 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f47166b.o == null) {
+                if (customMessage == null || this.f47165b.o == null) {
                     return;
                 }
                 customMessage.setData(d2Var);
-                this.f47166b.o.sendMessage(customMessage);
+                this.f47165b.o.sendMessage(customMessage);
             }
         }
     }

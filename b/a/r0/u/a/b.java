@@ -10,6 +10,7 @@ import com.baidu.mobads.sdk.api.RequestParameters;
 import com.baidu.mobads.sdk.api.RsplashType;
 import com.baidu.mobads.sdk.api.SplashAd;
 import com.baidu.mobads.sdk.api.SplashLpCloseListener;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -79,7 +80,7 @@ public class b implements b.a.r0.u.a.h.b {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23880a.o();
+                this.f23880a.n();
             }
         }
     }
@@ -116,7 +117,7 @@ public class b implements b.a.r0.u.a.h.b {
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 b.a.e.e.n.a a2 = j.a();
                 a2.b("type", "gd");
-                a2.b("locate", "splash");
+                a2.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
                 a2.c(SetImageWatermarkTypeReqMsg.SWITCH, Integer.valueOf(b.a.r0.u.a.h.a.c().b()));
                 a2.c("isSuccess", Integer.valueOf(i2));
                 BdStatisticsManager.getInstance().debug(str, a2);
@@ -233,26 +234,16 @@ public class b implements b.a.r0.u.a.h.b {
     }
 
     @Override // b.a.r0.u.a.h.b
-    public void b() {
-        b.a.q0.l.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f23878g) == null) {
-            return;
-        }
-        aVar.d();
-    }
-
-    @Override // b.a.r0.u.a.h.b
-    public AdLoadState c() {
+    public AdLoadState b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23877f : (AdLoadState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23877f : (AdLoadState) invokeV.objValue;
     }
 
     @Override // b.a.r0.u.a.h.b
-    public void d(b.a.q0.l.d dVar) {
+    public void c(b.a.q0.l.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.b() == null || dVar.b().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || dVar == null || dVar.b() == null || dVar.b().getContext() == null) {
             return;
         }
         dVar.f12714c = this.f23879h;
@@ -279,6 +270,13 @@ public class b implements b.a.r0.u.a.h.b {
     }
 
     @Override // b.a.r0.u.a.h.b
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "bes_gd" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.r0.u.a.h.b
     public void destroy() {
         SplashAd splashAd;
         Interceptable interceptable = $ic;
@@ -288,17 +286,10 @@ public class b implements b.a.r0.u.a.h.b {
         splashAd.destroy();
     }
 
-    @Override // b.a.r0.u.a.h.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "bes_gd" : (String) invokeV.objValue;
-    }
-
-    public final void o() {
+    public final void n() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = this.f23876e) == null || weakReference.get().getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (weakReference = this.f23876e) == null || weakReference.get().getParent() == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.f23876e.get().getLayoutParams();
@@ -311,14 +302,14 @@ public class b implements b.a.r0.u.a.h.b {
     public void show() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f23875d == null || (weakReference = this.f23876e) == null || weakReference.get() == null || this.f23877f != AdLoadState.SUCCEED) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f23875d == null || (weakReference = this.f23876e) == null || weakReference.get() == null || this.f23877f != AdLoadState.SUCCEED) {
             return;
         }
         b.a.q0.l.a aVar = this.f23878g;
         if (aVar != null) {
-            aVar.c();
+            aVar.d();
         }
-        o();
+        n();
         if (this.f23876e.get().getChildCount() > 0) {
             this.f23876e.get().removeAllViews();
         }

@@ -19,31 +19,31 @@ public class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f69374a;
+    public final String f69373a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f69375b;
+    public final String f69374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f69376c;
+    public final String f69375c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f69377d;
+    public final boolean f69376d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<m> f69378e;
+    public final List<m> f69377e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69379f;
+    public int f69378f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f69380g;
+    public boolean f69379g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f69381h;
+    public int f69380h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f69382i;
+    public String f69381i;
     public final AtomicLong j;
 
     public q(String str, boolean z) {
@@ -61,12 +61,12 @@ public class q {
                 return;
             }
         }
-        this.f69378e = new ArrayList();
+        this.f69377e = new ArrayList();
         this.j = new AtomicLong();
-        this.f69374a = str;
-        this.f69377d = z;
-        this.f69375b = null;
-        this.f69376c = null;
+        this.f69373a = str;
+        this.f69376d = z;
+        this.f69374b = null;
+        this.f69375c = null;
     }
 
     private String a(String str) {
@@ -94,20 +94,20 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.f69382i == null) {
+            if (this.f69381i == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f69374a);
+                sb.append(this.f69373a);
                 sb.append("_");
-                String str = this.f69375b;
+                String str = this.f69374b;
                 if (str == null) {
                     str = "";
                 }
                 sb.append(str);
                 sb.append("_");
-                sb.append(this.f69377d);
-                this.f69382i = sb.toString();
+                sb.append(this.f69376d);
+                this.f69381i = sb.toString();
             }
-            return this.f69382i;
+            return this.f69381i;
         }
         return (String) invokeV.objValue;
     }
@@ -117,7 +117,7 @@ public class q {
         if (interceptable == null || interceptable.invokeL(1048580, this, mVar) == null) {
             synchronized (this) {
                 try {
-                    this.f69378e.remove(mVar);
+                    this.f69377e.remove(mVar);
                 } catch (Throwable unused) {
                 }
             }
@@ -128,7 +128,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                this.f69380g = false;
+                this.f69379g = false;
             }
         }
     }
@@ -139,7 +139,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f69380g;
+                z = this.f69379g;
             }
             return z;
         }
@@ -165,10 +165,10 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f69381h == 0) {
-                this.f69381h = e().hashCode();
+            if (this.f69380h == 0) {
+                this.f69380h = e().hashCode();
             }
-            return this.f69381h;
+            return this.f69380h;
         }
         return invokeV.intValue;
     }
@@ -177,7 +177,7 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "UrlRecord{url='" + this.f69374a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f69375b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f69376c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f69377d + ", failedTimes=" + this.f69379f + ", isCurrentFailed=" + this.f69380g + ExtendedMessageFormat.END_FE;
+            return "UrlRecord{url='" + this.f69373a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f69374b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f69375c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f69376d + ", failedTimes=" + this.f69378f + ", isCurrentFailed=" + this.f69379g + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -186,8 +186,8 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f69379f++;
-                this.f69380g = true;
+                this.f69378f++;
+                this.f69379g = true;
             }
         }
     }
@@ -196,7 +196,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
             synchronized (this) {
-                this.f69378e.add(mVar);
+                this.f69377e.add(mVar);
             }
         }
     }
@@ -216,12 +216,12 @@ public class q {
                 return;
             }
         }
-        this.f69378e = new ArrayList();
+        this.f69377e = new ArrayList();
         this.j = new AtomicLong();
-        this.f69374a = str;
-        this.f69377d = false;
-        this.f69375b = str2;
-        this.f69376c = a(str2);
+        this.f69373a = str;
+        this.f69376d = false;
+        this.f69374b = str2;
+        this.f69375c = a(str2);
     }
 
     public synchronized int a() {
@@ -230,7 +230,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f69378e.size();
+                size = this.f69377e.size();
             }
             return size;
         }

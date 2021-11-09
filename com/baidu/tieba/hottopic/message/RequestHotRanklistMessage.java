@@ -20,7 +20,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50026common;
+    public CommonReq f50025common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -51,7 +51,7 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f73086common = getCommon();
+                builder.f73085common = getCommon();
                 builder.call_from = getCallFrom();
                 builder.list_type = getListType();
                 builder.need_tab_list = getNeedTabList();
@@ -78,7 +78,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50026common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50025common : (CommonReq) invokeV.objValue;
     }
 
     public String getListType() {
@@ -103,7 +103,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
-            this.f50026common = commonReq;
+            this.f50025common = commonReq;
         }
     }
 

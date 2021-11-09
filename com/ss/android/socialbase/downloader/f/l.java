@@ -17,13 +17,13 @@ public class l implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f69360a;
+    public final i f69359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.model.e f69361b;
+    public final com.ss.android.socialbase.downloader.model.e f69360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f69362c;
+    public final e f69361c;
 
     public l(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         Interceptable interceptable = $ic;
@@ -40,44 +40,44 @@ public class l implements e {
                 return;
             }
         }
-        this.f69360a = iVar;
-        this.f69361b = a(downloadInfo, iVar);
-        this.f69362c = new h(bVar, this);
+        this.f69359a = iVar;
+        this.f69360b = a(downloadInfo, iVar);
+        this.f69361c = new h(bVar, this);
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69362c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69361c : (e) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f69361b.a(aVar.f69315a, 0, aVar.f69317c);
-            this.f69360a.b(aVar.f69317c);
+            this.f69360b.a(aVar.f69314a, 0, aVar.f69316c);
+            this.f69359a.b(aVar.f69316c);
         }
     }
 
     public void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f69361b.c();
+            this.f69360b.c();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            com.ss.android.socialbase.downloader.i.f.a(this.f69361b);
+            com.ss.android.socialbase.downloader.i.f.a(this.f69360b);
         }
     }
 
     public i e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69360a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69359a : (i) invokeV.objValue;
     }
 
     private com.ss.android.socialbase.downloader.model.e a(DownloadInfo downloadInfo, i iVar) throws BaseException {
@@ -98,7 +98,7 @@ public class l implements e {
     public void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f69361b.b();
+            this.f69360b.b();
         }
     }
 }

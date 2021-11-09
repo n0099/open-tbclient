@@ -44,13 +44,13 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f53011a;
+    public MessageRedDotView f53010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f53012b;
+    public Boolean f53011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f53013c;
+    public CustomMessageListener f53012c;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -100,7 +100,7 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonInfoDelegateStatic f53014a;
+        public final /* synthetic */ PersonInfoDelegateStatic f53013a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonInfoDelegateStatic personInfoDelegateStatic, int i2) {
@@ -120,7 +120,7 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f53014a = personInfoDelegateStatic;
+            this.f53013a = personInfoDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,15 +128,15 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof b.a.q0.h0.a)) {
-                this.f53014a.f53012b = Boolean.valueOf(((b.a.q0.h0.a) customResponsedMessage.getData()).f12611a);
-                if (this.f53014a.f53012b.booleanValue()) {
-                    this.f53014a.f53011a.refresh(0);
-                    this.f53014a.f53011a.setVisibility(0);
+                this.f53013a.f53011b = Boolean.valueOf(((b.a.q0.h0.a) customResponsedMessage.getData()).f12611a);
+                if (this.f53013a.f53011b.booleanValue()) {
+                    this.f53013a.f53010a.refresh(0);
+                    this.f53013a.f53010a.setVisibility(0);
                 } else {
-                    this.f53014a.f53011a.setVisibility(8);
+                    this.f53013a.f53010a.setVisibility(8);
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (!this.f53014a.f53012b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                if (!this.f53013a.f53011b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
                     b.a.q0.s.e0.b.j().t("member_close_ad_mine_clicked", true);
                 }
             }
@@ -215,7 +215,7 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
                 return;
             }
         }
-        this.f53012b = Boolean.FALSE;
+        this.f53011b = Boolean.FALSE;
     }
 
     public static void d() {
@@ -262,18 +262,18 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            this.f53011a = new MessageRedDotView(context);
+            this.f53010a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f45978f = this.mIndicator;
             aVar.f45975c = l.e(context, 10.0f);
-            aVar.f45973a = this.f53011a;
+            aVar.f45973a = this.f53010a;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
             boolean g2 = b.a.q0.s.e0.b.j().g("key_feedback_tip_tab_show", false);
-            if (!this.f53012b.booleanValue() && !g2) {
-                this.f53011a.setVisibility(8);
+            if (!this.f53011b.booleanValue() && !g2) {
+                this.f53010a.setVisibility(8);
             } else {
-                this.f53011a.refresh(0);
-                this.f53011a.setVisibility(0);
+                this.f53010a.refresh(0);
+                this.f53010a.setVisibility(0);
             }
             return this.mIndicator;
         }
@@ -292,9 +292,9 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             b bVar = new b(this, 2007014);
-            this.f53013c = bVar;
+            this.f53012c = bVar;
             bVar.setPriority(9);
-            MessageManager.getInstance().registerListener(this.f53013c);
+            MessageManager.getInstance().registerListener(this.f53012c);
         }
     }
 
@@ -303,7 +303,7 @@ public class PersonInfoDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f53013c);
+            MessageManager.getInstance().unRegisterListener(this.f53012c);
         }
     }
 }

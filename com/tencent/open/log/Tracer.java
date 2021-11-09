@@ -13,17 +13,17 @@ public abstract class Tracer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f70078a;
+    public volatile int f70077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f70079b;
+    public volatile boolean f70078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f70080c;
+    public g f70079c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Tracer() {
-        this(c.f70099a, true, g.f70114a);
+        this(c.f70098a, true, g.f70113a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public abstract class Tracer {
 
     public void a(int i2, Thread thread, long j, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.f70078a, i2)) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.f70077a, i2)) {
             doTrace(i2, thread, j, str, str2, th);
         }
     }
@@ -50,7 +50,7 @@ public abstract class Tracer {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70079b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70078b : invokeV.booleanValue;
     }
 
     public abstract void doTrace(int i2, Thread thread, long j, String str, String str2, Throwable th);
@@ -58,7 +58,7 @@ public abstract class Tracer {
     public g e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70080c : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f70079c : (g) invokeV.objValue;
     }
 
     public Tracer(int i2, boolean z, g gVar) {
@@ -76,9 +76,9 @@ public abstract class Tracer {
                 return;
             }
         }
-        this.f70078a = c.f70099a;
-        this.f70079b = true;
-        this.f70080c = g.f70114a;
+        this.f70077a = c.f70098a;
+        this.f70078b = true;
+        this.f70079c = g.f70113a;
         a(i2);
         a(z);
         a(gVar);
@@ -87,21 +87,21 @@ public abstract class Tracer {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f70078a = i2;
+            this.f70077a = i2;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f70079b = z;
+            this.f70078b = z;
         }
     }
 
     public void a(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f70080c = gVar;
+            this.f70079c = gVar;
         }
     }
 }

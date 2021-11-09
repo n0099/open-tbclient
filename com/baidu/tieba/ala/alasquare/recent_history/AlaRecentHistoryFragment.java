@@ -28,19 +28,19 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaRecentHistoryModel f46980e;
+    public AlaRecentHistoryModel f46979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.w.f.f.c.a f46981f;
+    public b.a.r0.w.f.f.c.a f46980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46982g;
+    public int f46981g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f46983h;
+    public h f46982h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f.g f46984i;
+    public f.g f46983i;
     public BdListView.p j;
     public AlaRecentHistoryModel.b k;
 
@@ -50,9 +50,45 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryFragment f46985e;
+        public final /* synthetic */ AlaRecentHistoryFragment f46984e;
 
         public a(AlaRecentHistoryFragment alaRecentHistoryFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaRecentHistoryFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46984e = alaRecentHistoryFragment;
+        }
+
+        @Override // b.a.q0.s.g0.f.g
+        public void onListPullRefresh(boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f46984e.f46979e == null) {
+                return;
+            }
+            this.f46984e.f46979e.refresh();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements BdListView.p {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AlaRecentHistoryFragment f46985e;
+
+        public b(AlaRecentHistoryFragment alaRecentHistoryFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,49 +106,13 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             this.f46985e = alaRecentHistoryFragment;
         }
 
-        @Override // b.a.q0.s.g0.f.g
-        public void onListPullRefresh(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f46985e.f46980e == null) {
-                return;
-            }
-            this.f46985e.f46980e.refresh();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryFragment f46986e;
-
-        public b(AlaRecentHistoryFragment alaRecentHistoryFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaRecentHistoryFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46986e = alaRecentHistoryFragment;
-        }
-
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46986e.f46980e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46985e.f46979e == null) {
                 return;
             }
-            this.f46986e.f46980e.loadMore();
+            this.f46985e.f46979e.loadMore();
         }
     }
 
@@ -122,7 +122,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryFragment f46987a;
+        public final /* synthetic */ AlaRecentHistoryFragment f46986a;
 
         public c(AlaRecentHistoryFragment alaRecentHistoryFragment) {
             Interceptable interceptable = $ic;
@@ -139,24 +139,24 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f46987a = alaRecentHistoryFragment;
+            this.f46986a = alaRecentHistoryFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
         public void a(boolean z, List<b.a.r0.w.f.f.b.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-                this.f46987a.f46981f.e();
-                AlaRecentHistoryFragment alaRecentHistoryFragment = this.f46987a;
-                alaRecentHistoryFragment.hideLoadingView(alaRecentHistoryFragment.f46981f.g());
-                this.f46987a.f46981f.o(list, z);
+                this.f46986a.f46980f.e();
+                AlaRecentHistoryFragment alaRecentHistoryFragment = this.f46986a;
+                alaRecentHistoryFragment.hideLoadingView(alaRecentHistoryFragment.f46980f.g());
+                this.f46986a.f46980f.o(list, z);
                 if (!ListUtils.isEmpty(list)) {
-                    this.f46987a.h(false, null, null);
+                    this.f46986a.h(false, null, null);
                     return;
                 }
-                String string = this.f46987a.f46982g == 0 ? this.f46987a.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : this.f46987a.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip);
-                AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.f46987a;
-                alaRecentHistoryFragment2.h(true, alaRecentHistoryFragment2.f46981f.g(), string);
+                String string = this.f46986a.f46981g == 0 ? this.f46986a.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : this.f46986a.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip);
+                AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.f46986a;
+                alaRecentHistoryFragment2.h(true, alaRecentHistoryFragment2.f46980f.g(), string);
             }
         }
 
@@ -164,14 +164,14 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         public void b(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-                this.f46987a.f46981f.e();
+                this.f46986a.f46980f.e();
                 if (z) {
-                    this.f46987a.showToast(R.string.square_load_data_failed_tip);
+                    this.f46986a.showToast(R.string.square_load_data_failed_tip);
                 } else {
-                    AlaRecentHistoryFragment alaRecentHistoryFragment = this.f46987a;
-                    alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.f46981f.g(), str, false);
+                    AlaRecentHistoryFragment alaRecentHistoryFragment = this.f46986a;
+                    alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.f46980f.g(), str, false);
                 }
-                this.f46987a.f46981f.q();
+                this.f46986a.f46980f.q();
             }
         }
     }
@@ -189,7 +189,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                 return;
             }
         }
-        this.f46984i = new a(this);
+        this.f46983i = new a(this);
         this.j = new b(this);
         this.k = new c(this);
     }
@@ -210,11 +210,11 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hideNetRefreshView(this.f46981f.g());
-            if (ListUtils.getCount(this.f46980e.getData()) == 0) {
-                showLoadingView(this.f46981f.g());
+            hideNetRefreshView(this.f46980f.g());
+            if (ListUtils.getCount(this.f46979e.getData()) == 0) {
+                showLoadingView(this.f46980f.g());
             }
-            AlaRecentHistoryModel alaRecentHistoryModel = this.f46980e;
+            AlaRecentHistoryModel alaRecentHistoryModel = this.f46979e;
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.refresh();
             }
@@ -224,18 +224,18 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public final void h(boolean z, ViewGroup viewGroup, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
-            if (this.f46983h == null) {
-                this.f46983h = new h(getPageContext().getPageActivity(), null);
+            if (this.f46982h == null) {
+                this.f46982h = new h(getPageContext().getPageActivity(), null);
             }
             if (z) {
-                this.f46983h.attachView(viewGroup);
-                this.f46983h.c().setVisibility(8);
-                this.f46983h.l(null);
-                this.f46983h.d().setVisibility(0);
-                this.f46983h.d().setText(str);
+                this.f46982h.attachView(viewGroup);
+                this.f46982h.c().setVisibility(8);
+                this.f46982h.l(null);
+                this.f46982h.d().setVisibility(0);
+                this.f46982h.d().setText(str);
                 return;
             }
-            this.f46983h.dettachView(viewGroup);
+            this.f46982h.dettachView(viewGroup);
         }
     }
 
@@ -244,7 +244,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b.a.r0.w.f.f.c.a aVar = this.f46981f;
+            b.a.r0.w.f.f.c.a aVar = this.f46980f;
             if (aVar != null) {
                 aVar.k(i2);
             }
@@ -261,7 +261,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                 return;
             }
             int i2 = arguments.getInt("key_type");
-            this.f46982g = i2;
+            this.f46981g = i2;
             if (i2 < 0 || i2 > 1) {
                 getPageContext().getPageActivity().finish();
             }
@@ -273,16 +273,16 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f46980e = new AlaRecentHistoryModel(getPageContext(), this.f46982g, this.k);
-            b.a.r0.w.f.f.c.a aVar = new b.a.r0.w.f.f.c.a(getPageContext(), this.f46982g);
-            this.f46981f = aVar;
-            aVar.p(this.f46984i);
-            this.f46981f.r(this.j);
+            this.f46979e = new AlaRecentHistoryModel(getPageContext(), this.f46981g, this.k);
+            b.a.r0.w.f.f.c.a aVar = new b.a.r0.w.f.f.c.a(getPageContext(), this.f46981g);
+            this.f46980f = aVar;
+            aVar.p(this.f46983i);
+            this.f46980f.r(this.j);
             g();
-            if (this.f46982g == 0) {
+            if (this.f46981g == 0) {
                 TiebaStatic.log("c12650");
             }
-            return this.f46981f.h();
+            return this.f46980f.h();
         }
         return (View) invokeLLL.objValue;
     }
@@ -292,11 +292,11 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            AlaRecentHistoryModel alaRecentHistoryModel = this.f46980e;
+            AlaRecentHistoryModel alaRecentHistoryModel = this.f46979e;
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            b.a.r0.w.f.f.c.a aVar = this.f46981f;
+            b.a.r0.w.f.f.c.a aVar = this.f46980f;
             if (aVar != null) {
                 aVar.l();
             }

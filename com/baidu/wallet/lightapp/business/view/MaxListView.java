@@ -17,10 +17,10 @@ public class MaxListView extends ListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59073a;
+    public int f59072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59074b;
+    public Context f59073b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxListView(Context context) {
@@ -40,28 +40,28 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f59074b = context;
+        this.f59073b = context;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f59073a = DisplayUtils.dip2px(this.f59074b, 400.0f);
+            this.f59072a = DisplayUtils.dip2px(this.f59073b, 400.0f);
         }
     }
 
     public int getListViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59073a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59072a : invokeV.intValue;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            int i4 = this.f59073a;
+            int i4 = this.f59072a;
             if (i4 > -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -72,7 +72,7 @@ public class MaxListView extends ListView {
     public void setListViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f59073a = i2;
+            this.f59072a = i2;
         }
     }
 
@@ -95,7 +95,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f59074b = context;
+        this.f59073b = context;
         a();
     }
 
@@ -118,7 +118,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f59074b = context;
+        this.f59073b = context;
         a();
     }
 }

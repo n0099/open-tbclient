@@ -25,10 +25,10 @@ public class EmotionCenterModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48029e;
+    public int f48028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f48030f;
+    public final HttpMessageListener f48029f;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -36,7 +36,7 @@ public class EmotionCenterModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterModel f48031a;
+        public final /* synthetic */ EmotionCenterModel f48030a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionCenterModel emotionCenterModel, int i2) {
@@ -56,7 +56,7 @@ public class EmotionCenterModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48031a = emotionCenterModel;
+            this.f48030a = emotionCenterModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class EmotionCenterModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                if (this.f48031a.f48029e == 1) {
+                if (this.f48030a.f48028e == 1) {
                     bVar.refreshSuccess(emotionCenterResponseMessage.data);
                 } else {
                     bVar.loadMore(emotionCenterResponseMessage.data);
@@ -100,12 +100,12 @@ public class EmotionCenterModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48029e = 1;
-        this.f48030f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        this.f48028e = 1;
+        this.f48029f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         registerTask();
-        this.f48030f.setTag(getUniqueId());
-        this.f48030f.setSelfListener(true);
-        registerListener(this.f48030f);
+        this.f48029f.setTag(getUniqueId());
+        this.f48029f.setSelfListener(true);
+        registerListener(this.f48029f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -142,8 +142,8 @@ public class EmotionCenterModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
-            int i2 = this.f48029e + 1;
-            this.f48029e = i2;
+            int i2 = this.f48028e + 1;
+            this.f48028e = i2;
             httpMessage.addParam("pn", i2);
             httpMessage.addParam("rn", 10);
             httpMessage.setExtra(bVar);
@@ -154,7 +154,7 @@ public class EmotionCenterModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f48029e = 1;
+            this.f48028e = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam("pn", 1);
             httpMessage.addParam("rn", 10);

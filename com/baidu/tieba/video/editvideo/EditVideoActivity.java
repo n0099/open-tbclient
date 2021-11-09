@@ -87,7 +87,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f54667a;
+        public final /* synthetic */ EditVideoActivity f54666a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EditVideoActivity editVideoActivity, int i2) {
@@ -107,7 +107,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
                     return;
                 }
             }
-            this.f54667a = editVideoActivity;
+            this.f54666a = editVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,8 +117,8 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ResponseGetVideoActivityMessage)) {
                 ResponseGetVideoActivityMessage responseGetVideoActivityMessage = (ResponseGetVideoActivityMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    this.f54667a.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
-                    this.f54667a.mAllVideoTitleDatas = responseGetVideoActivityMessage.getAllVideoTitleList();
+                    this.f54666a.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
+                    this.f54666a.mAllVideoTitleDatas = responseGetVideoActivityMessage.getAllVideoTitleList();
                 }
             }
         }
@@ -130,7 +130,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f54668i;
+        public final /* synthetic */ EditVideoActivity f54667i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EditVideoActivity editVideoActivity, BaseActivity baseActivity, String str, String str2) {
@@ -151,7 +151,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
                     return;
                 }
             }
-            this.f54668i = editVideoActivity;
+            this.f54667i = editVideoActivity;
         }
 
         @Override // b.a.r0.z3.b
@@ -159,7 +159,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.c();
-                this.f54668i.hideProgress();
+                this.f54667i.hideProgress();
             }
         }
 
@@ -168,7 +168,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 super.d(i2, str);
-                this.f54668i.hideProgress();
+                this.f54667i.hideProgress();
             }
         }
 
@@ -184,7 +184,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
                 super.f(videoInfo);
-                if (this.f54668i.isSend) {
+                if (this.f54667i.isSend) {
                     return;
                 }
                 File file = new File(videoInfo.getVideoPath());
@@ -192,8 +192,8 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
                 if (!str.equals(file.getAbsolutePath())) {
                     FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str);
                 }
-                this.f54668i.syncMediaData(str);
-                this.f54668i.finishPage();
+                this.f54667i.syncMediaData(str);
+                this.f54667i.finishPage();
             }
         }
 
@@ -202,7 +202,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
                 super.g(i2, str);
-                this.f54668i.hideProgress();
+                this.f54667i.hideProgress();
             }
         }
 
@@ -210,9 +210,9 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f54668i.mEditVideoView.O();
-                this.f54668i.mEditVideoView.P();
-                this.f54668i.mEditVideoView.v().releaseSource();
+                this.f54667i.mEditVideoView.O();
+                this.f54667i.mEditVideoView.P();
+                this.f54667i.mEditVideoView.v().releaseSource();
             }
         }
     }
@@ -223,7 +223,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f54669a;
+        public final /* synthetic */ EditVideoActivity f54668a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EditVideoActivity editVideoActivity, int i2) {
@@ -243,7 +243,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
                     return;
                 }
             }
-            this.f54669a = editVideoActivity;
+            this.f54668a = editVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -251,7 +251,7 @@ public class EditVideoActivity extends BaseActivity implements b.a.r0.z3.i.a, b.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
-                this.f54669a.finishPage();
+                this.f54668a.finishPage();
             }
         }
     }

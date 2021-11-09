@@ -23,10 +23,10 @@ public class PbThreadPostView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52546e;
+    public Context f52545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f52547f;
+    public View.OnClickListener f52546f;
     public View mThreadPostContainer;
     public TextView mVoteThreadPostButton;
     public TextView mVoteThreadPostContent;
@@ -64,7 +64,7 @@ public class PbThreadPostView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f52546e = getContext();
+            this.f52545e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -85,8 +85,8 @@ public class PbThreadPostView extends LinearLayout {
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f52547f == null) {
-            this.f52547f = onClickListener;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f52546f == null) {
+            this.f52546f = onClickListener;
             this.mVoteThreadPostButton.setOnClickListener(onClickListener);
         }
     }

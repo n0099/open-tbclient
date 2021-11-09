@@ -31,7 +31,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f68843a;
+        public Object f68842a;
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
@@ -44,7 +44,7 @@ public class a {
                     }
                 } catch (Throwable unused) {
                 }
-                return method.invoke(this.f68843a, objArr);
+                return method.invoke(this.f68842a, objArr);
             }
             return invokeLLL.objValue;
         }
@@ -64,7 +64,7 @@ public class a {
                     return;
                 }
             }
-            this.f68843a = obj;
+            this.f68842a = obj;
         }
     }
 
@@ -174,7 +174,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65539, null, objArr) == null) {
             if (com.ss.android.downloadlib.addownload.j.i().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
                 Intent intent = (Intent) objArr[2];
-                if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.constants.e.f69177a.equals(intent.getType())) {
+                if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.constants.e.f69176a.equals(intent.getType())) {
                     if (com.ss.android.socialbase.appdownloader.f.d.c()) {
                         String optString = com.ss.android.downloadlib.addownload.j.i().optString("hook_vivo_arg", "com.android.settings");
                         if (StringUtil.NULL_STRING.equals(optString)) {
@@ -183,21 +183,21 @@ public class a {
                         objArr[1] = optString;
                     } else if (com.ss.android.socialbase.appdownloader.f.d.d()) {
                         JSONObject i2 = com.ss.android.downloadlib.addownload.j.i();
-                        String optString2 = i2.optString("hook_kllk_arg1", "com." + com.ss.android.socialbase.downloader.constants.e.f69179c + ".market");
+                        String optString2 = i2.optString("hook_kllk_arg1", "com." + com.ss.android.socialbase.downloader.constants.e.f69178c + ".market");
                         if (!StringUtil.NULL_STRING.equals(optString2)) {
                             objArr[1] = optString2;
                         }
                         String optString3 = com.ss.android.downloadlib.addownload.j.i().optString("hook_kllk_arg2", "com.android.browser");
                         JSONObject i3 = com.ss.android.downloadlib.addownload.j.i();
-                        String optString4 = i3.optString("hook_kllk_arg3", "m.store." + com.ss.android.socialbase.downloader.constants.e.f69179c + "mobile.com");
+                        String optString4 = i3.optString("hook_kllk_arg3", "m.store." + com.ss.android.socialbase.downloader.constants.e.f69178c + "mobile.com");
                         StringBuilder sb = new StringBuilder();
-                        sb.append(com.ss.android.socialbase.downloader.constants.e.f69179c);
+                        sb.append(com.ss.android.socialbase.downloader.constants.e.f69178c);
                         sb.append("_extra_pkg_name");
                         intent.putExtra(sb.toString(), optString3);
                         intent.putExtra("refererHost", optString4);
                         if (com.ss.android.downloadlib.addownload.j.i().optInt("hook_kllk_arg4", 0) == 1) {
                             Intent intent2 = new Intent();
-                            intent2.putExtra(com.ss.android.socialbase.downloader.constants.e.f69179c + "_extra_pkg_name", optString3);
+                            intent2.putExtra(com.ss.android.socialbase.downloader.constants.e.f69178c + "_extra_pkg_name", optString3);
                             intent2.putExtra("refererHost", optString4);
                             intent.putExtra("android.intent.extra.INTENT", intent2);
                         }

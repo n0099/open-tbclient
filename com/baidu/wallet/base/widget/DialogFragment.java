@@ -105,6 +105,49 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ DialogFragment f57499a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f57499a = this;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    GlobalUtils.hideKeyboard(((BaseFragment) this.f57499a).mAct.getActivity());
+                    this.f57499a.finish();
+                }
+            }
+        });
+    }
+
+    public void initHomeActionBar(View view, String str) {
+        BdActionBar bdActionBar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, view, str) == null) || (bdActionBar = (BdActionBar) view.findViewById(ResUtils.id(((BaseFragment) this).mAct, "bdactionbar"))) == null) {
+            return;
+        }
+        bdActionBar.setTitle(ResUtils.string(((BaseFragment) this).mAct, str));
+        bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
             public final /* synthetic */ DialogFragment f57500a;
 
             {
@@ -136,49 +179,6 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         });
     }
 
-    public void initHomeActionBar(View view, String str) {
-        BdActionBar bdActionBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, view, str) == null) || (bdActionBar = (BdActionBar) view.findViewById(ResUtils.id(((BaseFragment) this).mAct, "bdactionbar"))) == null) {
-            return;
-        }
-        bdActionBar.setTitle(ResUtils.string(((BaseFragment) this).mAct, str));
-        bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DialogFragment f57501a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f57501a = this;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    GlobalUtils.hideKeyboard(((BaseFragment) this.f57501a).mAct.getActivity());
-                    this.f57501a.finish();
-                }
-            }
-        });
-    }
-
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -193,16 +193,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f57510a;
+                public final /* synthetic */ int f57509a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f57511b;
+                public final /* synthetic */ int f57510b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f57512c;
+                public final /* synthetic */ String f57511c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DialogFragment f57513d;
+                public final /* synthetic */ DialogFragment f57512d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,19 +219,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                             return;
                         }
                     }
-                    this.f57513d = this;
-                    this.f57510a = i2;
-                    this.f57511b = i3;
-                    this.f57512c = str;
+                    this.f57512d = this;
+                    this.f57509a = i2;
+                    this.f57510b = i3;
+                    this.f57511c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f57513d).mAct == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f57512d).mAct == null) {
                         return;
                     }
-                    this.f57513d.handleFailure(this.f57510a, this.f57511b, this.f57512c);
+                    this.f57512d.handleFailure(this.f57509a, this.f57510b, this.f57511c);
                 }
             });
         }
@@ -256,16 +256,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f57506a;
+            public final /* synthetic */ int f57505a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f57507b;
+            public final /* synthetic */ Object f57506b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f57508c;
+            public final /* synthetic */ String f57507c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ DialogFragment f57509d;
+            public final /* synthetic */ DialogFragment f57508d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -282,19 +282,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                         return;
                     }
                 }
-                this.f57509d = this;
-                this.f57506a = i2;
-                this.f57507b = obj;
-                this.f57508c = str;
+                this.f57508d = this;
+                this.f57505a = i2;
+                this.f57506b = obj;
+                this.f57507c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f57509d).mAct == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f57508d).mAct == null) {
                     return;
                 }
-                this.f57509d.handleResponse(this.f57506a, this.f57507b, this.f57508c);
+                this.f57508d.handleResponse(this.f57505a, this.f57506b, this.f57507c);
             }
         });
     }
@@ -345,42 +345,6 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DialogFragment f57503a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f57503a = this;
-                    }
-
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public void onCancel(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f57503a.cancleRequest();
-                        }
-                    }
-                }, loadingDialog));
-            } else if (i2 == -1) {
-                LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
-                loadingDialog2.setCancelable(true);
-                loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
                     public final /* synthetic */ DialogFragment f57502a;
 
                     {
@@ -404,10 +368,46 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || ((BaseFragment) this.f57502a).mAct == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            this.f57502a.cancleRequest();
+                        }
+                    }
+                }, loadingDialog));
+            } else if (i2 == -1) {
+                LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
+                loadingDialog2.setCancelable(true);
+                loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ DialogFragment f57501a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f57501a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || ((BaseFragment) this.f57501a).mAct == null) {
                             return;
                         }
-                        ((BaseFragment) this.f57502a).mAct.onBackPressed();
+                        ((BaseFragment) this.f57501a).mAct.onBackPressed();
                     }
                 }, loadingDialog2));
             } else if (i2 == 0) {
@@ -418,6 +418,39 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                 promptDialog.setMessage(getString(ResUtils.string(((BaseFragment) this).mAct, "ebpay_no_network")));
                 promptDialog.setCanceledOnTouchOutside(false);
                 promptDialog.setNegativeBtn(ResUtils.string(((BaseFragment) this).mAct, "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ DialogFragment f57503a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f57503a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f57503a).mAct, 3851);
+                        }
+                    }
+                });
+                promptDialog.setPositiveBtn(ResUtils.string(((BaseFragment) this).mAct, "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -447,41 +480,8 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f57504a).mAct, 3851);
-                        }
-                    }
-                });
-                promptDialog.setPositiveBtn(ResUtils.string(((BaseFragment) this).mAct, "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.DialogFragment.6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DialogFragment f57505a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f57505a = this;
-                    }
-
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f57505a).mAct, 3851);
                             try {
-                                this.f57505a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                                this.f57504a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                             } catch (Exception unused) {
                             }
                         }

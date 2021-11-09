@@ -33,19 +33,19 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54106e;
+    public Context f54105e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f54107f;
+    public final int f54106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f54108g;
+    public final int f54107g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f54109h;
+    public final int f54108h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f54110i;
+    public final int f54109i;
     public ArrayList<TbImageView> j;
     public int k;
     public int l;
@@ -60,16 +60,16 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f54111e;
+        public final /* synthetic */ a2 f54110e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f54112f;
+        public final /* synthetic */ int f54111f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f54113g;
+        public final /* synthetic */ TbPageContext f54112g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ForumsTopicsRecommendView f54114h;
+        public final /* synthetic */ ForumsTopicsRecommendView f54113h;
 
         public a(ForumsTopicsRecommendView forumsTopicsRecommendView, a2 a2Var, int i2, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -86,17 +86,17 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                     return;
                 }
             }
-            this.f54114h = forumsTopicsRecommendView;
-            this.f54111e = a2Var;
-            this.f54112f = i2;
-            this.f54113g = tbPageContext;
+            this.f54113h = forumsTopicsRecommendView;
+            this.f54110e = a2Var;
+            this.f54111f = i2;
+            this.f54112g = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f54113g, new String[]{this.f54111e.b(), null, SingleSquareActivityConfig.makeStatisticsParam(ForumsTopicsRecommendView.MODULE_NAME, String.valueOf(this.f54112f))});
+                UrlManager.getInstance().dealOneLink(this.f54112g, new String[]{this.f54110e.b(), null, SingleSquareActivityConfig.makeStatisticsParam(ForumsTopicsRecommendView.MODULE_NAME, String.valueOf(this.f54111f))});
             }
         }
     }
@@ -207,9 +207,9 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                         paddingLeft = getPaddingLeft();
                     }
                     childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                    paddingLeft += childAt.getMeasuredWidth() + this.f54108g;
+                    paddingLeft += childAt.getMeasuredWidth() + this.f54107g;
                     if (i7 != 0) {
-                        paddingTop += childAt.getMeasuredHeight() + this.f54108g;
+                        paddingTop += childAt.getMeasuredHeight() + this.f54107g;
                     }
                 }
             }
@@ -222,13 +222,13 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int childCount = getChildCount();
-            int i5 = i4 - (this.f54107f * 2);
-            int i6 = (int) ((((i5 - this.f54108g) / 2.0f) * this.m) + 0.5f);
+            int i5 = i4 - (this.f54106f * 2);
+            int i6 = (int) ((((i5 - this.f54107g) / 2.0f) * this.m) + 0.5f);
             for (int i7 = 0; i7 < childCount; i7++) {
-                getChildAt(i7).measure(((i5 - this.f54108g) / 2) + 1073741824, 1073741824 + i6);
+                getChildAt(i7).measure(((i5 - this.f54107g) / 2) + 1073741824, 1073741824 + i6);
             }
             int i8 = this.n / 2;
-            setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f54108g) + this.f54110i);
+            setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f54107g) + this.f54109i);
         }
     }
 
@@ -300,19 +300,19 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         this.n = 0;
         this.o = null;
         this.p = null;
-        this.f54106e = context;
-        this.f54109h = l.k(context);
-        this.f54107f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.f54108g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.f54110i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f54105e = context;
+        this.f54108h = l.k(context);
+        this.f54106f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.f54107g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.f54109i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.forums_topics_recommend, (ViewGroup) this, true);
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
-        int i4 = this.f54109h;
-        int i5 = this.f54107f;
-        int i6 = ((i4 - (i5 * 2)) - this.f54108g) / 2;
+        int i4 = this.f54108h;
+        int i5 = this.f54106f;
+        int i6 = ((i4 - (i5 * 2)) - this.f54107g) / 2;
         this.k = i6;
         this.l = (int) (i6 * this.m);
         setPadding(i5, 0, i5, 0);

@@ -19,10 +19,10 @@ public final class PayPreferenceManager {
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f59968a = "_pay.preferences";
+    public static final String f59967a = "_pay.preferences";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59969b = "wallet_interface.preferences";
+    public static final String f59968b = "wallet_interface.preferences";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PayPreferenceManager() {
@@ -95,7 +95,7 @@ public final class PayPreferenceManager {
     public static String getWalletInterfaceData(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f59969b, str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f59968b, str, str2) : (String) invokeLLL.objValue;
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
@@ -130,7 +130,7 @@ public final class PayPreferenceManager {
     public static void setWalletInterfaceData(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
-            SharedPreferencesUtils.setParam(context, f59969b, str, str2);
+            SharedPreferencesUtils.setParam(context, f59968b, str, str2);
         }
     }
 }

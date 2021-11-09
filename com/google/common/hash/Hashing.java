@@ -19,7 +19,7 @@ public final class Hashing {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f63643a;
+    public static final int f63642a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -175,7 +175,7 @@ public final class Hashing {
                 return;
             }
         }
-        f63643a = (int) System.currentTimeMillis();
+        f63642a = (int) System.currentTimeMillis();
     }
 
     public static e a() {

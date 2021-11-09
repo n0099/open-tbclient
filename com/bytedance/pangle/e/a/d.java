@@ -47,7 +47,7 @@ public final class d {
                     InputStream inputStream = zipFile2.getInputStream(entry);
                     aVar.close();
                     if (inputStream != null) {
-                        aVar.f61363a = new c(inputStream);
+                        aVar.f61362a = new c(inputStream);
                     }
                     do {
                         next = aVar.next();

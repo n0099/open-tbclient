@@ -45,10 +45,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f47047h;
+    public View f47046h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeListView f47048i;
+    public BdTypeListView f47047i;
     public PbListView j;
     public g k;
     public h l;
@@ -69,7 +69,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendTabFragment f47049a;
+        public final /* synthetic */ RecommendTabFragment f47048a;
 
         public a(RecommendTabFragment recommendTabFragment) {
             Interceptable interceptable = $ic;
@@ -86,17 +86,17 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f47049a = recommendTabFragment;
+            this.f47048a = recommendTabFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.b
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                RecommendTabFragment recommendTabFragment = this.f47049a;
-                recommendTabFragment.hideLoadingView(recommendTabFragment.f47047h);
-                this.f47049a.r();
-                this.f47049a.showNetRefreshView();
+                RecommendTabFragment recommendTabFragment = this.f47048a;
+                recommendTabFragment.hideLoadingView(recommendTabFragment.f47046h);
+                this.f47048a.r();
+                this.f47048a.showNetRefreshView();
             }
         }
 
@@ -104,20 +104,20 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         public void b(List<n> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) {
-                this.f47049a.o = z;
-                this.f47049a.q = true;
+                this.f47048a.o = z;
+                this.f47048a.q = true;
                 if (!ListUtils.isEmpty(list)) {
-                    this.f47049a.f47048i.setData(list);
+                    this.f47048a.f47047i.setData(list);
                 }
-                if (!this.f47049a.o) {
-                    this.f47049a.u();
+                if (!this.f47048a.o) {
+                    this.f47048a.u();
                 } else {
-                    this.f47049a.t();
+                    this.f47048a.t();
                 }
-                this.f47049a.setIsRefresh(false);
-                RecommendTabFragment recommendTabFragment = this.f47049a;
-                recommendTabFragment.hideLoadingView(recommendTabFragment.f47047h);
-                this.f47049a.hideNetRefreshView();
+                this.f47048a.setIsRefresh(false);
+                RecommendTabFragment recommendTabFragment = this.f47048a;
+                recommendTabFragment.hideLoadingView(recommendTabFragment.f47046h);
+                this.f47048a.hideNetRefreshView();
             }
         }
     }
@@ -128,9 +128,48 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendTabFragment f47050e;
+        public final /* synthetic */ RecommendTabFragment f47049e;
 
         public b(RecommendTabFragment recommendTabFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {recommendTabFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47049e = recommendTabFragment;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!l.D()) {
+                    this.f47049e.r();
+                } else if (this.f47049e.o) {
+                    this.f47049e.n.H();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements f.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ RecommendTabFragment f47050e;
+
+        public c(RecommendTabFragment recommendTabFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,53 +187,14 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.f47050e = recommendTabFragment;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!l.D()) {
-                    this.f47050e.r();
-                } else if (this.f47050e.o) {
-                    this.f47050e.n.H();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements f.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendTabFragment f47051e;
-
-        public c(RecommendTabFragment recommendTabFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {recommendTabFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47051e = recommendTabFragment;
-        }
-
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (j.z()) {
-                    this.f47051e.n.I();
+                    this.f47050e.n.I();
                 } else {
-                    this.f47051e.setIsRefresh(false);
+                    this.f47050e.setIsRefresh(false);
                 }
             }
         }
@@ -206,16 +206,16 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public e f47052a;
+        public e f47051a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b.a.r0.w.f.g.b.d f47053b;
+        public b.a.r0.w.f.g.b.d f47052b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<b.a.e.l.e.a> f47054c;
+        public List<b.a.e.l.e.a> f47053c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ RecommendTabFragment f47055d;
+        public final /* synthetic */ RecommendTabFragment f47054d;
 
         /* loaded from: classes9.dex */
         public class a implements b.a.r0.w.f.h.d.f {
@@ -223,7 +223,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f47056a;
+            public final /* synthetic */ d f47055a;
 
             public a(d dVar, RecommendTabFragment recommendTabFragment) {
                 Interceptable interceptable = $ic;
@@ -240,7 +240,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                         return;
                     }
                 }
-                this.f47056a = dVar;
+                this.f47055a = dVar;
             }
 
             @Override // b.a.r0.w.f.h.d.f
@@ -250,7 +250,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                     String str2 = "";
                     if (d2Var != null && d2Var.l1() != null && d2Var.l1().isLegalYYLiveData()) {
                         AlaInfoData l1 = d2Var.l1();
-                        TbPageContext<BaseFragmentActivity> pageContext = this.f47056a.f47055d.getPageContext();
+                        TbPageContext<BaseFragmentActivity> pageContext = this.f47055a.f47054d.getPageContext();
                         YyExtData yyExtData = l1.mYyExtData;
                         String str3 = yyExtData.mSid;
                         String str4 = yyExtData.mSsid;
@@ -259,8 +259,8 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                     }
                     if (d2Var != null) {
                         StatisticItem param = new StatisticItem("c12900").param("tid", d2Var.s1());
-                        param.param("fid", this.f47056a.f47055d.r);
-                        param.param("fname", this.f47056a.f47055d.s);
+                        param.param("fid", this.f47055a.f47054d.r);
+                        param.param("fname", this.f47055a.f47054d.s);
                         int calculateLiveType = YYLiveUtil.calculateLiveType(d2Var.l1());
                         if (d2Var.l1() != null && d2Var.l1().isLegalYYLiveData()) {
                             TiebaStaticHelper.addYYParam(param, d2Var.l1().mYyExtData);
@@ -296,17 +296,17 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f47055d = recommendTabFragment;
-            this.f47054c = new LinkedList();
-            this.f47053b = new b.a.r0.w.f.g.b.d(recommendTabFragment.getPageContext());
+            this.f47054d = recommendTabFragment;
+            this.f47053c = new LinkedList();
+            this.f47052b = new b.a.r0.w.f.g.b.d(recommendTabFragment.getPageContext());
             e eVar = new e(recommendTabFragment.getPageContext());
-            this.f47052a = eVar;
+            this.f47051a = eVar;
             eVar.j0(2);
-            this.f47052a.i0(b.a.e.e.m.b.g(recommendTabFragment.r, 0L));
-            this.f47052a.a(recommendTabFragment.s);
-            this.f47054c.add(this.f47053b);
-            this.f47054c.add(this.f47052a);
-            this.f47052a.k0(new a(this, recommendTabFragment));
+            this.f47051a.i0(b.a.e.e.m.b.g(recommendTabFragment.r, 0L));
+            this.f47051a.a(recommendTabFragment.s);
+            this.f47053c.add(this.f47052b);
+            this.f47053c.add(this.f47051a);
+            this.f47051a.k0(new a(this, recommendTabFragment));
         }
     }
 
@@ -352,10 +352,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.forceRefresh();
-            BdTypeListView bdTypeListView = this.f47048i;
+            BdTypeListView bdTypeListView = this.f47047i;
             if (bdTypeListView != null) {
                 bdTypeListView.smoothScrollToPosition(0);
-                this.f47048i.startPullRefresh();
+                this.f47047i.startPullRefresh();
             }
         }
     }
@@ -364,7 +364,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            BdTypeListView bdTypeListView = this.f47048i;
+            BdTypeListView bdTypeListView = this.f47047i;
             if (bdTypeListView != null && (hVar = this.l) != null) {
                 bdTypeListView.removeHeaderView(hVar.b());
             }
@@ -376,7 +376,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public void notifyDataSetChanged() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.f47048i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.f47047i) == null) {
             return;
         }
         bdTypeListView.getAdapter2().notifyDataSetChanged();
@@ -396,7 +396,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
                 this.j.d(i2);
             }
-            SkinManager.setBackgroundColor(this.f47048i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f47047i, R.color.CAM_X0201);
         }
     }
 
@@ -423,19 +423,19 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f47047h == null) {
+            if (this.f47046h == null) {
                 View inflate = layoutInflater.inflate(R.layout.special_bar_recommend_tab, viewGroup, false);
-                this.f47047h = inflate;
+                this.f47046h = inflate;
                 BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.content_thread);
-                this.f47048i = bdTypeListView;
+                this.f47047i = bdTypeListView;
                 bdTypeListView.setFadingEdgeLength(0);
-                this.f47048i.setOverScrollMode(2);
-                this.f47048i.setScrollable(this);
-                this.f47048i.setOnSrollToBottomListener(this.u);
+                this.f47047i.setOverScrollMode(2);
+                this.f47047i.setScrollable(this);
+                this.f47047i.setOnSrollToBottomListener(this.u);
                 g gVar = new g(getPageContext());
                 this.k = gVar;
                 gVar.a(this.v);
-                this.f47048i.setPullRefresh(this.k);
+                this.f47047i.setPullRefresh(this.k);
                 PbListView pbListView = new PbListView(getContext());
                 this.j = pbListView;
                 pbListView.a();
@@ -448,13 +448,13 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 this.j.b().setLayoutParams(new AbsListView.LayoutParams(-1, -2));
                 d dVar = new d(this);
                 this.m = dVar;
-                this.f47048i.addAdapters(dVar.f47054c);
+                this.f47047i.addAdapters(dVar.f47053c);
             }
-            if (this.f47047h.getParent() != null) {
-                ((ViewGroup) this.f47047h.getParent()).removeView(this.f47047h);
+            if (this.f47046h.getParent() != null) {
+                ((ViewGroup) this.f47046h.getParent()).removeView(this.f47046h);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return this.f47047h;
+            return this.f47046h;
         }
         return (View) invokeLLL.objValue;
     }
@@ -464,10 +464,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            this.f47048i.setOnSrollToBottomListener(null);
-            this.f47048i.setScrollable(null);
+            this.f47047i.setOnSrollToBottomListener(null);
+            this.f47047i.setScrollable(null);
             this.n.onDestroy();
-            hideLoadingView(this.f47047h);
+            hideLoadingView(this.f47046h);
         }
     }
 
@@ -494,7 +494,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f47048i.setNextPage(this.j);
+            this.f47047i.setNextPage(this.j);
             this.j.s(l.g(getContext(), R.dimen.tbds182));
             this.j.l(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
@@ -505,7 +505,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.q = false;
             this.n.I();
-            showLoadingView(this.f47047h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+            showLoadingView(this.f47046h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
         }
     }
 
@@ -514,7 +514,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || z) {
             return;
         }
-        this.f47048i.completePullRefresh();
+        this.f47047i.completePullRefresh();
     }
 
     public final void showNetRefreshView() {
@@ -531,7 +531,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.l.l(getPageContext().getResources().getString(R.string.square_sub_list_no_data));
             this.l.onChangeSkinType();
             if (!this.p) {
-                this.f47048i.addHeaderView(this.l.b(), 0);
+                this.f47047i.addHeaderView(this.l.b(), 0);
             }
             this.p = true;
         }
@@ -540,7 +540,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f47048i.setNextPage(this.j);
+            this.f47047i.setNextPage(this.j);
             this.j.s(l.g(getContext(), R.dimen.tbds182));
             this.j.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.j.Q();
@@ -550,7 +550,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f47048i.setNextPage(this.j);
+            this.f47047i.setNextPage(this.j);
             this.j.s(l.g(getContext(), R.dimen.tbds182));
             this.j.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.j.C(getResources().getString(R.string.live_sub_tab_no_more_data));

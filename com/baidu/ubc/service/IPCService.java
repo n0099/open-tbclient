@@ -28,7 +28,7 @@ public class IPCService implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f56622a;
+    public static final boolean f56621a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class IPCService implements c {
                 return;
             }
         }
-        f56622a = b0.m();
+        f56621a = b0.m();
     }
 
     public IPCService() {
@@ -105,7 +105,7 @@ public class IPCService implements c {
                     if (uBCManager != null) {
                         uBCManager.flowAddEvent(flow, str, str2);
                     }
-                    if (IPCService.f56622a) {
+                    if (IPCService.f56621a) {
                         String str3 = " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
@@ -140,7 +140,7 @@ public class IPCService implements c {
                     if (uBCManager != null) {
                         uBCManager.flowEnd(flow);
                     }
-                    if (IPCService.f56622a) {
+                    if (IPCService.f56621a) {
                         String str = " [end] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
@@ -216,7 +216,7 @@ public class IPCService implements c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i2)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2);
-                        if (IPCService.f56622a && beginFlow != null) {
+                        if (IPCService.f56621a && beginFlow != null) {
                             String str3 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;
@@ -230,7 +230,7 @@ public class IPCService implements c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i2, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2);
-                        if (IPCService.f56622a && beginFlow != null) {
+                        if (IPCService.f56621a && beginFlow != null) {
                             String str4 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;

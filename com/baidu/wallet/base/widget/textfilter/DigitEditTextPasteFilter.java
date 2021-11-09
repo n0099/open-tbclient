@@ -13,7 +13,7 @@ public class DigitEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57910a = "DigitEditTextPasteFilter";
+    public static final String f57909a = "DigitEditTextPasteFilter";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

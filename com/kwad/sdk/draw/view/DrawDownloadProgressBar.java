@@ -21,13 +21,13 @@ public class DrawDownloadProgressBar extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65648a;
+    public Context f65647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f65649b;
+    public TextProgressBar f65648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f65650c;
+    public View f65649c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawDownloadProgressBar(@NonNull Context context) {
@@ -97,17 +97,17 @@ public class DrawDownloadProgressBar extends FrameLayout {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f65648a = context;
+            this.f65647a = context;
             FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-            this.f65649b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+            this.f65648b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
             View findViewById = findViewById(R.id.ksad_download_progress_cover);
-            this.f65650c = findViewById;
+            this.f65649c = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DrawDownloadProgressBar f65651a;
+                public final /* synthetic */ DrawDownloadProgressBar f65650a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,14 +124,14 @@ public class DrawDownloadProgressBar extends FrameLayout {
                             return;
                         }
                     }
-                    this.f65651a = this;
+                    this.f65650a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65651a.performClick();
+                        this.f65650a.performClick();
                     }
                 }
             });
@@ -144,34 +144,34 @@ public class DrawDownloadProgressBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
             if (i2 == 0 || i2 == getMax()) {
-                view = this.f65650c;
+                view = this.f65649c;
                 i3 = 0;
             } else {
-                view = this.f65650c;
+                view = this.f65649c;
                 i3 = 8;
             }
             view.setVisibility(i3);
-            this.f65649b.a(str, i2);
+            this.f65648b.a(str, i2);
         }
     }
 
     public int getMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65649b.getMax() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65648b.getMax() : invokeV.intValue;
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f65649b.setTextColor(i2);
+            this.f65648b.setTextColor(i2);
         }
     }
 
     public void setTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f65649b.setTextDimen(av.a(getContext(), i2));
+            this.f65648b.setTextDimen(av.a(getContext(), i2));
         }
     }
 }

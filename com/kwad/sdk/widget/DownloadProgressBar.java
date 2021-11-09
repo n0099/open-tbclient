@@ -27,31 +27,31 @@ public class DownloadProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f66737a;
+    public Paint f66736a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f66738b;
+    public Paint f66737b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f66739c;
+    public Paint f66738c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f66740d;
+    public Path f66739d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f66741e;
+    public RectF f66740e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66742f;
+    public String f66741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f66743g;
+    public float f66742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f66744h;
+    public Rect f66743h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearGradient f66745i;
+    public LinearGradient f66744i;
     public LinearGradient j;
     public LinearGradient k;
     public long l;
@@ -124,7 +124,7 @@ public class DownloadProgressBar extends View {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadProgressBar f66746a;
+            public final /* synthetic */ DownloadProgressBar f66745a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,31 +141,31 @@ public class DownloadProgressBar extends View {
                         return;
                     }
                 }
-                this.f66746a = this;
+                this.f66745a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f66746a.invalidate();
-                    if (this.f66746a.getWindowVisibility() == 0) {
-                        this.f66746a.postDelayed(this, 34L);
+                    this.f66745a.invalidate();
+                    if (this.f66745a.getWindowVisibility() == 0) {
+                        this.f66745a.postDelayed(this, 34L);
                     }
                 }
             }
         };
-        this.f66737a = new Paint(1);
-        this.f66738b = new Paint(1);
-        this.f66741e = new RectF();
+        this.f66736a = new Paint(1);
+        this.f66737b = new Paint(1);
+        this.f66740e = new RectF();
         Paint paint = new Paint(1);
-        this.f66739c = paint;
+        this.f66738c = paint;
         paint.setTextSize(av.a(context, 16.0f));
-        this.f66739c.setColor(-1);
-        this.f66739c.setTextAlign(Paint.Align.CENTER);
-        this.f66744h = new Rect();
+        this.f66738c.setColor(-1);
+        this.f66738c.setTextAlign(Paint.Align.CENTER);
+        this.f66743h = new Rect();
         this.m = new Matrix();
-        this.f66740d = new Path();
+        this.f66739d = new Path();
     }
 
     @Override // android.view.View
@@ -182,12 +182,12 @@ public class DownloadProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.clipPath(this.f66740d);
-            this.f66737a.setShader(this.f66745i);
-            canvas.drawRect(this.f66741e, this.f66737a);
-            this.f66737a.setShader(this.j);
-            canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f66743g) / 100.0f, getHeight(), this.f66737a);
-            float f2 = this.f66743g;
+            canvas.clipPath(this.f66739d);
+            this.f66736a.setShader(this.f66744i);
+            canvas.drawRect(this.f66740e, this.f66736a);
+            this.f66736a.setShader(this.j);
+            canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f66742g) / 100.0f, getHeight(), this.f66736a);
+            float f2 = this.f66742g;
             float f3 = 0.0f;
             if (f2 > 0.0f && f2 < 100.0f) {
                 long elapsedRealtime = (SystemClock.elapsedRealtime() - this.l) % TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS;
@@ -196,23 +196,23 @@ public class DownloadProgressBar extends View {
                 this.m.reset();
                 this.m.setScale(1.0f, f4);
                 this.k.setLocalMatrix(this.m);
-                this.f66738b.setShader(this.k);
-                canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f66743g) / 100.0f) * f4, getHeight(), this.f66738b);
+                this.f66737b.setShader(this.k);
+                canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f66742g) / 100.0f) * f4, getHeight(), this.f66737b);
                 if (elapsedRealtime > 500 && i2 <= 0) {
                     f3 = ((float) (elapsedRealtime - 500)) / 1000.0f;
                 }
-                float width = ((getWidth() * this.f66743g) / 100.0f) * f3;
+                float width = ((getWidth() * this.f66742g) / 100.0f) * f3;
                 this.m.reset();
                 this.m.setScale(1.0f, f4);
                 this.k.setLocalMatrix(this.m);
-                this.f66738b.setShader(this.k);
-                canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f66738b);
+                this.f66737b.setShader(this.k);
+                canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f66737b);
             }
-            String str = this.f66742f;
+            String str = this.f66741f;
             if (str != null) {
-                this.f66739c.getTextBounds(str, 0, str.length(), this.f66744h);
-                Rect rect = this.f66744h;
-                canvas.drawText(this.f66742f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f66739c);
+                this.f66738c.getTextBounds(str, 0, str.length(), this.f66743h);
+                Rect rect = this.f66743h;
+                canvas.drawText(this.f66741f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f66738c);
             }
         }
     }
@@ -222,17 +222,17 @@ public class DownloadProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f66745i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+            this.f66744i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
             this.j = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-            this.f66737a.setShader(this.f66745i);
+            this.f66736a.setShader(this.f66744i);
             LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{16501004, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
             this.k = linearGradient;
-            this.f66738b.setShader(linearGradient);
+            this.f66737b.setShader(linearGradient);
             float f2 = i2;
-            this.f66741e.set(0.0f, 0.0f, f2, i3);
-            this.f66740d.reset();
+            this.f66740e.set(0.0f, 0.0f, f2, i3);
+            this.f66739d.reset();
             float f3 = f2 / 2.0f;
-            this.f66740d.addRoundRect(this.f66741e, f3, f3, Path.Direction.CW);
+            this.f66739d.addRoundRect(this.f66740e, f3, f3, Path.Direction.CW);
         }
     }
 
@@ -253,7 +253,7 @@ public class DownloadProgressBar extends View {
                 removeCallbacks(this.n);
                 return;
             }
-            float f2 = this.f66743g;
+            float f2 = this.f66742g;
             if (f2 <= 0.0f || f2 >= 100.0f) {
                 return;
             }
@@ -265,7 +265,7 @@ public class DownloadProgressBar extends View {
     public void setProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f66743g = f2;
+            this.f66742g = f2;
             invalidate();
             if (f2 == 0.0f || f2 == 100.0f) {
                 removeCallbacks(this.n);
@@ -278,7 +278,7 @@ public class DownloadProgressBar extends View {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f66742f = str;
+            this.f66741f = str;
             invalidate();
         }
     }

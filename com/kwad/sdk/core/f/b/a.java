@@ -19,7 +19,7 @@ public interface a extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f64568a;
+        public IBinder f64567a;
 
         public C1904a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public interface a extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f64568a.transact(3, obtain, obtain2, 0);
+                        this.f64567a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -67,7 +67,7 @@ public interface a extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64568a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64567a : (IBinder) invokeV.objValue;
         }
     }
 }

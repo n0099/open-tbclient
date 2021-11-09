@@ -28,19 +28,19 @@ public class e0 extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f62867a;
+    public TextView f62866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f62868b;
+    public ImageView f62867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f62869c;
+    public TextView f62868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f62870d;
+    public ImageView f62869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f62871e;
+    public Button f62870e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e0(Context context) {
@@ -109,28 +109,28 @@ public class e0 extends LinearLayout {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
-            this.f62867a.setText(tTNativeAd.getDescription());
+            this.f62866a.setText(tTNativeAd.getDescription());
             TTImage icon = tTNativeAd.getIcon();
             if (icon != null && icon.isValid()) {
-                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f62868b);
+                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f62867b);
             }
-            this.f62869c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
-            this.f62870d.setImageBitmap(tTNativeAd.getAdLogo());
+            this.f62868c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
+            this.f62869d.setImageBitmap(tTNativeAd.getAdLogo());
             int interactionType = tTNativeAd.getInteractionType();
             if (interactionType == 2 || interactionType == 3) {
-                this.f62871e.setVisibility(0);
-                button = this.f62871e;
+                this.f62870e.setVisibility(0);
+                button = this.f62870e;
                 i2 = R.string.fun_ad_interaction_type_browser;
             } else if (interactionType == 4) {
-                this.f62871e.setVisibility(0);
-                button = this.f62871e;
+                this.f62870e.setVisibility(0);
+                button = this.f62870e;
                 i2 = R.string.fun_ad_interaction_type_download;
             } else if (interactionType != 5) {
-                this.f62871e.setVisibility(8);
+                this.f62870e.setVisibility(8);
                 return;
             } else {
-                this.f62871e.setVisibility(0);
-                button = this.f62871e;
+                this.f62870e.setVisibility(0);
+                button = this.f62870e;
                 i2 = R.string.fun_ad_interaction_type_dial;
             }
             button.setText(i2);
@@ -153,7 +153,7 @@ public class e0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f62871e);
+            arrayList.add(this.f62870e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -162,7 +162,7 @@ public class e0 extends LinearLayout {
     public h getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f62871e) : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f62870e) : (h) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -170,11 +170,11 @@ public class e0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.f62867a = (TextView) findViewById(R.id.ad_description);
-            this.f62870d = (ImageView) findViewById(R.id.ad_logo);
-            this.f62868b = (ImageView) findViewById(R.id.ad_icon);
-            this.f62869c = (TextView) findViewById(R.id.ad_source);
-            this.f62871e = (Button) findViewById(R.id.ad_creative);
+            this.f62866a = (TextView) findViewById(R.id.ad_description);
+            this.f62869d = (ImageView) findViewById(R.id.ad_logo);
+            this.f62867b = (ImageView) findViewById(R.id.ad_icon);
+            this.f62868c = (TextView) findViewById(R.id.ad_source);
+            this.f62870e = (Button) findViewById(R.id.ad_creative);
         }
     }
 }

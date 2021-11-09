@@ -139,13 +139,13 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ValueEntry<K, V> f63412e;
+        public ValueEntry<K, V> f63411e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V> f63413f;
+        public ValueEntry<K, V> f63412f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LinkedHashMultimap f63414g;
+        public final /* synthetic */ LinkedHashMultimap f63413g;
 
         public a(LinkedHashMultimap linkedHashMultimap) {
             Interceptable interceptable = $ic;
@@ -162,8 +162,8 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                     return;
                 }
             }
-            this.f63414g = linkedHashMultimap;
-            this.f63412e = this.f63414g.multimapHeaderEntry.successorInMultimap;
+            this.f63413g = linkedHashMultimap;
+            this.f63411e = this.f63413g.multimapHeaderEntry.successorInMultimap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,9 +174,9 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (hasNext()) {
-                    ValueEntry<K, V> valueEntry = this.f63412e;
-                    this.f63413f = valueEntry;
-                    this.f63412e = valueEntry.successorInMultimap;
+                    ValueEntry<K, V> valueEntry = this.f63411e;
+                    this.f63412f = valueEntry;
+                    this.f63411e = valueEntry.successorInMultimap;
                     return valueEntry;
                 }
                 throw new NoSuchElementException();
@@ -188,16 +188,16 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63412e != this.f63414g.multimapHeaderEntry : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63411e != this.f63413g.multimapHeaderEntry : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f63413f != null);
-                this.f63414g.remove(this.f63413f.getKey(), this.f63413f.getValue());
-                this.f63413f = null;
+                m.e(this.f63412f != null);
+                this.f63413g.remove(this.f63412f.getKey(), this.f63412f.getValue());
+                this.f63412f = null;
             }
         }
     }
@@ -208,19 +208,19 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f63415e;
+        public final K f63414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V>[] f63416f;
+        public ValueEntry<K, V>[] f63415f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f63417g;
+        public int f63416g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f63418h;
+        public int f63417h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c<K, V> f63419i;
+        public c<K, V> f63418i;
         public c<K, V> j;
         public final /* synthetic */ LinkedHashMultimap k;
 
@@ -230,16 +230,16 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public c<K, V> f63420e;
+            public c<K, V> f63419e;
 
             /* renamed from: f  reason: collision with root package name */
-            public ValueEntry<K, V> f63421f;
+            public ValueEntry<K, V> f63420f;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f63422g;
+            public int f63421g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ b f63423h;
+            public final /* synthetic */ b f63422h;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -256,14 +256,14 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                         return;
                     }
                 }
-                this.f63423h = bVar;
-                this.f63420e = this.f63423h.f63419i;
-                this.f63422g = this.f63423h.f63418h;
+                this.f63422h = bVar;
+                this.f63419e = this.f63422h.f63418i;
+                this.f63421g = this.f63422h.f63417h;
             }
 
             public final void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f63423h.f63418h != this.f63422g) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f63422h.f63417h != this.f63421g) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -274,7 +274,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     a();
-                    return this.f63420e != this.f63423h;
+                    return this.f63419e != this.f63422h;
                 }
                 return invokeV.booleanValue;
             }
@@ -285,10 +285,10 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     if (hasNext()) {
-                        ValueEntry<K, V> valueEntry = (ValueEntry) this.f63420e;
+                        ValueEntry<K, V> valueEntry = (ValueEntry) this.f63419e;
                         V value = valueEntry.getValue();
-                        this.f63421f = valueEntry;
-                        this.f63420e = valueEntry.getSuccessorInValueSet();
+                        this.f63420f = valueEntry;
+                        this.f63419e = valueEntry.getSuccessorInValueSet();
                         return value;
                     }
                     throw new NoSuchElementException();
@@ -301,10 +301,10 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                     a();
-                    m.e(this.f63421f != null);
-                    this.f63423h.remove(this.f63421f.getValue());
-                    this.f63422g = this.f63423h.f63418h;
-                    this.f63421f = null;
+                    m.e(this.f63420f != null);
+                    this.f63422h.remove(this.f63420f.getValue());
+                    this.f63421g = this.f63422h.f63417h;
+                    this.f63420f = null;
                 }
             }
         }
@@ -325,12 +325,12 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                 }
             }
             this.k = linkedHashMultimap;
-            this.f63417g = 0;
-            this.f63418h = 0;
-            this.f63415e = k;
-            this.f63419i = this;
+            this.f63416g = 0;
+            this.f63417h = 0;
+            this.f63414e = k;
+            this.f63418i = this;
             this.j = this;
-            this.f63416f = new ValueEntry[n0.a(i2, 1.0d)];
+            this.f63415f = new ValueEntry[n0.a(i2, 1.0d)];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -340,20 +340,20 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
                 int d2 = n0.d(v);
                 int c2 = c() & d2;
-                ValueEntry<K, V> valueEntry = this.f63416f[c2];
+                ValueEntry<K, V> valueEntry = this.f63415f[c2];
                 for (ValueEntry<K, V> valueEntry2 = valueEntry; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                     if (valueEntry2.matchesValue(v, d2)) {
                         return false;
                     }
                 }
-                ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f63415e, v, d2, valueEntry);
+                ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f63414e, v, d2, valueEntry);
                 LinkedHashMultimap.succeedsInValueSet(this.j, valueEntry3);
                 LinkedHashMultimap.succeedsInValueSet(valueEntry3, this);
                 LinkedHashMultimap.succeedsInMultimap(this.k.multimapHeaderEntry.getPredecessorInMultimap(), valueEntry3);
                 LinkedHashMultimap.succeedsInMultimap(valueEntry3, this.k.multimapHeaderEntry);
-                this.f63416f[c2] = valueEntry3;
-                this.f63417g++;
-                this.f63418h++;
+                this.f63415f[c2] = valueEntry3;
+                this.f63416g++;
+                this.f63417h++;
                 d();
                 return true;
             }
@@ -363,20 +363,20 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public final int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63416f.length - 1 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63415f.length - 1 : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Arrays.fill(this.f63416f, (Object) null);
-                this.f63417g = 0;
-                for (c<K, V> cVar = this.f63419i; cVar != this; cVar = cVar.getSuccessorInValueSet()) {
+                Arrays.fill(this.f63415f, (Object) null);
+                this.f63416g = 0;
+                for (c<K, V> cVar = this.f63418i; cVar != this; cVar = cVar.getSuccessorInValueSet()) {
                     LinkedHashMultimap.deleteFromMultimap((ValueEntry) cVar);
                 }
                 LinkedHashMultimap.succeedsInValueSet(this, this);
-                this.f63418h++;
+                this.f63417h++;
             }
         }
 
@@ -386,7 +386,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 int d2 = n0.d(obj);
-                for (ValueEntry<K, V> valueEntry = this.f63416f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
+                for (ValueEntry<K, V> valueEntry = this.f63415f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
                     if (valueEntry.matchesValue(obj, d2)) {
                         return true;
                     }
@@ -400,12 +400,12 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         /* JADX WARN: Multi-variable type inference failed */
         public final void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && n0.b(this.f63417g, this.f63416f.length, 1.0d)) {
-                int length = this.f63416f.length * 2;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && n0.b(this.f63416g, this.f63415f.length, 1.0d)) {
+                int length = this.f63415f.length * 2;
                 ValueEntry<K, V>[] valueEntryArr = new ValueEntry[length];
-                this.f63416f = valueEntryArr;
+                this.f63415f = valueEntryArr;
                 int i2 = length - 1;
-                for (c cVar = (c<K, V>) this.f63419i; cVar != this; cVar = (c<K, V>) cVar.getSuccessorInValueSet()) {
+                for (c cVar = (c<K, V>) this.f63418i; cVar != this; cVar = (c<K, V>) cVar.getSuccessorInValueSet()) {
                     ValueEntry<K, V> valueEntry = (ValueEntry) cVar;
                     int i3 = valueEntry.smearedValueHash & i2;
                     valueEntry.nextInValueBucket = valueEntryArr[i3];
@@ -425,7 +425,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public c<K, V> getSuccessorInValueSet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63419i : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63418i : (c) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -443,17 +443,17 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
                 int d2 = n0.d(obj);
                 int c2 = c() & d2;
                 ValueEntry<K, V> valueEntry = null;
-                for (ValueEntry<K, V> valueEntry2 = this.f63416f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
+                for (ValueEntry<K, V> valueEntry2 = this.f63415f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                     if (valueEntry2.matchesValue(obj, d2)) {
                         if (valueEntry == null) {
-                            this.f63416f[c2] = valueEntry2.nextInValueBucket;
+                            this.f63415f[c2] = valueEntry2.nextInValueBucket;
                         } else {
                             valueEntry.nextInValueBucket = valueEntry2.nextInValueBucket;
                         }
                         LinkedHashMultimap.deleteFromValueSet(valueEntry2);
                         LinkedHashMultimap.deleteFromMultimap(valueEntry2);
-                        this.f63417g--;
-                        this.f63418h++;
+                        this.f63416g--;
+                        this.f63417h++;
                         return true;
                     }
                     valueEntry = valueEntry2;
@@ -475,7 +475,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public void setSuccessorInValueSet(c<K, V> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-                this.f63419i = cVar;
+                this.f63418i = cVar;
             }
         }
 
@@ -483,7 +483,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f63417g : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f63416g : invokeV.intValue;
         }
     }
 

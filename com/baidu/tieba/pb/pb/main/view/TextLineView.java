@@ -24,19 +24,19 @@ public class TextLineView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f52559e;
+    public Paint f52558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52560f;
+    public int f52559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52561g;
+    public int f52560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52562h;
+    public int f52561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52563i;
+    public int f52562i;
     public int j;
     public RectF k;
     public int l;
@@ -82,15 +82,15 @@ public class TextLineView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f52559e == null) {
-                this.f52559e = new Paint();
+            if (this.f52558e == null) {
+                this.f52558e = new Paint();
             }
-            this.f52559e.setAntiAlias(true);
-            this.f52559e.setStyle(Paint.Style.FILL);
+            this.f52558e.setAntiAlias(true);
+            this.f52558e.setStyle(Paint.Style.FILL);
             if (isSelected()) {
-                this.f52559e.setColor(SkinManager.getColor(f.transparent));
+                this.f52558e.setColor(SkinManager.getColor(f.transparent));
             } else {
-                this.f52559e.setColor(SkinManager.getColor(f.transparent));
+                this.f52558e.setColor(SkinManager.getColor(f.transparent));
             }
         }
     }
@@ -116,11 +116,11 @@ public class TextLineView extends TextView {
             RectF rectF = this.k;
             int i2 = this.n;
             int i3 = this.m;
-            int i4 = this.f52562h;
-            rectF.set(i2 + 0, (i3 - i4) - this.f52560f, this.l - i2, i3 - i4);
+            int i4 = this.f52561h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f52559f, this.l - i2, i3 - i4);
             RectF rectF2 = this.k;
             int i5 = this.o;
-            canvas.drawRoundRect(rectF2, i5, i5, this.f52559e);
+            canvas.drawRoundRect(rectF2, i5, i5, this.f52558e);
         }
     }
 
@@ -165,13 +165,13 @@ public class TextLineView extends TextView {
             }
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TextLineView);
-        this.f52560f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
-        this.f52561g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
-        this.f52562h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
-        this.f52563i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
+        this.f52559f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
+        this.f52560g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
+        this.f52561h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
+        this.f52562i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
         obtainStyledAttributes.getColor(n.TextLineView_text_unselected_color, SkinManager.getColor(f.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f52561g + this.f52560f + this.f52562h);
-        setTextColor(this.f52563i);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f52560g + this.f52559f + this.f52561h);
+        setTextColor(this.f52562i);
         this.j = b.a.e.e.p.l.g(context, g.ds56);
         this.k = new RectF();
         this.o = b.a.e.e.p.l.g(getContext(), g.ds4);

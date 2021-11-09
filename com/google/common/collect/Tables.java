@@ -27,7 +27,7 @@ public final class Tables {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f63589a;
+    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f63588a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -353,7 +353,7 @@ public final class Tables {
                 return;
             }
         }
-        f63589a = new a();
+        f63588a = new a();
     }
 
     public static boolean b(k1<?, ?, ?> k1Var, Object obj) {
@@ -380,6 +380,6 @@ public final class Tables {
     public static <K, V> g<Map<K, V>, Map<K, V>> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f63589a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f63588a : (g) invokeV.objValue;
     }
 }

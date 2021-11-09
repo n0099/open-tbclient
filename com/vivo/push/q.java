@@ -11,10 +11,10 @@ public final class q implements IPushActionListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p.a f70344a;
+    public final /* synthetic */ p.a f70343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f70345b;
+    public final /* synthetic */ p f70344b;
 
     public q(p pVar, p.a aVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class q implements IPushActionListener {
                 return;
             }
         }
-        this.f70345b = pVar;
-        this.f70344a = aVar;
+        this.f70344b = pVar;
+        this.f70343a = aVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -41,17 +41,17 @@ public final class q implements IPushActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
-                Object[] b2 = this.f70344a.b();
+                Object[] b2 = this.f70343a.b();
                 if (b2 != null && b2.length != 0) {
-                    this.f70345b.a((String) this.f70344a.b()[0]);
+                    this.f70344b.a((String) this.f70343a.b()[0]);
                     return;
                 } else {
                     com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                     return;
                 }
             }
-            this.f70345b.l = null;
-            aVar = this.f70345b.k;
+            this.f70344b.l = null;
+            aVar = this.f70344b.k;
             aVar.c("APP_TOKEN");
         }
     }

@@ -27,19 +27,19 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f47811e;
+    public NavigationBar f47810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f47812f;
+    public GifView f47811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47813g;
+    public TbImageView f47812g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47814h;
+    public TextView f47813h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47815i;
+    public TextView f47814i;
     public String j;
     public String k;
     public String l;
@@ -58,9 +58,44 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f47816e;
+        public final /* synthetic */ EmotionImageActivity f47815e;
 
         public a(EmotionImageActivity emotionImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47815e = emotionImageActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f47815e.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ EmotionImageActivity f47816e;
+
+        public b(EmotionImageActivity emotionImageActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,43 +117,8 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47816e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f47817e;
-
-        public b(EmotionImageActivity emotionImageActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {emotionImageActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47817e = emotionImageActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f47817e.t;
-                this.f47817e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f47817e.getPageContext().getPageActivity(), this.f47817e.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+                int i2 = this.f47816e.t;
+                this.f47816e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f47816e.getPageContext().getPageActivity(), this.f47816e.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
             }
         }
     }
@@ -174,16 +174,16 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.f47811e = navigationBar;
+            this.f47810e = navigationBar;
             navigationBar.setTitleText(getString(R.string.emotion_image_title));
-            this.f47811e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f47812f = (GifView) findViewById(R.id.gifview);
+            this.f47810e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f47811f = (GifView) findViewById(R.id.gifview);
             if (this.p != 0 && this.q != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
             }
-            this.f47812f.setLayoutParams(layoutParams);
+            this.f47811f.setLayoutParams(layoutParams);
             boolean f2 = r.f();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.o;
@@ -195,21 +195,21 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             } else {
                 gifInfo.mStaticUrl = this.n;
             }
-            this.f47812f.startLoad(gifInfo);
-            this.f47813g = (TbImageView) findViewById(R.id.emotion_icon);
+            this.f47811f.startLoad(gifInfo);
+            this.f47812g = (TbImageView) findViewById(R.id.emotion_icon);
             if (!TextUtils.isEmpty(this.l)) {
-                this.f47813g.startLoad(this.l, 10, false);
+                this.f47812g.startLoad(this.l, 10, false);
             } else {
                 Bitmap f3 = b.a.r0.s0.b.f(this.j, "panel.png");
                 if (f3 != null) {
-                    new b.a.e.l.d.a(f3, false).h(this.f47813g);
+                    new b.a.e.l.d.a(f3, false).h(this.f47812g);
                 }
             }
             TextView textView = (TextView) findViewById(R.id.emotion_pname);
-            this.f47814h = textView;
+            this.f47813h = textView;
             textView.setText(this.k);
             TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
-            this.f47815i = textView2;
+            this.f47814i = textView2;
             textView2.setOnClickListener(new b(this));
         }
     }
@@ -221,7 +221,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             super.onChangeSkinType(i2);
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(findViewById(R.id.emotion_image_root));
-            this.f47811e.onChangeSkinType(getPageContext(), i2);
+            this.f47810e.onChangeSkinType(getPageContext(), i2);
         }
     }
 

@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.LoginActivity;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -167,13 +168,13 @@ public class d {
                 if (data instanceof BaseActivity) {
                     BaseActivity baseActivity = (BaseActivity) data;
                     Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
-                    intent.putExtra("splash", true);
+                    intent.putExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, true);
                     intent.setFlags(65536);
                     baseActivity.startActivity(intent);
                 } else if (data instanceof BaseFragmentActivity) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
-                    intent2.putExtra("splash", true);
+                    intent2.putExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, true);
                     intent2.setFlags(65536);
                     baseFragmentActivity.getActivity().startActivity(intent2);
                 }

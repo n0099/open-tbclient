@@ -24,16 +24,16 @@ public class CustomScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetector f55241e;
+    public GestureDetector f55240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55242f;
+    public int f55241f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55243g;
+    public int f55242g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f55244h;
+    public a f55243h;
     public Field scrollView_mScroller;
 
     /* loaded from: classes9.dex */
@@ -47,7 +47,7 @@ public class CustomScrollView extends ScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomScrollView f55245e;
+        public final /* synthetic */ CustomScrollView f55244e;
 
         public b(CustomScrollView customScrollView) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             }
-            this.f55245e = customScrollView;
+            this.f55244e = customScrollView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -94,9 +94,9 @@ public class CustomScrollView extends ScrollView {
                 return;
             }
         }
-        this.f55242f = 0;
-        this.f55243g = 0;
-        this.f55241e = new GestureDetector(context, new b(this));
+        this.f55241f = 0;
+        this.f55242g = 0;
+        this.f55240e = new GestureDetector(context, new b(this));
         setFadingEdgeLength(0);
     }
 
@@ -124,7 +124,7 @@ public class CustomScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int computeVerticalScrollRange = super.computeVerticalScrollRange();
-            this.f55242f = computeVerticalScrollRange;
+            this.f55241f = computeVerticalScrollRange;
             return computeVerticalScrollRange;
         }
         return invokeV.intValue;
@@ -150,7 +150,7 @@ public class CustomScrollView extends ScrollView {
             if (motionEvent.getAction() == 0) {
                 a();
             }
-            return super.onInterceptTouchEvent(motionEvent) && this.f55241e.onTouchEvent(motionEvent);
+            return super.onInterceptTouchEvent(motionEvent) && this.f55240e.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -161,7 +161,7 @@ public class CustomScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                this.f55243g = i5 - i3;
+                this.f55242g = i5 - i3;
             }
         }
     }
@@ -170,11 +170,11 @@ public class CustomScrollView extends ScrollView {
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            a aVar = this.f55244h;
+            a aVar = this.f55243h;
             if (aVar != null) {
                 aVar.onScrollChanged(i2, i3, i4, i5);
             }
-            boolean z = this.f55242f - this.f55243g == i3;
+            boolean z = this.f55241f - this.f55242g == i3;
             if (i3 == 0 || z) {
                 try {
                     if (this.scrollView_mScroller == null) {
@@ -206,7 +206,7 @@ public class CustomScrollView extends ScrollView {
     public void setOnScrollListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f55244h = aVar;
+            this.f55243h = aVar;
         }
     }
 }

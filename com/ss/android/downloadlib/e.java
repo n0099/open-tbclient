@@ -128,10 +128,10 @@ public class e implements com.ss.android.download.api.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.download.api.config.b f68770a;
+                public final /* synthetic */ com.ss.android.download.api.config.b f68769a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f68771b;
+                public final /* synthetic */ e f68770b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,8 +148,8 @@ public class e implements com.ss.android.download.api.a {
                             return;
                         }
                     }
-                    this.f68771b = this;
-                    this.f68770a = bVar;
+                    this.f68770b = this;
+                    this.f68769a = bVar;
                 }
             });
             return this;
@@ -168,7 +168,7 @@ public class e implements com.ss.android.download.api.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f68772a;
+                    public final /* synthetic */ e f68771a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -185,7 +185,7 @@ public class e implements com.ss.android.download.api.a {
                                 return;
                             }
                         }
-                        this.f68772a = this;
+                        this.f68771a = this;
                     }
 
                     private boolean d(DownloadInfo downloadInfo) {
@@ -300,7 +300,7 @@ public class e implements com.ss.android.download.api.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f68773a;
+                public final /* synthetic */ e f68772a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -317,7 +317,7 @@ public class e implements com.ss.android.download.api.a {
                             return;
                         }
                     }
-                    this.f68773a = this;
+                    this.f68772a = this;
                 }
 
                 @Override // java.lang.Runnable

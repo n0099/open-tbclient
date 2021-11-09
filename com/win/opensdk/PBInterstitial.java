@@ -22,13 +22,13 @@ public class PBInterstitial {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70461a;
+    public String f70460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public o1 f70462b;
+    public o1 f70461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f70463c;
+    public PBInterstitialListener f70462c;
 
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class PBInterstitial {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f70461a = str;
+        this.f70460a = str;
         o1 o1Var = new o1(applicationContext, str);
-        this.f70462b = o1Var;
+        this.f70461b = o1Var;
         o1Var.l = new c5(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o1 o1Var = this.f70462b;
+            o1 o1Var = this.f70461b;
             o1Var.f33425i = false;
             o1Var.f33423g = false;
             o1Var.f33424h = false;
@@ -69,14 +69,14 @@ public class PBInterstitial {
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70461a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70460a : (String) invokeV.objValue;
     }
 
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o1 o1Var = this.f70462b;
+            o1 o1Var = this.f70461b;
             if (!o1Var.c()) {
                 if (!(o1Var.f33424h && !o1Var.f33425i && o1Var.e() && !o1Var.j.isShown() && o1Var.j.isEffective())) {
                     return false;
@@ -90,13 +90,13 @@ public class PBInterstitial {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o1 o1Var = this.f70462b;
+            o1 o1Var = this.f70461b;
             if (o1Var.e() && o1Var.j.isEffective() && !o1Var.j.isShown()) {
                 o1Var.b(o1Var.j);
                 return;
             }
             if (o1Var.m == null) {
-                o1Var.m = new a5(o1Var.f33422f, o1Var.f33421e, L.f70453b);
+                o1Var.m = new a5(o1Var.f33422f, o1Var.f33421e, L.f70452b);
             }
             o1Var.m.f33244g = new y0(o1Var);
             o1Var.m.g();
@@ -106,14 +106,14 @@ public class PBInterstitial {
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.f70463c = pBInterstitialListener;
+            this.f70462c = pBInterstitialListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            o1 o1Var = this.f70462b;
+            o1 o1Var = this.f70461b;
             if (!r0.H(o1Var.f33422f)) {
                 PBInterstitialListener pBInterstitialListener = o1Var.l;
                 if (pBInterstitialListener != null) {

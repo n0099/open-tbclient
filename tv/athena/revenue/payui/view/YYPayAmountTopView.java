@@ -32,19 +32,19 @@ public class YYPayAmountTopView extends LinearLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f73136e;
+    public Activity f73135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f73137f;
+    public RecyclerView f73136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GiftBagsInfo f73138g;
+    public GiftBagsInfo f73137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayUIKitConfig f73139h;
+    public PayUIKitConfig f73138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PayAmountTopListAdapter f73140i;
+    public PayAmountTopListAdapter f73139i;
     public LinearLayoutManager j;
     public List<GiftBagItemInfo> mGiftBagList;
 
@@ -67,20 +67,20 @@ public class YYPayAmountTopView extends LinearLayout implements b {
             }
         }
         this.mGiftBagList = new ArrayList();
-        this.f73136e = activity;
-        this.f73139h = payUIKitConfig;
+        this.f73135e = activity;
+        this.f73138h = payUIKitConfig;
         a(activity);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, l.f72366a.a(this.f73139h))).inflate(e.pay_ui_layout_pay_amount_top_view, (ViewGroup) this, true);
-            this.f73137f = (RecyclerView) findViewById(d.rv_gift);
+            LayoutInflater.from(new ContextThemeWrapper(context, l.f72365a.a(this.f73138h))).inflate(e.pay_ui_layout_pay_amount_top_view, (ViewGroup) this, true);
+            this.f73136f = (RecyclerView) findViewById(d.rv_gift);
             this.j = new LinearLayoutManager(context, 0, false);
-            this.f73140i = new PayAmountTopListAdapter(this.f73136e, this.mGiftBagList, this.f73139h);
-            this.f73137f.setLayoutManager(this.j);
-            this.f73137f.setAdapter(this.f73140i);
+            this.f73139i = new PayAmountTopListAdapter(this.f73135e, this.mGiftBagList, this.f73138h);
+            this.f73136f.setLayoutManager(this.j);
+            this.f73136f.setAdapter(this.f73139i);
         }
     }
 
@@ -95,7 +95,7 @@ public class YYPayAmountTopView extends LinearLayout implements b {
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            GiftBagsInfo giftBagsInfo = this.f73138g;
+            GiftBagsInfo giftBagsInfo = this.f73137g;
             if (giftBagsInfo == null) {
                 RLog.error("YYPayAmountTopView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
@@ -103,8 +103,8 @@ public class YYPayAmountTopView extends LinearLayout implements b {
             List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
                 this.mGiftBagList.clear();
-                this.mGiftBagList.addAll(this.f73138g.giftbag);
-                this.f73140i.notifyDataSetChanged();
+                this.mGiftBagList.addAll(this.f73137g.giftbag);
+                this.f73139i.notifyDataSetChanged();
                 return;
             }
             RLog.error("YYPayAmountTopView", "refreshView error giftbag null", new Object[0]);
@@ -116,7 +116,7 @@ public class YYPayAmountTopView extends LinearLayout implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
             RLog.info("YYPayAmountTopView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.f73138g = giftBagsInfo;
+            this.f73137g = giftBagsInfo;
         }
     }
 }

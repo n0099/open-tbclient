@@ -14,19 +14,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f61211a;
+    public static Object f61210a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f61212b;
+    public static Class<?> f61211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f61213c;
+    public static Method f61212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f61214d;
+    public static Method f61213d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f61215e;
+    public static Method f61214e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,23 +44,23 @@ public class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f61212b = cls;
-            f61211a = cls.newInstance();
+            f61211b = cls;
+            f61210a = cls.newInstance();
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e2);
         }
         try {
-            f61213c = f61212b.getMethod("getOAID", Context.class);
+            f61212c = f61211b.getMethod("getOAID", Context.class);
         } catch (Exception e3) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e3);
         }
         try {
-            f61214d = f61212b.getMethod("getVAID", Context.class);
+            f61213d = f61211b.getMethod("getVAID", Context.class);
         } catch (Exception e4) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e4);
         }
         try {
-            f61215e = f61212b.getMethod("getAAID", Context.class);
+            f61214e = f61211b.getMethod("getAAID", Context.class);
         } catch (Exception e5) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e5);
         }
@@ -69,14 +69,14 @@ public class a {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f61213c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f61212c) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, Method method) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-            Object obj = f61211a;
+            Object obj = f61210a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -97,18 +97,18 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f61212b == null || f61211a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f61211b == null || f61210a == null) ? false : true : invokeV.booleanValue;
     }
 
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? a(context, f61214d) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? a(context, f61213d) : (String) invokeL.objValue;
     }
 
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? a(context, f61215e) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? a(context, f61214e) : (String) invokeL.objValue;
     }
 }

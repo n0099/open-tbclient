@@ -7,20 +7,20 @@ import com.kwad.sdk.api.core.RemoteViewBuilder;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f69167a = {"_id", "url", "savePath", "tempPath", "name", "chunkCount", "status", "curBytes", "totalBytes", "eTag", "onlyWifi", TTDownloadField.TT_FORCE, "retryCount", "extra", "mimeType", "title", "notificationEnable", "notificationVisibility", "isFirstDownload", "isFirstSuccess", "needHttpsToHttpRetry", "downloadTime", "packageName", PackageTable.MD5, "retryDelay", "curRetryTime", "retryDelayStatus", "defaultHttpServiceBackUp", "chunkRunnableReuse", "retryDelayTimeArray", "chunkDowngradeRetry", "backUpUrlsStr", "backUpUrlRetryCount", "realDownloadTime", "retryScheduleMinutes", "independentProcess", "auxiliaryJsonobjectString", "iconUrl", "appVersionCode", RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID};
+    public static final String[] f69166a = {"_id", "url", "savePath", "tempPath", "name", "chunkCount", "status", "curBytes", "totalBytes", "eTag", "onlyWifi", TTDownloadField.TT_FORCE, "retryCount", "extra", "mimeType", "title", "notificationEnable", "notificationVisibility", "isFirstDownload", "isFirstSuccess", "needHttpsToHttpRetry", "downloadTime", "packageName", PackageTable.MD5, "retryDelay", "curRetryTime", "retryDelayStatus", "defaultHttpServiceBackUp", "chunkRunnableReuse", "retryDelayTimeArray", "chunkDowngradeRetry", "backUpUrlsStr", "backUpUrlRetryCount", "realDownloadTime", "retryScheduleMinutes", "independentProcess", "auxiliaryJsonobjectString", "iconUrl", "appVersionCode", RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f69168b = {"_id"};
+    public static final String[] f69167b = {"_id"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f69169c = {"_id", "chunkIndex", "startOffset", "curOffset", "endOffset", "chunkContentLen", "hostChunkIndex"};
+    public static final String[] f69168c = {"_id", "chunkIndex", "startOffset", "curOffset", "endOffset", "chunkContentLen", "hostChunkIndex"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f69170d = {"_id"};
+    public static final String[] f69169d = {"_id"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f69171e = {"_id", "info"};
+    public static final String[] f69170e = {"_id", "info"};
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f69172f = {"_id"};
+    public static final String[] f69171f = {"_id"};
 }

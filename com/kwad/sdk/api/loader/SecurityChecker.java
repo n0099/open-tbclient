@@ -16,7 +16,7 @@ public class SecurityChecker {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile State f63919a;
+    public static volatile State f63918a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -98,13 +98,13 @@ public class SecurityChecker {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a.C1887a f63920a;
+                public final /* synthetic */ a.C1887a f63919a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f63921b;
+                public final /* synthetic */ File f63920b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f63922c;
+                public final /* synthetic */ a f63921c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -121,27 +121,27 @@ public class SecurityChecker {
                             return;
                         }
                     }
-                    this.f63920a = c1887a;
-                    this.f63921b = file;
-                    this.f63922c = aVar;
+                    this.f63919a = c1887a;
+                    this.f63920b = file;
+                    this.f63921c = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        State unused = SecurityChecker.f63919a = State.INIT;
+                        State unused = SecurityChecker.f63918a = State.INIT;
                         try {
-                            boolean z = this.f63920a != null && SecurityChecker.b(this.f63921b) && SecurityChecker.b(this.f63921b, this.f63920a.f63925c);
+                            boolean z = this.f63919a != null && SecurityChecker.b(this.f63920b) && SecurityChecker.b(this.f63920b, this.f63919a.f63924c);
                             if (z) {
-                                State unused2 = SecurityChecker.f63919a = State.SUCCESS;
+                                State unused2 = SecurityChecker.f63918a = State.SUCCESS;
                             }
-                            a aVar2 = this.f63922c;
+                            a aVar2 = this.f63921c;
                             if (aVar2 != null) {
-                                aVar2.a(z, SecurityChecker.f63919a);
+                                aVar2.a(z, SecurityChecker.f63918a);
                             }
                         } catch (Exception e2) {
-                            a aVar3 = this.f63922c;
+                            a aVar3 = this.f63921c;
                             if (aVar3 != null) {
                                 aVar3.a(e2);
                             }
@@ -156,7 +156,7 @@ public class SecurityChecker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            f63919a = State.DATA_VALID;
+            f63918a = State.DATA_VALID;
             return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
         }
         return invokeL.booleanValue;
@@ -166,7 +166,7 @@ public class SecurityChecker {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, str)) == null) {
-            f63919a = State.MD5;
+            f63918a = State.MD5;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

@@ -20,16 +20,16 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50483a;
+        public String f50482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50484b;
+        public String f50483b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f50485c;
+        public int f50484c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f50486d;
+        public String f50485d;
 
         public a() {
             Interceptable interceptable = $ic;

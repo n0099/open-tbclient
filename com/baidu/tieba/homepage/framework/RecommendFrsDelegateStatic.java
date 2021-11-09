@@ -29,7 +29,7 @@ public class RecommendFrsDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f49477a;
+    public MessageRedDotView f49476a;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -79,7 +79,7 @@ public class RecommendFrsDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendFrsDelegateStatic f49478a;
+        public final /* synthetic */ RecommendFrsDelegateStatic f49477a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RecommendFrsDelegateStatic recommendFrsDelegateStatic, int i2) {
@@ -99,7 +99,7 @@ public class RecommendFrsDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f49478a = recommendFrsDelegateStatic;
+            this.f49477a = recommendFrsDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,16 +108,16 @@ public class RecommendFrsDelegateStatic extends b.a.q0.h0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                TbFragmentTabIndicator.a tip = this.f49478a.mIndicator.getTip("godFeed");
+                TbFragmentTabIndicator.a tip = this.f49477a.mIndicator.getTip("godFeed");
                 if (tip == null) {
                     return;
                 }
                 if (intValue <= 0) {
-                    this.f49478a.f49477a.setVisibility(8);
+                    this.f49477a.f49476a.setVisibility(8);
                     return;
                 }
-                this.f49478a.f49477a.refresh(0);
-                this.f49478a.f49477a.setVisibility(0);
+                this.f49477a.f49476a.refresh(0);
+                this.f49477a.f49476a.setVisibility(0);
                 tip.b(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -178,11 +178,11 @@ public class RecommendFrsDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            this.f49477a = new MessageRedDotView(context);
+            this.f49476a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f45978f = this.mIndicator;
             aVar.f45975c = l.e(context, 12.0f);
-            MessageRedDotView messageRedDotView = this.f49477a;
+            MessageRedDotView messageRedDotView = this.f49476a;
             aVar.f45973a = messageRedDotView;
             messageRedDotView.setVisibility(8);
             this.mIndicator.addTipWrapContent("godFeed", aVar);

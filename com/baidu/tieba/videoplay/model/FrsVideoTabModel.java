@@ -19,13 +19,13 @@ public class FrsVideoTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f55114e;
+    public b f55113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55115f;
+    public int f55114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f55116g;
+    public CustomMessageListener f55115g;
 
     /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
@@ -33,7 +33,7 @@ public class FrsVideoTabModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabModel f55117a;
+        public final /* synthetic */ FrsVideoTabModel f55116a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsVideoTabModel frsVideoTabModel, int i2) {
@@ -53,7 +53,7 @@ public class FrsVideoTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f55117a = frsVideoTabModel;
+            this.f55116a = frsVideoTabModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class FrsVideoTabModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f55117a.f55114e.a();
+            this.f55116a.f55113e.a();
         }
     }
 
@@ -90,9 +90,9 @@ public class FrsVideoTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55116g = new a(this, 2921628);
+        this.f55115g = new a(this, 2921628);
         setUniqueId(bdUniqueId);
-        registerListener(this.f55116g);
+        registerListener(this.f55115g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -118,8 +118,8 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f55115f < 2) {
-                this.f55115f = 2;
+            if (this.f55114f < 2) {
+                this.f55114f = 2;
             }
             x(2);
         }
@@ -147,7 +147,7 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f55114e = bVar;
+            this.f55113e = bVar;
         }
     }
 }

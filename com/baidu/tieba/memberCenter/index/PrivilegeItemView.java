@@ -28,19 +28,19 @@ public class PrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51493e;
+    public Context f51492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51494f;
+    public View f51493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f51495g;
+    public TbImageView f51494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f51496h;
+    public PrivilegeTextView f51495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51497i;
+    public TextView f51496i;
     public o j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,31 +61,31 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51493e = context;
+        this.f51492e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51493e).inflate(R.layout.index_privilege_item, this);
-            this.f51494f = inflate;
-            this.f51495g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            this.f51496h = (PrivilegeTextView) this.f51494f.findViewById(R.id.privilege_name);
-            this.f51497i = (TextView) this.f51494f.findViewById(R.id.privilege_desc);
+            View inflate = LayoutInflater.from(this.f51492e).inflate(R.layout.index_privilege_item, this);
+            this.f51493f = inflate;
+            this.f51494g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            this.f51495h = (PrivilegeTextView) this.f51493f.findViewById(R.id.privilege_name);
+            this.f51496i = (TextView) this.f51493f.findViewById(R.id.privilege_desc);
         }
     }
 
     public PrivilegeTextView getPrivilegeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51496h : (PrivilegeTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51495h : (PrivilegeTextView) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f51493e), this.f51494f);
+            a.a((TbPageContext) j.a(this.f51492e), this.f51493f);
         }
     }
 
@@ -96,15 +96,15 @@ public class PrivilegeItemView extends RelativeLayout {
             return;
         }
         this.j = oVar;
-        this.f51495g.setIsRound(false);
+        this.f51494g.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f51495g.setDefaultBgResource(R.color.img_bg_color);
+            this.f51494g.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f51495g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f51494g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f51495g.startLoad(oVar.b(), 10, false);
-        this.f51497i.setText(oVar.a());
-        this.f51496h.setText(oVar.f());
+        this.f51494g.startLoad(oVar.b(), 10, false);
+        this.f51496i.setText(oVar.a());
+        this.f51495h.setText(oVar.f());
         if (TbadkCoreApplication.isLogin() && this.j.d() > 0) {
             if (b.g(oVar.g(), 0L) > b.g(b.a.q0.s.e0.b.j().p("member_center_item_red_tip_" + this.j.d() + TbadkCoreApplication.getCurrentAccount(), "0"), 0L)) {
                 if (this.j.h() == 1) {
@@ -121,16 +121,16 @@ public class PrivilegeItemView extends RelativeLayout {
                     bitmapDrawable = null;
                 }
                 if (bitmapDrawable != null) {
-                    this.f51496h.setCompoundDrawables(null, null, bitmapDrawable, null);
-                    this.f51496h.setCompoundDrawablePadding(10);
+                    this.f51495h.setCompoundDrawables(null, null, bitmapDrawable, null);
+                    this.f51495h.setCompoundDrawablePadding(10);
                     return;
                 }
                 return;
             }
-            this.f51496h.setCompoundDrawables(null, null, null, null);
+            this.f51495h.setCompoundDrawables(null, null, null, null);
             return;
         }
-        this.f51496h.setCompoundDrawables(null, null, null, null);
+        this.f51495h.setCompoundDrawables(null, null, null, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -152,7 +152,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51493e = context;
+        this.f51492e = context;
         a();
     }
 
@@ -175,7 +175,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51493e = context;
+        this.f51492e = context;
         a();
     }
 }

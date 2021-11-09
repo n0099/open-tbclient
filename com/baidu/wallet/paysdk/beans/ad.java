@@ -26,13 +26,13 @@ public class ad extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f59567a;
+    public BindFastRequest f59566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f59568b;
+    public PayRequest f59567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59569c;
+    public boolean f59568c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> ad(Context context) {
@@ -52,14 +52,14 @@ public class ad extends BaseBean<Object> {
                 return;
             }
         }
-        this.f59569c = false;
-        this.f59568b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f59568c = false;
+        this.f59567b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f59569c = z;
+            this.f59568c = z;
         }
     }
 
@@ -77,33 +77,33 @@ public class ad extends BaseBean<Object> {
         CardData.BondCard bondCard;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f59567a != null) {
+            if (this.f59566a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f59567a.getmPhone())));
-                arrayList.add(new RestNameValuePair("vcode", this.f59567a.mSmsVCode));
-                if (!this.f59569c) {
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f59566a.getmPhone())));
+                arrayList.add(new RestNameValuePair("vcode", this.f59566a.mSmsVCode));
+                if (!this.f59568c) {
                     arrayList.add(new RestNameValuePair("source_flag", "3"));
-                    BindFastRequest bindFastRequest = this.f59567a;
+                    BindFastRequest bindFastRequest = this.f59566a;
                     if (bindFastRequest != null) {
                         arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
                     }
-                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f59567a.getServiceType()));
+                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f59566a.getServiceType()));
                 }
-                arrayList.add(new RestNameValuePair("bind_without_pay", this.f59567a.getWithoutPay()));
-                if (!TextUtils.isEmpty(this.f59567a.getSubBankCode())) {
-                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f59567a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("bind_without_pay", this.f59566a.getWithoutPay()));
+                if (!TextUtils.isEmpty(this.f59566a.getSubBankCode())) {
+                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f59566a.getSubBankCode()));
                 }
-                PayRequest payRequest = this.f59568b;
+                PayRequest payRequest = this.f59567b;
                 if (payRequest != null) {
                     arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
-                    arrayList.add(new RestNameValuePair("sp_no", this.f59568b.mSpNO));
-                    arrayList.add(new RestNameValuePair("total_amount", this.f59568b.getOrderPrice()));
+                    arrayList.add(new RestNameValuePair("sp_no", this.f59567b.mSpNO));
+                    arrayList.add(new RestNameValuePair("total_amount", this.f59567b.getOrderPrice()));
                 }
-                PayRequest payRequest2 = this.f59568b;
+                PayRequest payRequest2 = this.f59567b;
                 if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null && !TextUtils.isEmpty(bondCard.account_no)) {
-                    arrayList.add(new RestNameValuePair("card_no", SecurePay.getInstance().encryptProxy(this.f59568b.mBondCard.account_no)));
+                    arrayList.add(new RestNameValuePair("card_no", SecurePay.getInstance().encryptProxy(this.f59567b.mBondCard.account_no)));
                 }
-                arrayList.add(new RestNameValuePair("session_id", this.f59567a.getSessionId()));
+                arrayList.add(new RestNameValuePair("session_id", this.f59566a.getSessionId()));
                 return arrayList;
             }
             throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
@@ -128,7 +128,7 @@ public class ad extends BaseBean<Object> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(DomainConfig.getInstance().getAppPayHost());
-            sb.append(this.f59569c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
+            sb.append(this.f59568c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -137,7 +137,7 @@ public class ad extends BaseBean<Object> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f59567a = bindFastRequest;
+            this.f59566a = bindFastRequest;
         }
     }
 }

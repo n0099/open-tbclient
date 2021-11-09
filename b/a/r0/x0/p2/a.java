@@ -463,7 +463,7 @@ public class a extends j {
         }
         if (i2 > 0) {
             FrsTabViewController.o G = this.f26144b.getTabController().G(i2);
-            if (G == null || !(G.f49027b instanceof FrsCommonTabFragment)) {
+            if (G == null || !(G.f49026b instanceof FrsCommonTabFragment)) {
                 return;
             }
             this.f26145c.b(i2);

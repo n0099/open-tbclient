@@ -37,7 +37,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteMultiImgsActivity f56111a;
+        public final /* synthetic */ WriteMultiImgsActivity f56110a;
 
         public a(WriteMultiImgsActivity writeMultiImgsActivity) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f56111a = writeMultiImgsActivity;
+            this.f56110a = writeMultiImgsActivity;
         }
 
         @Override // b.a.r0.d4.u.n.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56111a.mControler.s();
-                this.f56111a.mControler.r(false);
+                this.f56110a.mControler.s();
+                this.f56110a.mControler.r(false);
             }
         }
 
@@ -70,7 +70,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f56111a.mControler.A();
+                this.f56110a.mControler.A();
             }
         }
 
@@ -78,15 +78,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f56111a.mControler.q(bitmap) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f56110a.mControler.q(bitmap) : invokeL.booleanValue;
         }
 
         @Override // b.a.r0.d4.u.n.b.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f56111a.mControler.n();
-                this.f56111a.mControler.r(true);
+                this.f56110a.mControler.n();
+                this.f56110a.mControler.r(true);
             }
         }
     }

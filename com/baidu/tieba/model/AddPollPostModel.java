@@ -22,13 +22,13 @@ public class AddPollPostModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f51626e;
+    public b f51625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f51627f;
+    public long f51626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f51628g;
+    public b.a.e.c.g.a f51627g;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -36,7 +36,7 @@ public class AddPollPostModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddPollPostModel f51629a;
+        public final /* synthetic */ AddPollPostModel f51628a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddPollPostModel addPollPostModel, int i2, int i3) {
@@ -57,14 +57,14 @@ public class AddPollPostModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f51629a = addPollPostModel;
+            this.f51628a = addPollPostModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && this.f51629a.f51627f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && this.f51628a.f51626f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
                 boolean z = responsedMessage instanceof AddPollPostHttpResponseMessage;
                 if (z || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
                     AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = z ? (AddPollPostHttpResponseMessage) responsedMessage : null;
@@ -82,8 +82,8 @@ public class AddPollPostModel extends BdBaseModel {
                         i2 = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                         str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                     }
-                    if (this.f51629a.f51626e != null) {
-                        this.f51629a.f51626e.a(i2, str);
+                    if (this.f51628a.f51625e != null) {
+                        this.f51628a.f51625e.a(i2, str);
                     }
                 }
             }
@@ -113,21 +113,21 @@ public class AddPollPostModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51628g = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
+        this.f51627g = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
         z();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f51626e = bVar;
+            this.f51625e = bVar;
         }
     }
 
     public void B(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f51627f = j;
+            this.f51626f = j;
         }
     }
 
@@ -154,14 +154,14 @@ public class AddPollPostModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(this.f51628g);
+            registerListener(this.f51627g);
         }
     }
 
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f51628g);
+            MessageManager.getInstance().unRegisterListener(this.f51627g);
         }
     }
 

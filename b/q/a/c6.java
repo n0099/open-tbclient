@@ -90,7 +90,7 @@ public class c6 extends WebViewClient {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            if (!this.f33277a.a() && (fVar = this.f33277a.f70545c) != null) {
+            if (!this.f33277a.a() && (fVar = this.f33277a.f70544c) != null) {
                 fVar.a(str);
             }
             WebViewClient webViewClient = this.f33277a.j;
@@ -105,7 +105,7 @@ public class c6 extends WebViewClient {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
-            if (!this.f33277a.a() && (fVar = this.f33277a.f70545c) != null) {
+            if (!this.f33277a.a() && (fVar = this.f33277a.f70544c) != null) {
                 fVar.a(str, bitmap);
             }
             WebViewClient webViewClient = this.f33277a.j;
@@ -134,7 +134,7 @@ public class c6 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048582, this, webView, i2, str, str2) == null) {
             this.f33277a.e();
-            f fVar = this.f33277a.f70545c;
+            f fVar = this.f33277a.f70544c;
             if (fVar != null) {
                 fVar.a(i2, str, str2);
             }
@@ -256,7 +256,7 @@ public class c6 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, str)) == null) {
             if (!this.f33277a.a(str)) {
-                f fVar = this.f33277a.f70545c;
+                f fVar = this.f33277a.f70544c;
                 if (fVar != null) {
                     fVar.b(str);
                 }

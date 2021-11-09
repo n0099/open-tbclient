@@ -24,19 +24,19 @@ public class TitleTipView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55921e;
+    public int f55920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55922f;
+    public int f55921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f55923g;
+    public LinearLayout f55922g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55924h;
+    public ImageView f55923h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f55925i;
+    public ImageView f55924i;
     public TextView j;
     public View k;
     public View.OnClickListener l;
@@ -48,9 +48,44 @@ public class TitleTipView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f55926e;
+        public final /* synthetic */ TitleTipView f55925e;
 
         public a(TitleTipView titleTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {titleTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55925e = titleTipView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f55925e.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TitleTipView f55926e;
+
+        public b(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,46 +103,11 @@ public class TitleTipView extends RelativeLayout {
             this.f55926e = titleTipView;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55926e.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f55927e;
-
-        public b(TitleTipView titleTipView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {titleTipView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55927e = titleTipView;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55927e.dismiss();
+                this.f55926e.dismiss();
             }
         }
     }
@@ -130,8 +130,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55921e = 3;
-        this.f55922f = 5000;
+        this.f55920e = 3;
+        this.f55921f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -141,13 +141,13 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View.inflate(getContext(), R.layout.title_tip_layout, this);
-            this.f55923g = (LinearLayout) findViewById(R.id.tip_bg);
-            this.f55924h = (ImageView) findViewById(R.id.img_icon);
-            this.f55925i = (ImageView) findViewById(R.id.img_close);
+            this.f55922g = (LinearLayout) findViewById(R.id.tip_bg);
+            this.f55923h = (ImageView) findViewById(R.id.img_icon);
+            this.f55924i = (ImageView) findViewById(R.id.img_close);
             this.j = (TextView) findViewById(R.id.tv_tip);
             this.k = findViewById(R.id.tv_line);
             this.j.setText(R.string.add_title_tip);
-            this.f55925i.setOnClickListener(this.l);
+            this.f55924i.setOnClickListener(this.l);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -163,20 +163,20 @@ public class TitleTipView extends RelativeLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f55921e != i2) {
-                c d2 = c.d(this.f55923g);
+            if (this.f55920e != i2) {
+                c d2 = c.d(this.f55922g);
                 d2.n(R.string.J_X05);
                 d2.l(R.dimen.L_X01);
                 d2.k(R.color.CAM_X0602);
                 d2.f(R.color.CAM_X0206);
                 c.d(this.k).f(R.color.CAM_X0203);
                 c.d(this.j).v(R.color.CAM_X0107);
-                this.f55925i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
-                if (this.f55924h != null) {
-                    this.f55924h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
+                this.f55924i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
+                if (this.f55923h != null) {
+                    this.f55923h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
-            this.f55921e = i2;
+            this.f55920e = i2;
         }
     }
 
@@ -191,7 +191,7 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setVisibility(0);
-            e.a().postDelayed(this.m, this.f55922f);
+            e.a().postDelayed(this.m, this.f55921f);
         }
     }
 
@@ -214,8 +214,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55921e = 3;
-        this.f55922f = 5000;
+        this.f55920e = 3;
+        this.f55921f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -240,8 +240,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55921e = 3;
-        this.f55922f = 5000;
+        this.f55920e = 3;
+        this.f55921f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();

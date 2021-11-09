@@ -55,7 +55,7 @@ public class b implements b.a.q0.a1.b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_type", "a064").param(TiebaStatic.Params.RESOURCE_ID, 0).param("obj_locate", 1));
             this.f17749c.d();
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_TB_ADLOAD_END_STAMP_KEY);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921638));
         }
     }
@@ -85,7 +85,7 @@ public class b implements b.a.q0.a1.b {
                         statisticItem.param("obj_type", z2 ? 2 : 1);
                     }
                     b.a.r0.k3.c.g().c(this.f17747a.getUniqueId(), statisticItem);
-                    SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_ADSHOW_END_STAMP_KEY);
+                    SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
                     this.f17747a.getActivity().overridePendingTransition(0, 0);
                     this.f17748b.a();
                 }
@@ -98,7 +98,7 @@ public class b implements b.a.q0.a1.b {
             if (!z) {
             }
             b.a.r0.k3.c.g().c(this.f17747a.getUniqueId(), statisticItem2);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_ADSHOW_END_STAMP_KEY);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
             this.f17747a.getActivity().overridePendingTransition(0, 0);
             this.f17748b.a();
         }
@@ -109,6 +109,7 @@ public class b implements b.a.q0.a1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.f17749c.d();
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
             if (this.f17749c.e() != null) {
                 int k = l.k(this.f17747a.getActivity());
                 int i2 = l.i(this.f17747a.getActivity());
@@ -133,7 +134,7 @@ public class b implements b.a.q0.a1.b {
                 }
                 b.a.r0.k3.c.g().d(this.f17747a.getUniqueId(), str, statisticItem);
                 b.a.r0.k3.c.g().h(this.f17747a.getUniqueId(), false);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_ADSHOW_START_STAMP_KEY);
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
                 return;
             }
             this.f17748b.a();
@@ -144,7 +145,7 @@ public class b implements b.a.q0.a1.b {
     public void onAdDismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_ADSHOW_END_STAMP_KEY);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
             this.f17747a.f();
             if (this.f17747a.e()) {
                 this.f17748b.a();

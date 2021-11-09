@@ -12,7 +12,7 @@ public class bj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f70721a;
+    public static final String f70720a;
 
     /* renamed from: a  reason: collision with other field name */
     public static byte[] f161a;
@@ -34,7 +34,7 @@ public class bj {
                 return;
             }
         }
-        f70721a = System.getProperty("line.separator");
+        f70720a = System.getProperty("line.separator");
         f162a = new char[64];
         char c2 = 'A';
         int i2 = 0;

@@ -26,7 +26,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52837h;
+    public TextView f52836h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoNetworkStateTipView(Context context) {
@@ -52,7 +52,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f52837h = (TextView) findViewById(i.video_net_tip_duration);
+            this.f52836h = (TextView) findViewById(i.video_net_tip_duration);
         }
     }
 
@@ -100,7 +100,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f52837h.setText(String.format(getResources().getString(l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f52836h.setText(String.format(getResources().getString(l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

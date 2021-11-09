@@ -1385,7 +1385,7 @@ public class b implements EnterForumAdView.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (this.u - this.v) - (EnterForumDelegateStatic.f47610c.B() != null ? this.f21850a.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
+            return (this.u - this.v) - (EnterForumDelegateStatic.f47609c.B() != null ? this.f21850a.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
         }
         return invokeV.intValue;
     }
@@ -1671,7 +1671,7 @@ public class b implements EnterForumAdView.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048603, this, list, r1Var, z) == null) {
             this.m.setAdData();
-            EnterForumDelegateStatic.f47610c.D(this.f21850a);
+            EnterForumDelegateStatic.f47609c.D(this.f21850a);
             this.f21855f = list;
             this.f21856g = r1Var;
             ArrayList arrayList = new ArrayList();
@@ -1923,7 +1923,7 @@ public class b implements EnterForumAdView.c {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f21853d.getLayoutParams();
-        marginLayoutParams.topMargin = ((i2 + this.u) - this.v) - (EnterForumDelegateStatic.f47610c.B() != null ? this.f21850a.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
+        marginLayoutParams.topMargin = ((i2 + this.u) - this.v) - (EnterForumDelegateStatic.f47609c.B() != null ? this.f21850a.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
         this.f21853d.setLayoutParams(marginLayoutParams);
     }
 

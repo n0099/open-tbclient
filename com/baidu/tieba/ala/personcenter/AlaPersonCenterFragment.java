@@ -23,19 +23,19 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f47167e;
+    public TbPageContext f47166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47168f;
+    public String f47167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47169g;
+    public String f47168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47170h;
+    public String f47169h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f47171i;
+    public a f47170i;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            a aVar = this.f47171i;
+            a aVar = this.f47170i;
             if (aVar != null) {
                 aVar.m(i2);
             }
@@ -68,7 +68,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.f47171i;
+            a aVar = this.f47170i;
             if (aVar != null) {
                 aVar.m(i2);
             }
@@ -90,16 +90,16 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-            this.f47167e = pageContext;
+            this.f47166e = pageContext;
             a aVar = new a(pageContext, true);
-            this.f47171i = aVar;
-            aVar.s(this.f47169g);
-            this.f47171i.r(this.f47168f);
-            this.f47171i.t(this.f47170h);
+            this.f47170i = aVar;
+            aVar.s(this.f47168g);
+            this.f47170i.r(this.f47167f);
+            this.f47170i.t(this.f47169h);
             if (getArguments() != null) {
-                this.f47171i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+                this.f47170i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
             }
-            return this.f47171i.i();
+            return this.f47170i.i();
         }
         return (View) invokeLLL.objValue;
     }
@@ -108,7 +108,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f47171i.o();
+            this.f47170i.o();
             super.onDestroy();
         }
     }
@@ -127,7 +127,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                this.f47171i.l();
+                this.f47170i.l();
             }
         }
     }
@@ -149,21 +149,21 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f47168f = str;
+            this.f47167f = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f47169g = str;
+            this.f47168g = str;
         }
     }
 
     public void setForumType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f47170h = str;
+            this.f47169h = str;
         }
     }
 }

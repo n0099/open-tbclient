@@ -32,29 +32,29 @@ public class b extends AbstractKsFeedAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KsFeedAd.AdInteractionListener f65687a;
+    public KsFeedAd.AdInteractionListener f65686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.feed.widget.base.a f65688b;
+    public com.kwad.sdk.feed.widget.base.a f65687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.feed.widget.base.a f65689c;
+    public com.kwad.sdk.feed.widget.base.a f65688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65690d;
+    public boolean f65689d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65691e;
+    public int f65690e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f65692f;
+    public AdTemplate f65691f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f65693g;
+    public AdInfo f65692g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsAdVideoPlayConfig f65694h;
+    public KsAdVideoPlayConfig f65693h;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -62,10 +62,10 @@ public class b extends AbstractKsFeedAd {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f65699a;
+        public int f65698a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f65700b;
+        public int f65699b;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -82,16 +82,16 @@ public class b extends AbstractKsFeedAd {
                     return;
                 }
             }
-            this.f65699a = i2;
+            this.f65698a = i2;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f65700b + 1;
-                this.f65700b = i2;
-                return i2 == this.f65699a;
+                int i2 = this.f65699b + 1;
+                this.f65699b = i2;
+                return i2 == this.f65698a;
             }
             return invokeV.booleanValue;
         }
@@ -139,12 +139,12 @@ public class b extends AbstractKsFeedAd {
                 return;
             }
         }
-        this.f65694h = new KsAdVideoPlayConfig.Builder().videoSoundEnable(false).dataFlowAutoStart(c.t()).build();
-        this.f65692f = adTemplate;
+        this.f65693h = new KsAdVideoPlayConfig.Builder().videoSoundEnable(false).dataFlowAutoStart(c.t()).build();
+        this.f65691f = adTemplate;
         adTemplate.mInitVoiceStatus = 1;
-        this.f65693g = com.kwad.sdk.core.response.b.c.i(adTemplate);
-        this.f65690d = z;
-        this.f65691e = i2;
+        this.f65692g = com.kwad.sdk.core.response.b.c.i(adTemplate);
+        this.f65689d = z;
+        this.f65690e = i2;
     }
 
     @Nullable
@@ -152,12 +152,12 @@ public class b extends AbstractKsFeedAd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            if (c.e(context).exists() && a() && this.f65690d) {
+            if (c.e(context).exists() && a() && this.f65689d) {
                 l lVar = new l(context);
-                lVar.setVideoPlayConfig(this.f65694h);
+                lVar.setVideoPlayConfig(this.f65693h);
                 return lVar;
             }
-            return com.kwad.sdk.feed.a.a(context, FeedType.fromInt(this.f65692f.type), com.kwad.sdk.core.response.b.a.H(this.f65693g));
+            return com.kwad.sdk.feed.a.a(context, FeedType.fromInt(this.f65691f.type), com.kwad.sdk.core.response.b.a.H(this.f65692g));
         }
         return (com.kwad.sdk.feed.widget.base.a) invokeL.objValue;
     }
@@ -173,10 +173,10 @@ public class b extends AbstractKsFeedAd {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.kwad.sdk.feed.widget.base.a f65697a;
+            public final /* synthetic */ com.kwad.sdk.feed.widget.base.a f65696a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f65698b;
+            public final /* synthetic */ b f65697b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -193,38 +193,38 @@ public class b extends AbstractKsFeedAd {
                         return;
                     }
                 }
-                this.f65698b = this;
-                this.f65697a = aVar;
+                this.f65697b = this;
+                this.f65696a = aVar;
             }
 
             @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1925a
             public void a() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65698b.f65687a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65697b.f65686a == null) {
                     return;
                 }
-                this.f65698b.f65687a.onAdClicked();
+                this.f65697b.f65686a.onAdClicked();
             }
 
             @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1925a
             public void b() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65698b.f65687a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65697b.f65686a == null) {
                     return;
                 }
-                this.f65698b.f65687a.onAdShow();
+                this.f65697b.f65686a.onAdShow();
             }
 
             @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1925a
             public void c() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65698b.f65687a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65697b.f65686a == null) {
                     return;
                 }
-                this.f65698b.f65687a.onDislikeClicked();
+                this.f65697b.f65686a.onDislikeClicked();
                 try {
-                    if (this.f65697a.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.f65697a.getParent()).removeView(this.f65697a);
+                    if (this.f65696a.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.f65696a.getParent()).removeView(this.f65696a);
                     }
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
@@ -236,7 +236,7 @@ public class b extends AbstractKsFeedAd {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? !TextUtils.isEmpty(this.f65693g.adStyleInfo.feedAdInfo.templateConfig) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? !TextUtils.isEmpty(this.f65692g.adStyleInfo.feedAdInfo.templateConfig) : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0051, code lost:
@@ -259,25 +259,25 @@ public class b extends AbstractKsFeedAd {
             if (context == null) {
                 interfaceC1924b.a();
             }
-            this.f65689c = a(context);
-            this.f65689c.setMargin(av.a(context, 16.0f));
-            com.kwad.sdk.feed.widget.base.a aVar = this.f65689c;
+            this.f65688c = a(context);
+            this.f65688c.setMargin(av.a(context, 16.0f));
+            com.kwad.sdk.feed.widget.base.a aVar = this.f65688c;
             if (aVar != null) {
                 if (aVar instanceof l) {
                     l lVar = (l) aVar;
-                    int i2 = this.f65691e;
+                    int i2 = this.f65690e;
                     if (i2 > 0) {
                         lVar.setWidth(i2);
                     }
-                    lVar.a(this.f65692f, new l.a(this, interfaceC1924b) { // from class: com.kwad.sdk.feed.b.1
+                    lVar.a(this.f65691f, new l.a(this, interfaceC1924b) { // from class: com.kwad.sdk.feed.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ InterfaceC1924b f65695a;
+                        public final /* synthetic */ InterfaceC1924b f65694a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ b f65696b;
+                        public final /* synthetic */ b f65695b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -294,17 +294,17 @@ public class b extends AbstractKsFeedAd {
                                     return;
                                 }
                             }
-                            this.f65696b = this;
-                            this.f65695a = interfaceC1924b;
+                            this.f65695b = this;
+                            this.f65694a = interfaceC1924b;
                         }
 
                         @Override // com.kwad.sdk.feed.widget.l.a
                         public void a() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                b bVar = this.f65696b;
-                                bVar.a(bVar.f65689c);
-                                InterfaceC1924b interfaceC1924b2 = this.f65695a;
+                                b bVar = this.f65695b;
+                                bVar.a(bVar.f65688c);
+                                InterfaceC1924b interfaceC1924b2 = this.f65694a;
                                 if (interfaceC1924b2 != null) {
                                     interfaceC1924b2.a();
                                 }
@@ -312,15 +312,15 @@ public class b extends AbstractKsFeedAd {
                         }
                     });
                 } else {
-                    aVar.a(this.f65692f);
-                    com.kwad.sdk.feed.widget.base.a aVar2 = this.f65689c;
+                    aVar.a(this.f65691f);
+                    com.kwad.sdk.feed.widget.base.a aVar2 = this.f65688c;
                     if (aVar2 instanceof com.kwad.sdk.feed.widget.a) {
-                        ((com.kwad.sdk.feed.widget.a) aVar2).a(this.f65694h);
+                        ((com.kwad.sdk.feed.widget.a) aVar2).a(this.f65693h);
                     }
-                    a(this.f65689c);
+                    a(this.f65688c);
                 }
             }
-            return this.f65689c;
+            return this.f65688c;
         }
         return (com.kwad.sdk.feed.widget.base.a) invokeL.objValue;
     }
@@ -329,7 +329,7 @@ public class b extends AbstractKsFeedAd {
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.b.a.x(this.f65693g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.b.a.x(this.f65692g) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsFeedAd
@@ -337,27 +337,27 @@ public class b extends AbstractKsFeedAd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            com.kwad.sdk.feed.widget.base.a aVar = this.f65688b;
+            com.kwad.sdk.feed.widget.base.a aVar = this.f65687b;
             if (aVar == null) {
-                com.kwad.sdk.feed.widget.base.a aVar2 = this.f65689c;
+                com.kwad.sdk.feed.widget.base.a aVar2 = this.f65688c;
                 if (aVar2 != null) {
-                    this.f65688b = aVar2;
+                    this.f65687b = aVar2;
                     return aVar2;
                 }
-                this.f65688b = a(context);
+                this.f65687b = a(context);
             } else if (aVar.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f65688b.getParent()).removeView(this.f65688b);
+                ((ViewGroup) this.f65687b.getParent()).removeView(this.f65687b);
             }
-            com.kwad.sdk.feed.widget.base.a aVar3 = this.f65688b;
+            com.kwad.sdk.feed.widget.base.a aVar3 = this.f65687b;
             if (aVar3 != null) {
-                aVar3.a(this.f65692f);
-                com.kwad.sdk.feed.widget.base.a aVar4 = this.f65688b;
+                aVar3.a(this.f65691f);
+                com.kwad.sdk.feed.widget.base.a aVar4 = this.f65687b;
                 if (aVar4 instanceof com.kwad.sdk.feed.widget.a) {
-                    ((com.kwad.sdk.feed.widget.a) aVar4).a(this.f65694h);
+                    ((com.kwad.sdk.feed.widget.a) aVar4).a(this.f65693h);
                 }
-                a(this.f65688b);
+                a(this.f65687b);
             }
-            return this.f65688b;
+            return this.f65687b;
         }
         return (View) invokeL.objValue;
     }
@@ -366,21 +366,21 @@ public class b extends AbstractKsFeedAd {
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.w(this.f65693g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.w(this.f65692g) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.b.a.H(this.f65693g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.b.a.H(this.f65692g) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public void setAdInteractionListener(KsFeedAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
-            this.f65687a = adInteractionListener;
+            this.f65686a = adInteractionListener;
         }
     }
 
@@ -388,7 +388,7 @@ public class b extends AbstractKsFeedAd {
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            AdTemplate adTemplate = this.f65692f;
+            AdTemplate adTemplate = this.f65691f;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }
@@ -402,24 +402,24 @@ public class b extends AbstractKsFeedAd {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, ksAdVideoPlayConfig) == null) || ksAdVideoPlayConfig == null) {
             return;
         }
-        this.f65694h.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
-        this.f65694h.setVideoSoundEnable(ksAdVideoPlayConfig.isVideoSoundEnable());
-        com.kwad.sdk.feed.widget.base.a aVar = this.f65689c;
+        this.f65693h.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
+        this.f65693h.setVideoSoundEnable(ksAdVideoPlayConfig.isVideoSoundEnable());
+        com.kwad.sdk.feed.widget.base.a aVar = this.f65688c;
         if (aVar instanceof l) {
             ((l) aVar).setVideoPlayConfig(ksAdVideoPlayConfig);
         }
-        if (this.f65694h.isVideoSoundEnable()) {
-            adTemplate = this.f65692f;
+        if (this.f65693h.isVideoSoundEnable()) {
+            adTemplate = this.f65691f;
             i2 = 2;
         } else {
-            adTemplate = this.f65692f;
+            adTemplate = this.f65691f;
             i2 = 1;
         }
         adTemplate.mInitVoiceStatus = i2;
-        if (this.f65692f.mAdScene == null || KsAdSDKImpl.get().getContext() == null) {
+        if (this.f65691f.mAdScene == null || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        am.a(KsAdSDKImpl.get().getContext(), String.valueOf(this.f65692f.mAdScene.posId), ksAdVideoPlayConfig.isDataFlowAutoStart() ? 1 : 0);
+        am.a(KsAdSDKImpl.get().getContext(), String.valueOf(this.f65691f.mAdScene.posId), ksAdVideoPlayConfig.isDataFlowAutoStart() ? 1 : 0);
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
@@ -428,12 +428,12 @@ public class b extends AbstractKsFeedAd {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f65694h.setVideoSoundEnable(z);
-            if (this.f65694h.isVideoSoundEnable()) {
-                adTemplate = this.f65692f;
+            this.f65693h.setVideoSoundEnable(z);
+            if (this.f65693h.isVideoSoundEnable()) {
+                adTemplate = this.f65691f;
                 i2 = 2;
             } else {
-                adTemplate = this.f65692f;
+                adTemplate = this.f65691f;
                 i2 = 1;
             }
             adTemplate.mInitVoiceStatus = i2;

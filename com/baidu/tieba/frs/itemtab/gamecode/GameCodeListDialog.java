@@ -35,19 +35,19 @@ public class GameCodeListDialog extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GameCodeListView f48881e;
+    public GameCodeListView f48880e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f48882f;
+    public FrameLayout f48881f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Animation f48883g;
+    public final Animation f48882g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Animation f48884h;
+    public final Animation f48883h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AlphaAnimation f48885i;
+    public final AlphaAnimation f48884i;
     public final AlphaAnimation j;
     public final CustomMessageListener k;
     public CustomMessageListener l;
@@ -58,10 +58,50 @@ public class GameCodeListDialog extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameCodeListDialog f48886a;
+        public final /* synthetic */ GameCodeListDialog f48885a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GameCodeListDialog gameCodeListDialog, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameCodeListDialog, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48885a = gameCodeListDialog;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.f48885a.f48880e == null) {
+                return;
+            }
+            this.f48885a.f48880e.updateAfterGetGameCodeSuccess((b.a.r0.x0.l2.h.a) customResponsedMessage.getData());
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ GameCodeListDialog f48886a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(GameCodeListDialog gameCodeListDialog, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,48 +125,8 @@ public class GameCodeListDialog extends FrameLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.f48886a.f48881e == null) {
-                return;
-            }
-            this.f48886a.f48881e.updateAfterGetGameCodeSuccess((b.a.r0.x0.l2.h.a) customResponsedMessage.getData());
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameCodeListDialog f48887a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(GameCodeListDialog gameCodeListDialog, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameCodeListDialog, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48887a = gameCodeListDialog;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921642) {
-                this.f48887a.dismiss();
+                this.f48886a.dismiss();
             }
         }
     }
@@ -137,9 +137,43 @@ public class GameCodeListDialog extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameCodeListDialog f48888e;
+        public final /* synthetic */ GameCodeListDialog f48887e;
 
         public c(GameCodeListDialog gameCodeListDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameCodeListDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48887e = gameCodeListDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ GameCodeListDialog f48888e;
+
+        public d(GameCodeListDialog gameCodeListDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,41 +195,7 @@ public class GameCodeListDialog extends FrameLayout {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameCodeListDialog f48889e;
-
-        public d(GameCodeListDialog gameCodeListDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameCodeListDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48889e = gameCodeListDialog;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48889e.dismiss();
+                this.f48888e.dismiss();
             }
         }
     }
@@ -206,7 +206,7 @@ public class GameCodeListDialog extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameCodeListDialog f48890a;
+        public final /* synthetic */ GameCodeListDialog f48889a;
 
         public e(GameCodeListDialog gameCodeListDialog) {
             Interceptable interceptable = $ic;
@@ -223,16 +223,16 @@ public class GameCodeListDialog extends FrameLayout {
                     return;
                 }
             }
-            this.f48890a = gameCodeListDialog;
+            this.f48889a = gameCodeListDialog;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f48890a.clearAllAnimation();
-                if (this.f48890a.getParent() != null) {
-                    ((ViewGroup) this.f48890a.getParent()).removeView(this.f48890a);
+                this.f48889a.clearAllAnimation();
+                if (this.f48889a.getParent() != null) {
+                    ((ViewGroup) this.f48889a.getParent()).removeView(this.f48889a);
                 }
             }
         }
@@ -289,23 +289,23 @@ public class GameCodeListDialog extends FrameLayout {
         this.k = new a(this, 2921640);
         this.l = new b(this, 2921642);
         FrameLayout frameLayout = new FrameLayout(context);
-        this.f48882f = frameLayout;
+        this.f48881f = frameLayout;
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.f48882f.setOnClickListener(new c(this));
-        addView(this.f48882f);
+        this.f48881f.setOnClickListener(new c(this));
+        addView(this.f48881f);
         GameCodeListView gameCodeListView = new GameCodeListView(context, l.i(context) - m);
-        this.f48881e = gameCodeListView;
+        this.f48880e = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
-        addView(this.f48881e, layoutParams);
-        this.f48883g = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_enter);
-        this.f48884h = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_exit);
-        this.f48883g.setDuration(330L);
-        this.f48884h.setDuration(330L);
-        this.f48885i = new AlphaAnimation(0.0f, 1.0f);
+        addView(this.f48880e, layoutParams);
+        this.f48882g = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_enter);
+        this.f48883h = AnimationUtils.loadAnimation(getContext(), R.anim.normal_dialog_exit);
+        this.f48882g.setDuration(330L);
+        this.f48883h.setDuration(330L);
+        this.f48884i = new AlphaAnimation(0.0f, 1.0f);
         this.j = new AlphaAnimation(1.0f, 0.0f);
-        this.f48885i.setDuration(330L);
+        this.f48884i.setDuration(330L);
         this.j.setDuration(330L);
         this.j.setAnimationListener(new e(this));
     }
@@ -322,8 +322,8 @@ public class GameCodeListDialog extends FrameLayout {
     public void clearAllAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48882f.clearAnimation();
-            this.f48881e.clearAnimation();
+            this.f48881f.clearAnimation();
+            this.f48880e.clearAnimation();
         }
     }
 
@@ -343,15 +343,15 @@ public class GameCodeListDialog extends FrameLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this.f48882f, R.color.black_alpha60);
-            this.f48881e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.f48881f, R.color.black_alpha60);
+            this.f48880e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void setData(List<GameCodeList> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f48881e.setData(list);
+            this.f48880e.setData(list);
         }
     }
 
@@ -376,16 +376,16 @@ public class GameCodeListDialog extends FrameLayout {
     public void startCloseAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f48882f.startAnimation(this.j);
-            this.f48881e.startAnimation(this.f48884h);
+            this.f48881f.startAnimation(this.j);
+            this.f48880e.startAnimation(this.f48883h);
         }
     }
 
     public void startOpenAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f48882f.startAnimation(this.f48885i);
-            this.f48881e.startAnimation(this.f48883g);
+            this.f48881f.startAnimation(this.f48884i);
+            this.f48880e.startAnimation(this.f48882g);
         }
     }
 

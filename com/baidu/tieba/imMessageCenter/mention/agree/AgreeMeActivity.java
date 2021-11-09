@@ -48,9 +48,54 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AgreeMeActivity f50839a;
+        public final /* synthetic */ AgreeMeActivity f50838a;
 
         public a(AgreeMeActivity agreeMeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {agreeMeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50838a = agreeMeActivity;
+        }
+
+        @Override // b.a.r0.m1.b.o.a.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50838a.mModel == null) {
+                return;
+            }
+            this.f50838a.mModel.j();
+        }
+
+        @Override // b.a.r0.m1.b.o.a.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f50838a.mModel == null) {
+                return;
+            }
+            this.f50838a.mModel.g();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements b.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AgreeMeActivity f50839a;
+
+        public b(AgreeMeActivity agreeMeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,91 +113,46 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             this.f50839a = agreeMeActivity;
         }
 
-        @Override // b.a.r0.m1.b.o.a.e
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50839a.mModel == null) {
-                return;
-            }
-            this.f50839a.mModel.j();
-        }
-
-        @Override // b.a.r0.m1.b.o.a.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f50839a.mModel == null) {
-                return;
-            }
-            this.f50839a.mModel.g();
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements b.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AgreeMeActivity f50840a;
-
-        public b(AgreeMeActivity agreeMeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {agreeMeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50840a = agreeMeActivity;
-        }
-
         @Override // b.a.r0.m1.b.o.b.c
         public void onFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 b.a.q0.t.d.b.g0().Y(0);
-                if (this.f50840a.mMainView == null) {
+                if (this.f50839a.mMainView == null) {
                     return;
                 }
-                this.f50840a.mMainView.l(false);
-                if (ListUtils.isEmpty(this.f50840a.mMainView.e())) {
-                    AgreeMeActivity agreeMeActivity = this.f50840a;
+                this.f50839a.mMainView.l(false);
+                if (ListUtils.isEmpty(this.f50839a.mMainView.e())) {
+                    AgreeMeActivity agreeMeActivity = this.f50839a;
                     agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
-                    AgreeMeActivity agreeMeActivity2 = this.f50840a;
-                    agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), this.f50840a.getResources().getString(R.string.refresh_view_title_text), null, this.f50840a.getResources().getString(R.string.refresh_view_button_text), true, this.f50840a.getNetRefreshListener());
-                    this.f50840a.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                    if (this.f50840a.mMainView.f21101f != null) {
-                        this.f50840a.mMainView.f21101f.setVisibility(8);
+                    AgreeMeActivity agreeMeActivity2 = this.f50839a;
+                    agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), this.f50839a.getResources().getString(R.string.refresh_view_title_text), null, this.f50839a.getResources().getString(R.string.refresh_view_button_text), true, this.f50839a.getNetRefreshListener());
+                    this.f50839a.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+                    if (this.f50839a.mMainView.f21101f != null) {
+                        this.f50839a.mMainView.f21101f.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                AgreeMeActivity agreeMeActivity3 = this.f50840a;
+                AgreeMeActivity agreeMeActivity3 = this.f50839a;
                 agreeMeActivity3.hideLoadingView(agreeMeActivity3.mMainView.d());
-                this.f50840a.showToast(str);
+                this.f50839a.showToast(str);
             }
         }
 
         @Override // b.a.r0.m1.b.o.b.c
         public void onSuccess(ArrayList<n> arrayList) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) || this.f50840a.mMainView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) || this.f50839a.mMainView == null) {
                 return;
             }
-            this.f50840a.mMainView.k(this.f50840a.mModel.f21113f, arrayList);
-            AgreeMeActivity agreeMeActivity = this.f50840a;
+            this.f50839a.mMainView.k(this.f50839a.mModel.f21113f, arrayList);
+            AgreeMeActivity agreeMeActivity = this.f50839a;
             agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
-            AgreeMeActivity agreeMeActivity2 = this.f50840a;
+            AgreeMeActivity agreeMeActivity2 = this.f50839a;
             agreeMeActivity2.hideNetRefreshView(agreeMeActivity2.mMainView.f());
-            if (this.f50840a.mMainView.f21101f != null) {
-                this.f50840a.mMainView.f21101f.setVisibility(0);
+            if (this.f50839a.mMainView.f21101f != null) {
+                this.f50839a.mMainView.f21101f.setVisibility(0);
             }
         }
     }
@@ -163,7 +163,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeMeActivity f50841e;
+        public final /* synthetic */ AgreeMeActivity f50840e;
 
         public c(AgreeMeActivity agreeMeActivity) {
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                     return;
                 }
             }
-            this.f50841e = agreeMeActivity;
+            this.f50840e = agreeMeActivity;
         }
 
         @Override // b.a.e.l.e.w
@@ -189,9 +189,9 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.m1.b.p.a)) {
                 b.a.r0.m1.b.p.a aVar = (b.a.r0.m1.b.p.a) nVar;
                 if (aVar.getType() == b.a.r0.m1.b.p.a.x) {
-                    this.f50841e.jumpPb(aVar);
+                    this.f50840e.jumpPb(aVar);
                 } else {
-                    this.f50841e.jumpToSubPb(aVar);
+                    this.f50840e.jumpToSubPb(aVar);
                 }
                 if (aVar.x() != null) {
                     StatisticItem param = new StatisticItem(aVar.x()).param("obj_locate", 1);

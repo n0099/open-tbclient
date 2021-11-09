@@ -211,7 +211,7 @@ public class d1 {
             this.f33283d.setInCircleColor(Color.parseColor(this.f33280a.getString(m1.win_cyclecolor)));
             this.f33283d.setProgressColor(Color.parseColor(this.f33280a.getString(m1.win_cyc_process_color)));
             this.f33283d.setProgressLineWidth(this.f33287h);
-            this.f33283d.setProgressType(com.win.opensdk.s2.f70522b);
+            this.f33283d.setProgressType(com.win.opensdk.s2.f70521b);
             CircleProgressbar circleProgressbar2 = this.f33283d;
             if (countdown <= 0) {
                 countdown = this.f33286g;

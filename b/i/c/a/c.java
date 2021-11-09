@@ -52,7 +52,7 @@ public final class c extends Thread {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             while (!this.f32920g) {
                 if (f.d().h(this.f32918e)) {
-                    this.f32919f.a(com.google.ar.core.p.f63131c);
+                    this.f32919f.a(com.google.ar.core.p.f63130c);
                     return;
                 }
                 try {

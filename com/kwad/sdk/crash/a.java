@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f65415a;
+    public static volatile boolean f65414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f65416b;
+    public static volatile boolean f65415b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (a.class) {
-                if (!f65415a) {
-                    f65415a = true;
+                if (!f65414a) {
+                    f65414a = true;
                     com.kwad.sdk.core.i.a.a().postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class a {
                                 }
                             }
                         }
-                    }, TimeUnit.SECONDS.toMillis(c.f65445f));
+                    }, TimeUnit.SECONDS.toMillis(c.f65444f));
                 }
             }
         }
@@ -80,16 +80,16 @@ public class a {
 
     public static void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f65426g == null || f65416b) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f65425g == null || f65415b) {
             return;
         }
-        f65416b = true;
+        f65415b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f65426g);
-            com.kwad.sdk.crash.a.a.a(bVar.f65426g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f65425g);
+            com.kwad.sdk.crash.a.a.a(bVar.f65425g, bVar.n);
             d.a().a(bVar);
             c();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f65426g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f65425g));
             a();
         } catch (Throwable unused) {
         }
@@ -103,7 +103,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Throwable f65417a;
+                public final /* synthetic */ Throwable f65416a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,7 +120,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f65417a = th;
+                    this.f65416a = th;
                 }
 
                 @Override // java.lang.Runnable
@@ -128,8 +128,8 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (com.kwad.sdk.crash.b.a.a(this.f65417a)) {
-                                com.kwad.sdk.crash.c.a.a(new SdkCaughtException(this.f65417a));
+                            if (com.kwad.sdk.crash.b.a.a(this.f65416a)) {
+                                com.kwad.sdk.crash.c.a.a(new SdkCaughtException(this.f65416a));
                             }
                         } catch (Throwable th2) {
                             com.kwad.sdk.core.d.a.a(th2);

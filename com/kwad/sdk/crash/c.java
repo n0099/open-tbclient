@@ -13,25 +13,25 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final double f65440a;
+    public static final double f65439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f65441b;
+    public static final Pattern f65440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f65442c;
+    public static final Pattern f65441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f65443d;
+    public static final Pattern f65442d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f65444e;
+    public static final Pattern f65443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f65445f;
+    public static int f65444f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f65446g;
+    public static String f65445g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public final class c {
                 return;
             }
         }
-        f65440a = Runtime.getRuntime().maxMemory();
-        f65441b = Pattern.compile("/data/user");
-        f65442c = Pattern.compile("/data");
-        f65443d = Pattern.compile("/data/data/(.*)/data/.*");
-        f65444e = Pattern.compile("/data/user/.*/(.*)/data/.*");
-        f65445f = 20;
-        f65446g = "sessionId";
+        f65439a = Runtime.getRuntime().maxMemory();
+        f65440b = Pattern.compile("/data/user");
+        f65441c = Pattern.compile("/data");
+        f65442d = Pattern.compile("/data/data/(.*)/data/.*");
+        f65443e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+        f65444f = 20;
+        f65445g = "sessionId";
     }
 
     public c() {

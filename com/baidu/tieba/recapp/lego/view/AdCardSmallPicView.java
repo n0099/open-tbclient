@@ -20,7 +20,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f53534i;
+    public XfremodeRoundLayout f53533i;
     public TbImageView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,11 +81,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f53534i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.f53533i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
             this.j = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f53534i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.f53533i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
     }
 }

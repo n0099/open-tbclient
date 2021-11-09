@@ -33,16 +33,16 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f46718a;
+    public f f46717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46719b;
+    public int f46718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<j> f46720c;
+    public List<j> f46719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f46721d;
+    public View.OnClickListener f46720d;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -50,7 +50,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectForumItemAdapter f46722e;
+        public final /* synthetic */ SelectForumItemAdapter f46721e;
 
         public a(SelectForumItemAdapter selectForumItemAdapter) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
                     return;
                 }
             }
-            this.f46722e = selectForumItemAdapter;
+            this.f46721e = selectForumItemAdapter;
         }
 
         @Override // android.view.View.OnClickListener
@@ -78,11 +78,11 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
                 return;
             }
             if (!jVar.f14146f) {
-                this.f46722e.f46718a.showTip(jVar.f14147g);
+                this.f46721e.f46717a.showTip(jVar.f14147g);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.f14147g));
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13995").param("fid", jVar.f14141a).param("obj_source", this.f46722e.f46719b));
+            TiebaStatic.log(new StatisticItem("c13995").param("fid", jVar.f14141a).param("obj_source", this.f46721e.f46718b));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, jVar));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
         }
@@ -94,16 +94,16 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f46723a;
+        public BarImageView f46722a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46724b;
+        public TextView f46723b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f46725c;
+        public ImageView f46724c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f46726d;
+        public TextView f46725d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SelectForumItemAdapter selectForumItemAdapter, View view) {
@@ -123,10 +123,10 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
                     return;
                 }
             }
-            this.f46723a = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.f46724b = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.f46725c = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.f46726d = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.f46722a = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.f46723b = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.f46724c = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.f46725d = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 
@@ -145,28 +145,28 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
                 return;
             }
         }
-        this.f46721d = new a(this);
-        this.f46718a = fVar;
+        this.f46720d = new a(this);
+        this.f46717a = fVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f46720c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f46719c) : invokeV.intValue;
     }
 
     public void setDataList(List<j> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f46720c = list;
+            this.f46719c = list;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f46719b = i2;
+            this.f46718b = i2;
         }
     }
 
@@ -175,29 +175,29 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull b bVar, int i2) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bVar, i2) == null) || (jVar = (j) ListUtils.getItem(this.f46720c, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bVar, i2) == null) || (jVar = (j) ListUtils.getItem(this.f46719c, i2)) == null) {
             return;
         }
-        bVar.f46723a.setPlaceHolder(1);
-        bVar.f46723a.setShowOval(true);
-        bVar.f46723a.setShowOuterBorder(true);
-        bVar.f46723a.setShowInnerBorder(false);
-        bVar.f46723a.setStrokeColorResId(R.color.CAM_X0401);
-        bVar.f46723a.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        bVar.f46723a.startLoad(jVar.f14142b, 10, false);
-        bVar.f46724b.setText(jVar.f14143c);
-        SkinManager.setViewTextColor(bVar.f46724b, R.color.CAM_X0105);
+        bVar.f46722a.setPlaceHolder(1);
+        bVar.f46722a.setShowOval(true);
+        bVar.f46722a.setShowOuterBorder(true);
+        bVar.f46722a.setShowInnerBorder(false);
+        bVar.f46722a.setStrokeColorResId(R.color.CAM_X0401);
+        bVar.f46722a.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        bVar.f46722a.startLoad(jVar.f14142b, 10, false);
+        bVar.f46723b.setText(jVar.f14143c);
+        SkinManager.setViewTextColor(bVar.f46723b, R.color.CAM_X0105);
         if (jVar.f14144d <= 0) {
-            bVar.f46725c.setVisibility(8);
+            bVar.f46724c.setVisibility(8);
         } else {
-            bVar.f46725c.setVisibility(0);
-            SkinManager.setImageResource(bVar.f46725c, BitmapHelper.getGradeResourceIdInEnterForum(jVar.f14144d));
+            bVar.f46724c.setVisibility(0);
+            SkinManager.setImageResource(bVar.f46724c, BitmapHelper.getGradeResourceIdInEnterForum(jVar.f14144d));
         }
-        bVar.f46726d.setVisibility(jVar.f14145e ? 0 : 8);
-        SkinManager.setViewTextColor(bVar.f46726d, R.color.CAM_X0302);
+        bVar.f46725d.setVisibility(jVar.f14145e ? 0 : 8);
+        SkinManager.setViewTextColor(bVar.f46725d, R.color.CAM_X0302);
         bVar.itemView.setTag(jVar);
         SkinManager.setBackgroundResource(bVar.itemView, R.drawable.forum_selected_view_bg);
-        bVar.itemView.setOnClickListener(this.f46721d);
+        bVar.itemView.setOnClickListener(this.f46720d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

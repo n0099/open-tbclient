@@ -19,13 +19,13 @@ public class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66711a = "";
+    public static String f66710a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f66712b = "";
+    public static String f66711b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66713c = "";
+    public static String f66712c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,16 +69,16 @@ public class m {
                 return "";
             }
             if (i2 == 0) {
-                str = f66711a;
+                str = f66710a;
                 str2 = GrowthConstant.UBC_KEY_AES_KEY;
             } else if (i2 == 1) {
-                str = f66712b;
+                str = f66711b;
                 str2 = "rsa_public_key";
             } else if (i2 != 2) {
                 str = "";
                 str2 = str;
             } else {
-                str = f66713c;
+                str = f66712c;
                 str2 = "rsa_private_key";
             }
             if (TextUtils.isEmpty(str)) {
@@ -95,11 +95,11 @@ public class m {
                         com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
                     }
                     if (i2 == 0) {
-                        f66711a = a2;
+                        f66710a = a2;
                     } else if (i2 == 1) {
-                        f66712b = a2;
+                        f66711b = a2;
                     } else if (i2 == 2) {
-                        f66713c = a2;
+                        f66712c = a2;
                     }
                     return a2;
                 }

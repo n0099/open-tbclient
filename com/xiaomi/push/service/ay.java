@@ -14,7 +14,7 @@ public class ay extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b.c f71442a;
+    public final /* synthetic */ av.b.c f71441a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(av.b.c cVar, int i2) {
@@ -34,7 +34,7 @@ public class ay extends XMPushService.i {
                 return;
             }
         }
-        this.f71442a = cVar;
+        this.f71441a = cVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -49,11 +49,11 @@ public class ay extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av a2 = av.a();
-            av.b bVar = this.f71442a.f923a;
-            if (a2.a(bVar.f71429g, bVar.f919b).f910a == null) {
-                XMPushService xMPushService = this.f71442a.f71436b.f912a;
-                av.b bVar2 = this.f71442a.f923a;
-                xMPushService.a(bVar2.f71429g, bVar2.f919b, 2, null, null);
+            av.b bVar = this.f71441a.f923a;
+            if (a2.a(bVar.f71428g, bVar.f919b).f910a == null) {
+                XMPushService xMPushService = this.f71441a.f71435b.f912a;
+                av.b bVar2 = this.f71441a.f923a;
+                xMPushService.a(bVar2.f71428g, bVar2.f919b, 2, null, null);
             }
         }
     }

@@ -26,52 +26,52 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile g f68811a;
+    public static volatile g f68810a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.download.api.a f68812b;
+    public final com.ss.android.download.api.a f68811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f68813c;
+    public final f f68812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.downloadad.api.a f68814d;
+    public final com.ss.android.downloadad.api.a f68813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.downloadad.api.b f68815e;
+    public com.ss.android.downloadad.api.b f68814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68816f;
+    public long f68815f;
 
     /* JADX INFO: Access modifiers changed from: private */
     public f h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? this.f68813c : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? this.f68812c : (f) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f68816f = System.currentTimeMillis();
+            this.f68815f = System.currentTimeMillis();
         }
     }
 
     public com.ss.android.downloadad.api.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f68814d : (com.ss.android.downloadad.api.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f68813d : (com.ss.android.downloadad.api.a) invokeV.objValue;
     }
 
     public com.ss.android.downloadad.api.b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f68815e == null) {
-                this.f68815e = b.a();
+            if (this.f68814e == null) {
+                this.f68814e = b.a();
             }
-            return this.f68815e;
+            return this.f68814e;
         }
         return (com.ss.android.downloadad.api.b) invokeV.objValue;
     }
@@ -104,26 +104,26 @@ public class g {
                 return;
             }
         }
-        this.f68813c = f.a();
-        this.f68812b = new e();
-        this.f68816f = System.currentTimeMillis();
+        this.f68812c = f.a();
+        this.f68811b = new e();
+        this.f68815f = System.currentTimeMillis();
         b(context);
-        this.f68814d = a.a();
+        this.f68813d = a.a();
     }
 
     public static g a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f68811a == null) {
+            if (f68810a == null) {
                 synchronized (g.class) {
-                    if (f68811a == null) {
+                    if (f68810a == null) {
                         com.ss.android.downloadlib.e.b.a(new Runnable(context) { // from class: com.ss.android.downloadlib.g.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f68817a;
+                            public final /* synthetic */ Context f68816a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -140,21 +140,21 @@ public class g {
                                         return;
                                     }
                                 }
-                                this.f68817a = context;
+                                this.f68816a = context;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    g unused = g.f68811a = new g(this.f68817a);
+                                    g unused = g.f68810a = new g(this.f68816a);
                                 }
                             }
                         });
                     }
                 }
             }
-            return f68811a;
+            return f68810a;
         }
         return (g) invokeL.objValue;
     }
@@ -178,7 +178,7 @@ public class g {
     public com.ss.android.download.api.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68812b : (com.ss.android.download.api.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68811b : (com.ss.android.download.api.a) invokeV.objValue;
     }
 
     @MainThread
@@ -190,19 +190,19 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f68821a;
+                public final /* synthetic */ Context f68820a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68822b;
+                public final /* synthetic */ int f68821b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusChangeListener f68823c;
+                public final /* synthetic */ DownloadStatusChangeListener f68822c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadModel f68824d;
+                public final /* synthetic */ DownloadModel f68823d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ g f68825e;
+                public final /* synthetic */ g f68824e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,18 +219,18 @@ public class g {
                             return;
                         }
                     }
-                    this.f68825e = this;
-                    this.f68821a = context;
-                    this.f68822b = i2;
-                    this.f68823c = downloadStatusChangeListener;
-                    this.f68824d = downloadModel;
+                    this.f68824e = this;
+                    this.f68820a = context;
+                    this.f68821b = i2;
+                    this.f68822c = downloadStatusChangeListener;
+                    this.f68823d = downloadModel;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68825e.h().a(this.f68821a, this.f68822b, this.f68823c, this.f68824d);
+                        this.f68824e.h().a(this.f68820a, this.f68821b, this.f68822c, this.f68823d);
                     }
                 }
             });
@@ -246,28 +246,28 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68826a;
+                public final /* synthetic */ String f68825a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f68827b;
+                public final /* synthetic */ long f68826b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f68828c;
+                public final /* synthetic */ int f68827c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadEventConfig f68829d;
+                public final /* synthetic */ DownloadEventConfig f68828d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadController f68830e;
+                public final /* synthetic */ DownloadController f68829e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ u f68831f;
+                public final /* synthetic */ u f68830f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ IDownloadButtonClickListener f68832g;
+                public final /* synthetic */ IDownloadButtonClickListener f68831g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ g f68833h;
+                public final /* synthetic */ g f68832h;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -284,21 +284,21 @@ public class g {
                             return;
                         }
                     }
-                    this.f68833h = this;
-                    this.f68826a = str;
-                    this.f68827b = j;
-                    this.f68828c = i2;
-                    this.f68829d = downloadEventConfig;
-                    this.f68830e = downloadController;
-                    this.f68831f = uVar;
-                    this.f68832g = iDownloadButtonClickListener;
+                    this.f68832h = this;
+                    this.f68825a = str;
+                    this.f68826b = j;
+                    this.f68827c = i2;
+                    this.f68828d = downloadEventConfig;
+                    this.f68829e = downloadController;
+                    this.f68830f = uVar;
+                    this.f68831g = iDownloadButtonClickListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68833h.h().a(this.f68826a, this.f68827b, this.f68828c, this.f68829d, this.f68830e, this.f68831f, this.f68832g);
+                        this.f68832h.h().a(this.f68825a, this.f68826b, this.f68827c, this.f68828d, this.f68829e, this.f68830f, this.f68831g);
                     }
                 }
             });
@@ -314,22 +314,22 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68834a;
+                public final /* synthetic */ String f68833a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f68835b;
+                public final /* synthetic */ long f68834b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f68836c;
+                public final /* synthetic */ int f68835c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadEventConfig f68837d;
+                public final /* synthetic */ DownloadEventConfig f68836d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadController f68838e;
+                public final /* synthetic */ DownloadController f68837e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ g f68839f;
+                public final /* synthetic */ g f68838f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -346,19 +346,19 @@ public class g {
                             return;
                         }
                     }
-                    this.f68839f = this;
-                    this.f68834a = str;
-                    this.f68835b = j;
-                    this.f68836c = i2;
-                    this.f68837d = downloadEventConfig;
-                    this.f68838e = downloadController;
+                    this.f68838f = this;
+                    this.f68833a = str;
+                    this.f68834b = j;
+                    this.f68835c = i2;
+                    this.f68836d = downloadEventConfig;
+                    this.f68837e = downloadController;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68839f.h().a(this.f68834a, this.f68835b, this.f68836c, this.f68837d, this.f68838e);
+                        this.f68838f.h().a(this.f68833a, this.f68834b, this.f68835c, this.f68836d, this.f68837e);
                     }
                 }
             });
@@ -374,13 +374,13 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68840a;
+                public final /* synthetic */ String f68839a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68841b;
+                public final /* synthetic */ int f68840b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f68842c;
+                public final /* synthetic */ g f68841c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -397,16 +397,16 @@ public class g {
                             return;
                         }
                     }
-                    this.f68842c = this;
-                    this.f68840a = str;
-                    this.f68841b = i2;
+                    this.f68841c = this;
+                    this.f68839a = str;
+                    this.f68840b = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68842c.h().a(this.f68840a, this.f68841b);
+                        this.f68841c.h().a(this.f68839a, this.f68840b);
                     }
                 }
             });
@@ -416,7 +416,7 @@ public class g {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68816f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68815f : invokeV.longValue;
     }
 
     @MainThread
@@ -428,13 +428,13 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68818a;
+                public final /* synthetic */ String f68817a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f68819b;
+                public final /* synthetic */ boolean f68818b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f68820c;
+                public final /* synthetic */ g f68819c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -451,16 +451,16 @@ public class g {
                             return;
                         }
                     }
-                    this.f68820c = this;
-                    this.f68818a = str;
-                    this.f68819b = z;
+                    this.f68819c = this;
+                    this.f68817a = str;
+                    this.f68818b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68820c.h().a(this.f68818a, this.f68819b);
+                        this.f68819c.h().a(this.f68817a, this.f68818b);
                     }
                 }
             });

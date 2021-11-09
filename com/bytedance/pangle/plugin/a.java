@@ -16,10 +16,10 @@ public final class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f61457a;
+    public File f61456a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusPluginListener f61458b;
+    public ZeusPluginListener f61457b;
 
     public a(File file, ZeusPluginListener zeusPluginListener) {
         Interceptable interceptable = $ic;
@@ -36,37 +36,37 @@ public final class a implements Runnable {
                 return;
             }
         }
-        this.f61457a = file;
-        this.f61458b = zeusPluginListener;
+        this.f61456a = file;
+        this.f61457b = zeusPluginListener;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e a2 = com.bytedance.pangle.e.a.d.a(this.f61457a);
+            e a2 = com.bytedance.pangle.e.a.d.a(this.f61456a);
             boolean z = false;
             if (a2 != null) {
-                Plugin plugin2 = PluginManager.getInstance().getPlugin(a2.f61380a);
+                Plugin plugin2 = PluginManager.getInstance().getPlugin(a2.f61379a);
                 if (plugin2 != null) {
-                    z = plugin2.install(this.f61457a, a2);
-                    ZeusPluginListener zeusPluginListener = this.f61458b;
+                    z = plugin2.install(this.f61456a, a2);
+                    ZeusPluginListener zeusPluginListener = this.f61457b;
                     if (zeusPluginListener != null) {
                         zeusPluginListener.onEvent(z ? 21 : 22, "install result = ".concat(String.valueOf(z)));
                     }
                 } else {
-                    ZeusPluginListener zeusPluginListener2 = this.f61458b;
+                    ZeusPluginListener zeusPluginListener2 = this.f61457b;
                     if (zeusPluginListener2 != null) {
-                        zeusPluginListener2.onEvent(22, "cannot query valid plugin !!! packageName = " + a2.f61380a);
+                        zeusPluginListener2.onEvent(22, "cannot query valid plugin !!! packageName = " + a2.f61379a);
                     }
-                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a2.f61380a);
+                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a2.f61379a);
                 }
             } else {
-                ZeusPluginListener zeusPluginListener3 = this.f61458b;
+                ZeusPluginListener zeusPluginListener3 = this.f61457b;
                 if (zeusPluginListener3 != null) {
-                    zeusPluginListener3.onEvent(22, "read local file package info failed !!!" + this.f61457a.getAbsolutePath() + " exists:" + this.f61457a.exists());
+                    zeusPluginListener3.onEvent(22, "read local file package info failed !!!" + this.f61456a.getAbsolutePath() + " exists:" + this.f61456a.exists());
                 }
-                ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable read local file package info failed !!!" + this.f61457a.getAbsolutePath() + " exists:" + this.f61457a.exists());
+                ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable read local file package info failed !!!" + this.f61456a.getAbsolutePath() + " exists:" + this.f61456a.exists());
             }
             return z;
         }

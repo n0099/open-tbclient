@@ -22,13 +22,13 @@ public class AssortView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46817e;
+    public Paint f46816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46818f;
+    public int f46817f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f46819g;
+    public a f46818g;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -55,14 +55,14 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46818f = -1;
+        this.f46817f = -1;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46817e = new Paint();
+            this.f46816e = new Paint();
         }
     }
 
@@ -85,12 +85,12 @@ public class AssortView extends View {
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i2 = 0; i2 < length2; i2++) {
-                this.f46817e.setAntiAlias(true);
-                this.f46817e.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f46817e.setColor(SkinManager.getColor(R.color.CAM_X0108));
-                this.f46817e.setTextSize(26.0f * f2);
-                canvas.drawText(c.f14006a[i2], (width / 2.0f) - (this.f46817e.measureText(c.f14006a[i2]) / 2.0f), (length * i2) + length, this.f46817e);
-                this.f46817e.reset();
+                this.f46816e.setAntiAlias(true);
+                this.f46816e.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f46816e.setColor(SkinManager.getColor(R.color.CAM_X0108));
+                this.f46816e.setTextSize(26.0f * f2);
+                canvas.drawText(c.f14006a[i2], (width / 2.0f) - (this.f46816e.measureText(c.f14006a[i2]) / 2.0f), (length * i2) + length, this.f46816e);
+                this.f46816e.reset();
             }
         }
     }
@@ -107,29 +107,29 @@ public class AssortView extends View {
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f46818f = length;
-                    a aVar = this.f46819g;
+                    this.f46817f = length;
+                    a aVar = this.f46818g;
                     if (aVar != null) {
                         aVar.onTouchDown(c.f14006a[length]);
                     }
                 } else if (action != 1) {
-                    if (action == 2 && this.f46818f != length) {
-                        this.f46818f = length;
-                        a aVar2 = this.f46819g;
+                    if (action == 2 && this.f46817f != length) {
+                        this.f46817f = length;
+                        a aVar2 = this.f46818g;
                         if (aVar2 != null) {
                             aVar2.onTouchDown(c.f14006a[length]);
                         }
                     }
                 } else {
-                    a aVar3 = this.f46819g;
+                    a aVar3 = this.f46818g;
                     if (aVar3 != null) {
                         aVar3.onTouchUP();
                     }
-                    this.f46818f = -1;
+                    this.f46817f = -1;
                 }
             } else {
-                this.f46818f = -1;
-                a aVar4 = this.f46819g;
+                this.f46817f = -1;
+                a aVar4 = this.f46818g;
                 if (aVar4 != null) {
                     aVar4.onTouchUP();
                 }
@@ -142,7 +142,7 @@ public class AssortView extends View {
     public void setOnTouchListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f46819g = aVar;
+            this.f46818g = aVar;
         }
     }
 
@@ -165,7 +165,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46818f = -1;
+        this.f46817f = -1;
         a();
     }
 
@@ -188,7 +188,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46818f = -1;
+        this.f46817f = -1;
         a();
     }
 }

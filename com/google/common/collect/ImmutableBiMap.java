@@ -105,12 +105,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f63348c == 0) {
+                if (this.f63347c == 0) {
                     return ImmutableBiMap.of();
                 }
                 g();
-                this.f63349d = true;
-                return new RegularImmutableBiMap(this.f63347b, this.f63348c);
+                this.f63348d = true;
+                return new RegularImmutableBiMap(this.f63346b, this.f63347c);
             }
             return (ImmutableBiMap) invokeV.objValue;
         }

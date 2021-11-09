@@ -28,9 +28,60 @@ public class UpdateInfoService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f53776a;
+        public final /* synthetic */ UpdateInfoService f53775a;
 
         public a(UpdateInfoService updateInfoService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {updateInfoService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53775a = updateInfoService;
+        }
+
+        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
+        public void a(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                BdLog.i("location_success");
+                BdLog.e("location_success next time=" + i2);
+                if (i2 <= 0) {
+                    i2 = 3600;
+                } else if (i2 >= 32400) {
+                    i2 = 32400;
+                }
+                this.f53775a.mModel.B(i2 * 1000);
+            }
+        }
+
+        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
+        public void onError(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
+                this.f53775a.mModel.B(600000L);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements a.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UpdateInfoService f53776a;
+
+        public b(UpdateInfoService updateInfoService) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,57 +99,6 @@ public class UpdateInfoService extends BdBaseService {
             this.f53776a = updateInfoService;
         }
 
-        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void a(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                BdLog.i("location_success");
-                BdLog.e("location_success next time=" + i2);
-                if (i2 <= 0) {
-                    i2 = 3600;
-                } else if (i2 >= 32400) {
-                    i2 = 32400;
-                }
-                this.f53776a.mModel.B(i2 * 1000);
-            }
-        }
-
-        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void onError(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
-                this.f53776a.mModel.B(600000L);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements a.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f53777a;
-
-        public b(UpdateInfoService updateInfoService) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {updateInfoService};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53777a = updateInfoService;
-        }
-
         @Override // b.a.e.e.i.a.c
         public void onLocationGeted(int i2, String str, Address address) {
             Interceptable interceptable = $ic;
@@ -108,9 +108,9 @@ public class UpdateInfoService extends BdBaseService {
                 b.a.r0.z2.j0.a.e().j(String.valueOf(longitude));
                 b.a.r0.z2.j0.a.e().i(String.valueOf(latitude));
                 b.a.r0.z2.j0.a.e().k(System.currentTimeMillis());
-                if (this.f53777a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.f53777a.mModel.z(1, longitude, latitude);
-                    this.f53777a.mModel.A();
+                if (this.f53776a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.f53776a.mModel.z(1, longitude, latitude);
+                    this.f53776a.mModel.A();
                 }
             }
         }

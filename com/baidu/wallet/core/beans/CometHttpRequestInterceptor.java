@@ -11,10 +11,10 @@ public class CometHttpRequestInterceptor extends EbpayHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f57978a = 60000;
+    public static final int f57977a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57979b = "CometHttpRequestInterceptor";
+    public static final String f57978b = "CometHttpRequestInterceptor";
     public transient /* synthetic */ FieldHolder $fh;
 
     public CometHttpRequestInterceptor() {

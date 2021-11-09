@@ -22,19 +22,19 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f65751b;
+    public View f65750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final aw f65752c;
+    public final aw f65751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f65753d;
+    public final AtomicBoolean f65752d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f65754e;
+    public boolean f65753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65755f;
+    public boolean f65754f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.d dVar) {
@@ -55,17 +55,17 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
                 return;
             }
         }
-        this.f65752c = new aw(this);
-        this.f65753d = new AtomicBoolean(true);
-        this.f65755f = true;
-        this.f65751b = this;
+        this.f65751c = new aw(this);
+        this.f65752d = new AtomicBoolean(true);
+        this.f65754f = true;
+        this.f65750b = this;
     }
 
     private void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f65753d.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f65752d.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewAttached");
-            this.f65752c.sendEmptyMessage(1);
+            this.f65751c.sendEmptyMessage(1);
         }
     }
 
@@ -73,34 +73,34 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-            if (!av.a(this.f65751b, 30)) {
+            if (!av.a(this.f65750b, 30)) {
                 f();
-            } else if (!this.f65754e) {
+            } else if (!this.f65753e) {
                 e();
             }
-            this.f65752c.sendEmptyMessageDelayed(1, 500L);
+            this.f65751c.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65753d.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65752d.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewDetached");
-        this.f65752c.removeCallbacksAndMessages(null);
-        if (this.f65755f) {
+        this.f65751c.removeCallbacksAndMessages(null);
+        if (this.f65754f) {
             g();
         } else {
-            this.f65128a.c();
+            this.f65127a.c();
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f65128a.c();
-            this.f65754e = true;
+            this.f65127a.c();
+            this.f65753e = true;
         }
     }
 
@@ -108,14 +108,14 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             e();
-            this.f65754e = false;
+            this.f65753e = false;
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f65754e = false;
+            this.f65753e = false;
         }
     }
 
@@ -178,7 +178,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     public void setAutoRelease(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f65755f = z;
+            this.f65754f = z;
         }
     }
 }

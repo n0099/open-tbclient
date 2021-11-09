@@ -28,10 +28,10 @@ public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HostnameVerifier f70160a;
+    public static final HostnameVerifier f70159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SSLCertificateSocketFactory f70161b;
+    public static final SSLCertificateSocketFactory f70160b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +47,8 @@ public class k implements LayeredSocketFactory {
                 return;
             }
         }
-        f70160a = new StrictHostnameVerifier();
-        f70161b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+        f70159a = new StrictHostnameVerifier();
+        f70160b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
     }
 
     public k() {
@@ -106,11 +106,11 @@ public class k implements LayeredSocketFactory {
             if (z) {
                 socket.close();
             }
-            SSLSocket sSLSocket = (SSLSocket) f70161b.createSocket(inetAddress, i2);
+            SSLSocket sSLSocket = (SSLSocket) f70160b.createSocket(inetAddress, i2);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
-                f70161b.setHostname(sSLSocket, str);
+                f70160b.setHostname(sSLSocket, str);
             } else {
                 SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
                 try {
@@ -119,7 +119,7 @@ public class k implements LayeredSocketFactory {
                     SLog.v("openSDK_LOG.SNISocketFactory", "SNI not useable");
                 }
             }
-            if (f70160a.verify(str, sSLSocket.getSession())) {
+            if (f70159a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);

@@ -106,11 +106,11 @@ public class g0 {
                         g0 g0Var = t;
                         g0Var.getClass();
                         b0 b0Var = new b0(g0Var);
-                        HashSet<m0.b> hashSet = com.fun.m0.f62866b;
+                        HashSet<m0.b> hashSet = com.fun.m0.f62865b;
                         synchronized (hashSet) {
                             hashSet.add(b0Var);
                         }
-                        b0Var.a(com.fun.m0.f62865a);
+                        b0Var.a(com.fun.m0.f62864a);
                         String imei = FunOpenIDSdk.getImei(appContext);
                         if (!TextUtils.isEmpty(imei)) {
                             t.q = FunOpenIDSdk.getMD5(imei);

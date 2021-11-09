@@ -12,10 +12,10 @@ public final class d extends PluginDownloadBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61665a;
+    public String f61664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f61666b;
+    public File f61665b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public final class d extends PluginDownloadBean {
                 return;
             }
         }
-        this.f61665a = "";
-        this.f61666b = null;
+        this.f61664a = "";
+        this.f61665b = null;
         this.mOrder = 0;
         this.isOffline = false;
         this.isWifiOnly = true;

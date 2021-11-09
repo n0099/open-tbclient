@@ -16,23 +16,23 @@ public final class a implements Camera.AutoFocusCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57340c;
+    public static final String f57339c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f57341a;
+    public long f57340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57342b;
+    public long f57341b;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Handler f57343d;
+    public volatile Handler f57342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57344e;
+    public boolean f57343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57345f;
+    public int f57344f;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public final class a implements Camera.AutoFocusCallback {
                 return;
             }
         }
-        f57340c = a.class.getSimpleName();
+        f57339c = a.class.getSimpleName();
     }
 
     public a() {
@@ -63,22 +63,22 @@ public final class a implements Camera.AutoFocusCallback {
                 return;
             }
         }
-        this.f57341a = 500L;
-        this.f57342b = 500L;
-        this.f57344e = false;
+        this.f57340a = 500L;
+        this.f57341b = 500L;
+        this.f57343e = false;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f57341a = j;
+            this.f57340a = j;
         }
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f57342b = j;
+            this.f57341b = j;
         }
     }
 
@@ -87,12 +87,12 @@ public final class a implements Camera.AutoFocusCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048579, this, z, camera) == null) {
             synchronized (this) {
-                if (this.f57343d != null) {
-                    this.f57343d.sendMessageDelayed(this.f57343d.obtainMessage(this.f57345f, Boolean.valueOf(z)), this.f57344e ? this.f57341a : this.f57342b);
-                    this.f57344e = true;
-                    this.f57343d = null;
+                if (this.f57342d != null) {
+                    this.f57342d.sendMessageDelayed(this.f57342d.obtainMessage(this.f57344f, Boolean.valueOf(z)), this.f57343e ? this.f57340a : this.f57341b);
+                    this.f57343e = true;
+                    this.f57342d = null;
                 } else {
-                    LogUtil.w(f57340c, "Got auto-focus callback, but no handler for it");
+                    LogUtil.w(f57339c, "Got auto-focus callback, but no handler for it");
                 }
             }
         }
@@ -102,8 +102,8 @@ public final class a implements Camera.AutoFocusCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, handler, i2) == null) {
             synchronized (this) {
-                this.f57343d = handler;
-                this.f57345f = i2;
+                this.f57342d = handler;
+                this.f57344f = i2;
             }
         }
     }

@@ -28,13 +28,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f72381e;
+    public final Context f72380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftBagItemInfo> f72382f;
+    public List<GiftBagItemInfo> f72381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PayUIKitConfig f72383g;
+    public PayUIKitConfig f72382g;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -42,13 +42,13 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f72384a;
+        public TextView f72383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f72385b;
+        public TextView f72384b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f72386c;
+        public ImageView f72385c;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f72381e = context;
-        this.f72382f = list;
-        this.f72383g = payUIKitConfig;
+        this.f72380e = context;
+        this.f72381f = list;
+        this.f72382g = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,11 +94,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<GiftBagItemInfo> list = this.f72382f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f72382f.size()) {
+            List<GiftBagItemInfo> list = this.f72381f;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f72381f.size()) {
                 return null;
             }
-            return this.f72382f.get(i2);
+            return this.f72381f.get(i2);
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
@@ -107,7 +107,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72382f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72381f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -124,29 +124,29 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(new ContextThemeWrapper(this.f72381e, l.f72366a.a(this.f72383g))).inflate(getCount() <= 2 ? e.pay_ui_item_pay_gift_bag_big : e.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
+                view = LayoutInflater.from(new ContextThemeWrapper(this.f72380e, l.f72365a.a(this.f72382g))).inflate(getCount() <= 2 ? e.pay_ui_item_pay_gift_bag_big : e.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.f72384a = (TextView) view.findViewById(d.tv_gift_name);
-                aVar.f72386c = (ImageView) view.findViewById(d.img_gift);
-                aVar.f72385b = (TextView) view.findViewById(d.tv_num);
+                aVar.f72383a = (TextView) view.findViewById(d.tv_gift_name);
+                aVar.f72385c = (ImageView) view.findViewById(d.img_gift);
+                aVar.f72384b = (TextView) view.findViewById(d.tv_num);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
             GiftBagItemInfo item = getItem(i2);
-            aVar.f72384a.setText(item.name);
+            aVar.f72383a.setText(item.name);
             if (item.count == 0) {
-                aVar.f72385b.setVisibility(4);
+                aVar.f72384b.setVisibility(4);
             } else {
-                aVar.f72385b.setVisibility(0);
-                TextView textView = aVar.f72385b;
+                aVar.f72384b.setVisibility(0);
+                TextView textView = aVar.f72384b;
                 textView.setText("x" + item.count);
             }
-            PayUIKitConfig payUIKitConfig = this.f72383g;
+            PayUIKitConfig payUIKitConfig = this.f72382g;
             if (payUIKitConfig == null && payUIKitConfig.imageLoaderSupplier == null) {
                 RLog.error("PayGiftBagAdapter", "getView error mPayUIKitConfig null", new Object[0]);
             } else {
-                this.f72383g.imageLoaderSupplier.onLoad(this.f72381e, aVar.f72386c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+                this.f72382g.imageLoaderSupplier.onLoad(this.f72380e, aVar.f72385c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
             }
             return view;
         }

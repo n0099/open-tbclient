@@ -31,31 +31,31 @@ public class IndexScroller {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f57562a;
+    public float f57561a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f57563b;
+    public float f57562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f57564c;
+    public float f57563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f57565d;
+    public float f57564d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f57566e;
+    public float f57565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f57567f;
+    public float f57566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57568g;
+    public int f57567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57569h;
+    public int f57568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57570i;
+    public int f57569i;
     public int j;
     public boolean k;
     public ListView l;
@@ -70,7 +70,7 @@ public class IndexScroller {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IndexScroller> f57571a;
+        public final WeakReference<IndexScroller> f57570a;
 
         public a(IndexScroller indexScroller) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class IndexScroller {
                     return;
                 }
             }
-            this.f57571a = new WeakReference<>(indexScroller);
+            this.f57570a = new WeakReference<>(indexScroller);
         }
 
         @Override // android.os.Handler
@@ -95,15 +95,15 @@ public class IndexScroller {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                IndexScroller indexScroller = this.f57571a.get();
+                IndexScroller indexScroller = this.f57570a.get();
                 if (indexScroller == null) {
                     return;
                 }
-                int i2 = indexScroller.f57568g;
+                int i2 = indexScroller.f57567g;
                 if (i2 == 1) {
-                    indexScroller.f57567f = (float) (indexScroller.f57567f + ((1.0f - indexScroller.f57567f) * 0.2d));
-                    if (indexScroller.f57567f > 0.9d) {
-                        indexScroller.f57567f = 1.0f;
+                    indexScroller.f57566f = (float) (indexScroller.f57566f + ((1.0f - indexScroller.f57566f) * 0.2d));
+                    if (indexScroller.f57566f > 0.9d) {
+                        indexScroller.f57566f = 1.0f;
                         indexScroller.a(2);
                     }
                     indexScroller.l.invalidate();
@@ -112,9 +112,9 @@ public class IndexScroller {
                     indexScroller.a(3);
                 } else if (i2 != 3) {
                 } else {
-                    indexScroller.f57567f = (float) (indexScroller.f57567f - (indexScroller.f57567f * 0.2d));
-                    if (indexScroller.f57567f < 0.1d) {
-                        indexScroller.f57567f = 0.0f;
+                    indexScroller.f57566f = (float) (indexScroller.f57566f - (indexScroller.f57566f * 0.2d));
+                    if (indexScroller.f57566f < 0.1d) {
+                        indexScroller.f57566f = 0.0f;
                         indexScroller.a(0);
                     }
                     indexScroller.l.invalidate();
@@ -139,21 +139,21 @@ public class IndexScroller {
                 return;
             }
         }
-        this.f57568g = 0;
+        this.f57567g = 0;
         this.j = -1;
         this.k = false;
         this.l = null;
         this.m = null;
         this.n = null;
         this.t = new a(this);
-        this.f57565d = context.getResources().getDisplayMetrics().density;
-        this.f57566e = context.getResources().getDisplayMetrics().scaledDensity;
+        this.f57564d = context.getResources().getDisplayMetrics().density;
+        this.f57565e = context.getResources().getDisplayMetrics().scaledDensity;
         this.l = listView;
         setAdapter(listView.getAdapter());
-        float f2 = this.f57565d;
-        this.f57562a = 20.0f * f2;
-        this.f57563b = 10.0f * f2;
-        this.f57564c = f2 * 5.0f;
+        float f2 = this.f57564d;
+        this.f57561a = 20.0f * f2;
+        this.f57562b = 10.0f * f2;
+        this.f57563c = f2 * 5.0f;
     }
 
     public boolean contains(float f2, float f3) {
@@ -188,21 +188,21 @@ public class IndexScroller {
             Paint paint2 = new Paint();
             paint2.setColor(-1);
             paint2.setAntiAlias(true);
-            paint2.setTextSize(this.f57566e * 50.0f);
+            paint2.setTextSize(this.f57565e * 50.0f);
             float measureText = paint2.measureText(this.n[this.j]);
-            float descent = ((this.f57564c * 2.0f) + paint2.descent()) - paint2.ascent();
-            int i3 = this.f57569h;
-            int i4 = this.f57570i;
+            float descent = ((this.f57563c * 2.0f) + paint2.descent()) - paint2.ascent();
+            int i3 = this.f57568h;
+            int i4 = this.f57569i;
             RectF rectF = new RectF((i3 - descent) / 2.0f, (i4 - descent) / 2.0f, ((i3 - descent) / 2.0f) + descent, ((i4 - descent) / 2.0f) + descent);
-            float f2 = this.f57565d;
+            float f2 = this.f57564d;
             canvas.drawRoundRect(rectF, f2 * 5.0f, f2 * 5.0f, paint);
-            canvas.drawText(this.n[this.j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f57564c) - paint2.ascent()) + 1.0f, paint2);
+            canvas.drawText(this.n[this.j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f57563c) - paint2.ascent()) + 1.0f, paint2);
         }
         Paint paint3 = new Paint();
         paint3.setColor(-16099908);
         paint3.setAntiAlias(true);
-        paint3.setTextSize(this.f57566e * 14.0f);
-        float height = (this.o.height() - (this.f57563b * 2.0f)) / this.n.length;
+        paint3.setTextSize(this.f57565e * 14.0f);
+        float height = (this.o.height() - (this.f57562b * 2.0f)) / this.n.length;
         float descent2 = (height - (paint3.descent() - paint3.ascent())) / 2.0f;
         while (true) {
             String[] strArr2 = this.n;
@@ -211,14 +211,14 @@ public class IndexScroller {
             }
             String str = this.n[i2];
             RectF rectF2 = this.o;
-            canvas.drawText(str, rectF2.left + ((this.f57562a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f57563b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
+            canvas.drawText(str, rectF2.left + ((this.f57561a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f57562b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
             i2++;
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f57568g == 2) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f57567g == 2) {
             a(3);
         }
     }
@@ -226,11 +226,11 @@ public class IndexScroller {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            this.f57569h = i2;
-            this.f57570i = i3;
+            this.f57568h = i2;
+            this.f57569i = i3;
             float f2 = i2;
-            float f3 = this.f57563b;
-            this.o = new RectF((f2 - f3) - this.f57562a, f3, f2 - f3, i3 - f3);
+            float f3 = this.f57562b;
+            this.o = new RectF((f2 - f3) - this.f57561a, f3, f2 - f3, i3 - f3);
         }
     }
 
@@ -254,7 +254,7 @@ public class IndexScroller {
                         this.k = false;
                         this.j = -1;
                     }
-                    if (this.f57568g == 2) {
+                    if (this.f57567g == 2) {
                         a(3);
                     }
                 }
@@ -283,7 +283,7 @@ public class IndexScroller {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f57568g;
+            int i2 = this.f57567g;
             if (i2 == 0) {
                 a(1);
             } else if (i2 == 3) {
@@ -298,17 +298,17 @@ public class IndexScroller {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || i2 < 0 || i2 > 3) {
             return;
         }
-        this.f57568g = i2;
+        this.f57567g = i2;
         if (i2 == 0) {
             this.t.removeMessages(0);
         } else if (i2 == 1) {
-            this.f57567f = 0.0f;
+            this.f57566f = 0.0f;
             a(0L);
         } else if (i2 == 2) {
             this.t.removeMessages(0);
         } else if (i2 != 3) {
         } else {
-            this.f57567f = 1.0f;
+            this.f57566f = 1.0f;
             a(3000L);
         }
     }
@@ -323,16 +323,16 @@ public class IndexScroller {
             }
             RectF rectF = this.o;
             float f3 = rectF.top;
-            if (f2 < this.f57563b + f3) {
+            if (f2 < this.f57562b + f3) {
                 return 0;
             }
             float height = f3 + rectF.height();
-            float f4 = this.f57563b;
+            float f4 = this.f57562b;
             if (f2 >= height - f4) {
                 return this.n.length - 1;
             }
             RectF rectF2 = this.o;
-            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f57563b * 2.0f)) / this.n.length));
+            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f57562b * 2.0f)) / this.n.length));
         }
         return invokeF.intValue;
     }

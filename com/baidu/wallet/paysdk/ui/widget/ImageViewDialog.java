@@ -88,7 +88,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageViewDialog f60458a;
+                public final /* synthetic */ ImageViewDialog f60457a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f60458a = this;
+                    this.f60457a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -114,10 +114,10 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f60458a.mCloseButton, 1.0f);
+                            ViewHelper.setAlpha(this.f60457a.mCloseButton, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f60458a.mCloseButton, 0.5f);
+                        ViewHelper.setAlpha(this.f60457a.mCloseButton, 0.5f);
                         return false;
                     }
                     return invokeLL.booleanValue;

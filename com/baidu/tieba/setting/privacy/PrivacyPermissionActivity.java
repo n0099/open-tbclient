@@ -46,13 +46,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f53912a;
+        public TextView f53911a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53913b;
+        public int f53912b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View.OnClickListener f53914c;
+        public View.OnClickListener f53913c;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -60,7 +60,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PermissionDetailHolder f53915e;
+            public final /* synthetic */ PermissionDetailHolder f53914e;
 
             public a(PermissionDetailHolder permissionDetailHolder) {
                 Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                         return;
                     }
                 }
-                this.f53915e = permissionDetailHolder;
+                this.f53914e = permissionDetailHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    b.a.q0.m.a.l(this.f53915e.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
+                    b.a.q0.m.a.l(this.f53914e.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             }
         }
@@ -107,22 +107,22 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return;
                 }
             }
-            this.f53913b = 3;
+            this.f53912b = 3;
             a aVar = new a(this);
-            this.f53914c = aVar;
+            this.f53913c = aVar;
             TextView textView = (TextView) view;
-            this.f53912a = textView;
+            this.f53911a = textView;
             textView.setOnClickListener(aVar);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f53913b) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f53912b) {
                 return;
             }
-            SkinManager.setViewTextColor(this.f53912a, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f53911a, R.color.CAM_X0302);
             SkinManager.setBackgroundResource(this.itemView, R.drawable.more_all);
-            this.f53913b = i2;
+            this.f53912b = i2;
         }
     }
 
@@ -132,16 +132,16 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbSettingTextTipView f53916a;
+        public TbSettingTextTipView f53915a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f53917b;
+        public TextView f53916b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53918c;
+        public int f53917c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View.OnClickListener f53919d;
+        public View.OnClickListener f53918d;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -149,7 +149,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PermissionViewHolder f53920e;
+            public final /* synthetic */ PermissionViewHolder f53919e;
 
             public a(PermissionViewHolder permissionViewHolder) {
                 Interceptable interceptable = $ic;
@@ -166,20 +166,20 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                         return;
                     }
                 }
-                this.f53920e = permissionViewHolder;
+                this.f53919e = permissionViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f53920e.itemView == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f53919e.itemView == null) {
                     return;
                 }
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", this.f53920e.itemView.getContext().getPackageName(), null));
-                this.f53920e.itemView.getContext().startActivity(intent);
+                intent.setData(Uri.fromParts("package", this.f53919e.itemView.getContext().getPackageName(), null));
+                this.f53919e.itemView.getContext().startActivity(intent);
             }
         }
 
@@ -201,12 +201,12 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return;
                 }
             }
-            this.f53918c = 3;
-            this.f53919d = new a(this);
+            this.f53917c = 3;
+            this.f53918d = new a(this);
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view.findViewById(R.id.privacy_name);
-            this.f53916a = tbSettingTextTipView;
-            tbSettingTextTipView.setOnClickListener(this.f53919d);
-            this.f53917b = (TextView) view.findViewById(R.id.privacy_info);
+            this.f53915a = tbSettingTextTipView;
+            tbSettingTextTipView.setOnClickListener(this.f53918d);
+            this.f53916b = (TextView) view.findViewById(R.id.privacy_info);
         }
 
         public void bindView(b bVar) {
@@ -215,27 +215,27 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.itemView == null) {
                 return;
             }
-            this.f53916a.setText(bVar.f53923b);
-            TbSettingTextTipView tbSettingTextTipView = this.f53916a;
-            if (bVar.f53925d) {
+            this.f53915a.setText(bVar.f53922b);
+            TbSettingTextTipView tbSettingTextTipView = this.f53915a;
+            if (bVar.f53924d) {
                 string = this.itemView.getContext().getString(R.string.privacy_permisson_open);
             } else {
                 string = this.itemView.getContext().getString(R.string.privacy_permisson_closed);
             }
             tbSettingTextTipView.setTip(string);
-            this.f53917b.setText(bVar.f53924c);
+            this.f53916b.setText(bVar.f53923c);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f53918c) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f53917c) {
                 return;
             }
-            this.f53916a.onChangeSkinType(i2);
-            SkinManager.setBackgroundResource(this.f53916a, R.drawable.more_all);
-            SkinManager.setBackgroundColor(this.f53917b, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f53917b, R.color.CAM_X0108);
-            this.f53918c = i2;
+            this.f53915a.onChangeSkinType(i2);
+            SkinManager.setBackgroundResource(this.f53915a, R.drawable.more_all);
+            SkinManager.setBackgroundColor(this.f53916b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f53916b, R.color.CAM_X0108);
+            this.f53917c = i2;
         }
     }
 
@@ -245,7 +245,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivacyPermissionActivity f53921a;
+        public final /* synthetic */ PrivacyPermissionActivity f53920a;
 
         public a(PrivacyPermissionActivity privacyPermissionActivity) {
             Interceptable interceptable = $ic;
@@ -262,14 +262,14 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return;
                 }
             }
-            this.f53921a = privacyPermissionActivity;
+            this.f53920a = privacyPermissionActivity;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53921a.mDataList.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53920a.mDataList.size() : invokeV.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -277,11 +277,11 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                b bVar = (b) this.f53921a.mDataList.get(i2);
+                b bVar = (b) this.f53920a.mDataList.get(i2);
                 if (bVar == null) {
                     return 0;
                 }
-                return bVar.f53922a;
+                return bVar.f53921a;
             }
             return invokeI.intValue;
         }
@@ -293,7 +293,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                 int itemViewType = getItemViewType(i2);
                 if (itemViewType == 0) {
                     PermissionViewHolder permissionViewHolder = (PermissionViewHolder) viewHolder;
-                    permissionViewHolder.bindView((b) this.f53921a.mDataList.get(i2));
+                    permissionViewHolder.bindView((b) this.f53920a.mDataList.get(i2));
                     permissionViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 } else if (itemViewType == 1) {
                     ((PermissionDetailHolder) viewHolder).onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -307,10 +307,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
                 if (i2 == 0) {
-                    return new PermissionViewHolder(LayoutInflater.from(this.f53921a.getActivity()).inflate(R.layout.layout_privacy_permisson_item, viewGroup, false));
+                    return new PermissionViewHolder(LayoutInflater.from(this.f53920a.getActivity()).inflate(R.layout.layout_privacy_permisson_item, viewGroup, false));
                 }
                 if (i2 == 1) {
-                    return new PermissionDetailHolder(LayoutInflater.from(this.f53921a.getActivity()).inflate(R.layout.textview_permission_detail, viewGroup, false));
+                    return new PermissionDetailHolder(LayoutInflater.from(this.f53920a.getActivity()).inflate(R.layout.textview_permission_detail, viewGroup, false));
                 }
                 return null;
             }
@@ -324,16 +324,16 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f53922a;
+        public int f53921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53923b;
+        public String f53922b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53924c;
+        public String f53923c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f53925d;
+        public boolean f53924d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return;
                 }
             }
-            this.f53922a = 0;
+            this.f53921a = 0;
         }
     }
 
@@ -401,13 +401,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             this.mRecyclerView.setAdapter(this.mAdapter);
             for (int i2 = 0; i2 < this.PERMISSION_ARRAY.length; i2++) {
                 b bVar = new b();
-                bVar.f53922a = 0;
-                bVar.f53923b = this.PERMISSION_NAME_ARRAY[i2];
-                bVar.f53924c = this.PERMISSION_INFO_ARRAY[i2];
+                bVar.f53921a = 0;
+                bVar.f53922b = this.PERMISSION_NAME_ARRAY[i2];
+                bVar.f53923c = this.PERMISSION_INFO_ARRAY[i2];
                 this.mDataList.add(bVar);
             }
             b bVar2 = new b();
-            bVar2.f53922a = 1;
+            bVar2.f53921a = 1;
             this.mDataList.add(bVar2);
         }
     }
@@ -419,7 +419,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             super.onResume();
             if (this.mDataList.size() >= this.PERMISSION_ARRAY.length) {
                 for (int i2 = 0; i2 < this.PERMISSION_ARRAY.length; i2++) {
-                    this.mDataList.get(i2).f53925d = PermissionUtil.checkPermission(getActivity(), this.PERMISSION_ARRAY[i2]);
+                    this.mDataList.get(i2).f53924d = PermissionUtil.checkPermission(getActivity(), this.PERMISSION_ARRAY[i2]);
                 }
                 this.mAdapter.notifyDataSetChanged();
             }

@@ -17,10 +17,10 @@ public final class x extends com.google.a.b.a.a.a.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f63134a;
+    public final /* synthetic */ AtomicBoolean f63133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ q f63135b;
+    public final /* synthetic */ q f63134b;
 
     public x(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.f63135b = qVar;
-        this.f63134a = atomicBoolean;
+        this.f63134b = qVar;
+        this.f63133a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -51,24 +51,24 @@ public final class x extends com.google.a.b.a.a.a.e {
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f63134a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f63133a.getAndSet(true)) {
             return;
         }
         int i2 = bundle.getInt("error.code", -100);
         int i3 = bundle.getInt("install.status", 0);
         if (i3 == 4) {
-            this.f63135b.f32956f.a(p.f63131c);
+            this.f63134b.f32956f.a(p.f63130c);
         } else if (i2 != 0) {
             StringBuilder sb = new StringBuilder(51);
             sb.append("requestInstall = ");
             sb.append(i2);
             sb.append(", launching fullscreen.");
             sb.toString();
-            q qVar = this.f63135b;
+            q qVar = this.f63134b;
             l lVar = qVar.f32957g;
             l.n(qVar.f32955e, qVar.f32956f);
         } else if (bundle.containsKey("resolution.intent")) {
-            q qVar2 = this.f63135b;
+            q qVar2 = this.f63134b;
             l lVar2 = qVar2.f32957g;
             l.b(qVar2.f32955e, bundle, qVar2.f32956f);
         } else if (i3 != 10) {
@@ -76,19 +76,19 @@ public final class x extends com.google.a.b.a.a.a.e {
                 case 1:
                 case 2:
                 case 3:
-                    this.f63135b.f32956f.a(p.f63129a);
+                    this.f63134b.f32956f.a(p.f63128a);
                     return;
                 case 4:
-                    this.f63135b.f32956f.a(p.f63131c);
+                    this.f63134b.f32956f.a(p.f63130c);
                     return;
                 case 5:
-                    this.f63135b.f32956f.b(new FatalException("Unexpected FAILED install status without error."));
+                    this.f63134b.f32956f.b(new FatalException("Unexpected FAILED install status without error."));
                     return;
                 case 6:
-                    this.f63135b.f32956f.a(p.f63130b);
+                    this.f63134b.f32956f.a(p.f63129b);
                     return;
                 default:
-                    m mVar = this.f63135b.f32956f;
+                    m mVar = this.f63134b.f32956f;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i3);
@@ -96,7 +96,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                     return;
             }
         } else {
-            this.f63135b.f32956f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+            this.f63134b.f32956f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
         }
     }
 

@@ -46,10 +46,10 @@ public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f54428a;
+    public static int f54427a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f54429b;
+    public static boolean f54428b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -477,11 +477,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f54428a && c2 == f54429b) {
+        if (b2 == f54427a && c2 == f54428b) {
             return;
         }
-        f54428a = b2;
-        f54429b = c2;
+        f54427a = b2;
+        f54428b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

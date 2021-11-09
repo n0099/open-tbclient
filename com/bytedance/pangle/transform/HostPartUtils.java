@@ -21,7 +21,7 @@ public class HostPartUtils {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final HostPartUtils f61516a;
+        public static final HostPartUtils f61515a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class HostPartUtils {
                 }
             }
             System.out.println("HostPartUtils SingletonHolder");
-            f61516a = new HostPartUtils();
+            f61515a = new HostPartUtils();
         }
     }
 
@@ -72,7 +72,7 @@ public class HostPartUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             System.out.println("HostPartUtils getFragmentActivityClass");
-            return a.f61516a.fragmentActivityClazz;
+            return a.f61515a.fragmentActivityClazz;
         }
         return (Class) invokeV.objValue;
     }

@@ -13,10 +13,10 @@ public final class q implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UnvarnishedMessage f70276a;
+    public final /* synthetic */ UnvarnishedMessage f70275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f70277b;
+    public final /* synthetic */ p f70276b;
 
     public q(p pVar, UnvarnishedMessage unvarnishedMessage) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class q implements Runnable {
                 return;
             }
         }
-        this.f70277b = pVar;
-        this.f70276a = unvarnishedMessage;
+        this.f70276b = pVar;
+        this.f70275a = unvarnishedMessage;
     }
 
     @Override // java.lang.Runnable
@@ -42,10 +42,10 @@ public final class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p pVar = this.f70277b;
-            PushMessageCallback pushMessageCallback = ((ab) pVar).f70246b;
-            context = pVar.f70428a;
-            pushMessageCallback.onTransmissionMessage(context, this.f70276a);
+            p pVar = this.f70276b;
+            PushMessageCallback pushMessageCallback = ((ab) pVar).f70245b;
+            context = pVar.f70427a;
+            pushMessageCallback.onTransmissionMessage(context, this.f70275a);
         }
     }
 }

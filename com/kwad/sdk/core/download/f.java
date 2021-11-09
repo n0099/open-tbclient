@@ -28,23 +28,23 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64517a = 1;
+    public static int f64516a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f64518b = 1;
+    public static int f64517b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f64519c;
+    public static f f64518c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public InstallTipsViewHelper f64520d;
+    public InstallTipsViewHelper f64519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, Integer> f64521e;
+    public Map<String, Integer> f64520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, Integer> f64522f;
+    public Map<String, Integer> f64521f;
 
     static {
         InterceptResult invokeClinit;
@@ -74,22 +74,22 @@ public class f {
                 return;
             }
         }
-        this.f64521e = new HashMap();
-        this.f64522f = new HashMap();
+        this.f64520e = new HashMap();
+        this.f64521f = new HashMap();
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f64519c == null) {
+            if (f64518c == null) {
                 synchronized (f.class) {
-                    if (f64519c == null) {
-                        f64519c = new f();
+                    if (f64518c == null) {
+                        f64518c = new f();
                     }
                 }
             }
-            return f64519c;
+            return f64518c;
         }
         return (f) invokeV.objValue;
     }
@@ -103,16 +103,16 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdInfo f64529a;
+                public final /* synthetic */ AdInfo f64528a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f64530b;
+                public final /* synthetic */ AdTemplate f64529b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f64531c;
+                public final /* synthetic */ boolean f64530c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ f f64532d;
+                public final /* synthetic */ f f64531d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -129,23 +129,23 @@ public class f {
                             return;
                         }
                     }
-                    this.f64532d = this;
-                    this.f64529a = adInfo;
-                    this.f64530b = adTemplate;
-                    this.f64531c = z;
+                    this.f64531d = this;
+                    this.f64528a = adInfo;
+                    this.f64529b = adTemplate;
+                    this.f64530c = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f64532d.f64520d != null) {
+                        if (this.f64531d.f64519d != null) {
                             ar.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.f.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass3 f64533a;
+                                public final /* synthetic */ AnonymousClass3 f64532a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -162,25 +162,25 @@ public class f {
                                             return;
                                         }
                                     }
-                                    this.f64533a = this;
+                                    this.f64532a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        if (this.f64533a.f64532d.f64520d != null) {
-                                            this.f64533a.f64532d.f64520d.b();
-                                            this.f64533a.f64532d.f64520d.c();
-                                            this.f64533a.f64532d.f64520d = null;
+                                        if (this.f64532a.f64531d.f64519d != null) {
+                                            this.f64532a.f64531d.f64519d.b();
+                                            this.f64532a.f64531d.f64519d.c();
+                                            this.f64532a.f64531d.f64519d = null;
                                         }
-                                        AnonymousClass3 anonymousClass3 = this.f64533a;
-                                        anonymousClass3.f64532d.b(anonymousClass3.f64529a, anonymousClass3.f64530b, anonymousClass3.f64531c);
+                                        AnonymousClass3 anonymousClass3 = this.f64532a;
+                                        anonymousClass3.f64531d.b(anonymousClass3.f64528a, anonymousClass3.f64529b, anonymousClass3.f64530c);
                                     }
                                 }
                             }, null, 500L);
                         } else {
-                            this.f64532d.b(this.f64529a, this.f64530b, this.f64531c);
+                            this.f64531d.b(this.f64528a, this.f64529b, this.f64530c);
                         }
                     }
                 }
@@ -209,13 +209,13 @@ public class f {
                     installTipsViewHelper.a((FrameLayout) findViewById);
                     String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
                     if (z) {
-                        a(this.f64521e, valueOf);
+                        a(this.f64520e, valueOf);
                         com.kwad.sdk.core.report.a.c(adTemplate, 92, null);
                     } else {
                         com.kwad.sdk.core.report.a.d(adTemplate, 93, null);
-                        a(this.f64522f, valueOf);
+                        a(this.f64521f, valueOf);
                     }
-                    this.f64520d = installTipsViewHelper;
+                    this.f64519d = installTipsViewHelper;
                 }
             }
         }
@@ -224,10 +224,10 @@ public class f {
     public void a(InstallTipsViewHelper installTipsViewHelper) {
         InstallTipsViewHelper installTipsViewHelper2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, installTipsViewHelper) == null) || installTipsViewHelper == null || (installTipsViewHelper2 = this.f64520d) == null || !installTipsViewHelper.equals(installTipsViewHelper2)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, installTipsViewHelper) == null) || installTipsViewHelper == null || (installTipsViewHelper2 = this.f64519d) == null || !installTipsViewHelper.equals(installTipsViewHelper2)) {
             return;
         }
-        this.f64520d = null;
+        this.f64519d = null;
     }
 
     public void a(AdInfo adInfo, AdTemplate adTemplate) {
@@ -240,11 +240,11 @@ public class f {
             }
             String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
             int i2 = 0;
-            if (this.f64521e.containsKey(valueOf)) {
-                i2 = this.f64521e.get(valueOf).intValue();
-                this.f64521e.put(valueOf, Integer.valueOf(i2));
+            if (this.f64520e.containsKey(valueOf)) {
+                i2 = this.f64520e.get(valueOf).intValue();
+                this.f64520e.put(valueOf, Integer.valueOf(i2));
             }
-            if (i2 >= f64517a) {
+            if (i2 >= f64516a) {
                 return;
             }
             com.kwad.sdk.utils.g.a(new Runnable(this, adInfo, adTemplate) { // from class: com.kwad.sdk.core.download.f.1
@@ -252,13 +252,13 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdInfo f64523a;
+                public final /* synthetic */ AdInfo f64522a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f64524b;
+                public final /* synthetic */ AdTemplate f64523b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ f f64525c;
+                public final /* synthetic */ f f64524c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -275,22 +275,22 @@ public class f {
                             return;
                         }
                     }
-                    this.f64525c = this;
-                    this.f64523a = adInfo;
-                    this.f64524b = adTemplate;
+                    this.f64524c = this;
+                    this.f64522a = adInfo;
+                    this.f64523b = adTemplate;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.d.a.a("InstallTipsManager", "onDownloadFinished run() adInfo.status: " + this.f64523a.status);
-                        AdInfo adInfo2 = this.f64523a;
+                        com.kwad.sdk.core.d.a.a("InstallTipsManager", "onDownloadFinished run() adInfo.status: " + this.f64522a.status);
+                        AdInfo adInfo2 = this.f64522a;
                         int i3 = adInfo2.status;
                         if (i3 == 12 || i3 == 10) {
                             return;
                         }
-                        this.f64525c.a(adInfo2, this.f64524b, true);
+                        this.f64524c.a(adInfo2, this.f64523b, true);
                     }
                 }
             }, K, TimeUnit.SECONDS);
@@ -305,11 +305,11 @@ public class f {
         }
         String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
         int i2 = 0;
-        if (this.f64522f.containsKey(valueOf)) {
-            i2 = this.f64522f.get(valueOf).intValue();
-            this.f64522f.put(valueOf, Integer.valueOf(i2));
+        if (this.f64521f.containsKey(valueOf)) {
+            i2 = this.f64521f.get(valueOf).intValue();
+            this.f64521f.put(valueOf, Integer.valueOf(i2));
         }
-        if (i2 >= f64518b) {
+        if (i2 >= f64517b) {
             return;
         }
         com.kwad.sdk.utils.g.a(new Runnable(this, adInfo, adTemplate) { // from class: com.kwad.sdk.core.download.f.2
@@ -317,13 +317,13 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AdInfo f64526a;
+            public final /* synthetic */ AdInfo f64525a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ AdTemplate f64527b;
+            public final /* synthetic */ AdTemplate f64526b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ f f64528c;
+            public final /* synthetic */ f f64527c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -340,19 +340,19 @@ public class f {
                         return;
                     }
                 }
-                this.f64528c = this;
-                this.f64526a = adInfo;
-                this.f64527b = adTemplate;
+                this.f64527c = this;
+                this.f64525a = adInfo;
+                this.f64526b = adTemplate;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (ac.b(KsAdSDK.getContext(), com.kwad.sdk.core.response.b.a.q(this.f64526a)) == 1) {
+                    if (ac.b(KsAdSDK.getContext(), com.kwad.sdk.core.response.b.a.q(this.f64525a)) == 1) {
                         return;
                     }
-                    this.f64528c.a(this.f64526a, this.f64527b, false);
+                    this.f64527c.a(this.f64525a, this.f64526b, false);
                 }
             }
         }, an, TimeUnit.SECONDS);

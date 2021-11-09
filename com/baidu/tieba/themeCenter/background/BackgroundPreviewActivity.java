@@ -33,7 +33,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f54546a;
+        public final /* synthetic */ BackgroundPreviewActivity f54545a;
 
         public a(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f54546a = backgroundPreviewActivity;
+            this.f54545a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.b
         public void a(int i2, String str, DressItemData dressItemData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, dressItemData) == null) {
-                BackgroundPreviewActivity backgroundPreviewActivity = this.f54546a;
+                BackgroundPreviewActivity backgroundPreviewActivity = this.f54545a;
                 backgroundPreviewActivity.hideLoadingView(backgroundPreviewActivity.mView.f());
                 if (i2 == 0) {
-                    this.f54546a.mView.l(dressItemData);
+                    this.f54545a.mView.l(dressItemData);
                     return;
                 }
-                this.f54546a.showToast(str);
-                this.f54546a.mView.k();
+                this.f54545a.showToast(str);
+                this.f54545a.mView.k();
             }
         }
     }
@@ -75,7 +75,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f54547a;
+        public final /* synthetic */ BackgroundPreviewActivity f54546a;
 
         public b(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f54547a = backgroundPreviewActivity;
+            this.f54546a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b

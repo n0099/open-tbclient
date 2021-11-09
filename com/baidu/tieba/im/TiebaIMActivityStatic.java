@@ -340,12 +340,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50189b == null || (tbPageContext = aVar.f50188a) == null) {
+            if (aVar.f50188b == null || (tbPageContext = aVar.f50187a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
             msgMultiImageTextViewItemAdapter.l0(true);
-            aVar.f50189b.add(msgMultiImageTextViewItemAdapter);
+            aVar.f50188b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -360,7 +360,7 @@ public class TiebaIMActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f50154a;
+            public final /* synthetic */ LinkedList f50153a;
 
             public a(h hVar, LinkedList linkedList) {
                 Interceptable interceptable = $ic;
@@ -377,7 +377,7 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f50154a = linkedList;
+                this.f50153a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -386,7 +386,7 @@ public class TiebaIMActivityStatic {
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.h.l.t().a(this.f50154a) : (Void) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.h.l.t().a(this.f50153a) : (Void) invokeV.objValue;
             }
         }
 
@@ -396,7 +396,7 @@ public class TiebaIMActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f50155a;
+            public final /* synthetic */ CustomMessage f50154a;
 
             public b(h hVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
@@ -413,7 +413,7 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f50155a = customMessage;
+                this.f50154a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -421,10 +421,10 @@ public class TiebaIMActivityStatic {
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f50155a.getData()).getUserData().getUserIdLong() == 0) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f50154a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f50155a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f50154a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -667,16 +667,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50189b == null || (tbPageContext = aVar.f50188a) == null) {
+            if (aVar.f50188b == null || (tbPageContext = aVar.f50187a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
             msgPhotoLiveItemAdapter.k0(true);
-            aVar.f50189b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f50188a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
+            aVar.f50188b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f50187a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.k0(true);
             msgActivityViewItemAdapter.l0(true);
-            aVar.f50189b.add(msgActivityViewItemAdapter);
+            aVar.f50188b.add(msgActivityViewItemAdapter);
         }
     }
 

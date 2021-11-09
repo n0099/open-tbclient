@@ -15,10 +15,10 @@ public class ZeusConstants {
     public static String BASE_LIB_NAME = "pangle";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61229a;
+    public static final String f61228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61230b;
+    public static final String f61229b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class ZeusConstants {
                 return;
             }
         }
-        f61229a = "." + BASE_LIB_NAME + ".servermanager.";
-        f61230b = "." + BASE_LIB_NAME + ".provider.proxy.";
+        f61228a = "." + BASE_LIB_NAME + ".servermanager.";
+        f61229b = "." + BASE_LIB_NAME + ".provider.proxy.";
     }
 
     public ZeusConstants() {

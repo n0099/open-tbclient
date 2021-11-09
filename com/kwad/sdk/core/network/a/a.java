@@ -76,9 +76,9 @@ public class a {
                     outputStream2.flush();
                 }
                 int responseCode = httpURLConnection.getResponseCode();
-                cVar.f64798a = responseCode;
+                cVar.f64797a = responseCode;
                 if (responseCode == 200) {
-                    cVar.f64799b = a(httpURLConnection.getInputStream());
+                    cVar.f64798b = a(httpURLConnection.getInputStream());
                 }
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -174,7 +174,7 @@ public class a {
                     httpURLConnection2.setRequestMethod("GET");
                     httpURLConnection2.setRequestProperty("Accept", "application/json");
                     httpURLConnection2.setRequestProperty("User-Agent", k.a());
-                    cVar.f64798a = httpURLConnection2.getResponseCode();
+                    cVar.f64797a = httpURLConnection2.getResponseCode();
                     StringBuilder sb = new StringBuilder();
                     if (z) {
                         inputStream2 = httpURLConnection2.getInputStream();
@@ -187,7 +187,7 @@ public class a {
                             sb.append(new String(bArr, 0, read));
                         }
                     }
-                    cVar.f64799b = sb.toString();
+                    cVar.f64798b = sb.toString();
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -344,10 +344,10 @@ public class a {
     public static void a(@NonNull c cVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, cVar, exc) == null) {
-            f fVar = exc instanceof SocketTimeoutException ? f.f64801a : f.f64802b;
-            cVar.f64798a = fVar.m;
-            cVar.f64799b = fVar.n;
-            if (com.kwad.sdk.b.f64000b.booleanValue()) {
+            f fVar = exc instanceof SocketTimeoutException ? f.f64800a : f.f64801b;
+            cVar.f64797a = fVar.m;
+            cVar.f64798b = fVar.n;
+            if (com.kwad.sdk.b.f63999b.booleanValue()) {
                 com.kwad.sdk.core.d.a.b(exc);
             }
         }

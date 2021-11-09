@@ -41,7 +41,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumSuccessActivity f49367e;
+        public final /* synthetic */ CreateForumSuccessActivity f49366e;
 
         public a(CreateForumSuccessActivity createForumSuccessActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
                     return;
                 }
             }
-            this.f49367e = createForumSuccessActivity;
+            this.f49366e = createForumSuccessActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49367e.finish();
+                this.f49366e.finish();
             }
         }
     }

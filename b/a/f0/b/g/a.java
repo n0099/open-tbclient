@@ -3,6 +3,7 @@ package b.a.f0.b.g;
 import android.text.TextUtils;
 import com.baidu.prologue.business.data.ParseError;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +96,7 @@ public class a {
             List<h> arrayList = new ArrayList<>();
             if (jSONObject != null) {
                 if (jSONObject.optInt("errno", 0) <= 0 && (optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME)) != null) {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("splash");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
                     JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
                     if (optJSONObject2 != null) {
                         String optString = optJSONObject2.optString("cmd");

@@ -144,7 +144,7 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbsMsglistView f50167e;
+        public final /* synthetic */ AbsMsglistView f50166e;
 
         public a(AbsMsglistView absMsglistView) {
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                     return;
                 }
             }
-            this.f50167e = absMsglistView;
+            this.f50166e = absMsglistView;
         }
 
         @Override // b.a.q0.x.b
@@ -182,20 +182,20 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                 if (type == EmotionGroupType.LOCAL || c2 == null) {
                     return;
                 }
-                this.f50167e.mContext.sendBigEmotionMsg(wVar);
-                this.f50167e.onSendEmotion();
+                this.f50166e.mContext.sendBigEmotionMsg(wVar);
+                this.f50166e.onSendEmotion();
             } else if (i2 == 8) {
-                this.f50167e.mContext.sendTextMsg();
+                this.f50166e.mContext.sendTextMsg();
             } else if (i2 != 4) {
                 if (i2 == 14) {
-                    this.f50167e.mContext.openImageView();
+                    this.f50166e.mContext.openImageView();
                 }
             } else {
                 Object obj2 = aVar.f14197c;
                 if (obj2 == null || !(obj2 instanceof String)) {
                     return;
                 }
-                this.f50167e.mTextContent = (String) obj2;
+                this.f50166e.mTextContent = (String) obj2;
             }
         }
     }
@@ -206,7 +206,7 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsMsglistView f50168a;
+        public final /* synthetic */ AbsMsglistView f50167a;
 
         public b(AbsMsglistView absMsglistView) {
             Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                     return;
                 }
             }
-            this.f50168a = absMsglistView;
+            this.f50167a = absMsglistView;
         }
 
         @Override // android.os.Handler
@@ -234,9 +234,9 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                 if (message.what != 1) {
                     return;
                 }
-                this.f50168a.mHandler.removeMessages(1);
-                this.f50168a.closeRecordCancel();
-                this.f50168a.closeRecordTooShort();
+                this.f50167a.mHandler.removeMessages(1);
+                this.f50167a.closeRecordCancel();
+                this.f50167a.closeRecordTooShort();
             }
         }
     }
@@ -247,10 +247,10 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f50169e;
+        public final /* synthetic */ MsglistActivity f50168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsMsglistView f50170f;
+        public final /* synthetic */ AbsMsglistView f50169f;
 
         public c(AbsMsglistView absMsglistView, MsglistActivity msglistActivity) {
             Interceptable interceptable = $ic;
@@ -267,8 +267,8 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                     return;
                 }
             }
-            this.f50170f = absMsglistView;
-            this.f50169e = msglistActivity;
+            this.f50169f = absMsglistView;
+            this.f50168e = msglistActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -282,8 +282,8 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                l.x(this.f50169e.getActivity(), this.f50169e.getActivity().getCurrentFocus());
-                EditorTools editorTools = this.f50170f.mTool;
+                l.x(this.f50168e.getActivity(), this.f50168e.getActivity().getCurrentFocus());
+                EditorTools editorTools = this.f50169f.mTool;
                 if (editorTools != null) {
                     editorTools.hideTools();
                 }
@@ -297,10 +297,10 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f50171e;
+        public final /* synthetic */ MsglistActivity f50170e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsMsglistView f50172f;
+        public final /* synthetic */ AbsMsglistView f50171f;
 
         public d(AbsMsglistView absMsglistView, MsglistActivity msglistActivity) {
             Interceptable interceptable = $ic;
@@ -317,8 +317,8 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
                     return;
                 }
             }
-            this.f50172f = absMsglistView;
-            this.f50171e = msglistActivity;
+            this.f50171f = absMsglistView;
+            this.f50170e = msglistActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -326,12 +326,12 @@ public abstract class AbsMsglistView extends b.a.e.a.d<MsglistActivity<?>> imple
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                l.x(this.f50171e.getActivity(), this.f50171e.getActivity().getCurrentFocus());
-                EditorTools editorTools = this.f50172f.mTool;
+                l.x(this.f50170e.getActivity(), this.f50170e.getActivity().getCurrentFocus());
+                EditorTools editorTools = this.f50171f.mTool;
                 if (editorTools != null) {
                     editorTools.hideTools();
                 }
-                this.f50172f.MainOnTouch();
+                this.f50171f.MainOnTouch();
                 return false;
             }
             return invokeLL.booleanValue;

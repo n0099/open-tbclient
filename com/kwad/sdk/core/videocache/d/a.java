@@ -21,7 +21,7 @@ public class a extends SQLiteOpenHelper implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65151a;
+    public static final String[] f65150a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a extends SQLiteOpenHelper implements b {
                 return;
             }
         }
-        f65151a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
+        f65150a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,9 +67,9 @@ public class a extends SQLiteOpenHelper implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, nVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("url", nVar.f65197a);
-            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f65198b));
-            contentValues.put("mime", nVar.f65199c);
+            contentValues.put("url", nVar.f65196a);
+            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f65197b));
+            contentValues.put("mime", nVar.f65198c);
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -93,7 +93,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f65151a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f65150a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

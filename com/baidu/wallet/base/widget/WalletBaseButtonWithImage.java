@@ -19,7 +19,7 @@ public class WalletBaseButtonWithImage extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f57709a;
+    public TextView f57708a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WalletBaseButtonWithImage(Context context, AttributeSet attributeSet) {
@@ -47,7 +47,7 @@ public class WalletBaseButtonWithImage extends LinearLayout {
         } else {
             setBackgroundDrawable(drawable);
         }
-        this.f57709a = (TextView) findViewById(ResUtils.id(context, "wallet_base_btn_image"));
+        this.f57708a = (TextView) findViewById(ResUtils.id(context, "wallet_base_btn_image"));
         a();
     }
 
@@ -56,7 +56,7 @@ public class WalletBaseButtonWithImage extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             Drawable drawable = ResUtils.getDrawable(getContext(), "wallet_base_cashdesk_order_btn_img_selector");
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            this.f57709a.setCompoundDrawables(drawable, null, null, null);
+            this.f57708a.setCompoundDrawables(drawable, null, null, null);
         }
     }
 
@@ -66,7 +66,7 @@ public class WalletBaseButtonWithImage extends LinearLayout {
             if (z) {
                 a();
             } else {
-                this.f57709a.setCompoundDrawables(null, null, null, null);
+                this.f57708a.setCompoundDrawables(null, null, null, null);
             }
         }
     }
@@ -74,7 +74,7 @@ public class WalletBaseButtonWithImage extends LinearLayout {
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            this.f57709a.setText(charSequence);
+            this.f57708a.setText(charSequence);
         }
     }
 }

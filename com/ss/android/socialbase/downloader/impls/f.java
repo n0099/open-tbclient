@@ -55,13 +55,13 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Response f69550a;
+                        public final /* synthetic */ Response f69549a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Call f69551b;
+                        public final /* synthetic */ Call f69550b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ f f69552c;
+                        public final /* synthetic */ f f69551c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -78,33 +78,33 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                                     return;
                                 }
                             }
-                            this.f69552c = this;
-                            this.f69550a = execute;
-                            this.f69551b = newCall;
+                            this.f69551c = this;
+                            this.f69549a = execute;
+                            this.f69550b = newCall;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
                         public String a(String str2) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str2)) == null) ? this.f69550a.header(str2) : (String) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str2)) == null) ? this.f69549a.header(str2) : (String) invokeL.objValue;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
                         public int b() throws IOException {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69550a.code() : invokeV.intValue;
+                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69549a.code() : invokeV.intValue;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
                         public void c() {
                             Call call;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f69551b) == null || call.isCanceled()) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f69550b) == null || call.isCanceled()) {
                                 return;
                             }
-                            this.f69551b.cancel();
+                            this.f69550b.cancel();
                         }
                     };
                 }

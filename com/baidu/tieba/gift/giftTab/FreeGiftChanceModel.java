@@ -17,13 +17,13 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49272e;
+    public int f49271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49273f;
+    public b f49272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f49274g;
+    public b.a.e.c.g.a f49273g;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -31,7 +31,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FreeGiftChanceModel f49275a;
+        public final /* synthetic */ FreeGiftChanceModel f49274a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
@@ -52,7 +52,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f49275a = freeGiftChanceModel;
+            this.f49274a = freeGiftChanceModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -64,12 +64,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.f49275a.f49272e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f49274a.f49271e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.f49275a.f49272e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f49274a.f49271e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.f49275a.f49273f != null) {
-                    this.f49275a.f49273f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f49275a.f49272e);
+                if (this.f49274a.f49272f != null) {
+                    this.f49274a.f49272f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f49274a.f49271e);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f49274g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f49273g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -106,7 +106,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f49273f = bVar;
+            this.f49272f = bVar;
         }
     }
 
@@ -133,7 +133,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f49274g);
+            registerListener(this.f49273g);
         }
     }
 

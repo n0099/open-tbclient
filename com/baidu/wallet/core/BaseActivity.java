@@ -276,7 +276,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f57939a;
+                        public final /* synthetic */ BaseActivity f57938a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -293,7 +293,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                     return;
                                 }
                             }
-                            this.f57939a = this;
+                            this.f57938a = this;
                         }
 
                         @Override // java.lang.reflect.InvocationHandler
@@ -403,7 +403,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Application f57948a;
+                    public final /* synthetic */ Application f57947a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -420,7 +420,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f57948a = application;
+                        this.f57947a = application;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -429,7 +429,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) || configuration == null || configuration.fontScale <= 0.0f) {
                             return;
                         }
-                        float unused = BaseActivity.sNocompatScaleDensity = this.f57948a.getResources().getDisplayMetrics().scaledDensity;
+                        float unused = BaseActivity.sNocompatScaleDensity = this.f57947a.getResources().getDisplayMetrics().scaledDensity;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -832,42 +832,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f57941a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f57941a = this;
-                    }
-
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public void onCancel(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f57941a.cancleRequest();
-                        }
-                    }
-                }, loadingDialog));
-            } else if (i2 == -1) {
-                LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
-                loadingDialog2.setCancelable(true);
-                loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
                     public final /* synthetic */ BaseActivity f57940a;
 
                     {
@@ -892,7 +856,43 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f57940a.onBackPressed();
+                            this.f57940a.cancleRequest();
+                        }
+                    }
+                }, loadingDialog));
+            } else if (i2 == -1) {
+                LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
+                loadingDialog2.setCancelable(true);
+                loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f57939a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f57939a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            this.f57939a.onBackPressed();
                         }
                     }
                 }, loadingDialog2));
@@ -908,6 +908,39 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 promptDialog2.setMessage(getString(ResUtils.string(getActivity(), "ebpay_no_network")));
                 promptDialog2.setCanceledOnTouchOutside(false);
                 promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f57941a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f57941a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            WalletGlobalUtils.safeDismissDialog(this.f57941a, 11);
+                        }
+                    }
+                });
+                promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -937,41 +970,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             WalletGlobalUtils.safeDismissDialog(this.f57942a, 11);
-                        }
-                    }
-                });
-                promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f57943a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f57943a = this;
-                    }
-
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f57943a, 11);
                             try {
-                                this.f57943a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                                this.f57942a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                             } catch (Exception e2) {
                                 LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
                             }
@@ -989,10 +989,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f57944a;
+                    public final /* synthetic */ PromptDialog f57943a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f57945b;
+                    public final /* synthetic */ BaseActivity f57944b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1009,18 +1009,18 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f57945b = this;
-                        this.f57944a = promptDialog3;
+                        this.f57944b = this;
+                        this.f57943a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f57944a.dismiss();
+                            this.f57943a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f57945b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f57945b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f57944b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f57944b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1031,10 +1031,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f57946a;
+                    public final /* synthetic */ PromptDialog f57945a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f57947b;
+                    public final /* synthetic */ BaseActivity f57946b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1051,15 +1051,15 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f57947b = this;
-                        this.f57946a = promptDialog3;
+                        this.f57946b = this;
+                        this.f57945a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f57946a.dismiss();
+                            this.f57945a.dismiss();
                         }
                     }
                 });

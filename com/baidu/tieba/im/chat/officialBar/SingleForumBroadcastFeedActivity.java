@@ -36,7 +36,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f50321g;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f50320g;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f50321g = singleForumBroadcastFeedActivity;
+            this.f50320g = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f50321g.feedView != null) {
-                    this.f50321g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f50320g.feedView != null) {
+                    this.f50320g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -79,7 +79,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f50322a;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f50321a;
 
         public b(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f50322a = singleForumBroadcastFeedActivity;
+            this.f50321a = singleForumBroadcastFeedActivity;
         }
 
         @Override // b.a.r0.l1.f.j.g.d
         public void a(List<b.a.r0.l1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f50322a.feedView.j(list, null);
+                this.f50321a.feedView.j(list, null);
             }
         }
 
@@ -111,7 +111,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public void onReadCountLoad(LongSparseArray<b.a.r0.l1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.f50322a.feedView.k(longSparseArray);
+                this.f50321a.feedView.k(longSparseArray);
             }
         }
     }

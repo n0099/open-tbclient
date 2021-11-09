@@ -43,10 +43,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f50175a;
+        public final /* synthetic */ GroupData f50174a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f50176b;
+        public final /* synthetic */ GroupChatActivity f50175b;
 
         public a(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f50176b = groupChatActivity;
-            this.f50175a = groupData;
+            this.f50175b = groupChatActivity;
+            this.f50174a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(b.a.r0.l1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50175a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(b.a.r0.l1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50174a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -83,10 +83,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f50177a;
+        public final /* synthetic */ GroupData f50176a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f50178b;
+        public final /* synthetic */ GroupChatActivity f50177b;
 
         public b(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -103,8 +103,8 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f50178b = groupChatActivity;
-            this.f50177a = groupData;
+            this.f50177b = groupChatActivity;
+            this.f50176a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,18 +117,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 return;
             }
             if (bool.booleanValue()) {
-                this.f50178b.mListView.closeNotNotify();
+                this.f50177b.mListView.closeNotNotify();
             } else {
-                this.f50178b.mListView.showNotNotfiy();
+                this.f50177b.mListView.showNotNotfiy();
             }
-            if (this.f50178b.mListModel == null || (groupData = this.f50177a) == null) {
+            if (this.f50177b.mListModel == null || (groupData = this.f50176a) == null) {
                 return;
             }
             String name = groupData.getName();
             if (TextUtils.isEmpty(name)) {
                 return;
             }
-            this.f50178b.mListView.refreshHeaderFooter(name, true);
+            this.f50177b.mListView.refreshHeaderFooter(name, true);
         }
     }
 
@@ -138,7 +138,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f50179a;
+        public final /* synthetic */ GroupChatActivity f50178a;
 
         public c(GroupChatActivity groupChatActivity) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f50179a = groupChatActivity;
+            this.f50178a = groupChatActivity;
         }
 
         @Override // com.baidu.tieba.im.chat.AbsMsglistView.f
@@ -171,7 +171,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceData$VoiceModel) == null) || voiceData$VoiceModel == null) {
                 return;
             }
-            this.f50179a.mListModel.sendMsgVoice(voiceData$VoiceModel.voiceId, voiceData$VoiceModel.duration);
+            this.f50178a.mListModel.sendMsgVoice(voiceData$VoiceModel.voiceId, voiceData$VoiceModel.duration);
         }
     }
 

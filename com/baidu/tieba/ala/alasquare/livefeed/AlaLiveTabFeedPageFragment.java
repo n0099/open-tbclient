@@ -28,7 +28,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f46975e;
+    public c f46974e;
 
     public AlaLiveTabFeedPageFragment() {
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
             super.onChangeSkinType(i2);
             String str = i2 == 1 ? "night" : i2 == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day";
             LiveFeedPageSdk.e().o(str);
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.a(str);
             }
@@ -94,7 +94,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
             super.onCreate(null);
             c("onCreate");
             a.a().c(TbadkCoreApplication.getInst());
-            this.f46975e = new b.a.w.d.a();
+            this.f46974e = new b.a.w.d.a();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -106,10 +106,10 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
             c("onCreateView");
-            if (this.f46975e == null) {
-                this.f46975e = new b.a.w.d.a();
+            if (this.f46974e == null) {
+                this.f46974e = new b.a.w.d.a();
             }
-            View d2 = this.f46975e.d(getFragmentActivity(), this, "live_tab");
+            View d2 = this.f46974e.d(getFragmentActivity(), this, "live_tab");
             if (d2.getParent() instanceof ViewGroup) {
                 ((ViewGroup) d2.getParent()).removeView(d2);
             }
@@ -129,7 +129,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c(MissionEvent.MESSAGE_DESTROY);
             super.onDestroy();
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onViewDestroy();
             }
@@ -143,7 +143,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             c("onLazyLoad");
             super.onLazyLoad();
-            this.f46975e.b();
+            this.f46974e.b();
         }
     }
 
@@ -169,12 +169,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             c(MissionEvent.MESSAGE_PAUSE);
             super.onPause();
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onViewPause();
             }
             if (isPrimary()) {
-                this.f46975e.onUserVisibleHint(false);
+                this.f46974e.onUserVisibleHint(false);
             }
         }
     }
@@ -185,7 +185,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             c("onPrimary " + isPrimary());
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onUserVisibleHint(isPrimary());
             }
@@ -199,12 +199,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5040);
             c("onResume");
             super.onResume();
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onViewResume();
             }
             if (isPrimary()) {
-                this.f46975e.onUserVisibleHint(true);
+                this.f46974e.onUserVisibleHint(true);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(5041);
         }
@@ -216,7 +216,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             c("onStart");
             super.onStart();
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onViewStart();
             }
@@ -229,7 +229,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             c(MissionEvent.MESSAGE_STOP);
             super.onStop();
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.onViewStop();
             }
@@ -241,7 +241,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             c("refreshPage");
-            c cVar = this.f46975e;
+            c cVar = this.f46974e;
             if (cVar != null) {
                 cVar.c();
             }

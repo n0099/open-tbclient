@@ -43,31 +43,31 @@ public final class DebugConfig {
     public static final String VOICE_SERVICE_URL_DFT = "https://wallet.baidu.com";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f57949a = false;
+    public static boolean f57948a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57950b = "wallet_config.properties";
+    public static final String f57949b = "wallet_config.properties";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57951c = "wallet_https_host";
+    public static final String f57950c = "wallet_https_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57952d = "wallet_passport_host";
+    public static final String f57951d = "wallet_passport_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f57953e = "environment";
+    public static final String f57952e = "environment";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f57954f = "wallet_plugin_host";
+    public static final String f57953f = "wallet_plugin_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f57955g = "wallet_nfc_host";
+    public static final String f57954g = "wallet_nfc_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f57956h = "wallet_web_cache_host";
+    public static final String f57955h = "wallet_web_cache_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f57957i = "voiceprint_service";
+    public static final String f57956i = "voiceprint_service";
     public static final String j = "voiceprint_host";
     public static final String k = "wallet_stat_host";
     public static final String l = "wallet_stat_strategy_host";
@@ -132,14 +132,14 @@ public final class DebugConfig {
                     if (externalFilesDir != null && !externalFilesDir.exists()) {
                         externalFilesDir.mkdirs();
                     }
-                    this.E = new File(externalFilesDir, f57950b);
+                    this.E = new File(externalFilesDir, f57949b);
                     this.F = b();
                 }
             } catch (Exception unused) {
                 return;
             }
         }
-        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f57950b);
+        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f57949b);
         this.F = b();
     }
 
@@ -240,7 +240,7 @@ public final class DebugConfig {
     public void changeOnline() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f57949a = false;
+            f57948a = false;
             p = "https://www.baifubao.com";
             r = "https://wappass.baidu.com/passport/";
             s = "https://chong.baidu.com";
@@ -259,7 +259,7 @@ public final class DebugConfig {
     public void changeQA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f57949a = true;
+            f57948a = true;
             DEFAULT_ENVIRONMENT = "QA";
             readConfigHost(true);
         }
@@ -281,8 +281,8 @@ public final class DebugConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (f57949a) {
-                return a(f57953e);
+            if (f57948a) {
+                return a(f57952e);
             }
             return DEFAULT_ENVIRONMENT;
         }
@@ -299,7 +299,7 @@ public final class DebugConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            if (!f57949a) {
+            if (!f57948a) {
                 LogUtil.logd("没有打开DEBUG开关 返回默认值=" + str2);
                 return str2;
             }
@@ -395,7 +395,7 @@ public final class DebugConfig {
     public void readConfigHost(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z2) == null) {
-            f57949a = z2;
+            f57948a = z2;
             if (z2) {
                 a();
             } else {

@@ -24,16 +24,16 @@ public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f56353a;
+    public static CustomMessageListener f56352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f56354b;
+    public static CustomMessageListener f56353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f56355c;
+    public static CustomMessageListener f56354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f56356d;
+    public static CustomMessageListener f56355d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -276,14 +276,14 @@ public class PushStatic {
                 return;
             }
         }
-        f56353a = new a(0);
-        f56354b = new b(2921613);
-        f56355c = new c(2005016);
-        f56356d = new d(2921631);
-        MessageManager.getInstance().registerListener(2007015, f56353a);
-        MessageManager.getInstance().registerListener(f56354b);
-        MessageManager.getInstance().registerListener(f56355c);
-        MessageManager.getInstance().registerListener(f56356d);
+        f56352a = new a(0);
+        f56353b = new b(2921613);
+        f56354c = new c(2005016);
+        f56355d = new d(2921631);
+        MessageManager.getInstance().registerListener(2007015, f56352a);
+        MessageManager.getInstance().registerListener(f56353b);
+        MessageManager.getInstance().registerListener(f56354c);
+        MessageManager.getInstance().registerListener(f56355d);
     }
 
     public PushStatic() {

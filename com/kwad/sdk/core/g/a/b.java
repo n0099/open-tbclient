@@ -19,20 +19,20 @@ public class b implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f64579a;
+    public static JSONObject f64578a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64580b;
+    public String f64579b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64581c;
+    public String f64580c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64582d;
+    public String f64581d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64583e;
+    public String f64582e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class b implements com.kwad.sdk.core.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!a(f64579a)) {
-                f64579a = b().toJson();
+            if (!a(f64578a)) {
+                f64578a = b().toJson();
             }
-            return f64579a;
+            return f64578a;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -79,12 +79,12 @@ public class b implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             b bVar = new b();
-            bVar.f64580b = KsAdSDKImpl.get().getAppId();
-            bVar.f64581c = KsAdSDKImpl.get().getAppName();
+            bVar.f64579b = KsAdSDKImpl.get().getAppId();
+            bVar.f64580c = KsAdSDKImpl.get().getAppName();
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null) {
-                bVar.f64582d = context.getPackageName();
-                bVar.f64583e = ap.p(context);
+                bVar.f64581d = context.getPackageName();
+                bVar.f64582e = ap.p(context);
             }
             return bVar;
         }
@@ -104,10 +104,10 @@ public class b implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f64580b);
-            q.a(jSONObject, "name", this.f64581c);
-            q.a(jSONObject, "packageName", this.f64582d);
-            q.a(jSONObject, "version", this.f64583e);
+            q.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f64579b);
+            q.a(jSONObject, "name", this.f64580c);
+            q.a(jSONObject, "packageName", this.f64581d);
+            q.a(jSONObject, "version", this.f64582e);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

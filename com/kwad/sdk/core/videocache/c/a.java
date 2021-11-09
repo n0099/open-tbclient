@@ -10,17 +10,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f65145a;
+    public static f f65144a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            f fVar = f65145a;
+            f fVar = f65144a;
             if (fVar == null) {
                 f b2 = b(context);
-                f65145a = b2;
+                f65144a = b2;
                 return b2;
             }
             return fVar;

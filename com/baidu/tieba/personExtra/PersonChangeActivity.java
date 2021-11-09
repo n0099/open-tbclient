@@ -159,9 +159,46 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53097e;
+        public final /* synthetic */ PersonChangeActivity f53096e;
 
         public a(PersonChangeActivity personChangeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53096e = personChangeActivity;
+        }
+
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f53096e.clickSaveEvents();
+                this.f53096e.saveProfile();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonChangeActivity f53097e;
+
+        public b(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,21 +221,30 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f53097e.clickSaveEvents();
-                this.f53097e.saveProfile();
+                if (this.f53097e.mModel.w().getPhotoChanged()) {
+                    Intent intent = new Intent();
+                    if (!this.f53097e.isFromPersonInfo.booleanValue()) {
+                        intent.putExtra("data", this.f53097e.mModel.w());
+                    } else {
+                        intent.putExtra("person_change_data", this.f53097e.mModel.w());
+                    }
+                    this.f53097e.setResult(-1, intent);
+                    this.f53097e.sendUpdateMessage();
+                }
+                this.f53097e.finish();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements a.e {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonChangeActivity f53098e;
 
-        public b(PersonChangeActivity personChangeActivity) {
+        public c(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,57 +262,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.f53098e = personChangeActivity;
         }
 
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                if (this.f53098e.mModel.w().getPhotoChanged()) {
-                    Intent intent = new Intent();
-                    if (!this.f53098e.isFromPersonInfo.booleanValue()) {
-                        intent.putExtra("data", this.f53098e.mModel.w());
-                    } else {
-                        intent.putExtra("person_change_data", this.f53098e.mModel.w());
-                    }
-                    this.f53098e.setResult(-1, intent);
-                    this.f53098e.sendUpdateMessage();
-                }
-                this.f53098e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53099e;
-
-        public c(PersonChangeActivity personChangeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53099e = personChangeActivity;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53099e.mPersonChangeScroll.scrollTo(0, 0);
+                this.f53098e.mPersonChangeScroll.scrollTo(0, 0);
             }
         }
     }
@@ -277,7 +277,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53100a;
+        public final /* synthetic */ PersonChangeActivity f53099a;
 
         public d(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53100a = personChangeActivity;
+            this.f53099a = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.b.c
@@ -302,12 +302,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) {
                 if (i2 == 0) {
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f53100a.getPageContext().getPageActivity(), this.f53100a.mWriteImagesInfo.toJsonString(), true);
+                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f53099a.getPageContext().getPageActivity(), this.f53099a.mWriteImagesInfo.toJsonString(), true);
                     albumActivityConfig.setRequestCode(12002);
                     albumActivityConfig.setResourceType(2);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                 } else if (i2 == 1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f53100a.getPageContext().getPageActivity(), 12014)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f53099a.getPageContext().getPageActivity(), 12014)));
                 }
                 bVar.e();
             }
@@ -320,13 +320,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53101e;
+        public final /* synthetic */ String f53100e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f53102f;
+        public final /* synthetic */ String f53101f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53103g;
+        public final /* synthetic */ PersonChangeActivity f53102g;
 
         public e(PersonChangeActivity personChangeActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -343,33 +343,33 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53103g = personChangeActivity;
-            this.f53101e = str;
-            this.f53102f = str2;
+            this.f53102g = personChangeActivity;
+            this.f53100e = str;
+            this.f53101f = str2;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f53103g.mSexDialog != null && this.f53103g.mSexDialog.isShowing()) {
-                    this.f53103g.mSexDialog.dismiss();
+                if (this.f53102g.mSexDialog != null && this.f53102g.mSexDialog.isShowing()) {
+                    this.f53102g.mSexDialog.dismiss();
                 }
                 if (view instanceof TextView) {
                     TextView textView = (TextView) view;
-                    if (this.f53101e.equals(textView.getText().toString())) {
-                        this.f53103g.mSex = 1;
-                        this.f53103g.mSexShow.setText(this.f53101e);
-                    } else if (this.f53102f.equals(textView.getText().toString())) {
-                        this.f53103g.mSex = 2;
-                        this.f53103g.mSexShow.setText(this.f53102f);
+                    if (this.f53100e.equals(textView.getText().toString())) {
+                        this.f53102g.mSex = 1;
+                        this.f53102g.mSexShow.setText(this.f53100e);
+                    } else if (this.f53101f.equals(textView.getText().toString())) {
+                        this.f53102g.mSex = 2;
+                        this.f53102g.mSexShow.setText(this.f53101f);
                     }
-                    if (this.f53103g.mSex != this.f53103g.mModel.w().getSex()) {
-                        this.f53103g.isUpdate = true;
+                    if (this.f53102g.mSex != this.f53102g.mModel.w().getSex()) {
+                        this.f53102g.isUpdate = true;
                         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                            SkinManager.setViewTextColor(this.f53103g.mSave, R.color.navi_op_text, 1);
+                            SkinManager.setViewTextColor(this.f53102g.mSave, R.color.navi_op_text, 1);
                         } else {
-                            SkinManager.setViewTextColor(this.f53103g.mSave, R.color.CAM_X0302, 1);
+                            SkinManager.setViewTextColor(this.f53102g.mSave, R.color.CAM_X0302, 1);
                         }
                     }
                 }
@@ -383,7 +383,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53104e;
+        public final /* synthetic */ PersonChangeActivity f53103e;
 
         public f(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -400,32 +400,32 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53104e = personChangeActivity;
+            this.f53103e = personChangeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f53104e.mModel.w().getSex() != this.f53104e.mSex) {
-                    this.f53104e.isEdited = true;
+                if (this.f53103e.mModel.w().getSex() != this.f53103e.mSex) {
+                    this.f53103e.isEdited = true;
                 }
-                this.f53104e.saveTempNickName();
-                if (this.f53104e.isEdited || this.f53104e.isUpdateNickName) {
-                    this.f53104e.mConfirmDialog.show();
+                this.f53103e.saveTempNickName();
+                if (this.f53103e.isEdited || this.f53103e.isUpdateNickName) {
+                    this.f53103e.mConfirmDialog.show();
                     return;
                 }
-                if (this.f53104e.mModel != null && this.f53104e.mModel.w().getPhotoChanged()) {
+                if (this.f53103e.mModel != null && this.f53103e.mModel.w().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    if (this.f53104e.isFromPersonInfo.booleanValue()) {
-                        intent.putExtra("person_change_data", this.f53104e.mModel.w());
+                    if (this.f53103e.isFromPersonInfo.booleanValue()) {
+                        intent.putExtra("person_change_data", this.f53103e.mModel.w());
                     } else {
-                        intent.putExtra("data", this.f53104e.mModel.w());
+                        intent.putExtra("data", this.f53103e.mModel.w());
                     }
-                    this.f53104e.sendUpdateMessage();
-                    this.f53104e.setResult(-1, intent);
+                    this.f53103e.sendUpdateMessage();
+                    this.f53103e.setResult(-1, intent);
                 }
-                this.f53104e.finish();
+                this.f53103e.finish();
             }
         }
     }
@@ -466,10 +466,58 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53105a;
+        public final /* synthetic */ PersonChangeActivity f53104a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(PersonChangeActivity personChangeActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53104a = personChangeActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                String str = (String) data;
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                this.f53104a.mHasModifyNickName = true;
+                this.f53104a.mTempNickName = str;
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class i extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonChangeActivity f53105a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(PersonChangeActivity personChangeActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -493,61 +541,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
-                return;
-            }
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str = (String) data;
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.f53105a.mHasModifyNickName = true;
-                this.f53105a.mTempNickName = str;
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class i extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53106a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(PersonChangeActivity personChangeActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53106a = personChangeActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PersonChangeData)) {
                 PersonChangeData personChangeData = (PersonChangeData) customResponsedMessage.getData();
-                if (this.f53106a.mModel == null || this.f53106a.mModel.w() == null || personChangeData == null) {
+                if (this.f53105a.mModel == null || this.f53105a.mModel.w() == null || personChangeData == null) {
                     return;
                 }
-                this.f53106a.mModel.w().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
-                this.f53106a.mModel.w().setMem(personChangeData.getMen());
+                this.f53105a.mModel.w().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
+                this.f53105a.mModel.w().setMem(personChangeData.getMen());
             }
         }
     }
@@ -558,9 +558,45 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53107e;
+        public final /* synthetic */ PersonChangeActivity f53106e;
 
         public j(PersonChangeActivity personChangeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53106e = personChangeActivity;
+        }
+
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53106e.getPageContext().getPageActivity(), null, b.a.r0.k2.c.a(), true)));
+                aVar.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class k implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonChangeActivity f53107e;
+
+        public k(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -582,42 +618,6 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53107e.getPageContext().getPageActivity(), null, b.a.r0.k2.c.a(), true)));
-                aVar.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class k implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53108e;
-
-        public k(PersonChangeActivity personChangeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53108e = personChangeActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
             }
         }
@@ -629,7 +629,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53109a;
+        public final /* synthetic */ PersonChangeActivity f53108a;
 
         public l(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -646,7 +646,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53109a = personChangeActivity;
+            this.f53108a = personChangeActivity;
         }
 
         @Override // b.a.q0.t.i.b.e
@@ -655,7 +655,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) || accountData == null) {
                 return;
             }
-            this.f53109a.resetUserName(accountData.getAccount());
+            this.f53108a.resetUserName(accountData.getAccount());
         }
     }
 
@@ -665,9 +665,48 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53110e;
+        public final /* synthetic */ PersonChangeActivity f53109e;
 
         public m(PersonChangeActivity personChangeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53109e = personChangeActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f53109e.mPersonChangeScroll.fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+                this.f53109e.mEdit.setFocusableInTouchMode(true);
+                this.f53109e.mEdit.requestFocus();
+                PersonChangeActivity personChangeActivity = this.f53109e;
+                personChangeActivity.ShowSoftKeyPad(personChangeActivity.mInputManager, this.f53109e.mEdit);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class n implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonChangeActivity f53110e;
+
+        public n(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -685,28 +724,27 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.f53110e = personChangeActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53110e.mPersonChangeScroll.fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
-                this.f53110e.mEdit.setFocusableInTouchMode(true);
-                this.f53110e.mEdit.requestFocus();
-                PersonChangeActivity personChangeActivity = this.f53110e;
-                personChangeActivity.ShowSoftKeyPad(personChangeActivity.mInputManager, this.f53110e.mEdit);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.f53110e.destroyWaitingDialog();
+                if (this.f53110e.mModifyTask != null) {
+                    this.f53110e.mModifyTask.cancel();
+                }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class n implements DialogInterface.OnCancelListener {
+    public class o implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonChangeActivity f53111e;
 
-        public n(PersonChangeActivity personChangeActivity) {
+        public o(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -724,51 +762,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.f53111e = personChangeActivity;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f53111e.destroyWaitingDialog();
-                if (this.f53111e.mModifyTask != null) {
-                    this.f53111e.mModifyTask.cancel();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class o implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53112e;
-
-        public o(PersonChangeActivity personChangeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53112e = personChangeActivity;
-        }
-
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
                 return;
             }
-            this.f53112e.mNickNameShow.setFocusableInTouchMode(false);
+            this.f53111e.mNickNameShow.setFocusableInTouchMode(false);
         }
     }
 
@@ -778,7 +778,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53113a;
+        public final /* synthetic */ PersonChangeActivity f53112a;
 
         public p(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -795,7 +795,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53113a = personChangeActivity;
+            this.f53112a = personChangeActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -804,8 +804,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    this.f53113a.mNickNameShow.setFocusableInTouchMode(false);
-                    this.f53113a.mNickNameShow.setCursorVisible(false);
+                    this.f53112a.mNickNameShow.setFocusableInTouchMode(false);
+                    this.f53112a.mNickNameShow.setCursorVisible(false);
                 }
                 return false;
             }
@@ -819,9 +819,45 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53114e;
+        public final /* synthetic */ PersonChangeActivity f53113e;
 
         public q(PersonChangeActivity personChangeActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53113e = personChangeActivity;
+        }
+
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view, boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
+                return;
+            }
+            this.f53113e.mEdit.setFocusableInTouchMode(false);
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class r implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonChangeActivity f53114e;
+
+        public r(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -839,53 +875,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.f53114e = personChangeActivity;
         }
 
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
-                return;
-            }
-            this.f53114e.mEdit.setFocusableInTouchMode(false);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class r implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53115e;
-
-        public r(PersonChangeActivity personChangeActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53115e = personChangeActivity;
-        }
-
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable.toString().replaceAll("\\s*", "").equals(this.f53115e.mModel.w().getIntro())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable.toString().replaceAll("\\s*", "").equals(this.f53114e.mModel.w().getIntro())) {
                 return;
             }
-            this.f53115e.isUpdate = true;
+            this.f53114e.isUpdate = true;
             if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                SkinManager.setViewTextColor(this.f53115e.mSave, R.color.navi_op_text, 1);
+                SkinManager.setViewTextColor(this.f53114e.mSave, R.color.navi_op_text, 1);
             } else {
-                SkinManager.setViewTextColor(this.f53115e.mSave, R.color.CAM_X0302, 1);
+                SkinManager.setViewTextColor(this.f53114e.mSave, R.color.CAM_X0302, 1);
             }
         }
 
@@ -900,26 +900,26 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                Editable text = this.f53115e.mEdit.getText();
+                Editable text = this.f53114e.mEdit.getText();
                 String replaceAll = text.toString().replaceAll("\\s*", "");
                 int length = replaceAll.length();
-                this.f53115e.mIntroTextTipNum.setText(String.valueOf(length));
-                this.f53115e.mIntroTextTip.setVisibility(0);
-                this.f53115e.showIntroTextTip();
+                this.f53114e.mIntroTextTipNum.setText(String.valueOf(length));
+                this.f53114e.mIntroTextTip.setVisibility(0);
+                this.f53114e.showIntroTextTip();
                 if (length > 500) {
-                    this.f53115e.showTopToast(R.string.over_limit_tip, false);
-                    if (this.f53115e.mEdit.getSelectionStart() - 1 < 0 || this.f53115e.mEdit.getSelectionStart() - 1 > this.f53115e.mEdit.getSelectionEnd()) {
-                        this.f53115e.mEdit.setText(replaceAll.substring(0, 500));
+                    this.f53114e.showTopToast(R.string.over_limit_tip, false);
+                    if (this.f53114e.mEdit.getSelectionStart() - 1 < 0 || this.f53114e.mEdit.getSelectionStart() - 1 > this.f53114e.mEdit.getSelectionEnd()) {
+                        this.f53114e.mEdit.setText(replaceAll.substring(0, 500));
                     } else {
-                        text.delete(this.f53115e.mEdit.getSelectionStart() - 1, this.f53115e.mEdit.getSelectionEnd());
-                        this.f53115e.mEdit.setText(charSequence);
+                        text.delete(this.f53114e.mEdit.getSelectionStart() - 1, this.f53114e.mEdit.getSelectionEnd());
+                        this.f53114e.mEdit.setText(charSequence);
                     }
                     int selectionEnd = Selection.getSelectionEnd(text);
                     int length2 = text.length();
                     if (selectionEnd > length2) {
                         selectionEnd = length2;
                     }
-                    Selection.setSelection(this.f53115e.mEdit.getText(), selectionEnd);
+                    Selection.setSelection(this.f53114e.mEdit.getText(), selectionEnd);
                 }
             }
         }
@@ -931,7 +931,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53116a;
+        public final /* synthetic */ PersonChangeActivity f53115a;
 
         public s(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -948,7 +948,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53116a = personChangeActivity;
+            this.f53115a = personChangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -964,8 +964,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f53116a.mImageTask = null;
-                this.f53116a.mImageProgressBar.setVisibility(8);
+                this.f53115a.mImageTask = null;
+                this.f53115a.mImageProgressBar.setVisibility(8);
                 super.cancel(true);
             }
         }
@@ -982,9 +982,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f53116a.mImageProgressBar.setVisibility(0);
-                this.f53116a.mPhotoView.setImageDrawable(null);
-                this.f53116a.mPhoto = null;
+                this.f53115a.mImageProgressBar.setVisibility(0);
+                this.f53115a.mPhotoView.setImageDrawable(null);
+                this.f53115a.mPhoto = null;
                 super.onPreExecute();
             }
         }
@@ -999,12 +999,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((s) bitmap);
-                this.f53116a.mImageTask = null;
-                this.f53116a.mImageProgressBar.setVisibility(8);
+                this.f53115a.mImageTask = null;
+                this.f53115a.mImageProgressBar.setVisibility(8);
                 if (bitmap != null) {
-                    this.f53116a.mPhoto = new b.a.e.l.d.a(bitmap, false, (String) null);
-                    this.f53116a.mPhoto.h(this.f53116a.mPhotoView);
-                    b.a.q0.c0.c.k().c(this.f53116a.mModel.w().getPortrait(), this.f53116a.mPhoto, true);
+                    this.f53115a.mPhoto = new b.a.e.l.d.a(bitmap, false, (String) null);
+                    this.f53115a.mPhoto.h(this.f53115a.mPhotoView);
+                    b.a.q0.c0.c.k().c(this.f53115a.mModel.w().getPortrait(), this.f53115a.mPhoto, true);
                 }
             }
         }
@@ -1016,13 +1016,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53117a;
+        public NetWork f53116a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonChangeModel f53118b;
+        public PersonChangeModel f53117b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53119c;
+        public final /* synthetic */ PersonChangeActivity f53118c;
 
         public t(PersonChangeActivity personChangeActivity, PersonChangeModel personChangeModel) {
             Interceptable interceptable = $ic;
@@ -1039,18 +1039,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53119c = personChangeActivity;
-            this.f53117a = null;
-            this.f53118b = null;
-            this.f53118b = personChangeModel;
+            this.f53118c = personChangeActivity;
+            this.f53116a = null;
+            this.f53117b = null;
+            this.f53117b = personChangeModel;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53119c.mModifyTask = null;
-                NetWork netWork = this.f53117a;
+                this.f53118c.mModifyTask = null;
+                NetWork netWork = this.f53116a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -1062,8 +1062,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                PersonChangeActivity personChangeActivity = this.f53119c;
-                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.saving), this.f53119c.mDialogCancelListener);
+                PersonChangeActivity personChangeActivity = this.f53118c;
+                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.saving), this.f53118c.mDialogCancelListener);
                 super.onPreExecute();
             }
         }
@@ -1074,27 +1074,27 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                if (this.f53118b == null) {
+                if (this.f53117b == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_MODIFY);
-                this.f53117a = netWork;
-                netWork.addPostData("sex", String.valueOf(this.f53118b.w().getSex()));
-                this.f53117a.addPostData("intro", this.f53118b.w().getIntro());
-                this.f53117a.addPostData("birthday_time", String.valueOf(this.f53118b.w().getBirthdayTime()));
-                this.f53117a.addPostData("birthday_show_status", String.valueOf(this.f53118b.w().getBirthdayShowStatus()));
+                this.f53116a = netWork;
+                netWork.addPostData("sex", String.valueOf(this.f53117b.w().getSex()));
+                this.f53116a.addPostData("intro", this.f53117b.w().getIntro());
+                this.f53116a.addPostData("birthday_time", String.valueOf(this.f53117b.w().getBirthdayTime()));
+                this.f53116a.addPostData("birthday_show_status", String.valueOf(this.f53117b.w().getBirthdayShowStatus()));
                 if (b.a.q0.b.d.E()) {
-                    this.f53117a.addPostData("need_keep_nickname_flag", "0");
-                    this.f53117a.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
-                    this.f53117a.addPostData("is_business_account", this.f53118b.w().getIsBusinessAccount());
-                    if (!TextUtils.isEmpty(this.f53118b.w().getTempNickName())) {
-                        this.f53117a.addPostData("nick_name", this.f53118b.w().getTempNickName());
+                    this.f53116a.addPostData("need_keep_nickname_flag", "0");
+                    this.f53116a.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                    this.f53116a.addPostData("is_business_account", this.f53117b.w().getIsBusinessAccount());
+                    if (!TextUtils.isEmpty(this.f53117b.w().getTempNickName())) {
+                        this.f53116a.addPostData("nick_name", this.f53117b.w().getTempNickName());
                     }
                 } else {
-                    this.f53117a.addPostData("need_keep_nickname_flag", "1");
+                    this.f53116a.addPostData("need_keep_nickname_flag", "1");
                 }
-                this.f53117a.postMultiNetData();
-                if (this.f53117a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f53116a.postMultiNetData();
+                if (this.f53116a.getNetContext().getResponse().isRequestSuccess()) {
                     b.a.r0.l3.p0.a.j();
                 }
                 return null;
@@ -1107,15 +1107,15 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f53119c.mModifyTask = null;
-                this.f53119c.closeLoadingDialog();
-                NetWork netWork = this.f53117a;
+                this.f53118c.mModifyTask = null;
+                this.f53118c.closeLoadingDialog();
+                NetWork netWork = this.f53116a;
                 if (netWork != null) {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                        this.f53119c.setDataAndFinish();
+                        this.f53118c.setDataAndFinish();
                         PersonChangeActivity.showSuccessToast();
                     } else {
-                        this.f53119c.showTopToast(this.f53117a.getErrorString(), false);
+                        this.f53118c.showTopToast(this.f53116a.getErrorString(), false);
                     }
                 }
                 super.onPostExecute((t) str);
@@ -1849,9 +1849,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
             }
             PersonChangeModel personChangeModel2 = this.mModel;
-            if (personChangeModel2 != null && (personChangeData = personChangeModel2.f53120e) != null && !personChangeData.canModifyAvatar()) {
-                if (!StringUtils.isNull(this.mModel.f53120e.getCantModifyAvatarDesc())) {
-                    b.a.e.e.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f53120e.getCantModifyAvatarDesc());
+            if (personChangeModel2 != null && (personChangeData = personChangeModel2.f53119e) != null && !personChangeData.canModifyAvatar()) {
+                if (!StringUtils.isNull(this.mModel.f53119e.getCantModifyAvatarDesc())) {
+                    b.a.e.e.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f53119e.getCantModifyAvatarDesc());
                     return;
                 } else {
                     b.a.e.e.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);

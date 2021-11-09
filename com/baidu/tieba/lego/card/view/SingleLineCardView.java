@@ -37,16 +37,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f51205f;
+    public LinearLayout f51204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51206g;
+    public View f51205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f51207h;
+    public TbImageView f51206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51208i;
+    public TextView f51207i;
     public TextView j;
     public MoreButton k;
     public ImageView l;
@@ -57,10 +57,10 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f51209e;
+        public final /* synthetic */ SingleLineCard f51208e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCardView f51210f;
+        public final /* synthetic */ SingleLineCardView f51209f;
 
         public a(SingleLineCardView singleLineCardView, SingleLineCard singleLineCard) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                     return;
                 }
             }
-            this.f51210f = singleLineCardView;
-            this.f51209e = singleLineCard;
+            this.f51209f = singleLineCardView;
+            this.f51208e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                i.e(this.f51209e).d(TiebaStatic.Params.OBJ_URL, this.f51209e.getScheme()).b("obj_locate", this.f51210f.getStatPosition()).a(this.f51209e);
-                w.c(this.f51210f.mContext, this.f51209e.getScheme());
+                i.e(this.f51208e).d(TiebaStatic.Params.OBJ_URL, this.f51208e.getScheme()).b("obj_locate", this.f51209f.getStatPosition()).a(this.f51208e);
+                w.c(this.f51209f.mContext, this.f51208e.getScheme());
             }
         }
     }
@@ -124,22 +124,22 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         boolean z = false;
         if (isNightMode()) {
             if (!b.a(singleLineCard.getBgColorNight())) {
-                this.f51205f.setBackgroundColor(singleLineCard.getBgColorNight());
+                this.f51204f.setBackgroundColor(singleLineCard.getBgColorNight());
                 z = true;
             }
             if (z) {
                 if (TextUtils.isEmpty(singleLineCard.getScheme())) {
-                    SkinManager.setBackgroundColor(this.f51205f, R.color.CAM_X0201);
+                    SkinManager.setBackgroundColor(this.f51204f, R.color.CAM_X0201);
                     return;
                 } else {
-                    SkinManager.setBackgroundResource(this.f51205f, R.drawable.addresslist_item_bg);
+                    SkinManager.setBackgroundResource(this.f51204f, R.drawable.addresslist_item_bg);
                     return;
                 }
             }
             return;
         }
         if (!b.a(singleLineCard.getBgColor())) {
-            this.f51205f.setBackgroundColor(singleLineCard.getBgColor());
+            this.f51204f.setBackgroundColor(singleLineCard.getBgColor());
             z = true;
         }
         if (z) {
@@ -181,7 +181,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, singleLineCard) == null) || singleLineCard == null) {
             return;
         }
-        setTextColor(this.f51208i, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
+        setTextColor(this.f51207i, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
     }
 
     public final String c(SingleLineCard singleLineCard) {
@@ -196,14 +196,14 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_single_line, (ViewGroup) null);
-            this.f51205f = linearLayout;
-            this.f51206g = (View) findViewById(linearLayout, R.id.leftLine);
-            this.f51207h = (TbImageView) findViewById(this.f51205f, R.id.leftIcon);
-            this.f51208i = (TextView) findViewById(this.f51205f, R.id.title);
-            this.j = (TextView) findViewById(this.f51205f, R.id.title_prefix);
-            this.k = (MoreButton) findViewById(this.f51205f, R.id.more);
-            this.l = (ImageView) findViewById(this.f51205f, R.id.rightIcon);
-            return this.f51205f;
+            this.f51204f = linearLayout;
+            this.f51205g = (View) findViewById(linearLayout, R.id.leftLine);
+            this.f51206h = (TbImageView) findViewById(this.f51204f, R.id.leftIcon);
+            this.f51207i = (TextView) findViewById(this.f51204f, R.id.title);
+            this.j = (TextView) findViewById(this.f51204f, R.id.title_prefix);
+            this.k = (MoreButton) findViewById(this.f51204f, R.id.more);
+            this.l = (ImageView) findViewById(this.f51204f, R.id.rightIcon);
+            return this.f51204f;
         }
         return (View) invokeV.objValue;
     }
@@ -214,7 +214,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, singleLineCard, i2) == null) {
             b.a.q0.w0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundColor(this.f51206g, R.color.CAM_X0308);
+            SkinManager.setBackgroundColor(this.f51205g, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);
                 setTitleColor(singleLineCard);
@@ -230,67 +230,67 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, singleLineCard) == null) {
             int g2 = l.g(getContext(), R.dimen.ds80);
-            ViewGroup.LayoutParams layoutParams = this.f51205f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f51204f.getLayoutParams();
             if (singleLineCard.getMaxLines() > 1) {
                 layoutParams.height = -2;
-                this.f51205f.setMinimumHeight(g2);
+                this.f51204f.setMinimumHeight(g2);
             } else if (singleLineCard.getHeight() > 0) {
                 int e2 = l.e(getContext(), singleLineCard.getHeight());
                 layoutParams.height = e2;
-                this.f51205f.setMinimumHeight(e2);
+                this.f51204f.setMinimumHeight(e2);
             } else {
                 layoutParams.height = g2;
-                this.f51205f.setMinimumHeight(g2);
+                this.f51204f.setMinimumHeight(g2);
             }
-            this.f51205f.setLayoutParams(layoutParams);
+            this.f51204f.setLayoutParams(layoutParams);
             if (singleLineCard.isShowLeftIcon()) {
-                this.f51207h.setVisibility(0);
+                this.f51206h.setVisibility(0);
                 if (!TextUtils.isEmpty(c(singleLineCard))) {
-                    this.f51207h.setImageDrawable(null);
-                    this.f51207h.startLoad(c(singleLineCard), 10, false);
+                    this.f51206h.setImageDrawable(null);
+                    this.f51206h.startLoad(c(singleLineCard), 10, false);
                 } else if (!TextUtils.isEmpty(singleLineCard.getIconTitle())) {
-                    this.f51207h.setVisibility(8);
+                    this.f51206h.setVisibility(8);
                     setPrefixTitle(singleLineCard);
                 } else {
                     this.j.setVisibility(8);
-                    SkinManager.setImageResource(this.f51207h, f.a(singleLineCard.getIconType()));
+                    SkinManager.setImageResource(this.f51206h, f.a(singleLineCard.getIconType()));
                 }
             } else {
                 this.j.setVisibility(8);
-                this.f51207h.setVisibility(8);
+                this.f51206h.setVisibility(8);
             }
             if (singleLineCard.isShowLeftLine()) {
-                this.f51206g.setVisibility(0);
+                this.f51205g.setVisibility(0);
             } else {
-                this.f51206g.setVisibility(8);
+                this.f51205g.setVisibility(8);
             }
             setBgColor(singleLineCard);
             setTitleColor(singleLineCard);
             setMoreColor(singleLineCard.getButtonInfo());
-            this.f51208i.setTextSize(0, getResources().getDisplayMetrics().density * (singleLineCard.getTextSize() / 2.0f));
+            this.f51207i.setTextSize(0, getResources().getDisplayMetrics().density * (singleLineCard.getTextSize() / 2.0f));
             if (singleLineCard.getMaxLines() > 1) {
-                this.f51208i.setSingleLine(false);
-                this.f51208i.setMaxLines(singleLineCard.getMaxLines());
+                this.f51207i.setSingleLine(false);
+                this.f51207i.setMaxLines(singleLineCard.getMaxLines());
             } else {
-                this.f51208i.setSingleLine(true);
+                this.f51207i.setSingleLine(true);
             }
-            this.f51208i.setText(singleLineCard.getCardTitle());
+            this.f51207i.setText(singleLineCard.getCardTitle());
             SpannableString changeParamsColor = changeParamsColor(singleLineCard.getCardTitle(), singleLineCard.getParams(), singleLineCard.getParamColor(), singleLineCard.getParamColorNight());
             if (changeParamsColor != null) {
-                this.f51208i.setText(changeParamsColor);
+                this.f51207i.setText(changeParamsColor);
             }
             if (singleLineCard.getGravity() == 1) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f51208i.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f51207i.getLayoutParams();
                 layoutParams2.weight = 0.0f;
                 layoutParams2.width = -2;
-                this.f51208i.setLayoutParams(layoutParams2);
-                this.f51205f.setGravity(17);
+                this.f51207i.setLayoutParams(layoutParams2);
+                this.f51204f.setGravity(17);
             } else {
-                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f51208i.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f51207i.getLayoutParams();
                 layoutParams3.weight = 1.0f;
                 layoutParams3.width = 0;
-                this.f51208i.setLayoutParams(layoutParams3);
-                this.f51205f.setGravity(0);
+                this.f51207i.setLayoutParams(layoutParams3);
+                this.f51204f.setGravity(0);
             }
             if (!TextUtils.isEmpty(singleLineCard.getScheme())) {
                 setOnClickListener(new a(this, singleLineCard));

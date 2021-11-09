@@ -24,7 +24,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f52092e;
+    public f<T> f52091e;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f52092e = fVar;
+        this.f52091e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -79,7 +79,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f52092e.sendMessage(httpMessage);
+        this.f52091e.sendMessage(httpMessage);
     }
 
     public void x() {
@@ -121,6 +121,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f52092e.sendMessage(httpMessage);
+        this.f52091e.sendMessage(httpMessage);
     }
 }

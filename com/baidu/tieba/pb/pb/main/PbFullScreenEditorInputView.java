@@ -28,9 +28,46 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f52369a;
+        public final /* synthetic */ PbFullScreenEditorInputView f52368a;
 
         public a(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFullScreenEditorInputView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52368a = pbFullScreenEditorInputView;
+        }
+
+        @Override // b.a.r0.r0.b.f
+        public void a(SpannableStringBuilder spannableStringBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                this.f52368a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f52368a;
+                pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements b.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFullScreenEditorInputView f52369a;
+
+        public b(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,22 +89,20 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f52369a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f52369a;
-                pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+                this.f52369a.setHint(spannableStringBuilder);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements b.f {
+    public class c implements b.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ PbFullScreenEditorInputView f52370a;
 
-        public b(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
+        public c(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,43 +124,8 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f52370a.setHint(spannableStringBuilder);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements b.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f52371a;
-
-        public c(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFullScreenEditorInputView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f52371a = pbFullScreenEditorInputView;
-        }
-
-        @Override // b.a.r0.r0.b.f
-        public void a(SpannableStringBuilder spannableStringBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f52371a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f52371a;
+                this.f52370a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f52370a;
                 pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
             }
         }

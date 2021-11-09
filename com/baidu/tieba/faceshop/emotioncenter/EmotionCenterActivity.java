@@ -57,7 +57,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f48011a;
+        public final /* synthetic */ EmotionCenterActivity f48010a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionCenterActivity emotionCenterActivity, int i2) {
@@ -77,7 +77,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48011a = emotionCenterActivity;
+            this.f48010a = emotionCenterActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,11 +86,11 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (TextUtils.isEmpty(str) || str.equals(this.f48011a.mSingleForumTabUrl)) {
+                if (TextUtils.isEmpty(str) || str.equals(this.f48010a.mSingleForumTabUrl)) {
                     return;
                 }
-                this.f48011a.mSingleForumTabUrl = str;
-                this.f48011a.updataTab();
+                this.f48010a.mSingleForumTabUrl = str;
+                this.f48010a.updataTab();
             }
         }
     }
@@ -101,7 +101,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f48012a;
+        public final /* synthetic */ EmotionCenterActivity f48011a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EmotionCenterActivity emotionCenterActivity, FragmentManager fragmentManager) {
@@ -121,7 +121,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48012a = emotionCenterActivity;
+            this.f48011a = emotionCenterActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -129,10 +129,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f48012a.fragments)) {
+                if (ListUtils.isEmpty(this.f48011a.fragments)) {
                     return 0;
                 }
-                return this.f48012a.fragments.size();
+                return this.f48011a.fragments.size();
             }
             return invokeV.intValue;
         }
@@ -142,10 +142,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f48012a.fragments) || this.f48012a.fragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.f48011a.fragments) || this.f48011a.fragments.size() <= i2) {
                     return null;
                 }
-                return (Fragment) this.f48012a.fragments.get(i2);
+                return (Fragment) this.f48011a.fragments.get(i2);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -154,7 +154,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f48012a.mTitles) ? "" : (CharSequence) this.f48012a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f48011a.mTitles) ? "" : (CharSequence) this.f48011a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 

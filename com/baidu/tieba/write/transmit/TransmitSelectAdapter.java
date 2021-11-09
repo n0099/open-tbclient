@@ -80,7 +80,7 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f55848e;
+        public final /* synthetic */ TransmitSelectAdapter f55847e;
 
         public a(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f55848e = transmitSelectAdapter;
+            this.f55847e = transmitSelectAdapter;
         }
 
         @Override // b.a.e.l.e.w
@@ -105,17 +105,17 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 if (!j.z()) {
-                    l.L(this.f55848e.f2419e, R.string.neterror);
+                    l.L(this.f55847e.f2419e, R.string.neterror);
                 }
                 TiebaStatic.log(new StatisticItem("c12053"));
-                if (!ListUtils.isEmpty(this.f55848e.n)) {
-                    this.f55848e.s0();
+                if (!ListUtils.isEmpty(this.f55847e.n)) {
+                    this.f55847e.s0();
                     return;
                 }
-                TransmitSelectAdapter transmitSelectAdapter = this.f55848e;
+                TransmitSelectAdapter transmitSelectAdapter = this.f55847e;
                 transmitSelectAdapter.m = new b.a.r0.s1.a(transmitSelectAdapter.f2423i);
-                this.f55848e.m.g(this.f55848e.q);
-                this.f55848e.m.f();
+                this.f55847e.m.g(this.f55847e.q);
+                this.f55847e.m.f();
             }
         }
     }
@@ -126,7 +126,7 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f55849a;
+        public final /* synthetic */ TransmitSelectAdapter f55848a;
 
         public b(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f55849a = transmitSelectAdapter;
+            this.f55848a = transmitSelectAdapter;
         }
 
         @Override // b.a.r0.s1.a.b
@@ -155,13 +155,13 @@ public class TransmitSelectAdapter extends b.a.e.l.e.a<c, TransmitSelectViewHold
                     int size = list.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         ForumInfo forumInfo = list.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f55849a.r0(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f55848a.r0(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                     }
-                    if (this.f55849a.n == null) {
-                        this.f55849a.n = arrayList;
-                        this.f55849a.s0();
+                    if (this.f55848a.n == null) {
+                        this.f55848a.n = arrayList;
+                        this.f55848a.s0();
                     }
                 }
             }

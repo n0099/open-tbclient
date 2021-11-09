@@ -39,7 +39,7 @@ public final class hk {
     public static final hk Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hk f71101a;
+    public static final hk f71100a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hk[] f497a;
@@ -97,7 +97,7 @@ public final class hk {
     public static final hk az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hk f71102b;
+    public static final hk f71101b;
     public static final hk ba;
     public static final hk bb;
     public static final hk bc;
@@ -115,25 +115,25 @@ public final class hk {
     public static final hk bo;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hk f71103c;
+    public static final hk f71102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hk f71104d;
+    public static final hk f71103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hk f71105e;
+    public static final hk f71104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hk f71106f;
+    public static final hk f71105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hk f71107g;
+    public static final hk f71106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hk f71108h;
+    public static final hk f71107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hk f71109i;
+    public static final hk f71108i;
     public static final hk j;
     public static final hk k;
     public static final hk l;
@@ -169,15 +169,15 @@ public final class hk {
                 return;
             }
         }
-        f71101a = new hk("UploadSwitch", 0, 1);
-        f71102b = new hk("UploadFrequency", 1, 2);
-        f71103c = new hk("ScreenSizeCollectionSwitch", 2, 3);
-        f71104d = new hk("MacCollectionSwitch", 3, 4);
-        f71105e = new hk("IMSICollectionSwitch", 4, 5);
-        f71106f = new hk("AndroidVnCollectionSwitch", 5, 6);
-        f71107g = new hk("AndroidVcCollectionSwitch", 6, 7);
-        f71108h = new hk("AndroidIdCollectionSwitch", 7, 8);
-        f71109i = new hk("DeviceInfoCollectionFrequency", 8, 9);
+        f71100a = new hk("UploadSwitch", 0, 1);
+        f71101b = new hk("UploadFrequency", 1, 2);
+        f71102c = new hk("ScreenSizeCollectionSwitch", 2, 3);
+        f71103d = new hk("MacCollectionSwitch", 3, 4);
+        f71104e = new hk("IMSICollectionSwitch", 4, 5);
+        f71105f = new hk("AndroidVnCollectionSwitch", 5, 6);
+        f71106g = new hk("AndroidVcCollectionSwitch", 6, 7);
+        f71107h = new hk("AndroidIdCollectionSwitch", 7, 8);
+        f71108i = new hk("DeviceInfoCollectionFrequency", 8, 9);
         j = new hk("AppInstallListCollectionSwitch", 9, 10);
         k = new hk("AppInstallListCollectionFrequency", 10, 11);
         l = new hk("AppActiveListCollectionSwitch", 11, 12);
@@ -289,7 +289,7 @@ public final class hk {
         bn = new hk("CollectionPluginMd5", 117, 1003);
         hk hkVar = new hk("CollectionPluginForceStop", 118, 1004);
         bo = hkVar;
-        f497a = new hk[]{f71101a, f71102b, f71103c, f71104d, f71105e, f71106f, f71107g, f71108h, f71109i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
+        f497a = new hk[]{f71100a, f71101b, f71102c, f71103d, f71104e, f71105f, f71106g, f71107h, f71108i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
     }
 
     public hk(String str, int i2, int i3) {

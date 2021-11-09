@@ -74,19 +74,19 @@ public class FrsActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f48183a = true;
+    public static boolean f48182a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f48184b = true;
+    public static boolean f48183b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f48185c = "";
+    public static String f48184c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CustomMessageListener f48186d;
+    public static final CustomMessageListener f48185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f48187e;
+    public static final CustomMessageListener f48186e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -436,12 +436,12 @@ public class FrsActivityStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue != 1 && intValue != 4 && intValue != 3 && intValue != 2) {
-                    FrsActivityStatic.f48184b = false;
-                    FrsActivityStatic.f48183a = false;
+                    FrsActivityStatic.f48183b = false;
+                    FrsActivityStatic.f48182a = false;
                     return;
                 }
-                FrsActivityStatic.f48184b = true;
-                FrsActivityStatic.f48183a = true;
+                FrsActivityStatic.f48183b = true;
+                FrsActivityStatic.f48182a = true;
             }
         }
     }
@@ -480,8 +480,8 @@ public class FrsActivityStatic {
             }
             int e2 = b.a.e.e.m.b.e(customResponsedMessage.getData().toString(), 1);
             if (e2 == 1 || e2 == 0) {
-                FrsActivityStatic.f48184b = false;
-                FrsActivityStatic.f48183a = false;
+                FrsActivityStatic.f48183b = false;
+                FrsActivityStatic.f48182a = false;
             }
         }
     }
@@ -644,8 +644,8 @@ public class FrsActivityStatic {
                 return;
             }
         }
-        f48186d = new g(2012111);
-        f48187e = new h(2012112);
+        f48185d = new g(2012111);
+        f48186e = new h(2012112);
         TbadkCoreApplication.getInst().RegisterIntent(FrsActivityConfig.class, FrsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ForumRuleEditActivityConfig.class, ForumRulesEditActivity.class);
         a();
@@ -659,8 +659,8 @@ public class FrsActivityStatic {
         i();
         f();
         o();
-        MessageManager.getInstance().registerListener(f48186d);
-        MessageManager.getInstance().registerListener(f48187e);
+        MessageManager.getInstance().registerListener(f48185d);
+        MessageManager.getInstance().registerListener(f48186e);
         h();
         m();
         n();

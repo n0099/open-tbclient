@@ -59,10 +59,10 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f55337a;
+        public final /* synthetic */ boolean f55336a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f55338b;
+        public final /* synthetic */ NewFollowButton f55337b;
 
         public a(NewFollowButton newFollowButton, boolean z) {
             Interceptable interceptable = $ic;
@@ -79,15 +79,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f55338b = newFollowButton;
-            this.f55337a = z;
+            this.f55337b = newFollowButton;
+            this.f55336a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f55338b.updateLikeStatus(this.f55337a);
+                this.f55337b.updateLikeStatus(this.f55336a);
             }
         }
 
@@ -112,7 +112,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f55339a;
+        public final /* synthetic */ NewFollowButton f55338a;
 
         public b(NewFollowButton newFollowButton) {
             Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f55339a = newFollowButton;
+            this.f55338a = newFollowButton;
         }
 
         @Override // b.a.r0.l3.h0.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                if (this.f55339a.x != null) {
-                    this.f55339a.x.a(str, j);
+                if (this.f55338a.x != null) {
+                    this.f55338a.x.a(str, j);
                 }
-                this.f55339a.L = false;
+                this.f55338a.L = false;
             }
         }
 
@@ -147,12 +147,12 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                NewFollowButton newFollowButton = this.f55339a;
+                NewFollowButton newFollowButton = this.f55338a;
                 newFollowButton.u(false, newFollowButton.D);
-                if (this.f55339a.x != null) {
-                    this.f55339a.x.b(str, j);
+                if (this.f55338a.x != null) {
+                    this.f55338a.x.b(str, j);
                 }
-                this.f55339a.L = false;
+                this.f55338a.L = false;
             }
         }
 
@@ -160,21 +160,21 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                if (this.f55339a.I.getErrorCode() == 22) {
-                    l.M(this.f55339a.t.getPageActivity(), this.f55339a.t.getString(R.string.had_liked_forum));
-                    this.f55339a.L = false;
+                if (this.f55338a.I.getErrorCode() == 22) {
+                    l.M(this.f55338a.t.getPageActivity(), this.f55338a.t.getString(R.string.had_liked_forum));
+                    this.f55338a.L = false;
                 } else if (obj == null) {
-                    this.f55339a.L = false;
-                } else if (this.f55339a.I.getErrorCode() != 0) {
-                    l.M(this.f55339a.t.getPageActivity(), this.f55339a.I.getErrorString());
-                    this.f55339a.L = false;
+                    this.f55338a.L = false;
+                } else if (this.f55338a.I.getErrorCode() != 0) {
+                    l.M(this.f55338a.t.getPageActivity(), this.f55338a.I.getErrorString());
+                    this.f55338a.L = false;
                 } else {
-                    NewFollowButton newFollowButton = this.f55339a;
+                    NewFollowButton newFollowButton = this.f55338a;
                     newFollowButton.u(true, newFollowButton.D);
-                    if (this.f55339a.w != null) {
-                        this.f55339a.w.c(obj);
+                    if (this.f55338a.w != null) {
+                        this.f55338a.w.c(obj);
                     }
-                    this.f55339a.L = false;
+                    this.f55338a.L = false;
                 }
             }
         }

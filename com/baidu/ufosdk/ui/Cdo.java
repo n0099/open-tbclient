@@ -13,7 +13,7 @@ public final class Cdo implements AbsListView.RecyclerListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f56931a;
+    public final /* synthetic */ FeedbackListActivity f56930a;
 
     public Cdo(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class Cdo implements AbsListView.RecyclerListener {
                 return;
             }
         }
-        this.f56931a = feedbackListActivity;
+        this.f56930a = feedbackListActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

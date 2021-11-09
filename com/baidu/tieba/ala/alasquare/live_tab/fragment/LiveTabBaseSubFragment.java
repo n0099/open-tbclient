@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f46895e;
+    public h f46894e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -41,7 +41,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabBaseSubFragment f46896a;
+        public final /* synthetic */ LiveTabBaseSubFragment f46895a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LiveTabBaseSubFragment liveTabBaseSubFragment, int i2) {
@@ -61,7 +61,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f46896a = liveTabBaseSubFragment;
+            this.f46895a = liveTabBaseSubFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.f46896a.isHideTopHeader = false;
+                this.f46895a.isHideTopHeader = false;
             }
         }
     }
@@ -124,7 +124,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f46895e;
+            h hVar = this.f46894e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -145,18 +145,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f46895e == null) {
-                this.f46895e = new h(this.mContext, null);
+            if (this.f46894e == null) {
+                this.f46894e = new h(this.mContext, null);
             }
-            this.f46895e.e();
-            this.f46895e.i(R.drawable.new_pic_emotion_03);
-            this.f46895e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f46895e.onChangeSkinType();
+            this.f46894e.e();
+            this.f46894e.i(R.drawable.new_pic_emotion_03);
+            this.f46894e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f46894e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f46895e.b() == null || this.f46895e.b().getParent() != null) {
+            if (this.f46894e.b() == null || this.f46894e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f46895e.b(), layoutParams);
+            this.mTopContainer.addView(this.f46894e.b(), layoutParams);
         }
     }
 }

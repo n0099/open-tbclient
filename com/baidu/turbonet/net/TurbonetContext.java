@@ -15,16 +15,16 @@ public final class TurbonetContext {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TurbonetEngine f56577a;
+    public TurbonetEngine f56576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f56578b;
+    public Context f56577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56579c;
+    public String f56578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56580d;
+    public String f56579d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
@@ -41,20 +41,20 @@ public final class TurbonetContext {
                 return;
             }
         }
-        this.f56578b = context;
-        this.f56579c = str;
-        this.f56580d = str2;
+        this.f56577b = context;
+        this.f56578c = str;
+        this.f56579d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, turbonetConfig) == null) {
-            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f56578b);
+            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f56577b);
             if (turbonetConfig == null) {
-                builder.q(this.f56579c);
-                builder.p(this.f56580d);
-                this.f56577a = builder.b();
+                builder.q(this.f56578c);
+                builder.p(this.f56579d);
+                this.f56576a = builder.b();
                 return;
             }
             if (turbonetConfig.h()) {
@@ -67,22 +67,22 @@ public final class TurbonetContext {
             } catch (JSONException e2) {
                 String str = "JSON expcetion: " + e2;
             }
-            builder.q(this.f56579c);
-            builder.p(this.f56580d);
+            builder.q(this.f56578c);
+            builder.p(this.f56579d);
             builder.a(turbonetConfig.g().toString());
-            this.f56577a = builder.b();
+            this.f56576a = builder.b();
         }
     }
 
     public TurbonetEngine b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56577a : (TurbonetEngine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56576a : (TurbonetEngine) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56577a.d() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56576a.d() : invokeV.longValue;
     }
 }

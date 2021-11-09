@@ -77,7 +77,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f51031a;
+        public final /* synthetic */ LegoListActivity f51030a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LegoListActivity legoListActivity, int i2) {
@@ -97,7 +97,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f51031a = legoListActivity;
+            this.f51030a = legoListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,8 +115,8 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f51031a.showFloatButton(jSONObject);
-                this.f51031a.showBottomCard(jSONObject);
+                this.f51030a.showFloatButton(jSONObject);
+                this.f51030a.showBottomCard(jSONObject);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -129,10 +129,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51032e;
+        public final /* synthetic */ String f51031e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f51033f;
+        public final /* synthetic */ LegoListActivity f51032f;
 
         public b(LegoListActivity legoListActivity, String str) {
             Interceptable interceptable = $ic;
@@ -149,17 +149,17 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f51033f = legoListActivity;
-            this.f51032e = str;
+            this.f51032f = legoListActivity;
+            this.f51031e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f51032e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f51031e)) {
                 return;
             }
-            w.c(this.f51033f.getPageContext(), this.f51032e);
+            w.c(this.f51032f.getPageContext(), this.f51031e);
         }
     }
 
@@ -169,7 +169,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f51034e;
+        public final /* synthetic */ LegoListActivity f51033e;
 
         public c(LegoListActivity legoListActivity) {
             Interceptable interceptable = $ic;
@@ -186,14 +186,14 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f51034e = legoListActivity;
+            this.f51033e = legoListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                LegoListActivity legoListActivity = this.f51034e;
+                LegoListActivity legoListActivity = this.f51033e;
                 if (view == legoListActivity.navigationBarViewHolder.f22587e) {
                     legoListActivity.finish();
                 }

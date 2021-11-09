@@ -20,7 +20,7 @@ public final class av extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f56817a;
+    public final /* synthetic */ FeedbackFacePageActivity f56816a;
 
     public av(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class av extends WebViewClient {
                 return;
             }
         }
-        this.f56817a = feedbackFacePageActivity;
+        this.f56816a = feedbackFacePageActivity;
     }
 
     public /* synthetic */ av(FeedbackFacePageActivity feedbackFacePageActivity, byte b2) {
@@ -50,7 +50,7 @@ public final class av extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
             StringBuilder sb = new StringBuilder("UfoWebViewClient --> onLoadResource : ");
-            webView2 = this.f56817a.o;
+            webView2 = this.f56816a.o;
             sb.append(webView2.getProgress());
             com.baidu.ufosdk.f.c.c(sb.toString());
             super.onLoadResource(webView, str);
@@ -66,13 +66,13 @@ public final class av extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            view = this.f56817a.n;
+            view = this.f56816a.n;
             view.setVisibility(8);
-            timer = this.f56817a.p;
+            timer = this.f56816a.p;
             if (timer != null) {
-                timer2 = this.f56817a.p;
+                timer2 = this.f56816a.p;
                 timer2.cancel();
-                timer3 = this.f56817a.p;
+                timer3 = this.f56816a.p;
                 timer3.purge();
             }
         }
@@ -86,11 +86,11 @@ public final class av extends WebViewClient {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             com.baidu.ufosdk.f.c.c("UfoWebViewClient --> onPageStarted");
             super.onPageStarted(webView, str, bitmap);
-            view = this.f56817a.n;
+            view = this.f56816a.n;
             view.setVisibility(0);
-            this.f56817a.p = new Timer();
+            this.f56816a.p = new Timer();
             aw awVar = new aw(this);
-            timer = this.f56817a.p;
+            timer = this.f56816a.p;
             timer.schedule(awVar, 20000L);
         }
     }
@@ -105,14 +105,14 @@ public final class av extends WebViewClient {
         if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
             com.baidu.ufosdk.f.c.c("onReceivedError --> errorCode:" + i2 + ",description:" + str + ",failingUrl:" + str2);
             super.onReceivedError(webView, i2, str, str2);
-            Context applicationContext = this.f56817a.getApplicationContext();
-            textView = this.f56817a.q;
+            Context applicationContext = this.f56816a.getApplicationContext();
+            textView = this.f56816a.q;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout = this.f56817a.f56745g;
+            linearLayout = this.f56816a.f56744g;
             linearLayout.setVisibility(0);
-            webView2 = this.f56817a.o;
+            webView2 = this.f56816a.o;
             webView2.setVisibility(8);
-            view = this.f56817a.n;
+            view = this.f56816a.n;
             view.setVisibility(8);
         }
     }

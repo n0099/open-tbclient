@@ -27,23 +27,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f69745c;
+    public static volatile b f69744c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f69746e;
+    public static final Object f69745e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f69747a;
+    public final long f69746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Long> f69748b;
+    public final Map<Integer, Long> f69747b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<String> f69749d;
+    public final Set<String> f69748d;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<a> f69750f;
+    public final SparseArray<a> f69749f;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class b {
                 return;
             }
         }
-        f69746e = new Object();
+        f69745e = new Object();
     }
 
     public b() {
@@ -74,24 +74,24 @@ public class b {
                 return;
             }
         }
-        this.f69747a = 1000L;
-        this.f69748b = new HashMap();
-        this.f69749d = new HashSet();
-        this.f69750f = new SparseArray<>();
+        this.f69746a = 1000L;
+        this.f69747b = new HashMap();
+        this.f69748d = new HashSet();
+        this.f69749f = new SparseArray<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69745c == null) {
+            if (f69744c == null) {
                 synchronized (b.class) {
-                    if (f69745c == null) {
-                        f69745c = new b();
+                    if (f69744c == null) {
+                        f69744c = new b();
                     }
                 }
             }
-            return f69745c;
+            return f69744c;
         }
         return (b) invokeV.objValue;
     }
@@ -123,10 +123,10 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f69750f) {
-                aVar = this.f69750f.get(i2);
+            synchronized (this.f69749f) {
+                aVar = this.f69749f.get(i2);
                 if (aVar != null) {
-                    this.f69750f.remove(i2);
+                    this.f69749f.remove(i2);
                     com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i2);
                 }
             }
@@ -143,8 +143,8 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f69750f) {
-                aVar = this.f69750f.get(i2);
+            synchronized (this.f69749f) {
+                aVar = this.f69749f.get(i2);
             }
             return aVar;
         }
@@ -182,8 +182,8 @@ public class b {
         SparseArray<a> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.f69750f) {
-                sparseArray = this.f69750f;
+            synchronized (this.f69749f) {
+                sparseArray = this.f69749f;
             }
             return sparseArray;
         }
@@ -220,13 +220,13 @@ public class b {
             return;
         }
         if (i3 == 4) {
-            synchronized (this.f69748b) {
-                Long l = this.f69748b.get(Integer.valueOf(i2));
+            synchronized (this.f69747b) {
+                Long l = this.f69747b.get(Integer.valueOf(i2));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
                     return;
                 }
-                this.f69748b.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
+                this.f69747b.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
             }
         }
         try {
@@ -246,8 +246,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        synchronized (this.f69750f) {
-            this.f69750f.put(aVar.a(), aVar);
+        synchronized (this.f69749f) {
+            this.f69749f.put(aVar.a(), aVar);
         }
     }
 }

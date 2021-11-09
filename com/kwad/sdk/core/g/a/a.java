@@ -16,13 +16,13 @@ public class a implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64576a;
+    public int f64575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64577b;
+    public String f64576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64578c;
+    public String f64577c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class a implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.f64576a);
-            q.a(jSONObject, "ssid", this.f64577b);
-            q.a(jSONObject, "bssid", this.f64578c);
+            q.a(jSONObject, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.f64575a);
+            q.a(jSONObject, "ssid", this.f64576b);
+            q.a(jSONObject, "bssid", this.f64577c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

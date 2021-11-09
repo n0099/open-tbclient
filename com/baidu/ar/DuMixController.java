@@ -147,26 +147,26 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                             return;
                         }
                         return;
-                    case SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY /* 3007 */:
+                    case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY /* 3007 */:
                         this.aX.W = (DuMixOutput) message.obj;
                         if (this.aX.f36441g != null) {
                             this.aX.f36441g.changeOutput(this.aX.W);
                             return;
                         }
                         return;
-                    case SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY /* 3008 */:
+                    case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY /* 3008 */:
                         if (this.aX.f36441g != null) {
                             this.aX.f36441g.pauseScene();
                             return;
                         }
                         return;
-                    case SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY /* 3009 */:
+                    case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY /* 3009 */:
                         if (this.aX.f36441g != null) {
                             this.aX.f36441g.resumeScene();
                             return;
                         }
                         return;
-                    case SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY /* 3010 */:
+                    case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_END_STAMP_KEY /* 3010 */:
                         if (this.aX.f36441g != null) {
                             this.aX.f36441g.a(message.obj, message.arg1, message.arg2);
                             return;
@@ -891,7 +891,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             com.baidu.ar.h.b.c("DuMixController", "changeInputSize width * height = " + i2 + " * " + i3);
             Handler handler = this.aO;
             if (handler != null) {
-                handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY, i2, i3, null));
+                handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_END_STAMP_KEY, i2, i3, null));
             }
         }
     }
@@ -903,7 +903,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             com.baidu.ar.h.b.c("DuMixController", "changeInputSize width * height = " + i2 + " * " + i3 + " && texture = " + surfaceTexture);
             Handler handler = this.aO;
             if (handler != null) {
-                handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY, i2, i3, surfaceTexture));
+                handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_END_STAMP_KEY, i2, i3, surfaceTexture));
             }
         }
     }
@@ -915,7 +915,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (!(interceptable == null || interceptable.invokeL(1048586, this, duMixOutput) == null) || duMixOutput == null || (handler = this.aO) == null) {
             return;
         }
-        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY, duMixOutput));
+        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY, duMixOutput));
     }
 
     @Override // com.baidu.ar.IDuMix
@@ -1178,7 +1178,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (handler = this.aO) == null) {
             return;
         }
-        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY));
+        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY));
     }
 
     @Override // com.baidu.ar.IDuMix
@@ -1289,7 +1289,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || (handler = this.aO) == null) {
             return;
         }
-        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY));
+        handler.sendMessage(handler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY));
     }
 
     public boolean sendLuaScript2Engine(String str) {

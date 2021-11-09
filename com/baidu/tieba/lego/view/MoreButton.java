@@ -23,13 +23,13 @@ public class MoreButton extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51272e;
+        public final /* synthetic */ TbPageContext f51271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f51273f;
+        public final /* synthetic */ c f51272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MoreButton f51274g;
+        public final /* synthetic */ MoreButton f51273g;
 
         public a(MoreButton moreButton, TbPageContext tbPageContext, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class MoreButton extends TextView {
                     return;
                 }
             }
-            this.f51274g = moreButton;
-            this.f51272e = tbPageContext;
-            this.f51273f = cVar;
+            this.f51273g = moreButton;
+            this.f51271e = tbPageContext;
+            this.f51272f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                w.c(this.f51272e, this.f51273f.d());
+                w.c(this.f51271e, this.f51272f.d());
             }
         }
     }

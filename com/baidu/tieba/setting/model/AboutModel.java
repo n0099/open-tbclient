@@ -32,13 +32,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53804e;
+    public b f53803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f53805f;
+    public Context f53804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f53806g;
+    public final boolean f53805g;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -64,19 +64,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 return;
             }
         }
-        this.f53805f = baseActivity.getPageContext().getPageActivity();
+        this.f53804f = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = eVar;
-        this.f53806g = false;
+        this.f53805g = false;
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f53804e == null) {
-                this.f53804e = new b(this, null);
+            if (this.f53803e == null) {
+                this.f53803e = new b(this, null);
             }
-            this.f53804e.setPriority(3);
-            this.f53804e.execute(new String[0]);
+            this.f53803e.setPriority(3);
+            this.f53803e.execute(new String[0]);
         }
     }
 
@@ -85,7 +85,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f53804e;
+            b bVar = this.f53803e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -111,10 +111,10 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53807a;
+        public NetWork f53806a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AboutModel f53808b;
+        public final /* synthetic */ AboutModel f53807b;
 
         public b(AboutModel aboutModel) {
             Interceptable interceptable = $ic;
@@ -131,8 +131,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     return;
                 }
             }
-            this.f53808b = aboutModel;
-            this.f53807a = null;
+            this.f53807b = aboutModel;
+            this.f53806a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,35 +147,35 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             b.a.q0.t.e.e eVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
-                this.f53807a = netWork;
+                this.f53806a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f53807a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f53806a.addPostData("_phone_screen", stringBuffer.toString());
                 if (d.d().e() > 0) {
-                    this.f53807a.addPostData("_msg_status", "0");
+                    this.f53806a.addPostData("_msg_status", "0");
                 } else {
-                    this.f53807a.addPostData("_msg_status", "1");
+                    this.f53806a.addPostData("_msg_status", "1");
                 }
-                if (this.f53808b.f53806g) {
-                    this.f53807a.addPostData("reversion_return", "1");
+                if (this.f53807b.f53805g) {
+                    this.f53806a.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f53807a.addPostData("package", packageName);
+                this.f53806a.addPostData("package", packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f53807a;
+                NetWork netWork2 = this.f53806a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f53807a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f53807a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
-                String postNetData = this.f53807a.postNetData();
-                if (this.f53807a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f53806a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f53806a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
+                String postNetData = this.f53806a.postNetData();
+                if (this.f53806a.getNetContext().getResponse().isRequestSuccess()) {
                     b.a.q0.t.e.e eVar2 = new b.a.q0.t.e.e();
                     try {
                         eVar2.z(postNetData);
                         if (TbadkCoreApplication.getClientId() == null && eVar2.i().a() != null && eVar2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.f53808b.f53805f, eVar2.i().a());
+                            TbadkCoreApplication.saveClientId(this.f53807b.f53804f, eVar2.i().a());
                             TbadkCoreApplication.setClientId(eVar2.i().a());
                         }
                         o0 t = eVar2.t();
@@ -210,8 +210,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 if (eVar != null && eVar.e() != null) {
                     TbadkCoreApplication.getInst().setAdAdSense(eVar.e());
                 }
-                this.f53808b.f53804e = null;
-                this.f53808b.mLoadDataCallBack.c(eVar);
+                this.f53807b.f53803e = null;
+                this.f53807b.mLoadDataCallBack.c(eVar);
             }
         }
 
@@ -219,8 +219,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f53808b.f53804e = null;
-                NetWork netWork = this.f53807a;
+                this.f53807b.f53803e = null;
+                NetWork netWork = this.f53806a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }

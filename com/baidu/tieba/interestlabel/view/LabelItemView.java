@@ -30,16 +30,16 @@ public class LabelItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50979e;
+    public boolean f50978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50980f;
+    public int f50979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50981g;
+    public int f50980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f50982h;
+    public Paint f50981h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LabelItemView(Context context) {
@@ -74,11 +74,11 @@ public class LabelItemView extends LinearLayout {
             setWeightSum(3.0f);
             setOrientation(0);
             Paint paint = new Paint();
-            this.f50982h = paint;
+            this.f50981h = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f50982h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f50982h.setStrokeWidth(1.0f);
-            this.f50981g = l.g(getContext(), R.dimen.ds46);
+            this.f50981h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f50981h.setStrokeWidth(1.0f);
+            this.f50980g = l.g(getContext(), R.dimen.ds46);
             for (int i2 = 0; i2 < 3; i2++) {
                 addView(a());
             }
@@ -92,15 +92,15 @@ public class LabelItemView extends LinearLayout {
             super.dispatchDraw(canvas);
             int width = getWidth() / 3;
             int height = getHeight();
-            for (int i2 = 1; i2 < this.f50980f; i2++) {
+            for (int i2 = 1; i2 < this.f50979f; i2++) {
                 int i3 = width * i2;
-                int i4 = this.f50981g;
-                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f50982h);
+                int i4 = this.f50980g;
+                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f50981h);
             }
-            if (this.f50979e) {
+            if (this.f50978e) {
                 return;
             }
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f50982h);
+            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f50981h);
         }
     }
 
@@ -110,11 +110,11 @@ public class LabelItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f50979e = z;
-        this.f50980f = Math.min(list.size(), 3);
+        this.f50978e = z;
+        this.f50979f = Math.min(list.size(), 3);
         int i3 = 0;
         while (true) {
-            i2 = this.f50980f;
+            i2 = this.f50979f;
             if (i3 >= i2) {
                 break;
             }

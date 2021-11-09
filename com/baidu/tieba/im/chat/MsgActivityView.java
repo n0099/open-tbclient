@@ -39,9 +39,45 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50183e;
+        public final /* synthetic */ MsgActivityView f50182e;
 
         public a(MsgActivityView msgActivityView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgActivityView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50182e = msgActivityView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50182e.y == null) {
+                return;
+            }
+            this.f50182e.y.onItemViewClick(view, 8, this.f50182e.x, 0L);
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MsgActivityView f50183e;
+
+        public b(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,49 +95,13 @@ public class MsgActivityView extends e {
             this.f50183e = msgActivityView;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50183e.y == null) {
-                return;
-            }
-            this.f50183e.y.onItemViewClick(view, 8, this.f50183e.x, 0L);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50184e;
-
-        public b(MsgActivityView msgActivityView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgActivityView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50184e = msgActivityView;
-        }
-
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f50184e.z != null) {
-                    this.f50184e.z.onItemViewLongClick(view, 8, this.f50184e.x, 0L);
+                if (this.f50183e.z != null) {
+                    this.f50183e.z.onItemViewLongClick(view, 8, this.f50183e.x, 0L);
                     return true;
                 }
                 return true;
@@ -116,13 +116,13 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50185e;
+        public final /* synthetic */ String f50184e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f50186f;
+        public final /* synthetic */ String f50185f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50187g;
+        public final /* synthetic */ MsgActivityView f50186g;
 
         public c(MsgActivityView msgActivityView, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f50187g = msgActivityView;
-            this.f50185e = str;
-            this.f50186f = str2;
+            this.f50186g = msgActivityView;
+            this.f50184e = str;
+            this.f50185f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f50187g.getPageContext().getPageActivity(), this.f50185e, this.f50186f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f50186g.getPageContext().getPageActivity(), this.f50184e, this.f50185f)));
             }
         }
     }

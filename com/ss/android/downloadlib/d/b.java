@@ -19,7 +19,7 @@ public class b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f68767a;
+    public static final String[] f68766a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b extends SQLiteOpenHelper {
                 return;
             }
         }
-        f68767a = new String[]{"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
+        f68766a = new String[]{"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

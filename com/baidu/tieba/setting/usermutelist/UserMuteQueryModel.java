@@ -23,10 +23,10 @@ public class UserMuteQueryModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53937e;
+    public b f53936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f53938f;
+    public b.a.e.c.g.a f53937f;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class UserMuteQueryModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteQueryModel f53939a;
+        public final /* synthetic */ UserMuteQueryModel f53938a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UserMuteQueryModel userMuteQueryModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53939a = userMuteQueryModel;
+            this.f53938a = userMuteQueryModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -72,7 +72,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                     if (list != null) {
                         arrayList.addAll(list);
                     }
-                    this.f53939a.f53937e.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
+                    this.f53938a.f53936e.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
                 }
                 if (responsedMessage instanceof UserMuteQueryHttpResponsedMessage) {
                     UserMuteQueryHttpResponsedMessage userMuteQueryHttpResponsedMessage = (UserMuteQueryHttpResponsedMessage) responsedMessage;
@@ -86,7 +86,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                             arrayList2.add(muteUser);
                         }
                     }
-                    this.f53939a.f53937e.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
+                    this.f53938a.f53936e.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -128,8 +128,8 @@ public class UserMuteQueryModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
-        this.f53938f = aVar;
-        this.f53937e = bVar;
+        this.f53937f = aVar;
+        this.f53936e = bVar;
         registerListener(aVar);
         b.a.r0.l3.f0.a.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
         b.a.r0.l3.f0.a.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
@@ -159,7 +159,7 @@ public class UserMuteQueryModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f53938f);
+            MessageManager.getInstance().unRegisterListener(this.f53937f);
         }
     }
 

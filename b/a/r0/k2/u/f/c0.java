@@ -140,7 +140,7 @@ public class c0 {
         int k = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
         int i2 = b.a.e.e.p.l.i(TbadkCoreApplication.getInst());
         LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-        lookMoreReqMessage.setKz(Long.valueOf(b.a.e.e.m.b.g(this.f19135a.f52416f, 0L)));
+        lookMoreReqMessage.setKz(Long.valueOf(b.a.e.e.m.b.g(this.f19135a.f52415f, 0L)));
         lookMoreReqMessage.setPost_id(list);
         lookMoreReqMessage.setSt_type(b.a.e.e.m.b.e(this.f19135a.mStType, 0));
         lookMoreReqMessage.setWith_floor(1);

@@ -21,20 +21,20 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f64197a;
+    public static SimpleDateFormat f64196a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64198b;
+    public long f64197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64199c;
+    public String f64198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64200d;
+    public String f64199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64201e;
+    public long f64200e;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
                 return;
             }
         }
-        f64197a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        f64196a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
     }
 
     public b(long j, String str, String str2) {
@@ -67,10 +67,10 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
                 return;
             }
         }
-        this.f64198b = -1L;
-        this.f64198b = j;
-        this.f64199c = str;
-        this.f64200d = str2;
+        this.f64197b = -1L;
+        this.f64197b = j;
+        this.f64198c = str;
+        this.f64199d = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,7 +83,7 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
             if (bVar == null) {
                 return 1;
             }
-            int i2 = ((this.f64201e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f64201e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
+            int i2 = ((this.f64200e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f64200e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
             if (i2 == 0) {
                 return 0;
             }
@@ -99,8 +99,8 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = new b(this.f64198b, this.f64199c, this.f64200d);
-            com.kwad.sdk.collector.model.c.a(bVar, this.f64201e);
+            b bVar = new b(this.f64197b, this.f64198c, this.f64199d);
+            com.kwad.sdk.collector.model.c.a(bVar, this.f64200e);
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -109,39 +109,39 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     public String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f64197a.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f64196a.format(new Date(j)) : (String) invokeJ.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64199c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64198c : (String) invokeV.objValue;
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f64198b = j;
+            this.f64197b = j;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64200d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64199d : (String) invokeV.objValue;
     }
 
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f64201e = j;
+            this.f64200e = j;
         }
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64201e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64200e : invokeV.longValue;
     }
 
     @Override // com.kwad.sdk.collector.model.b
@@ -162,15 +162,15 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
                 return false;
             }
             b bVar = (b) obj;
-            long j = this.f64198b;
-            if (j != bVar.f64198b) {
+            long j = this.f64197b;
+            if (j != bVar.f64197b) {
                 return false;
             }
             if (j == 0) {
                 j = 1;
             }
-            if (this.f64201e / j == bVar.f64201e / j && aa.a(this.f64199c, bVar.f64199c)) {
-                return aa.a(this.f64200d, bVar.f64200d);
+            if (this.f64200e / j == bVar.f64200e / j && aa.a(this.f64198c, bVar.f64198c)) {
+                return aa.a(this.f64199d, bVar.f64199d);
             }
             return false;
         }
@@ -181,14 +181,14 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            long j = this.f64198b;
+            long j = this.f64197b;
             if (j == 0) {
                 j = 1;
             }
-            long j2 = this.f64198b / j;
-            String str = this.f64199c;
+            long j2 = this.f64197b / j;
+            String str = this.f64198c;
             int hashCode = (str != null ? str.hashCode() : 1) * 31;
-            String str2 = this.f64200d;
+            String str2 = this.f64199d;
             return ((hashCode + (str2 != null ? str2.hashCode() : 1)) * 31) + ((int) (j2 ^ (j2 >>> 32)));
         }
         return invokeV.intValue;
@@ -207,9 +207,9 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "name", this.f64199c);
-            q.a(jSONObject, "packageName", this.f64200d);
-            q.a(jSONObject, "lastRunningTime", this.f64201e);
+            q.a(jSONObject, "name", this.f64198c);
+            q.a(jSONObject, "packageName", this.f64199d);
+            q.a(jSONObject, "lastRunningTime", this.f64200e);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

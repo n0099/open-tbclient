@@ -49,19 +49,19 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public int O;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47721e;
+    public int f47720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f> f47722f;
+    public List<f> f47721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f47723g;
+    public BdUniqueId f47722g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CellForumTestView f47724h;
+    public CellForumTestView f47723h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CellForumTestView f47725i;
+    public CellForumTestView f47724i;
     public CellForumTestView j;
     public CellForumTestView k;
     public CellForumTestView l;
@@ -86,9 +86,161 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestView f47726e;
+        public final /* synthetic */ ForumTestView f47725e;
 
         public a(ForumTestView forumTestView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumTestView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47725e = forumTestView;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                if (this.f47725e.H != 1) {
+                    if (this.f47725e.H != 2 && this.f47725e.H != 3) {
+                        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                        float abs = Math.abs(this.f47725e.A * floatValue);
+                        float abs2 = Math.abs(floatValue) * this.f47725e.B;
+                        if (Math.abs(floatValue) >= Math.abs(this.f47725e.D)) {
+                            this.f47725e.k.setAlpha(0.0f);
+                            this.f47725e.k.setVisibility(8);
+                            this.f47725e.D = 0.0f;
+                            ForumTestView forumTestView = this.f47725e;
+                            forumTestView.Q(forumTestView.l);
+                            ForumTestView forumTestView2 = this.f47725e;
+                            forumTestView2.Q(forumTestView2.k);
+                            ForumTestView forumTestView3 = this.f47725e;
+                            forumTestView3.Q(forumTestView3.m);
+                            this.f47725e.f47721f.remove(this.f47725e.k.getData());
+                            if (this.f47725e.f47723h.getIndex() == 0) {
+                                if (this.f47725e.f47723h.getDataIndex() > this.f47725e.m.getDataIndex()) {
+                                    this.f47725e.f47723h.setDataIndex(this.f47725e.f47723h.getDataIndex() - 1);
+                                    ForumTestView forumTestView4 = this.f47725e;
+                                    forumTestView4.O(forumTestView4.f47723h);
+                                }
+                            } else if (this.f47725e.f47724i.getIndex() == 0) {
+                                if (this.f47725e.f47724i.getDataIndex() > this.f47725e.m.getDataIndex()) {
+                                    this.f47725e.f47724i.setDataIndex(this.f47725e.f47724i.getDataIndex() - 1);
+                                    ForumTestView forumTestView5 = this.f47725e;
+                                    forumTestView5.O(forumTestView5.f47724i);
+                                }
+                            } else if (this.f47725e.j.getDataIndex() > this.f47725e.m.getDataIndex()) {
+                                this.f47725e.j.setDataIndex(this.f47725e.j.getDataIndex() - 1);
+                                ForumTestView forumTestView6 = this.f47725e;
+                                forumTestView6.O(forumTestView6.j);
+                            }
+                            if (this.f47725e.l.getDataIndex() > this.f47725e.m.getDataIndex()) {
+                                this.f47725e.l.setDataIndex(this.f47725e.l.getDataIndex() - 1);
+                                ForumTestView forumTestView7 = this.f47725e;
+                                forumTestView7.O(forumTestView7.l);
+                            }
+                            this.f47725e.m.setDataIndex(this.f47725e.m.getDataIndex() + 1);
+                            ForumTestView forumTestView8 = this.f47725e;
+                            forumTestView8.O(forumTestView8.m);
+                            this.f47725e.L(true);
+                            this.f47725e.G = false;
+                        } else {
+                            ForumTestView forumTestView9 = this.f47725e;
+                            forumTestView9.K(forumTestView9.l, floatValue, abs);
+                            ForumTestView forumTestView10 = this.f47725e;
+                            forumTestView10.E(forumTestView10.m, floatValue);
+                            if ((this.f47725e.p * 2) / 5 >= this.f47725e.k.getViewRight() - this.f47725e.k.getViewLeft()) {
+                                this.f47725e.k.setAlpha(0.0f);
+                                this.f47725e.k.setVisibility(8);
+                            } else {
+                                this.f47725e.k.setViewLeft(this.f47725e.k.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
+                                this.f47725e.k.setViewRight(this.f47725e.k.getMoveRight() - (Math.abs(floatValue) / 2.0f));
+                                float f2 = abs2 / 2.0f;
+                                this.f47725e.k.setViewTop(this.f47725e.k.getMoveTop() + f2);
+                                this.f47725e.k.setViewBottom(this.f47725e.k.getMoveBottom() - f2);
+                                this.f47725e.k.setAlpha(1.0f - (Math.abs(floatValue) / ((this.f47725e.p * 3) / 5)));
+                            }
+                        }
+                        this.f47725e.requestLayout();
+                        return;
+                    }
+                    float floatValue2 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    float abs3 = Math.abs(this.f47725e.A * floatValue2);
+                    float abs4 = Math.abs(floatValue2) * this.f47725e.B;
+                    if (Math.abs(floatValue2) >= Math.abs(this.f47725e.D)) {
+                        this.f47725e.k.setAlpha(0.0f);
+                        this.f47725e.k.setVisibility(8);
+                        this.f47725e.D = 0.0f;
+                        ForumTestView forumTestView11 = this.f47725e;
+                        forumTestView11.Q(forumTestView11.l);
+                        ForumTestView forumTestView12 = this.f47725e;
+                        forumTestView12.Q(forumTestView12.k);
+                        this.f47725e.f47721f.remove(this.f47725e.k.getData());
+                        this.f47725e.L(true);
+                        this.f47725e.G = false;
+                    } else {
+                        ForumTestView forumTestView13 = this.f47725e;
+                        forumTestView13.K(forumTestView13.l, floatValue2, abs3);
+                        if ((this.f47725e.p * 2) / 5 >= this.f47725e.k.getViewRight() - this.f47725e.k.getViewLeft()) {
+                            this.f47725e.k.setAlpha(0.0f);
+                            this.f47725e.k.setVisibility(8);
+                        } else {
+                            this.f47725e.k.setViewLeft(this.f47725e.k.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
+                            this.f47725e.k.setViewRight(this.f47725e.k.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
+                            float f3 = abs4 / 2.0f;
+                            this.f47725e.k.setViewTop(this.f47725e.k.getMoveTop() + f3);
+                            this.f47725e.k.setViewBottom(this.f47725e.k.getMoveBottom() - f3);
+                            this.f47725e.k.setAlpha(1.0f - (Math.abs(floatValue2) / ((this.f47725e.p * 3) / 5)));
+                        }
+                    }
+                    this.f47725e.requestLayout();
+                    return;
+                }
+                float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue() / 2.0f;
+                float f4 = this.f47725e.B * floatValue3;
+                if (Math.abs(floatValue3) >= Math.abs(this.f47725e.D / 2.0f)) {
+                    this.f47725e.k.setAlpha(0.0f);
+                    this.f47725e.k.setVisibility(8);
+                    this.f47725e.D = 0.0f;
+                    this.f47725e.f47721f.remove(this.f47725e.k.getData());
+                    this.f47725e.setVisibility(8);
+                    if (this.f47725e.L != null) {
+                        this.f47725e.L.onSelected(-1L);
+                    }
+                    this.f47725e.G = false;
+                    if (this.f47725e.L != null && ListUtils.isEmpty(this.f47725e.f47721f)) {
+                        this.f47725e.L.onListCleared();
+                    }
+                } else {
+                    this.f47725e.k.setViewLeft(this.f47725e.k.getMoveLeft() + floatValue3);
+                    this.f47725e.k.setViewRight(this.f47725e.k.getMoveRight() - floatValue3);
+                    this.f47725e.k.setViewTop(this.f47725e.k.getMoveTop() + f4);
+                    this.f47725e.k.setViewBottom(this.f47725e.k.getMoveBottom() - f4);
+                    this.f47725e.k.setAlpha(1.0f - (floatValue3 / this.f47725e.D));
+                }
+                this.f47725e.requestLayout();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ForumTestView f47726e;
+
+        public b(ForumTestView forumTestView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,202 +262,50 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (this.f47726e.H != 1) {
-                    if (this.f47726e.H != 2 && this.f47726e.H != 3) {
-                        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        float abs = Math.abs(this.f47726e.A * floatValue);
-                        float abs2 = Math.abs(floatValue) * this.f47726e.B;
-                        if (Math.abs(floatValue) >= Math.abs(this.f47726e.D)) {
-                            this.f47726e.k.setAlpha(0.0f);
-                            this.f47726e.k.setVisibility(8);
-                            this.f47726e.D = 0.0f;
-                            ForumTestView forumTestView = this.f47726e;
-                            forumTestView.Q(forumTestView.l);
-                            ForumTestView forumTestView2 = this.f47726e;
-                            forumTestView2.Q(forumTestView2.k);
-                            ForumTestView forumTestView3 = this.f47726e;
-                            forumTestView3.Q(forumTestView3.m);
-                            this.f47726e.f47722f.remove(this.f47726e.k.getData());
-                            if (this.f47726e.f47724h.getIndex() == 0) {
-                                if (this.f47726e.f47724h.getDataIndex() > this.f47726e.m.getDataIndex()) {
-                                    this.f47726e.f47724h.setDataIndex(this.f47726e.f47724h.getDataIndex() - 1);
-                                    ForumTestView forumTestView4 = this.f47726e;
-                                    forumTestView4.O(forumTestView4.f47724h);
-                                }
-                            } else if (this.f47726e.f47725i.getIndex() == 0) {
-                                if (this.f47726e.f47725i.getDataIndex() > this.f47726e.m.getDataIndex()) {
-                                    this.f47726e.f47725i.setDataIndex(this.f47726e.f47725i.getDataIndex() - 1);
-                                    ForumTestView forumTestView5 = this.f47726e;
-                                    forumTestView5.O(forumTestView5.f47725i);
-                                }
-                            } else if (this.f47726e.j.getDataIndex() > this.f47726e.m.getDataIndex()) {
-                                this.f47726e.j.setDataIndex(this.f47726e.j.getDataIndex() - 1);
-                                ForumTestView forumTestView6 = this.f47726e;
-                                forumTestView6.O(forumTestView6.j);
-                            }
-                            if (this.f47726e.l.getDataIndex() > this.f47726e.m.getDataIndex()) {
-                                this.f47726e.l.setDataIndex(this.f47726e.l.getDataIndex() - 1);
-                                ForumTestView forumTestView7 = this.f47726e;
-                                forumTestView7.O(forumTestView7.l);
-                            }
-                            this.f47726e.m.setDataIndex(this.f47726e.m.getDataIndex() + 1);
-                            ForumTestView forumTestView8 = this.f47726e;
-                            forumTestView8.O(forumTestView8.m);
-                            this.f47726e.L(true);
-                            this.f47726e.G = false;
-                        } else {
-                            ForumTestView forumTestView9 = this.f47726e;
-                            forumTestView9.K(forumTestView9.l, floatValue, abs);
-                            ForumTestView forumTestView10 = this.f47726e;
-                            forumTestView10.E(forumTestView10.m, floatValue);
-                            if ((this.f47726e.p * 2) / 5 >= this.f47726e.k.getViewRight() - this.f47726e.k.getViewLeft()) {
-                                this.f47726e.k.setAlpha(0.0f);
-                                this.f47726e.k.setVisibility(8);
-                            } else {
-                                this.f47726e.k.setViewLeft(this.f47726e.k.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
-                                this.f47726e.k.setViewRight(this.f47726e.k.getMoveRight() - (Math.abs(floatValue) / 2.0f));
-                                float f2 = abs2 / 2.0f;
-                                this.f47726e.k.setViewTop(this.f47726e.k.getMoveTop() + f2);
-                                this.f47726e.k.setViewBottom(this.f47726e.k.getMoveBottom() - f2);
-                                this.f47726e.k.setAlpha(1.0f - (Math.abs(floatValue) / ((this.f47726e.p * 3) / 5)));
-                            }
-                        }
-                        this.f47726e.requestLayout();
-                        return;
-                    }
-                    float floatValue2 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    float abs3 = Math.abs(this.f47726e.A * floatValue2);
-                    float abs4 = Math.abs(floatValue2) * this.f47726e.B;
-                    if (Math.abs(floatValue2) >= Math.abs(this.f47726e.D)) {
-                        this.f47726e.k.setAlpha(0.0f);
-                        this.f47726e.k.setVisibility(8);
-                        this.f47726e.D = 0.0f;
-                        ForumTestView forumTestView11 = this.f47726e;
-                        forumTestView11.Q(forumTestView11.l);
-                        ForumTestView forumTestView12 = this.f47726e;
-                        forumTestView12.Q(forumTestView12.k);
-                        this.f47726e.f47722f.remove(this.f47726e.k.getData());
-                        this.f47726e.L(true);
-                        this.f47726e.G = false;
-                    } else {
-                        ForumTestView forumTestView13 = this.f47726e;
-                        forumTestView13.K(forumTestView13.l, floatValue2, abs3);
-                        if ((this.f47726e.p * 2) / 5 >= this.f47726e.k.getViewRight() - this.f47726e.k.getViewLeft()) {
-                            this.f47726e.k.setAlpha(0.0f);
-                            this.f47726e.k.setVisibility(8);
-                        } else {
-                            this.f47726e.k.setViewLeft(this.f47726e.k.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
-                            this.f47726e.k.setViewRight(this.f47726e.k.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
-                            float f3 = abs4 / 2.0f;
-                            this.f47726e.k.setViewTop(this.f47726e.k.getMoveTop() + f3);
-                            this.f47726e.k.setViewBottom(this.f47726e.k.getMoveBottom() - f3);
-                            this.f47726e.k.setAlpha(1.0f - (Math.abs(floatValue2) / ((this.f47726e.p * 3) / 5)));
-                        }
-                    }
-                    this.f47726e.requestLayout();
-                    return;
-                }
-                float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue() / 2.0f;
-                float f4 = this.f47726e.B * floatValue3;
-                if (Math.abs(floatValue3) >= Math.abs(this.f47726e.D / 2.0f)) {
-                    this.f47726e.k.setAlpha(0.0f);
-                    this.f47726e.k.setVisibility(8);
-                    this.f47726e.D = 0.0f;
-                    this.f47726e.f47722f.remove(this.f47726e.k.getData());
-                    this.f47726e.setVisibility(8);
-                    if (this.f47726e.L != null) {
-                        this.f47726e.L.onSelected(-1L);
-                    }
-                    this.f47726e.G = false;
-                    if (this.f47726e.L != null && ListUtils.isEmpty(this.f47726e.f47722f)) {
-                        this.f47726e.L.onListCleared();
-                    }
-                } else {
-                    this.f47726e.k.setViewLeft(this.f47726e.k.getMoveLeft() + floatValue3);
-                    this.f47726e.k.setViewRight(this.f47726e.k.getMoveRight() - floatValue3);
-                    this.f47726e.k.setViewTop(this.f47726e.k.getMoveTop() + f4);
-                    this.f47726e.k.setViewBottom(this.f47726e.k.getMoveBottom() - f4);
-                    this.f47726e.k.setAlpha(1.0f - (floatValue3 / this.f47726e.D));
-                }
-                this.f47726e.requestLayout();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestView f47727e;
-
-        public b(ForumTestView forumTestView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumTestView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47727e = forumTestView;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (Math.abs(floatValue) >= Math.abs(this.f47727e.D)) {
-                    boolean z = Math.abs(this.f47727e.D) >= ((float) this.f47727e.p) * 0.2f;
-                    if (this.f47727e.M) {
-                        if (this.f47727e.D > 0.0f) {
-                            this.f47727e.T();
+                if (Math.abs(floatValue) >= Math.abs(this.f47726e.D)) {
+                    boolean z = Math.abs(this.f47726e.D) >= ((float) this.f47726e.p) * 0.2f;
+                    if (this.f47726e.M) {
+                        if (this.f47726e.D > 0.0f) {
+                            this.f47726e.T();
                         } else {
-                            this.f47727e.U();
+                            this.f47726e.U();
                         }
-                        this.f47727e.M = false;
+                        this.f47726e.M = false;
                     }
-                    this.f47727e.N = 0.0f;
-                    this.f47727e.D = 0.0f;
-                    ForumTestView forumTestView = this.f47727e;
-                    forumTestView.Q(forumTestView.f47724h);
-                    ForumTestView forumTestView2 = this.f47727e;
-                    forumTestView2.Q(forumTestView2.f47725i);
-                    ForumTestView forumTestView3 = this.f47727e;
+                    this.f47726e.N = 0.0f;
+                    this.f47726e.D = 0.0f;
+                    ForumTestView forumTestView = this.f47726e;
+                    forumTestView.Q(forumTestView.f47723h);
+                    ForumTestView forumTestView2 = this.f47726e;
+                    forumTestView2.Q(forumTestView2.f47724i);
+                    ForumTestView forumTestView3 = this.f47726e;
                     forumTestView3.Q(forumTestView3.j);
-                    this.f47727e.requestLayout();
-                    this.f47727e.L(z);
+                    this.f47726e.requestLayout();
+                    this.f47726e.L(z);
                 } else {
-                    if (this.f47727e.M) {
-                        if (this.f47727e.D > 0.0f) {
-                            if (this.f47727e.G(2) != null && this.f47727e.G(2).getViewLeft() >= l.k(this.f47727e.getContext())) {
-                                this.f47727e.T();
-                                this.f47727e.M = false;
+                    if (this.f47726e.M) {
+                        if (this.f47726e.D > 0.0f) {
+                            if (this.f47726e.G(2) != null && this.f47726e.G(2).getViewLeft() >= l.k(this.f47726e.getContext())) {
+                                this.f47726e.T();
+                                this.f47726e.M = false;
                             }
-                        } else if (this.f47727e.G(0) != null && this.f47727e.G(0).getViewRight() <= 0.0f) {
-                            this.f47727e.U();
-                            this.f47727e.M = false;
+                        } else if (this.f47726e.G(0) != null && this.f47726e.G(0).getViewRight() <= 0.0f) {
+                            this.f47726e.U();
+                            this.f47726e.M = false;
                         }
                     }
-                    float f2 = this.f47727e.N - floatValue;
-                    float f3 = this.f47727e.A * f2;
-                    ForumTestView forumTestView4 = this.f47727e;
-                    forumTestView4.S(forumTestView4.f47724h, f2, f3);
-                    ForumTestView forumTestView5 = this.f47727e;
-                    forumTestView5.S(forumTestView5.f47725i, f2, f3);
-                    ForumTestView forumTestView6 = this.f47727e;
+                    float f2 = this.f47726e.N - floatValue;
+                    float f3 = this.f47726e.A * f2;
+                    ForumTestView forumTestView4 = this.f47726e;
+                    forumTestView4.S(forumTestView4.f47723h, f2, f3);
+                    ForumTestView forumTestView5 = this.f47726e;
+                    forumTestView5.S(forumTestView5.f47724i, f2, f3);
+                    ForumTestView forumTestView6 = this.f47726e;
                     forumTestView6.S(forumTestView6.j, f2, f3);
-                    this.f47727e.requestLayout();
+                    this.f47726e.requestLayout();
                 }
-                this.f47727e.N = floatValue;
+                this.f47726e.N = floatValue;
             }
         }
     }
@@ -335,7 +335,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 return;
             }
         }
-        this.f47721e = 3;
+        this.f47720e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;
@@ -405,7 +405,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int size = this.f47722f.size();
+            int size = this.f47721f.size();
             int i3 = i2 % size;
             return i3 < 0 ? size - Math.abs(i3) : i3;
         }
@@ -416,11 +416,11 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (this.f47724h.getIndex() == i2) {
-                return this.f47724h;
+            if (this.f47723h.getIndex() == i2) {
+                return this.f47723h;
             }
-            if (this.f47725i.getIndex() == i2) {
-                return this.f47725i;
+            if (this.f47724i.getIndex() == i2) {
+                return this.f47724i;
             }
             if (this.j.getIndex() == i2) {
                 return this.j;
@@ -434,16 +434,16 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_test_layout, (ViewGroup) this, true);
-            this.f47724h = (CellForumTestView) findViewById(R.id.forum_test_view_one);
-            this.f47725i = (CellForumTestView) findViewById(R.id.forum_test_view_two);
+            this.f47723h = (CellForumTestView) findViewById(R.id.forum_test_view_one);
+            this.f47724i = (CellForumTestView) findViewById(R.id.forum_test_view_two);
             this.j = (CellForumTestView) findViewById(R.id.forum_test_view_three);
             this.k = (CellForumTestView) findViewById(R.id.forum_test_view_del);
             D(context);
             N();
             ViewConfiguration.get(context);
             this.J = ViewConfiguration.getMaximumFlingVelocity();
-            this.f47724h.setForumTestDelClickListener(this);
-            this.f47725i.setForumTestDelClickListener(this);
+            this.f47723h.setForumTestDelClickListener(this);
+            this.f47724i.setForumTestDelClickListener(this);
             this.j.setForumTestDelClickListener(this);
             onChangeSkinType();
         }
@@ -486,12 +486,12 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
             return;
         }
         int i2 = -1;
-        if (this.f47724h.getIndex() == 1 && this.f47724h.getData() != null) {
-            this.L.onSelected(this.f47724h.getData().f21747a);
-            i2 = this.f47724h.getDataIndex();
-        } else if (this.f47725i.getIndex() == 1 && this.f47725i.getData() != null) {
-            this.L.onSelected(this.f47725i.getData().f21747a);
-            i2 = this.f47725i.getDataIndex();
+        if (this.f47723h.getIndex() == 1 && this.f47723h.getData() != null) {
+            this.L.onSelected(this.f47723h.getData().f21747a);
+            i2 = this.f47723h.getDataIndex();
+        } else if (this.f47724i.getIndex() == 1 && this.f47724i.getData() != null) {
+            this.L.onSelected(this.f47724i.getData().f21747a);
+            i2 = this.f47724i.getDataIndex();
         } else if (this.j.getIndex() == 1 && this.j.getData() != null) {
             this.L.onSelected(this.j.getData().f21747a);
             i2 = this.j.getDataIndex();
@@ -517,12 +517,12 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f47724h.setIndex(0);
-            this.f47725i.setIndex(1);
+            this.f47723h.setIndex(0);
+            this.f47724i.setIndex(1);
             this.j.setIndex(2);
             this.k.setIndex(1);
-            Q(this.f47724h);
-            Q(this.f47725i);
+            Q(this.f47723h);
+            Q(this.f47724i);
             Q(this.j);
             Q(this.k);
         }
@@ -533,7 +533,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, cellForumTestView) == null) || cellForumTestView == null) {
             return;
         }
-        int size = this.f47722f.size();
+        int size = this.f47721f.size();
         int dataIndex = cellForumTestView.getDataIndex() % size;
         if (dataIndex < 0) {
             dataIndex = size - Math.abs(dataIndex);
@@ -570,21 +570,21 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            CellForumTestView cellForumTestView = this.f47724h;
+            CellForumTestView cellForumTestView = this.f47723h;
             cellForumTestView.setMoveLeft(cellForumTestView.getViewLeft());
-            CellForumTestView cellForumTestView2 = this.f47724h;
+            CellForumTestView cellForumTestView2 = this.f47723h;
             cellForumTestView2.setMoveTop(cellForumTestView2.getViewTop());
-            CellForumTestView cellForumTestView3 = this.f47724h;
+            CellForumTestView cellForumTestView3 = this.f47723h;
             cellForumTestView3.setMoveRight(cellForumTestView3.getViewRight());
-            CellForumTestView cellForumTestView4 = this.f47724h;
+            CellForumTestView cellForumTestView4 = this.f47723h;
             cellForumTestView4.setMoveBottom(cellForumTestView4.getViewBottom());
-            CellForumTestView cellForumTestView5 = this.f47725i;
+            CellForumTestView cellForumTestView5 = this.f47724i;
             cellForumTestView5.setMoveLeft(cellForumTestView5.getViewLeft());
-            CellForumTestView cellForumTestView6 = this.f47725i;
+            CellForumTestView cellForumTestView6 = this.f47724i;
             cellForumTestView6.setMoveTop(cellForumTestView6.getViewTop());
-            CellForumTestView cellForumTestView7 = this.f47725i;
+            CellForumTestView cellForumTestView7 = this.f47724i;
             cellForumTestView7.setMoveRight(cellForumTestView7.getViewRight());
-            CellForumTestView cellForumTestView8 = this.f47725i;
+            CellForumTestView cellForumTestView8 = this.f47724i;
             cellForumTestView8.setMoveBottom(cellForumTestView8.getViewBottom());
             CellForumTestView cellForumTestView9 = this.j;
             cellForumTestView9.setMoveLeft(cellForumTestView9.getViewLeft());
@@ -610,7 +610,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{cellForumTestView, Float.valueOf(f2), Float.valueOf(f3)}) == null) || cellForumTestView == null || cellForumTestView.getVisibility() == 8) {
             return;
         }
-        if (this.f47722f.size() > 2) {
+        if (this.f47721f.size() > 2) {
             if (cellForumTestView.getViewRight() < this.w[0].right - (this.p / 2) && f2 > 0.0f) {
                 float viewRight = cellForumTestView.getViewRight();
                 Rect[] rectArr = this.w;
@@ -622,7 +622,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 cellForumTestView.setViewBottom(this.w[2].bottom);
                 cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() + 3);
                 O(cellForumTestView);
-                cellForumTestView.setData(this.f47722f.get(cellForumTestView.getDataIndex()));
+                cellForumTestView.setData(this.f47721f.get(cellForumTestView.getDataIndex()));
             } else if (cellForumTestView.getViewLeft() > this.w[2].left + (this.p / 2) && f2 < 0.0f) {
                 float viewLeft = cellForumTestView.getViewLeft();
                 Rect[] rectArr2 = this.w;
@@ -634,7 +634,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 cellForumTestView.setViewBottom(this.w[0].bottom);
                 cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() - 3);
                 O(cellForumTestView);
-                cellForumTestView.setData(this.f47722f.get(cellForumTestView.getDataIndex()));
+                cellForumTestView.setData(this.f47721f.get(cellForumTestView.getDataIndex()));
             }
         }
         cellForumTestView.setViewLeft(cellForumTestView.getViewLeft() - f2);
@@ -671,14 +671,14 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            CellForumTestView cellForumTestView = this.f47724h;
+            CellForumTestView cellForumTestView = this.f47723h;
             cellForumTestView.setIndex(cellForumTestView.getIndex() + 1);
-            CellForumTestView cellForumTestView2 = this.f47725i;
+            CellForumTestView cellForumTestView2 = this.f47724i;
             cellForumTestView2.setIndex(cellForumTestView2.getIndex() + 1);
             CellForumTestView cellForumTestView3 = this.j;
             cellForumTestView3.setIndex(cellForumTestView3.getIndex() + 1);
-            P(this.f47724h);
-            P(this.f47725i);
+            P(this.f47723h);
+            P(this.f47724i);
             P(this.j);
         }
     }
@@ -686,14 +686,14 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            CellForumTestView cellForumTestView = this.f47724h;
+            CellForumTestView cellForumTestView = this.f47723h;
             cellForumTestView.setIndex(cellForumTestView.getIndex() - 1);
-            CellForumTestView cellForumTestView2 = this.f47725i;
+            CellForumTestView cellForumTestView2 = this.f47724i;
             cellForumTestView2.setIndex(cellForumTestView2.getIndex() - 1);
             CellForumTestView cellForumTestView3 = this.j;
             cellForumTestView3.setIndex(cellForumTestView3.getIndex() - 1);
-            P(this.f47724h);
-            P(this.f47725i);
+            P(this.f47723h);
+            P(this.f47724i);
             P(this.j);
         }
     }
@@ -707,14 +707,14 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
             this.M = false;
             this.N = 0.0f;
             I();
-            if (this.f47722f.size() == 2) {
+            if (this.f47721f.size() == 2) {
                 CellForumTestView cellForumTestView = null;
-                CellForumTestView cellForumTestView2 = this.f47724h.getVisibility() == 0 ? this.f47724h : null;
-                if (this.f47725i.getVisibility() == 0) {
+                CellForumTestView cellForumTestView2 = this.f47723h.getVisibility() == 0 ? this.f47723h : null;
+                if (this.f47724i.getVisibility() == 0) {
                     if (cellForumTestView2 == null) {
-                        cellForumTestView2 = this.f47725i;
+                        cellForumTestView2 = this.f47724i;
                     } else {
-                        cellForumTestView = this.f47725i;
+                        cellForumTestView = this.f47724i;
                     }
                 }
                 if (this.j.getVisibility() == 0) {
@@ -732,7 +732,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 if (!(f3 < ((float) rectArr[0].left) || viewRight > ((float) rectArr[2].right)) && Math.abs(this.D) >= this.p * 0.2f) {
                     this.M = true;
                 }
-            } else if (this.f47722f.size() > 2 && Math.abs(this.D) >= this.p * 0.2f) {
+            } else if (this.f47721f.size() > 2 && Math.abs(this.D) >= this.p * 0.2f) {
                 this.M = true;
             }
             if (this.M && (G = G(1)) != null) {
@@ -763,11 +763,11 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         int i3;
         StatisticItem l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (list = this.f47722f) == null || i2 < 0 || i2 >= list.size() || (fVar = this.f47722f.get(i2)) == null || (l = b.a.r0.k3.a.l(false, "a065", "common_exp", i3, (i3 = i2 + 1), false, null, String.valueOf(fVar.f21747a), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (list = this.f47721f) == null || i2 < 0 || i2 >= list.size() || (fVar = this.f47721f.get(i2)) == null || (l = b.a.r0.k3.a.l(false, "a065", "common_exp", i3, (i3 = i2 + 1), false, null, String.valueOf(fVar.f21747a), 0)) == null) {
             return;
         }
         b.a.r0.k3.c g2 = b.a.r0.k3.c.g();
-        BdUniqueId bdUniqueId = this.f47723g;
+        BdUniqueId bdUniqueId = this.f47722g;
         g2.d(bdUniqueId, b.a.r0.k3.a.b("" + fVar.f21747a), l);
     }
 
@@ -808,8 +808,8 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                     float f4 = this.z - x;
                     float f5 = this.A * f4;
                     if (this.F) {
-                        S(this.f47724h, f4, f5);
-                        S(this.f47725i, f4, f5);
+                        S(this.f47723h, f4, f5);
+                        S(this.f47724i, f4, f5);
                         S(this.j, f4, f5);
                         requestLayout();
                     }
@@ -849,13 +849,13 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f47721e) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f47720e) {
             return;
         }
-        this.f47721e = skinType;
+        this.f47720e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f47724h.onChangeSkinType();
-        this.f47725i.onChangeSkinType();
+        this.f47723h.onChangeSkinType();
+        this.f47724i.onChangeSkinType();
         this.j.onChangeSkinType();
     }
 
@@ -867,27 +867,27 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
             this.k.setVisibility(0);
             this.k.setAlpha(1.0f);
             R();
-            if (this.f47724h.getIndex() == i2 && this.f47724h.getVisibility() == 0) {
-                cellForumTestView = this.f47724h;
-            } else if (this.f47725i.getIndex() == i2 && this.f47725i.getVisibility() == 0) {
-                cellForumTestView = this.f47725i;
+            if (this.f47723h.getIndex() == i2 && this.f47723h.getVisibility() == 0) {
+                cellForumTestView = this.f47723h;
+            } else if (this.f47724i.getIndex() == i2 && this.f47724i.getVisibility() == 0) {
+                cellForumTestView = this.f47724i;
             } else {
                 cellForumTestView = this.j;
             }
             this.k.setData(cellForumTestView.getData());
             this.k.setDataIndex(cellForumTestView.getDataIndex());
             this.m = null;
-            if (this.f47722f.size() == 1) {
+            if (this.f47721f.size() == 1) {
                 this.H = 1;
                 cellForumTestView.setVisibility(8);
                 this.D = (this.p * 3) / 5;
-            } else if (this.f47722f.size() == 2) {
+            } else if (this.f47721f.size() == 2) {
                 this.H = 2;
                 cellForumTestView.setVisibility(8);
-                if (this.f47724h.getVisibility() == 0) {
-                    this.l = this.f47724h;
-                } else if (this.f47725i.getVisibility() == 0) {
-                    this.l = this.f47725i;
+                if (this.f47723h.getVisibility() == 0) {
+                    this.l = this.f47723h;
+                } else if (this.f47724i.getVisibility() == 0) {
+                    this.l = this.f47724i;
                 } else {
                     this.l = this.j;
                 }
@@ -904,13 +904,13 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 }
                 P(this.l);
                 P(cellForumTestView);
-            } else if (this.f47722f.size() == 3) {
+            } else if (this.f47721f.size() == 3) {
                 this.H = 3;
                 cellForumTestView.setVisibility(8);
-                if (this.f47724h.getIndex() == 2) {
-                    this.l = this.f47724h;
-                } else if (this.f47725i.getIndex() == 2) {
-                    this.l = this.f47725i;
+                if (this.f47723h.getIndex() == 2) {
+                    this.l = this.f47723h;
+                } else if (this.f47724i.getIndex() == 2) {
+                    this.l = this.f47724i;
                 } else {
                     this.l = this.j;
                 }
@@ -923,10 +923,10 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
             } else {
                 this.H = 4;
                 this.m = cellForumTestView;
-                if (this.f47724h.getIndex() == 2) {
-                    this.l = this.f47724h;
-                } else if (this.f47725i.getIndex() == 2) {
-                    this.l = this.f47725i;
+                if (this.f47723h.getIndex() == 2) {
+                    this.l = this.f47723h;
+                } else if (this.f47724i.getIndex() == 2) {
+                    this.l = this.f47724i;
                 } else {
                     this.l = this.j;
                 }
@@ -945,7 +945,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 this.m.setMoveTop(this.w[2].top);
                 this.m.setMoveBottom(this.w[2].bottom);
                 CellForumTestView cellForumTestView6 = this.m;
-                cellForumTestView6.setData(this.f47722f.get(F(cellForumTestView6.getDataIndex() + 2)));
+                cellForumTestView6.setData(this.f47721f.get(F(cellForumTestView6.getDataIndex() + 2)));
             }
             this.E.setFloatValues(0.0f, this.D);
             this.E.start();
@@ -978,10 +978,10 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (getVisibility() == 0) {
-                CellForumTestView cellForumTestView = this.f47724h;
-                cellForumTestView.layout((int) cellForumTestView.getViewLeft(), (int) this.f47724h.getViewTop(), (int) this.f47724h.getViewRight(), (int) this.f47724h.getViewBottom());
-                CellForumTestView cellForumTestView2 = this.f47725i;
-                cellForumTestView2.layout((int) cellForumTestView2.getViewLeft(), (int) this.f47725i.getViewTop(), (int) this.f47725i.getViewRight(), (int) this.f47725i.getViewBottom());
+                CellForumTestView cellForumTestView = this.f47723h;
+                cellForumTestView.layout((int) cellForumTestView.getViewLeft(), (int) this.f47723h.getViewTop(), (int) this.f47723h.getViewRight(), (int) this.f47723h.getViewBottom());
+                CellForumTestView cellForumTestView2 = this.f47724i;
+                cellForumTestView2.layout((int) cellForumTestView2.getViewLeft(), (int) this.f47724i.getViewTop(), (int) this.f47724i.getViewRight(), (int) this.f47724i.getViewBottom());
                 CellForumTestView cellForumTestView3 = this.j;
                 cellForumTestView3.layout((int) cellForumTestView3.getViewLeft(), (int) this.j.getViewTop(), (int) this.j.getViewRight(), (int) this.j.getViewBottom());
                 CellForumTestView cellForumTestView4 = this.k;
@@ -999,13 +999,13 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 if (k != this.O) {
                     this.O = k;
                     D(getContext());
-                    Q(this.f47724h);
-                    Q(this.f47725i);
+                    Q(this.f47723h);
+                    Q(this.f47724i);
                     Q(this.j);
                     Q(this.k);
                 }
-                J(this.f47724h);
-                J(this.f47725i);
+                J(this.f47723h);
+                J(this.f47724i);
                 J(this.j);
                 J(this.k);
                 super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.n, 1073741824), View.MeasureSpec.makeMeasureSpec(this.o, 1073741824));
@@ -1018,10 +1018,10 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public void refreshAnswer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (this.f47724h.getIndex() == 1) {
-                this.f47724h.refreshAnswer();
-            } else if (this.f47725i.getIndex() == 1) {
-                this.f47725i.refreshAnswer();
+            if (this.f47723h.getIndex() == 1) {
+                this.f47723h.refreshAnswer();
+            } else if (this.f47724i.getIndex() == 1) {
+                this.f47724i.refreshAnswer();
             } else if (this.j.getIndex() == 1) {
                 this.j.refreshAnswer();
             }
@@ -1033,33 +1033,33 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
         if (!(interceptable == null || interceptable.invokeL(1048605, this, list) == null) || ListUtils.isEmpty(list) || this.F || this.D != 0.0f) {
             return;
         }
-        this.f47722f = list;
+        this.f47721f = list;
         N();
         int i2 = 1;
         if (ListUtils.getCount(list) > 2) {
-            this.f47724h.setVisibility(0);
-            this.f47725i.setVisibility(0);
+            this.f47723h.setVisibility(0);
+            this.f47724i.setVisibility(0);
             this.j.setVisibility(0);
-            this.f47724h.setData(list.get(0));
-            this.f47725i.setData(list.get(1));
+            this.f47723h.setData(list.get(0));
+            this.f47724i.setData(list.get(1));
             this.j.setData(list.get(2));
-            this.f47724h.setDataIndex(0);
-            this.f47725i.setDataIndex(1);
+            this.f47723h.setDataIndex(0);
+            this.f47724i.setDataIndex(1);
             this.j.setDataIndex(2);
         } else if (ListUtils.getCount(list) == 2) {
-            this.f47724h.setVisibility(8);
-            this.f47725i.setVisibility(0);
+            this.f47723h.setVisibility(8);
+            this.f47724i.setVisibility(0);
             this.j.setVisibility(0);
-            this.f47725i.setDataIndex(1);
+            this.f47724i.setDataIndex(1);
             this.j.setDataIndex(0);
-            this.f47725i.setData(list.get(1));
+            this.f47724i.setData(list.get(1));
             this.j.setData(list.get(0));
         } else {
-            this.f47724h.setVisibility(8);
-            this.f47725i.setVisibility(0);
+            this.f47723h.setVisibility(8);
+            this.f47724i.setVisibility(0);
             this.j.setVisibility(8);
-            this.f47725i.setDataIndex(0);
-            this.f47725i.setData(list.get(0));
+            this.f47724i.setDataIndex(0);
+            this.f47724i.setData(list.get(0));
             i2 = 0;
         }
         addShowLog(i2);
@@ -1075,12 +1075,12 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) {
-            this.f47723g = bdUniqueId;
-            CellForumTestView cellForumTestView = this.f47724h;
+            this.f47722g = bdUniqueId;
+            CellForumTestView cellForumTestView = this.f47723h;
             if (cellForumTestView != null) {
                 cellForumTestView.setPageId(bdUniqueId);
             }
-            CellForumTestView cellForumTestView2 = this.f47725i;
+            CellForumTestView cellForumTestView2 = this.f47724i;
             if (cellForumTestView2 != null) {
                 cellForumTestView2.setPageId(bdUniqueId);
             }
@@ -1110,7 +1110,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 return;
             }
         }
-        this.f47721e = 3;
+        this.f47720e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;
@@ -1138,7 +1138,7 @@ public class ForumTestView extends FrameLayout implements b.a.r0.o0.k.d.a {
                 return;
             }
         }
-        this.f47721e = 3;
+        this.f47720e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;

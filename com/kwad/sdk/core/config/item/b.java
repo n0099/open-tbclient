@@ -14,13 +14,13 @@ public abstract class b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f64330a;
+    public T f64329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64331b;
+    public String f64330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f64332c;
+    public T f64331c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(String str, T t) {
@@ -58,9 +58,9 @@ public abstract class b<T> {
                 return;
             }
         }
-        this.f64331b = str;
-        this.f64332c = t;
-        this.f64330a = t2;
+        this.f64330b = str;
+        this.f64331c = t;
+        this.f64329a = t2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
@@ -68,7 +68,7 @@ public abstract class b<T> {
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64332c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64331c : (T) invokeV.objValue;
     }
 
     public abstract void a(SharedPreferences.Editor editor);
@@ -78,7 +78,7 @@ public abstract class b<T> {
     public void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            this.f64332c = t;
+            this.f64331c = t;
         }
     }
 
@@ -87,12 +87,12 @@ public abstract class b<T> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64331b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64330b : (String) invokeV.objValue;
     }
 
     public T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64330a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64329a : (T) invokeV.objValue;
     }
 }

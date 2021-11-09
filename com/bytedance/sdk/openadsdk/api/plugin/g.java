@@ -30,14 +30,14 @@ public class g implements TTInitializer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ScheduledExecutorService f61690a;
+    public static ScheduledExecutorService f61689a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Bundle f61691c;
+    public static final Bundle f61690c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile TTInitializer f61692b;
+    public volatile TTInitializer f61691b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,8 +52,8 @@ public class g implements TTInitializer {
                 return;
             }
         }
-        f61691c = new Bundle();
-        f61690a = Executors.newSingleThreadScheduledExecutor(new a());
+        f61690c = new Bundle();
+        f61689a = Executors.newSingleThreadScheduledExecutor(new a());
     }
 
     public g() {
@@ -74,7 +74,7 @@ public class g implements TTInitializer {
     public TTAdManager getAdManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.bytedance.sdk.openadsdk.api.plugin.a.f61595a : (TTAdManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.bytedance.sdk.openadsdk.api.plugin.a.f61594a : (TTAdManager) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInitializer
@@ -86,8 +86,8 @@ public class g implements TTInitializer {
                 return;
             }
             f.a(context);
-            if (this.f61692b != null) {
-                this.f61692b.init(context, adConfig, initCallback);
+            if (this.f61691b != null) {
+                this.f61691b.init(context, adConfig, initCallback);
             } else {
                 a(context, adConfig, initCallback);
             }
@@ -99,8 +99,8 @@ public class g implements TTInitializer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f61692b != null) {
-                return this.f61692b.isInitSuccess();
+            if (this.f61691b != null) {
+                return this.f61691b.isInitSuccess();
             }
             return false;
         }
@@ -112,7 +112,7 @@ public class g implements TTInitializer {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bundle) == null) || TextUtils.isEmpty(str) || bundle == null) {
             return;
         }
-        f61691c.putBundle(str, bundle);
+        f61690c.putBundle(str, bundle);
     }
 
     /* loaded from: classes11.dex */
@@ -121,13 +121,13 @@ public class g implements TTInitializer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ThreadGroup f61697a;
+        public final ThreadGroup f61696a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicInteger f61698b;
+        public final AtomicInteger f61697b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f61699c;
+        public final String f61698c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -142,9 +142,9 @@ public class g implements TTInitializer {
                     return;
                 }
             }
-            this.f61698b = new AtomicInteger(1);
-            this.f61697a = new ThreadGroup("tt_pangle_group_pl_init");
-            this.f61699c = "tt_pangle_thread_pl_init";
+            this.f61697b = new AtomicInteger(1);
+            this.f61696a = new ThreadGroup("tt_pangle_group_pl_init");
+            this.f61698c = "tt_pangle_thread_pl_init";
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -152,8 +152,8 @@ public class g implements TTInitializer {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f61697a;
-                Thread thread = new Thread(threadGroup, runnable, this.f61699c + this.f61698b.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f61696a;
+                Thread thread = new Thread(threadGroup, runnable, this.f61698c + this.f61697b.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -180,30 +180,30 @@ public class g implements TTInitializer {
                     return;
                 }
             }
-            this.f61698b = new AtomicInteger(1);
-            this.f61697a = new ThreadGroup("tt_pangle_group_pl_init");
-            this.f61699c = str;
+            this.f61697b = new AtomicInteger(1);
+            this.f61696a = new ThreadGroup("tt_pangle_group_pl_init");
+            this.f61698c = str;
         }
     }
 
     public void a(Context context, AdConfig adConfig, TTAdSdk.InitCallback initCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, adConfig, initCallback) == null) {
-            f61690a.execute(new Runnable(this, context, adConfig, initCallback) { // from class: com.bytedance.sdk.openadsdk.api.plugin.g.1
+            f61689a.execute(new Runnable(this, context, adConfig, initCallback) { // from class: com.bytedance.sdk.openadsdk.api.plugin.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f61693a;
+                public final /* synthetic */ Context f61692a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdConfig f61694b;
+                public final /* synthetic */ AdConfig f61693b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TTAdSdk.InitCallback f61695c;
+                public final /* synthetic */ TTAdSdk.InitCallback f61694c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ g f61696d;
+                public final /* synthetic */ g f61695d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -220,24 +220,24 @@ public class g implements TTInitializer {
                             return;
                         }
                     }
-                    this.f61696d = this;
-                    this.f61693a = context;
-                    this.f61694b = adConfig;
-                    this.f61695c = initCallback;
+                    this.f61695d = this;
+                    this.f61692a = context;
+                    this.f61693b = adConfig;
+                    this.f61694c = initCallback;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TTInitializer a2 = this.f61696d.a(this.f61693a, this.f61694b);
+                        TTInitializer a2 = this.f61695d.a(this.f61692a, this.f61693b);
                         if (a2 != null) {
-                            a2.init(this.f61693a, this.f61694b, this.f61695c);
-                            com.bytedance.sdk.openadsdk.api.plugin.a.f61595a.a(this.f61696d.f61692b.getAdManager());
+                            a2.init(this.f61692a, this.f61693b, this.f61694c);
+                            com.bytedance.sdk.openadsdk.api.plugin.a.f61594a.a(this.f61695d.f61691b.getAdManager());
                             e.a();
                             return;
                         }
-                        this.f61695c.fail(4201, "No initializer");
+                        this.f61694c.fail(4201, "No initializer");
                     }
                 }
             });
@@ -249,13 +249,13 @@ public class g implements TTInitializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, adConfig)) == null) {
-            if (this.f61692b == null) {
+            if (this.f61691b == null) {
                 synchronized (this) {
-                    if (this.f61692b == null) {
+                    if (this.f61691b == null) {
                         e.a(adConfig);
                         com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Create initializer");
                         long currentTimeMillis = System.currentTimeMillis();
-                        this.f61692b = a(context);
+                        this.f61691b = a(context);
                         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -267,7 +267,7 @@ public class g implements TTInitializer {
                     }
                 }
             }
-            return this.f61692b;
+            return this.f61691b;
         }
         return (TTInitializer) invokeLL.objValue;
     }
@@ -301,7 +301,7 @@ public class g implements TTInitializer {
             Class<?> loadClass = a2.loadClass(TTAdSdk.INITIALIZER_CLASS_NAME);
             Bundle bundle = new Bundle();
             bundle.putSerializable(PluginConstants.KEY_PL_UPDATE_LISTENER, new f.b());
-            bundle.putBundle(PluginConstants.KEY_PL_CONFIG_INFO, f61691c);
+            bundle.putBundle(PluginConstants.KEY_PL_CONFIG_INFO, f61690c);
             TTInitializer tTInitializer = (TTInitializer) loadClass.getDeclaredMethod("getInstance", Bundle.class).invoke(null, bundle);
             com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Create initializer success");
             return tTInitializer;

@@ -40,19 +40,19 @@ public class MemberRecommendView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54492e;
+    public Context f54491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54493f;
+    public View f54492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f54494g;
+    public TbImageView f54493g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54495h;
+    public TextView f54494h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54496i;
+    public TextView f54495i;
     public e j;
     public int k;
 
@@ -62,7 +62,7 @@ public class MemberRecommendView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberRecommendView f54497e;
+        public final /* synthetic */ MemberRecommendView f54496e;
 
         public a(MemberRecommendView memberRecommendView) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class MemberRecommendView extends FrameLayout {
                     return;
                 }
             }
-            this.f54497e = memberRecommendView;
+            this.f54496e = memberRecommendView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,7 +89,7 @@ public class MemberRecommendView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int i2 = 9;
-                switch (this.f54497e.k) {
+                switch (this.f54496e.k) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i2 = 8;
@@ -99,7 +99,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (this.f54497e.k == 9) {
+                        if (this.f54496e.k == 9) {
                             str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
                             break;
                         }
@@ -109,7 +109,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i2 = 12;
-                        if (this.f54497e.k != 4) {
+                        if (this.f54496e.k != 4) {
                             str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                             break;
                         } else {
@@ -120,7 +120,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 7:
                         TiebaStatic.log("c10762");
                         i2 = 19;
-                        if (this.f54497e.k != 7) {
+                        if (this.f54496e.k != 7) {
                             str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                             break;
                         } else {
@@ -137,7 +137,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.f54497e.j == null || (tbPageContext = (TbPageContext) j.a(this.f54497e.f54492e)) == null) {
+                if (this.f54496e.j == null || (tbPageContext = (TbPageContext) j.a(this.f54496e.f54491e)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2);
@@ -165,31 +165,31 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f54492e = context;
+        this.f54491e = context;
         d();
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.f54493f, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f54495h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f54492f, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f54494h, R.color.CAM_X0108);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f54492e).inflate(R.layout.member_extend_view, this);
-            this.f54493f = inflate;
+            View inflate = LayoutInflater.from(this.f54491e).inflate(R.layout.member_extend_view, this);
+            this.f54492f = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-            this.f54494g = tbImageView;
+            this.f54493g = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.f54494g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f54494g.setAutoChangeStyle(true);
-            this.f54495h = (TextView) this.f54493f.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.f54493f.findViewById(R.id.jump_button);
-            this.f54496i = textView;
+            this.f54493g.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f54493g.setAutoChangeStyle(true);
+            this.f54494h = (TextView) this.f54492f.findViewById(R.id.title_view);
+            TextView textView = (TextView) this.f54492f.findViewById(R.id.jump_button);
+            this.f54495i = textView;
             textView.setOnClickListener(new a(this));
         }
     }
@@ -200,20 +200,20 @@ public class MemberRecommendView extends FrameLayout {
             return;
         }
         this.j = eVar;
-        this.f54494g.startLoad(eVar.b(), 10, false);
-        this.f54495h.setText(this.j.c());
+        this.f54493g.startLoad(eVar.b(), 10, false);
+        this.f54494h.setText(this.j.c());
         if (StringUtils.isNull(this.j.a())) {
-            this.f54496i.setVisibility(8);
+            this.f54495i.setVisibility(8);
             return;
         }
-        this.f54496i.setVisibility(0);
-        this.f54496i.setText(this.j.a());
+        this.f54495i.setVisibility(0);
+        this.f54495i.setText(this.j.a());
     }
 
     public View getButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54496i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54495i : (View) invokeV.objValue;
     }
 
     public int getFromType() {
@@ -248,7 +248,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f54492e = context;
+        this.f54491e = context;
         d();
     }
 
@@ -271,7 +271,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f54492e = context;
+        this.f54491e = context;
         d();
     }
 }

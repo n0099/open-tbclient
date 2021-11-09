@@ -20,10 +20,10 @@ public class z extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59627a;
+    public String f59626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f59628b;
+    public FeedbackDialog.c f59627b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(Context context) {
@@ -48,8 +48,8 @@ public class z extends BaseBean<Object> {
     public void a(String str, FeedbackDialog.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f59627a = str;
-            this.f59628b = cVar;
+            this.f59626a = str;
+            this.f59627b = cVar;
         }
     }
 
@@ -67,10 +67,10 @@ public class z extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("trans_no", this.f59627a));
-            arrayList.add(new RestNameValuePair("score", "" + this.f59628b.f60451a));
-            FeedbackDialog.c cVar = this.f59628b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f60452b : null)));
+            arrayList.add(new RestNameValuePair("trans_no", this.f59626a));
+            arrayList.add(new RestNameValuePair("score", "" + this.f59627b.f60450a));
+            FeedbackDialog.c cVar = this.f59627b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f60451b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;

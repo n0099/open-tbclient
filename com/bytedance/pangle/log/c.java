@@ -12,19 +12,19 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61445a;
+    public String f61444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61446b;
+    public String f61445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61447c;
+    public String f61446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61448d;
+    public long f61447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61449e;
+    public long f61448e;
 
     public c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public final class c {
                 return;
             }
         }
-        this.f61445a = str;
-        this.f61446b = str2;
-        this.f61447c = str3;
+        this.f61444a = str;
+        this.f61445b = str2;
+        this.f61446c = str3;
         long currentTimeMillis = System.currentTimeMillis();
-        this.f61449e = currentTimeMillis;
-        this.f61448d = currentTimeMillis;
-        String str4 = this.f61445a;
-        ZeusLogger.i(str4, this.f61446b + String.format(" watcher[%s]-start", str3));
+        this.f61448e = currentTimeMillis;
+        this.f61447d = currentTimeMillis;
+        String str4 = this.f61444a;
+        ZeusLogger.i(str4, this.f61445b + String.format(" watcher[%s]-start", str3));
     }
 
     public static c a(String str, String str2, String str3) {
@@ -61,10 +61,10 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f61449e;
-            long currentTimeMillis2 = System.currentTimeMillis() - this.f61448d;
-            String str2 = this.f61445a;
-            ZeusLogger.i(str2, this.f61446b + String.format(" watcher[%s]-%s cost=%s, total=%s", this.f61447c, str, Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis2)));
+            long currentTimeMillis = System.currentTimeMillis() - this.f61448e;
+            long currentTimeMillis2 = System.currentTimeMillis() - this.f61447d;
+            String str2 = this.f61444a;
+            ZeusLogger.i(str2, this.f61445b + String.format(" watcher[%s]-%s cost=%s, total=%s", this.f61446c, str, Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis2)));
             return currentTimeMillis2;
         }
         return invokeL.longValue;
@@ -74,10 +74,10 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f61449e;
-            String str2 = this.f61445a;
-            ZeusLogger.i(str2, this.f61446b + String.format(" watcher[%s]-%s cost=%s", this.f61447c, str, Long.valueOf(currentTimeMillis)));
-            this.f61449e = System.currentTimeMillis();
+            long currentTimeMillis = System.currentTimeMillis() - this.f61448e;
+            String str2 = this.f61444a;
+            ZeusLogger.i(str2, this.f61445b + String.format(" watcher[%s]-%s cost=%s", this.f61446c, str, Long.valueOf(currentTimeMillis)));
+            this.f61448e = System.currentTimeMillis();
             return currentTimeMillis;
         }
         return invokeL.longValue;
@@ -86,6 +86,6 @@ public final class c {
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f61448d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f61447d : invokeV.longValue;
     }
 }

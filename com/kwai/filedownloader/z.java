@@ -67,7 +67,7 @@ public class z implements e.b {
                 List<a.b> b2 = h.a().b(messageSnapshot.m());
                 if (b2.size() > 0) {
                     a F = b2.get(0).F();
-                    if (com.kwai.filedownloader.f.d.f66974a) {
+                    if (com.kwai.filedownloader.f.d.f66973a) {
                         com.kwai.filedownloader.f.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b2.size()));
                     }
                     if (!a(b2, messageSnapshot)) {

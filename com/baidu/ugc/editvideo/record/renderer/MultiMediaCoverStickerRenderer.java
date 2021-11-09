@@ -134,7 +134,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         float f3 = this.mScaleY;
         int i4 = gLViewPortLocation.height;
         GLES20.glViewport((int) (gLViewPortLocation.x + (((1.0f - f2) * i3) / 2.0f) + ((i3 * this.mTx) / 2.0f)), (int) (gLViewPortLocation.y + (((1.0f - f3) * i4) / 2.0f) + ((i4 * this.mTy) / 2.0f)), (int) (i3 * f2), (int) (i4 * f3));
-        GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+        GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
         GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
         for (int i5 = 0; i5 < this.mCoverStickerDataList.size(); i5++) {
             MultiMediaData multiMediaData = this.mCoverStickerDataList.get(i5);
@@ -161,7 +161,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
                 }
             }
         }
-        GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+        GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer

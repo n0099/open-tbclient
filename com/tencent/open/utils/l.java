@@ -65,22 +65,22 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f70162a = "";
+    public static String f70161a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f70163b = "";
+    public static String f70162b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f70164c = "";
+    public static String f70163c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f70165d = "";
+    public static String f70164d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f70166e = -1;
+    public static int f70165e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f70167f = "0123456789ABCDEF";
+    public static String f70166f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -89,13 +89,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f70170a;
+        public String f70169a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f70171b;
+        public long f70170b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f70172c;
+        public long f70171c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -112,10 +112,10 @@ public class l {
                     return;
                 }
             }
-            this.f70170a = str;
-            this.f70171b = i2;
+            this.f70169a = str;
+            this.f70170b = i2;
             if (str != null) {
-                this.f70172c = str.length();
+                this.f70171c = str.length();
             }
         }
     }
@@ -412,7 +412,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f70164c = d2;
+            f70163c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -472,7 +472,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f70163b;
+            return f70162b;
         }
         return (String) invokeLL.objValue;
     }
@@ -530,7 +530,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f70162a;
+            return f70161a;
         }
         return (String) invokeLL.objValue;
     }
@@ -543,10 +543,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f70163b = str2;
-            f70162a = str2.substring(0, str2.lastIndexOf(46));
-            f70165d = f70163b.substring(f70163b.lastIndexOf(46) + 1, f70163b.length());
-            f70166e = packageInfo.versionCode;
+            f70162b = str2;
+            f70161a = str2.substring(0, str2.lastIndexOf(46));
+            f70164d = f70162b.substring(f70162b.lastIndexOf(46) + 1, f70162b.length());
+            f70165e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -900,10 +900,10 @@ public class l {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f70168a;
+                public final /* synthetic */ Context f70167a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f70169b;
+                public final /* synthetic */ Bundle f70168b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -920,8 +920,8 @@ public class l {
                             return;
                         }
                     }
-                    this.f70168a = context;
-                    this.f70169b = bundle;
+                    this.f70167a = context;
+                    this.f70168b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -929,7 +929,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.f70168a, "https://cgi.qplus.com/report/report", "GET", this.f70169b);
+                            HttpUtils.openUrl2(this.f70167a, "https://cgi.qplus.com/report/report", "GET", this.f70168b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }

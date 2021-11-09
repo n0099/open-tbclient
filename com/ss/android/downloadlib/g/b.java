@@ -14,7 +14,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f68844a;
+    public static final a f68843a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.downloadlib.g.b$1  reason: invalid class name */
@@ -112,13 +112,13 @@ public class b {
                 return;
             }
         }
-        f68844a = new C1976b(null);
+        f68843a = new C1976b(null);
     }
 
     public static <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, asyncTask, tArr) == null) {
-            f68844a.a(asyncTask, tArr);
+            f68843a.a(asyncTask, tArr);
         }
     }
 }

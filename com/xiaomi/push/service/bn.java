@@ -21,7 +21,7 @@ public class bn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f71473a;
+    public static final Object f71472a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class bn {
                 return;
             }
         }
-        f71473a = new Object();
+        f71472a = new Object();
     }
 
     public static void a(Context context, hj hjVar) {

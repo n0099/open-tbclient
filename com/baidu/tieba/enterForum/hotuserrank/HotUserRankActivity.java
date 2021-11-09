@@ -46,9 +46,44 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f47638e;
+        public final /* synthetic */ HotUserRankActivity f47637e;
 
         public a(HotUserRankActivity hotUserRankActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotUserRankActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47637e = hotUserRankActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f47637e.mHotUserRankView.l(this.f47637e.mTabDataList, this.f47637e.mForumId, this.f47637e.mJumpPosition, this.f47637e.mRuleUrl);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotUserRankActivity f47638e;
+
+        public b(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,42 +105,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47638e.mHotUserRankView.l(this.f47638e.mTabDataList, this.f47638e.mForumId, this.f47638e.mJumpPosition, this.f47638e.mRuleUrl);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f47639e;
-
-        public b(HotUserRankActivity hotUserRankActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotUserRankActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47639e = hotUserRankActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47639e.mHotUserRankView.o(8);
+                this.f47638e.mHotUserRankView.o(8);
             }
         }
     }
@@ -116,7 +116,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f47640a;
+        public final /* synthetic */ HotUserRankActivity f47639a;
 
         public c(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -133,42 +133,42 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f47640a = hotUserRankActivity;
+            this.f47639a = hotUserRankActivity;
         }
 
         @Override // b.a.r0.o0.i.d.a.b
         public void a(b.a.r0.o0.i.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f47640a;
+                HotUserRankActivity hotUserRankActivity = this.f47639a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
                 if (cVar == null || cVar.f21699a == null) {
                     return;
                 }
-                this.f47640a.mRuleUrl = cVar.f21702d;
-                if (this.f47640a.mForumId > 0) {
-                    e.a().post(this.f47640a.mLoadDataRunnable);
+                this.f47639a.mRuleUrl = cVar.f21702d;
+                if (this.f47639a.mForumId > 0) {
+                    e.a().post(this.f47639a.mLoadDataRunnable);
                     return;
                 }
                 TiebaFieldsInfo tiebaFieldsInfo = cVar.f21699a.f21690f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
                     List<String> list = cVar.f21699a.f21690f.tieba_fields;
-                    this.f47640a.mTabDataList.clear();
+                    this.f47639a.mTabDataList.clear();
                     for (int i2 = 0; i2 < list.size(); i2++) {
                         String str = list.get(i2);
-                        if (str != null && str.equals(this.f47640a.mInputCategory)) {
-                            this.f47640a.mJumpPosition = i2;
+                        if (str != null && str.equals(this.f47639a.mInputCategory)) {
+                            this.f47639a.mJumpPosition = i2;
                         }
                         d dVar = new d();
                         dVar.f21707b = str;
                         dVar.f21706a = str;
-                        this.f47640a.mTabDataList.add(dVar);
+                        this.f47639a.mTabDataList.add(dVar);
                     }
-                    e.a().post(this.f47640a.mLoadDataRunnable);
+                    e.a().post(this.f47639a.mLoadDataRunnable);
                     return;
                 }
-                HotUserRankActivity hotUserRankActivity2 = this.f47640a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f47640a.getString(R.string.neterror), true);
+                HotUserRankActivity hotUserRankActivity2 = this.f47639a;
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f47639a.getString(R.string.neterror), true);
             }
         }
 
@@ -176,9 +176,9 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f47640a;
+                HotUserRankActivity hotUserRankActivity = this.f47639a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                HotUserRankActivity hotUserRankActivity2 = this.f47640a;
+                HotUserRankActivity hotUserRankActivity2 = this.f47639a;
                 hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), str, true);
             }
         }

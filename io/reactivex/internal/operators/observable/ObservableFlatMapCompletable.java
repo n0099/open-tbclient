@@ -37,7 +37,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72529d;
+        public Disposable f72528d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
@@ -144,7 +144,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.disposed = true;
-                this.f72529d.dispose();
+                this.f72528d.dispose();
                 this.set.dispose();
             }
         }
@@ -169,7 +169,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72529d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72528d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -232,7 +232,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
                     completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f72529d.dispose();
+                    this.f72528d.dispose();
                     onError(th);
                 }
             }
@@ -241,8 +241,8 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.f72529d, disposable)) {
-                this.f72529d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.f72528d, disposable)) {
+                this.f72528d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

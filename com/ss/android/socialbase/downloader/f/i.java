@@ -21,28 +21,28 @@ public final class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile m f69339a;
+    public volatile m f69338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69340b;
+    public int f69339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f69341c;
+    public final long f69340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f69342d;
+    public final AtomicLong f69341d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f69343e;
+    public volatile long f69342e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69344f;
+    public long f69343f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69345g;
+    public int f69344g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f69346h;
+    public JSONObject f69345h;
 
     public i(long j, long j2) {
         Interceptable interceptable = $ic;
@@ -60,30 +60,30 @@ public final class i {
             }
         }
         AtomicLong atomicLong = new AtomicLong();
-        this.f69342d = atomicLong;
-        this.f69340b = 0;
-        this.f69341c = j;
+        this.f69341d = atomicLong;
+        this.f69339b = 0;
+        this.f69340c = j;
         atomicLong.set(j);
-        this.f69343e = j;
+        this.f69342e = j;
         if (j2 >= j) {
-            this.f69344f = j2;
+            this.f69343f = j2;
         } else {
-            this.f69344f = -1L;
+            this.f69343f = -1L;
         }
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69342d.get() - this.f69341c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69341d.get() - this.f69340c : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.f69344f;
-            if (j >= this.f69341c) {
+            long j = this.f69343f;
+            if (j >= this.f69340c) {
                 return (j - e()) + 1;
             }
             return -1L;
@@ -94,15 +94,15 @@ public final class i {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69341c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69340c : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j = this.f69342d.get();
-            long j2 = this.f69344f;
+            long j = this.f69341d.get();
+            long j2 = this.f69343f;
             if (j2 > 0) {
                 long j3 = j2 + 1;
                 if (j > j3) {
@@ -118,14 +118,14 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            m mVar = this.f69339a;
+            m mVar = this.f69338a;
             if (mVar != null) {
                 long d2 = mVar.d();
-                if (d2 > this.f69343e) {
+                if (d2 > this.f69342e) {
                     return d2;
                 }
             }
-            return this.f69343e;
+            return this.f69342e;
         }
         return invokeV.longValue;
     }
@@ -133,43 +133,43 @@ public final class i {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f69344f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f69343f : invokeV.longValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69345g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69344g : invokeV.intValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f69340b++;
+            this.f69339b++;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f69340b--;
+            this.f69339b--;
         }
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f69340b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f69339b : invokeV.intValue;
     }
 
     public JSONObject k() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            JSONObject jSONObject = this.f69346h;
+            JSONObject jSONObject = this.f69345h;
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
-                this.f69346h = jSONObject;
+                this.f69345h = jSONObject;
             }
             jSONObject.put("st", c());
             jSONObject.put(com.baidu.fsg.base.statistics.k.f37522b, d());
@@ -183,7 +183,7 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "Segment{startOffset=" + this.f69341c + ",\t currentOffset=" + this.f69342d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f69344f + ExtendedMessageFormat.END_FE;
+            return "Segment{startOffset=" + this.f69340c + ",\t currentOffset=" + this.f69341d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f69343f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -191,31 +191,31 @@ public final class i {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            long j2 = this.f69341c;
+            long j2 = this.f69340c;
             if (j < j2) {
                 j = j2;
             }
-            long j3 = this.f69344f;
+            long j3 = this.f69343f;
             if (j3 > 0) {
                 long j4 = j3 + 1;
                 if (j > j4) {
                     j = j4;
                 }
             }
-            this.f69342d.set(j);
+            this.f69341d.set(j);
         }
     }
 
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            if (j >= this.f69341c) {
-                this.f69344f = j;
+            if (j >= this.f69340c) {
+                this.f69343f = j;
                 return;
             }
             String str = "setEndOffset: endOffset = " + j + ", segment = " + this;
             if (j == -1) {
-                this.f69344f = j;
+                this.f69343f = j;
             }
         }
     }
@@ -223,29 +223,29 @@ public final class i {
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f69342d.addAndGet(j);
+            this.f69341d.addAndGet(j);
         }
     }
 
     public void d(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048585, this, j) == null) || j < this.f69342d.get()) {
+        if (!(interceptable == null || interceptable.invokeJ(1048585, this, j) == null) || j < this.f69341d.get()) {
             return;
         }
-        this.f69343e = j;
+        this.f69342e = j;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f69340b = i2;
+            this.f69339b = i2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f69345g = i2;
+            this.f69344g = i2;
         }
     }
 
@@ -309,13 +309,13 @@ public final class i {
             }
         }
         AtomicLong atomicLong = new AtomicLong();
-        this.f69342d = atomicLong;
-        this.f69340b = 0;
-        this.f69341c = iVar.f69341c;
-        this.f69344f = iVar.f69344f;
-        atomicLong.set(iVar.f69342d.get());
-        this.f69343e = this.f69342d.get();
-        this.f69345g = iVar.f69345g;
+        this.f69341d = atomicLong;
+        this.f69339b = 0;
+        this.f69340c = iVar.f69340c;
+        this.f69343f = iVar.f69343f;
+        atomicLong.set(iVar.f69341d.get());
+        this.f69342e = this.f69341d.get();
+        this.f69344g = iVar.f69344g;
     }
 
     public i(JSONObject jSONObject) {
@@ -333,9 +333,9 @@ public final class i {
                 return;
             }
         }
-        this.f69342d = new AtomicLong();
-        this.f69340b = 0;
-        this.f69341c = jSONObject.optLong("st");
+        this.f69341d = new AtomicLong();
+        this.f69339b = 0;
+        this.f69340c = jSONObject.optLong("st");
         c(jSONObject.optLong(com.baidu.fsg.base.statistics.h.f37503a));
         a(jSONObject.optLong(com.baidu.fsg.base.statistics.k.f37522b));
         d(d());

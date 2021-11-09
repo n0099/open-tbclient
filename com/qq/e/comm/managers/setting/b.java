@@ -14,7 +14,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f68026a;
+    public JSONObject f68025a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -53,13 +53,13 @@ public class b {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f68026a = new JSONObject(str);
+                this.f68025a = new JSONObject(str);
             } catch (JSONException unused) {
                 GDTLogger.d("JsonException While build" + simpleName + " Instance from JSON");
             }
         }
-        if (this.f68026a == null) {
-            this.f68026a = new JSONObject();
+        if (this.f68025a == null) {
+            this.f68025a = new JSONObject();
         }
     }
 }

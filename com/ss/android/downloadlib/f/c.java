@@ -15,11 +15,11 @@ public class c implements j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f68805a;
+    public static volatile c f68804a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<j> f68806b;
+    public List<j> f68805b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -35,23 +35,23 @@ public class c implements j {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f68806b = arrayList;
+        this.f68805b = arrayList;
         arrayList.add(new b());
-        this.f68806b.add(new a());
+        this.f68805b.add(new a());
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68805a == null) {
+            if (f68804a == null) {
                 synchronized (c.class) {
-                    if (f68805a == null) {
-                        f68805a = new c();
+                    if (f68804a == null) {
+                        f68804a = new c();
                     }
                 }
             }
-            return f68805a;
+            return f68804a;
         }
         return (c) invokeV.objValue;
     }
@@ -60,7 +60,7 @@ public class c implements j {
     public void a(DownloadInfo downloadInfo, i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, downloadInfo, iVar) == null) {
-            if (downloadInfo != null && this.f68806b.size() != 0) {
+            if (downloadInfo != null && this.f68805b.size() != 0) {
                 a(downloadInfo, 0, iVar);
             } else if (iVar != null) {
                 iVar.a();
@@ -72,22 +72,22 @@ public class c implements j {
     public void a(DownloadInfo downloadInfo, int i2, i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, this, downloadInfo, i2, iVar) == null) {
-            if (i2 != this.f68806b.size() && i2 >= 0) {
-                this.f68806b.get(i2).a(downloadInfo, new i(this, i2, downloadInfo, iVar) { // from class: com.ss.android.downloadlib.f.c.1
+            if (i2 != this.f68805b.size() && i2 >= 0) {
+                this.f68805b.get(i2).a(downloadInfo, new i(this, i2, downloadInfo, iVar) { // from class: com.ss.android.downloadlib.f.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f68807a;
+                    public final /* synthetic */ int f68806a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f68808b;
+                    public final /* synthetic */ DownloadInfo f68807b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ i f68809c;
+                    public final /* synthetic */ i f68808c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ c f68810d;
+                    public final /* synthetic */ c f68809d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -104,17 +104,17 @@ public class c implements j {
                                 return;
                             }
                         }
-                        this.f68810d = this;
-                        this.f68807a = i2;
-                        this.f68808b = downloadInfo;
-                        this.f68809c = iVar;
+                        this.f68809d = this;
+                        this.f68806a = i2;
+                        this.f68807b = downloadInfo;
+                        this.f68808c = iVar;
                     }
 
                     @Override // com.ss.android.socialbase.appdownloader.c.i
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f68810d.a(this.f68808b, this.f68807a + 1, this.f68809c);
+                            this.f68809d.a(this.f68807b, this.f68806a + 1, this.f68808c);
                         }
                     }
                 });

@@ -32,10 +32,10 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbCdnTachometerModelCallBack f50910e;
+    public TbCdnTachometerModelCallBack f50909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f50911f;
+    public HttpMessageListener f50910f;
 
     /* loaded from: classes9.dex */
     public interface TbCdnTachometerModelCallBack {
@@ -76,13 +76,13 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f50910e = null;
-        this.f50911f = new HttpMessageListener(this, CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.f50909e = null;
+        this.f50910f = new HttpMessageListener(this, CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbCdnTachometerModel f50912a;
+            public final /* synthetic */ TbCdnTachometerModel f50911a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -102,7 +102,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                         return;
                     }
                 }
-                this.f50912a = this;
+                this.f50911a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -110,18 +110,18 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 String str;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.f50912a.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.f50911a.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                     TbCdnIpListData tbCdnIpListData = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
                     int i4 = -1;
                     boolean z = false;
                     boolean z2 = true;
-                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.f50891a != 0) {
-                        if (this.f50912a.f50910e != null) {
+                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.f50890a != 0) {
+                        if (this.f50911a.f50909e != null) {
                             i4 = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
-                                i4 = tbCdnIpListData.f50891a;
-                                str = tbCdnIpListData.f50892b;
+                                i4 = tbCdnIpListData.f50890a;
+                                str = tbCdnIpListData.f50891b;
                                 ImageLogger.getCDNListError(z, z2, String.valueOf(i4), str);
                             }
                             str = errorString;
@@ -129,10 +129,10 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                             ImageLogger.getCDNListError(z, z2, String.valueOf(i4), str);
                         }
                     } else {
-                        if (this.f50912a.f50910e != null) {
-                            this.f50912a.f50910e.callBack(tbCdnIpListData);
+                        if (this.f50911a.f50909e != null) {
+                            this.f50911a.f50909e.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.f50895e.size() == 0) {
+                        if (tbCdnIpListData.f50894e.size() == 0) {
                             str = "noList";
                             z = true;
                             z2 = false;
@@ -149,8 +149,8 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, IPLIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.f50911f);
-        MessageManager.getInstance().registerListener(this.f50911f);
+        MessageManager.getInstance().unRegisterListener(this.f50910f);
+        MessageManager.getInstance().registerListener(this.f50910f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -167,7 +167,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-            MessageManager.getInstance().unRegisterListener(this.f50911f);
+            MessageManager.getInstance().unRegisterListener(this.f50910f);
         }
     }
 
@@ -258,7 +258,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbCdnTachometerModelCallBack) == null) {
-            this.f50910e = tbCdnTachometerModelCallBack;
+            this.f50909e = tbCdnTachometerModelCallBack;
         }
     }
 }

@@ -174,7 +174,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             if (officialFeedHeadResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f50505b;
+            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f50504b;
             ArrayList arrayList = new ArrayList();
             loop0: for (ChatMessage chatMessage : list) {
                 List<a.C1004a> b2 = b.a.r0.l1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
@@ -196,7 +196,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             sendReadCountMessage(arrayList);
             IFeedHeadLoadCallback iFeedHeadLoadCallback = this.callback;
             if (iFeedHeadLoadCallback != null) {
-                iFeedHeadLoadCallback.onListDataLoad(arrayList, officialFeedHeadResponsedMessage.getData().f50504a);
+                iFeedHeadLoadCallback.onListDataLoad(arrayList, officialFeedHeadResponsedMessage.getData().f50503a);
             }
         }
     }

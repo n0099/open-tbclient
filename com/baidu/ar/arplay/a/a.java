@@ -291,13 +291,13 @@ public final class a {
                             case 3006:
                                 this.da.c(message);
                                 break;
-                            case SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY /* 3007 */:
+                            case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY /* 3007 */:
                                 this.da.e(message);
                                 break;
-                            case SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY /* 3008 */:
+                            case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY /* 3008 */:
                                 this.da.f(message);
                                 break;
-                            case SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY /* 3009 */:
+                            case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY /* 3009 */:
                                 this.da.d(message);
                                 break;
                         }
@@ -945,7 +945,7 @@ public final class a {
     public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i2)}) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage(SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY);
+            Message obtainMessage = this.mHandler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY);
             obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i2)};
             obtainMessage.sendToTarget();
         }
@@ -1237,7 +1237,7 @@ public final class a {
     public void c(b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, bVar, str) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage(SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY);
+            Message obtainMessage = this.mHandler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY);
             obtainMessage.obj = new Object[]{new c(this, bVar), str};
             obtainMessage.sendToTarget();
         }
@@ -1353,7 +1353,7 @@ public final class a {
             }
             b bVar = (b) objArr[0];
             String str = (String) objArr[1];
-            cT.put(str, Integer.valueOf((int) SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY));
+            cT.put(str, Integer.valueOf((int) SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY));
             try {
                 C1583a z = z(str);
                 if (z == null || z.dg.dZ == "unstarted") {
@@ -1439,7 +1439,7 @@ public final class a {
             j = 0;
             str = null;
         }
-        cT.put(str2, Integer.valueOf((int) SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY));
+        cT.put(str2, Integer.valueOf((int) SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY));
         try {
             C1583a z = z(str2);
             if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {

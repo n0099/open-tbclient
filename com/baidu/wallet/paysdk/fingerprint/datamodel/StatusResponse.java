@@ -16,7 +16,7 @@ public class StatusResponse extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f59746a = "StatusResponse";
+    public static final String f59745a = "StatusResponse";
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject fingerprint;
     public JSONObject user_info;

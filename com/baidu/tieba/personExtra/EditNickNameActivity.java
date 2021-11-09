@@ -57,9 +57,44 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f53064e;
+        public final /* synthetic */ EditNickNameActivity f53063e;
 
         public a(EditNickNameActivity editNickNameActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editNickNameActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53063e = editNickNameActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f53063e.onBackClick();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ EditNickNameActivity f53064e;
+
+        public b(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,20 +116,20 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53064e.onBackClick();
+                this.f53064e.reloadPage();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
+    public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ EditNickNameActivity f53065e;
 
-        public b(EditNickNameActivity editNickNameActivity) {
+        public c(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,24 +147,25 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             this.f53065e = editNickNameActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53065e.reloadPage();
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f53065e.onSaveClick();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements a.e {
+    public class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ EditNickNameActivity f53066e;
 
-        public c(EditNickNameActivity editNickNameActivity) {
+        public d(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,43 +188,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f53066e.onSaveClick();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f53067e;
-
-        public d(EditNickNameActivity editNickNameActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editNickNameActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53067e = editNickNameActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                this.f53067e.goBackOrFinish(null);
+                this.f53066e.goBackOrFinish(null);
             }
         }
     }
@@ -199,7 +199,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f53068a;
+        public final /* synthetic */ EditNickNameActivity f53067a;
 
         public e(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     return;
                 }
             }
-            this.f53068a = editNickNameActivity;
+            this.f53067a = editNickNameActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -224,14 +224,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String title = this.f53068a.mWebView.getTitle();
+                String title = this.f53067a.mWebView.getTitle();
                 if (!StringUtils.isNull(title)) {
-                    this.f53068a.mNavigationBar.setCenterTextTitle(title);
+                    this.f53067a.mNavigationBar.setCenterTextTitle(title);
                 }
-                this.f53068a.hideLoadingView();
+                this.f53067a.hideLoadingView();
                 if (j.z()) {
-                    this.f53068a.showNormalView();
-                    this.f53068a.mLoadSuccess = true;
+                    this.f53067a.showNormalView();
+                    this.f53067a.mLoadSuccess = true;
                 }
             }
         }
@@ -241,7 +241,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.f53068a.showLoadingView();
+                this.f53067a.showLoadingView();
             }
         }
 
@@ -250,7 +250,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                this.f53068a.showNetRefreshView();
+                this.f53067a.showNetRefreshView();
             }
         }
 
@@ -271,15 +271,15 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (!StringUtils.isNull(str)) {
-                    if (!this.f53068a.nativeJump(str)) {
-                        int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f53068a.mPageContext, new String[]{str});
+                    if (!this.f53067a.nativeJump(str)) {
+                        int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f53067a.mPageContext, new String[]{str});
                         if (dealOneLinkWithOutJumpWebView == 1) {
-                            this.f53068a.finish();
+                            this.f53067a.finish();
                             return true;
                         } else if (dealOneLinkWithOutJumpWebView == 0) {
                             return true;
                         } else {
-                            this.f53068a.mWebView.loadUrl(str);
+                            this.f53067a.mWebView.loadUrl(str);
                         }
                     }
                     return true;

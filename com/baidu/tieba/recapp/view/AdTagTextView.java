@@ -28,10 +28,10 @@ public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f53642e;
+    public static final char[] f53641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f53643f;
+    public static final String f53642f;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mDesc;
 
@@ -41,7 +41,7 @@ public class AdTagTextView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53644e;
+        public int f53643e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VerticalImageSpan(Drawable drawable) {
@@ -94,7 +94,7 @@ public class AdTagTextView extends LinearLayout {
                     fontMetricsInt.descent = i7;
                 }
                 int i9 = bounds.right;
-                this.f53644e = i9;
+                this.f53643e = i9;
                 return i9;
             }
             return invokeCommon.intValue;
@@ -114,8 +114,8 @@ public class AdTagTextView extends LinearLayout {
                 return;
             }
         }
-        f53642e = new char[]{21704};
-        f53643f = new String(f53642e);
+        f53641e = new char[]{21704};
+        f53642f = new String(f53641e);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -152,7 +152,7 @@ public class AdTagTextView extends LinearLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.ad_tag_icon);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f53643f);
+            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f53642f);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));
             spannableStringBuilder.setSpan(new VerticalImageSpan(drawable), str.length() + 1, spannableStringBuilder.length(), 17);
             return spannableStringBuilder;

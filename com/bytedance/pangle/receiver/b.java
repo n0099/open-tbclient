@@ -24,7 +24,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f61472a;
+    public static final c f61471a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -266,13 +266,13 @@ public final class b {
         }
         int i2 = Build.VERSION.SDK_INT;
         if (i2 < 24) {
-            f61472a = new a((byte) 0);
+            f61471a = new a((byte) 0);
         } else if (i2 < 26) {
-            f61472a = new d((byte) 0);
+            f61471a = new d((byte) 0);
         } else if (i2 < 28) {
-            f61472a = new e((byte) 0);
+            f61471a = new e((byte) 0);
         } else {
-            f61472a = new C1846b((byte) 0);
+            f61471a = new C1846b((byte) 0);
         }
     }
 
@@ -283,7 +283,7 @@ public final class b {
         }
         try {
             if (TextUtils.equals(Build.BRAND.toLowerCase(), RomUtils.MANUFACTURER_HUAWEI)) {
-                f61472a.a(application.getBaseContext());
+                f61471a.a(application.getBaseContext());
             }
         } catch (Throwable unused) {
         }

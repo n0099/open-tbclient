@@ -19,7 +19,7 @@ public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69236a;
+    public static final String f69235a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f69236a = DownloadReceiver.class.getSimpleName();
+        f69235a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -60,13 +60,13 @@ public class DownloadReceiver extends BroadcastReceiver {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f69237a;
+                public final /* synthetic */ Context f69236a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f69238b;
+                public final /* synthetic */ String f69237b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadReceiver f69239c;
+                public final /* synthetic */ DownloadReceiver f69238c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -83,9 +83,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f69239c = this;
-                    this.f69237a = context;
-                    this.f69238b = str;
+                    this.f69238c = this;
+                    this.f69236a = context;
+                    this.f69237b = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -93,9 +93,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Intent intent = new Intent(this.f69237a, DownloadNotificationService.class);
-                            intent.setAction(this.f69238b);
-                            this.f69237a.startService(intent);
+                            Intent intent = new Intent(this.f69236a, DownloadNotificationService.class);
+                            intent.setAction(this.f69237b);
+                            this.f69236a.startService(intent);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
@@ -130,7 +130,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.a(f69236a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                com.ss.android.socialbase.downloader.c.a.a(f69235a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

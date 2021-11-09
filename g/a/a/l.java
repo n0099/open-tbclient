@@ -10,10 +10,10 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f71743a;
+    public static final byte[] f71742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f71744b;
+    public static final int[] f71743b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,8 +29,8 @@ public final class l {
                 return;
             }
         }
-        f71743a = new byte[1024];
-        f71744b = new int[1024];
+        f71742a = new byte[1024];
+        f71743b = new int[1024];
     }
 
     public static void a(byte[] bArr, int i2, int i3) {
@@ -39,7 +39,7 @@ public final class l {
             int i4 = 0;
             while (i4 < i3) {
                 int min = Math.min(i4 + 1024, i3) - i4;
-                System.arraycopy(f71743a, 0, bArr, i2 + i4, min);
+                System.arraycopy(f71742a, 0, bArr, i2 + i4, min);
                 i4 += min;
             }
         }
@@ -51,7 +51,7 @@ public final class l {
             int i4 = 0;
             while (i4 < i3) {
                 int min = Math.min(i4 + 1024, i3) - i4;
-                System.arraycopy(f71744b, 0, iArr, i2 + i4, min);
+                System.arraycopy(f71743b, 0, iArr, i2 + i4, min);
                 i4 += min;
             }
         }

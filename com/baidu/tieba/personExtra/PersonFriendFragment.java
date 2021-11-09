@@ -47,19 +47,19 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.o2.e f53127e;
+    public b.a.r0.o2.e f53126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53128f;
+    public View f53127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f53129g;
+    public NoDataView f53128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.q0.s.g0.g f53130h;
+    public b.a.q0.s.g0.g f53129h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PersonFriendModel f53131i;
+    public PersonFriendModel f53130i;
     public int j;
     public int k;
     public boolean l;
@@ -78,9 +78,50 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonFriendFragment f53132e;
+        public final /* synthetic */ PersonFriendFragment f53131e;
 
         public a(PersonFriendFragment personFriendFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personFriendFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53131e = personFriendFragment;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f53131e.k = ((Integer) view.getTag()).intValue();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount != null && currentAccount.length() > 0) {
+                    this.f53131e.g();
+                } else {
+                    TbadkCoreApplication.getInst().login(this.f53131e.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f53131e.getBaseFragmentActivity().getPageContext().getPageActivity(), true, 11028)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonFriendFragment f53132e;
+
+        public b(PersonFriendFragment personFriendFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,27 +142,25 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53132e.k = ((Integer) view.getTag()).intValue();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount != null && currentAccount.length() > 0) {
-                    this.f53132e.g();
-                } else {
-                    TbadkCoreApplication.getInst().login(this.f53132e.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f53132e.getBaseFragmentActivity().getPageContext().getPageActivity(), true, 11028)));
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f53132e.o) {
+                return;
             }
+            PersonFriendFragment personFriendFragment = this.f53132e;
+            personFriendFragment.p = personFriendFragment.f53130i.w().d().a() + 1;
+            this.f53132e.o = true;
+            this.f53132e.v();
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
+    public class c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonFriendFragment f53133e;
 
-        public b(PersonFriendFragment personFriendFragment) {
+        public c(PersonFriendFragment personFriendFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,28 +178,26 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             this.f53133e = personFriendFragment;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            UserData userData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f53133e.o) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f53133e.f53126e == null || this.f53133e.f53126e.getItemViewType(i2) != 0 || (userData = (UserData) this.f53133e.f53126e.getItem(i2)) == null || userData.getUserId() == null) {
                 return;
             }
-            PersonFriendFragment personFriendFragment = this.f53133e;
-            personFriendFragment.p = personFriendFragment.f53131i.w().d().a() + 1;
-            this.f53133e.o = true;
-            this.f53133e.v();
+            this.f53133e.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f53133e.u().getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements AdapterView.OnItemClickListener {
+    public class d implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonFriendFragment f53134e;
 
-        public c(PersonFriendFragment personFriendFragment) {
+        public d(PersonFriendFragment personFriendFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,26 +215,27 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             this.f53134e = personFriendFragment;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            UserData userData;
+        @Override // b.a.q0.s.g0.f.g
+        public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f53134e.f53127e == null || this.f53134e.f53127e.getItemViewType(i2) != 0 || (userData = (UserData) this.f53134e.f53127e.getItem(i2)) == null || userData.getUserId() == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f53134e.u() == null) {
                 return;
             }
-            this.f53134e.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f53134e.u().getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+            this.f53134e.p = 0;
+            this.f53134e.n = true;
+            this.f53134e.f53130i.y(this.f53134e.l, this.f53134e.u().getUid(), this.f53134e.p, this.f53134e.q);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class d implements f.g {
+    public class e implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ PersonFriendFragment f53135e;
 
-        public d(PersonFriendFragment personFriendFragment) {
+        public e(PersonFriendFragment personFriendFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,55 +253,17 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             this.f53135e = personFriendFragment;
         }
 
-        @Override // b.a.q0.s.g0.f.g
-        public void onListPullRefresh(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f53135e.u() == null) {
-                return;
-            }
-            this.f53135e.p = 0;
-            this.f53135e.n = true;
-            this.f53135e.f53131i.y(this.f53135e.l, this.f53135e.u().getUid(), this.f53135e.p, this.f53135e.q);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class e implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonFriendFragment f53136e;
-
-        public e(PersonFriendFragment personFriendFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personFriendFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53136e = personFriendFragment;
-        }
-
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53136e.o) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53135e.o) {
                 return;
             }
-            this.f53136e.n = false;
-            PersonFriendFragment personFriendFragment = this.f53136e;
-            personFriendFragment.p = personFriendFragment.f53131i.w().d().a() + 1;
-            this.f53136e.o = true;
-            this.f53136e.v();
+            this.f53135e.n = false;
+            PersonFriendFragment personFriendFragment = this.f53135e;
+            personFriendFragment.p = personFriendFragment.f53130i.w().d().a() + 1;
+            this.f53135e.o = true;
+            this.f53135e.v();
         }
     }
 
@@ -273,10 +273,53 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonFriendFragment f53137a;
+        public final /* synthetic */ PersonFriendFragment f53136a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(PersonFriendFragment personFriendFragment, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personFriendFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53136a = personFriendFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001182 && this.f53136a.l) {
+                h1 personFriendData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonFriendData();
+                if (this.f53136a.u() != null) {
+                    this.f53136a.m = personFriendData;
+                    this.f53136a.update(personFriendData, true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class g extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonFriendFragment f53137a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(PersonFriendFragment personFriendFragment, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -298,68 +341,25 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001182 && this.f53137a.l) {
-                h1 personFriendData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonFriendData();
-                if (this.f53137a.u() != null) {
-                    this.f53137a.m = personFriendData;
-                    this.f53137a.update(personFriendData, true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class g extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonFriendFragment f53138a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(PersonFriendFragment personFriendFragment, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personFriendFragment, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53138a = personFriendFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
-                this.f53138a.o = false;
-                if (this.f53138a.u() == null || httpResponsedMessage.getOrginalMessage().getTag() != this.f53138a.u().getUniqueId()) {
+                this.f53137a.o = false;
+                if (this.f53137a.u() == null || httpResponsedMessage.getOrginalMessage().getTag() != this.f53137a.u().getUniqueId()) {
                     return;
                 }
-                this.f53138a.mListView.completePullRefreshPostDelayed(0L);
+                this.f53137a.mListView.completePullRefreshPostDelayed(0L);
                 if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
                     PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
                     if (personFriendResponseMessage.getError() == 0) {
-                        this.f53138a.update(personFriendResponseMessage.getPersonFriendData(), false);
+                        this.f53137a.update(personFriendResponseMessage.getPersonFriendData(), false);
                         return;
                     } else {
-                        this.f53138a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53138a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
+                        this.f53137a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53137a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
                         return;
                     }
                 }
-                this.f53138a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53138a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
+                this.f53137a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.f53137a.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -394,11 +394,11 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             }
         }
         this.mListView = null;
-        this.f53127e = null;
-        this.f53128f = null;
-        this.f53129g = null;
-        this.f53130h = null;
-        this.f53131i = null;
+        this.f53126e = null;
+        this.f53127f = null;
+        this.f53128g = null;
+        this.f53129h = null;
+        this.f53130i = null;
         this.j = 0;
         this.k = 0;
         this.l = true;
@@ -415,7 +415,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         b.a.r0.o2.e eVar;
         UserData userData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f53127e) == null || eVar.getItemViewType(this.k) != 0 || (userData = (UserData) this.f53127e.getItem(this.k)) == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f53126e) == null || eVar.getItemViewType(this.k) != 0 || (userData = (UserData) this.f53126e.getItem(this.k)) == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
         TiebaStatic.eventStat(u().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
@@ -425,7 +425,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public void loadDataFromCache() {
         PersonFriendModel personFriendModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (personFriendModel = this.f53131i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (personFriendModel = this.f53130i) == null) {
             return;
         }
         personFriendModel.x();
@@ -447,14 +447,14 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
             if (isAdded()) {
-                if (this.f53128f != null && getBaseFragmentActivity() != null) {
-                    getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.f53128f);
+                if (this.f53127f != null && getBaseFragmentActivity() != null) {
+                    getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.f53127f);
                 }
-                NoDataView noDataView = this.f53129g;
+                NoDataView noDataView = this.f53128g;
                 if (noDataView != null) {
                     SkinManager.setBackgroundResource(noDataView, R.color.CAM_X0201);
                 }
-                b.a.q0.s.g0.g gVar = this.f53130h;
+                b.a.q0.s.g0.g gVar = this.f53129h;
                 if (gVar != null) {
                     gVar.C(i2);
                 }
@@ -470,15 +470,15 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.j = getArguments().getInt("page_type", 0);
             View inflate = layoutInflater.inflate(R.layout.friend_fragment, viewGroup, false);
-            this.f53127e = new b.a.r0.o2.e(u(), u().getIsHost(), this.j, new a(this), new b(this));
+            this.f53126e = new b.a.r0.o2.e(u(), u().getIsHost(), this.j, new a(this), new b(this));
             BdListView bdListView = (BdListView) inflate.findViewById(R.id.my_friend_list);
             this.mListView = bdListView;
             bdListView.setOnItemClickListener(new c(this));
-            this.mListView.setAdapter((ListAdapter) this.f53127e);
+            this.mListView.setAdapter((ListAdapter) this.f53126e);
             b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(u().getPageContext());
-            this.f53130h = gVar;
+            this.f53129h = gVar;
             gVar.a(new d(this));
-            this.mListView.setPullRefresh(this.f53130h);
+            this.mListView.setPullRefresh(this.f53129h);
             this.l = u().getIsHost();
             if (u() == null) {
                 str = null;
@@ -489,11 +489,11 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             } else {
                 str = getString(R.string.person_friend_no_common_info);
             }
-            this.f53129g = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.c(str), null);
-            this.f53128f = inflate.findViewById(R.id.friend_fragment_parent);
+            this.f53128g = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.c(str), null);
+            this.f53127f = inflate.findViewById(R.id.friend_fragment_parent);
             this.mListView.setOnSrollToBottomListener(new e(this));
             if (u() != null) {
-                this.f53131i = u().getModel();
+                this.f53130i = u().getModel();
                 if (this.l) {
                     loadDataFromCache();
                 }
@@ -511,10 +511,10 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.a.r0.o2.e eVar = this.f53127e;
+            b.a.r0.o2.e eVar = this.f53126e;
             if (eVar != null) {
                 eVar.c();
-                this.f53127e = null;
+                this.f53126e = null;
             }
             super.onDestroy();
         }
@@ -524,10 +524,10 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b.a.r0.o2.e eVar = this.f53127e;
+            b.a.r0.o2.e eVar = this.f53126e;
             if (eVar != null) {
                 eVar.c();
-                this.f53127e = null;
+                this.f53126e = null;
             }
             MessageManager.getInstance().unRegisterListener(this.s);
             MessageManager.getInstance().unRegisterListener(this.r);
@@ -542,7 +542,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             super.onResume();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (u() != null) {
-                this.f53131i = u().getModel();
+                this.f53130i = u().getModel();
             }
         }
     }
@@ -552,7 +552,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onStart();
-            NoDataView noDataView = this.f53129g;
+            NoDataView noDataView = this.f53128g;
             if (noDataView != null) {
                 noDataView.onActivityStart(getPageContext());
             }
@@ -564,7 +564,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onStop();
-            NoDataView noDataView = this.f53129g;
+            NoDataView noDataView = this.f53128g;
             if (noDataView != null) {
                 noDataView.onActivityStop();
             }
@@ -591,20 +591,20 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             return;
         }
         this.mListView.completePullRefreshPostDelayed(0L);
-        if (this.f53131i == null || u() == null) {
+        if (this.f53130i == null || u() == null) {
             return;
         }
         if (!z) {
             if (this.n) {
                 this.n = false;
                 if (this.j == u().getCurrentPageType()) {
-                    this.f53131i.z(h1Var);
+                    this.f53130i.z(h1Var);
                 }
             } else {
                 if (this.j == u().getCurrentPageType()) {
                     updateModel(h1Var);
                 }
-                h1Var2 = this.f53131i.w();
+                h1Var2 = this.f53130i.w();
                 this.m = h1Var2;
                 w(h1Var2);
                 x(h1Var);
@@ -619,24 +619,24 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public void updateModel(h1 h1Var) {
         PersonFriendModel personFriendModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, h1Var) == null) || h1Var == null || (personFriendModel = this.f53131i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, h1Var) == null) || h1Var == null || (personFriendModel = this.f53130i) == null) {
             return;
         }
         personFriendModel.w().e().addAll(h1Var.e());
-        this.f53131i.w().b().addAll(h1Var.b());
-        this.f53131i.w().h(h1Var.d());
+        this.f53130i.w().b().addAll(h1Var.b());
+        this.f53130i.w().h(h1Var.d());
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            b.a.r0.o2.e eVar = this.f53127e;
+            b.a.r0.o2.e eVar = this.f53126e;
             if (eVar != null) {
                 eVar.f(true);
-                this.f53127e.notifyDataSetChanged();
+                this.f53126e.notifyDataSetChanged();
             }
-            this.p = this.f53131i.w().d().a() + 1;
-            PersonFriendModel personFriendModel = this.f53131i;
+            this.p = this.f53130i.w().d().a() + 1;
+            PersonFriendModel personFriendModel = this.f53130i;
             personFriendModel.y(this.l, personFriendModel.getId(), this.p, this.q);
         }
     }
@@ -644,68 +644,68 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
     public final void w(h1 h1Var) {
         b.a.r0.o2.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, h1Var) == null) || (eVar = this.f53127e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, h1Var) == null) || (eVar = this.f53126e) == null) {
             return;
         }
         if (h1Var != null) {
             b1 d2 = h1Var.d();
             boolean z = true;
             if (this.j == 0) {
-                this.f53127e.e((d2 == null || d2.b() != 1) ? false : false);
-                this.f53127e.d(h1Var.e());
+                this.f53126e.e((d2 == null || d2.b() != 1) ? false : false);
+                this.f53126e.d(h1Var.e());
             } else {
                 if (h1Var.b().size() < this.q) {
-                    this.f53127e.e(false);
+                    this.f53126e.e(false);
                 } else {
-                    this.f53127e.e(true);
+                    this.f53126e.e(true);
                 }
-                this.f53127e.d(h1Var.b());
+                this.f53126e.d(h1Var.b());
             }
-            this.f53127e.f(false);
-            this.f53127e.b();
-            this.f53127e.notifyDataSetChanged();
+            this.f53126e.f(false);
+            this.f53126e.b();
+            this.f53126e.notifyDataSetChanged();
             return;
         }
         eVar.e(false);
-        this.f53127e.d(new ArrayList<>());
-        this.f53127e.f(false);
-        this.f53127e.b();
-        this.f53127e.notifyDataSetChanged();
+        this.f53126e.d(new ArrayList<>());
+        this.f53126e.f(false);
+        this.f53126e.b();
+        this.f53126e.notifyDataSetChanged();
     }
 
     public final void x(h1 h1Var) {
         PersonFriendModel personFriendModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, h1Var) == null) || u() == null || (personFriendModel = this.f53131i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, h1Var) == null) || u() == null || (personFriendModel = this.f53130i) == null) {
             return;
         }
         if (this.j == 0) {
             if (personFriendModel.w().e().size() == 0) {
                 h1 h1Var2 = this.m;
                 if (h1Var2 != null && h1Var2.e().size() > 0) {
-                    this.f53129g.setVisibility(8);
+                    this.f53128g.setVisibility(8);
                     this.mListView.setVisibility(0);
                 } else {
-                    this.f53129g.setVisibility(0);
+                    this.f53128g.setVisibility(0);
                     this.mListView.setVisibility(0);
                 }
             } else {
-                this.f53129g.setVisibility(8);
+                this.f53128g.setVisibility(8);
                 this.mListView.setVisibility(0);
             }
         } else if (personFriendModel.w().b().size() == 0) {
             h1 h1Var3 = this.m;
             if (h1Var3 != null && h1Var3.b().size() > 0) {
-                this.f53129g.setVisibility(8);
+                this.f53128g.setVisibility(8);
                 this.mListView.setVisibility(0);
             } else {
-                this.f53129g.setVisibility(0);
+                this.f53128g.setVisibility(0);
                 this.mListView.setVisibility(0);
             }
         } else {
-            this.f53129g.setVisibility(8);
+            this.f53128g.setVisibility(8);
             this.mListView.setVisibility(0);
         }
-        u().updateTabTitle(this.f53131i.w().c(), this.f53131i.w().a());
+        u().updateTabTitle(this.f53130i.w().c(), this.f53130i.w().a());
     }
 }

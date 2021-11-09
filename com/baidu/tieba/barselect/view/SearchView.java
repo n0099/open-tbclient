@@ -24,19 +24,19 @@ public class SearchView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47365e;
+    public Context f47364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47366f;
+    public View f47365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47367g;
+    public TextView f47366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47368h;
+    public TextView f47367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f47369i;
+    public View f47368i;
     public ImageView j;
     public TextView k;
     public View.OnClickListener l;
@@ -65,10 +65,10 @@ public class SearchView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47366f = findViewById(R.id.search_view_title_container);
-            this.f47367g = (TextView) findViewById(R.id.search_view_title);
-            this.f47368h = (TextView) findViewById(R.id.search_view_rank);
-            this.f47369i = findViewById(R.id.search_container);
+            this.f47365f = findViewById(R.id.search_view_title_container);
+            this.f47366g = (TextView) findViewById(R.id.search_view_title);
+            this.f47367h = (TextView) findViewById(R.id.search_view_rank);
+            this.f47368i = findViewById(R.id.search_container);
             this.j = (ImageView) findViewById(R.id.search_bar_icon);
             this.k = (TextView) findViewById(R.id.search_text);
         }
@@ -78,14 +78,14 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && this.l == null) {
             this.l = onClickListener;
-            this.f47369i.setOnClickListener(onClickListener);
+            this.f47368i.setOnClickListener(onClickListener);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47365e = getContext();
+            this.f47364e = getContext();
             setOrientation(1);
             setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -98,12 +98,12 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int g2 = l.g(getContext(), R.dimen.tbds100);
-            View view = this.f47369i;
+            View view = this.f47368i;
             int i3 = R.color.CAM_X0204;
             SkinManager.setBackgroundShapeDrawable(view, g2, i3, i3, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f47367g, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f47368h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f47366g, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f47367h, R.color.CAM_X0105, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
         }
@@ -112,8 +112,8 @@ public class SearchView extends LinearLayout {
     public void setRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f47366f.setVisibility(0);
-            this.f47368h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
+            this.f47365f.setVisibility(0);
+            this.f47367h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
         }
     }
 

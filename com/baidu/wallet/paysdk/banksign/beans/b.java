@@ -25,7 +25,7 @@ public class b extends BaseBean<GetJumpUrlResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59549a;
+    public String f59548a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -50,7 +50,7 @@ public class b extends BaseBean<GetJumpUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f59549a = str;
+            this.f59548a = str;
         }
     }
 
@@ -87,8 +87,8 @@ public class b extends BaseBean<GetJumpUrlResponse> {
             if (!TextUtils.isEmpty(sessionId)) {
                 arrayList.add(new RestNameValuePair("session_id", sessionId));
             }
-            if (!TextUtils.isEmpty(this.f59549a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f59549a));
+            if (!TextUtils.isEmpty(this.f59548a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f59548a));
             }
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new RestNameValuePair("serial_num", str2));

@@ -18,7 +18,7 @@ public final class a implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IBinder f61481a;
+    public final IBinder f61480a;
 
     static {
         InterceptResult invokeClinit;
@@ -80,7 +80,7 @@ public final class a implements Parcelable {
                 return;
             }
         }
-        this.f61481a = parcel.readStrongBinder();
+        this.f61480a = parcel.readStrongBinder();
     }
 
     @Override // android.os.Parcelable
@@ -97,7 +97,7 @@ public final class a implements Parcelable {
     public final void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.f61481a);
+            parcel.writeStrongBinder(this.f61480a);
         }
     }
 
@@ -116,6 +116,6 @@ public final class a implements Parcelable {
                 return;
             }
         }
-        this.f61481a = iBinder;
+        this.f61480a = iBinder;
     }
 }

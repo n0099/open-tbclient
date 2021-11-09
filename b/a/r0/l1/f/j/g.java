@@ -232,8 +232,8 @@ public class g {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.f20085c = str;
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f50485c = 150;
-            aVar.f50486d = str;
+            aVar.f50484c = 150;
+            aVar.f50485d = str;
             this.f20083a.sendMessage(new LoadOfficialHistoryMessage(aVar));
         }
     }
@@ -245,7 +245,7 @@ public class g {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50488b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50487b;
             ArrayList arrayList = new ArrayList();
             for (ChatMessage chatMessage : list) {
                 List<a.C1004a> b2 = b.a.r0.l1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());

@@ -22,7 +22,7 @@ public class PProvider extends ContentProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70524a;
+    public Context f70523a;
 
     public PProvider() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.f70524a) == 0) {
-            r0.E(this.f70524a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.f70523a) == 0) {
+            r0.E(this.f70523a);
         }
     }
 
@@ -81,10 +81,10 @@ public class PProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
-            this.f70524a = context;
+            this.f70523a = context;
             if (context != null) {
                 if (m2.A(context) == 0) {
-                    r0.E(this.f70524a);
+                    r0.E(this.f70523a);
                     return true;
                 }
                 return true;

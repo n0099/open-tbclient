@@ -14,7 +14,7 @@ public final class q extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UnvarnishedMessage f70228a;
+    public UnvarnishedMessage f70227a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q() {
@@ -39,7 +39,7 @@ public final class q extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("msg_v1", this.f70228a.unpackToJson());
+            aVar.a("msg_v1", this.f70227a.unpackToJson());
         }
     }
 
@@ -53,7 +53,7 @@ public final class q extends x {
                 return;
             }
             UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a2);
-            this.f70228a = unvarnishedMessage;
+            this.f70227a = unvarnishedMessage;
             unvarnishedMessage.setMsgId(f());
         }
     }
@@ -61,7 +61,7 @@ public final class q extends x {
     public final UnvarnishedMessage e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70228a : (UnvarnishedMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70227a : (UnvarnishedMessage) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,7 +75,7 @@ public final class q extends x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UnvarnishedMessage unvarnishedMessage = this.f70228a;
+            UnvarnishedMessage unvarnishedMessage = this.f70227a;
             if (unvarnishedMessage == null) {
                 return null;
             }

@@ -81,10 +81,10 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILoginBackListener f59410a;
+                public final /* synthetic */ ILoginBackListener f59409a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f59411b;
+                public final /* synthetic */ LoginImpl f59410b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,8 +101,8 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f59411b = this;
-                    this.f59410a = iLoginBackListener;
+                    this.f59410b = this;
+                    this.f59409a = iLoginBackListener;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f59410a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f59409a) == null) {
                         return;
                     }
                     iLoginBackListener2.onSuccess(0, "");
@@ -123,7 +123,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onFailure(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f59410a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f59409a) == null) {
                         return;
                     }
                     iLoginBackListener2.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());

@@ -30,7 +30,6 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -771,7 +770,7 @@ public class e {
             y().m(w);
         } else if (UtilHelper.isActivityStartFromScheme(activity)) {
             b.a.e.e.m.e.a().postDelayed(new c(this), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
-        } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus() || RomTypeUtil.check("MIUI")) {
+        } else {
             b.a.e.e.m.e.a().postDelayed(new d(this), 2000L);
         }
         this.f11753a = true;

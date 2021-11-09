@@ -23,13 +23,13 @@ public class AdStarRatingBar extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppCompatRatingBar f53639e;
+    public AppCompatRatingBar f53638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53640f;
+    public TextView f53639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53641g;
+    public int f53640g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdStarRatingBar(@NonNull Context context) {
@@ -56,21 +56,21 @@ public class AdStarRatingBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.ad_star_rating_bar, this);
-            this.f53639e = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
-            this.f53640f = (TextView) findViewById(R.id.ad_rating_text);
+            this.f53638e = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
+            this.f53639f = (TextView) findViewById(R.id.ad_rating_text);
             int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.icon_rating_bar_star_selected).getIntrinsicHeight();
-            ViewGroup.LayoutParams layoutParams = this.f53639e.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f53638e.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;
-            this.f53639e.setLayoutParams(layoutParams);
-            SkinManager.setViewTextColor(this.f53640f, this.f53641g);
+            this.f53638e.setLayoutParams(layoutParams);
+            SkinManager.setViewTextColor(this.f53639f, this.f53640g);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f53640f, this.f53641g);
+            SkinManager.setViewTextColor(this.f53639f, this.f53640g);
         }
     }
 
@@ -79,15 +79,15 @@ public class AdStarRatingBar extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 < 0.0f) {
             return;
         }
-        this.f53640f.setText(String.valueOf(f2));
-        this.f53639e.setRating(f2);
+        this.f53639f.setText(String.valueOf(f2));
+        this.f53638e.setRating(f2);
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f53641g = i2;
-            SkinManager.setViewTextColor(this.f53640f, i2);
+            this.f53640g = i2;
+            SkinManager.setViewTextColor(this.f53639f, i2);
             postInvalidate();
         }
     }
@@ -95,7 +95,7 @@ public class AdStarRatingBar extends FrameLayout {
     public void setTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f53640f.setText(i2);
+            this.f53639f.setText(i2);
         }
     }
 
@@ -139,7 +139,7 @@ public class AdStarRatingBar extends FrameLayout {
                 return;
             }
         }
-        this.f53641g = R.color.CAM_X0109;
+        this.f53640g = R.color.CAM_X0109;
         init();
     }
 }

@@ -37,19 +37,19 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52025e;
+    public int f52024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52026f;
+    public TbImageView f52025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52027g;
+    public TextView f52026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52028h;
+    public TextView f52027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f52029i;
+    public TextView f52028i;
     public TextView j;
     public TextView k;
     public View l;
@@ -74,7 +74,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        this.f52025e = 3;
+        this.f52024e = 3;
         b();
     }
 
@@ -85,13 +85,13 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             return;
         }
         int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(bVar.k);
-        Drawable background = this.f52029i.getBackground();
+        Drawable background = this.f52028i.getBackground();
         DrawableCompat.setTint(background, SkinManager.getColor(hotTopicTagColorRes));
-        this.f52029i.setBackgroundDrawable(background);
+        this.f52028i.setBackgroundDrawable(background);
         int indexTextColorRes = TagTextHelper.getIndexTextColorRes(this.m.f17726f);
-        Drawable background2 = this.f52027g.getBackground();
+        Drawable background2 = this.f52026g.getBackground();
         DrawableCompat.setTint(background2, SkinManager.getColor(indexTextColorRes));
-        this.f52027g.setBackgroundDrawable(background2);
+        this.f52026g.setBackgroundDrawable(background2);
     }
 
     public final void b() {
@@ -99,15 +99,15 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(b.a.r0.j1.f.hot_topic_list_info_item, (ViewGroup) this, true);
             this.l = findViewById(e.rootLayout);
-            this.f52026f = (TbImageView) findViewById(e.coverView);
-            this.f52027g = (TextView) findViewById(e.indexView);
-            this.f52028h = (TextView) findViewById(e.titleView);
-            this.f52029i = (TextView) findViewById(e.tagView);
+            this.f52025f = (TbImageView) findViewById(e.coverView);
+            this.f52026g = (TextView) findViewById(e.indexView);
+            this.f52027h = (TextView) findViewById(e.titleView);
+            this.f52028i = (TextView) findViewById(e.tagView);
             this.j = (TextView) findViewById(e.numView);
             this.k = (TextView) findViewById(e.descView);
-            this.f52026f.setPlaceHolder(1);
-            this.f52026f.setRadius(l.g(getContext(), c.tbds10));
-            this.f52026f.setConrers(15);
+            this.f52025f.setPlaceHolder(1);
+            this.f52025f.setRadius(l.g(getContext(), c.tbds10));
+            this.f52025f.setConrers(15);
             findViewById(e.rootLayout).setOnClickListener(this);
         }
     }
@@ -118,16 +118,16 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             return;
         }
         this.m = bVar;
-        this.f52026f.startLoad(bVar.j, 10, false);
-        this.f52028h.setCompoundDrawablesWithIntrinsicBounds(bVar.d() ? SkinManager.getDrawable(d.icon_pure_videotopic48) : null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.f52028h.setText(bVar.f17727g);
+        this.f52025f.startLoad(bVar.j, 10, false);
+        this.f52027h.setCompoundDrawablesWithIntrinsicBounds(bVar.d() ? SkinManager.getDrawable(d.icon_pure_videotopic48) : null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.f52027h.setText(bVar.f17727g);
         this.k.setText(bVar.f17728h);
-        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f52029i.getContext(), bVar.k);
+        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f52028i.getContext(), bVar.k);
         if (TextUtils.isEmpty(hotTopicTagStr)) {
-            this.f52029i.setVisibility(8);
+            this.f52028i.setVisibility(8);
         } else {
-            this.f52029i.setVisibility(0);
-            this.f52029i.setText(hotTopicTagStr);
+            this.f52028i.setVisibility(0);
+            this.f52028i.setText(hotTopicTagStr);
         }
         a();
         if (bVar.f17729i > 0) {
@@ -138,23 +138,23 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         } else {
             this.j.setVisibility(4);
         }
-        TextView textView2 = this.f52027g;
+        TextView textView2 = this.f52026g;
         textView2.setText("" + bVar.f17726f);
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f52025e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f52024e == i2) {
             return;
         }
         TBSelector.setViewBackgroundColorWithPressedState(this.l, b.a.r0.j1.b.CAM_X0205, b.a.r0.j1.b.CAM_X0204);
-        SkinManager.setViewTextColor(this.f52029i, b.a.r0.j1.b.CAM_X0101);
-        SkinManager.setViewTextColor(this.f52027g, b.a.r0.j1.b.CAM_X0101);
+        SkinManager.setViewTextColor(this.f52028i, b.a.r0.j1.b.CAM_X0101);
+        SkinManager.setViewTextColor(this.f52026g, b.a.r0.j1.b.CAM_X0101);
         SkinManager.setViewTextColor(this.k, b.a.r0.j1.b.CAM_X0109);
         SkinManager.setViewTextColor(this.j, b.a.r0.j1.b.CAM_X0109);
-        SkinManager.setViewTextColor(this.f52028h, b.a.r0.j1.b.CAM_X0105);
+        SkinManager.setViewTextColor(this.f52027h, b.a.r0.j1.b.CAM_X0105);
         a();
-        this.f52025e = i2;
+        this.f52024e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -207,7 +207,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        this.f52025e = 3;
+        this.f52024e = 3;
         b();
     }
 
@@ -230,7 +230,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        this.f52025e = 3;
+        this.f52024e = 3;
         b();
     }
 }

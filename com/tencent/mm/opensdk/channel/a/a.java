@@ -24,11 +24,11 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f69957a;
+        public String f69956a;
         public String action;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f69958b;
+        public long f69957b;
         public Bundle bundle;
         public String content;
 
@@ -56,8 +56,8 @@ public final class a {
                 str = "send fail, invalid argument";
             } else if (!d.b(c2018a.action)) {
                 String str2 = null;
-                if (!d.b(c2018a.f69957a)) {
-                    str2 = c2018a.f69957a + ".permission.MM_MESSAGE";
+                if (!d.b(c2018a.f69956a)) {
+                    str2 = c2018a.f69956a + ".permission.MM_MESSAGE";
                 }
                 Intent intent = new Intent(c2018a.action);
                 Bundle bundle = c2018a.bundle;
@@ -68,7 +68,7 @@ public final class a {
                 intent.putExtra("_mmessage_sdkVersion", Build.SDK_INT);
                 intent.putExtra("_mmessage_appPackage", packageName);
                 intent.putExtra("_mmessage_content", c2018a.content);
-                intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c2018a.f69958b);
+                intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c2018a.f69957b);
                 intent.putExtra("_mmessage_checksum", b.a(c2018a.content, Build.SDK_INT, packageName));
                 context.sendBroadcast(intent, str2);
                 Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);

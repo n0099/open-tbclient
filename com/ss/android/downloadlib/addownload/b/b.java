@@ -14,31 +14,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68487a;
+    public long f68486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68488b;
+    public long f68487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68489c;
+    public String f68488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68490d;
+    public String f68489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68491e;
+    public String f68490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68492f;
+    public String f68491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68493g;
+    public String f68492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Pair<String, String>> f68494h;
+    public final List<Pair<String, String>> f68493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68495i;
+    public String f68494i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b {
                 return;
             }
         }
-        this.f68494h = new ArrayList();
+        this.f68493h = new ArrayList();
     }
 
     public static long a(long j, long j2) {
@@ -65,6 +65,6 @@ public class b {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f68487a, this.f68488b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f68486a, this.f68487b) : invokeV.longValue;
     }
 }

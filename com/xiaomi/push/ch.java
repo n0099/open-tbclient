@@ -15,7 +15,7 @@ public class ch extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f70753a;
+    public final /* synthetic */ cg f70752a;
 
     public ch(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class ch extends ai.a {
                 return;
             }
         }
-        this.f70753a = cgVar;
+        this.f70752a = cgVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -53,21 +53,21 @@ public class ch extends ai.a {
         ArrayList<cg.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.f70753a.f180a;
+            arrayList = this.f70752a.f180a;
             synchronized (arrayList) {
-                arrayList2 = this.f70753a.f180a;
+                arrayList2 = this.f70752a.f180a;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.f70753a.f180a;
+                    arrayList3 = this.f70752a.f180a;
                     if (arrayList3.size() > 1) {
-                        cg cgVar = this.f70753a;
-                        arrayList6 = this.f70753a.f180a;
+                        cg cgVar = this.f70752a;
+                        arrayList6 = this.f70752a.f180a;
                         cgVar.a(arrayList6);
                     } else {
-                        cg cgVar2 = this.f70753a;
-                        arrayList4 = this.f70753a.f180a;
+                        cg cgVar2 = this.f70752a;
+                        arrayList4 = this.f70752a.f180a;
                         cgVar2.b((cg.a) arrayList4.get(0));
                     }
-                    arrayList5 = this.f70753a.f180a;
+                    arrayList5 = this.f70752a.f180a;
                     arrayList5.clear();
                     System.gc();
                 }

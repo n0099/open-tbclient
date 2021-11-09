@@ -44,11 +44,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<q, PbFirstFloorCommen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52462a;
+        public int f52461a;
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public f f52463b;
+        public f f52462b;
         public View mBottomDividerLine;
         public PbThreadCommentAndPraiseInfoLayout mCommentAndPraiseLayout;
 
@@ -70,17 +70,17 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<q, PbFirstFloorCommen
                     return;
                 }
             }
-            this.f52463b = new f();
+            this.f52462b = new f();
             if (view == null) {
                 return;
             }
             this.mCommentAndPraiseLayout = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(i.card_bottom_func_layout);
-            f fVar = this.f52463b;
+            f fVar = this.f52462b;
             fVar.f13300b = 4;
             fVar.f13306h = 7;
-            fVar.f13301c = this.f52462a;
+            fVar.f13301c = this.f52461a;
             fVar.f13304f = PbFirstFloorCommentAndPraiseAdapter.x;
-            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f52463b);
+            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f52462b);
             View findViewById = view.findViewById(i.bottom_divider_line);
             this.mBottomDividerLine = findViewById;
             findViewById.setVisibility(0);
@@ -97,9 +97,9 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<q, PbFirstFloorCommen
                     this.mCommentAndPraiseLayout.setData(e2, qVar.d());
                     this.mBottomDividerLine.setVisibility(qVar.h() ? 0 : 8);
                     if (e2.E2() && e2.q1() != null) {
-                        this.f52462a = 2;
+                        this.f52461a = 2;
                     } else {
-                        this.f52462a = 1;
+                        this.f52461a = 1;
                     }
                     if (qVar.f18800f) {
                         getView().setPadding(0, 0, 0, l.g(getView().getContext(), g.tbds32));
@@ -121,7 +121,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<q, PbFirstFloorCommen
         public void setFromForumId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f52463b.j = str;
+                this.f52462b.j = str;
             }
         }
 

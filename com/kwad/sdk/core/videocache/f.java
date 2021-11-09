@@ -31,25 +31,25 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f65155a;
+    public final Object f65154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f65156b;
+    public final ExecutorService f65155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, g> f65157c;
+    public final Map<String, g> f65156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ServerSocket f65158d;
+    public final ServerSocket f65157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f65159e;
+    public final int f65158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Thread f65160f;
+    public final Thread f65159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.c f65161g;
+    public final com.kwad.sdk.core.videocache.c f65160g;
 
     /* renamed from: com.kwad.sdk.core.videocache.f$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -64,19 +64,19 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f65162a;
+        public File f65161a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.c f65163b;
+        public com.kwad.sdk.core.videocache.a.c f65162b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.a f65164c;
+        public com.kwad.sdk.core.videocache.a.a f65163c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.d.b f65165d;
+        public com.kwad.sdk.core.videocache.d.b f65164d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.b.b f65166e;
+        public com.kwad.sdk.core.videocache.b.b f65165e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -93,24 +93,24 @@ public class f {
                     return;
                 }
             }
-            this.f65165d = com.kwad.sdk.core.videocache.d.c.a(context);
-            this.f65162a = o.a(context);
-            this.f65164c = new com.kwad.sdk.core.videocache.a.g(536870912L);
-            this.f65163b = new com.kwad.sdk.core.videocache.a.f();
-            this.f65166e = new com.kwad.sdk.core.videocache.b.a();
+            this.f65164d = com.kwad.sdk.core.videocache.d.c.a(context);
+            this.f65161a = o.a(context);
+            this.f65163c = new com.kwad.sdk.core.videocache.a.g(536870912L);
+            this.f65162b = new com.kwad.sdk.core.videocache.a.f();
+            this.f65165e = new com.kwad.sdk.core.videocache.b.a();
         }
 
         private com.kwad.sdk.core.videocache.c b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new com.kwad.sdk.core.videocache.c(this.f65162a, this.f65163b, this.f65164c, this.f65165d, this.f65166e) : (com.kwad.sdk.core.videocache.c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new com.kwad.sdk.core.videocache.c(this.f65161a, this.f65162b, this.f65163c, this.f65164d, this.f65165e) : (com.kwad.sdk.core.videocache.c) invokeV.objValue;
         }
 
         public a a(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                this.f65164c = new com.kwad.sdk.core.videocache.a.g(j);
+                this.f65163c = new com.kwad.sdk.core.videocache.a.g(j);
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -129,10 +129,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f65167a;
+        public final /* synthetic */ f f65166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Socket f65168b;
+        public final Socket f65167b;
 
         public b(f fVar, Socket socket) {
             Interceptable interceptable = $ic;
@@ -149,15 +149,15 @@ public class f {
                     return;
                 }
             }
-            this.f65167a = fVar;
-            this.f65168b = socket;
+            this.f65166a = fVar;
+            this.f65167b = socket;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f65167a.a(this.f65168b);
+                this.f65166a.a(this.f65167b);
             }
         }
     }
@@ -168,10 +168,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f65169a;
+        public final /* synthetic */ f f65168a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final CountDownLatch f65170b;
+        public final CountDownLatch f65169b;
 
         public c(f fVar, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
@@ -188,8 +188,8 @@ public class f {
                     return;
                 }
             }
-            this.f65169a = fVar;
-            this.f65170b = countDownLatch;
+            this.f65168a = fVar;
+            this.f65169b = countDownLatch;
         }
 
         @Override // java.lang.Runnable
@@ -197,8 +197,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f65170b.countDown();
-                    this.f65169a.a();
+                    this.f65169b.countDown();
+                    this.f65168a.a();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.a(th);
                 }
@@ -221,23 +221,23 @@ public class f {
                 return;
             }
         }
-        this.f65155a = new Object();
-        this.f65156b = com.kwad.sdk.core.i.b.l();
-        this.f65157c = new ConcurrentHashMap();
-        this.f65161g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
+        this.f65154a = new Object();
+        this.f65155b = com.kwad.sdk.core.i.b.l();
+        this.f65156c = new ConcurrentHashMap();
+        this.f65160g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
         try {
             ServerSocket serverSocket = new ServerSocket(0, 8, InetAddress.getByName("127.0.0.1"));
-            this.f65158d = serverSocket;
+            this.f65157d = serverSocket;
             int localPort = serverSocket.getLocalPort();
-            this.f65159e = localPort;
+            this.f65158e = localPort;
             i.a("127.0.0.1", localPort);
             CountDownLatch countDownLatch = new CountDownLatch(1);
             Thread thread = new Thread(new c(this, countDownLatch));
-            this.f65160f = thread;
+            this.f65159f = thread;
             thread.start();
             countDownLatch.await();
         } catch (IOException | InterruptedException e2) {
-            this.f65156b.shutdown();
+            this.f65155b.shutdown();
             throw new IllegalStateException("Error starting local proxy server", e2);
         }
     }
@@ -252,9 +252,9 @@ public class f {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
-                    Socket accept = this.f65158d.accept();
+                    Socket accept = this.f65157d.accept();
                     com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Accept new socket " + accept);
-                    this.f65156b.submit(new b(this, accept));
+                    this.f65155b.submit(new b(this, accept));
                 } catch (IOException e2) {
                     a(new ProxyCacheException("Error during waiting connection", e2));
                     return;
@@ -267,7 +267,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, file) == null) {
             try {
-                this.f65161g.f65142c.a(file);
+                this.f65160g.f65141c.a(file);
             } catch (IOException unused) {
                 com.kwad.sdk.core.d.a.e("HttpProxyCacheServer", "Error touching file " + file);
             }
@@ -303,7 +303,7 @@ public class f {
                 try {
                     d a2 = d.a(socket.getInputStream());
                     com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Request to cache proxy:" + a2);
-                    f(l.c(a2.f65148a)).a(a2, socket);
+                    f(l.c(a2.f65147a)).a(a2, socket);
                     b(socket);
                     sb = new StringBuilder();
                 } catch (ProxyCacheException e2) {
@@ -342,9 +342,9 @@ public class f {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            synchronized (this.f65155a) {
+            synchronized (this.f65154a) {
                 i2 = 0;
-                for (g gVar : this.f65157c.values()) {
+                for (g gVar : this.f65156c.values()) {
                     i2 += gVar.b();
                 }
             }
@@ -395,7 +395,7 @@ public class f {
     private String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f65159e), l.b(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f65158e), l.b(str)) : (String) invokeL.objValue;
     }
 
     private void e(Socket socket) {
@@ -417,11 +417,11 @@ public class f {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
-            synchronized (this.f65155a) {
-                gVar = this.f65157c.get(str);
+            synchronized (this.f65154a) {
+                gVar = this.f65156c.get(str);
                 if (gVar == null) {
-                    gVar = new g(str, this.f65161g);
-                    this.f65157c.put(str, gVar);
+                    gVar = new g(str, this.f65160g);
+                    this.f65156c.put(str, gVar);
                 }
             }
             return gVar;
@@ -553,10 +553,10 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            g gVar = this.f65157c.get(str);
+            g gVar = this.f65156c.get(str);
             if (gVar != null) {
                 gVar.a();
-                this.f65157c.remove(str);
+                this.f65156c.remove(str);
                 return true;
             }
             return false;
@@ -568,8 +568,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            com.kwad.sdk.core.videocache.c cVar = this.f65161g;
-            return new File(cVar.f65140a, cVar.f65141b.a(str));
+            com.kwad.sdk.core.videocache.c cVar = this.f65160g;
+            return new File(cVar.f65139a, cVar.f65140b.a(str));
         }
         return (File) invokeL.objValue;
     }

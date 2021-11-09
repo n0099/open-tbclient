@@ -11,8 +11,6 @@ import b.a.r0.u.a.d;
 import b.a.r0.u.a.e;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -80,7 +78,6 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                 this.f23939a.show();
                 return false;
             }
@@ -210,7 +207,7 @@ public class a {
                                 this.f23938d.add(dVar);
                                 this.f23938d.add(cVar);
                             }
-                        } else if (StringHelper.equals(this.f23936b, cVar.e())) {
+                        } else if (StringHelper.equals(this.f23936b, cVar.d())) {
                             this.f23938d.add(dVar);
                             this.f23938d.add(cVar);
                         } else {
@@ -249,7 +246,7 @@ public class a {
                 d();
                 Iterator<b.a.r0.u.a.h.b> it = this.f23938d.iterator();
                 while (it.hasNext()) {
-                    it.next().d(dVar);
+                    it.next().c(dVar);
                 }
             }
         }
@@ -273,20 +270,20 @@ public class a {
                 while (it.hasNext()) {
                     b.a.r0.u.a.h.b next = it.next();
                     if (next != null) {
-                        if (next.c() == AdLoadState.SUCCEED) {
+                        if (next.b() == AdLoadState.SUCCEED) {
                             this.f23937c = true;
-                            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_AD_WILL_CALLSHOW_STAMP_KEY);
+                            if (aVar != null) {
+                                aVar.c();
+                            }
                             if (AdToMainTabActivitySwitch.getIsOn()) {
-                                next.b();
                                 Looper.myQueue().addIdleHandler(new C1160a(this, next));
                             } else {
-                                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                                 next.show();
                             }
-                            b.a.q0.s.a0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", k.isEmpty(next.e()) ? "bes" : next.e());
-                            j(next.e());
+                            b.a.q0.s.a0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", k.isEmpty(next.d()) ? "bes" : next.d());
+                            j(next.d());
                             return;
-                        } else if (next.c() != AdLoadState.FAILED && z) {
+                        } else if (next.b() != AdLoadState.FAILED && z) {
                             return;
                         }
                     }
@@ -314,7 +311,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             int e2 = b.a.e.e.m.b.e(jSONObject.optString("ad_sdk_priority"), 0);
-            c.o(b.a.e.e.m.b.e(jSONObject.optString("bear_sid_type"), 0));
+            c.n(b.a.e.e.m.b.e(jSONObject.optString("bear_sid_type"), 0));
             if ((e2 == 103 || e2 == 104) && e2 != this.f23935a) {
                 this.f23936b = "";
                 b.a.q0.s.e0.b.j().C("splash_ad_last_show_key");

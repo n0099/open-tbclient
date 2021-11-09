@@ -22,10 +22,10 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GestureDetector f56757a;
+    public GestureDetector f56756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewFlipper f56758b;
+    public ViewFlipper f56757b;
 
     public FeedbackImageViewFlipperActivity() {
         Interceptable interceptable = $ic;
@@ -58,21 +58,21 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             linearLayout.setGravity(17);
             linearLayout.setBackgroundColor(-16777216);
             ViewFlipper viewFlipper = new ViewFlipper(this);
-            this.f56758b = viewFlipper;
+            this.f56757b = viewFlipper;
             linearLayout.addView(viewFlipper, layoutParams);
             setContentView(linearLayout);
-            this.f56757a = new GestureDetector(this);
+            this.f56756a = new GestureDetector(this);
             ImageView imageView = new ImageView(this);
             imageView.setAdjustViewBounds(true);
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setImageBitmap(FeedbackInputActivity.f56759a);
-            this.f56758b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-            this.f56758b.setAutoStart(false);
-            this.f56758b.setFlipInterval(3000);
-            if (!this.f56758b.isAutoStart() || this.f56758b.isFlipping()) {
+            imageView.setImageBitmap(FeedbackInputActivity.f56758a);
+            this.f56757b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+            this.f56757b.setAutoStart(false);
+            this.f56757b.setFlipInterval(3000);
+            if (!this.f56757b.isAutoStart() || this.f56757b.isFlipping()) {
                 return;
             }
-            this.f56758b.startFlipping();
+            this.f56757b.startFlipping();
         }
     }
 
@@ -81,7 +81,7 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            FeedbackInputActivity.f56759a = null;
+            FeedbackInputActivity.f56758a = null;
         }
     }
 
@@ -166,9 +166,9 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            this.f56758b.stopFlipping();
-            this.f56758b.setAutoStart(false);
-            return this.f56757a.onTouchEvent(motionEvent);
+            this.f56757b.stopFlipping();
+            this.f56757b.setAutoStart(false);
+            return this.f56756a.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }

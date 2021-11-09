@@ -23,10 +23,10 @@ public class StickerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.d4.u.l.a f56113e;
+    public b.a.r0.d4.u.l.a f56112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f56114f;
+    public b.a.e.c.g.a f56113f;
 
     /* loaded from: classes10.dex */
     public class a extends b.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class StickerModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerModel f56115a;
+        public final /* synthetic */ StickerModel f56114a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(StickerModel stickerModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class StickerModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56115a = stickerModel;
+            this.f56114a = stickerModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -72,8 +72,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (this.f56115a.f56113e != null) {
-                    this.f56115a.f56113e.e(list);
+                if (this.f56114a.f56112e != null) {
+                    this.f56114a.f56112e.e(list);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class StickerModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f56114f = aVar;
+        this.f56113f = aVar;
         registerListener(aVar);
     }
 
@@ -141,7 +141,7 @@ public class StickerModel extends BdBaseModel {
     public void x(b.a.r0.d4.u.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f56113e = aVar;
+            this.f56112e = aVar;
         }
     }
 }

@@ -80,7 +80,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46607a;
+        public final /* synthetic */ AccountActivity f46606a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AccountActivity accountActivity, int i2) {
@@ -100,20 +100,20 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46607a = accountActivity;
+            this.f46606a = accountActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f46607a.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f46606a.mModel == null) {
                 return;
             }
-            this.f46607a.InitData();
-            if (this.f46607a.mAdapter != null) {
-                this.f46607a.mAdapter.b(this.f46607a.mModel);
-                this.f46607a.mAdapter.notifyDataSetChanged();
+            this.f46606a.InitData();
+            if (this.f46606a.mAdapter != null) {
+                this.f46606a.mAdapter.b(this.f46606a.mModel);
+                this.f46606a.mAdapter.notifyDataSetChanged();
             }
         }
     }
@@ -124,7 +124,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46608e;
+        public final /* synthetic */ AccountActivity f46607e;
 
         /* loaded from: classes9.dex */
         public class a implements b.c {
@@ -132,10 +132,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f46609a;
+            public final /* synthetic */ View f46608a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f46610b;
+            public final /* synthetic */ b f46609b;
 
             public a(b bVar, View view) {
                 Interceptable interceptable = $ic;
@@ -152,24 +152,24 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                         return;
                     }
                 }
-                this.f46610b = bVar;
-                this.f46609a = view;
+                this.f46609b = bVar;
+                this.f46608a = view;
             }
 
             @Override // b.a.q0.s.s.b.c
             public void a(b.a.q0.s.s.b bVar, int i2, View view) {
                 View view2;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) || (view2 = this.f46609a) == null) {
+                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) || (view2 = this.f46608a) == null) {
                     return;
                 }
                 AccountData accountData = (AccountData) view2.getTag();
                 if (i2 != 0) {
                     if (i2 == 1 && accountData != null) {
-                        this.f46610b.f46608e.deleteAccount(true, accountData);
+                        this.f46609b.f46607e.deleteAccount(true, accountData);
                     }
                 } else if (accountData != null) {
-                    this.f46610b.f46608e.deleteAccount(false, accountData);
+                    this.f46609b.f46607e.deleteAccount(false, accountData);
                 }
                 bVar.e();
             }
@@ -190,18 +190,18 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46608e = accountActivity;
+            this.f46607e = accountActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String[] strArr = {this.f46608e.getPageContext().getString(R.string.delete_account_only), this.f46608e.getPageContext().getString(R.string.delete_account_and_group_cache), this.f46608e.getPageContext().getString(R.string.cancel)};
-                b.a.q0.s.s.b bVar = new b.a.q0.s.s.b(this.f46608e.getPageContext().getPageActivity());
+                String[] strArr = {this.f46607e.getPageContext().getString(R.string.delete_account_only), this.f46607e.getPageContext().getString(R.string.delete_account_and_group_cache), this.f46607e.getPageContext().getString(R.string.cancel)};
+                b.a.q0.s.s.b bVar = new b.a.q0.s.s.b(this.f46607e.getPageContext().getPageActivity());
                 bVar.k(R.string.inform);
                 bVar.j(strArr, new a(this, view));
-                bVar.c(this.f46608e.getPageContext());
+                bVar.c(this.f46607e.getPageContext());
                 bVar.m();
             }
         }
@@ -213,7 +213,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46611e;
+        public final /* synthetic */ AccountActivity f46610e;
 
         public c(AccountActivity accountActivity) {
             Interceptable interceptable = $ic;
@@ -230,28 +230,28 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46611e = accountActivity;
+            this.f46610e = accountActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f46611e.mAdapter.a()) {
-                    this.f46611e.mAdapter.c(true);
-                    this.f46611e.mEdit.setText(R.string.done);
+                if (!this.f46610e.mAdapter.a()) {
+                    this.f46610e.mAdapter.c(true);
+                    this.f46610e.mEdit.setText(R.string.done);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                        SkinManager.setViewTextColor(this.f46611e.mEdit, R.color.navi_op_text, 1);
+                        SkinManager.setViewTextColor(this.f46610e.mEdit, R.color.navi_op_text, 1);
                     } else {
-                        SkinManager.setViewTextColor(this.f46611e.mEdit, R.color.CAM_X0302, 1);
+                        SkinManager.setViewTextColor(this.f46610e.mEdit, R.color.CAM_X0302, 1);
                     }
-                    this.f46611e.mAdapter.notifyDataSetChanged();
+                    this.f46610e.mAdapter.notifyDataSetChanged();
                     return;
                 }
-                this.f46611e.mAdapter.c(false);
-                this.f46611e.mEdit.setText(R.string.edit);
-                SkinManager.setViewTextColor(this.f46611e.mEdit, R.color.navi_op_text, 1);
-                this.f46611e.mAdapter.notifyDataSetChanged();
+                this.f46610e.mAdapter.c(false);
+                this.f46610e.mEdit.setText(R.string.edit);
+                SkinManager.setViewTextColor(this.f46610e.mEdit, R.color.navi_op_text, 1);
+                this.f46610e.mAdapter.notifyDataSetChanged();
             }
         }
     }
@@ -262,7 +262,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46612e;
+        public final /* synthetic */ AccountActivity f46611e;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -270,7 +270,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Dialog f46613e;
+            public final /* synthetic */ Dialog f46612e;
 
             public a(d dVar, Dialog dialog) {
                 Interceptable interceptable = $ic;
@@ -287,14 +287,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                         return;
                     }
                 }
-                this.f46613e = dialog;
+                this.f46612e = dialog;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f46613e.dismiss();
+                    this.f46612e.dismiss();
                 }
             }
         }
@@ -314,7 +314,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46612e = accountActivity;
+            this.f46611e = accountActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -322,29 +322,29 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             AccountData accountData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                boolean z = this.f46612e.mAdapter.getItemId(i2) < 0;
-                if (ListUtils.getCount(this.f46612e.mModel) > 10 || (z && ListUtils.getCount(this.f46612e.mModel) == 10)) {
+                boolean z = this.f46611e.mAdapter.getItemId(i2) < 0;
+                if (ListUtils.getCount(this.f46611e.mModel) > 10 || (z && ListUtils.getCount(this.f46611e.mModel) == 10)) {
                     TBAlertConfig.a aVar = new TBAlertConfig.a(R.string.account_dialog_ok, TBAlertConfig.OperateBtnStyle.MAIN);
-                    b.a.q0.s.s.l lVar = new b.a.q0.s.s.l(this.f46612e.getActivity());
+                    b.a.q0.s.s.l lVar = new b.a.q0.s.s.l(this.f46611e.getActivity());
                     lVar.q(R.string.account_dialog_title);
                     lVar.j(R.string.too_many_account);
                     lVar.p(aVar);
                     lVar.g(false);
                     aVar.a(new a(this, lVar.t()));
                 } else if (!z) {
-                    if (this.f46612e.mAdapter.a() || (accountData = (AccountData) this.f46612e.mAdapter.getItem(i2)) == null || accountData.getIsActive() == 1) {
+                    if (this.f46611e.mAdapter.a() || (accountData = (AccountData) this.f46611e.mAdapter.getItem(i2)) == null || accountData.getIsActive() == 1) {
                         return;
                     }
                     if (TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() && TextUtils.isEmpty(accountData.getAccount())) {
-                        this.f46612e.showInputDialog(accountData);
+                        this.f46611e.showInputDialog(accountData);
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, TbadkCoreApplication.getCurrentAccount()));
-                    this.f46612e.switchAccount(accountData);
+                    this.f46611e.switchAccount(accountData);
                 } else {
-                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f46612e.getPageContext().getPageActivity());
+                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f46611e.getPageContext().getPageActivity());
                     loginActivityConfig.setJumpToAfterDestroy(1);
-                    TbadkCoreApplication.getInst().login(this.f46612e.getPageContext(), new CustomMessage<>(2002001, loginActivityConfig));
+                    TbadkCoreApplication.getInst().login(this.f46611e.getPageContext(), new CustomMessage<>(2002001, loginActivityConfig));
                 }
             }
         }
@@ -356,7 +356,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46614a;
+        public final /* synthetic */ AccountActivity f46613a;
 
         public e(AccountActivity accountActivity) {
             Interceptable interceptable = $ic;
@@ -373,7 +373,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46614a = accountActivity;
+            this.f46613a = accountActivity;
         }
 
         @Override // b.a.q0.t.i.b.e
@@ -381,7 +381,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, TbadkCoreApplication.getCurrentAccount()));
-                this.f46614a.switchAccount(accountData);
+                this.f46613a.switchAccount(accountData);
             }
         }
     }
@@ -392,7 +392,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46615e;
+        public final /* synthetic */ AccountActivity f46614e;
 
         public f(AccountActivity accountActivity) {
             Interceptable interceptable = $ic;
@@ -409,16 +409,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46615e = accountActivity;
+            this.f46614e = accountActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f46615e.destroyWaitingDialog();
-                this.f46615e.manualOpenSocket("account changed");
-                this.f46615e.mSwitchTask = null;
+                this.f46614e.destroyWaitingDialog();
+                this.f46614e.manualOpenSocket("account changed");
+                this.f46614e.mSwitchTask = null;
             }
         }
     }
@@ -429,10 +429,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46616e;
+        public final /* synthetic */ boolean f46615e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46617f;
+        public final /* synthetic */ AccountActivity f46616f;
 
         public g(AccountActivity accountActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -449,19 +449,19 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46617f = accountActivity;
-            this.f46616e = z;
+            this.f46616f = accountActivity;
+            this.f46615e = z;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f46617f.destroyWaitingDialog();
-                if (this.f46616e) {
-                    this.f46617f.manualOpenSocket("account delete cancel");
+                this.f46616f.destroyWaitingDialog();
+                if (this.f46615e) {
+                    this.f46616f.manualOpenSocket("account delete cancel");
                 }
-                this.f46617f.mDeleteTask = null;
+                this.f46616f.mDeleteTask = null;
             }
         }
     }
@@ -472,7 +472,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46618a;
+        public final /* synthetic */ AccountActivity f46617a;
 
         public h(AccountActivity accountActivity) {
             Interceptable interceptable = $ic;
@@ -489,7 +489,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46618a = accountActivity;
+            this.f46617a = accountActivity;
         }
 
         @Override // android.os.Handler
@@ -499,12 +499,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 super.handleMessage(message);
                 int i2 = message.what;
                 if (i2 == 1) {
-                    this.f46618a.doDeleteTask();
+                    this.f46617a.doDeleteTask();
                 } else if (i2 != 2) {
                 } else {
                     Object obj = message.obj;
                     if (obj instanceof AccountData) {
-                        this.f46618a.doSwitchTask((AccountData) obj);
+                        this.f46617a.doSwitchTask((AccountData) obj);
                     }
                 }
             }
@@ -517,16 +517,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f46619a;
+        public AccountData f46618a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46620b;
+        public int f46619b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f46621c;
+        public boolean f46620c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46622d;
+        public final /* synthetic */ AccountActivity f46621d;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -534,7 +534,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i f46623e;
+            public final /* synthetic */ i f46622e;
 
             public a(i iVar) {
                 Interceptable interceptable = $ic;
@@ -551,14 +551,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                         return;
                     }
                 }
-                this.f46623e = iVar;
+                this.f46622e = iVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f46623e.f46622d.finish();
+                    this.f46622e.f46621d.finish();
                 }
             }
         }
@@ -578,11 +578,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46622d = accountActivity;
-            this.f46620b = 0;
-            this.f46621c = false;
-            this.f46619a = accountData;
-            this.f46621c = z;
+            this.f46621d = accountActivity;
+            this.f46619b = 0;
+            this.f46620c = false;
+            this.f46618a = accountData;
+            this.f46620c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -596,7 +596,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                 }
-                if (this.f46619a == null) {
+                if (this.f46618a == null) {
                     return null;
                 }
                 try {
@@ -604,26 +604,26 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 } catch (Exception e3) {
                     BdLog.detailException(e3);
                 }
-                if (this.f46621c) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.f46619a.getID()));
+                if (this.f46620c) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.f46618a.getID()));
                 }
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, this.f46619a.getID()));
-                b.a.r0.q.b.a(this.f46619a.getID());
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, this.f46618a.getID()));
+                b.a.r0.q.b.a(this.f46618a.getID());
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
-                j.C("get_addresslist_switch" + this.f46619a.getID());
-                if (this.f46619a.getID().equals(currentAccount)) {
+                j.C("get_addresslist_switch" + this.f46618a.getID());
+                if (this.f46618a.getID().equals(currentAccount)) {
                     b.a.q0.t.a.b b2 = b.a.q0.t.a.a.b();
                     if (b2 != null) {
                         b2.a();
                     }
-                    this.f46620b = 2;
+                    this.f46619b = 2;
                 } else {
                     b.a.q0.t.a.b b3 = b.a.q0.t.a.a.b();
                     if (b3 != null) {
-                        b3.c(this.f46619a);
+                        b3.c(this.f46618a);
                     }
-                    this.f46620b = 0;
+                    this.f46619b = 0;
                 }
                 return null;
             }
@@ -636,30 +636,30 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void onPostExecute(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-                if (this.f46619a != null) {
-                    b.a.q0.s.a0.a.a("account", -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.f46620b), "delete_uid", this.f46619a.getID());
-                    new j(this.f46622d, this.f46619a.getBDUSS(), b.a.q0.s.l.e.a(this.f46619a)).start();
+                if (this.f46618a != null) {
+                    b.a.q0.s.a0.a.a("account", -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.f46619b), "delete_uid", this.f46618a.getID());
+                    new j(this.f46621d, this.f46618a.getBDUSS(), b.a.q0.s.l.e.a(this.f46618a)).start();
                 }
-                this.f46622d.closeLoadingDialog();
-                if (this.f46620b != 0) {
+                this.f46621d.closeLoadingDialog();
+                if (this.f46619b != 0) {
                     b.a.e.e.m.e.a().postDelayed(new a(this), 1000L);
                     b.a.q0.s.a0.a.a("account", -1L, 0, "account_activity_delete_account", 0, "", new Object[0]);
-                    TbadkCoreApplication.setCurrentAccount(null, this.f46622d.getPageContext().getPageActivity());
+                    TbadkCoreApplication.setCurrentAccount(null, this.f46621d.getPageContext().getPageActivity());
                 }
-                int i2 = this.f46620b;
+                int i2 = this.f46619b;
                 if (i2 == 0) {
-                    AccountActivity accountActivity = this.f46622d;
+                    AccountActivity accountActivity = this.f46621d;
                     accountActivity.showToast(accountActivity.getPageContext().getString(R.string.success));
-                    this.f46622d.mModel.remove(this.f46619a);
-                    this.f46619a = null;
-                    this.f46622d.mAdapter.notifyDataSetChanged();
+                    this.f46621d.mModel.remove(this.f46618a);
+                    this.f46618a = null;
+                    this.f46621d.mAdapter.notifyDataSetChanged();
                 } else if (i2 == 2) {
                     TbadkCoreApplication.getInst().onUserChanged();
-                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f46622d.getPageContext().getPageActivity(), true);
+                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f46621d.getPageContext().getPageActivity(), true);
                     loginActivityConfig.setJumpToAfterDestroy(1);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
                 }
-                this.f46622d.mDeleteTask = null;
+                this.f46621d.mDeleteTask = null;
             }
         }
 
@@ -677,13 +677,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f46624e;
+        public String f46623e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46625f;
+        public String f46624f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46626g;
+        public final /* synthetic */ AccountActivity f46625g;
 
         public j(AccountActivity accountActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -700,11 +700,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46626g = accountActivity;
-            this.f46624e = null;
-            this.f46625f = null;
-            this.f46624e = str;
-            this.f46625f = str2;
+            this.f46625g = accountActivity;
+            this.f46623e = null;
+            this.f46624f = null;
+            this.f46623e = str;
+            this.f46624f = str2;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -715,8 +715,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/logout");
                 netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                netWork.addPostData(HttpRequest.BDUSS, this.f46624e);
-                netWork.addPostData("stoken", this.f46625f);
+                netWork.addPostData(HttpRequest.BDUSS, this.f46623e);
+                netWork.addPostData("stoken", this.f46624f);
                 netWork.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
                 netWork.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
                 netWork.postNetData();
@@ -730,10 +730,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f46627a;
+        public AccountData f46626a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46628b;
+        public final /* synthetic */ AccountActivity f46627b;
 
         public k(AccountActivity accountActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -750,8 +750,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46628b = accountActivity;
-            this.f46627a = accountData;
+            this.f46627b = accountActivity;
+            this.f46626a = accountData;
         }
 
         @Override // b.a.q0.s.l.a.InterfaceC0685a
@@ -759,13 +759,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
                 b.a.q0.s.a0.a.a("account", -1L, 0, "account_change_cslogin_fail", i2, str2, "uname", str);
-                this.f46628b.closeLoadingDialog();
-                this.f46628b.showToast(str2);
-                if (i2 != 1 || this.f46627a == null) {
+                this.f46627b.closeLoadingDialog();
+                this.f46627b.showToast(str2);
+                if (i2 != 1 || this.f46626a == null) {
                     return;
                 }
-                ReloginManager.g().f(this.f46627a);
-                this.f46628b.deleteAccount(false, this.f46627a);
+                ReloginManager.g().f(this.f46626a);
+                this.f46627b.deleteAccount(false, this.f46626a);
             }
         }
 
@@ -782,7 +782,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 b.a.q0.s.a0.a.a("account", -1L, 0, "account_change_cslogin_success", 0, "", "uid", accountData.getID());
                 TiebaStatic.log(new StatisticItem("c12948").param("obj_type", 1));
-                this.f46628b.doSwitchTask(accountData);
+                this.f46627b.doSwitchTask(accountData);
             }
         }
     }
@@ -793,10 +793,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f46629a;
+        public AccountData f46628a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AccountActivity f46630b;
+        public final /* synthetic */ AccountActivity f46629b;
 
         public l(AccountActivity accountActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -813,9 +813,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
             }
-            this.f46630b = accountActivity;
-            this.f46629a = null;
-            this.f46629a = accountData;
+            this.f46629b = accountActivity;
+            this.f46628a = null;
+            this.f46628a = accountData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -831,11 +831,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
-                    this.f46629a.setIsActive(1);
-                    b.a.q0.s.l.c.g(this.f46629a);
+                    this.f46628a.setIsActive(1);
+                    b.a.q0.s.l.c.g(this.f46628a);
                     b.a.q0.t.a.b b2 = b.a.q0.t.a.a.b();
                     if (b2 != null) {
-                        b2.b(this.f46629a);
+                        b2.b(this.f46628a);
                     }
                 } catch (Exception e3) {
                     BdLog.detailException(e3);
@@ -857,7 +857,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                this.f46630b.handleChangeSuccess(this.f46629a);
+                this.f46629b.handleChangeSuccess(this.f46628a);
             }
         }
     }

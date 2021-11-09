@@ -11,7 +11,7 @@ public final class w implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f57051a;
+    public final /* synthetic */ FeedbackEditActivity f57050a;
 
     public w(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class w implements Runnable {
                 return;
             }
         }
-        this.f57051a = feedbackEditActivity;
+        this.f57050a = feedbackEditActivity;
     }
 
     @Override // java.lang.Runnable
@@ -37,8 +37,8 @@ public final class w implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i2 = this.f57051a.Y;
-            handler = this.f57051a.af;
+            i2 = this.f57050a.Y;
+            handler = this.f57050a.af;
             com.baidu.ufosdk.e.a.a(0, i2, handler);
         }
     }

@@ -170,7 +170,7 @@ public class a implements b.a.q0.c0.b, b.a.q0.k0.c.a {
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                EnterForumDelegateStatic.f47610c.C();
+                EnterForumDelegateStatic.f47609c.C();
                 this.f21608e.f21604g.H(!StringUtils.isNull(this.f21608e.n));
                 this.f21608e.f21605h.loadData();
                 this.f21608e.f21604g.U(true);
@@ -562,53 +562,53 @@ public class a implements b.a.q0.c0.b, b.a.q0.k0.c.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || this.f21618a.f21602e == null) {
                 return;
             }
-            if (eVar.f47704c == 1) {
+            if (eVar.f47703c == 1) {
                 this.f21618a.f21603f.G();
             }
-            if (eVar.f47703b) {
-                int i2 = eVar.f47704c;
+            if (eVar.f47702b) {
+                int i2 = eVar.f47703c;
                 if (i2 == 1) {
                     this.f21618a.l = true;
-                    b.a.r0.o0.d.d dVar = eVar.f47705d;
+                    b.a.r0.o0.d.d dVar = eVar.f47704d;
                     this.f21618a.L(dVar);
                     if (dVar.h() > 0) {
                         b.a.q0.s.e0.b.j().v("key_LIKE_forum_sort_state", dVar.h());
                     }
                 } else if (i2 == 0 && !this.f21618a.l) {
-                    b.a.r0.o0.d.d dVar2 = eVar.f47705d;
+                    b.a.r0.o0.d.d dVar2 = eVar.f47704d;
                     this.f21618a.f21604g.S(dVar2);
                     this.f21618a.L(dVar2);
                 }
             } else {
-                String str = eVar.f47702a;
+                String str = eVar.f47701a;
                 if (str != null && !str.equals("")) {
-                    this.f21618a.o.showToast(eVar.f47702a);
+                    this.f21618a.o.showToast(eVar.f47701a);
                     this.f21618a.f21603f.b0(b.a.q0.s.e0.b.j().k("key_LIKE_forum_sort_state", EnterForumModel.SORT_TYPE_LEVEL));
                 }
             }
-            if (eVar.f47704c == 1 && TbadkCoreApplication.getInst().getIsNewRegUser() && this.f21618a.F()) {
+            if (eVar.f47703c == 1 && TbadkCoreApplication.getInst().getIsNewRegUser() && this.f21618a.F()) {
                 TbadkCoreApplication.getInst().setIsNewRegUser(false);
             }
-            if (eVar.f47704c == 1 && this.f21618a.p > -1) {
+            if (eVar.f47703c == 1 && this.f21618a.p > -1) {
                 long currentTimeMillis = System.currentTimeMillis();
                 TiebaStatic.page(TiebaStatic.OpKey.OP_FORUM_ENTER, currentTimeMillis - this.f21618a.p, this.f21618a.f21604g.C() - this.f21618a.p, this.f21618a.f21604g.E(), this.f21618a.f21604g.D(), currentTimeMillis - this.f21618a.f21604g.B());
                 this.f21618a.p = -1L;
             }
             String string = this.f21618a.o.getResources().getString(R.string.enter_forum_search_tip);
-            b.a.r0.o0.d.d dVar3 = eVar.f47705d;
+            b.a.r0.o0.d.d dVar3 = eVar.f47704d;
             if (dVar3 != null && dVar3.d() != null) {
-                HotSearchInfoData d2 = eVar.f47705d.d();
+                HotSearchInfoData d2 = eVar.f47704d.d();
                 b.a.q0.s.e0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(d2));
                 if (d2 != null && d2.w() != null) {
                     string = d2.w();
                 }
             }
             this.f21618a.S(string);
-            b.a.r0.o0.d.d dVar4 = eVar.f47705d;
+            b.a.r0.o0.d.d dVar4 = eVar.f47704d;
             if (dVar4 == null || dVar4.c() == null) {
                 return;
             }
-            this.f21618a.f21603f.n0(eVar.f47705d.c());
+            this.f21618a.f21603f.n0(eVar.f47704d.c());
         }
     }
 

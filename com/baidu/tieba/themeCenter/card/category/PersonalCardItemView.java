@@ -27,19 +27,19 @@ public class PersonalCardItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54588e;
+    public Context f54587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54589f;
+    public View f54588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f54590g;
+    public TbImageView f54589g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54591h;
+    public TextView f54590h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f54592i;
+    public TbImageView f54591i;
     public TbImageView j;
     public ImageView k;
     public TextView l;
@@ -55,7 +55,7 @@ public class PersonalCardItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardItemView f54593e;
+        public final /* synthetic */ PersonalCardItemView f54592e;
 
         public a(PersonalCardItemView personalCardItemView) {
             Interceptable interceptable = $ic;
@@ -72,16 +72,16 @@ public class PersonalCardItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f54593e = personalCardItemView;
+            this.f54592e = personalCardItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54593e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54592e.o == null) {
                 return;
             }
-            this.f54593e.o.a(this.f54593e.n);
+            this.f54592e.o.a(this.f54592e.n);
         }
     }
 
@@ -108,7 +108,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54588e = context;
+        this.f54587e = context;
         c();
     }
 
@@ -116,30 +116,30 @@ public class PersonalCardItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            int k = (l.k(this.f54588e) - l.g(this.f54588e, R.dimen.ds88)) / 3;
+            int k = (l.k(this.f54587e) - l.g(this.f54587e, R.dimen.ds88)) / 3;
             this.p = k;
             this.q = (int) (k * 0.57d);
-            View inflate = LayoutInflater.from(this.f54588e).inflate(R.layout.personal_card_item_layout, this);
-            this.f54589f = inflate;
-            this.f54590g = (TbImageView) inflate.findViewById(R.id.image_bg);
-            TbImageView tbImageView = (TbImageView) this.f54589f.findViewById(R.id.permission_icon);
-            this.f54592i = tbImageView;
+            View inflate = LayoutInflater.from(this.f54587e).inflate(R.layout.personal_card_item_layout, this);
+            this.f54588f = inflate;
+            this.f54589g = (TbImageView) inflate.findViewById(R.id.image_bg);
+            TbImageView tbImageView = (TbImageView) this.f54588f.findViewById(R.id.permission_icon);
+            this.f54591i = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f54592i.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.f54589f.findViewById(R.id.state_icon);
+            this.f54591i.setDefaultBgResource(R.drawable.transparent_bg);
+            TbImageView tbImageView2 = (TbImageView) this.f54588f.findViewById(R.id.state_icon);
             this.j = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.j.setDefaultBgResource(R.drawable.transparent_bg);
-            this.k = (ImageView) this.f54589f.findViewById(R.id.choosed_icon);
-            this.f54591h = (TextView) this.f54589f.findViewById(R.id.txt_default);
-            this.l = (TextView) this.f54589f.findViewById(R.id.view_card_name);
-            this.m = this.f54589f.findViewById(R.id.black_stroke);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f54590g.getLayoutParams();
+            this.k = (ImageView) this.f54588f.findViewById(R.id.choosed_icon);
+            this.f54590h = (TextView) this.f54588f.findViewById(R.id.txt_default);
+            this.l = (TextView) this.f54588f.findViewById(R.id.view_card_name);
+            this.m = this.f54588f.findViewById(R.id.black_stroke);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f54589g.getLayoutParams();
             layoutParams.height = this.q;
             layoutParams.width = this.p;
-            this.f54590g.setLayoutParams(layoutParams);
+            this.f54589g.setLayoutParams(layoutParams);
             this.m.setLayoutParams(layoutParams);
-            this.f54590g.setOnClickListener(new a(this));
+            this.f54589g.setOnClickListener(new a(this));
         }
     }
 
@@ -150,20 +150,20 @@ public class PersonalCardItemView extends LinearLayout {
         }
         this.n = aVar;
         if (aVar.a() == b.a.r0.r3.a.k) {
-            this.f54590g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            SkinManager.setBackgroundColor(this.f54590g, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f54590g, R.drawable.icon_bubble_choose_no);
-            this.f54591h.setVisibility(0);
+            this.f54589g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.f54589g, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f54589g, R.drawable.icon_bubble_choose_no);
+            this.f54590h.setVisibility(0);
             this.j.setVisibility(8);
-            this.f54592i.setVisibility(8);
+            this.f54591i.setVisibility(8);
         } else {
-            this.f54591h.setVisibility(8);
+            this.f54590h.setVisibility(8);
             this.j.setVisibility(0);
-            this.f54592i.setVisibility(0);
-            this.f54590g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f54590g.setImageBitmap(null);
-            this.f54590g.setDefaultResource(R.drawable.img_default_100);
-            this.f54590g.startLoad(aVar.e(), 10, false);
+            this.f54591i.setVisibility(0);
+            this.f54589g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f54589g.setImageBitmap(null);
+            this.f54589g.setDefaultResource(R.drawable.img_default_100);
+            this.f54589g.startLoad(aVar.e(), 10, false);
         }
         if (aVar.g() == 1) {
             this.k.setVisibility(0);
@@ -171,7 +171,7 @@ public class PersonalCardItemView extends LinearLayout {
         } else {
             this.k.setVisibility(8);
         }
-        this.f54592i.startLoad(aVar.i(), 10, false);
+        this.f54591i.startLoad(aVar.i(), 10, false);
         this.j.startLoad(aVar.b(), 10, false);
         this.l.setText(aVar.j());
         setVisibility(0);
@@ -186,11 +186,11 @@ public class PersonalCardItemView extends LinearLayout {
     public void onChangeSkinType() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f54588e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f54587e)) == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f54589f);
+        tbPageContext.getLayoutMode().j(this.f54588f);
     }
 
     public void setCardViewController(b bVar) {
@@ -219,7 +219,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54588e = context;
+        this.f54587e = context;
         c();
     }
 
@@ -242,7 +242,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54588e = context;
+        this.f54587e = context;
         c();
     }
 }

@@ -17,7 +17,7 @@ public interface a extends IInterface {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f62885a = 0;
+        public static final /* synthetic */ int f62884a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
@@ -27,7 +27,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f62886a;
+            public IBinder f62885a;
 
             public C1863a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f62886a = iBinder;
+                this.f62885a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62886a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62885a : (IBinder) invokeV.objValue;
             }
         }
     }

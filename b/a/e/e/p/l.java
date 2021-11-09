@@ -817,7 +817,7 @@ public class l {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f57309e) == 0) {
+                if (str.indexOf(com.baidu.wallet.base.audio.b.f57308e) == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

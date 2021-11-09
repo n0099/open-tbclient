@@ -59,7 +59,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f55532a;
+        public final /* synthetic */ TbFileVideoActivity f55531a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbFileVideoActivity tbFileVideoActivity, int i2) {
@@ -79,7 +79,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f55532a = tbFileVideoActivity;
+            this.f55531a = tbFileVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,7 +87,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f55532a.finish();
+                this.f55531a.finish();
             }
         }
     }
@@ -98,9 +98,45 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f55533e;
+        public final /* synthetic */ TbFileVideoActivity f55532e;
 
         public b(TbFileVideoActivity tbFileVideoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbFileVideoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55532e = tbFileVideoActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f55532e.mCaptureGuide.pauseAnimation();
+                this.f55532e.mCaptureGuideContainer.setVisibility(8);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TbFileVideoActivity f55533e;
+
+        public c(TbFileVideoActivity tbFileVideoActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,25 +154,24 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             this.f55533e = tbFileVideoActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55533e.mCaptureGuide.pauseAnimation();
-                this.f55533e.mCaptureGuideContainer.setVisibility(8);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f55533e.onBackPressed();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements View.OnClickListener {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ TbFileVideoActivity f55534e;
 
-        public c(TbFileVideoActivity tbFileVideoActivity) {
+        public d(TbFileVideoActivity tbFileVideoActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,64 +193,29 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55534e.onBackPressed();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f55535e;
-
-        public d(TbFileVideoActivity tbFileVideoActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbFileVideoActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55535e = tbFileVideoActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                long j = this.f55535e.mMultiMediaData.start;
-                long j2 = this.f55535e.mMultiMediaData.end;
-                this.f55535e.mMultiMediaData.start = ((float) this.f55535e.mEditManager.getFrom()) * this.f55535e.mMultiMediaData.getCurrentSpeed();
-                this.f55535e.mMultiMediaData.end = ((float) this.f55535e.mEditManager.d()) * this.f55535e.mMultiMediaData.getCurrentSpeed();
-                if (this.f55535e.mFileFrom != 1) {
-                    if (this.f55535e.mFileFrom == 2) {
+                long j = this.f55534e.mMultiMediaData.start;
+                long j2 = this.f55534e.mMultiMediaData.end;
+                this.f55534e.mMultiMediaData.start = ((float) this.f55534e.mEditManager.getFrom()) * this.f55534e.mMultiMediaData.getCurrentSpeed();
+                this.f55534e.mMultiMediaData.end = ((float) this.f55534e.mEditManager.d()) * this.f55534e.mMultiMediaData.getCurrentSpeed();
+                if (this.f55534e.mFileFrom != 1) {
+                    if (this.f55534e.mFileFrom == 2) {
                         Intent intent = new Intent();
-                        intent.putExtra("enter_anim_values", g.a(this.f55535e.mPreviewView));
-                        intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.f55535e.mMultiMediaData);
-                        this.f55535e.setResult(-1, intent);
-                        this.f55535e.finish();
+                        intent.putExtra("enter_anim_values", g.a(this.f55534e.mPreviewView));
+                        intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.f55534e.mMultiMediaData);
+                        this.f55534e.setResult(-1, intent);
+                        this.f55534e.finish();
                         return;
                     }
                     return;
                 }
-                TbEditVideoActivityConfig tbEditVideoActivityConfig = new TbEditVideoActivityConfig(this.f55535e.getPageContext().getPageActivity());
-                tbEditVideoActivityConfig.getIntent().putExtras(this.f55535e.getIntent());
-                tbEditVideoActivityConfig.setMultiMediaData(this.f55535e.mMultiMediaData);
+                TbEditVideoActivityConfig tbEditVideoActivityConfig = new TbEditVideoActivityConfig(this.f55534e.getPageContext().getPageActivity());
+                tbEditVideoActivityConfig.getIntent().putExtras(this.f55534e.getIntent());
+                tbEditVideoActivityConfig.setMultiMediaData(this.f55534e.mMultiMediaData);
                 tbEditVideoActivityConfig.setVideoFrom(1);
-                tbEditVideoActivityConfig.setVideoRatio(this.f55535e.mEditManager.getRatio());
+                tbEditVideoActivityConfig.setVideoRatio(this.f55534e.mEditManager.getRatio());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbEditVideoActivityConfig));
-                this.f55535e.mMultiMediaData.start = j;
-                this.f55535e.mMultiMediaData.end = j2;
+                this.f55534e.mMultiMediaData.start = j;
+                this.f55534e.mMultiMediaData.end = j2;
             }
         }
     }
@@ -226,10 +226,10 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f55536e;
+        public final /* synthetic */ PopupDialog f55535e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbFileVideoActivity f55537f;
+        public final /* synthetic */ TbFileVideoActivity f55536f;
 
         public e(TbFileVideoActivity tbFileVideoActivity, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -246,8 +246,8 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     return;
                 }
             }
-            this.f55537f = tbFileVideoActivity;
-            this.f55536e = popupDialog;
+            this.f55536f = tbFileVideoActivity;
+            this.f55535e = popupDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
@@ -256,12 +256,12 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
                 if (i2 == 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", g.a(this.f55537f.mPreviewView));
-                    this.f55537f.setResult(0, intent);
-                    this.f55537f.finish();
+                    intent.putExtra("enter_anim_values", g.a(this.f55536f.mPreviewView));
+                    this.f55536f.setResult(0, intent);
+                    this.f55536f.finish();
                     return;
                 }
-                this.f55536e.dismiss();
+                this.f55535e.dismiss();
             }
         }
     }

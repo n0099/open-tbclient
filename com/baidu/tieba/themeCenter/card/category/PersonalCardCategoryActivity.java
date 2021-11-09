@@ -35,9 +35,52 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardCategoryActivity f54578a;
+        public final /* synthetic */ PersonalCardCategoryActivity f54577a;
 
         public a(PersonalCardCategoryActivity personalCardCategoryActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalCardCategoryActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54577a = personalCardCategoryActivity;
+        }
+
+        @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.b
+        public void a(b.a.r0.r3.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+                return;
+            }
+            if (aVar.a() == b.a.r0.r3.a.k) {
+                if (aVar.g() == 1 || this.f54577a.mSetCardModel == null) {
+                    return;
+                }
+                this.f54577a.mSetCardModel.C(aVar.a(), 1);
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f54577a.getPageContext().getPageActivity(), aVar.a())));
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements PersonalCardCategoryModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonalCardCategoryActivity f54578a;
+
+        public b(PersonalCardCategoryActivity personalCardCategoryActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,32 +98,29 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
             this.f54578a = personalCardCategoryActivity;
         }
 
-        @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.b
-        public void a(b.a.r0.r3.a aVar) {
+        @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.b
+        public void a(int i2, String str, e eVar, List<b.a.r0.r3.g.a.a> list, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
-                return;
-            }
-            if (aVar.a() == b.a.r0.r3.a.k) {
-                if (aVar.g() == 1 || this.f54578a.mSetCardModel == null) {
-                    return;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list, Boolean.valueOf(z)}) == null) {
+                PersonalCardCategoryActivity personalCardCategoryActivity = this.f54578a;
+                personalCardCategoryActivity.hideLoadingView(personalCardCategoryActivity.mView.c());
+                if (i2 != 0) {
+                    this.f54578a.showToast(str);
                 }
-                this.f54578a.mSetCardModel.C(aVar.a(), 1);
-                return;
+                this.f54578a.mView.j(i2, eVar, list, true);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f54578a.getPageContext().getPageActivity(), aVar.a())));
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements PersonalCardCategoryModel.b {
+    public class c implements SetPersonalCardModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ PersonalCardCategoryActivity f54579a;
 
-        public b(PersonalCardCategoryActivity personalCardCategoryActivity) {
+        public c(PersonalCardCategoryActivity personalCardCategoryActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,51 +138,11 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
             this.f54579a = personalCardCategoryActivity;
         }
 
-        @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.b
-        public void a(int i2, String str, e eVar, List<b.a.r0.r3.g.a.a> list, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list, Boolean.valueOf(z)}) == null) {
-                PersonalCardCategoryActivity personalCardCategoryActivity = this.f54579a;
-                personalCardCategoryActivity.hideLoadingView(personalCardCategoryActivity.mView.c());
-                if (i2 != 0) {
-                    this.f54579a.showToast(str);
-                }
-                this.f54579a.mView.j(i2, eVar, list, true);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements SetPersonalCardModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardCategoryActivity f54580a;
-
-        public c(PersonalCardCategoryActivity personalCardCategoryActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personalCardCategoryActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54580a = personalCardCategoryActivity;
-        }
-
         @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.b
         public void a(boolean z, long j, int i2, String str, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) && z && this.f54580a.mModel != null) {
-                this.f54580a.mModel.F(j, i2);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) && z && this.f54579a.mModel != null) {
+                this.f54579a.mModel.F(j, i2);
             }
         }
     }
@@ -153,7 +153,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardCategoryActivity f54581e;
+        public final /* synthetic */ PersonalCardCategoryActivity f54580e;
 
         public d(PersonalCardCategoryActivity personalCardCategoryActivity) {
             Interceptable interceptable = $ic;
@@ -170,16 +170,16 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
                     return;
                 }
             }
-            this.f54581e = personalCardCategoryActivity;
+            this.f54580e = personalCardCategoryActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54581e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54580e.mModel == null) {
                 return;
             }
-            this.f54581e.mModel.E();
+            this.f54580e.mModel.E();
         }
     }
 

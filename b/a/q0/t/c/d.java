@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -157,7 +158,7 @@ public class d {
             this.f13761f = optJSONObject.optString("ext_info");
         }
         this.f13762g = jSONObject.optInt("ad_collect_switch", 0);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
         if (optJSONObject2 != null) {
             this.j = optJSONObject2.optInt("interval", 300);
         }

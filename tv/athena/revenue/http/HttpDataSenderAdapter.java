@@ -50,28 +50,28 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f73110a;
+        public final /* synthetic */ int f73109a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f73111b;
+        public final /* synthetic */ int f73110b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f73112c;
+        public final /* synthetic */ String f73111c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ byte[] f73113d;
+        public final /* synthetic */ byte[] f73112d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f73114e;
+        public final /* synthetic */ PSCIMessageRequest f73113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f73115f;
+        public final /* synthetic */ String f73114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f73116g;
+        public final /* synthetic */ ArrayList f73115g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ HttpDataSenderAdapter f73117h;
+        public final /* synthetic */ HttpDataSenderAdapter f73116h;
 
         public a(HttpDataSenderAdapter httpDataSenderAdapter, int i2, int i3, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -88,36 +88,36 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     return;
                 }
             }
-            this.f73117h = httpDataSenderAdapter;
-            this.f73110a = i2;
-            this.f73111b = i3;
-            this.f73112c = str;
-            this.f73113d = bArr;
-            this.f73114e = pSCIMessageRequest;
-            this.f73115f = str2;
-            this.f73116g = arrayList;
+            this.f73116h = httpDataSenderAdapter;
+            this.f73109a = i2;
+            this.f73110b = i3;
+            this.f73111c = str;
+            this.f73112d = bArr;
+            this.f73113e = pSCIMessageRequest;
+            this.f73114f = str2;
+            this.f73115g = arrayList;
         }
 
         @Override // i.a.a.c.b.a
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f73112c + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
-                String retryDomain = this.f73117h.getRetryDomain(this.f73115f);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f73111c + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
+                String retryDomain = this.f73116h.getRetryDomain(this.f73114f);
                 if (!z && !TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                        this.f73117h.sendByHttpPost(retryDomain, this.f73110a, this.f73111b, this.f73112c, this.f73116g, this.f73113d);
+                        this.f73116h.sendByHttpPost(retryDomain, this.f73109a, this.f73110b, this.f73111c, this.f73115g, this.f73112d);
                         return;
                     } catch (Exception e2) {
                         RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
                     }
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                int i2 = this.f73110a;
-                int i3 = this.f73111b;
-                String str = this.f73112c;
-                int cmd = this.f73114e.getCmd();
+                int i2 = this.f73109a;
+                int i3 = this.f73110b;
+                String str = this.f73111c;
+                int cmd = this.f73113e.getCmd();
                 revenueDataParser.onRequestError(i2, i3, str, cmd, -500, "服务请求失败message:" + exc.getMessage());
             }
         }
@@ -126,7 +126,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f73117h.onSuccess(this.f73110a, this.f73111b, this.f73112c, this.f73113d, obj, this.f73114e);
+                this.f73116h.onSuccess(this.f73109a, this.f73110b, this.f73111c, this.f73112d, obj, this.f73113e);
             }
         }
     }

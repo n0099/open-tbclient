@@ -28,19 +28,19 @@ public class RelevanceItemListFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f56135e;
+    public View f56134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelevanceItemListController f56136f;
+    public RelevanceItemListController f56135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56137g;
+    public String f56136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<Long> f56138h;
+    public ArrayList<Long> f56137h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f56139i;
+    public CustomMessageListener f56138i;
 
     /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
@@ -48,7 +48,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelevanceItemListFragment f56140a;
+        public final /* synthetic */ RelevanceItemListFragment f56139a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RelevanceItemListFragment relevanceItemListFragment, int i2) {
@@ -68,7 +68,7 @@ public class RelevanceItemListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f56140a = relevanceItemListFragment;
+            this.f56139a = relevanceItemListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                this.f56140a.dealSearchEvent(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                this.f56139a.dealSearchEvent(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     }
@@ -94,31 +94,31 @@ public class RelevanceItemListFragment extends BaseFragment {
                 return;
             }
         }
-        this.f56139i = new a(this, 2921529);
+        this.f56138i = new a(this, 2921529);
     }
 
     public void dealSearchEvent(String str) {
         RelevanceItemListController relevanceItemListController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (relevanceItemListController = this.f56136f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (relevanceItemListController = this.f56135f) == null) {
             return;
         }
         relevanceItemListController.g(str);
-        this.f56136f.i().setVisibility(8);
-        showLoadingView(this.f56135e);
+        this.f56135f.i().setVisibility(8);
+        showLoadingView(this.f56134e);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            registerListener(this.f56139i);
+            registerListener(this.f56138i);
         }
     }
 
     public boolean hasSelected(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ListUtils.getPosition(this.f56138h, Long.valueOf(j)) >= 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ListUtils.getPosition(this.f56137h, Long.valueOf(j)) >= 0 : invokeJ.booleanValue;
     }
 
     public final void initData() {
@@ -127,17 +127,17 @@ public class RelevanceItemListFragment extends BaseFragment {
             if (getActivity() != null && getActivity().getIntent() != null) {
                 Serializable serializableExtra = getActivity().getIntent().getSerializableExtra(RelevanceItemSearchActivityConfig.SELECTED_IDS_KEY);
                 if (serializableExtra instanceof ArrayList) {
-                    this.f56138h = (ArrayList) serializableExtra;
+                    this.f56137h = (ArrayList) serializableExtra;
                 }
             }
-            this.f56136f = new RelevanceItemListController(this, this.f56135e, this.f56137g, getUniqueId());
+            this.f56135f = new RelevanceItemListController(this, this.f56134e, this.f56136g, getUniqueId());
             String obj = (((RelevanceItemSearchActivity) getActivity()).getSearchView() == null || ((RelevanceItemSearchActivity) getActivity()).getSearchView().getSearchText() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).getSearchView().getSearchText().getText().toString();
             if (!TextUtils.isEmpty(obj)) {
                 dealSearchEvent(obj);
                 return;
             }
-            showLoadingView(this.f56135e);
-            this.f56136f.h();
+            showLoadingView(this.f56134e);
+            this.f56135f.h();
         }
     }
 
@@ -154,12 +154,12 @@ public class RelevanceItemListFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f56135e == null) {
-                this.f56135e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
+            if (this.f56134e == null) {
+                this.f56134e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
             }
             initData();
             g();
-            return this.f56135e;
+            return this.f56134e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -167,7 +167,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     public void onDataRes() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isLoadingViewAttached()) {
-            hideLoadingView(this.f56135e);
+            hideLoadingView(this.f56134e);
         }
     }
 
@@ -176,15 +176,15 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            this.f56136f.k();
+            this.f56135f.k();
         }
     }
 
     public void onError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            hideLoadingView(this.f56135e);
-            showNetRefreshView(this.f56135e, str, false);
+            hideLoadingView(this.f56134e);
+            showNetRefreshView(this.f56134e, str, false);
         }
     }
 
@@ -192,24 +192,24 @@ public class RelevanceItemListFragment extends BaseFragment {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            hideNetRefreshView(this.f56135e);
-            this.f56136f.h();
-            showLoadingView(this.f56135e);
+            hideNetRefreshView(this.f56134e);
+            this.f56135f.h();
+            showLoadingView(this.f56134e);
         }
     }
 
     public void onNoData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            hideLoadingView(this.f56135e);
-            showNoDataNoRefreshView(this.f56135e, false);
+            hideLoadingView(this.f56134e);
+            showNoDataNoRefreshView(this.f56134e, false);
         }
     }
 
     public void setCategory(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f56137g = str;
+            this.f56136g = str;
         }
     }
 }

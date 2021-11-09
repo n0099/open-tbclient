@@ -19,7 +19,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50968common;
+    public CommonReq f50967common;
     public int from;
     public b mLabelDataSet;
 
@@ -48,7 +48,7 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f72926common = this.f50968common;
+            builder.f72925common = this.f50967common;
             builder.from = Integer.valueOf(this.from);
             if (z) {
                 z.a(builder, true);
@@ -69,7 +69,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f50968common = commonReq;
+            this.f50967common = commonReq;
         }
     }
 

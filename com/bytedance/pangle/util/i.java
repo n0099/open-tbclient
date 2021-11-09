@@ -26,7 +26,7 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f61523a;
+    public static String f61522a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

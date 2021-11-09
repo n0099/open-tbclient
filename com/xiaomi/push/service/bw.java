@@ -15,7 +15,7 @@ public class bw extends fm {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f71481a;
+    public final /* synthetic */ XMPushService f71480a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(XMPushService xMPushService, Map map, int i2, String str, fp fpVar) {
@@ -36,7 +36,7 @@ public class bw extends fm {
                 return;
             }
         }
-        this.f71481a = xMPushService;
+        this.f71480a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fm

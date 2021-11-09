@@ -33,19 +33,19 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47127e;
+    public String f47126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47128f;
+    public int f47127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47129g;
+    public int f47128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47130h;
+    public boolean f47129h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47131i;
+    public int f47130i;
     public boolean j;
     public int k;
     public List<d2> l;
@@ -63,7 +63,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherModel f47132a;
+        public final /* synthetic */ AlaFrsStoryLiveGatherModel f47131a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel, int i2) {
@@ -83,7 +83,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47132a = alaFrsStoryLiveGatherModel;
+            this.f47131a = alaFrsStoryLiveGatherModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,37 +95,37 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() instanceof AlaFrsStoryLiveGatherRequestMessage) {
                     AlaFrsStoryLiveGatherRequestMessage alaFrsStoryLiveGatherRequestMessage = (AlaFrsStoryLiveGatherRequestMessage) httpResponsedMessage.getOrginalMessage();
                     if (httpResponsedMessage.hasError()) {
-                        if (this.f47132a.r != null) {
-                            this.f47132a.r.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (this.f47131a.r != null) {
+                            this.f47131a.r.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
                     List<d2> liveList = alaFrsStoryLiveGatherRespMessage.getLiveList();
                     List<d2> recommandList = alaFrsStoryLiveGatherRespMessage.getRecommandList();
-                    if (this.f47132a.f47128f != 1 || ListUtils.getCount(liveList) > 10) {
-                        this.f47132a.q = 0;
-                        this.f47132a.j = alaFrsStoryLiveGatherRespMessage.hasMore();
-                        this.f47132a.f47128f = alaFrsStoryLiveGatherRequestMessage.getPn();
-                        this.f47132a.k = alaFrsStoryLiveGatherRespMessage.getLiveCount();
-                        if (this.f47132a.f47128f == 1 || ListUtils.getCount(this.f47132a.l) == 0) {
-                            this.f47132a.l = liveList;
+                    if (this.f47131a.f47127f != 1 || ListUtils.getCount(liveList) > 10) {
+                        this.f47131a.q = 0;
+                        this.f47131a.j = alaFrsStoryLiveGatherRespMessage.hasMore();
+                        this.f47131a.f47127f = alaFrsStoryLiveGatherRequestMessage.getPn();
+                        this.f47131a.k = alaFrsStoryLiveGatherRespMessage.getLiveCount();
+                        if (this.f47131a.f47127f == 1 || ListUtils.getCount(this.f47131a.l) == 0) {
+                            this.f47131a.l = liveList;
                         } else if (ListUtils.getCount(liveList) > 0) {
-                            AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel = this.f47132a;
+                            AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel = this.f47131a;
                             alaFrsStoryLiveGatherModel.l = alaFrsStoryLiveGatherModel.P(alaFrsStoryLiveGatherModel.l, liveList);
                         }
                     } else {
-                        this.f47132a.j = false;
-                        this.f47132a.f47128f = alaFrsStoryLiveGatherRequestMessage.getPn();
-                        this.f47132a.k = ListUtils.getCount(liveList);
-                        this.f47132a.l = liveList;
-                        this.f47132a.m = recommandList;
-                        this.f47132a.q = 1;
+                        this.f47131a.j = false;
+                        this.f47131a.f47127f = alaFrsStoryLiveGatherRequestMessage.getPn();
+                        this.f47131a.k = ListUtils.getCount(liveList);
+                        this.f47131a.l = liveList;
+                        this.f47131a.m = recommandList;
+                        this.f47131a.q = 1;
                     }
-                    AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel2 = this.f47132a;
-                    alaFrsStoryLiveGatherModel2.O(alaFrsStoryLiveGatherModel2.l, this.f47132a.m);
-                    if (this.f47132a.r != null) {
-                        this.f47132a.r.a(this.f47132a.j);
+                    AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel2 = this.f47131a;
+                    alaFrsStoryLiveGatherModel2.O(alaFrsStoryLiveGatherModel2.l, this.f47131a.m);
+                    if (this.f47131a.r != null) {
+                        this.f47131a.r.a(this.f47131a.j);
                     }
                 }
             }
@@ -157,9 +157,9 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47128f = 1;
-        this.f47129g = 30;
-        this.f47131i = 1;
+        this.f47127f = 1;
+        this.f47128g = 30;
+        this.f47130i = 1;
         this.q = 1;
         a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
         this.s = aVar;
@@ -218,7 +218,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public int N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47131i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47130i : invokeV.intValue;
     }
 
     public final void O(List<d2> list, List<d2> list2) {
@@ -238,10 +238,10 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             List<n> list4 = this.n;
             if (list4 != null && list4.size() != 0) {
                 this.p.addAll(this.n);
-                this.f47130h = true;
+                this.f47129h = true;
             } else {
                 this.p.add(new b.a.r0.w.g.b.a());
-                this.f47130h = false;
+                this.f47129h = false;
             }
             if (ListUtils.getCount(this.o) <= 0 || this.j) {
                 return;
@@ -291,7 +291,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f47130h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f47129h : invokeV.booleanValue;
     }
 
     public boolean R() {
@@ -300,10 +300,10 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.j) {
                 AlaFrsStoryLiveGatherRequestMessage alaFrsStoryLiveGatherRequestMessage = new AlaFrsStoryLiveGatherRequestMessage();
-                alaFrsStoryLiveGatherRequestMessage.setForumId(this.f47127e);
-                alaFrsStoryLiveGatherRequestMessage.setPn(this.f47128f + 1);
-                alaFrsStoryLiveGatherRequestMessage.setPs(this.f47129g);
-                alaFrsStoryLiveGatherRequestMessage.setSortType(this.f47131i);
+                alaFrsStoryLiveGatherRequestMessage.setForumId(this.f47126e);
+                alaFrsStoryLiveGatherRequestMessage.setPn(this.f47127f + 1);
+                alaFrsStoryLiveGatherRequestMessage.setPs(this.f47128g);
+                alaFrsStoryLiveGatherRequestMessage.setSortType(this.f47130i);
                 alaFrsStoryLiveGatherRequestMessage.setNeedRecommend(this.q);
                 alaFrsStoryLiveGatherRequestMessage.setHttpParams();
                 sendMessage(alaFrsStoryLiveGatherRequestMessage);
@@ -318,10 +318,10 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             AlaFrsStoryLiveGatherRequestMessage alaFrsStoryLiveGatherRequestMessage = new AlaFrsStoryLiveGatherRequestMessage();
-            alaFrsStoryLiveGatherRequestMessage.setForumId(this.f47127e);
+            alaFrsStoryLiveGatherRequestMessage.setForumId(this.f47126e);
             alaFrsStoryLiveGatherRequestMessage.setPn(1);
-            alaFrsStoryLiveGatherRequestMessage.setPs(this.f47129g);
-            alaFrsStoryLiveGatherRequestMessage.setSortType(this.f47131i);
+            alaFrsStoryLiveGatherRequestMessage.setPs(this.f47128g);
+            alaFrsStoryLiveGatherRequestMessage.setSortType(this.f47130i);
             alaFrsStoryLiveGatherRequestMessage.setNeedRecommend(this.q);
             alaFrsStoryLiveGatherRequestMessage.setHttpParams();
             sendMessage(alaFrsStoryLiveGatherRequestMessage);
@@ -358,14 +358,14 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f47127e = str;
+            this.f47126e = str;
         }
     }
 
     public void setSortType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f47131i = i2;
+            this.f47130i = i2;
         }
     }
 }

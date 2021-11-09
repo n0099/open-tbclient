@@ -19,10 +19,10 @@ public class l implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f62904a;
+    public final LinkedBlockingQueue<IBinder> f62903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f62905b;
+    public ServiceConnection f62904b;
 
     /* loaded from: classes11.dex */
     public class a implements ServiceConnection {
@@ -30,7 +30,7 @@ public class l implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f62906a;
+        public final /* synthetic */ l f62905a;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class l implements f {
                     return;
                 }
             }
-            this.f62906a = lVar;
+            this.f62905a = lVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -55,7 +55,7 @@ public class l implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.f62906a.f62904a.put(iBinder);
+                    this.f62905a.f62903a.put(iBinder);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -83,8 +83,8 @@ public class l implements f {
                 return;
             }
         }
-        this.f62904a = new LinkedBlockingQueue<>(1);
-        this.f62905b = new a(this);
+        this.f62903a = new LinkedBlockingQueue<>(1);
+        this.f62904b = new a(this);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
@@ -108,9 +108,9 @@ public class l implements f {
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f62905b, 1)) {
+            if (context.bindService(intent, this.f62904b, 1)) {
                 try {
-                    IBinder take = this.f62904a.take();
+                    IBinder take = this.f62903a.take();
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");

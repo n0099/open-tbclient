@@ -20,10 +20,10 @@ public class TrapezoidButton extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f47373e;
+    public Paint f47372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f47374f;
+    public Path f47373f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TrapezoidButton(Context context) {
@@ -49,13 +49,13 @@ public class TrapezoidButton extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47374f = new Path();
+            this.f47373f = new Path();
             Paint paint = new Paint();
-            this.f47373e = paint;
+            this.f47372e = paint;
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            this.f47373e.setColor(-1);
-            this.f47373e.setStyle(Paint.Style.FILL);
-            this.f47373e.setAntiAlias(true);
+            this.f47372e.setColor(-1);
+            this.f47372e.setStyle(Paint.Style.FILL);
+            this.f47372e.setAntiAlias(true);
             setLayerType(1, null);
         }
     }
@@ -67,13 +67,13 @@ public class TrapezoidButton extends LinearLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             int height = canvas.getHeight();
-            this.f47374f.reset();
-            this.f47374f.moveTo(0.0f, 0.0f);
+            this.f47373f.reset();
+            this.f47373f.moveTo(0.0f, 0.0f);
             float f2 = height;
-            this.f47374f.lineTo(0.0f, f2);
-            this.f47374f.lineTo(f2 * 0.45f, 0.0f);
-            this.f47374f.close();
-            canvas.drawPath(this.f47374f, this.f47373e);
+            this.f47373f.lineTo(0.0f, f2);
+            this.f47373f.lineTo(f2 * 0.45f, 0.0f);
+            this.f47373f.close();
+            canvas.drawPath(this.f47373f, this.f47372e);
             canvas.restoreToCount(saveLayer);
         }
     }

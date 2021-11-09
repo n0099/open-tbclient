@@ -47,19 +47,19 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public a B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47716e;
+    public int f47715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f47717f;
+    public TbImageView f47716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCornersImageView f47718g;
+    public TbCornersImageView f47717g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47719h;
+    public ImageView f47718h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47720i;
+    public TextView f47719i;
     public TBSpecificationBtn j;
     public int k;
     public int l;
@@ -96,7 +96,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f47716e = 3;
+        this.f47715e = 3;
         this.p = false;
         a(context);
     }
@@ -105,22 +105,22 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.cell_forum_test_layout, (ViewGroup) this, true);
-            this.f47717f = (TbImageView) findViewById(R.id.cell_forum_test_img);
-            this.f47718g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
-            this.f47719h = (ImageView) findViewById(R.id.cell_forum_test_del);
-            this.f47720i = (TextView) findViewById(R.id.cell_forum_test_des);
+            this.f47716f = (TbImageView) findViewById(R.id.cell_forum_test_img);
+            this.f47717g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
+            this.f47718h = (ImageView) findViewById(R.id.cell_forum_test_del);
+            this.f47719i = (TextView) findViewById(R.id.cell_forum_test_des);
             this.j = (TBSpecificationBtn) findViewById(R.id.cell_forum_test_btn);
             b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
             this.j.setTextSize(R.dimen.tbds42);
             this.j.setConfig(aVar);
             int g2 = l.g(context, R.dimen.tbds10);
-            this.f47718g.setCornerTopLeftRadius(g2);
-            this.f47717f.setRadius(g2);
-            this.f47717f.setConrers(3);
-            this.f47717f.setPlaceHolder(3);
-            this.f47717f.setDrawCorner(true);
+            this.f47717g.setCornerTopLeftRadius(g2);
+            this.f47716f.setRadius(g2);
+            this.f47716f.setConrers(3);
+            this.f47716f.setPlaceHolder(3);
+            this.f47716f.setDrawCorner(true);
             this.m = l.g(context, R.dimen.tbds262);
-            this.f47719h.setOnClickListener(this);
+            this.f47718h.setOnClickListener(this);
             setOnClickListener(this);
             onChangeSkinType();
         }
@@ -195,11 +195,11 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f47716e) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f47715e) {
             return;
         }
-        this.f47716e = skinType;
-        TbImageView tbImageView = this.f47717f;
+        this.f47715e = skinType;
+        TbImageView tbImageView = this.f47716f;
         if (tbImageView != null) {
             tbImageView.setSkinType(skinType);
         }
@@ -207,17 +207,17 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.changeSkinType();
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47718g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f47717g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
         if (skinType != 1 && skinType != 4) {
-            ((ViewGroup.MarginLayoutParams) this.f47720i.getLayoutParams()).setMargins(0, 0, 0, 0);
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(l.g(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(getContext(), R.dimen.tbds5)).into(this.f47720i);
+            ((ViewGroup.MarginLayoutParams) this.f47719i.getLayoutParams()).setMargins(0, 0, 0, 0);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(l.g(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(getContext(), R.dimen.tbds5)).into(this.f47719i);
         } else {
-            ((ViewGroup.MarginLayoutParams) this.f47720i.getLayoutParams()).setMargins(l.g(getContext(), R.dimen.tbds4), 0, l.g(getContext(), R.dimen.tbds9), 0);
+            ((ViewGroup.MarginLayoutParams) this.f47719i.getLayoutParams()).setMargins(l.g(getContext(), R.dimen.tbds4), 0, l.g(getContext(), R.dimen.tbds9), 0);
             float g2 = l.g(getContext(), R.dimen.tbds10);
-            TBSelector.makeDrawableSelector().blRadius(g2).brRadius(g2).defaultColor(R.color.CAM_X0207).into(this.f47720i);
+            TBSelector.makeDrawableSelector().blRadius(g2).brRadius(g2).defaultColor(R.color.CAM_X0207).into(this.f47719i);
         }
-        SkinManager.setImageResource(this.f47719h, R.drawable.icon_ba_close);
-        SkinManager.setViewTextColor(this.f47720i, R.color.CAM_X0105);
+        SkinManager.setImageResource(this.f47718h, R.drawable.icon_ba_close);
+        SkinManager.setViewTextColor(this.f47719i, R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
@@ -226,7 +226,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         StatisticItem l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            if (this.f47719h == view) {
+            if (this.f47718h == view) {
                 if (j.A() && this.y == 1) {
                     TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.f21747a));
                     a aVar = this.B;
@@ -267,7 +267,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                     }
                     b.j().x("enter_forum_test_id_list", sb.toString());
                 }
-                this.f47718g.setVisibility(8);
+                this.f47717g.setVisibility(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.o.f21747a)));
             }
         }
@@ -288,7 +288,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             this.k = View.MeasureSpec.getSize(i2);
             this.l = View.MeasureSpec.getSize(i3);
             if (!this.A) {
-                this.f47717f.getLayoutParams().height = this.l - this.m;
+                this.f47716f.getLayoutParams().height = this.l - this.m;
             }
             super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.k, 1073741824), View.MeasureSpec.makeMeasureSpec(this.l, 1073741824));
         }
@@ -297,7 +297,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void refreshAnswer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f47717f.startLoad(this.o.f21751e, 10, false);
+            this.f47716f.startLoad(this.o.f21751e, 10, false);
             this.j.setText(getResources().getString(R.string.cell_forum_retest_default));
         }
     }
@@ -308,7 +308,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             return;
         }
         this.o = fVar;
-        this.f47717f.startLoad(fVar.f21750d ? fVar.f21751e : fVar.f21749c, 10, false);
+        this.f47716f.startLoad(fVar.f21750d ? fVar.f21751e : fVar.f21749c, 10, false);
         this.p = false;
         String p = b.j().p("enter_forum_test_id_list", "");
         String[] split = p.split("[|]");
@@ -329,11 +329,11 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 i2++;
             }
         }
-        this.f47718g.setVisibility(this.p ? 8 : 0);
+        this.f47717g.setVisibility(this.p ? 8 : 0);
         if (StringUtils.isNull(fVar.f21748b)) {
-            this.f47720i.setText(R.string.cell_forum_test_title_default);
+            this.f47719i.setText(R.string.cell_forum_test_title_default);
         } else {
-            this.f47720i.setText(fVar.f21748b);
+            this.f47719i.setText(fVar.f21748b);
         }
         this.j.setText(getResources().getString(fVar.f21750d ? R.string.cell_forum_retest_default : R.string.cell_forum_test_default));
     }
@@ -357,9 +357,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
             this.y = i2;
             if (i2 == 1) {
-                this.f47719h.setVisibility(0);
+                this.f47718h.setVisibility(0);
             } else {
-                this.f47719h.setVisibility(8);
+                this.f47718h.setVisibility(8);
             }
         }
     }
@@ -453,7 +453,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f47716e = 3;
+        this.f47715e = 3;
         this.p = false;
         a(context);
     }
@@ -477,7 +477,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f47716e = 3;
+        this.f47715e = 3;
         this.p = false;
         a(context);
     }

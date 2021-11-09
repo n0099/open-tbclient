@@ -57,9 +57,45 @@ public class WebViewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f62672e;
+        public final /* synthetic */ WebViewActivity f62671e;
 
         public a(WebViewActivity webViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f62671e = webViewActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                GlobalUtils.hideKeyboard(this.f62671e.getActivity());
+                this.f62671e.onBackPressed();
+            }
+        }
+    }
+
+    /* loaded from: classes11.dex */
+    public class b extends SafeWebView.SafeChromeClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WebViewActivity f62672e;
+
+        public b(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,25 +113,33 @@ public class WebViewActivity extends BaseActivity {
             this.f62672e = webViewActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f62672e.getActivity());
-                this.f62672e.onBackPressed();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onReceivedTitle(webView, str);
+                WebViewActivity webViewActivity = this.f62672e;
+                if (TextUtils.isEmpty(str)) {
+                    str = ResUtils.getString(this.f62672e.getActivity(), "dxm_ebpay_wallet");
+                }
+                webViewActivity.initActionBar(str);
             }
+        }
+
+        public /* synthetic */ b(WebViewActivity webViewActivity, a aVar) {
+            this(webViewActivity);
         }
     }
 
     /* loaded from: classes11.dex */
-    public class b extends SafeWebView.SafeChromeClient {
+    public class c extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WebViewActivity f62673e;
 
-        public b(WebViewActivity webViewActivity) {
+        public c(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,56 +157,12 @@ public class WebViewActivity extends BaseActivity {
             this.f62673e = webViewActivity;
         }
 
-        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
-        public void onReceivedTitle(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onReceivedTitle(webView, str);
-                WebViewActivity webViewActivity = this.f62673e;
-                if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f62673e.getActivity(), "dxm_ebpay_wallet");
-                }
-                webViewActivity.initActionBar(str);
-            }
-        }
-
-        public /* synthetic */ b(WebViewActivity webViewActivity, a aVar) {
-            this(webViewActivity);
-        }
-    }
-
-    /* loaded from: classes11.dex */
-    public class c extends SafeWebView.SafeWebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f62674e;
-
-        public c(WebViewActivity webViewActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {webViewActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f62674e = webViewActivity;
-        }
-
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f62674e, -1);
+                WalletGlobalUtils.safeDismissDialog(this.f62673e, -1);
             }
         }
 
@@ -188,7 +188,7 @@ public class WebViewActivity extends BaseActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f62674e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f62673e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -197,10 +197,10 @@ public class WebViewActivity extends BaseActivity {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str.substring(0, str.indexOf("?"))));
                         intent.putExtra("android.intent.extra.SUBJECT", Uri.parse(str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "mailto://")).getQueryParameter("subject"));
-                        this.f62674e.startActivity(intent);
+                        this.f62673e.startActivity(intent);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f62674e.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f62673e.getActivity(), "请先配置邮箱");
                     }
                     return true;
                 } else {

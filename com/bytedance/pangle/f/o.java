@@ -26,27 +26,27 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f61412a;
+    public static final o f61411a;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Signature[] f61413b;
+    public final Signature[] f61412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f61414c;
+    public final int f61413c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArraySet<PublicKey> f61415d;
+    public final ArraySet<PublicKey> f61414d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final Signature[] f61416e;
+    public final Signature[] f61415e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f61417f;
+    public final int[] f61416f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public final class o {
                 return;
             }
         }
-        f61412a = new o(null, 0, null, null, null);
+        f61411a = new o(null, 0, null, null, null);
     }
 
     public o(Signature[] signatureArr, int i2, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
@@ -79,11 +79,11 @@ public final class o {
                 return;
             }
         }
-        this.f61413b = signatureArr;
-        this.f61414c = i2;
-        this.f61415d = arraySet;
-        this.f61416e = signatureArr2;
-        this.f61417f = iArr;
+        this.f61412b = signatureArr;
+        this.f61413c = i2;
+        this.f61414d = arraySet;
+        this.f61415e = signatureArr2;
+        this.f61416f = iArr;
     }
 
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
@@ -137,16 +137,16 @@ public final class o {
             }
             if (obj instanceof o) {
                 o oVar = (o) obj;
-                if (this.f61414c == oVar.f61414c && a(this.f61413b, oVar.f61413b)) {
-                    ArraySet<PublicKey> arraySet = this.f61415d;
+                if (this.f61413c == oVar.f61413c && a(this.f61412b, oVar.f61412b)) {
+                    ArraySet<PublicKey> arraySet = this.f61414d;
                     if (arraySet != null) {
-                        if (!arraySet.equals(oVar.f61415d)) {
+                        if (!arraySet.equals(oVar.f61414d)) {
                             return false;
                         }
-                    } else if (oVar.f61415d != null) {
+                    } else if (oVar.f61414d != null) {
                         return false;
                     }
-                    return Arrays.equals(this.f61416e, oVar.f61416e) && Arrays.equals(this.f61417f, oVar.f61417f);
+                    return Arrays.equals(this.f61415e, oVar.f61415e) && Arrays.equals(this.f61416f, oVar.f61416f);
                 }
                 return false;
             }
@@ -159,9 +159,9 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.f61413b) * 31) + this.f61414c) * 31;
-            ArraySet<PublicKey> arraySet = this.f61415d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f61416e)) * 31) + Arrays.hashCode(this.f61417f);
+            int hashCode = ((Arrays.hashCode(this.f61412b) * 31) + this.f61413c) * 31;
+            ArraySet<PublicKey> arraySet = this.f61414d;
+            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f61415e)) * 31) + Arrays.hashCode(this.f61416f);
         }
         return invokeV.intValue;
     }

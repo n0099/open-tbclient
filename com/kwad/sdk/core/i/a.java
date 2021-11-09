@@ -19,7 +19,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, WeakReference<C1905a>> f64752a;
+    public static Map<String, WeakReference<C1905a>> f64751a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.i.a$a  reason: collision with other inner class name */
@@ -29,10 +29,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HandlerThread f64753a;
+        public HandlerThread f64752a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f64754b;
+        public Handler f64753b;
 
         public C1905a(String str) {
             String str2;
@@ -56,15 +56,15 @@ public class a {
                 str2 = "ksad-" + str;
             }
             HandlerThread handlerThread = new HandlerThread(str2);
-            this.f64753a = handlerThread;
+            this.f64752a = handlerThread;
             handlerThread.start();
-            this.f64754b = new Handler(this.f64753a.getLooper());
+            this.f64753b = new Handler(this.f64752a.getLooper());
         }
 
         public Handler a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64754b : (Handler) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64753b : (Handler) invokeV.objValue;
         }
     }
 
@@ -81,7 +81,7 @@ public class a {
                 return;
             }
         }
-        f64752a = new ConcurrentHashMap();
+        f64751a = new ConcurrentHashMap();
     }
 
     public static synchronized Handler a() {
@@ -105,10 +105,10 @@ public class a {
             if (str == null) {
                 return new C1905a(null);
             }
-            WeakReference<C1905a> weakReference = f64752a.get(str);
+            WeakReference<C1905a> weakReference = f64751a.get(str);
             if (weakReference == null || weakReference.get() == null) {
                 C1905a c1905a = new C1905a(str);
-                f64752a.put(str, new WeakReference<>(c1905a));
+                f64751a.put(str, new WeakReference<>(c1905a));
                 return c1905a;
             }
             return weakReference.get();

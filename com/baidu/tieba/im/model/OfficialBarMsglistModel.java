@@ -178,7 +178,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50488b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50487b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -375,7 +375,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.f50481a = this.mUser.getUserId();
+            aVar.f50480a = this.mUser.getUserId();
             super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
             return true;
         }
@@ -391,10 +391,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f50485c = 10;
-            aVar.f50483a = null;
-            aVar.f50484b = null;
-            aVar.f50486d = this.mUser.getUserIdLong() + "";
+            aVar.f50484c = 10;
+            aVar.f50482a = null;
+            aVar.f50483b = null;
+            aVar.f50485d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -411,7 +411,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f50485c = 10;
+            aVar.f50484c = 10;
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -420,9 +420,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 j2 = this.mDatas.getChatMessages().get(0).getMsgId();
                 j = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.f50483a = String.valueOf(j2);
-            aVar.f50484b = String.valueOf(j);
-            aVar.f50486d = this.mUser.getUserIdLong() + "";
+            aVar.f50482a = String.valueOf(j2);
+            aVar.f50483b = String.valueOf(j);
+            aVar.f50485d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -490,8 +490,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (userData == null) {
                 return false;
             }
-            aVar.f50509b = String.valueOf(String.valueOf(userData.getUserId()));
-            aVar.f50508a = str;
+            aVar.f50508b = String.valueOf(String.valueOf(userData.getUserId()));
+            aVar.f50507a = str;
             super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
             return true;
         }

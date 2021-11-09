@@ -26,11 +26,11 @@ public interface aj extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static aj f69209a;
+            public static aj f69208a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69210b;
+            public IBinder f69209b;
 
             public C1989a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public interface aj extends IInterface {
                         return;
                     }
                 }
-                this.f69210b = iBinder;
+                this.f69209b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aj
@@ -60,7 +60,7 @@ public interface aj extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                         obtain.writeInt(i2);
                         obtain.writeInt(i3);
-                        if (!this.f69210b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f69209b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(i2, i3);
                         } else {
                             obtain2.readException();
@@ -76,7 +76,7 @@ public interface aj extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69210b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69209b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -142,7 +142,7 @@ public interface aj extends IInterface {
         public static aj a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1989a.f69209a : (aj) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1989a.f69208a : (aj) invokeV.objValue;
         }
     }
 }

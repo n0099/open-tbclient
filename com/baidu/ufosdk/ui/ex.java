@@ -13,7 +13,7 @@ public final class ex implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ev f57002a;
+    public final /* synthetic */ ev f57001a;
 
     public ex(ev evVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ex implements Runnable {
                 return;
             }
         }
-        this.f57002a = evVar;
+        this.f57001a = evVar;
     }
 
     @Override // java.lang.Runnable
@@ -40,15 +40,15 @@ public final class ex implements Runnable {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i2 = this.f57002a.f56999i;
+            i2 = this.f57001a.f56998i;
             JSONArray jSONArray = null;
-            String trim = i2 != -1 ? this.f57002a.f56992b.getText().toString().trim() : null;
-            i3 = this.f57002a.f56998h;
+            String trim = i2 != -1 ? this.f57001a.f56991b.getText().toString().trim() : null;
+            i3 = this.f57001a.f56997h;
             if (i3 != -1) {
-                arrayList = this.f57002a.m;
+                arrayList = this.f57001a.m;
                 jSONArray = new JSONArray((Collection) arrayList);
             }
-            ev.a(this.f57002a, trim, jSONArray);
+            ev.a(this.f57001a, trim, jSONArray);
         }
     }
 }

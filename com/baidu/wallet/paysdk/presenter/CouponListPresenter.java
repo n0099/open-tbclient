@@ -34,28 +34,28 @@ public class CouponListPresenter extends CouponListContract.Presenter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f59840a;
+        public String f59839a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59841b;
+        public int f59840b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59842c;
+        public int f59841c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59843d;
+        public String f59842d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59844e;
+        public String f59843e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f59845f;
+        public String f59844f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f59846g;
+        public boolean f59845g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f59847h;
+        public boolean f59846h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public void calcPayamount(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (aVar != null && aVar.f59841b == -1) {
+            if (aVar != null && aVar.f59840b == -1) {
                 this.mActivity.showLoading(0);
             } else {
                 this.mActivity.setPageClickable(false);
@@ -107,7 +107,7 @@ public class CouponListPresenter extends CouponListContract.Presenter {
             com.baidu.wallet.paysdk.beans.d dVar = (com.baidu.wallet.paysdk.beans.d) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, TAG);
             if (aVar != null) {
                 this.isFromActivityJump = false;
-                dVar.a(aVar.f59842c, aVar.f59841b, !aVar.f59847h ? "4" : "0");
+                dVar.a(aVar.f59841c, aVar.f59840b, !aVar.f59846h ? "4" : "0");
             } else {
                 this.isFromActivityJump = true;
             }
@@ -157,14 +157,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                 for (int i4 = 0; i4 < calcPaymentResponse.coupon_list.length; i4++) {
                     a aVar = new a();
                     PayData.Coupon[] couponArr = calcPaymentResponse.coupon_list;
-                    aVar.f59840a = couponArr[i4].icon_url;
-                    aVar.f59841b = i4;
-                    aVar.f59842c = 2;
-                    aVar.f59843d = couponArr[i4].description;
-                    aVar.f59844e = couponArr[i4].discount_msg;
-                    aVar.f59845f = couponArr[i4].select_state_desc;
-                    aVar.f59846g = couponArr[i4].getEnable();
-                    aVar.f59847h = calcPaymentResponse.coupon_list[i4].getSelected();
+                    aVar.f59839a = couponArr[i4].icon_url;
+                    aVar.f59840b = i4;
+                    aVar.f59841c = 2;
+                    aVar.f59842d = couponArr[i4].description;
+                    aVar.f59843e = couponArr[i4].discount_msg;
+                    aVar.f59844f = couponArr[i4].select_state_desc;
+                    aVar.f59845g = couponArr[i4].getEnable();
+                    aVar.f59846h = calcPaymentResponse.coupon_list[i4].getSelected();
                     arrayList.add(aVar);
                 }
             }
@@ -177,14 +177,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                     if (discountArr[i3].isCommonDiscount()) {
                         a aVar2 = new a();
                         PayData.Discount[] discountArr2 = calcPaymentResponse.activity_list;
-                        aVar2.f59840a = discountArr2[i3].icon_url;
-                        aVar2.f59841b = i3;
-                        aVar2.f59842c = 1;
-                        aVar2.f59843d = discountArr2[i3].description;
-                        aVar2.f59844e = discountArr2[i3].discount_msg;
-                        aVar2.f59845f = discountArr2[i3].select_state_desc;
-                        aVar2.f59846g = discountArr2[i3].getEnable();
-                        aVar2.f59847h = calcPaymentResponse.activity_list[i3].getSelected();
+                        aVar2.f59839a = discountArr2[i3].icon_url;
+                        aVar2.f59840b = i3;
+                        aVar2.f59841c = 1;
+                        aVar2.f59842d = discountArr2[i3].description;
+                        aVar2.f59843e = discountArr2[i3].discount_msg;
+                        aVar2.f59844f = discountArr2[i3].select_state_desc;
+                        aVar2.f59845g = discountArr2[i3].getEnable();
+                        aVar2.f59846h = calcPaymentResponse.activity_list[i3].getSelected();
                         arrayList.add(aVar2);
                     }
                     i3++;

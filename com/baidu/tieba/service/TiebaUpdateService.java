@@ -82,13 +82,13 @@ public class TiebaUpdateService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53768a;
+        public NetWork f53767a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f53769b;
+        public volatile boolean f53768b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TiebaUpdateService f53770c;
+        public final /* synthetic */ TiebaUpdateService f53769c;
 
         public b(TiebaUpdateService tiebaUpdateService) {
             Interceptable interceptable = $ic;
@@ -105,8 +105,8 @@ public class TiebaUpdateService extends BdBaseService {
                     return;
                 }
             }
-            this.f53770c = tiebaUpdateService;
-            this.f53769b = false;
+            this.f53769c = tiebaUpdateService;
+            this.f53768b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -114,9 +114,9 @@ public class TiebaUpdateService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                this.f53770c.mDowndMainApkTask = null;
-                this.f53769b = true;
-                NetWork netWork = this.f53768a;
+                this.f53769c.mDowndMainApkTask = null;
+                this.f53768b = true;
+                NetWork netWork = this.f53767a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -132,19 +132,19 @@ public class TiebaUpdateService extends BdBaseService {
                 Boolean bool = Boolean.FALSE;
                 while (true) {
                     try {
-                        if (!this.f53769b) {
-                            this.f53768a = new NetWork(this.f53770c.mMainApkUrl);
-                            bool = Boolean.valueOf(this.f53768a.downloadFile(FileHelper.CreateFileIfNotFound(this.f53770c.mMainApkFileName + ".tmp").getAbsolutePath(), this.f53770c.mMainApkHandler, 0, 5, 100, true));
-                            if (!bool.booleanValue() && this.f53768a.getServerErrorCode() != -2) {
-                                if (!this.f53768a.getNetContext().getResponse().isFileSegSuccess()) {
+                        if (!this.f53768b) {
+                            this.f53767a = new NetWork(this.f53769c.mMainApkUrl);
+                            bool = Boolean.valueOf(this.f53767a.downloadFile(FileHelper.CreateFileIfNotFound(this.f53769c.mMainApkFileName + ".tmp").getAbsolutePath(), this.f53769c.mMainApkHandler, 0, 5, 100, true));
+                            if (!bool.booleanValue() && this.f53767a.getServerErrorCode() != -2) {
+                                if (!this.f53767a.getNetContext().getResponse().isFileSegSuccess()) {
                                     try {
                                         Thread.sleep(10000L);
                                     } catch (Exception unused) {
                                     }
                                 }
-                                if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - this.f53770c.mMainTaskWaitingTimestamp > 20000) {
-                                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f53768a.getErrorString()));
-                                    this.f53770c.downloadError();
+                                if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - this.f53769c.mMainTaskWaitingTimestamp > 20000) {
+                                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f53767a.getErrorString()));
+                                    this.f53769c.downloadError();
                                     break;
                                 }
                             } else {
@@ -158,12 +158,12 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!n.a(this.f53770c.mMainApkMd5RSA, FileHelper.GetFile(this.f53770c.mMainApkFileName + ".tmp"))) {
+                    if (!n.a(this.f53769c.mMainApkMd5RSA, FileHelper.GetFile(this.f53769c.mMainApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
-                        FileHelper.DelFile(this.f53770c.mMainApkFileName + ".tmp");
-                        FileHelper.DelFile(this.f53770c.mMainApkFileName);
+                        FileHelper.DelFile(this.f53769c.mMainApkFileName + ".tmp");
+                        FileHelper.DelFile(this.f53769c.mMainApkFileName);
                     }
-                    this.f53770c.renameFile(this.f53770c.mMainApkFileName);
+                    this.f53769c.renameFile(this.f53769c.mMainApkFileName);
                 }
                 return bool;
             }
@@ -176,14 +176,14 @@ public class TiebaUpdateService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((b) bool);
-                this.f53770c.mDowndMainApkTask = null;
+                this.f53769c.mDowndMainApkTask = null;
                 try {
                     if (bool.booleanValue()) {
-                        this.f53770c.mIsMainApkDone = true;
-                        this.f53770c.mMainApkHandler.sendMessageDelayed(this.f53770c.mMainApkHandler.obtainMessage(1, this.f53770c.mMainApkFileName), 300L);
+                        this.f53769c.mIsMainApkDone = true;
+                        this.f53769c.mMainApkHandler.sendMessageDelayed(this.f53769c.mMainApkHandler.obtainMessage(1, this.f53769c.mMainApkFileName), 300L);
                         return;
                     }
-                    this.f53770c.downloadError();
+                    this.f53769c.downloadError();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -201,13 +201,13 @@ public class TiebaUpdateService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53771a;
+        public NetWork f53770a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f53772b;
+        public volatile boolean f53771b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TiebaUpdateService f53773c;
+        public final /* synthetic */ TiebaUpdateService f53772c;
 
         public c(TiebaUpdateService tiebaUpdateService) {
             Interceptable interceptable = $ic;
@@ -224,9 +224,9 @@ public class TiebaUpdateService extends BdBaseService {
                     return;
                 }
             }
-            this.f53773c = tiebaUpdateService;
-            this.f53771a = null;
-            this.f53772b = false;
+            this.f53772c = tiebaUpdateService;
+            this.f53770a = null;
+            this.f53771b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -234,17 +234,17 @@ public class TiebaUpdateService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                this.f53773c.mDowndOtherApkTask = null;
-                this.f53772b = true;
-                NetWork netWork = this.f53771a;
+                this.f53772c.mDowndOtherApkTask = null;
+                this.f53771b = true;
+                NetWork netWork = this.f53770a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                if (this.f53773c.mHasTieba || this.f53773c.mHasAs) {
+                if (this.f53772c.mHasTieba || this.f53772c.mHasAs) {
                     return;
                 }
                 boolean unused = TiebaUpdateService.sHasStart = false;
-                this.f53773c.stopSelf();
+                this.f53772c.stopSelf();
             }
         }
 
@@ -257,22 +257,22 @@ public class TiebaUpdateService extends BdBaseService {
                 Boolean bool = Boolean.FALSE;
                 while (true) {
                     try {
-                        if (!this.f53772b) {
-                            NetWork netWork = new NetWork(this.f53773c.mOtherApkUrl);
-                            this.f53771a = netWork;
-                            bool = Boolean.valueOf(netWork.downloadFile(this.f53773c.mOtherApkFileName + ".tmp", this.f53773c.mOtherApkHandler, 0));
-                            if (bool.booleanValue() || this.f53771a.getServerErrorCode() == -2) {
+                        if (!this.f53771b) {
+                            NetWork netWork = new NetWork(this.f53772c.mOtherApkUrl);
+                            this.f53770a = netWork;
+                            bool = Boolean.valueOf(netWork.downloadFile(this.f53772c.mOtherApkFileName + ".tmp", this.f53772c.mOtherApkHandler, 0));
+                            if (bool.booleanValue() || this.f53770a.getServerErrorCode() == -2) {
                                 break;
                             }
-                            if (!this.f53771a.getNetContext().getResponse().isFileSegSuccess()) {
+                            if (!this.f53770a.getNetContext().getResponse().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception unused) {
                                 }
                             }
-                            if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - this.f53773c.mOtherTaskWaitingTimestamp > 20000) {
-                                if ((this.f53773c.mHasTieba || this.f53773c.mHasAs) && this.f53773c.mIsMainApkDone) {
-                                    this.f53773c.downloadError();
+                            if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - this.f53772c.mOtherTaskWaitingTimestamp > 20000) {
+                                if ((this.f53772c.mHasTieba || this.f53772c.mHasAs) && this.f53772c.mIsMainApkDone) {
+                                    this.f53772c.downloadError();
                                 }
                             }
                         } else {
@@ -283,12 +283,12 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!n.a(this.f53773c.mOtherApkMd5RSA, FileHelper.GetFile(this.f53773c.mOtherApkFileName + ".tmp"))) {
+                    if (!n.a(this.f53772c.mOtherApkMd5RSA, FileHelper.GetFile(this.f53772c.mOtherApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
-                        FileHelper.DelFile(this.f53773c.mOtherApkFileName + ".tmp");
-                        FileHelper.DelFile(this.f53773c.mOtherApkFileName);
+                        FileHelper.DelFile(this.f53772c.mOtherApkFileName + ".tmp");
+                        FileHelper.DelFile(this.f53772c.mOtherApkFileName);
                     }
-                    this.f53773c.renameFile(this.f53773c.mOtherApkFileName);
+                    this.f53772c.renameFile(this.f53772c.mOtherApkFileName);
                 }
                 return bool;
             }
@@ -301,24 +301,24 @@ public class TiebaUpdateService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((c) bool);
-                this.f53773c.mDowndOtherApkTask = null;
+                this.f53772c.mDowndOtherApkTask = null;
                 if (bool.booleanValue()) {
-                    this.f53773c.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
+                    this.f53772c.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
                 }
-                if (this.f53773c.mHasTieba || this.f53773c.mHasAs) {
-                    if (!this.f53773c.mMainApkInstallEnable) {
-                        this.f53773c.mMainApkInstallEnable = true;
+                if (this.f53772c.mHasTieba || this.f53772c.mHasAs) {
+                    if (!this.f53772c.mMainApkInstallEnable) {
+                        this.f53772c.mMainApkInstallEnable = true;
                     } else {
-                        this.f53773c.mOtherApkHandler.sendMessageDelayed(this.f53773c.mOtherApkHandler.obtainMessage(2, null), 300L);
+                        this.f53772c.mOtherApkHandler.sendMessageDelayed(this.f53772c.mOtherApkHandler.obtainMessage(2, null), 300L);
                     }
                 } else {
                     boolean unused = TiebaUpdateService.sHasStart = false;
-                    this.f53773c.stopSelf();
+                    this.f53772c.stopSelf();
                 }
                 if (bool.booleanValue()) {
                     return;
                 }
-                this.f53773c.downloadError();
+                this.f53772c.downloadError();
             }
         }
 
@@ -333,9 +333,102 @@ public class TiebaUpdateService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TiebaUpdateService f53774a;
+        public final /* synthetic */ TiebaUpdateService f53773a;
 
         public d(TiebaUpdateService tiebaUpdateService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tiebaUpdateService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53773a = tiebaUpdateService;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                int i2 = message.what;
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 == 3) {
+                            l.L(TbadkCoreApplication.getInst(), R.string.update_app_error);
+                        }
+                    } else if (this.f53773a.mMainApkInstallEnable) {
+                        if (this.f53773a.mHasAs) {
+                            this.f53773a.startAsInstallService();
+                        }
+                        UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), this.f53773a.mMainApkFileName);
+                        this.f53773a.finishDownload();
+                    } else {
+                        this.f53773a.mMainApkInstallEnable = true;
+                    }
+                } else if (message.arg2 > 0) {
+                    this.f53773a.mMainApkCurSize = message.arg1;
+                    this.f53773a.mMainApkSize = message.arg2;
+                    if (this.f53773a.mMainApkSize > this.f53773a.mMainApkCurSize) {
+                        this.f53773a.mMainTaskWaitingTimestamp = System.currentTimeMillis();
+                    }
+                    if (this.f53773a.mMainApkSize <= this.f53773a.mMainApkCurSize) {
+                        this.f53773a.mIsMainApkDone = true;
+                    }
+                    int i3 = (int) ((this.f53773a.mMainApkCurSize * 100) / this.f53773a.mMainApkSize);
+                    if (!this.f53773a.mHasOther || this.f53773a.mOtherApkSize == 0) {
+                        if (!this.f53773a.mHasOther || this.f53773a.mOtherApkSize != 0) {
+                            if (this.f53773a.mHasOther) {
+                                return;
+                            }
+                            TiebaUpdateService tiebaUpdateService = this.f53773a;
+                            tiebaUpdateService.updateProgress(tiebaUpdateService.mMainApkCurSize, this.f53773a.mMainApkSize);
+                            this.f53773a.sendBroadcast(i3);
+                            return;
+                        }
+                        if (i3 < 60) {
+                            TiebaUpdateService tiebaUpdateService2 = this.f53773a;
+                            tiebaUpdateService2.updateProgress(tiebaUpdateService2.mMainApkCurSize, this.f53773a.mMainApkSize);
+                            this.f53773a.sendBroadcast(i3);
+                        }
+                        this.f53773a.mProgressBefore = i3;
+                        return;
+                    }
+                    TiebaUpdateService tiebaUpdateService3 = this.f53773a;
+                    tiebaUpdateService3.mProgressAfter = (int) (((tiebaUpdateService3.mMainApkCurSize + this.f53773a.mOtherApkCurSize) * 100) / (this.f53773a.mMainApkSize + this.f53773a.mOtherApkSize));
+                    if (this.f53773a.mProgressAfter > this.f53773a.mProgressBefore) {
+                        TiebaUpdateService tiebaUpdateService4 = this.f53773a;
+                        tiebaUpdateService4.updateProgress(tiebaUpdateService4.mMainApkCurSize + this.f53773a.mOtherApkCurSize, this.f53773a.mMainApkSize + this.f53773a.mOtherApkSize);
+                        TiebaUpdateService tiebaUpdateService5 = this.f53773a;
+                        tiebaUpdateService5.sendBroadcast(tiebaUpdateService5.mProgressAfter);
+                        TiebaUpdateService tiebaUpdateService6 = this.f53773a;
+                        tiebaUpdateService6.mProgressBefore = tiebaUpdateService6.mProgressAfter;
+                    }
+                }
+            }
+        }
+
+        public /* synthetic */ d(TiebaUpdateService tiebaUpdateService, a aVar) {
+            this(tiebaUpdateService);
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TiebaUpdateService f53774a;
+
+        public e(TiebaUpdateService tiebaUpdateService) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -360,126 +453,33 @@ public class TiebaUpdateService extends BdBaseService {
                 super.handleMessage(message);
                 int i2 = message.what;
                 if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 == 3) {
-                            l.L(TbadkCoreApplication.getInst(), R.string.update_app_error);
-                        }
-                    } else if (this.f53774a.mMainApkInstallEnable) {
-                        if (this.f53774a.mHasAs) {
-                            this.f53774a.startAsInstallService();
-                        }
-                        UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), this.f53774a.mMainApkFileName);
-                        this.f53774a.finishDownload();
-                    } else {
-                        this.f53774a.mMainApkInstallEnable = true;
-                    }
-                } else if (message.arg2 > 0) {
-                    this.f53774a.mMainApkCurSize = message.arg1;
-                    this.f53774a.mMainApkSize = message.arg2;
-                    if (this.f53774a.mMainApkSize > this.f53774a.mMainApkCurSize) {
-                        this.f53774a.mMainTaskWaitingTimestamp = System.currentTimeMillis();
-                    }
-                    if (this.f53774a.mMainApkSize <= this.f53774a.mMainApkCurSize) {
-                        this.f53774a.mIsMainApkDone = true;
-                    }
-                    int i3 = (int) ((this.f53774a.mMainApkCurSize * 100) / this.f53774a.mMainApkSize);
-                    if (!this.f53774a.mHasOther || this.f53774a.mOtherApkSize == 0) {
-                        if (!this.f53774a.mHasOther || this.f53774a.mOtherApkSize != 0) {
-                            if (this.f53774a.mHasOther) {
-                                return;
-                            }
-                            TiebaUpdateService tiebaUpdateService = this.f53774a;
-                            tiebaUpdateService.updateProgress(tiebaUpdateService.mMainApkCurSize, this.f53774a.mMainApkSize);
-                            this.f53774a.sendBroadcast(i3);
-                            return;
-                        }
-                        if (i3 < 60) {
-                            TiebaUpdateService tiebaUpdateService2 = this.f53774a;
-                            tiebaUpdateService2.updateProgress(tiebaUpdateService2.mMainApkCurSize, this.f53774a.mMainApkSize);
-                            this.f53774a.sendBroadcast(i3);
-                        }
-                        this.f53774a.mProgressBefore = i3;
-                        return;
-                    }
-                    TiebaUpdateService tiebaUpdateService3 = this.f53774a;
-                    tiebaUpdateService3.mProgressAfter = (int) (((tiebaUpdateService3.mMainApkCurSize + this.f53774a.mOtherApkCurSize) * 100) / (this.f53774a.mMainApkSize + this.f53774a.mOtherApkSize));
-                    if (this.f53774a.mProgressAfter > this.f53774a.mProgressBefore) {
-                        TiebaUpdateService tiebaUpdateService4 = this.f53774a;
-                        tiebaUpdateService4.updateProgress(tiebaUpdateService4.mMainApkCurSize + this.f53774a.mOtherApkCurSize, this.f53774a.mMainApkSize + this.f53774a.mOtherApkSize);
-                        TiebaUpdateService tiebaUpdateService5 = this.f53774a;
-                        tiebaUpdateService5.sendBroadcast(tiebaUpdateService5.mProgressAfter);
-                        TiebaUpdateService tiebaUpdateService6 = this.f53774a;
-                        tiebaUpdateService6.mProgressBefore = tiebaUpdateService6.mProgressAfter;
-                    }
-                }
-            }
-        }
-
-        public /* synthetic */ d(TiebaUpdateService tiebaUpdateService, a aVar) {
-            this(tiebaUpdateService);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TiebaUpdateService f53775a;
-
-        public e(TiebaUpdateService tiebaUpdateService) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tiebaUpdateService};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53775a = tiebaUpdateService;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i2 = message.what;
-                if (i2 != 0) {
                     if (i2 == 2) {
-                        if (this.f53775a.mHasTieba || this.f53775a.mHasAs) {
-                            if (!this.f53775a.mMainApkInstallEnable) {
-                                this.f53775a.mMainApkInstallEnable = true;
+                        if (this.f53774a.mHasTieba || this.f53774a.mHasAs) {
+                            if (!this.f53774a.mMainApkInstallEnable) {
+                                this.f53774a.mMainApkInstallEnable = true;
                                 return;
                             } else {
-                                this.f53775a.mMainApkHandler.sendMessageDelayed(this.f53775a.mMainApkHandler.obtainMessage(1, null), 300L);
+                                this.f53774a.mMainApkHandler.sendMessageDelayed(this.f53774a.mMainApkHandler.obtainMessage(1, null), 300L);
                                 return;
                             }
                         }
-                        this.f53775a.finishDownload();
+                        this.f53774a.finishDownload();
                     }
                 } else if (message.arg2 > 0) {
-                    this.f53775a.mOtherApkCurSize = message.arg1;
-                    this.f53775a.mOtherApkSize = message.arg2;
-                    if (this.f53775a.mOtherApkSize > this.f53775a.mOtherApkCurSize) {
-                        this.f53775a.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
+                    this.f53774a.mOtherApkCurSize = message.arg1;
+                    this.f53774a.mOtherApkSize = message.arg2;
+                    if (this.f53774a.mOtherApkSize > this.f53774a.mOtherApkCurSize) {
+                        this.f53774a.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
                     }
-                    TiebaUpdateService tiebaUpdateService = this.f53775a;
-                    tiebaUpdateService.mProgressAfter = (int) (((tiebaUpdateService.mMainApkCurSize + this.f53775a.mOtherApkCurSize) * 100) / (this.f53775a.mMainApkSize + this.f53775a.mOtherApkSize));
-                    if (this.f53775a.mHasOther) {
-                        if ((this.f53775a.mHasTieba || this.f53775a.mHasAs) && this.f53775a.mMainApkSize == this.f53775a.mMainApkCurSize && this.f53775a.mProgressAfter > this.f53775a.mProgressBefore) {
-                            TiebaUpdateService tiebaUpdateService2 = this.f53775a;
-                            tiebaUpdateService2.updateProgress(tiebaUpdateService2.mMainApkCurSize + this.f53775a.mOtherApkCurSize, this.f53775a.mMainApkSize + this.f53775a.mOtherApkSize);
-                            TiebaUpdateService tiebaUpdateService3 = this.f53775a;
+                    TiebaUpdateService tiebaUpdateService = this.f53774a;
+                    tiebaUpdateService.mProgressAfter = (int) (((tiebaUpdateService.mMainApkCurSize + this.f53774a.mOtherApkCurSize) * 100) / (this.f53774a.mMainApkSize + this.f53774a.mOtherApkSize));
+                    if (this.f53774a.mHasOther) {
+                        if ((this.f53774a.mHasTieba || this.f53774a.mHasAs) && this.f53774a.mMainApkSize == this.f53774a.mMainApkCurSize && this.f53774a.mProgressAfter > this.f53774a.mProgressBefore) {
+                            TiebaUpdateService tiebaUpdateService2 = this.f53774a;
+                            tiebaUpdateService2.updateProgress(tiebaUpdateService2.mMainApkCurSize + this.f53774a.mOtherApkCurSize, this.f53774a.mMainApkSize + this.f53774a.mOtherApkSize);
+                            TiebaUpdateService tiebaUpdateService3 = this.f53774a;
                             tiebaUpdateService3.sendBroadcast(tiebaUpdateService3.mProgressAfter);
-                            TiebaUpdateService tiebaUpdateService4 = this.f53775a;
+                            TiebaUpdateService tiebaUpdateService4 = this.f53774a;
                             tiebaUpdateService4.mProgressBefore = tiebaUpdateService4.mProgressAfter;
                         }
                     }

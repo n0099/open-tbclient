@@ -22,7 +22,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.d4.u.p.b.a f56222e;
+    public b.a.r0.d4.u.p.b.a f56221e;
 
     /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
@@ -30,7 +30,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkVideoGuideModel f56223a;
+        public final /* synthetic */ WorkVideoGuideModel f56222a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WorkVideoGuideModel workVideoGuideModel, int i2) {
@@ -50,7 +50,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56223a = workVideoGuideModel;
+            this.f56222a = workVideoGuideModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.f56223a.f56222e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.f56222a.f56221e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -81,7 +81,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56222e = aVar;
+        this.f56221e = aVar;
         x();
     }
 

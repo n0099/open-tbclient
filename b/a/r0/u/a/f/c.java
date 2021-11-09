@@ -3,6 +3,7 @@ package b.a.r0.u.a.f;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,14 +39,14 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23933a.getString("splash", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23933a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "") : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             SharedPreferences.Editor edit = this.f23933a.edit();
-            edit.putString("splash", str);
+            edit.putString(SpeedStatsUtils.UBC_VALUE_SPLASH, str);
             edit.commit();
         }
     }

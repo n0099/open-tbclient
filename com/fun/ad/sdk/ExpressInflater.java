@@ -13,7 +13,7 @@ public abstract class ExpressInflater implements NativeInflater {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BaseNativeAd2<?, ? extends View> f62714a;
+    public final BaseNativeAd2<?, ? extends View> f62713a;
 
     public ExpressInflater(FunNativeAd2 funNativeAd2) {
         Interceptable interceptable = $ic;
@@ -33,12 +33,12 @@ public abstract class ExpressInflater implements NativeInflater {
         if (!(funNativeAd2 instanceof BaseNativeAd2) || !funNativeAd2.getNativeType().supportExpress()) {
             throw new IllegalArgumentException("ExpressInflater only support for NativeType.EXPRESS");
         }
-        this.f62714a = (BaseNativeAd2) funNativeAd2;
+        this.f62713a = (BaseNativeAd2) funNativeAd2;
     }
 
     public final View getExpressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62714a.getExpressView() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62713a.getExpressView() : (View) invokeV.objValue;
     }
 }

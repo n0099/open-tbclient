@@ -15,7 +15,7 @@ public class a implements InnerIdSupplier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f61191a;
+    public Context f61190a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements InnerIdSupplier {
             }
         }
         b.j.a.a.a.a(context);
-        this.f61191a = context;
+        this.f61190a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -45,10 +45,10 @@ public class a implements InnerIdSupplier {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SupplierListener f61192a;
+                public final /* synthetic */ SupplierListener f61191a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f61193b;
+                public final /* synthetic */ a f61192b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,8 +65,8 @@ public class a implements InnerIdSupplier {
                             return;
                         }
                     }
-                    this.f61193b = this;
-                    this.f61192a = supplierListener;
+                    this.f61192b = this;
+                    this.f61191a = supplierListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -75,8 +75,8 @@ public class a implements InnerIdSupplier {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Thread.sleep(1000L);
-                            if (this.f61192a != null) {
-                                this.f61192a.OnSupport(this.f61193b.isSupported(), this.f61193b);
+                            if (this.f61191a != null) {
+                                this.f61191a.OnSupport(this.f61192b.isSupported(), this.f61192b);
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -103,7 +103,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                String e2 = b.j.a.a.a.e(this.f61191a);
+                String e2 = b.j.a.a.a.e(this.f61190a);
                 return e2 == null ? "" : e2;
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -119,7 +119,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                String c2 = b.j.a.a.a.c(this.f61191a);
+                String c2 = b.j.a.a.a.c(this.f61190a);
                 return c2 == null ? "" : c2;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -142,7 +142,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                String d2 = b.j.a.a.a.d(this.f61191a);
+                String d2 = b.j.a.a.a.d(this.f61190a);
                 return d2 == null ? "" : d2;
             } catch (Exception e2) {
                 e2.printStackTrace();

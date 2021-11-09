@@ -27,21 +27,21 @@ public class PersonBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f53092i;
+    public static final String f53091i;
     public static TbHttpMessageTask j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53093e;
+    public b f53092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53094f;
+    public boolean f53093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53095g;
+    public String f53094g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53096h;
+    public int f53095h;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class PersonBarModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-        f53092i = str;
+        f53091i = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, str);
         j = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonBarResponseMessage.class);
@@ -82,13 +82,13 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.f53093e = new b();
-        this.f53094f = z;
+        this.f53092e = new b();
+        this.f53093f = z;
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f53096h == 1 && this.f53094f) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f53095h == 1 && this.f53093f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -107,14 +107,14 @@ public class PersonBarModel extends BdBaseModel {
     public void B(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f53096h = i2;
+            this.f53095h = i2;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f53095g = str;
+            this.f53094g = str;
         }
     }
 
@@ -131,7 +131,7 @@ public class PersonBarModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53095g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53094g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -153,13 +153,13 @@ public class PersonBarModel extends BdBaseModel {
     public b w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53093e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53092e : (b) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f53094f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f53093f : invokeV.booleanValue;
     }
 
     public void y() {

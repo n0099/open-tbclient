@@ -49,7 +49,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f54330a;
+        public final /* synthetic */ BuyTBeanActivity f54329a;
 
         public a(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f54330a = buyTBeanActivity;
+            this.f54329a = buyTBeanActivity;
         }
 
         @Override // b.a.q0.p0.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.q0.p0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.f54330a.mGiftBbean), b.a.q0.p0.c.f12794a) + "&refer_page=" + this.f54330a.mReferPage + "&click_zone=" + this.f54330a.mClickZone, this.f54330a.getPageContext());
-                this.f54330a.finish();
+                b.a.q0.p0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.f54329a.mGiftBbean), b.a.q0.p0.c.f12794a) + "&refer_page=" + this.f54329a.mReferPage + "&click_zone=" + this.f54329a.mClickZone, this.f54329a.getPageContext());
+                this.f54329a.finish();
             }
         }
 
@@ -82,7 +82,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f54330a.mModel.J();
+                this.f54329a.mModel.J();
             }
         }
 
@@ -90,7 +90,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f54330a.mModel.J();
+                this.f54329a.mModel.J();
             }
         }
     }
@@ -101,9 +101,44 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f54331e;
+        public final /* synthetic */ BuyTBeanActivity f54330e;
 
         public b(BuyTBeanActivity buyTBeanActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {buyTBeanActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54330e = buyTBeanActivity;
+        }
+
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BuyTBeanActivity f54331e;
+
+        public c(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,42 +161,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f54332e;
-
-        public c(BuyTBeanActivity buyTBeanActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54332e = buyTBeanActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                this.f54332e.finish();
+                this.f54331e.finish();
             }
         }
     }
@@ -172,7 +172,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f54333a;
+        public final /* synthetic */ BuyTBeanActivity f54332a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(BuyTBeanActivity buyTBeanActivity, int i2) {
@@ -192,7 +192,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f54333a = buyTBeanActivity;
+            this.f54332a = buyTBeanActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -200,8 +200,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (this.f54333a.isFromDecreaseGiftStepStrategy == 1 || this.f54333a.isFromDecreaseGiftStepStrategy == 2 || this.f54333a.isFromDecreaseGiftStepStrategy == 3) {
-                    this.f54333a.closeActivity();
+                if (this.f54332a.isFromDecreaseGiftStepStrategy == 1 || this.f54332a.isFromDecreaseGiftStepStrategy == 2 || this.f54332a.isFromDecreaseGiftStepStrategy == 3) {
+                    this.f54332a.closeActivity();
                 }
             }
         }

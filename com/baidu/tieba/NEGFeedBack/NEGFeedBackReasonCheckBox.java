@@ -25,19 +25,19 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46569e;
+    public Context f46568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46570f;
+    public int f46569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f46571g;
+    public GradientDrawable f46570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f46572h;
+    public GradientDrawable f46571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GradientDrawable f46573i;
+    public GradientDrawable f46572i;
     public StateListDrawable j;
     public CustomMessageListener k;
 
@@ -47,7 +47,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NEGFeedBackReasonCheckBox f46574a;
+        public final /* synthetic */ NEGFeedBackReasonCheckBox f46573a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox, int i2) {
@@ -67,7 +67,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                     return;
                 }
             }
-            this.f46574a = nEGFeedBackReasonCheckBox;
+            this.f46573a = nEGFeedBackReasonCheckBox;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f46574a.changeSkinType();
+                this.f46573a.changeSkinType();
             }
         }
     }
@@ -98,17 +98,17 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f46569e = null;
-        this.f46570f = 3;
+        this.f46568e = null;
+        this.f46569f = 3;
         this.k = new a(this, 2001304);
-        this.f46569e = context;
+        this.f46568e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int g2 = l.g(this.f46569e, R.dimen.ds24);
+            int g2 = l.g(this.f46568e, R.dimen.ds24);
             setPadding(g2, 0, g2, 0);
             setButtonDrawable((Drawable) null);
         }
@@ -119,26 +119,26 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            this.f46571g = gradientDrawable;
+            this.f46570g = gradientDrawable;
             gradientDrawable.setShape(0);
             float f2 = parseInt;
-            this.f46571g.setCornerRadius(f2);
-            this.f46571g.setStroke(i3, SkinManager.getColor(i4));
+            this.f46570g.setCornerRadius(f2);
+            this.f46570g.setStroke(i3, SkinManager.getColor(i4));
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.f46572h = gradientDrawable2;
+            this.f46571h = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.f46572h.setCornerRadius(f2);
-            this.f46572h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.f46571h.setCornerRadius(f2);
+            this.f46571h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
-            this.f46573i = gradientDrawable3;
+            this.f46572i = gradientDrawable3;
             gradientDrawable3.setShape(0);
-            this.f46573i.setCornerRadius(f2);
-            this.f46573i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.f46572i.setCornerRadius(f2);
+            this.f46572i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.j = stateListDrawable;
-            stateListDrawable.addState(new int[]{16842912}, this.f46572h);
-            this.j.addState(new int[]{-16842910}, this.f46573i);
-            this.j.addState(new int[0], this.f46571g);
+            stateListDrawable.addState(new int[]{16842912}, this.f46571h);
+            this.j.addState(new int[]{-16842910}, this.f46572i);
+            this.j.addState(new int[0], this.f46570g);
             setBackgroundDrawable(this.j);
         }
     }
@@ -146,12 +146,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     public void changeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f46570f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f46569f) {
             return;
         }
-        b(R.string.J_X07, l.g(this.f46569e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+        b(R.string.J_X07, l.g(this.f46568e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
         SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
-        this.f46570f = skinType;
+        this.f46569f = skinType;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -191,10 +191,10 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f46569e = null;
-        this.f46570f = 3;
+        this.f46568e = null;
+        this.f46569f = 3;
         this.k = new a(this, 2001304);
-        this.f46569e = context;
+        this.f46568e = context;
         a();
     }
 
@@ -217,10 +217,10 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f46569e = null;
-        this.f46570f = 3;
+        this.f46568e = null;
+        this.f46569f = 3;
         this.k = new a(this, 2001304);
-        this.f46569e = context;
+        this.f46568e = context;
         a();
     }
 }

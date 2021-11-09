@@ -33,7 +33,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f64408a;
+    public static ExecutorService f64407a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -42,7 +42,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64412a;
+        public String f64411a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,24 +72,24 @@ public class c {
                 return;
             }
         }
-        f64408a = com.kwad.sdk.core.i.b.i();
+        f64407a = com.kwad.sdk.core.i.b.i();
     }
 
     public static void a(@NonNull com.kwad.sdk.core.diskcache.a.a aVar, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, aVar, str, str2) == null) {
-            f64408a.execute(new Runnable(aVar, str2, str) { // from class: com.kwad.sdk.core.diskcache.b.c.1
+            f64407a.execute(new Runnable(aVar, str2, str) { // from class: com.kwad.sdk.core.diskcache.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.diskcache.a.a f64409a;
+                public final /* synthetic */ com.kwad.sdk.core.diskcache.a.a f64408a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f64410b;
+                public final /* synthetic */ String f64409b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f64411c;
+                public final /* synthetic */ String f64410c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,9 +106,9 @@ public class c {
                             return;
                         }
                     }
-                    this.f64409a = aVar;
-                    this.f64410b = str2;
-                    this.f64411c = str;
+                    this.f64408a = aVar;
+                    this.f64409b = str2;
+                    this.f64410c = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -118,15 +118,15 @@ public class c {
                         OutputStream outputStream = null;
                         try {
                             try {
-                                a.C1899a a2 = this.f64409a.a(this.f64410b);
+                                a.C1899a a2 = this.f64408a.a(this.f64409b);
                                 if (a2 != null) {
                                     outputStream = a2.a(0);
-                                    if (c.b(this.f64411c, outputStream, new a())) {
+                                    if (c.b(this.f64410c, outputStream, new a())) {
                                         a2.a();
                                     } else {
                                         a2.b();
                                     }
-                                    this.f64409a.b();
+                                    this.f64408a.b();
                                 }
                             } catch (IOException e2) {
                                 com.kwad.sdk.core.d.a.a(e2);
@@ -220,7 +220,7 @@ public class c {
                 } catch (IOException e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e2);
-                    aVar2.f64412a = e2.getMessage();
+                    aVar2.f64411a = e2.getMessage();
                 }
                 return z;
             } finally {
@@ -332,7 +332,7 @@ public class c {
                         bufferedOutputStream2 = bufferedOutputStream;
                         com.kwad.sdk.core.d.a.a(e);
                         com.kwad.sdk.core.d.a.a("FileHelper", "downloadUrlToStream file crash", e);
-                        aVar.f64412a = e.getMessage();
+                        aVar.f64411a = e.getMessage();
                         d.a(bufferedOutputStream2);
                         d.a((Closeable) r3);
                         if (str != 0) {

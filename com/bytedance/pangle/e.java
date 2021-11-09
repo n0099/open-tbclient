@@ -114,7 +114,7 @@ public interface e extends IInterface {
         public static e a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1842a.f61372a : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1842a.f61371a : (e) invokeV.objValue;
         }
 
         /* renamed from: com.bytedance.pangle.e$a$a  reason: collision with other inner class name */
@@ -123,11 +123,11 @@ public interface e extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f61372a;
+            public static e f61371a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f61373b;
+            public IBinder f61372b;
 
             public C1842a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public interface e extends IInterface {
                         return;
                     }
                 }
-                this.f61373b = iBinder;
+                this.f61372b = iBinder;
             }
 
             @Override // com.bytedance.pangle.e
@@ -163,7 +163,7 @@ public interface e extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeString(str);
-                        if (!this.f61373b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61372b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(intent, str);
                         }
                         obtain2.readException();
@@ -180,7 +180,7 @@ public interface e extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61373b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61372b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.pangle.e
@@ -199,7 +199,7 @@ public interface e extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeString(str);
-                        if (!this.f61373b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61372b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(intent, str);
                         }
                         obtain2.readException();
@@ -230,7 +230,7 @@ public interface e extends IInterface {
                         obtain.writeStrongBinder(gVar != null ? gVar.asBinder() : null);
                         obtain.writeInt(i2);
                         obtain.writeString(str);
-                        if (!this.f61373b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61372b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(intent, gVar, i2, str);
                         }
                         obtain2.readException();
@@ -252,7 +252,7 @@ public interface e extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
                         obtain.writeStrongBinder(gVar != null ? gVar.asBinder() : null);
-                        if (!this.f61373b.transact(4, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61372b.transact(4, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(gVar);
                         } else {
                             obtain2.readException();

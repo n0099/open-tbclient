@@ -13,19 +13,19 @@ public final class ad implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f70247a;
+    public final /* synthetic */ int f70246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f70248b;
+    public final /* synthetic */ List f70247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f70249c;
+    public final /* synthetic */ List f70248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f70250d;
+    public final /* synthetic */ String f70249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f70251e;
+    public final /* synthetic */ ac f70250e;
 
     public ad(ac acVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class ad implements Runnable {
                 return;
             }
         }
-        this.f70251e = acVar;
-        this.f70247a = i2;
-        this.f70248b = list;
-        this.f70249c = list2;
-        this.f70250d = str;
+        this.f70250e = acVar;
+        this.f70246a = i2;
+        this.f70247b = list;
+        this.f70248c = list2;
+        this.f70249d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,10 +54,10 @@ public final class ad implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ac acVar = this.f70251e;
-            PushMessageCallback pushMessageCallback = ((ab) acVar).f70246b;
-            context = acVar.f70428a;
-            pushMessageCallback.onSetTags(context, this.f70247a, this.f70248b, this.f70249c, this.f70250d);
+            ac acVar = this.f70250e;
+            PushMessageCallback pushMessageCallback = ((ab) acVar).f70245b;
+            context = acVar.f70427a;
+            pushMessageCallback.onSetTags(context, this.f70246a, this.f70247b, this.f70248c, this.f70249d);
         }
     }
 }

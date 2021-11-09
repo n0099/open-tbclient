@@ -11,10 +11,10 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f65986a;
+    public final k f65985a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f65987b;
+    public final int[] f65986b;
 
     public static h<l> a() {
         InterceptResult invokeV;
@@ -43,7 +43,7 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return " cols=" + this.f65986a.f65977a + " bpc=" + this.f65986a.f65979c + " size=" + this.f65987b.length;
+            return " cols=" + this.f65985a.f65976a + " bpc=" + this.f65985a.f65978c + " size=" + this.f65986b.length;
         }
         return (String) invokeV.objValue;
     }

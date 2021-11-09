@@ -18,7 +18,7 @@ public abstract class MultiAudioMixer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f54742a;
+    public c f54741a;
 
     /* loaded from: classes9.dex */
     public static class AudioMixException extends IOException {
@@ -183,8 +183,8 @@ public abstract class MultiAudioMixer {
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        if (this.f54742a != null) {
-                            this.f54742a.onMixError(1);
+                        if (this.f54741a != null) {
+                            this.f54741a.onMixError(1);
                         }
                         while (i2 < length) {
                             FileInputStream fileInputStream2 = fileInputStreamArr[i2];
@@ -211,8 +211,8 @@ public abstract class MultiAudioMixer {
                     }
                 }
                 byte[] c2 = c(bArr);
-                if (c2 != null && this.f54742a != null) {
-                    this.f54742a.onMixing(c2);
+                if (c2 != null && this.f54741a != null) {
+                    this.f54741a.onMixing(c2);
                 }
                 z = true;
                 for (int i5 = 0; i5 < length; i5++) {
@@ -221,8 +221,8 @@ public abstract class MultiAudioMixer {
                     }
                 }
             } while (!z);
-            if (this.f54742a != null) {
-                this.f54742a.onMixComplete();
+            if (this.f54741a != null) {
+                this.f54741a.onMixComplete();
             }
             while (i2 < length) {
                 FileInputStream fileInputStream4 = fileInputStreamArr[i2];
@@ -239,7 +239,7 @@ public abstract class MultiAudioMixer {
     public void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f54742a = cVar;
+            this.f54741a = cVar;
         }
     }
 }

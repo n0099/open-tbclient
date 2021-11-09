@@ -39,10 +39,10 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f48512a;
+    public View f48511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f48513b;
+    public final int f48512b;
     public TextView mBjhAuthorAuth;
     public EMTextView mCheckStatus;
     public TBSpecificationBtn mEditStatusBtn;
@@ -73,8 +73,8 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48513b = l.g(TbadkCoreApplication.getInst(), c1.tbds6);
-        this.f48512a = view;
+        this.f48512b = l.g(TbadkCoreApplication.getInst(), c1.tbds6);
+        this.f48511a = view;
         initView(view);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -188,9 +188,9 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if ("manager".equals(str) || PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
-                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f48513b);
+                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f48512b);
                 int i2 = b1.CAM_X0303;
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f48513b).defaultColor("#4D000000").build()});
+                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f48512b).defaultColor("#4D000000").build()});
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     if (layerDrawable.getDrawable(1) != null) {
                         layerDrawable.getDrawable(1).setAlpha(255);

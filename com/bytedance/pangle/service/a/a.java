@@ -28,29 +28,29 @@ public class a extends e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f61492b;
+    public static volatile a f61491b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f61493a;
+    public final Handler f61492a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<ComponentName, IBinder> f61494c;
+    public final HashMap<ComponentName, IBinder> f61493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<ComponentName, b> f61495d;
+    public final HashMap<ComponentName, b> f61494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final C1847a<Intent> f61496e;
+    public final C1847a<Intent> f61495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<ComponentName, com.bytedance.pangle.service.a> f61497f;
+    public final HashMap<ComponentName, com.bytedance.pangle.service.a> f61496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashSet<ComponentName> f61498g;
+    public final HashSet<ComponentName> f61497g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashSet<ComponentName> f61499h;
+    public final HashSet<ComponentName> f61498h;
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -59,7 +59,7 @@ public class a extends e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f61512a;
+        public final /* synthetic */ a f61511a;
 
         public C1847a(a aVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a extends e.a {
                     return;
                 }
             }
-            this.f61512a = aVar;
+            this.f61511a = aVar;
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
@@ -142,7 +142,7 @@ public class a extends e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f61513a;
+        public final /* synthetic */ a f61512a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class a extends e.a {
                     return;
                 }
             }
-            this.f61513a = aVar;
+            this.f61512a = aVar;
         }
 
         @Override // java.util.HashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -231,27 +231,27 @@ public class a extends e.a {
                 return;
             }
         }
-        this.f61494c = new HashMap<>();
-        this.f61495d = new HashMap<>();
-        this.f61496e = new C1847a<>(this);
-        this.f61497f = new HashMap<>();
-        this.f61498g = new HashSet<>();
-        this.f61499h = new HashSet<>();
-        this.f61493a = new Handler(Looper.getMainLooper());
+        this.f61493c = new HashMap<>();
+        this.f61494d = new HashMap<>();
+        this.f61495e = new C1847a<>(this);
+        this.f61496f = new HashMap<>();
+        this.f61497g = new HashSet<>();
+        this.f61498h = new HashSet<>();
+        this.f61492a = new Handler(Looper.getMainLooper());
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f61492b == null) {
+            if (f61491b == null) {
                 synchronized (a.class) {
-                    if (f61492b == null) {
-                        f61492b = new a();
+                    if (f61491b == null) {
+                        f61491b = new a();
                     }
                 }
             }
-            return f61492b;
+            return f61491b;
         }
         return (a) invokeV.objValue;
     }
@@ -263,15 +263,15 @@ public class a extends e.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, intent, str)) == null) {
             synchronized (this) {
                 ComponentName component = intent.getComponent();
-                if (!this.f61497f.containsKey(component)) {
+                if (!this.f61496f.containsKey(component)) {
                     com.bytedance.pangle.service.a d2 = d(intent, str);
                     if (d2 == null) {
                         return component;
                     }
-                    this.f61497f.put(component, d2);
-                    this.f61498g.add(component);
+                    this.f61496f.put(component, d2);
+                    this.f61497g.add(component);
                 }
-                com.bytedance.pangle.service.a aVar = this.f61497f.get(component);
+                com.bytedance.pangle.service.a aVar = this.f61496f.get(component);
                 if (aVar != null) {
                     aVar.onStartCommand(intent, 0, 0);
                 }
@@ -338,18 +338,18 @@ public class a extends e.a {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 return c(intent, str);
             }
-            this.f61493a.post(new Runnable(this, intent, str) { // from class: com.bytedance.pangle.service.a.a.1
+            this.f61492a.post(new Runnable(this, intent, str) { // from class: com.bytedance.pangle.service.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Intent f61500a;
+                public final /* synthetic */ Intent f61499a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61501b;
+                public final /* synthetic */ String f61500b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f61502c;
+                public final /* synthetic */ a f61501c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -366,16 +366,16 @@ public class a extends e.a {
                             return;
                         }
                     }
-                    this.f61502c = this;
-                    this.f61500a = intent;
-                    this.f61501b = str;
+                    this.f61501c = this;
+                    this.f61499a = intent;
+                    this.f61500b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61502c.c(this.f61500a, this.f61501b);
+                        this.f61501c.c(this.f61499a, this.f61500b);
                     }
                 }
             });
@@ -393,15 +393,15 @@ public class a extends e.a {
                 b().a(intent.getComponent());
                 return true;
             }
-            this.f61493a.post(new Runnable(this, intent) { // from class: com.bytedance.pangle.service.a.a.2
+            this.f61492a.post(new Runnable(this, intent) { // from class: com.bytedance.pangle.service.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Intent f61503a;
+                public final /* synthetic */ Intent f61502a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f61504b;
+                public final /* synthetic */ a f61503b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -418,15 +418,15 @@ public class a extends e.a {
                             return;
                         }
                     }
-                    this.f61504b = this;
-                    this.f61503a = intent;
+                    this.f61503b = this;
+                    this.f61502a = intent;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        a.b().a(this.f61503a.getComponent());
+                        a.b().a(this.f61502a.getComponent());
                     }
                 }
             });
@@ -440,8 +440,8 @@ public class a extends e.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName)) == null) {
             synchronized (this) {
-                if (this.f61497f.containsKey(componentName)) {
-                    this.f61499h.add(componentName);
+                if (this.f61496f.containsKey(componentName)) {
+                    this.f61498h.add(componentName);
                     return b(componentName);
                 }
                 return false;
@@ -454,13 +454,13 @@ public class a extends e.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, componentName)) == null) {
-            if (!this.f61498g.contains(componentName)) {
-                if (this.f61495d.get(componentName) == null) {
+            if (!this.f61497g.contains(componentName)) {
+                if (this.f61494d.get(componentName) == null) {
                     c(componentName);
                     return true;
                 }
                 return false;
-            } else if (!this.f61499h.contains(componentName) || this.f61495d.containsKey(componentName)) {
+            } else if (!this.f61498h.contains(componentName) || this.f61494d.containsKey(componentName)) {
                 return false;
             } else {
                 c(componentName);
@@ -473,10 +473,10 @@ public class a extends e.a {
     private void c(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, componentName) == null) {
-            com.bytedance.pangle.service.a remove = this.f61497f.remove(componentName);
-            this.f61499h.remove(componentName);
-            this.f61494c.remove(componentName);
-            this.f61498g.remove(componentName);
+            com.bytedance.pangle.service.a remove = this.f61496f.remove(componentName);
+            this.f61498h.remove(componentName);
+            this.f61493c.remove(componentName);
+            this.f61497g.remove(componentName);
             if (remove != null) {
                 remove.onDestroy();
             }
@@ -491,24 +491,24 @@ public class a extends e.a {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 return a(intent, gVar, str);
             }
-            this.f61493a.post(new Runnable(this, intent, gVar, i2, str) { // from class: com.bytedance.pangle.service.a.a.3
+            this.f61492a.post(new Runnable(this, intent, gVar, i2, str) { // from class: com.bytedance.pangle.service.a.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Intent f61505a;
+                public final /* synthetic */ Intent f61504a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f61506b;
+                public final /* synthetic */ g f61505b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f61507c;
+                public final /* synthetic */ int f61506c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f61508d;
+                public final /* synthetic */ String f61507d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f61509e;
+                public final /* synthetic */ a f61508e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -525,11 +525,11 @@ public class a extends e.a {
                             return;
                         }
                     }
-                    this.f61509e = this;
-                    this.f61505a = intent;
-                    this.f61506b = gVar;
-                    this.f61507c = i2;
-                    this.f61508d = str;
+                    this.f61508e = this;
+                    this.f61504a = intent;
+                    this.f61505b = gVar;
+                    this.f61506c = i2;
+                    this.f61507d = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -537,7 +537,7 @@ public class a extends e.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f61509e.a(this.f61505a, this.f61506b, this.f61508d);
+                            this.f61508e.a(this.f61504a, this.f61505b, this.f61507d);
                         } catch (RemoteException e2) {
                             ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed", e2);
                         }
@@ -556,30 +556,30 @@ public class a extends e.a {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, intent, gVar, str)) == null) {
             synchronized (this) {
                 ComponentName component = intent.getComponent();
-                if (!this.f61497f.containsKey(component)) {
+                if (!this.f61496f.containsKey(component)) {
                     com.bytedance.pangle.service.a d2 = d(intent, str);
                     if (d2 == null) {
                         return false;
                     }
-                    this.f61497f.put(component, d2);
+                    this.f61496f.put(component, d2);
                 }
-                com.bytedance.pangle.service.a aVar = this.f61497f.get(component);
-                if (!this.f61494c.containsKey(component)) {
-                    this.f61494c.put(component, aVar.onBind(intent));
+                com.bytedance.pangle.service.a aVar = this.f61496f.get(component);
+                if (!this.f61493c.containsKey(component)) {
+                    this.f61493c.put(component, aVar.onBind(intent));
                 }
-                IBinder iBinder = this.f61494c.get(component);
+                IBinder iBinder = this.f61493c.get(component);
                 if (iBinder != null) {
-                    if (this.f61495d.containsKey(component)) {
-                        if (!this.f61495d.get(component).contains(gVar)) {
-                            this.f61495d.get(component).add(gVar);
-                            this.f61496e.put(gVar, intent);
+                    if (this.f61494d.containsKey(component)) {
+                        if (!this.f61494d.get(component).contains(gVar)) {
+                            this.f61494d.get(component).add(gVar);
+                            this.f61495e.put(gVar, intent);
                             gVar.a(component, iBinder);
                         }
                     } else {
                         b bVar = new b(this);
                         bVar.add(gVar);
-                        this.f61495d.put(component, bVar);
-                        this.f61496e.put(gVar, intent);
+                        this.f61494d.put(component, bVar);
+                        this.f61495e.put(gVar, intent);
                         gVar.a(component, iBinder);
                     }
                 }
@@ -594,14 +594,14 @@ public class a extends e.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, gVar) == null) {
             synchronized (this) {
-                for (ComponentName componentName : this.f61495d.keySet()) {
-                    b bVar = this.f61495d.get(componentName);
+                for (ComponentName componentName : this.f61494d.keySet()) {
+                    b bVar = this.f61494d.get(componentName);
                     if (bVar.contains(gVar)) {
                         bVar.remove(gVar);
-                        Intent remove = this.f61496e.remove(gVar);
+                        Intent remove = this.f61495e.remove(gVar);
                         if (bVar.size() == 0) {
-                            this.f61495d.remove(componentName);
-                            com.bytedance.pangle.service.a aVar = this.f61497f.get(componentName);
+                            this.f61494d.remove(componentName);
+                            com.bytedance.pangle.service.a aVar = this.f61496f.get(componentName);
                             if (aVar != null) {
                                 aVar.onUnbind(remove);
                             }
@@ -621,15 +621,15 @@ public class a extends e.a {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 b(gVar);
             } else {
-                this.f61493a.post(new Runnable(this, gVar) { // from class: com.bytedance.pangle.service.a.a.4
+                this.f61492a.post(new Runnable(this, gVar) { // from class: com.bytedance.pangle.service.a.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ g f61510a;
+                    public final /* synthetic */ g f61509a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f61511b;
+                    public final /* synthetic */ a f61510b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -646,15 +646,15 @@ public class a extends e.a {
                                 return;
                             }
                         }
-                        this.f61511b = this;
-                        this.f61510a = gVar;
+                        this.f61510b = this;
+                        this.f61509a = gVar;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f61511b.b(this.f61510a);
+                            this.f61510b.b(this.f61509a);
                         }
                     }
                 });

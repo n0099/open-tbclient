@@ -30,19 +30,19 @@ public class EmotionCategoryAdapter extends a<b.a.r0.s0.x.c.a, EmotionCategoryVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f48023a;
+        public View f48022a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f48024b;
+        public TextView f48023b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f48025c;
+        public ImageView f48024c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f48026d;
+        public TextView f48025d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f48027e;
+        public View f48026e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionCategoryViewHolder(View view) {
@@ -62,30 +62,30 @@ public class EmotionCategoryAdapter extends a<b.a.r0.s0.x.c.a, EmotionCategoryVi
                     return;
                 }
             }
-            this.f48023a = view;
+            this.f48022a = view;
             a();
         }
 
         public final void a() {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f48023a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f48022a) == null) {
                 return;
             }
-            this.f48024b = (TextView) view.findViewById(R.id.emotion_title);
-            this.f48025c = (ImageView) this.f48023a.findViewById(R.id.emotion_change_iv);
-            this.f48026d = (TextView) this.f48023a.findViewById(R.id.emotion_function);
-            this.f48024b.setText(this.f48023a.getResources().getText(R.string.emotion_center_quality_recommend));
-            this.f48025c.setVisibility(8);
-            this.f48026d.setVisibility(8);
-            this.f48027e = this.f48023a.findViewById(R.id.category_line_top);
+            this.f48023b = (TextView) view.findViewById(R.id.emotion_title);
+            this.f48024c = (ImageView) this.f48022a.findViewById(R.id.emotion_change_iv);
+            this.f48025d = (TextView) this.f48022a.findViewById(R.id.emotion_function);
+            this.f48023b.setText(this.f48022a.getResources().getText(R.string.emotion_center_quality_recommend));
+            this.f48024c.setVisibility(8);
+            this.f48025d.setVisibility(8);
+            this.f48026e = this.f48022a.findViewById(R.id.category_line_top);
         }
 
         public void onChangeSkin(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                SkinManager.setBackgroundColor(this.f48027e, R.color.common_color_10312);
-                SkinManager.setViewTextColor(this.f48024b, R.color.CAM_X0107);
+                SkinManager.setBackgroundColor(this.f48026e, R.color.common_color_10312);
+                SkinManager.setViewTextColor(this.f48023b, R.color.CAM_X0107);
             }
         }
     }

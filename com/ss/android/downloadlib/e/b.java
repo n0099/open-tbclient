@@ -52,7 +52,7 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Runnable f68774a;
+                public final /* synthetic */ Runnable f68773a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,7 +69,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f68774a = runnable;
+                    this.f68773a = runnable;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +79,7 @@ public class b {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f68774a.run();
+                        this.f68773a.run();
                         return null;
                     }
                     return (Void) invokeV.objValue;

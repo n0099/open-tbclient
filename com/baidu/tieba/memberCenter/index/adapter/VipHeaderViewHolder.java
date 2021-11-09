@@ -18,22 +18,22 @@ public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f51527a;
+    public View f51526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f51528b;
+    public HeadImageView f51527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51529c;
+    public TextView f51528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f51530d;
+    public TextView f51529d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f51531e;
+    public TbImageView f51530e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f51532f;
+    public TbImageView f51531f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VipHeaderViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -56,15 +56,15 @@ public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.f51527a = view;
-        this.f51529c = (TextView) view.findViewById(R.id.textview_user_name);
-        this.f51530d = (TextView) view.findViewById(R.id.textview_vip_end_time);
-        this.f51528b = (HeadImageView) view.findViewById(R.id.user_photo);
-        this.f51531e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
-        this.f51532f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
-        this.f51528b.setIsRound(true);
-        this.f51528b.setDefaultBgResource(0);
-        this.f51528b.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.f51526a = view;
+        this.f51528c = (TextView) view.findViewById(R.id.textview_user_name);
+        this.f51529d = (TextView) view.findViewById(R.id.textview_vip_end_time);
+        this.f51527b = (HeadImageView) view.findViewById(R.id.user_photo);
+        this.f51530e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
+        this.f51531f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
+        this.f51527b.setIsRound(true);
+        this.f51527b.setDefaultBgResource(0);
+        this.f51527b.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void fillView(h hVar) {

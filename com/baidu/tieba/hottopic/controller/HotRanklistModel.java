@@ -23,10 +23,10 @@ public class HotRanklistModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49996e;
+    public b f49995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f49997f;
+    public b.a.e.c.g.a f49996f;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class HotRanklistModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistModel f49998a;
+        public final /* synthetic */ HotRanklistModel f49997a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRanklistModel hotRanklistModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class HotRanklistModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49998a = hotRanklistModel;
+            this.f49997a = hotRanklistModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -64,11 +64,11 @@ public class HotRanklistModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f49998a.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f49997a.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    this.f49998a.z(responsedMessage);
+                    this.f49997a.z(responsedMessage);
                 } else {
-                    this.f49998a.f49996e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.f49997a.f49995e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -97,9 +97,9 @@ public class HotRanklistModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49996e = null;
+        this.f49995e = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
-        this.f49997f = aVar;
+        this.f49996f = aVar;
         registerListener(aVar);
     }
 
@@ -118,7 +118,7 @@ public class HotRanklistModel extends BdBaseModel {
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f49996e = bVar;
+            this.f49995e = bVar;
         }
     }
 
@@ -183,7 +183,7 @@ public class HotRanklistModel extends BdBaseModel {
                 } else {
                     jVar.f18460a = str;
                 }
-                this.f49996e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.f49995e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -194,6 +194,6 @@ public class HotRanklistModel extends BdBaseModel {
         if (!StringUtils.isNull(str)) {
         }
         jVar.f18460a = str;
-        this.f49996e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+        this.f49995e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 }

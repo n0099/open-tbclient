@@ -22,19 +22,19 @@ public class ShareFromFrsView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50574e;
+    public TextView f50573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f50575f;
+    public HeadImageView f50574f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50576g;
+    public TextView f50575g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50577h;
+    public TextView f50576h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50578i;
+    public TextView f50577i;
     public TextView j;
     public Context k;
     public ShareFromFrsMsgData l;
@@ -75,23 +75,23 @@ public class ShareFromFrsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-            this.f50574e = (TextView) findViewById(R.id.frs_name);
-            this.f50575f = (HeadImageView) findViewById(R.id.frs_img);
-            this.f50577h = (TextView) findViewById(R.id.frs_member_num);
+            this.f50573e = (TextView) findViewById(R.id.frs_name);
+            this.f50574f = (HeadImageView) findViewById(R.id.frs_img);
+            this.f50576h = (TextView) findViewById(R.id.frs_member_num);
             this.j = (TextView) findViewById(R.id.frs_post_num);
-            this.f50576g = (TextView) findViewById(R.id.frs_member_num_label);
-            this.f50578i = (TextView) findViewById(R.id.frs_post_num_label);
+            this.f50575g = (TextView) findViewById(R.id.frs_member_num_label);
+            this.f50577i = (TextView) findViewById(R.id.frs_post_num_label);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f50574e.setText(a(this.l.getName()));
-            this.f50575f.setPlaceHolder(1);
-            this.f50575f.setAutoChangeStyle(false);
-            this.f50575f.startLoad(this.l.getImageUrl(), 10, false);
-            this.f50577h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
+            this.f50573e.setText(a(this.l.getName()));
+            this.f50574f.setPlaceHolder(1);
+            this.f50574f.setAutoChangeStyle(false);
+            this.f50574f.startLoad(this.l.getImageUrl(), 10, false);
+            this.f50576h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
             this.j.setText(StringHelper.numFormatOver10000(this.l.getPostNum()));
         }
     }
@@ -108,18 +108,18 @@ public class ShareFromFrsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f50574e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f50577h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50573e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f50576h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f50576g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f50578i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50575g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f50577i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f50574e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f50577h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50573e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50576h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
             this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f50576g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f50578i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50575g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f50577i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 

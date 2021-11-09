@@ -69,10 +69,10 @@ public class PersonalChatActivityStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b.a.r0.m1.a.b.b.e f50640a;
+    public static b.a.r0.m1.a.b.b.e f50639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f50641b;
+    public static CustomMessageListener f50640b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -105,7 +105,7 @@ public class PersonalChatActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                b.a.r0.m1.a.b.b.e unused = PersonalChatActivityStatic.f50640a = null;
+                b.a.r0.m1.a.b.b.e unused = PersonalChatActivityStatic.f50639a = null;
             }
         }
     }
@@ -121,7 +121,7 @@ public class PersonalChatActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f50642a;
+            public final /* synthetic */ LinkedList f50641a;
 
             public a(b bVar, LinkedList linkedList) {
                 Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class PersonalChatActivityStatic {
                         return;
                     }
                 }
-                this.f50642a = linkedList;
+                this.f50641a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -147,7 +147,7 @@ public class PersonalChatActivityStatic {
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? m.t().a(this.f50642a) : (Void) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? m.t().a(this.f50641a) : (Void) invokeV.objValue;
             }
         }
 
@@ -158,7 +158,7 @@ public class PersonalChatActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f50643a;
+            public final /* synthetic */ CustomMessage f50642a;
 
             public C1732b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class PersonalChatActivityStatic {
                         return;
                     }
                 }
-                this.f50643a = customMessage;
+                this.f50642a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -184,11 +184,11 @@ public class PersonalChatActivityStatic {
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                    ((PersonalChatActivityConfig) this.f50643a.getData()).getIntent();
-                    if (((PersonalChatActivityConfig) this.f50643a.getData()).getUserData().getUserIdLong() == 0) {
+                    ((PersonalChatActivityConfig) this.f50642a.getData()).getIntent();
+                    if (((PersonalChatActivityConfig) this.f50642a.getData()).getUserData().getUserIdLong() == 0) {
                         return;
                     }
-                    ((PersonalChatActivityConfig) this.f50643a.getData()).startActivity(PersonalChatActivity.class);
+                    ((PersonalChatActivityConfig) this.f50642a.getData()).startActivity(PersonalChatActivity.class);
                 }
             }
         }
@@ -344,12 +344,12 @@ public class PersonalChatActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50189b == null || (tbPageContext = aVar.f50188a) == null) {
+            if (aVar.f50188b == null || (tbPageContext = aVar.f50187a) == null) {
                 return;
             }
             MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_REPLY_CARD);
             msgReplyCardViewItemAdapter.k0(true);
-            aVar.f50189b.add(msgReplyCardViewItemAdapter);
+            aVar.f50188b.add(msgReplyCardViewItemAdapter);
         }
     }
 
@@ -482,7 +482,7 @@ public class PersonalChatActivityStatic {
                 return;
             }
         }
-        f50641b = new a(2005016);
+        f50640b = new a(2005016);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalMsgImageActivityConfig.class, PersonalMsgImageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
@@ -505,7 +505,7 @@ public class PersonalChatActivityStatic {
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         c();
-        MessageManager.getInstance().registerListener(f50641b);
+        MessageManager.getInstance().registerListener(f50640b);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -535,7 +535,7 @@ public class PersonalChatActivityStatic {
     public static b.a.r0.m1.a.b.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f50640a : (b.a.r0.m1.a.b.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f50639a : (b.a.r0.m1.a.b.b.e) invokeV.objValue;
     }
 
     public static void c() {
@@ -548,7 +548,7 @@ public class PersonalChatActivityStatic {
     public static void d(b.a.r0.m1.a.b.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, eVar) == null) {
-            f50640a = eVar;
+            f50639a = eVar;
         }
     }
 }

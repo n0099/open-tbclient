@@ -58,35 +58,30 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f63130b;
+        this.lastEvent = p.f63129b;
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [b.i.c.a.m.a(com.google.ar.core.p):void, b.i.c.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ void access$000(InstallActivity installActivity, Exception exc) {
         installActivity.finishWithFailure(exc);
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [b.i.c.a.m.a(com.google.ar.core.p):void, b.i.c.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ p access$402(InstallActivity installActivity, p pVar) {
         installActivity.lastEvent = pVar;
         return pVar;
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [b.i.c.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean access$500(InstallActivity installActivity) {
         return installActivity.waitingForCompletion;
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [b.i.c.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void access$600(InstallActivity installActivity) {
         installActivity.closeInstaller();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void animateToSpinner() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
@@ -105,7 +100,6 @@ public class InstallActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void closeInstaller() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
@@ -113,7 +107,6 @@ public class InstallActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
@@ -148,7 +141,6 @@ public class InstallActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void showSpinner() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
@@ -176,12 +168,11 @@ public class InstallActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void startInstaller() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f63130b;
+            this.lastEvent = p.f63129b;
             b.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
@@ -274,9 +265,9 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f63130b) {
+                    if (this.lastEvent == p.f63129b) {
                         finish();
-                    } else if (this.lastEvent == p.f63129a) {
+                    } else if (this.lastEvent == p.f63128a) {
                         this.waitingForCompletion = true;
                     } else {
                         finishWithFailure(b.i.c.a.f.d().f32924a);

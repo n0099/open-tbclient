@@ -22,19 +22,19 @@ public class DressupItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51475e;
+    public Context f51474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51476f;
+    public View f51475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f51477g;
+    public TbImageView f51476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f51478h;
+    public TbImageView f51477h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51479i;
+    public TextView f51478i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,29 +55,29 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51475e = context;
+        this.f51474e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51475e).inflate(R.layout.index_dressup_item, this);
-            this.f51476f = inflate;
-            this.f51477g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f51476f.findViewById(R.id.permission_icon);
-            this.f51478h = tbImageView;
+            View inflate = LayoutInflater.from(this.f51474e).inflate(R.layout.index_dressup_item, this);
+            this.f51475f = inflate;
+            this.f51476g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f51475f.findViewById(R.id.permission_icon);
+            this.f51477h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f51478h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f51479i = (TextView) this.f51476f.findViewById(R.id.txt_type);
-            this.j = (TextView) this.f51476f.findViewById(R.id.txt_name);
+            this.f51477h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f51478i = (TextView) this.f51475f.findViewById(R.id.txt_type);
+            this.j = (TextView) this.f51475f.findViewById(R.id.txt_name);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f51475e), this.f51476f);
+            a.a((TbPageContext) j.a(this.f51474e), this.f51475f);
         }
     }
 
@@ -86,10 +86,10 @@ public class DressupItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || jVar == null) {
             return;
         }
-        this.f51477g.startLoad(jVar.b(), 10, false);
-        this.f51478h.startLoad(jVar.e(), 10, false);
+        this.f51476g.startLoad(jVar.b(), 10, false);
+        this.f51477h.startLoad(jVar.e(), 10, false);
         this.j.setText(jVar.f());
-        this.f51479i.setText(jVar.g());
+        this.f51478i.setText(jVar.g());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,7 +111,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51475e = context;
+        this.f51474e = context;
         a();
     }
 
@@ -134,7 +134,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51475e = context;
+        this.f51474e = context;
         a();
     }
 }

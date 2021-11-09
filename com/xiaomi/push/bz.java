@@ -13,7 +13,7 @@ public class bz implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70736a;
+    public String f70735a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<Context> f174a;
@@ -33,7 +33,7 @@ public class bz implements Runnable {
                 return;
             }
         }
-        this.f70736a = str;
+        this.f70735a = str;
         this.f174a = weakReference;
     }
 
@@ -45,14 +45,14 @@ public class bz implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f174a) == null || (context = weakReference.get()) == null) {
             return;
         }
-        if (cm.a(this.f70736a) <= by.f172a) {
+        if (cm.a(this.f70735a) <= by.f172a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }
-        cc a2 = cc.a(this.f70736a);
-        cb a3 = cb.a(this.f70736a);
+        cc a2 = cc.a(this.f70735a);
+        cb a3 = cb.a(this.f70735a);
         a2.a(a3);
-        a3.a(ca.a(context, this.f70736a, 1000));
+        a3.a(ca.a(context, this.f70735a, 1000));
         cg.a(context).a((cg.a) a2);
     }
 }

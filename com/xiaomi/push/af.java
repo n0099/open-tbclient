@@ -11,7 +11,7 @@ public class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f70656a;
+    public static final char[] f70655a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class af {
                 return;
             }
         }
-        f70656a = "0123456789ABCDEF".toCharArray();
+        f70655a = "0123456789ABCDEF".toCharArray();
     }
 
     public static String a(byte[] bArr, int i2, int i3) {
@@ -37,8 +37,8 @@ public class af {
             StringBuilder sb = new StringBuilder(i3 * 2);
             for (int i4 = 0; i4 < i3; i4++) {
                 int i5 = bArr[i2 + i4] & 255;
-                sb.append(f70656a[i5 >> 4]);
-                sb.append(f70656a[i5 & 15]);
+                sb.append(f70655a[i5 >> 4]);
+                sb.append(f70655a[i5 & 15]);
             }
             return sb.toString();
         }

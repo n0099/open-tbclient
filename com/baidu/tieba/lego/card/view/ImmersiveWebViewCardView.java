@@ -36,16 +36,16 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f51142f;
+    public LinearLayout f51141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseWebView f51143g;
+    public BaseWebView f51142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.l3.n0.a f51144h;
+    public b.a.r0.l3.n0.a f51143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public XiubaTbJsBridge f51145i;
+    public XiubaTbJsBridge f51144i;
 
     /* loaded from: classes9.dex */
     public class a extends WebChromeClient {
@@ -53,7 +53,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveWebViewCardView f51146a;
+        public final /* synthetic */ ImmersiveWebViewCardView f51145a;
 
         public a(ImmersiveWebViewCardView immersiveWebViewCardView) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                     return;
                 }
             }
-            this.f51146a = immersiveWebViewCardView;
+            this.f51145a = immersiveWebViewCardView;
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f51146a.e(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f51145a.e(str2, jsPromptResult) : invokeLLLLL.booleanValue;
         }
     }
 
@@ -87,7 +87,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveWebViewCardView f51147e;
+        public final /* synthetic */ ImmersiveWebViewCardView f51146e;
 
         public b(ImmersiveWebViewCardView immersiveWebViewCardView) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                     return;
                 }
             }
-            this.f51147e = immersiveWebViewCardView;
+            this.f51146e = immersiveWebViewCardView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -112,7 +112,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                UrlManager.getInstance().dealOneLink(this.f51147e.mContext, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f51146e.mContext, new String[]{str}, true);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -139,36 +139,36 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         }
         this.mContext = tbPageContext;
         b.a.r0.l3.n0.a aVar = new b.a.r0.l3.n0.a();
-        this.f51144h = aVar;
+        this.f51143h = aVar;
         aVar.a(new XiubaTbJsBridge(this.mContext));
-        this.f51144h.a(new CommonTbJsBridge(this.mContext.getPageActivity()));
+        this.f51143h.a(new CommonTbJsBridge(this.mContext.getPageActivity()));
     }
 
     private void setWebviewHeight(int i2) {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (baseWebView = this.f51143g) == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (baseWebView = this.f51142g) == null || i2 <= 0) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
         layoutParams.height = i2;
-        this.f51143g.setLayoutParams(layoutParams);
+        this.f51142g.setLayoutParams(layoutParams);
     }
 
     public View createWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f51143g == null) {
+            if (this.f51142g == null) {
                 BridgeWebView bridgeWebView = new BridgeWebView(this.mContext.getPageActivity());
-                this.f51143g = bridgeWebView;
+                this.f51142g = bridgeWebView;
                 bridgeWebView.getSettings().setJavaScriptEnabled(true);
-                this.f51143g.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-                this.f51143g.getSettings().setAllowFileAccess(true);
-                this.f51143g.getSettings().setDatabaseEnabled(true);
-                this.f51143g.getSettings().setDomStorageEnabled(true);
+                this.f51142g.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+                this.f51142g.getSettings().setAllowFileAccess(true);
+                this.f51142g.getSettings().setDatabaseEnabled(true);
+                this.f51142g.getSettings().setDomStorageEnabled(true);
             }
-            return this.f51143g;
+            return this.f51142g;
         }
         return (View) invokeV.objValue;
     }
@@ -178,14 +178,14 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             createWebView();
-            if (this.f51145i == null) {
-                this.f51145i = new XiubaTbJsBridge(this.mContext);
+            if (this.f51144i == null) {
+                this.f51144i = new XiubaTbJsBridge(this.mContext);
             }
-            this.f51145i.setBaseWebView(this.f51143g);
-            this.f51143g.setHorizontalScrollBarEnabled(false);
-            this.f51143g.setWebChromeClient(new a(this));
-            this.f51143g.setOnLoadUrlListener(new b(this));
-            this.f51142f.addView(this.f51143g);
+            this.f51144i.setBaseWebView(this.f51142g);
+            this.f51142g.setHorizontalScrollBarEnabled(false);
+            this.f51142g.setWebChromeClient(new a(this));
+            this.f51142g.setOnLoadUrlListener(new b(this));
+            this.f51141f.addView(this.f51142g);
         }
     }
 
@@ -199,7 +199,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                 String optString2 = jSONObject.optString("methodName");
                 String optString3 = jSONObject.optString("param");
                 if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                    return this.f51145i.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+                    return this.f51144i.dealJsInterface(optString, optString2, optString3, jsPromptResult);
                 }
                 return false;
             } catch (JSONException e2) {
@@ -215,9 +215,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f51142f = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
+            this.f51141f = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
             d();
-            return this.f51142f;
+            return this.f51141f;
         }
         return (View) invokeV.objValue;
     }
@@ -226,7 +226,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void onChangeSkinType(ImmersiveWebViewCard immersiveWebViewCard, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048581, this, immersiveWebViewCard, i2) != null) || TextUtils.isEmpty(immersiveWebViewCard.getPageUrl()) || this.f51143g == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, immersiveWebViewCard, i2) != null) || TextUtils.isEmpty(immersiveWebViewCard.getPageUrl()) || this.f51142g == null) {
         }
     }
 
@@ -234,7 +234,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void onUpdateCardView(ImmersiveWebViewCard immersiveWebViewCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, immersiveWebViewCard) == null) || this.f51143g == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, immersiveWebViewCard) == null) || this.f51142g == null) {
             return;
         }
         if (immersiveWebViewCard.getHeight() > 0) {
@@ -246,7 +246,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             return;
         }
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
-            CompatibleUtile.getInstance().loadUrl(this.f51143g, immersiveWebViewCard.getPageUrl());
+            CompatibleUtile.getInstance().loadUrl(this.f51142g, immersiveWebViewCard.getPageUrl());
         }
         y.o().l().d(immersiveWebViewCard.getShowExtra(), this.mFrom);
         immersiveWebViewCard.mHasShown = true;

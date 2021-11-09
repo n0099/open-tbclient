@@ -31,7 +31,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivacyMarkActivity f53911a;
+        public final /* synthetic */ PrivacyMarkActivity f53910a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PrivacyMarkActivity privacyMarkActivity, int i2, boolean z) {
@@ -52,7 +52,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
             }
-            this.f53911a = privacyMarkActivity;
+            this.f53910a = privacyMarkActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,14 +71,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.f53911a.privacyMarkView.k();
+                    this.f53910a.privacyMarkView.k();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.f53911a.privacyMarkView.l();
+                    this.f53910a.privacyMarkView.l();
                 }
                 if (httpResponsedMessage.getError() != -1 && j.z()) {
-                    this.f53911a.showToast(R.string.privacy_setting_failed);
+                    this.f53910a.showToast(R.string.privacy_setting_failed);
                 } else {
-                    this.f53911a.showToast(R.string.neterror);
+                    this.f53910a.showToast(R.string.neterror);
                 }
             }
         }

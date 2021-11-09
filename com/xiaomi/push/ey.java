@@ -20,16 +20,16 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f70924a;
+    public static final iy f70923a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f70925b;
+    public static final iy f70924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f70926c;
+    public static final iy f70925c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -55,9 +55,9 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
             }
         }
         f360a = new jg("StatsEvents");
-        f70924a = new iy("", (byte) 11, (short) 1);
-        f70925b = new iy("", (byte) 11, (short) 2);
-        f70926c = new iy("", (byte) 15, (short) 3);
+        f70923a = new iy("", (byte) 11, (short) 1);
+        f70924b = new iy("", (byte) 11, (short) 2);
+        f70925c = new iy("", (byte) 15, (short) 3);
     }
 
     public ey() {
@@ -166,7 +166,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f71329a;
+            byte b2 = m523a.f71328a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
@@ -247,17 +247,17 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
             a();
             jbVar.a(f360a);
             if (this.f361a != null) {
-                jbVar.a(f70924a);
+                jbVar.a(f70923a);
                 jbVar.a(this.f361a);
                 jbVar.b();
             }
             if (this.f363b != null && b()) {
-                jbVar.a(f70925b);
+                jbVar.a(f70924b);
                 jbVar.a(this.f363b);
                 jbVar.b();
             }
             if (this.f362a != null) {
-                jbVar.a(f70926c);
+                jbVar.a(f70925c);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f362a.size()));
                 for (ex exVar : this.f362a) {
                     exVar.b(jbVar);

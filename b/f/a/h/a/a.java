@@ -189,10 +189,10 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, clsArr, clsArr2, z)) == null) {
             if (Utils.b(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f62242b;
+                    clsArr = Utils.f62241b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f62242b;
+                    clsArr2 = Utils.f62241b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!f(clsArr[i2], clsArr2[i2], z)) {

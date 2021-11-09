@@ -15,7 +15,7 @@ public class ChannelNativeAds {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GdtADStatusChangeListener f62712a;
+    public GdtADStatusChangeListener f62711a;
     public final Object baiduNative;
     public final Object baiduNative2;
     public final Object csjNative;
@@ -98,13 +98,13 @@ public class ChannelNativeAds {
     public GdtADStatusChangeListener getGdtADStatusChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62712a : (GdtADStatusChangeListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62711a : (GdtADStatusChangeListener) invokeV.objValue;
     }
 
     public void setGdtADStatusChangeListener(GdtADStatusChangeListener gdtADStatusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gdtADStatusChangeListener) == null) {
-            this.f62712a = gdtADStatusChangeListener;
+            this.f62711a = gdtADStatusChangeListener;
         }
     }
 }

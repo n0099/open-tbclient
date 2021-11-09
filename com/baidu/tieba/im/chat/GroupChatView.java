@@ -22,13 +22,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50180e;
+    public TextView f50179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50181f;
+    public ImageView f50180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GroupChatActivity f50182g;
+    public GroupChatActivity f50181g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
@@ -54,7 +54,7 @@ public class GroupChatView extends CommonGroupMsglistView {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50181f.setVisibility(8);
+            this.f50180f.setVisibility(8);
             b.j().t("has_shown_group_btn_dot", true);
         }
     }
@@ -64,7 +64,7 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || b.j().g("has_shown_group_btn_dot", false)) {
             return;
         }
-        this.f50181f.setVisibility(0);
+        this.f50180f.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -72,17 +72,17 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
-            this.f50182g = (GroupChatActivity) talkableActivity;
+            this.f50181g = (GroupChatActivity) talkableActivity;
             String string = talkableActivity.getPageContext().getString(R.string.msglist_groupinfo);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
                 TextView textView = (TextView) addCustomView.findViewById(R.id.group_info_btn_txt);
-                this.f50180e = textView;
+                this.f50179e = textView;
                 textView.setText(string);
                 ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
-                this.f50181f = imageView;
+                this.f50180f = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
                     d();
@@ -101,7 +101,7 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            TextView textView = this.f50180e;
+            TextView textView = this.f50179e;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
             }

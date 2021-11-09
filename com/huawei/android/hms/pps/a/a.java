@@ -15,10 +15,10 @@ public final class a implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63717a;
+    public boolean f63716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f63718b;
+    public final LinkedBlockingQueue<IBinder> f63717b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class a implements ServiceConnection {
                 return;
             }
         }
-        this.f63717a = false;
-        this.f63718b = new LinkedBlockingQueue<>(1);
+        this.f63716a = false;
+        this.f63717b = new LinkedBlockingQueue<>(1);
     }
 
     @Override // android.content.ServiceConnection
@@ -44,7 +44,7 @@ public final class a implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
                 r0 = "onServiceConnected " + System.currentTimeMillis();
-                this.f63718b.put(iBinder);
+                this.f63717b.put(iBinder);
             } catch (InterruptedException unused) {
                 str = "onServiceConnected InterruptedException " + System.currentTimeMillis();
             }

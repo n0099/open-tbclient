@@ -87,7 +87,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PayVcodeActivity f52062a;
+            public final /* synthetic */ PayVcodeActivity f52061a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -107,7 +107,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         return;
                     }
                 }
-                this.f52062a = this;
+                this.f52061a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -115,7 +115,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) {
-                    this.f52062a.mView.j(false);
+                    this.f52061a.mView.j(false);
                     if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                         return;
                     }
@@ -123,20 +123,20 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     if (!responsePayNewVcodeInfoMessage.hasError()) {
                         PayVcodeInfoData payNewVcodeInfoData = responsePayNewVcodeInfoMessage.getPayNewVcodeInfoData();
                         if (responsePayNewVcodeInfoMessage.getError() == 0 && payNewVcodeInfoData != null) {
-                            this.f52062a.mVcodeMd5 = payNewVcodeInfoData.getCaptcha_vcode_str();
-                            this.f52062a.mVcodeUrl = payNewVcodeInfoData.getVcode_pic_url();
-                            this.f52062a.mVcodeType = payNewVcodeInfoData.getCaptcha_code_type();
-                            this.f52062a.changeWebViewVcode();
+                            this.f52061a.mVcodeMd5 = payNewVcodeInfoData.getCaptcha_vcode_str();
+                            this.f52061a.mVcodeUrl = payNewVcodeInfoData.getVcode_pic_url();
+                            this.f52061a.mVcodeType = payNewVcodeInfoData.getCaptcha_code_type();
+                            this.f52061a.changeWebViewVcode();
                             return;
                         }
                         String errorString = responsePayNewVcodeInfoMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.f52062a.getResources().getString(R.string.payment_vcode_get_error);
+                            errorString = this.f52061a.getResources().getString(R.string.payment_vcode_get_error);
                         }
-                        this.f52062a.showToast(errorString);
+                        this.f52061a.showToast(errorString);
                         return;
                     }
-                    this.f52062a.showToast(R.string.neterror);
+                    this.f52061a.showToast(R.string.neterror);
                 }
             }
         };
@@ -190,7 +190,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52064a;
+                public final /* synthetic */ PayVcodeActivity f52063a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -207,7 +207,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52064a = this;
+                    this.f52063a = this;
                 }
 
                 @Override // android.os.Handler
@@ -217,12 +217,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         super.handleMessage(message);
                         int i2 = message.what;
                         if (i2 == 1) {
-                            this.f52064a.changeVcode();
+                            this.f52063a.changeVcode();
                         } else if (i2 == 2) {
-                            this.f52064a.showToast(R.string.payment_vcode_error);
+                            this.f52063a.showToast(R.string.payment_vcode_error);
                         } else if (i2 != 3) {
                         } else {
-                            this.f52064a.doNext();
+                            this.f52063a.doNext();
                         }
                     }
                 }
@@ -236,6 +236,39 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             b.a.r0.j2.a aVar = new b.a.r0.j2.a(this);
             this.mView = aVar;
             aVar.e().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ PayVcodeActivity f52064e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f52064e = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f52064e.getInputVcode();
+                    }
+                }
+            });
+            this.mView.d().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -263,45 +296,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f52065e.getInputVcode();
-                    }
-                }
-            });
-            this.mView.d().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52066e;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f52066e = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f52066e.mVcodeLoadSuccess) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f52065e.mVcodeLoadSuccess) {
                         return;
                     }
-                    this.f52066e.mView.j(true);
-                    this.f52066e.mView.g().stopLoading();
-                    this.f52066e.mView.g().loadUrl(this.f52066e.mUrl);
+                    this.f52065e.mView.j(true);
+                    this.f52065e.mView.g().stopLoading();
+                    this.f52065e.mView.g().loadUrl(this.f52065e.mUrl);
                 }
             });
             b bVar = new b(this);
@@ -312,7 +312,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52067a;
+                public final /* synthetic */ PayVcodeActivity f52066a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -329,7 +329,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52067a = this;
+                    this.f52066a = this;
                 }
 
                 @Override // android.webkit.WebViewClient
@@ -337,8 +337,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                         super.onPageFinished(webView, str);
-                        this.f52067a.mView.j(false);
-                        this.f52067a.mView.i(!this.f52067a.mVcodeLoadSuccess);
+                        this.f52066a.mView.j(false);
+                        this.f52066a.mView.i(!this.f52066a.mVcodeLoadSuccess);
                     }
                 }
             });
@@ -347,7 +347,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52068e;
+                public final /* synthetic */ PayVcodeActivity f52067e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -364,14 +364,14 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52068e = this;
+                    this.f52067e = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f52068e.hideAnimation(false);
+                        this.f52067e.hideAnimation(false);
                     }
                 }
             });
@@ -419,10 +419,10 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f52070a;
+                public final /* synthetic */ boolean f52069a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52071b;
+                public final /* synthetic */ PayVcodeActivity f52070b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -439,21 +439,21 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52071b = this;
-                    this.f52070a = z;
+                    this.f52070b = this;
+                    this.f52069a = z;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        if (this.f52070a && !StringUtils.isNull(this.f52071b.mVcodeResult)) {
+                        if (this.f52069a && !StringUtils.isNull(this.f52070b.mVcodeResult)) {
                             Intent intent = new Intent();
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.f52071b.mVcodeResult);
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.f52071b.mVcodeMd5);
-                            this.f52071b.setResult(-1, intent);
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.f52070b.mVcodeResult);
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.f52070b.mVcodeMd5);
+                            this.f52070b.setResult(-1, intent);
                         }
-                        this.f52071b.closeActivity();
+                        this.f52070b.closeActivity();
                     }
                 }
 
@@ -588,7 +588,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52063a;
+                public final /* synthetic */ PayVcodeActivity f52062a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -605,7 +605,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52063a = this;
+                    this.f52062a = this;
                 }
 
                 @Override // b.a.r0.l3.n0.c
@@ -613,8 +613,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                        if (this.f52063a.jsBridge != null) {
-                            return this.f52063a.jsBridge.b(this.f52063a.mView.g(), str, jsPromptResult);
+                        if (this.f52062a.jsBridge != null) {
+                            return this.f52062a.jsBridge.b(this.f52062a.mView.g(), str, jsPromptResult);
                         }
                         return false;
                     }
@@ -691,7 +691,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayVcodeActivity f52069a;
+                public final /* synthetic */ PayVcodeActivity f52068a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -708,14 +708,14 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             return;
                         }
                     }
-                    this.f52069a = this;
+                    this.f52068a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f52069a.loadWebView();
+                        this.f52068a.loadWebView();
                     }
                 }
 

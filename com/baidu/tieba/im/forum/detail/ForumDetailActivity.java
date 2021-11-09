@@ -73,10 +73,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f50379e;
+        public final /* synthetic */ b.a.q0.s.s.a f50378e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50380f;
+        public final /* synthetic */ ForumDetailActivity f50379f;
 
         public a(ForumDetailActivity forumDetailActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f50380f = forumDetailActivity;
-            this.f50379e = aVar;
+            this.f50379f = forumDetailActivity;
+            this.f50378e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f50379e.dismiss();
+                this.f50378e.dismiss();
             }
         }
     }
@@ -112,9 +112,44 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50381e;
+        public final /* synthetic */ ForumDetailActivity f50380e;
 
         public b(ForumDetailActivity forumDetailActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumDetailActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50380e = forumDetailActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f50380e.mView.n(false);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ForumDetailActivity f50381e;
+
+        public c(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,14 +177,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     /* loaded from: classes9.dex */
-    public class c implements Runnable {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ ForumDetailActivity f50382e;
 
-        public c(ForumDetailActivity forumDetailActivity) {
+        public d(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,42 +206,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50382e.mView.n(false);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50383e;
-
-        public d(ForumDetailActivity forumDetailActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50383e = forumDetailActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50383e.mView.n(true);
+                this.f50382e.mView.n(true);
             }
         }
     }
@@ -217,10 +217,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f50384a;
+        public final /* synthetic */ boolean f50383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50385b;
+        public final /* synthetic */ ForumDetailActivity f50384b;
 
         public e(ForumDetailActivity forumDetailActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -237,8 +237,8 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f50385b = forumDetailActivity;
-            this.f50384a = z;
+            this.f50384b = forumDetailActivity;
+            this.f50383a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -247,10 +247,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f50385b.mForumId)) {
+                if (TextUtils.isEmpty(this.f50384b.mForumId)) {
                     return null;
                 }
-                b.a.r0.l1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50385b.mForumId), this.f50384a);
+                b.a.r0.l1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50384b.mForumId), this.f50383a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -263,9 +263,55 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50386e;
+        public final /* synthetic */ ForumDetailActivity f50385e;
 
         public f(ForumDetailActivity forumDetailActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumDetailActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50385e = forumDetailActivity;
+        }
+
+        @Override // com.baidu.tbadk.core.view.NoNetworkView.b
+        public void onNetworkChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                ForumDetailActivity forumDetailActivity = this.f50385e;
+                if (forumDetailActivity.mIsHasData) {
+                    return;
+                }
+                if (z) {
+                    forumDetailActivity.mView.h();
+                    this.f50385e.mView.q();
+                    this.f50385e.mModel.F(this.f50385e.mForumId);
+                    return;
+                }
+                forumDetailActivity.mView.g();
+                this.f50385e.mView.r(R.string.refresh_view_title_text);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class g implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ForumDetailActivity f50386e;
+
+        public g(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,59 +329,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.f50386e = forumDetailActivity;
         }
 
-        @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void onNetworkChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                ForumDetailActivity forumDetailActivity = this.f50386e;
-                if (forumDetailActivity.mIsHasData) {
-                    return;
-                }
-                if (z) {
-                    forumDetailActivity.mView.h();
-                    this.f50386e.mView.q();
-                    this.f50386e.mModel.F(this.f50386e.mForumId);
-                    return;
-                }
-                forumDetailActivity.mView.g();
-                this.f50386e.mView.r(R.string.refresh_view_title_text);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class g implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f50387e;
-
-        public g(ForumDetailActivity forumDetailActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f50387e = forumDetailActivity;
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.D()) {
-                this.f50387e.mView.h();
-                this.f50387e.mView.q();
-                this.f50387e.mModel.F(this.f50387e.mForumId);
+                this.f50386e.mView.h();
+                this.f50386e.mView.q();
+                this.f50386e.mModel.F(this.f50386e.mForumId);
             }
         }
     }

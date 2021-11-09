@@ -13,7 +13,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e<?> f71629a;
+    public e<?> f71628a;
 
     public g(e<?> eVar) {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public class g {
                 return;
             }
         }
-        this.f71629a = eVar;
+        this.f71628a = eVar;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f71629a = null;
+            this.f71628a = null;
         }
     }
 
@@ -45,7 +45,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                e<?> eVar = this.f71629a;
+                e<?> eVar = this.f71628a;
                 if (eVar != null && (m = e.m()) != null) {
                     m.a(eVar, new UnobservedTaskException(eVar.k()));
                 }

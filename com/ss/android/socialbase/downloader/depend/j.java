@@ -59,7 +59,7 @@ public interface j extends IInterface {
         public static j c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1995a.f69222a : (j) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1995a.f69221a : (j) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -108,11 +108,11 @@ public interface j extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static j f69222a;
+            public static j f69221a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f69223b;
+            public IBinder f69222b;
 
             public C1995a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public interface j extends IInterface {
                         return;
                     }
                 }
-                this.f69223b = iBinder;
+                this.f69222b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.j
@@ -141,7 +141,7 @@ public interface j extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
                         obtain.writeString(str);
-                        if (!this.f69223b.transact(1, obtain, obtain2, 0) && a.c() != null) {
+                        if (!this.f69222b.transact(1, obtain, obtain2, 0) && a.c() != null) {
                             a.c().a(str);
                         } else {
                             obtain2.readException();
@@ -157,7 +157,7 @@ public interface j extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69223b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69222b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.j
@@ -169,7 +169,7 @@ public interface j extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
-                        if (!this.f69223b.transact(3, obtain, obtain2, 0) && a.c() != null) {
+                        if (!this.f69222b.transact(3, obtain, obtain2, 0) && a.c() != null) {
                             return a.c().b();
                         }
                         obtain2.readException();
@@ -191,7 +191,7 @@ public interface j extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
-                        if (!this.f69223b.transact(2, obtain, obtain2, 0) && a.c() != null) {
+                        if (!this.f69222b.transact(2, obtain, obtain2, 0) && a.c() != null) {
                             return a.c().a();
                         }
                         obtain2.readException();

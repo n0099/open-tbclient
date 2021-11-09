@@ -64,7 +64,7 @@ public class FunOpenIDSdk {
                 } else if (onGetOaidListener == null) {
                     isLogEnabled();
                 } else {
-                    j.f62903a.execute(new e(context, onGetOaidListener));
+                    j.f62902a.execute(new e(context, onGetOaidListener));
                 }
             }
         }

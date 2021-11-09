@@ -16,7 +16,7 @@ public final class b extends com.sdk.base.framework.b.b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f68221a;
+    public /* synthetic */ a f68220a;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 return;
             }
         }
-        this.f68221a = aVar;
+        this.f68220a = aVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 java.lang.Object)] */
@@ -41,11 +41,11 @@ public final class b extends com.sdk.base.framework.b.b<String> {
     public final void a(int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, obj) == null) {
-            a aVar = this.f68221a;
+            a aVar = this.f68220a;
             StringBuilder sb = new StringBuilder();
             sb.append(obj);
             aVar.a(i2, 302002, sb.toString());
-            Context context = this.f68221a.f68214a;
+            Context context = this.f68220a.f68213a;
             com.sdk.base.framework.f.g.a.a();
         }
     }
@@ -70,22 +70,22 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 String optString2 = jSONObject.optString("obj");
                 String optString3 = jSONObject.optString(IAdRequestParam.SEQ);
                 if (!c.a(optString).booleanValue() || !c.a(optString3).booleanValue() || !c.a(optString2).booleanValue()) {
-                    this.f68221a.a(optInt, optString, optInt2, optString2, optString3);
-                    Context context = this.f68221a.f68214a;
+                    this.f68220a.a(optInt, optString, optInt2, optString2, optString3);
+                    Context context = this.f68220a.f68213a;
                     com.sdk.base.framework.f.g.a.a();
                     return;
                 }
-                this.f68221a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f68212d;
-                z2 = a.f68213e;
+                this.f68220a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str2 = a.f68211d;
+                z2 = a.f68212e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i2 = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.f68221a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f68212d;
-                z = a.f68213e;
+                this.f68220a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f68211d;
+                z = a.f68212e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

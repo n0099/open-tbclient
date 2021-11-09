@@ -66,7 +66,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68740a;
+                public final /* synthetic */ d f68739a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -83,7 +83,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
                             return;
                         }
                     }
-                    this.f68740a = this;
+                    this.f68739a = this;
                 }
 
                 @Override // java.lang.Runnable

@@ -48,7 +48,7 @@ public class b extends com.tencent.open.a {
                     e2.printStackTrace();
                 }
             }
-            a.b bVar = this.f70011a.get(str);
+            a.b bVar = this.f70010a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
                 bVar.call(str2, list, c2024a);

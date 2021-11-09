@@ -30,10 +30,10 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f51480a;
+    public ImageView f51479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f51481b;
+    public CustomMessageListener f51480b;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -83,7 +83,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberCenterDelegateStatic f51482a;
+        public final /* synthetic */ MemberCenterDelegateStatic f51481a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberCenterDelegateStatic memberCenterDelegateStatic, int i2) {
@@ -103,7 +103,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f51482a = memberCenterDelegateStatic;
+            this.f51481a = memberCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,16 +112,16 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f51482a.f51480a.setVisibility(8);
+                    this.f51481a.f51479a.setVisibility(8);
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    this.f51482a.f51480a.setVisibility(8);
+                    this.f51481a.f51479a.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > j.l("maintab_member_center_red_tip_" + currentAccount, 0L)) {
-                        this.f51482a.f51480a.setVisibility(0);
+                        this.f51481a.f51479a.setVisibility(0);
                     } else {
-                        this.f51482a.f51480a.setVisibility(8);
+                        this.f51481a.f51479a.setVisibility(8);
                     }
                 }
             }
@@ -178,11 +178,11 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.f51480a = new ImageView(context);
+            this.f51479a = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f45978f = this.mIndicator;
             aVar.f45975c = l.e(context, 3.0f);
-            ImageView imageView = this.f51480a;
+            ImageView imageView = this.f51479a;
             aVar.f45973a = imageView;
             aVar.f45976d = R.drawable.icon_news_down_bar_one;
             imageView.setVisibility(8);
@@ -204,7 +204,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAdd();
-            this.f51481b = new b(this, 2016459);
+            this.f51480b = new b(this, 2016459);
         }
     }
 
@@ -213,8 +213,8 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onRemove();
-            this.f51480a = null;
-            MessageManager.getInstance().unRegisterListener(this.f51481b);
+            this.f51479a = null;
+            MessageManager.getInstance().unRegisterListener(this.f51480b);
         }
     }
 }

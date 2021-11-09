@@ -63,20 +63,20 @@ public class m extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String c2 = this.f68899b.c("s");
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("bb"), c2);
+            String c2 = this.f68898b.c("s");
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("bb"), c2);
             if (!TextUtils.isEmpty(a2) && a2.split(",").length == 2) {
-                String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("bc"), c2);
+                String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("bc"), c2);
                 if (!TextUtils.isEmpty(a3) && a3.split(",").length == 2) {
                     String[] split = a2.split(",");
                     String[] split2 = a3.split(",");
-                    String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("bd"), c2);
-                    String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("be"), c2);
-                    String a6 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68899b.c("bf"), c2);
+                    String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("bd"), c2);
+                    String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("be"), c2);
+                    String a6 = com.ss.android.socialbase.appdownloader.f.c.a(this.f68898b.c("bf"), c2);
                     HashMap hashMap = new HashMap();
                     hashMap.put(split[0], split[1]);
                     hashMap.put(split2[0], split2[1]);
-                    hashMap.put(a4, this.f68900c);
+                    hashMap.put(a4, this.f68899c);
                     Intent intent = new Intent();
                     intent.setAction(a6);
                     intent.setData(Uri.parse(a5 + a(hashMap)));

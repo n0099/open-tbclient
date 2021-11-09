@@ -21,7 +21,7 @@ public class NHToolGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f58540a;
+    public List<BaseItemView> f58539a;
     public GridLayout mGridLayout;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,14 +42,14 @@ public class NHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58540a = new ArrayList();
+        this.f58539a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58540a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58539a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -87,7 +87,7 @@ public class NHToolGroup extends BaseItemLayout {
                 NHToolItem nHToolItem = new NHToolItem(getContext());
                 nHToolItem.setData(dataItem, getWalletInterface());
                 this.mGridLayout.addView(nHToolItem);
-                this.f58540a.add(nHToolItem);
+                this.f58539a.add(nHToolItem);
             }
         }
     }
@@ -111,6 +111,6 @@ public class NHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58540a = new ArrayList();
+        this.f58539a = new ArrayList();
     }
 }

@@ -11,6 +11,7 @@ import b.a.f0.a.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -527,7 +528,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            File file = new File(b.a.f0.a.b.b.a().getFilesDir(), "splash");
+            File file = new File(b.a.f0.a.b.b.a().getFilesDir(), SpeedStatsUtils.UBC_VALUE_SPLASH);
             file.mkdirs();
             return file;
         }

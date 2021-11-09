@@ -27,7 +27,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57987a = "OtherBaseBean";
+    public static final String f57986a = "OtherBaseBean";
     public transient /* synthetic */ FieldHolder $fh;
     public int mRetCode;
     public String mRetMsg;

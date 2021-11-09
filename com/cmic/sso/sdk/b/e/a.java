@@ -21,10 +21,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public X509Certificate f61957a;
+    public X509Certificate f61956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f61958b;
+    public SSLContext f61957b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public class a {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f61957a);
+            keyStore.setCertificateEntry("cert", this.f61956a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f61958b = sSLContext;
+            this.f61957b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -59,7 +59,7 @@ public class a {
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && this.f61957a == null) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && this.f61956a == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
                 try {
@@ -76,7 +76,7 @@ public class a {
                 th = th;
             }
             try {
-                this.f61957a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                this.f61956a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                 byteArrayInputStream.close();
             } catch (CertificateException e4) {
                 e = e4;
@@ -103,6 +103,6 @@ public class a {
     public SSLContext a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61958b : (SSLContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61957b : (SSLContext) invokeV.objValue;
     }
 }

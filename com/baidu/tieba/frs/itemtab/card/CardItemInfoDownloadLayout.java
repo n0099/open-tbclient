@@ -53,19 +53,19 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f48830e;
+    public ViewGroup f48829e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f48831f;
+    public LinearLayout f48830f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48832g;
+    public LinearLayout f48831g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f48833h;
+    public LinearLayout f48832h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f48834i;
+    public EMTextView f48833i;
     public ImageView j;
     public EMTextView k;
     public EMTextView l;
@@ -84,9 +84,51 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoDownloadLayout f48835e;
+        public final /* synthetic */ CardItemInfoDownloadLayout f48834e;
 
         public a(CardItemInfoDownloadLayout cardItemInfoDownloadLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemInfoDownloadLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48834e = cardItemInfoDownloadLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("rank_code", String.valueOf(this.f48834e.p));
+                hashMap.put("rank_type", String.valueOf(this.f48834e.o));
+                hashMap.put("home_tab_name", this.f48834e.s);
+                hashMap.put("tab_id", String.valueOf(this.f48834e.r));
+                hashMap.put("sort_type", this.f48834e.q);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(TbadkApplication.getInst().getApplicationContext(), "ItemRecommendList", hashMap)));
+                this.f48834e.o(2);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardItemInfoDownloadLayout f48835e;
+
+        public b(CardItemInfoDownloadLayout cardItemInfoDownloadLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,61 +146,19 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
             this.f48835e = cardItemInfoDownloadLayout;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("rank_code", String.valueOf(this.f48835e.p));
-                hashMap.put("rank_type", String.valueOf(this.f48835e.o));
-                hashMap.put("home_tab_name", this.f48835e.s);
-                hashMap.put("tab_id", String.valueOf(this.f48835e.r));
-                hashMap.put("sort_type", this.f48835e.q);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(TbadkApplication.getInst().getApplicationContext(), "ItemRecommendList", hashMap)));
-                this.f48835e.o(2);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoDownloadLayout f48836e;
-
-        public b(CardItemInfoDownloadLayout cardItemInfoDownloadLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemInfoDownloadLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48836e = cardItemInfoDownloadLayout;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int width = this.f48836e.f48833h.getWidth() <= 0 ? 0 : this.f48836e.f48833h.getWidth();
+                int width = this.f48835e.f48832h.getWidth() <= 0 ? 0 : this.f48835e.f48832h.getWidth();
                 if (width == 0) {
-                    this.f48836e.f48830e.setPadding(CardItemInfoDownloadLayout.u, 0, CardItemInfoDownloadLayout.u, 0);
+                    this.f48835e.f48829e.setPadding(CardItemInfoDownloadLayout.u, 0, CardItemInfoDownloadLayout.u, 0);
                     i2 = CardItemInfoDownloadLayout.u * 2;
                 } else {
                     i2 = width + CardItemInfoDownloadLayout.u;
                 }
-                this.f48836e.k.setWidth(this.f48836e.f48830e.getWidth() - i2);
+                this.f48835e.k.setWidth(this.f48835e.f48829e.getWidth() - i2);
             }
         }
     }
@@ -207,7 +207,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Ranking ranking = this.n;
             if (ranking != null && !StringUtils.isNull(ranking.name) && this.n.rank_num.intValue() > 0) {
-                EMTextView eMTextView = this.f48834i;
+                EMTextView eMTextView = this.f48833i;
                 Ranking ranking2 = this.n;
                 eMTextView.setText(String.format("%s NO.%d", ranking2.name, ranking2.rank_num));
                 o(1);
@@ -247,7 +247,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f48833h.post(new b(this));
+            this.f48832h.post(new b(this));
         }
     }
 
@@ -255,20 +255,20 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(f1.frs_item_download_view, (ViewGroup) null);
-            this.f48830e = viewGroup;
+            this.f48829e = viewGroup;
             viewGroup.setPadding(u, 0, 0, 0);
-            this.f48831f = (LinearLayout) this.f48830e.findViewById(e1.title_area);
-            this.k = (EMTextView) this.f48830e.findViewById(e1.item_name);
-            this.f48832g = (LinearLayout) this.f48830e.findViewById(e1.abstract_area);
-            this.l = (EMTextView) this.f48830e.findViewById(e1.item_score);
-            RankStarView rankStarView = (RankStarView) this.f48830e.findViewById(e1.item_rank_star);
+            this.f48830f = (LinearLayout) this.f48829e.findViewById(e1.title_area);
+            this.k = (EMTextView) this.f48829e.findViewById(e1.item_name);
+            this.f48831g = (LinearLayout) this.f48829e.findViewById(e1.abstract_area);
+            this.l = (EMTextView) this.f48829e.findViewById(e1.item_score);
+            RankStarView rankStarView = (RankStarView) this.f48829e.findViewById(e1.item_rank_star);
             this.m = rankStarView;
             rankStarView.setStarSpacing(l.g(getContext(), c1.M_W_X001));
-            this.f48833h = (LinearLayout) this.f48830e.findViewById(e1.hot_ranking_area);
-            this.f48834i = (EMTextView) this.f48830e.findViewById(e1.item_hot_ranking);
-            this.j = (ImageView) this.f48830e.findViewById(e1.item_ranking_icon);
-            this.f48833h.setOnClickListener(this.t);
-            addView(this.f48830e, new FrameLayout.LayoutParams(-1, -2));
+            this.f48832h = (LinearLayout) this.f48829e.findViewById(e1.hot_ranking_area);
+            this.f48833i = (EMTextView) this.f48829e.findViewById(e1.item_hot_ranking);
+            this.j = (ImageView) this.f48829e.findViewById(e1.item_ranking_icon);
+            this.f48832h.setOnClickListener(this.t);
+            addView(this.f48829e, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst().getContext(), c1.M_H_X003);
             setLayoutParams(marginLayoutParams);
@@ -288,7 +288,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            c d2 = c.d(this.f48830e);
+            c d2 = c.d(this.f48829e);
             d2.m(1);
             d2.n(h1.J_X06);
             d2.f(b1.CAM_X0201);
@@ -296,9 +296,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
             d3.A(h1.F_X02);
             d3.v(b1.CAM_X0105);
             c.d(this.l).v(b1.CAM_X0305);
-            c.d(this.f48834i).v(b1.CAM_X0311);
+            c.d(this.f48833i).v(b1.CAM_X0311);
             WebPManager.setPureDrawable(this.j, d1.icon_pure_gamellist_right, b1.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setBackgroundResource(this.f48833h, d1.pic_bg_gamelistl);
+            SkinManager.setBackgroundResource(this.f48832h, d1.pic_bg_gamelistl);
             this.m.onChangeSkinType(i2);
         }
     }
@@ -328,9 +328,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.f48833h.setVisibility(0);
+                this.f48832h.setVisibility(0);
             } else {
-                this.f48833h.setVisibility(8);
+                this.f48832h.setVisibility(8);
             }
         }
     }

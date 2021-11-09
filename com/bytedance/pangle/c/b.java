@@ -38,10 +38,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<File> f61270a;
+    public static final Set<File> f61269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f61271b;
+    public static final boolean f61270b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -49,11 +49,11 @@ public final class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f61272a = 4;
+        public static final int f61271a = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final InterfaceC1837a f61273b;
+        public final InterfaceC1837a f61272b;
 
         /* renamed from: com.bytedance.pangle.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
@@ -68,7 +68,7 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final Constructor<?> f61274a;
+            public final Constructor<?> f61273a;
 
             public C1838b(Class<?> cls) {
                 Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public final class b {
                     }
                 }
                 Constructor<?> constructor = cls.getConstructor(File.class, ZipFile.class, DexFile.class);
-                this.f61274a = constructor;
+                this.f61273a = constructor;
                 constructor.setAccessible(true);
             }
 
@@ -94,7 +94,7 @@ public final class b {
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61274a.newInstance(file, new ZipFile(file), dexFile) : invokeLL.objValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61273a.newInstance(file, new ZipFile(file), dexFile) : invokeLL.objValue;
             }
         }
 
@@ -104,7 +104,7 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final Constructor<?> f61275a;
+            public final Constructor<?> f61274a;
 
             public c(Class<?> cls) {
                 Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public final class b {
                     }
                 }
                 Constructor<?> constructor = cls.getConstructor(File.class, File.class, DexFile.class);
-                this.f61275a = constructor;
+                this.f61274a = constructor;
                 constructor.setAccessible(true);
             }
 
@@ -130,7 +130,7 @@ public final class b {
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61275a.newInstance(file, file, dexFile) : invokeLL.objValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61274a.newInstance(file, file, dexFile) : invokeLL.objValue;
             }
         }
 
@@ -140,7 +140,7 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final Constructor<?> f61276a;
+            public final Constructor<?> f61275a;
 
             public d(Class<?> cls) {
                 Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public final class b {
                     }
                 }
                 Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
-                this.f61276a = constructor;
+                this.f61275a = constructor;
                 constructor.setAccessible(true);
             }
 
@@ -166,7 +166,7 @@ public final class b {
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61276a.newInstance(file, Boolean.FALSE, file, dexFile) : invokeLL.objValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.f61275a.newInstance(file, Boolean.FALSE, file, dexFile) : invokeLL.objValue;
             }
         }
 
@@ -209,7 +209,7 @@ public final class b {
             } catch (NoSuchMethodException unused2) {
                 dVar = new c(cls);
             }
-            this.f61273b = dVar;
+            this.f61272b = dVar;
         }
 
         public static void a(ClassLoader classLoader, List<? extends File> list) {
@@ -221,11 +221,11 @@ public final class b {
                 Object[] objArr = new Object[size];
                 for (int i2 = 0; i2 < size; i2++) {
                     File file = list.get(i2);
-                    InterfaceC1837a interfaceC1837a = aVar.f61273b;
+                    InterfaceC1837a interfaceC1837a = aVar.f61272b;
                     String path = file.getPath();
                     File parentFile = file.getParentFile();
                     String name = file.getName();
-                    objArr[i2] = interfaceC1837a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - f61272a) + ".dex").getPath(), 0));
+                    objArr[i2] = interfaceC1837a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - f61271a) + ".dex").getPath(), 0));
                 }
                 try {
                     b.a(obj, "dexElements", objArr);
@@ -286,8 +286,8 @@ public final class b {
                 return;
             }
         }
-        f61270a = new HashSet();
-        f61271b = a(System.getProperty("java.vm.version"));
+        f61269a = new HashSet();
+        f61270b = a(System.getProperty("java.vm.version"));
     }
 
     public static Field b(Object obj, String str) {
@@ -313,7 +313,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, pluginContext) == null) {
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Installing application");
-            if (f61271b) {
+            if (f61270b) {
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex VM has multidex support, MultiDex support library is disabled.");
             } else if (Build.VERSION.SDK_INT >= 4) {
                 try {
@@ -384,9 +384,9 @@ public final class b {
     public static void a(@NonNull ApplicationInfo applicationInfo, PluginContext pluginContext, File file, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, applicationInfo, pluginContext, file, str, str2) == null) {
-            synchronized (f61270a) {
-                if (!f61270a.contains(file)) {
-                    f61270a.add(file);
+            synchronized (f61269a) {
+                if (!f61269a.contains(file)) {
+                    f61269a.add(file);
                     if (Build.VERSION.SDK_INT > 20) {
                         ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                     }

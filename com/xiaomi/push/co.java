@@ -24,7 +24,7 @@ public class co {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f70759a;
+    public double f70758a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f196a;
@@ -36,31 +36,31 @@ public class co {
     public ArrayList<cx> f198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f70760b;
+    public long f70759b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70761c;
+    public String f70760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f70762d;
+    public String f70761d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f70763e;
+    public String f70762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f70764f;
+    public String f70763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f70765g;
+    public String f70764g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f70766h;
+    public String f70765h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f70767i;
+    public String f70766i;
     public String j;
 
     public co(String str) {
@@ -80,9 +80,9 @@ public class co {
         }
         this.f197a = "";
         this.f198a = new ArrayList<>();
-        this.f70759a = 0.1d;
+        this.f70758a = 0.1d;
         this.j = "s.mi1.cc";
-        this.f70760b = 86400000L;
+        this.f70759b = 86400000L;
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -112,16 +112,16 @@ public class co {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             synchronized (this) {
                 this.f197a = jSONObject.optString("net");
-                this.f70760b = jSONObject.getLong(ResultTB.TTL);
-                this.f70759a = jSONObject.getDouble("pct");
+                this.f70759b = jSONObject.getLong(ResultTB.TTL);
+                this.f70758a = jSONObject.getDouble("pct");
                 this.f196a = jSONObject.getLong("ts");
-                this.f70762d = jSONObject.optString("city");
-                this.f70761c = jSONObject.optString("prv");
-                this.f70765g = jSONObject.optString("cty");
-                this.f70763e = jSONObject.optString("isp");
-                this.f70764f = jSONObject.optString("ip");
+                this.f70761d = jSONObject.optString("city");
+                this.f70760c = jSONObject.optString("prv");
+                this.f70764g = jSONObject.optString("cty");
+                this.f70762e = jSONObject.optString("isp");
+                this.f70763f = jSONObject.optString("ip");
                 this.f199b = jSONObject.optString("host");
-                this.f70766h = jSONObject.optString("xf");
+                this.f70765h = jSONObject.optString("xf");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     a(new cx().a(jSONArray.getJSONObject(i2)));
@@ -137,15 +137,15 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.f70767i)) {
-                    if (TextUtils.isEmpty(this.f70763e)) {
+                if (TextUtils.isEmpty(this.f70766i)) {
+                    if (TextUtils.isEmpty(this.f70762e)) {
                         return "hardcode_isp";
                     }
-                    String a2 = bm.a(new String[]{this.f70763e, this.f70761c, this.f70762d, this.f70765g, this.f70764f}, "_");
-                    this.f70767i = a2;
+                    String a2 = bm.a(new String[]{this.f70762e, this.f70760c, this.f70761d, this.f70764g, this.f70763f}, "_");
+                    this.f70766i = a2;
                     return a2;
                 }
-                return this.f70767i;
+                return this.f70766i;
             }
         }
         return (String) invokeV.objValue;
@@ -224,16 +224,16 @@ public class co {
             synchronized (this) {
                 jSONObject = new JSONObject();
                 jSONObject.put("net", this.f197a);
-                jSONObject.put(ResultTB.TTL, this.f70760b);
-                jSONObject.put("pct", this.f70759a);
+                jSONObject.put(ResultTB.TTL, this.f70759b);
+                jSONObject.put("pct", this.f70758a);
                 jSONObject.put("ts", this.f196a);
-                jSONObject.put("city", this.f70762d);
-                jSONObject.put("prv", this.f70761c);
-                jSONObject.put("cty", this.f70765g);
-                jSONObject.put("isp", this.f70763e);
-                jSONObject.put("ip", this.f70764f);
+                jSONObject.put("city", this.f70761d);
+                jSONObject.put("prv", this.f70760c);
+                jSONObject.put("cty", this.f70764g);
+                jSONObject.put("isp", this.f70762e);
+                jSONObject.put("ip", this.f70763f);
                 jSONObject.put("host", this.f199b);
-                jSONObject.put("xf", this.f70766h);
+                jSONObject.put("xf", this.f70765h);
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cx> it = this.f198a.iterator();
                 while (it.hasNext()) {
@@ -249,7 +249,7 @@ public class co {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f70759a = d2;
+            this.f70758a = d2;
         }
     }
 
@@ -257,7 +257,7 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             if (j > 0) {
-                this.f70760b = j;
+                this.f70759b = j;
                 return;
             }
             throw new IllegalArgumentException("the duration is invalid " + j);
@@ -362,8 +362,8 @@ public class co {
                 int i3 = 0;
                 while (it.hasNext()) {
                     cx next = it.next();
-                    if (next.f70778a > i3) {
-                        i3 = next.f70778a;
+                    if (next.f70777a > i3) {
+                        i3 = next.f70777a;
                     }
                 }
                 while (i2 < strArr.length) {
@@ -411,20 +411,20 @@ public class co {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f196a < this.f70760b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f196a < this.f70759b : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            long j = this.f70760b;
+            long j = this.f70759b;
             if (ImageLoader.f36013d >= j) {
                 j = 864000000;
             }
             long currentTimeMillis = System.currentTimeMillis();
             long j2 = this.f196a;
-            return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.f70760b && this.f197a.startsWith("WIFI-"));
+            return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.f70759b && this.f197a.startsWith("WIFI-"));
         }
         return invokeV.booleanValue;
     }

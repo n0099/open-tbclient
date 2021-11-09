@@ -17,7 +17,7 @@ public class COSPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f70571a;
+    public static long f70570a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f49a;
@@ -64,9 +64,9 @@ public class COSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j = f70571a;
+                long j = f70570a;
                 if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                    f70571a = elapsedRealtime;
+                    f70570a = elapsedRealtime;
                     registerCOSAssemblePush(context);
                 }
             }
@@ -100,7 +100,7 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f70624c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f70623c)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH :  register cos when network change!");
@@ -119,7 +119,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.a(context, e.f70624c, str);
+            i.a(context, e.f70623c, str);
         }
     }
 }

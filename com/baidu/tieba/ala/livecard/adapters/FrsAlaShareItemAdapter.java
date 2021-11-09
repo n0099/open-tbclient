@@ -65,7 +65,7 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsAlaShareItemAdapter f47160b;
+        public final /* synthetic */ FrsAlaShareItemAdapter f47159b;
 
         public a(FrsAlaShareItemAdapter frsAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
                     return;
                 }
             }
-            this.f47160b = frsAlaShareItemAdapter;
+            this.f47159b = frsAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,11 +99,11 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f47160b.o == null) {
+                if (customMessage == null || this.f47159b.o == null) {
                     return;
                 }
                 customMessage.setData(d2Var);
-                this.f47160b.o.sendMessage(customMessage);
+                this.f47159b.o.sendMessage(customMessage);
             }
         }
     }

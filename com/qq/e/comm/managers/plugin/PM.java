@@ -33,31 +33,31 @@ public class PM {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f67982a;
+    public final ExecutorService f67981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f67983b;
+    public final Context f67982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67984c;
+    public String f67983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f67985d;
+    public File f67984d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67986e;
+    public int f67985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DexClassLoader f67987f;
+    public DexClassLoader f67986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RandomAccessFile f67988g;
+    public RandomAccessFile f67987g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FileLock f67989h;
+    public FileLock f67988h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f67990i;
+    public boolean f67989i;
     public final e j;
     public POFactory k;
     public int l;
@@ -71,7 +71,7 @@ public class PM {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PM f67991a;
+        public final /* synthetic */ PM f67990a;
 
         public a(PM pm) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class PM {
                     return;
                 }
             }
-            this.f67991a = pm;
+            this.f67990a = pm;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -99,12 +99,12 @@ public class PM {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                PM pm = this.f67991a;
-                pm.f67990i = PM.a(pm);
-                if (PM.b(this.f67991a)) {
-                    this.f67991a.c();
+                PM pm = this.f67990a;
+                pm.f67989i = PM.a(pm);
+                if (PM.b(this.f67990a)) {
+                    this.f67990a.c();
                 }
-                this.f67991a.l = (int) (System.currentTimeMillis() - currentTimeMillis);
+                this.f67990a.l = (int) (System.currentTimeMillis() - currentTimeMillis);
                 return Boolean.TRUE;
             }
             return invokeV.objValue;
@@ -117,7 +117,7 @@ public class PM {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PM f67992a;
+        public final /* synthetic */ PM f67991a;
 
         public b(PM pm) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class PM {
                     return;
                 }
             }
-            this.f67992a = pm;
+            this.f67991a = pm;
         }
     }
 
@@ -191,12 +191,12 @@ public class PM {
                 return;
             }
         }
-        this.f67982a = Executors.newSingleThreadExecutor();
+        this.f67981a = Executors.newSingleThreadExecutor();
         this.j = null;
         b bVar = new b(this);
         this.n = bVar;
         this.o = bVar;
-        this.f67983b = context.getApplicationContext();
+        this.f67982b = context.getApplicationContext();
         e();
     }
 
@@ -216,18 +216,18 @@ public class PM {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pm)) == null) {
             if (pm != null) {
                 try {
-                    File b2 = h.b(pm.f67983b);
+                    File b2 = h.b(pm.f67982b);
                     if (!b2.exists()) {
                         b2.createNewFile();
                         StringUtil.writeTo("lock", b2);
                     }
                     if (b2.exists()) {
                         RandomAccessFile randomAccessFile = new RandomAccessFile(b2, "rw");
-                        pm.f67988g = randomAccessFile;
+                        pm.f67987g = randomAccessFile;
                         FileLock tryLock = randomAccessFile.getChannel().tryLock();
-                        pm.f67989h = tryLock;
+                        pm.f67988h = tryLock;
                         if (tryLock != null) {
-                            pm.f67988g.writeByte(37);
+                            pm.f67987g.writeByte(37);
                             return true;
                         }
                     }
@@ -244,16 +244,16 @@ public class PM {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (this.f67990i) {
-                Context context = this.f67983b;
-                if (!com.qq.e.comm.managers.plugin.b.a(context, h.e(context), h.f(this.f67983b))) {
+            if (this.f67989i) {
+                Context context = this.f67982b;
+                if (!com.qq.e.comm.managers.plugin.b.a(context, h.e(context), h.f(this.f67982b))) {
                     GDTLogger.e("插件初始化失败 ");
                     com.qq.e.comm.managers.plugin.a.a(new Exception(), "initAssetPlugin failed");
                     return false;
                 }
-                this.f67984c = Sig.ASSET_PLUGIN_SIG;
-                this.f67985d = h.e(this.f67983b);
-                this.f67986e = 1280;
+                this.f67983c = Sig.ASSET_PLUGIN_SIG;
+                this.f67984d = h.e(this.f67982b);
+                this.f67985e = 1280;
                 return true;
             }
             return false;
@@ -306,15 +306,15 @@ public class PM {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("PluginFile:\t");
-            File file = this.f67985d;
+            File file = this.f67984d;
             sb.append(file == null ? com.baidu.android.common.others.lang.StringUtil.NULL_STRING : file.getAbsolutePath());
             GDTLogger.d(sb.toString());
-            if (this.f67984c == null || this.f67985d == null) {
-                this.f67987f = null;
+            if (this.f67983c == null || this.f67984d == null) {
+                this.f67986f = null;
                 return;
             }
             try {
-                this.f67987f = new DexClassLoader(this.f67985d.getAbsolutePath(), h.a(this.f67983b).getAbsolutePath(), null, getClass().getClassLoader());
+                this.f67986f = new DexClassLoader(this.f67984d.getAbsolutePath(), h.a(this.f67982b).getAbsolutePath(), null, getClass().getClassLoader());
                 e eVar = this.j;
                 if (eVar != null) {
                     eVar.onLoadSuccess();
@@ -334,7 +334,7 @@ public class PM {
                 throw null;
             }
             try {
-                if (pm.f67987f == null && pm.d()) {
+                if (pm.f67986f == null && pm.d()) {
                     pm.c();
                 }
             } catch (Exception e2) {
@@ -348,22 +348,22 @@ public class PM {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.f67990i) {
-                g gVar = new g(h.c(this.f67983b), h.d(this.f67983b));
+            if (this.f67989i) {
+                g gVar = new g(h.c(this.f67982b), h.d(this.f67982b));
                 if (gVar.a()) {
-                    boolean a2 = gVar.a(h.e(this.f67983b), h.f(this.f67983b));
+                    boolean a2 = gVar.a(h.e(this.f67982b), h.f(this.f67982b));
                     GDTLogger.d("NextExist,Updated=" + a2);
                 }
             }
-            g gVar2 = new g(h.e(this.f67983b), h.f(this.f67983b));
+            g gVar2 = new g(h.e(this.f67982b), h.f(this.f67982b));
             if (gVar2.a()) {
                 if (gVar2.c() >= 1280 && gVar2.c() / 10 == 128) {
-                    this.f67984c = gVar2.b();
-                    this.f67986e = gVar2.c();
-                    this.f67985d = h.e(this.f67983b);
+                    this.f67983c = gVar2.b();
+                    this.f67985e = gVar2.c();
+                    this.f67984d = h.e(this.f67982b);
                     return true;
                 }
-                GDTLogger.d("last updated plugin version =" + this.f67986e + ";asset plugin version=1280");
+                GDTLogger.d("last updated plugin version =" + this.f67985e + ";asset plugin version=1280");
             }
             return false;
         }
@@ -373,7 +373,7 @@ public class PM {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.m = this.f67982a.submit(new a(this));
+            this.m = this.f67981a.submit(new a(this));
         }
     }
 
@@ -395,7 +395,7 @@ public class PM {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             f();
             GDTLogger.d("GetFactoryInstaceforInterface:" + cls);
-            ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f67987f;
+            ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f67986f;
             StringBuilder sb = new StringBuilder();
             sb.append("PluginClassLoader is parent");
             sb.append(PM.class.getClassLoader() == classLoader);
@@ -430,7 +430,7 @@ public class PM {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             f();
-            return this.f67984c;
+            return this.f67983c;
         }
         return (String) invokeV.objValue;
     }
@@ -452,15 +452,15 @@ public class PM {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             f();
-            return this.f67986e;
+            return this.f67985e;
         }
         return invokeV.intValue;
     }
 
     public void update(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && this.f67990i) {
-            com.qq.e.comm.managers.plugin.c cVar = new com.qq.e.comm.managers.plugin.c(this.f67983b, this.f67982a);
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && this.f67989i) {
+            com.qq.e.comm.managers.plugin.c cVar = new com.qq.e.comm.managers.plugin.c(this.f67982b, this.f67981a);
             cVar.a(this.o);
             cVar.a(str, str2);
         }

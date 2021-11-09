@@ -31,7 +31,7 @@ public class Static {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f50345a;
+            public final /* synthetic */ CustomResponsedMessage f50344a;
 
             public C1730a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class Static {
                         return;
                     }
                 }
-                this.f50345a = customResponsedMessage;
+                this.f50344a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -58,8 +58,8 @@ public class Static {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (this.f50345a.getData() instanceof String) {
-                        g.a((String) this.f50345a.getData());
+                    if (this.f50344a.getData() instanceof String) {
+                        g.a((String) this.f50344a.getData());
                         return null;
                     }
                     return null;

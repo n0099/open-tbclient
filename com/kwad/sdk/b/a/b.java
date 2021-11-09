@@ -16,27 +16,27 @@ public class b extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f64024a;
+    public KsNativeAd.AdInteractionListener f64023a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f64025b;
+    public KsNativeAd.VideoPlayListener f64024b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBasePvFrameLayout f64026c;
+    public AdBasePvFrameLayout f64025c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f64027d;
+    public AdTemplate f64026d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f64028e;
+    public com.kwad.sdk.core.download.b.b f64027e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.b.c.a f64029f;
+    public com.kwad.sdk.b.c.a f64028f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,11 +56,11 @@ public class b extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.download.b.b bVar = this.f64028e;
+            com.kwad.sdk.core.download.b.b bVar = this.f64027e;
             if (bVar != null) {
                 bVar.f();
             }
-            this.f64029f.e();
+            this.f64028f.e();
         }
     }
 }

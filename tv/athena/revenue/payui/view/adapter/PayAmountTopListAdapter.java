@@ -26,16 +26,16 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<GiftBagItemInfo> f73189a;
+    public List<GiftBagItemInfo> f73188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayUIKitConfig f73190b;
+    public PayUIKitConfig f73189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f73191c;
+    public Context f73190c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f73192d;
+    public b f73191d;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -43,10 +43,10 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f73193e;
+        public final /* synthetic */ c f73192e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayAmountTopListAdapter f73194f;
+        public final /* synthetic */ PayAmountTopListAdapter f73193f;
 
         public a(PayAmountTopListAdapter payAmountTopListAdapter, c cVar) {
             Interceptable interceptable = $ic;
@@ -63,17 +63,17 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.f73194f = payAmountTopListAdapter;
-            this.f73193e = cVar;
+            this.f73193f = payAmountTopListAdapter;
+            this.f73192e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f73194f.f73192d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f73193f.f73191d == null) {
                 return;
             }
-            this.f73194f.f73192d.onClick(this.f73193e.getAdapterPosition());
+            this.f73193f.f73191d.onClick(this.f73192e.getAdapterPosition());
         }
     }
 
@@ -88,13 +88,13 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f73195a;
+        public TextView f73194a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f73196b;
+        public TextView f73195b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f73197c;
+        public ImageView f73196c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PayAmountTopListAdapter payAmountTopListAdapter, View view) {
@@ -114,9 +114,9 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.f73195a = (TextView) view.findViewById(d.tv_name);
-            this.f73196b = (TextView) view.findViewById(d.tv_num);
-            this.f73197c = (ImageView) view.findViewById(d.img);
+            this.f73194a = (TextView) view.findViewById(d.tv_name);
+            this.f73195b = (TextView) view.findViewById(d.tv_num);
+            this.f73196c = (ImageView) view.findViewById(d.img);
         }
     }
 
@@ -135,20 +135,20 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
                 return;
             }
         }
-        this.f73189a = list;
-        this.f73191c = context;
-        this.f73190b = payUIKitConfig;
+        this.f73188a = list;
+        this.f73190c = context;
+        this.f73189b = payUIKitConfig;
     }
 
     public GiftBagItemInfo getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<GiftBagItemInfo> list = this.f73189a;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f73189a.size()) {
+            List<GiftBagItemInfo> list = this.f73188a;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f73188a.size()) {
                 return null;
             }
-            return this.f73189a.get(i2);
+            return this.f73188a.get(i2);
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
@@ -157,13 +157,13 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73189a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73188a.size() : invokeV.intValue;
     }
 
     public void setOnItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f73192d = bVar;
+            this.f73191d = bVar;
         }
     }
 
@@ -174,20 +174,20 @@ public class PayAmountTopListAdapter extends RecyclerView.Adapter<c> {
         if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i2) == null) {
             cVar.itemView.setOnClickListener(new a(this, cVar));
             GiftBagItemInfo item = getItem(cVar.getAdapterPosition());
-            cVar.f73195a.setText(item.name);
+            cVar.f73194a.setText(item.name);
             if (item.count == 0) {
-                cVar.f73196b.setVisibility(4);
+                cVar.f73195b.setVisibility(4);
             } else {
-                cVar.f73196b.setVisibility(0);
-                TextView textView = cVar.f73196b;
+                cVar.f73195b.setVisibility(0);
+                TextView textView = cVar.f73195b;
                 textView.setText("x" + item.count);
             }
-            PayUIKitConfig payUIKitConfig = this.f73190b;
+            PayUIKitConfig payUIKitConfig = this.f73189b;
             if (payUIKitConfig == null && payUIKitConfig.imageLoaderSupplier == null) {
                 RLog.error("PayAmountTopListAdapter", "onBindViewHolder error mPayUIKitConfig null", new Object[0]);
                 return;
             }
-            this.f73190b.imageLoaderSupplier.onLoad(this.f73191c, cVar.f73197c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+            this.f73189b.imageLoaderSupplier.onLoad(this.f73190c, cVar.f73196c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
         }
     }
 

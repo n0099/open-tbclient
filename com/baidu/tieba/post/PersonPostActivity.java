@@ -83,9 +83,44 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f53358e;
+        public final /* synthetic */ PersonPostActivity f53357e;
 
         public a(PersonPostActivity personPostActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personPostActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f53357e = personPostActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f53357e.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonPostActivity f53358e;
+
+        public b(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,44 +142,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53358e.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f53359e;
-
-        public b(PersonPostActivity personPostActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {personPostActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53359e = personPostActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f53359e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
-                this.f53359e.showRecycleBinRedTip(false);
-                UrlManager.getInstance().dealOneLink(this.f53359e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f53358e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
+                this.f53358e.showRecycleBinRedTip(false);
+                UrlManager.getInstance().dealOneLink(this.f53358e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
             }
         }
     }
@@ -155,7 +155,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f53360a;
+        public final /* synthetic */ PersonPostActivity f53359a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonPostActivity personPostActivity, int i2) {
@@ -175,7 +175,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f53360a = personPostActivity;
+            this.f53359a = personPostActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -189,7 +189,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f53360a.getPageContext(), new String[]{str});
+            UrlManager.getInstance().dealOneLink(this.f53359a.getPageContext(), new String[]{str});
         }
     }
 

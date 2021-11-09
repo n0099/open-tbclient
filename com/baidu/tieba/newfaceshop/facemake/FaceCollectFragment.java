@@ -39,19 +39,19 @@ public class FaceCollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f51843e;
+    public BdListView f51842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f51844f;
+    public h f51843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<EmotionImageData> f51845g;
+    public List<EmotionImageData> f51844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f51846h;
+    public f f51845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoDataView f51847i;
+    public NoDataView f51846i;
     public Activity j;
 
     /* loaded from: classes9.dex */
@@ -60,7 +60,7 @@ public class FaceCollectFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceCollectFragment f51848a;
+        public final /* synthetic */ FaceCollectFragment f51847a;
 
         public a(FaceCollectFragment faceCollectFragment) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class FaceCollectFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f51848a = faceCollectFragment;
+            this.f51847a = faceCollectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,13 +115,13 @@ public class FaceCollectFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list == null || list.isEmpty()) {
-                    this.f51848a.f51843e.setVisibility(8);
-                    this.f51848a.f51847i.setVisibility(0);
+                    this.f51847a.f51842e.setVisibility(8);
+                    this.f51847a.f51846i.setVisibility(0);
                     return;
                 }
-                this.f51848a.f51845g.clear();
-                this.f51848a.f51845g.addAll(list);
-                this.f51848a.f51844f.notifyDataSetChanged();
+                this.f51847a.f51844g.clear();
+                this.f51847a.f51844g.addAll(list);
+                this.f51847a.f51843f.notifyDataSetChanged();
             }
         }
     }
@@ -151,7 +151,7 @@ public class FaceCollectFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h hVar = this.f51844f;
+            h hVar = this.f51843f;
             if (hVar != null) {
                 return hVar.i();
             }
@@ -171,14 +171,14 @@ public class FaceCollectFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.fragment_pick_collect, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
             NoDataView a2 = NoDataViewFactory.a(this.j, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.j, R.dimen.ds320)), NoDataViewFactory.e.c(this.j.getText(R.string.face_group_no_emotion).toString()), null);
-            this.f51847i = a2;
+            this.f51846i = a2;
             a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f51847i.setVisibility(8);
-            this.f51843e = (BdListView) inflate.findViewById(R.id.listview_emotion);
-            this.f51845g = new ArrayList();
-            h hVar = new h(this.f51845g, 20);
-            this.f51844f = hVar;
-            hVar.l(this.f51846h);
+            this.f51846i.setVisibility(8);
+            this.f51842e = (BdListView) inflate.findViewById(R.id.listview_emotion);
+            this.f51844g = new ArrayList();
+            h hVar = new h(this.f51844g, 20);
+            this.f51843f = hVar;
+            hVar.l(this.f51845h);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();
@@ -188,9 +188,9 @@ public class FaceCollectFragment extends BaseFragment {
                         linkedHashMap.put(emotionImageData.getPicUrl(), faceData.emotionImageData);
                     }
                 }
-                this.f51844f.g(linkedHashMap);
+                this.f51843f.g(linkedHashMap);
             }
-            this.f51843e.setAdapter((ListAdapter) this.f51844f);
+            this.f51842e.setAdapter((ListAdapter) this.f51843f);
             g();
             return inflate;
         }
@@ -200,8 +200,8 @@ public class FaceCollectFragment extends BaseFragment {
     public void setEmotionChooseCallback(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f51846h = fVar;
-            h hVar = this.f51844f;
+            this.f51845h = fVar;
+            h hVar = this.f51843f;
             if (hVar != null) {
                 hVar.l(fVar);
             }

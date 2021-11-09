@@ -87,10 +87,70 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51565a;
+        public final /* synthetic */ MemberPayFragmentActivity f51564a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberPayFragmentActivity memberPayFragmentActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPayFragmentActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51564a = memberPayFragmentActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505 && (httpResponsedMessage instanceof ResponseGetPayinfoMessage)) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if (statusCode == 200 && error == 0) {
+                    ResponseGetPayinfoMessage responseGetPayinfoMessage = (ResponseGetPayinfoMessage) httpResponsedMessage;
+                    if (responseGetPayinfoMessage.getPayInfoResultData() != null) {
+                        int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
+                        if (pay_status != 0) {
+                            if (pay_status != 1 && pay_status == 3) {
+                            }
+                            return;
+                        }
+                        this.f51564a.addPaySussStats();
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.f51564a.mCurrentShowType)));
+                        this.f51564a.setResult(-1);
+                        b.a.q0.s.e0.b.j().t("show_member_deid_line", true);
+                        if (!this.f51564a.mIsClose) {
+                            this.f51564a.requestMemberPayInfo();
+                        } else {
+                            this.f51564a.finish();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MemberPayFragmentActivity f51565a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(MemberPayFragmentActivity memberPayFragmentActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -114,35 +174,38 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505 && (httpResponsedMessage instanceof ResponseGetPayinfoMessage)) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                if (statusCode == 200 && error == 0) {
-                    ResponseGetPayinfoMessage responseGetPayinfoMessage = (ResponseGetPayinfoMessage) httpResponsedMessage;
-                    if (responseGetPayinfoMessage.getPayInfoResultData() != null) {
-                        int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
-                        if (pay_status != 0) {
-                            if (pay_status != 1 && pay_status == 3) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.f51565a.closeLoadingDialog();
+                if ((httpResponsedMessage instanceof ResponseMemberPayMessage) && httpResponsedMessage.getCmd() == 1001532) {
+                    ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
+                    if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
+                        if (responseMemberPayMessage.getMemberPayResult() != null) {
+                            b.a.r0.y1.f.f memberPayResult = responseMemberPayMessage.getMemberPayResult();
+                            this.f51565a.initFragment(memberPayResult);
+                            if (this.f51565a.mFragmentAdapter != null) {
+                                int count = this.f51565a.mFragmentAdapter.getCount();
+                                for (int i2 = 0; i2 < count; i2++) {
+                                    this.f51565a.mFragmentAdapter.getItem(i2).setDataAndRefreshUI(memberPayResult);
+                                }
+                                return;
                             }
                             return;
                         }
-                        this.f51565a.addPaySussStats();
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.f51565a.mCurrentShowType)));
-                        this.f51565a.setResult(-1);
-                        b.a.q0.s.e0.b.j().t("show_member_deid_line", true);
-                        if (!this.f51565a.mIsClose) {
-                            this.f51565a.requestMemberPayInfo();
-                        } else {
-                            this.f51565a.finish();
-                        }
+                        this.f51565a.showToast(R.string.neterror);
+                        return;
                     }
+                    String errorString = responseMemberPayMessage.getErrorString();
+                    if (StringUtils.isNull(errorString)) {
+                        errorString = this.f51565a.getResources().getString(R.string.neterror);
+                    }
+                    this.f51565a.showToast(errorString);
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b extends HttpMessageListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,7 +213,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public final /* synthetic */ MemberPayFragmentActivity f51566a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(MemberPayFragmentActivity memberPayFragmentActivity, int i2) {
+        public c(MemberPayFragmentActivity memberPayFragmentActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -172,78 +235,15 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f51566a.closeLoadingDialog();
-                if ((httpResponsedMessage instanceof ResponseMemberPayMessage) && httpResponsedMessage.getCmd() == 1001532) {
-                    ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
-                    if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                        if (responseMemberPayMessage.getMemberPayResult() != null) {
-                            b.a.r0.y1.f.f memberPayResult = responseMemberPayMessage.getMemberPayResult();
-                            this.f51566a.initFragment(memberPayResult);
-                            if (this.f51566a.mFragmentAdapter != null) {
-                                int count = this.f51566a.mFragmentAdapter.getCount();
-                                for (int i2 = 0; i2 < count; i2++) {
-                                    this.f51566a.mFragmentAdapter.getItem(i2).setDataAndRefreshUI(memberPayResult);
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        this.f51566a.showToast(R.string.neterror);
-                        return;
-                    }
-                    String errorString = responseMemberPayMessage.getErrorString();
-                    if (StringUtils.isNull(errorString)) {
-                        errorString = this.f51566a.getResources().getString(R.string.neterror);
-                    }
-                    this.f51566a.showToast(errorString);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51567a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(MemberPayFragmentActivity memberPayFragmentActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {memberPayFragmentActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51567a = memberPayFragmentActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016525 && this.f51567a.mFragmentAdapter != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016525 && this.f51566a.mFragmentAdapter != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
-                int count = this.f51567a.mFragmentAdapter.getCount();
+                int count = this.f51566a.mFragmentAdapter.getCount();
                 for (int i2 = 0; i2 < count; i2++) {
-                    this.f51567a.mFragmentAdapter.getItem(i2).refreshAutoPayItemUI(bool);
+                    this.f51566a.mFragmentAdapter.getItem(i2).refreshAutoPayItemUI(bool);
                 }
-                this.f51567a.showToast(R.string.tips_auto_pay_succ);
+                this.f51566a.showToast(R.string.tips_auto_pay_succ);
             }
         }
     }
@@ -254,9 +254,44 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51568e;
+        public final /* synthetic */ MemberPayFragmentActivity f51567e;
 
         public d(MemberPayFragmentActivity memberPayFragmentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPayFragmentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51567e = memberPayFragmentActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f51567e.userConfirmDialog();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MemberPayFragmentActivity f51568e;
+
+        public e(MemberPayFragmentActivity memberPayFragmentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -284,47 +319,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     /* loaded from: classes9.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51569e;
-
-        public e(MemberPayFragmentActivity memberPayFragmentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {memberPayFragmentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51569e = memberPayFragmentActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51569e.userConfirmDialog();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
     public class f implements b.a.q0.p0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51570a;
+        public final /* synthetic */ MemberPayFragmentActivity f51569a;
 
         public f(MemberPayFragmentActivity memberPayFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -341,7 +341,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                     return;
                 }
             }
-            this.f51570a = memberPayFragmentActivity;
+            this.f51569a = memberPayFragmentActivity;
         }
 
         @Override // b.a.q0.p0.a
@@ -349,8 +349,8 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 b.a.q0.p0.d c2 = b.a.q0.p0.d.c();
-                c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.f51570a.mReferPage + "&click_zone=" + this.f51570a.mClickZone, this.f51570a.getPageContext());
-                this.f51570a.finish();
+                c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.f51569a.mReferPage + "&click_zone=" + this.f51569a.mClickZone, this.f51569a.getPageContext());
+                this.f51569a.finish();
             }
         }
 
@@ -358,7 +358,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f51570a.requestMemberPayInfo();
+                this.f51569a.requestMemberPayInfo();
             }
         }
 
@@ -366,7 +366,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f51570a.requestMemberPayInfo();
+                this.f51569a.requestMemberPayInfo();
             }
         }
     }
@@ -377,9 +377,45 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51571e;
+        public final /* synthetic */ MemberPayFragmentActivity f51570e;
 
         public g(MemberPayFragmentActivity memberPayFragmentActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPayFragmentActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51570e = memberPayFragmentActivity;
+        }
+
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 1));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class h implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MemberPayFragmentActivity f51571e;
+
+        public h(MemberPayFragmentActivity memberPayFragmentActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -401,48 +437,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 1));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class h implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayFragmentActivity f51572e;
-
-        public h(MemberPayFragmentActivity memberPayFragmentActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {memberPayFragmentActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51572e = memberPayFragmentActivity;
-        }
-
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 0));
                 aVar.dismiss();
-                if (this.f51572e.mTopTranslateView != null) {
-                    this.f51572e.mTopTranslateView.setBackgroundColor(this.f51572e.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
+                if (this.f51571e.mTopTranslateView != null) {
+                    this.f51571e.mTopTranslateView.setBackgroundColor(this.f51571e.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
                 }
-                this.f51572e.finish();
+                this.f51571e.finish();
             }
         }
     }

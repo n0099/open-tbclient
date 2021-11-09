@@ -14,10 +14,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f69785a;
+    public static a f69784a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f69786d;
+    public static final Object f69785d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f69786d = new Object();
+        f69785d = new Object();
     }
 
     public static long a(a aVar) {
@@ -60,13 +60,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (b.class) {
-                a aVar = f69785a;
+                a aVar = f69784a;
                 if (aVar != null) {
                     return aVar;
                 }
                 if (context != null) {
                     a a2 = a(context);
-                    f69785a = a2;
+                    f69784a = a2;
                     return a2;
                 }
                 return null;
@@ -80,7 +80,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f69786d) {
+                synchronized (f69785d) {
                     String value = c.a(context).getValue();
                     if (g.m63a(value)) {
                         return null;

@@ -20,7 +20,7 @@ public class b implements IPerfProcessor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70568a;
+    public Context f70567a;
 
     /* renamed from: a  reason: collision with other field name */
     public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f48a;
@@ -40,7 +40,7 @@ public class b implements IPerfProcessor {
                 return;
             }
         }
-        this.f70568a = context;
+        this.f70567a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -64,7 +64,7 @@ public class b implements IPerfProcessor {
             } else {
                 str = String.valueOf(i2) + "#" + str2;
             }
-            File externalFilesDir = this.f70568a.getExternalFilesDir(PerformerBox.TYPE);
+            File externalFilesDir = this.f70567a.getExternalFilesDir(PerformerBox.TYPE);
             if (externalFilesDir == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
                 return null;
@@ -87,7 +87,7 @@ public class b implements IPerfProcessor {
             }
             for (int i2 = 0; i2 < 20; i2++) {
                 String str = b2 + i2;
-                if (bq.m189a(this.f70568a, str)) {
+                if (bq.m189a(this.f70567a, str)) {
                     return str;
                 }
             }
@@ -100,14 +100,14 @@ public class b implements IPerfProcessor {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bq.a(this.f70568a, PerformerBox.TYPE, "perfUploading");
-            File[] m190a = bq.m190a(this.f70568a, "perfUploading");
+            bq.a(this.f70567a, PerformerBox.TYPE, "perfUploading");
+            File[] m190a = bq.m190a(this.f70567a, "perfUploading");
             if (m190a == null || m190a.length <= 0) {
                 return;
             }
             for (File file : m190a) {
                 if (file != null) {
-                    List<String> a2 = e.a(this.f70568a, file.getAbsolutePath());
+                    List<String> a2 = e.a(this.f70567a, file.getAbsolutePath());
                     file.delete();
                     a(a2);
                 }
@@ -140,7 +140,7 @@ public class b implements IPerfProcessor {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            bq.a(this.f70568a, list);
+            bq.a(this.f70567a, list);
         }
     }
 

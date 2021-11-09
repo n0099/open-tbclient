@@ -31,7 +31,7 @@ public final class FingerprintBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static FingerprintBeanFactory f59743a;
+        public static FingerprintBeanFactory f59742a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public final class FingerprintBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f59743a = new FingerprintBeanFactory(null);
+            f59742a = new FingerprintBeanFactory(null);
         }
     }
 
@@ -58,7 +58,7 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     public static FingerprintBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59743a : (FingerprintBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59742a : (FingerprintBeanFactory) invokeV.objValue;
     }
 
     public FingerprintBeanFactory() {

@@ -31,7 +31,7 @@ public final class a extends BroadcastReceiver {
     public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            if (c.a().f61476c.contains(Integer.valueOf(hashCode()))) {
+            if (c.a().f61475c.contains(Integer.valueOf(hashCode()))) {
                 c.a().a(context, intent);
             } else {
                 j.a(new Runnable(this, context, intent) { // from class: com.bytedance.pangle.receiver.a.1
@@ -39,13 +39,13 @@ public final class a extends BroadcastReceiver {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f61469a;
+                    public final /* synthetic */ Context f61468a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f61470b;
+                    public final /* synthetic */ Intent f61469b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f61471c;
+                    public final /* synthetic */ a f61470c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -62,16 +62,16 @@ public final class a extends BroadcastReceiver {
                                 return;
                             }
                         }
-                        this.f61471c = this;
-                        this.f61469a = context;
-                        this.f61470b = intent;
+                        this.f61470c = this;
+                        this.f61468a = context;
+                        this.f61469b = intent;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            c.a().a(this.f61469a, this.f61470b);
+                            c.a().a(this.f61468a, this.f61469b);
                         }
                     }
                 });

@@ -16,10 +16,10 @@ public class a implements Interceptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72189a;
+    public int f72188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72190b;
+    public int f72189b;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class a implements Interceptor {
                 return;
             }
         }
-        this.f72190b = 0;
-        this.f72189a = i2;
+        this.f72189b = 0;
+        this.f72188a = i2;
     }
 
     @Override // okhttp3.Interceptor
@@ -48,11 +48,11 @@ public class a implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             Request request = chain.request();
             Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i2 = this.f72190b) < this.f72189a) {
-                this.f72190b = i2 + 1;
+            while (!proceed.isSuccessful() && (i2 = this.f72189b) < this.f72188a) {
+                this.f72189b = i2 + 1;
                 proceed.close();
                 proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72189a), Integer.valueOf(this.f72190b));
+                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72188a), Integer.valueOf(this.f72189b));
             }
             return proceed;
         }

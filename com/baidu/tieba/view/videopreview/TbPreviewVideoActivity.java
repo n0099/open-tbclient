@@ -40,9 +40,46 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f55538e;
+        public final /* synthetic */ TbPreviewVideoActivity f55537e;
 
         public a(TbPreviewVideoActivity tbPreviewVideoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPreviewVideoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55537e = tbPreviewVideoActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f55537e.videoView == null) {
+                return;
+            }
+            this.f55537e.videoView.stopPlayback();
+            this.f55537e.closeActivity();
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements MediaPlayer.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TbPreviewVideoActivity f55538e;
+
+        public b(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,26 +97,26 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
             this.f55538e = tbPreviewVideoActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f55538e.videoView == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
+                this.f55538e.videoView.start();
+                this.f55538e.videoViewController.initCurTimeAndDuration(0, this.f55538e.videoView.getDuration());
+                this.f55538e.videoViewController.showProgress();
             }
-            this.f55538e.videoView.stopPlayback();
-            this.f55538e.closeActivity();
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements MediaPlayer.OnPreparedListener {
+    public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ TbPreviewVideoActivity f55539e;
 
-        public b(TbPreviewVideoActivity tbPreviewVideoActivity) {
+        public c(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,49 +134,12 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
             this.f55539e = tbPreviewVideoActivity;
         }
 
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f55539e.videoView.start();
-                this.f55539e.videoViewController.initCurTimeAndDuration(0, this.f55539e.videoView.getDuration());
-                this.f55539e.videoViewController.showProgress();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements MediaPlayer.OnCompletionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f55540e;
-
-        public c(TbPreviewVideoActivity tbPreviewVideoActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPreviewVideoActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55540e = tbPreviewVideoActivity;
-        }
-
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f55540e.videoView.start();
-                this.f55540e.videoViewController.showProgress();
+                this.f55539e.videoView.start();
+                this.f55539e.videoViewController.showProgress();
             }
         }
     }

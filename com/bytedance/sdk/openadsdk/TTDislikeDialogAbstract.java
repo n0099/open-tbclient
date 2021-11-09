@@ -19,10 +19,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f61577a;
+    public View f61576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f61578b;
+    public TTDislikeController f61577b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeDialogAbstract(Context context) {
@@ -46,16 +46,16 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f61578b == null || this.f61577a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f61577b == null || this.f61576a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
             for (int i2 : tTDislikeListViewIds) {
-                View findViewById = this.f61577a.findViewById(i2);
+                View findViewById = this.f61576a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f61578b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f61577b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -71,7 +71,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void b() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f61578b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f61577b) == null) {
             return;
         }
         tTDislikeController.onDislikeEvent(getContext(), true);
@@ -89,10 +89,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             View inflate = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-            this.f61577a = inflate;
+            this.f61576a = inflate;
             if (inflate != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                View view = this.f61577a;
+                View view = this.f61576a;
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, -1);
                 }
@@ -107,7 +107,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void setDislikeModel(TTDislikeController tTDislikeController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tTDislikeController) == null) {
-            this.f61578b = tTDislikeController;
+            this.f61577b = tTDislikeController;
             a();
         }
     }
@@ -124,11 +124,11 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void startPersonalizePromptActivity() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f61578b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f61577b) == null) {
             return;
         }
         tTDislikeController.openWebPage(getContext(), true);
-        this.f61578b.onDislikeEvent(getContext(), false);
+        this.f61577b.onDislikeEvent(getContext(), false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

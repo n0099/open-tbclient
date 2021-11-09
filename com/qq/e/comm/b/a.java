@@ -33,11 +33,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f67952b;
+    public static final a f67951b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f67953a;
+    public volatile Boolean f67952a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -46,7 +46,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PM f67954a;
+        public final /* synthetic */ PM f67953a;
 
         public C1959a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class a {
                     return;
                 }
             }
-            this.f67954a = pm;
+            this.f67953a = pm;
         }
 
         @Override // com.qq.e.comm.net.NetworkCallBack
@@ -91,16 +91,16 @@ public class a {
                         JSONObject jSONObject = new JSONObject(stringContent);
                         int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
                         if (i2 == 0) {
-                            if (this.f67954a != null) {
+                            if (this.f67953a != null) {
                                 try {
-                                    this.f67954a.getPOFactory().config(1, stringContent);
+                                    this.f67953a.getPOFactory().config(1, stringContent);
                                 } catch (d e2) {
                                     e2.printStackTrace();
                                 }
                                 if (jSONObject.has("sig")) {
                                     JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
                                     if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                        this.f67954a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                        this.f67953a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
                                         return;
                                     }
                                     return;
@@ -142,7 +142,7 @@ public class a {
                 return;
             }
         }
-        f67952b = new a();
+        f67951b = new a();
     }
 
     public a() {
@@ -158,13 +158,13 @@ public class a {
                 return;
             }
         }
-        this.f67953a = Boolean.FALSE;
+        this.f67952a = Boolean.FALSE;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f67952b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f67951b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -226,15 +226,15 @@ public class a {
 
     public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f67953a.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f67952a.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f67953a.booleanValue()) {
+            if (this.f67952a.booleanValue()) {
                 return;
             }
             a(sm, pm, deviceStatus, aPPStatus, context, j);
-            this.f67953a = Boolean.TRUE;
+            this.f67952a = Boolean.TRUE;
         }
     }
 }

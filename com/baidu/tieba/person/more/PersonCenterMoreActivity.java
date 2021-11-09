@@ -42,7 +42,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f53001b;
+        public final /* synthetic */ PersonCenterMoreActivity f53000b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f53001b = personCenterMoreActivity;
+            this.f53000b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +68,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f53001b.mItemData = hVar;
-                if (this.f53001b.mItemData == null || this.f53001b.requestPermission()) {
+                this.f53000b.mItemData = hVar;
+                if (this.f53000b.mItemData == null || this.f53000b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f53001b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f53000b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }

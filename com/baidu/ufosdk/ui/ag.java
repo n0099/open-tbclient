@@ -22,7 +22,7 @@ public final class ag extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f56802a;
+    public final WeakReference f56801a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class ag extends Handler {
                 return;
             }
         }
-        this.f56802a = new WeakReference(feedbackEditActivity);
+        this.f56801a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -71,7 +71,7 @@ public final class ag extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f56802a.get();
+            FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f56801a.get();
             feedbackEditActivity.a(true);
             com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
             if (feedbackEditActivity == null) {
@@ -87,20 +87,20 @@ public final class ag extends Handler {
                 feedbackEditActivity.s = Boolean.FALSE;
                 str6 = feedbackEditActivity.t;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = feedbackEditActivity.f56736g;
+                    str9 = feedbackEditActivity.f56735g;
                     if (TextUtils.isEmpty(str9)) {
-                        editor6 = feedbackEditActivity.f56731b;
+                        editor6 = feedbackEditActivity.f56730b;
                         str10 = feedbackEditActivity.t;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = feedbackEditActivity.f56736g;
+                str7 = feedbackEditActivity.f56735g;
                 if (!TextUtils.isEmpty(str7)) {
-                    editor5 = feedbackEditActivity.f56731b;
-                    str8 = feedbackEditActivity.f56736g;
+                    editor5 = feedbackEditActivity.f56730b;
+                    str8 = feedbackEditActivity.f56735g;
                     editor5.putString(str8, "");
                 }
-                editor4 = feedbackEditActivity.f56731b;
+                editor4 = feedbackEditActivity.f56730b;
                 editor4.commit();
                 view4 = feedbackEditActivity.u;
                 view4.setVisibility(8);
@@ -148,20 +148,20 @@ public final class ag extends Handler {
                 feedbackEditActivity.s = Boolean.FALSE;
                 str = feedbackEditActivity.t;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = feedbackEditActivity.f56736g;
+                    str4 = feedbackEditActivity.f56735g;
                     if (TextUtils.isEmpty(str4)) {
-                        editor3 = feedbackEditActivity.f56731b;
+                        editor3 = feedbackEditActivity.f56730b;
                         str5 = feedbackEditActivity.t;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = feedbackEditActivity.f56736g;
+                str2 = feedbackEditActivity.f56735g;
                 if (!TextUtils.isEmpty(str2)) {
-                    editor2 = feedbackEditActivity.f56731b;
-                    str3 = feedbackEditActivity.f56736g;
+                    editor2 = feedbackEditActivity.f56730b;
+                    str3 = feedbackEditActivity.f56735g;
                     editor2.putString(str3, "");
                 }
-                editor = feedbackEditActivity.f56731b;
+                editor = feedbackEditActivity.f56730b;
                 editor.commit();
                 view2 = feedbackEditActivity.u;
                 view2.setVisibility(8);

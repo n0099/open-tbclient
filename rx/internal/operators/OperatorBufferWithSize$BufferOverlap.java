@@ -17,7 +17,7 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super List<T>> f72624i;
+    public final j<? super List<T>> f72623i;
     public final int j;
     public final int k;
     public final ArrayDeque<List<T>> l;
@@ -53,7 +53,7 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f72624i) || j == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f72623i) || j == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {

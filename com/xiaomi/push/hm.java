@@ -14,19 +14,19 @@ public final class hm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hm f71112a;
+    public static final hm f71111a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hm[] f501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f71113b;
+    public static final hm f71112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f71114c;
+    public static final hm f71113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f71115d;
+    public static final hm f71114d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -45,12 +45,12 @@ public final class hm {
                 return;
             }
         }
-        f71112a = new hm("INT", 0, 1);
-        f71113b = new hm("LONG", 1, 2);
-        f71114c = new hm("STRING", 2, 3);
+        f71111a = new hm("INT", 0, 1);
+        f71112b = new hm("LONG", 1, 2);
+        f71113c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f71115d = hmVar;
-        f501a = new hm[]{f71112a, f71113b, f71114c, hmVar};
+        f71114d = hmVar;
+        f501a = new hm[]{f71111a, f71112b, f71113c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -84,13 +84,13 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f71115d;
+                        return f71114d;
                     }
-                    return f71114c;
+                    return f71113c;
                 }
-                return f71113b;
+                return f71112b;
             }
-            return f71112a;
+            return f71111a;
         }
         return (hm) invokeI.objValue;
     }

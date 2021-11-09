@@ -25,31 +25,31 @@ public class d extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f68458a;
+    public TextView f68457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f68459b;
+    public TextView f68458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f68460c;
+    public TextView f68459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f68461d;
+    public c f68460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f68462e;
+    public boolean f68461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f68463f;
+    public Activity f68462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68464g;
+    public String f68463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f68465h;
+    public String f68464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68466i;
+    public String f68465i;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -57,22 +57,22 @@ public class d extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f68469a;
+        public Activity f68468a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f68470b;
+        public String f68469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68471c;
+        public String f68470c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68472d;
+        public String f68471d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f68473e;
+        public boolean f68472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c f68474f;
+        public c f68473f;
 
         public a(Activity activity) {
             Interceptable interceptable = $ic;
@@ -89,14 +89,14 @@ public class d extends Dialog {
                     return;
                 }
             }
-            this.f68469a = activity;
+            this.f68468a = activity;
         }
 
         public a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f68470b = str;
+                this.f68469b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -106,7 +106,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f68471c = str;
+                this.f68470c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +116,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f68472d = str;
+                this.f68471d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -126,7 +126,7 @@ public class d extends Dialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f68473e = z;
+                this.f68472e = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -136,7 +136,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                this.f68474f = cVar;
+                this.f68473f = cVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -145,7 +145,7 @@ public class d extends Dialog {
         public d a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.f68469a, this.f68470b, this.f68471c, this.f68472d, this.f68473e, this.f68474f) : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.f68468a, this.f68469b, this.f68470c, this.f68471d, this.f68472e, this.f68473f) : (d) invokeV.objValue;
         }
     }
 
@@ -168,11 +168,11 @@ public class d extends Dialog {
                 return;
             }
         }
-        this.f68463f = activity;
-        this.f68461d = cVar;
-        this.f68464g = str;
-        this.f68465h = str2;
-        this.f68466i = str3;
+        this.f68462f = activity;
+        this.f68460d = cVar;
+        this.f68463g = str;
+        this.f68464h = str2;
+        this.f68465i = str3;
         setCanceledOnTouchOutside(z);
         d();
     }
@@ -180,20 +180,53 @@ public class d extends Dialog {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(LayoutInflater.from(this.f68463f.getApplicationContext()).inflate(a(), (ViewGroup) null));
-            this.f68458a = (TextView) findViewById(b());
-            this.f68459b = (TextView) findViewById(c());
-            this.f68460c = (TextView) findViewById(R.id.message_tv);
-            if (!TextUtils.isEmpty(this.f68465h)) {
-                this.f68458a.setText(this.f68465h);
+            setContentView(LayoutInflater.from(this.f68462f.getApplicationContext()).inflate(a(), (ViewGroup) null));
+            this.f68457a = (TextView) findViewById(b());
+            this.f68458b = (TextView) findViewById(c());
+            this.f68459c = (TextView) findViewById(R.id.message_tv);
+            if (!TextUtils.isEmpty(this.f68464h)) {
+                this.f68457a.setText(this.f68464h);
             }
-            if (!TextUtils.isEmpty(this.f68466i)) {
-                this.f68459b.setText(this.f68466i);
+            if (!TextUtils.isEmpty(this.f68465i)) {
+                this.f68458b.setText(this.f68465i);
             }
-            if (!TextUtils.isEmpty(this.f68464g)) {
-                this.f68460c.setText(this.f68464g);
+            if (!TextUtils.isEmpty(this.f68463g)) {
+                this.f68459c.setText(this.f68463g);
             }
-            this.f68458a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.1
+            this.f68457a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f68466a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f68466a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f68466a.e();
+                    }
+                }
+            });
+            this.f68458b.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,40 +255,7 @@ public class d extends Dialog {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f68467a.e();
-                    }
-                }
-            });
-            this.f68459b.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68468a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f68468a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f68468a.f();
+                        this.f68467a.f();
                     }
                 }
             });
@@ -266,7 +266,7 @@ public class d extends Dialog {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f68462e = true;
+            this.f68461e = true;
             dismiss();
         }
     }
@@ -290,13 +290,13 @@ public class d extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.dismiss();
-            if (!this.f68463f.isFinishing()) {
-                this.f68463f.finish();
+            if (!this.f68462f.isFinishing()) {
+                this.f68462f.finish();
             }
-            if (this.f68462e) {
-                this.f68461d.a();
+            if (this.f68461e) {
+                this.f68460d.a();
             } else {
-                this.f68461d.b();
+                this.f68460d.b();
             }
         }
     }

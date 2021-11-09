@@ -31,10 +31,10 @@ public class DownloadTaskDeleteActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f69052a;
+    public k f69051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f69053b;
+    public Intent f69052b;
 
     public DownloadTaskDeleteActivity() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     private void b() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f69052a == null && (intent = this.f69053b) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f69051a == null && (intent = this.f69052b) != null) {
             try {
                 boolean z = false;
                 int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
@@ -88,16 +88,16 @@ public class DownloadTaskDeleteActivity extends Activity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ boolean f69059a;
+                        public final /* synthetic */ boolean f69058a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f69060b;
+                        public final /* synthetic */ DownloadInfo f69059b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ int f69061c;
+                        public final /* synthetic */ int f69060c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ DownloadTaskDeleteActivity f69062d;
+                        public final /* synthetic */ DownloadTaskDeleteActivity f69061d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -114,27 +114,27 @@ public class DownloadTaskDeleteActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f69062d = this;
-                            this.f69059a = z;
-                            this.f69060b = downloadInfo;
-                            this.f69061c = intExtra;
+                            this.f69061d = this;
+                            this.f69058a = z;
+                            this.f69059b = downloadInfo;
+                            this.f69060c = intExtra;
                         }
 
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                                if (!this.f69059a) {
-                                    this.f69062d.a(this.f69060b, this.f69061c);
+                                if (!this.f69058a) {
+                                    this.f69061d.a(this.f69059b, this.f69060c);
                                 } else {
-                                    this.f69060b.setOnlyWifi(true);
-                                    Downloader.getInstance(this.f69062d).pause(this.f69060b.getId());
+                                    this.f69059b.setOnlyWifi(true);
+                                    Downloader.getInstance(this.f69061d).pause(this.f69059b.getId());
                                     new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass3 f69063a;
+                                        public final /* synthetic */ AnonymousClass3 f69062a;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -151,19 +151,19 @@ public class DownloadTaskDeleteActivity extends Activity {
                                                     return;
                                                 }
                                             }
-                                            this.f69063a = this;
+                                            this.f69062a = this;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                Downloader.getInstance(this.f69063a.f69062d).resume(this.f69063a.f69060b.getId());
+                                                Downloader.getInstance(this.f69062a.f69061d).resume(this.f69062a.f69059b.getId());
                                             }
                                         }
                                     }, 100L);
                                 }
-                                this.f69062d.finish();
+                                this.f69061d.finish();
                             }
                         }
                     }).b(a6, new DialogInterface.OnClickListener(this, z, downloadInfo, intExtra) { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.2
@@ -171,16 +171,16 @@ public class DownloadTaskDeleteActivity extends Activity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ boolean f69055a;
+                        public final /* synthetic */ boolean f69054a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f69056b;
+                        public final /* synthetic */ DownloadInfo f69055b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ int f69057c;
+                        public final /* synthetic */ int f69056c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ DownloadTaskDeleteActivity f69058d;
+                        public final /* synthetic */ DownloadTaskDeleteActivity f69057d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -197,20 +197,20 @@ public class DownloadTaskDeleteActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f69058d = this;
-                            this.f69055a = z;
-                            this.f69056b = downloadInfo;
-                            this.f69057c = intExtra;
+                            this.f69057d = this;
+                            this.f69054a = z;
+                            this.f69055b = downloadInfo;
+                            this.f69056c = intExtra;
                         }
 
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                                if (this.f69055a) {
-                                    this.f69058d.a(this.f69056b, this.f69057c);
+                                if (this.f69054a) {
+                                    this.f69057d.a(this.f69055b, this.f69056c);
                                 }
-                                this.f69058d.finish();
+                                this.f69057d.finish();
                             }
                         }
                     }).a(new DialogInterface.OnCancelListener(this) { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.1
@@ -218,7 +218,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ DownloadTaskDeleteActivity f69054a;
+                        public final /* synthetic */ DownloadTaskDeleteActivity f69053a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -235,18 +235,18 @@ public class DownloadTaskDeleteActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f69054a = this;
+                            this.f69053a = this;
                         }
 
                         @Override // android.content.DialogInterface.OnCancelListener
                         public void onCancel(DialogInterface dialogInterface) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                                this.f69054a.finish();
+                                this.f69053a.finish();
                             }
                         }
                     });
-                    this.f69052a = a3.a();
+                    this.f69051a = a3.a();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -277,12 +277,12 @@ public class DownloadTaskDeleteActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
-            this.f69053b = getIntent();
+            this.f69052b = getIntent();
             b();
-            k kVar = this.f69052a;
+            k kVar = this.f69051a;
             if (kVar != null && !kVar.b()) {
-                this.f69052a.a();
-            } else if (this.f69052a == null) {
+                this.f69051a.a();
+            } else if (this.f69051a == null) {
                 finish();
             }
         }

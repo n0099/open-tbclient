@@ -21,10 +21,10 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f61530a;
+        public long f61529a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f61531b;
+        public long f61530b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,8 +72,8 @@ public final class l {
                         randomAccessFile.skipBytes(2);
                         randomAccessFile.skipBytes(2);
                         a aVar = new a();
-                        aVar.f61531b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                        aVar.f61530a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.f61530b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.f61529a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         return aVar;
                     }
                     length--;
@@ -90,8 +90,8 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, aVar)) == null) {
             CRC32 crc32 = new CRC32();
-            long j = aVar.f61531b;
-            randomAccessFile.seek(aVar.f61530a);
+            long j = aVar.f61530b;
+            randomAccessFile.seek(aVar.f61529a);
             int min = (int) Math.min(16384L, j);
             byte[] bArr = new byte[16384];
             while (true) {

@@ -278,8 +278,8 @@ public class h extends b.a.e.a.d implements NoNetworkView.b {
             MessageFragmentPagerAdapter.a aVar = new MessageFragmentPagerAdapter.a();
             ChatAggregationFragment chatAggregationFragment = new ChatAggregationFragment();
             this.k = chatAggregationFragment;
-            aVar.f50806a = chatAggregationFragment;
-            aVar.f50807b = this.f21050e.getResources().getString(R.string.message_center_message_tab);
+            aVar.f50805a = chatAggregationFragment;
+            aVar.f50806b = this.f21050e.getResources().getString(R.string.message_center_message_tab);
             ArrayList arrayList = new ArrayList();
             this.f21054i = arrayList;
             arrayList.add(aVar);
@@ -300,7 +300,7 @@ public class h extends b.a.e.a.d implements NoNetworkView.b {
             return;
         }
         MessageFragmentPagerAdapter.a aVar = this.f21054i.get(bdBaseViewPager.getCurrentItem());
-        if (aVar == null || (fragment = aVar.f50806a) == null) {
+        if (aVar == null || (fragment = aVar.f50805a) == null) {
             return;
         }
         fragment.onActivityResult(i2, i3, intent);
@@ -363,7 +363,7 @@ public class h extends b.a.e.a.d implements NoNetworkView.b {
                 return;
             }
             MessageFragmentPagerAdapter.a aVar = this.f21054i.get(bdBaseViewPager.getCurrentItem());
-            if (aVar == null || (fragment = aVar.f50806a) == null || !(fragment instanceof BaseFragment)) {
+            if (aVar == null || (fragment = aVar.f50805a) == null || !(fragment instanceof BaseFragment)) {
                 return;
             }
             ((BaseFragment) fragment).setPrimary(z);
@@ -387,7 +387,7 @@ public class h extends b.a.e.a.d implements NoNetworkView.b {
             if (list != null && list.size() > 0) {
                 for (int i3 = 0; i3 < this.f21054i.size(); i3++) {
                     MessageFragmentPagerAdapter.a aVar = this.f21054i.get(i3);
-                    if (aVar != null && (fragment = aVar.f50806a) != null && (fragment instanceof BaseFragment)) {
+                    if (aVar != null && (fragment = aVar.f50805a) != null && (fragment instanceof BaseFragment)) {
                         ((BaseFragment) fragment).onChangeSkinType(i2);
                     }
                 }
@@ -412,7 +412,7 @@ public class h extends b.a.e.a.d implements NoNetworkView.b {
         }
         for (int i2 = 0; i2 < this.f21054i.size(); i2++) {
             MessageFragmentPagerAdapter.a aVar = this.f21054i.get(i2);
-            if (aVar != null && (fragment = aVar.f50806a) != null && (fragment instanceof NoNetworkView.b)) {
+            if (aVar != null && (fragment = aVar.f50805a) != null && (fragment instanceof NoNetworkView.b)) {
                 ((NoNetworkView.b) fragment).onNetworkChange(z);
             }
         }

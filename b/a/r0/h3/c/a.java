@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -65,7 +66,7 @@ public class a {
             }
             if (this.f17745a.h() == 2) {
                 d();
-                SpeedStatsManager.getInstance().addStatsTimeStamp(6001);
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY);
                 MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921636, ""));
             }

@@ -26,10 +26,10 @@ public class CSSParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaType f61729a;
+    public MediaType f61728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61730b;
+    public boolean f61729b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -173,7 +173,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f61731tv;
+        public static final MediaType f61730tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -199,7 +199,7 @@ public class CSSParser {
             screen = new MediaType("screen", 7);
             tty = new MediaType("tty", 8);
             MediaType mediaType = new MediaType("tv", 9);
-            f61731tv = mediaType;
+            f61730tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, tty, mediaType};
         }
 
@@ -240,7 +240,7 @@ public class CSSParser {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f61732a;
+        public static final /* synthetic */ int[] f61731a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -257,17 +257,17 @@ public class CSSParser {
                 }
             }
             int[] iArr = new int[AttribOp.values().length];
-            f61732a = iArr;
+            f61731a = iArr;
             try {
                 iArr[AttribOp.EQUALS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f61732a[AttribOp.INCLUDES.ordinal()] = 2;
+                f61731a[AttribOp.INCLUDES.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f61732a[AttribOp.DASHMATCH.ordinal()] = 3;
+                f61731a[AttribOp.DASHMATCH.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -279,13 +279,13 @@ public class CSSParser {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f61733a;
+        public String f61732a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AttribOp f61734b;
+        public AttribOp f61733b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61735c;
+        public String f61734c;
 
         public b(String str, AttribOp attribOp, String str2) {
             Interceptable interceptable = $ic;
@@ -302,11 +302,11 @@ public class CSSParser {
                     return;
                 }
             }
-            this.f61733a = null;
-            this.f61735c = null;
-            this.f61733a = str;
-            this.f61734b = attribOp;
-            this.f61735c = str2;
+            this.f61732a = null;
+            this.f61734c = null;
+            this.f61732a = str;
+            this.f61733b = attribOp;
+            this.f61734c = str2;
         }
     }
 
@@ -345,7 +345,7 @@ public class CSSParser {
             return true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:90:0x0160, code lost:
-            r10.f61818b = r0;
+            r10.f61817b = r0;
          */
         /* JADX WARN: Code restructure failed: missing block: B:91:0x0162, code lost:
             return false;
@@ -370,7 +370,7 @@ public class CSSParser {
             if (g()) {
                 return false;
             }
-            int i2 = this.f61818b;
+            int i2 = this.f61817b;
             if (!fVar.f()) {
                 if (e(Typography.greater)) {
                     combinator = Combinator.CHILD;
@@ -455,18 +455,18 @@ public class CSSParser {
                                     throw new SAXException("Invalid attribute selector in <style> element");
                                 }
                             } else if (e(':')) {
-                                int i3 = this.f61818b;
+                                int i3 = this.f61817b;
                                 if (y() != null) {
                                     if (e('(')) {
                                         w();
                                         if (y() != null) {
                                             w();
                                             if (!e(')')) {
-                                                this.f61818b = i3 - 1;
+                                                this.f61817b = i3 - 1;
                                             }
                                         }
                                     }
-                                    gVar.b(this.f61817a.substring(i3, this.f61818b));
+                                    gVar.b(this.f61816a.substring(i3, this.f61817b));
                                     fVar.b();
                                 }
                             }
@@ -491,10 +491,10 @@ public class CSSParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (g()) {
-                    return this.f61818b;
+                    return this.f61817b;
                 }
-                int i3 = this.f61818b;
-                int charAt = this.f61817a.charAt(i3);
+                int i3 = this.f61817b;
+                int charAt = this.f61816a.charAt(i3);
                 if (charAt == 45) {
                     charAt = a();
                 }
@@ -508,9 +508,9 @@ public class CSSParser {
                         }
                         a2 = a();
                     }
-                    i2 = this.f61818b;
+                    i2 = this.f61817b;
                 }
-                this.f61818b = i3;
+                this.f61817b = i3;
                 return i2;
             }
             return invokeV.intValue;
@@ -534,12 +534,12 @@ public class CSSParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 int B = B();
-                int i2 = this.f61818b;
+                int i2 = this.f61817b;
                 if (B == i2) {
                     return null;
                 }
-                String substring = this.f61817a.substring(i2, B);
-                this.f61818b = B;
+                String substring = this.f61816a.substring(i2, B);
+                this.f61817b = B;
                 return substring;
             }
             return (String) invokeV.objValue;
@@ -552,19 +552,19 @@ public class CSSParser {
                 if (g()) {
                     return null;
                 }
-                int i2 = this.f61818b;
-                int charAt = this.f61817a.charAt(i2);
+                int i2 = this.f61817b;
+                int charAt = this.f61816a.charAt(i2);
                 int i3 = i2;
                 while (charAt != -1 && charAt != 59 && charAt != 125 && charAt != 33 && !i(charAt)) {
                     if (!j(charAt)) {
-                        i3 = this.f61818b + 1;
+                        i3 = this.f61817b + 1;
                     }
                     charAt = a();
                 }
-                if (this.f61818b > i2) {
-                    return this.f61817a.substring(i2, i3);
+                if (this.f61817b > i2) {
+                    return this.f61816a.substring(i2, i3);
                 }
-                this.f61818b = i2;
+                this.f61817b = i2;
                 return null;
             }
             return (String) invokeV.objValue;
@@ -577,10 +577,10 @@ public class CSSParser {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public f f61736a;
+        public f f61735a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SVG.Style f61737b;
+        public SVG.Style f61736b;
 
         public d(f fVar, SVG.Style style) {
             Interceptable interceptable = $ic;
@@ -597,17 +597,17 @@ public class CSSParser {
                     return;
                 }
             }
-            this.f61736a = null;
-            this.f61737b = null;
-            this.f61736a = fVar;
-            this.f61737b = style;
+            this.f61735a = null;
+            this.f61736b = null;
+            this.f61735a = fVar;
+            this.f61736b = style;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f61736a + " {}";
+                return this.f61735a + " {}";
             }
             return (String) invokeV.objValue;
         }
@@ -619,7 +619,7 @@ public class CSSParser {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d> f61738a;
+        public List<d> f61737a;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -634,49 +634,49 @@ public class CSSParser {
                     return;
                 }
             }
-            this.f61738a = null;
+            this.f61737a = null;
         }
 
         public void a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                if (this.f61738a == null) {
-                    this.f61738a = new ArrayList();
+                if (this.f61737a == null) {
+                    this.f61737a = new ArrayList();
                 }
-                for (int i2 = 0; i2 < this.f61738a.size(); i2++) {
-                    if (this.f61738a.get(i2).f61736a.f61740b > dVar.f61736a.f61740b) {
-                        this.f61738a.add(i2, dVar);
+                for (int i2 = 0; i2 < this.f61737a.size(); i2++) {
+                    if (this.f61737a.get(i2).f61735a.f61739b > dVar.f61735a.f61739b) {
+                        this.f61737a.add(i2, dVar);
                         return;
                     }
                 }
-                this.f61738a.add(dVar);
+                this.f61737a.add(dVar);
             }
         }
 
         public void b(e eVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || eVar.f61738a == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || eVar.f61737a == null) {
                 return;
             }
-            if (this.f61738a == null) {
-                this.f61738a = new ArrayList(eVar.f61738a.size());
+            if (this.f61737a == null) {
+                this.f61737a = new ArrayList(eVar.f61737a.size());
             }
-            for (d dVar : eVar.f61738a) {
-                this.f61738a.add(dVar);
+            for (d dVar : eVar.f61737a) {
+                this.f61737a.add(dVar);
             }
         }
 
         public List<d> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61738a : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61737a : (List) invokeV.objValue;
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                List<d> list = this.f61738a;
+                List<d> list = this.f61737a;
                 return list == null || list.isEmpty();
             }
             return invokeV.booleanValue;
@@ -686,11 +686,11 @@ public class CSSParser {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f61738a == null) {
+                if (this.f61737a == null) {
                     return "";
                 }
                 StringBuilder sb = new StringBuilder();
-                for (d dVar : this.f61738a) {
+                for (d dVar : this.f61737a) {
                     sb.append(dVar.toString());
                     sb.append('\n');
                 }
@@ -706,10 +706,10 @@ public class CSSParser {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<g> f61739a;
+        public List<g> f61738a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61740b;
+        public int f61739b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -724,52 +724,52 @@ public class CSSParser {
                     return;
                 }
             }
-            this.f61739a = null;
-            this.f61740b = 0;
+            this.f61738a = null;
+            this.f61739b = 0;
         }
 
         public void a(g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                if (this.f61739a == null) {
-                    this.f61739a = new ArrayList();
+                if (this.f61738a == null) {
+                    this.f61738a = new ArrayList();
                 }
-                this.f61739a.add(gVar);
+                this.f61738a.add(gVar);
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f61740b += 100;
+                this.f61739b += 100;
             }
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f61740b++;
+                this.f61739b++;
             }
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f61740b += 10000;
+                this.f61739b += 10000;
             }
         }
 
         public g e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f61739a.get(i2) : (g) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f61738a.get(i2) : (g) invokeI.objValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                List<g> list = this.f61739a;
+                List<g> list = this.f61738a;
                 if (list == null) {
                     return true;
                 }
@@ -782,7 +782,7 @@ public class CSSParser {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                List<g> list = this.f61739a;
+                List<g> list = this.f61738a;
                 if (list == null) {
                     return 0;
                 }
@@ -796,12 +796,12 @@ public class CSSParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                for (g gVar : this.f61739a) {
+                for (g gVar : this.f61738a) {
                     sb.append(gVar);
                     sb.append(' ');
                 }
                 sb.append('(');
-                sb.append(this.f61740b);
+                sb.append(this.f61739b);
                 sb.append(')');
                 return sb.toString();
             }
@@ -815,16 +815,16 @@ public class CSSParser {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Combinator f61741a;
+        public Combinator f61740a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61742b;
+        public String f61741b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<b> f61743c;
+        public List<b> f61742c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f61744d;
+        public List<String> f61743d;
 
         public g(Combinator combinator, String str) {
             Interceptable interceptable = $ic;
@@ -841,31 +841,31 @@ public class CSSParser {
                     return;
                 }
             }
-            this.f61741a = null;
-            this.f61742b = null;
-            this.f61743c = null;
-            this.f61744d = null;
-            this.f61741a = combinator == null ? Combinator.DESCENDANT : combinator;
-            this.f61742b = str;
+            this.f61740a = null;
+            this.f61741b = null;
+            this.f61742c = null;
+            this.f61743d = null;
+            this.f61740a = combinator == null ? Combinator.DESCENDANT : combinator;
+            this.f61741b = str;
         }
 
         public void a(String str, AttribOp attribOp, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, attribOp, str2) == null) {
-                if (this.f61743c == null) {
-                    this.f61743c = new ArrayList();
+                if (this.f61742c == null) {
+                    this.f61742c = new ArrayList();
                 }
-                this.f61743c.add(new b(str, attribOp, str2));
+                this.f61742c.add(new b(str, attribOp, str2));
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f61744d == null) {
-                    this.f61744d = new ArrayList();
+                if (this.f61743d == null) {
+                    this.f61743d = new ArrayList();
                 }
-                this.f61744d.add(str);
+                this.f61743d.add(str);
             }
         }
 
@@ -874,37 +874,37 @@ public class CSSParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                Combinator combinator = this.f61741a;
+                Combinator combinator = this.f61740a;
                 if (combinator == Combinator.CHILD) {
                     sb.append("> ");
                 } else if (combinator == Combinator.FOLLOWS) {
                     sb.append("+ ");
                 }
-                String str = this.f61742b;
+                String str = this.f61741b;
                 if (str == null) {
                     str = "*";
                 }
                 sb.append(str);
-                List<b> list = this.f61743c;
+                List<b> list = this.f61742c;
                 if (list != null) {
                     for (b bVar : list) {
                         sb.append('[');
-                        sb.append(bVar.f61733a);
-                        int i2 = a.f61732a[bVar.f61734b.ordinal()];
+                        sb.append(bVar.f61732a);
+                        int i2 = a.f61731a[bVar.f61733b.ordinal()];
                         if (i2 == 1) {
                             sb.append(com.alipay.sdk.encrypt.a.f34124h);
-                            sb.append(bVar.f61735c);
+                            sb.append(bVar.f61734c);
                         } else if (i2 == 2) {
                             sb.append("~=");
-                            sb.append(bVar.f61735c);
+                            sb.append(bVar.f61734c);
                         } else if (i2 == 3) {
                             sb.append("|=");
-                            sb.append(bVar.f61735c);
+                            sb.append(bVar.f61734c);
                         }
                         sb.append(']');
                     }
                 }
-                List<String> list2 = this.f61744d;
+                List<String> list2 = this.f61743d;
                 if (list2 != null) {
                     for (String str2 : list2) {
                         sb.append(':');
@@ -932,9 +932,9 @@ public class CSSParser {
                 return;
             }
         }
-        this.f61729a = null;
-        this.f61730b = false;
-        this.f61729a = mediaType;
+        this.f61728a = null;
+        this.f61729b = false;
+        this.f61728a = mediaType;
     }
 
     public static int a(List<SVG.h0> list, int i2, SVG.j0 j0Var) {
@@ -945,7 +945,7 @@ public class CSSParser {
                 return -1;
             }
             SVG.h0 h0Var = list.get(i2);
-            SVG.h0 h0Var2 = j0Var.f61785b;
+            SVG.h0 h0Var2 = j0Var.f61784b;
             if (h0Var != h0Var2) {
                 return -1;
             }
@@ -1042,7 +1042,7 @@ public class CSSParser {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{fVar, Integer.valueOf(i2), list, Integer.valueOf(i3), j0Var})) == null) {
             g e2 = fVar.e(i2);
             if (o(e2, list, i3, j0Var)) {
-                Combinator combinator = e2.f61741a;
+                Combinator combinator = e2.f61740a;
                 if (combinator != Combinator.DESCENDANT) {
                     if (combinator == Combinator.CHILD) {
                         return n(fVar, i2 - 1, list, i3);
@@ -1051,7 +1051,7 @@ public class CSSParser {
                     if (a2 <= 0) {
                         return false;
                     }
-                    return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f61785b.getChildren().get(a2 - 1));
+                    return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f61784b.getChildren().get(a2 - 1));
                 } else if (i2 == 0) {
                     return true;
                 } else {
@@ -1074,7 +1074,7 @@ public class CSSParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, fVar, j0Var)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (SVG.h0 h0Var = j0Var.f61785b; h0Var != null; h0Var = ((SVG.l0) h0Var).f61785b) {
+            for (SVG.h0 h0Var = j0Var.f61784b; h0Var != null; h0Var = ((SVG.l0) h0Var).f61784b) {
                 arrayList.add(0, h0Var);
             }
             int size = arrayList.size() - 1;
@@ -1093,7 +1093,7 @@ public class CSSParser {
             g e2 = fVar.e(i2);
             SVG.j0 j0Var = (SVG.j0) list.get(i3);
             if (o(e2, list, i3, j0Var)) {
-                Combinator combinator = e2.f61741a;
+                Combinator combinator = e2.f61740a;
                 if (combinator != Combinator.DESCENDANT) {
                     if (combinator == Combinator.CHILD) {
                         return n(fVar, i2 - 1, list, i3 - 1);
@@ -1102,7 +1102,7 @@ public class CSSParser {
                     if (a2 <= 0) {
                         return false;
                     }
-                    return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f61785b.getChildren().get(a2 - 1));
+                    return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f61784b.getChildren().get(a2 - 1));
                 } else if (i2 == 0) {
                     return true;
                 } else {
@@ -1129,30 +1129,30 @@ public class CSSParser {
         List<String> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65545, null, gVar, list, i2, j0Var)) == null) {
-            String str = gVar.f61742b;
+            String str = gVar.f61741b;
             if (str != null) {
                 if (str.equalsIgnoreCase("G")) {
                     if (!(j0Var instanceof SVG.l)) {
                         return false;
                     }
-                } else if (!gVar.f61742b.equals(j0Var.getClass().getSimpleName().toLowerCase(Locale.US))) {
+                } else if (!gVar.f61741b.equals(j0Var.getClass().getSimpleName().toLowerCase(Locale.US))) {
                     return false;
                 }
             }
-            List<b> list3 = gVar.f61743c;
+            List<b> list3 = gVar.f61742c;
             if (list3 != null) {
                 for (b bVar : list3) {
-                    String str2 = bVar.f61733a;
+                    String str2 = bVar.f61732a;
                     if (str2 == "id") {
-                        if (!bVar.f61735c.equals(j0Var.f61779c)) {
+                        if (!bVar.f61734c.equals(j0Var.f61778c)) {
                             return false;
                         }
-                    } else if (str2 != DealIntentService.KEY_CLASS || (list2 = j0Var.f61783g) == null || !list2.contains(bVar.f61735c)) {
+                    } else if (str2 != DealIntentService.KEY_CLASS || (list2 = j0Var.f61782g) == null || !list2.contains(bVar.f61734c)) {
                         return false;
                     }
                 }
             }
-            List<String> list4 = gVar.f61744d;
+            List<String> list4 = gVar.f61743d;
             if (list4 != null) {
                 for (String str3 : list4) {
                     if (!str3.equals("first-child") || a(list, i2, j0Var) != 0) {
@@ -1192,14 +1192,14 @@ public class CSSParser {
             String y = cVar.y();
             cVar.w();
             if (y != null) {
-                if (!this.f61730b && y.equals(VodClient.PATH_MEDIA)) {
+                if (!this.f61729b && y.equals(VodClient.PATH_MEDIA)) {
                     List<MediaType> h2 = h(cVar);
                     if (cVar.e(ExtendedMessageFormat.START_FE)) {
                         cVar.w();
-                        if (c(h2, this.f61729a)) {
-                            this.f61730b = true;
+                        if (c(h2, this.f61728a)) {
+                            this.f61729b = true;
                             eVar.b(j(cVar));
-                            this.f61730b = false;
+                            this.f61729b = false;
                         } else {
                             j(cVar);
                         }

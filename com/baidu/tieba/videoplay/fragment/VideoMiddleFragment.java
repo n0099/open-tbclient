@@ -25,9 +25,44 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f55081a;
+        public final /* synthetic */ VideoMiddleFragment f55080a;
 
         public a(VideoMiddleFragment videoMiddleFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoMiddleFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55080a = videoMiddleFragment;
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
+        public void a(int i2, int i3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+                this.f55080a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements BdSwipeRefreshLayout.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoMiddleFragment f55081a;
+
+        public b(VideoMiddleFragment videoMiddleFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,41 +85,6 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
                 this.f55081a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements BdSwipeRefreshLayout.k {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f55082a;
-
-        public b(VideoMiddleFragment videoMiddleFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoMiddleFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55082a = videoMiddleFragment;
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
-        public void a(int i2, int i3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f55082a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }

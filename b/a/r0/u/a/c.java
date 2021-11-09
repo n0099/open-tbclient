@@ -320,7 +320,7 @@ public class c implements b.a.r0.u.a.h.b {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("sid", str);
                     hashMap.put("loadSize", Integer.valueOf(i2));
-                    b.a.r0.r.b.c().a(this.f23892a.e(), "onAdLoaded", hashMap);
+                    b.a.r0.r.b.c().a(this.f23892a.d(), "onAdLoaded", hashMap);
                 } else if (l.C()) {
                     c.l.a(str, i2);
                 } else {
@@ -336,7 +336,7 @@ public class c implements b.a.r0.u.a.h.b {
                 if (c.l == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("sid", str);
-                    b.a.r0.r.b.c().a(this.f23892a.e(), "onError", hashMap);
+                    b.a.r0.r.b.c().a(this.f23892a.d(), "onError", hashMap);
                 } else if (l.C()) {
                     c.l.onError(str);
                 } else {
@@ -429,7 +429,7 @@ public class c implements b.a.r0.u.a.h.b {
         }
     }
 
-    public static void o(int i2) {
+    public static void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
             if (b.a.q0.b.d.h()) {
@@ -455,26 +455,16 @@ public class c implements b.a.r0.u.a.h.b {
     }
 
     @Override // b.a.r0.u.a.h.b
-    public void b() {
-        b.a.q0.l.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f23887g) == null) {
-            return;
-        }
-        aVar.d();
-    }
-
-    @Override // b.a.r0.u.a.h.b
-    public AdLoadState c() {
+    public AdLoadState b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23886f : (AdLoadState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23886f : (AdLoadState) invokeV.objValue;
     }
 
     @Override // b.a.r0.u.a.h.b
-    public void d(b.a.q0.l.d dVar) {
+    public void c(b.a.q0.l.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             Context context = dVar.b().getContext();
             if (!(context instanceof Activity) || dVar.b() == null) {
                 return;
@@ -486,7 +476,7 @@ public class c implements b.a.r0.u.a.h.b {
                 return;
             }
             this.f23884d = (FrameLayout) viewGroup.findViewById(R.id.splash_fun_container);
-            l();
+            k();
             this.f23887g = dVar.a();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(context), (int) (l.i(this.f23882b.get().getContext()) * 0.8125d));
             layoutParams.addRule(14, -1);
@@ -494,7 +484,7 @@ public class c implements b.a.r0.u.a.h.b {
             boolean z = b.a.r0.u.a.h.b.f23940a;
             l = new b(this);
             if (k) {
-                n();
+                m();
                 k = false;
             } else {
                 String str = j;
@@ -510,6 +500,13 @@ public class c implements b.a.r0.u.a.h.b {
     }
 
     @Override // b.a.r0.u.a.h.b
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "bear" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.r0.u.a.h.b
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -518,16 +515,9 @@ public class c implements b.a.r0.u.a.h.b {
         }
     }
 
-    @Override // b.a.r0.u.a.h.b
-    public String e() {
-        InterceptResult invokeV;
+    public final void k() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "bear" : (String) invokeV.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f23883c != null && FunAdSplashClickRegionSwitch.isOpen()) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f23883c != null && FunAdSplashClickRegionSwitch.isOpen()) {
             ViewGroup viewGroup = (ViewGroup) this.f23883c.findViewById(R.id.splash_fun_click_region);
             this.f23885e = viewGroup;
             b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f23885e);
@@ -540,10 +530,10 @@ public class c implements b.a.r0.u.a.h.b {
         }
     }
 
-    public final void m() {
+    public final void l() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (weakReference = this.f23882b) == null || weakReference.get().getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = this.f23882b) == null || weakReference.get().getParent() == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.f23882b.get().getLayoutParams();
@@ -552,12 +542,12 @@ public class c implements b.a.r0.u.a.h.b {
         this.f23882b.get().setLayoutParams(layoutParams);
     }
 
-    public final void n() {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || l == null || b.a.r0.r.b.c().d(e()).isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || l == null || b.a.r0.r.b.c().d(d()).isEmpty()) {
             return;
         }
-        for (b.a aVar : b.a.r0.r.b.c().d(e())) {
+        for (b.a aVar : b.a.r0.r.b.c().d(d())) {
             String str = aVar.f22935a;
             char c2 = 65535;
             int hashCode = str.hashCode();
@@ -574,13 +564,13 @@ public class c implements b.a.r0.u.a.h.b {
                 l.onError((String) aVar.f22936b.get("sid"));
             }
         }
-        b.a.r0.r.b.c().b(e());
+        b.a.r0.r.b.c().b(d());
     }
 
-    public boolean p() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.f23883c != null && this.f23884d != null) {
                 if (this.f23888h == null) {
                     this.f23888h = new d(this);
@@ -607,14 +597,14 @@ public class c implements b.a.r0.u.a.h.b {
     @Override // b.a.r0.u.a.h.b
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f23882b != null && this.f23886f == AdLoadState.SUCCEED) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f23882b != null && this.f23886f == AdLoadState.SUCCEED) {
             b.a.q0.l.a aVar = this.f23887g;
             if (aVar != null) {
-                aVar.c();
+                aVar.d();
             }
-            m();
+            l();
             this.f23886f = AdLoadState.SHOWED;
-            p();
+            o();
         }
     }
 }

@@ -18,7 +18,7 @@ public class TTAppContextHolder {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f61575a;
+    public static volatile Context f61574a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -27,7 +27,7 @@ public class TTAppContextHolder {
         @SuppressLint({"StaticFieldLeak"})
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile Application f61576a;
+        public static volatile Application f61575a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public class TTAppContextHolder {
             }
             try {
                 Object b2 = b();
-                f61576a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
+                f61575a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
                 d.c("MyApplication", "application get success");
             } catch (Throwable th) {
                 d.b("MyApplication", "application get failed", th);
@@ -55,7 +55,7 @@ public class TTAppContextHolder {
         public static Application a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f61576a : (Application) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f61575a : (Application) invokeV.objValue;
         }
 
         public static Object b() {
@@ -93,10 +93,10 @@ public class TTAppContextHolder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61575a == null) {
+            if (f61574a == null) {
                 setContext(null);
             }
-            return f61575a;
+            return f61574a;
         }
         return (Context) invokeV.objValue;
     }
@@ -105,13 +105,13 @@ public class TTAppContextHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (TTAppContextHolder.class) {
-                if (f61575a == null) {
+                if (f61574a == null) {
                     if (context != null) {
-                        f61575a = context.getApplicationContext();
+                        f61574a = context.getApplicationContext();
                     } else if (a.a() != null) {
                         try {
-                            f61575a = a.a();
-                            if (f61575a != null) {
+                            f61574a = a.a();
+                            if (f61574a != null) {
                             }
                         } catch (Throwable unused) {
                         }

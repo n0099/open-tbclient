@@ -14,25 +14,25 @@ public class d extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64135a;
+    public int f64134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64136b;
+    public int f64135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64137c;
+    public int f64136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64138d;
+    public int f64137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64139e;
+    public int f64138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64140f;
+    public int f64139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64141g;
+    public int f64140g;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public class d extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return;
             }
         }
-        this.f64135a = 0;
-        this.f64136b = 0;
-        this.f64137c = 0;
-        this.f64138d = 0;
-        this.f64139e = 0;
-        this.f64140f = 0;
-        this.f64141g = 0;
+        this.f64134a = 0;
+        this.f64135b = 0;
+        this.f64136c = 0;
+        this.f64137d = 0;
+        this.f64138e = 0;
+        this.f64139f = 0;
+        this.f64140g = 0;
         if (context != null) {
             d(Settings.Secure.getInt(context.getContentResolver(), "adb_enabled", 0) > 0);
         }
@@ -70,42 +70,42 @@ public class d extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f64135a = g(z);
+            this.f64134a = g(z);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f64136b = g(z);
+            this.f64135b = g(z);
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f64137c = g(z);
+            this.f64136c = g(z);
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f64139e = g(z);
+            this.f64138e = g(z);
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f64140f = g(z);
+            this.f64139f = g(z);
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f64141g = g(z);
+            this.f64140g = g(z);
         }
     }
 }

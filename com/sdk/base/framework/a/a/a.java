@@ -20,10 +20,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68089a = "a";
+    public static final String f68088a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f68090b;
+    public static Boolean f68089b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f68090b = Boolean.valueOf(f.f68206b);
+        f68089b = Boolean.valueOf(f.f68205b);
     }
 
     public a() {
@@ -81,7 +81,7 @@ public class a {
                         String b3 = b(b2);
                         String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                         if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                            c.a(f68089a, "can use cache", f68090b);
+                            c.a(f68088a, "can use cache", f68089b);
                             JSONObject jSONObject = new JSONObject(a3);
                             if (i2 == 1) {
                                 jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
@@ -92,7 +92,7 @@ public class a {
                             sb.append(b3);
                             return sb.toString();
                         }
-                        c.a(f68089a, "OutDate cache invalid", f68090b);
+                        c.a(f68088a, "OutDate cache invalid", f68089b);
                     }
                 }
                 return null;
@@ -120,7 +120,7 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            c.a(f68089a, "cache clear", f68090b);
+            c.a(f68088a, "cache clear", f68089b);
             com.sdk.base.framework.f.b.a.d(context, YYInnerSSOLoginActivity.o);
         }
     }
@@ -144,7 +144,7 @@ public class a {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a(f68089a, "oauth cache clear", f68090b);
+            c.a(f68088a, "oauth cache clear", f68089b);
             com.sdk.base.framework.f.b.a.d(context, "accessCode1");
         }
     }

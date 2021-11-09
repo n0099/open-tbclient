@@ -26,19 +26,19 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f51997e;
+    public View f51996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f51998f;
+    public BdRecyclerView f51997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f51999g;
+    public TBSpecificationBtn f51998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52000h;
+    public TextView f51999h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f52001i;
+    public TextView f52000i;
     public a j;
     public FrameLayout k;
     public TBSpecificationBtn l;
@@ -74,40 +74,40 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.j.f(this.mSelectedInterest);
-            showLoadingView(this.f51997e);
+            showLoadingView(this.f51996e);
         }
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f52001i = (TextView) this.f51997e.findViewById(R.id.interested_desc);
-            TextView textView = (TextView) this.f51997e.findViewById(R.id.interested_title);
-            this.f52000h = textView;
+            this.f52000i = (TextView) this.f51996e.findViewById(R.id.interested_desc);
+            TextView textView = (TextView) this.f51996e.findViewById(R.id.interested_title);
+            this.f51999h = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            SkinManager.setViewTextColor(this.f52000h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f52001i, R.color.CAM_X0107);
-            this.f51998f = (BdRecyclerView) this.f51997e.findViewById(R.id.interested_forum_list_view);
-            this.k = (FrameLayout) this.f51997e.findViewById(R.id.bottom_select_layout);
+            SkinManager.setViewTextColor(this.f51999h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52000i, R.color.CAM_X0107);
+            this.f51997f = (BdRecyclerView) this.f51996e.findViewById(R.id.interested_forum_list_view);
+            this.k = (FrameLayout) this.f51996e.findViewById(R.id.bottom_select_layout);
             b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f51997e.findViewById(R.id.interest_forum_selected_btn);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f51996e.findViewById(R.id.interest_forum_selected_btn);
             this.l = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
             this.l.setConfig(aVar);
             this.l.setText(getResources().getString(R.string.try_to_select));
             this.l.setEnabled(false);
             this.l.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f51997e.findViewById(R.id.select_all_btn);
-            this.f51999g = tBSpecificationBtn2;
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f51996e.findViewById(R.id.select_all_btn);
+            this.f51998g = tBSpecificationBtn2;
             tBSpecificationBtn2.setText(getString(R.string.select_all));
-            this.j = new a(this, this.f51998f, this.l, this.f51999g, getPageContext(), new b(getUniqueId()), this.mScene);
+            this.j = new a(this, this.f51997f, this.l, this.f51998g, getPageContext(), new b(getUniqueId()), this.mScene);
         }
     }
 
     public final void initUIListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f51999g.setOnClickListener(this);
+            this.f51998g.setOnClickListener(this);
         }
     }
 
@@ -116,17 +116,17 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f51997e, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f51996e, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f52000h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f52001i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f51999h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52000i, R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f51999g) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f51998g) {
             this.j.j();
         }
     }
@@ -147,11 +147,11 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
             if (getArguments() != null) {
                 this.mScene = getArguments().getInt("scene");
             }
-            this.f51997e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
+            this.f51996e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
             initUI();
             initUIListener();
             initData();
-            return this.f51997e;
+            return this.f51996e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -160,7 +160,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onDataRes() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            hideLoadingView(this.f51997e);
+            hideLoadingView(this.f51996e);
         }
     }
 
@@ -168,8 +168,8 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            hideLoadingView(this.f51997e);
-            showNetRefreshView(this.f51997e, str, false);
+            hideLoadingView(this.f51996e);
+            showNetRefreshView(this.f51996e, str, false);
         }
     }
 
@@ -177,9 +177,9 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            hideNetRefreshView(this.f51997e);
+            hideNetRefreshView(this.f51996e);
             this.j.f(this.mSelectedInterest);
-            showLoadingView(this.f51997e);
+            showLoadingView(this.f51996e);
         }
     }
 }

@@ -225,7 +225,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         if ((interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
+            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY));
             hashMap.put("if_download", 0);
             hashMap.put("download_batchid", this.xD);
             ARPMessage.getInstance().sendMessage(1902, hashMap);
@@ -263,7 +263,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
+            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY));
             hashMap.put("if_download", 1);
             hashMap.put("download_batchid", this.xD);
             ARPMessage.getInstance().sendMessage(1902, hashMap);

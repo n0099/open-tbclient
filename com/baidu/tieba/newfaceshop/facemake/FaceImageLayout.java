@@ -16,7 +16,7 @@ public class FaceImageLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51861e;
+    public a f51860e;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class FaceImageLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            a aVar = this.f51861e;
+            a aVar = this.f51860e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -60,7 +60,7 @@ public class FaceImageLayout extends FrameLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f51861e = aVar;
+            this.f51860e = aVar;
         }
     }
 

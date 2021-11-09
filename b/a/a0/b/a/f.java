@@ -910,10 +910,10 @@ public abstract class f implements e {
                         b.a.a0.b.a.a aVar2 = this.m.get(b.a.a0.b.a.k.c.f1331b);
                         if (aVar2 != null) {
                             v(aVar2, null);
-                            GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                            GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                             GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
                             int e3 = this.f1305c.e(i2, aVar2);
-                            GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
+                            GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                             if (e3 != i2) {
                                 i2 = e3;
                             }

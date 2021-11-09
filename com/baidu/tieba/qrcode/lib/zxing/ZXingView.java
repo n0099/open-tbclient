@@ -22,7 +22,7 @@ public class ZXingView extends QRCodeView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public MultiFormatReader f53471g;
+    public MultiFormatReader f53470g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ZXingView(Context context, AttributeSet attributeSet) {
@@ -49,7 +49,7 @@ public class ZXingView extends QRCodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
-            this.f53471g = multiFormatReader;
+            this.f53470g = multiFormatReader;
             multiFormatReader.setHints(a.f25386a);
         }
     }
@@ -69,10 +69,10 @@ public class ZXingView extends QRCodeView {
                     } else {
                         planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, 0, 0, i2, i3, false);
                     }
-                    result = this.f53471g.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                    result = this.f53470g.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f53471g.reset();
+                    this.f53470g.reset();
                     result = null;
                 }
                 if (result != null) {
@@ -80,7 +80,7 @@ public class ZXingView extends QRCodeView {
                 }
                 return null;
             } finally {
-                this.f53471g.reset();
+                this.f53470g.reset();
             }
         }
         return (String) invokeCommon.objValue;

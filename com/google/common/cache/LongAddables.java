@@ -16,7 +16,7 @@ public final class LongAddables {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final r<g> f63222a;
+    public static final r<g> f63221a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -144,12 +144,12 @@ public final class LongAddables {
         } catch (Throwable unused) {
             bVar = new b();
         }
-        f63222a = bVar;
+        f63221a = bVar;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f63222a.get() : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f63221a.get() : (g) invokeV.objValue;
     }
 }

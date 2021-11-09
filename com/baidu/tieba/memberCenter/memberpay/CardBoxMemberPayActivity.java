@@ -57,7 +57,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f51552a;
+        public final /* synthetic */ CardBoxMemberPayActivity f51551a;
 
         public a(CardBoxMemberPayActivity cardBoxMemberPayActivity) {
             Interceptable interceptable = $ic;
@@ -74,15 +74,15 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f51552a = cardBoxMemberPayActivity;
+            this.f51551a = cardBoxMemberPayActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f51552a.mAnimateRunning = false;
-                this.f51552a.finish();
+                this.f51551a.mAnimateRunning = false;
+                this.f51551a.finish();
             }
         }
 
@@ -107,10 +107,65 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f51553a;
+        public final /* synthetic */ CardBoxMemberPayActivity f51552a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51552a = cardBoxMemberPayActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.f51552a.closeLoadingDialog();
+                if (httpResponsedMessage instanceof ResponseCardBoxMemberPayMessage) {
+                    ResponseCardBoxMemberPayMessage responseCardBoxMemberPayMessage = (ResponseCardBoxMemberPayMessage) httpResponsedMessage;
+                    if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
+                        if (responseCardBoxMemberPayMessage.getMemberPayResult() != null) {
+                            this.f51552a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
+                            return;
+                        }
+                        this.f51552a.showToast(R.string.neterror);
+                        return;
+                    }
+                    String errorString = responseCardBoxMemberPayMessage.getErrorString();
+                    if (StringUtils.isNull(errorString)) {
+                        errorString = this.f51552a.getResources().getString(R.string.neterror);
+                    }
+                    this.f51552a.showToast(errorString);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CardBoxMemberPayActivity f51553a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -132,67 +187,12 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f51553a.closeLoadingDialog();
-                if (httpResponsedMessage instanceof ResponseCardBoxMemberPayMessage) {
-                    ResponseCardBoxMemberPayMessage responseCardBoxMemberPayMessage = (ResponseCardBoxMemberPayMessage) httpResponsedMessage;
-                    if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                        if (responseCardBoxMemberPayMessage.getMemberPayResult() != null) {
-                            this.f51553a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
-                            return;
-                        }
-                        this.f51553a.showToast(R.string.neterror);
-                        return;
-                    }
-                    String errorString = responseCardBoxMemberPayMessage.getErrorString();
-                    if (StringUtils.isNull(errorString)) {
-                        errorString = this.f51553a.getResources().getString(R.string.neterror);
-                    }
-                    this.f51553a.showToast(errorString);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f51554a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f51554a = cardBoxMemberPayActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.hasError()) {
                 return;
             }
-            this.f51554a.finish();
+            this.f51553a.finish();
         }
     }
 

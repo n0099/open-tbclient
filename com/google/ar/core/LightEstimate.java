@@ -15,10 +15,10 @@ public class LightEstimate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Session f63100a;
+    public final Session f63099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63101b;
+    public long f63100b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -116,9 +116,9 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f63101b = 0L;
-        this.f63100a = session;
-        this.f63101b = nativeCreateLightEstimate(session.f63103a);
+        this.f63100b = 0L;
+        this.f63099a = session;
+        this.f63100b = nativeCreateLightEstimate(session.f63102a);
     }
 
     public static native long nativeCreateLightEstimate(long j);
@@ -134,7 +134,7 @@ public class LightEstimate {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f63101b;
+            long j = this.f63100b;
             if (j != 0) {
                 nativeDestroyLightEstimate(j);
             }
@@ -155,7 +155,7 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f63101b = 0L;
-        this.f63101b = 0L;
+        this.f63100b = 0L;
+        this.f63100b = 0L;
     }
 }

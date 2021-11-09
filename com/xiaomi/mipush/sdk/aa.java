@@ -12,7 +12,7 @@ public class aa implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C2028a f70582a;
+    public final /* synthetic */ MiTinyDataClient.a.C2028a f70581a;
 
     public aa(MiTinyDataClient.a.C2028a c2028a) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.f70582a = c2028a;
+        this.f70581a = c2028a;
     }
 
     @Override // java.lang.Runnable
@@ -38,15 +38,15 @@ public class aa implements Runnable {
         ScheduledFuture scheduledFuture2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f70582a.f59a.size() != 0) {
-                this.f70582a.b();
+            if (this.f70581a.f59a.size() != 0) {
+                this.f70581a.b();
                 return;
             }
-            scheduledFuture = this.f70582a.f60a;
+            scheduledFuture = this.f70581a.f60a;
             if (scheduledFuture != null) {
-                scheduledFuture2 = this.f70582a.f60a;
+                scheduledFuture2 = this.f70581a.f60a;
                 scheduledFuture2.cancel(false);
-                this.f70582a.f60a = null;
+                this.f70581a.f60a = null;
             }
         }
     }

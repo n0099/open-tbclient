@@ -57,8 +57,8 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDismissGroupMessage) && socketResponsedMessage.getError() == 0) {
                 String valueOf = String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId());
                 MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
-                aVar.f50491a = 1;
-                aVar.f50492b = valueOf;
+                aVar.f50490a = 1;
+                aVar.f50491b = valueOf;
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
             }
         }
@@ -151,8 +151,8 @@ public class Static {
                 for (String str : split) {
                     if (id.equals(str)) {
                         MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
-                        aVar.f50491a = 1;
-                        aVar.f50492b = responseRemoveMembersMessage.getGroupId();
+                        aVar.f50490a = 1;
+                        aVar.f50491b = responseRemoveMembersMessage.getGroupId();
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
                         return;
                     }

@@ -61,7 +61,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f71752e;
+        public final /* synthetic */ a f71751e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                     return;
                 }
             }
-            this.f71752e = aVar;
+            this.f71751e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -94,20 +94,20 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                                 if (Thread.interrupted()) {
                                     break;
                                 }
-                                ByteBuffer take = this.f71752e.engine.f71747e.take();
-                                this.f71752e.ostream.write(take.array(), 0, take.limit());
-                                this.f71752e.ostream.flush();
+                                ByteBuffer take = this.f71751e.engine.f71746e.take();
+                                this.f71751e.ostream.write(take.array(), 0, take.limit());
+                                this.f71751e.ostream.flush();
                             } catch (IOException e2) {
-                                this.f71752e.handleIOException(e2);
+                                this.f71751e.handleIOException(e2);
                             }
                         } finally {
-                            this.f71752e.closeSocket();
-                            this.f71752e.writeThread = null;
+                            this.f71751e.closeSocket();
+                            this.f71751e.writeThread = null;
                         }
                     } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.f71752e.engine.f71747e) {
-                            this.f71752e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.f71752e.ostream.flush();
+                        for (ByteBuffer byteBuffer : this.f71751e.engine.f71746e) {
+                            this.f71751e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
+                            this.f71751e.ostream.flush();
                         }
                     }
                 }

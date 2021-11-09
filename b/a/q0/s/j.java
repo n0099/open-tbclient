@@ -91,7 +91,7 @@ public class j implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
+            if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && !activity.getClass().getSimpleName().equals("NewLogoActivity")) {
                 b.a.q0.a.e.y().B(activity);
             }
             a(activity);

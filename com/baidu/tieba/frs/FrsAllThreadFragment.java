@@ -31,13 +31,13 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48188e;
+    public View f48187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f48189f;
+    public RecyclerView f48188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48190g;
+    public String f48189g;
 
     public FrsAllThreadFragment() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f48190g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f48189g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -82,9 +82,9 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void g() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f48188e) != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f48188e.getParent()).removeView(this.f48188e);
-            this.f48188e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f48187e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f48187e.getParent()).removeView(this.f48187e);
+            this.f48187e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -107,10 +107,10 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f48190g = arguments.getString("forum_id", "");
+                this.f48189g = arguments.getString("forum_id", "");
             }
             g();
-            return this.f48188e;
+            return this.f48187e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -131,7 +131,7 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public void scrollToTop() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f48189f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f48188f) == null) {
             return;
         }
         recyclerView.scrollToPosition(0);
@@ -140,8 +140,8 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public void setView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f48188e = view;
-            this.f48189f = (RecyclerView) view.findViewById(e1.frs_lv_thread);
+            this.f48187e = view;
+            this.f48188f = (RecyclerView) view.findViewById(e1.frs_lv_thread);
             g();
         }
     }

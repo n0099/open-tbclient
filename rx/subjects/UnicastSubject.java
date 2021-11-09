@@ -28,7 +28,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final State<T> f72725f;
+    public final State<T> f72724f;
 
     /* loaded from: classes3.dex */
     public static final class State<T> extends AtomicLong implements f, e<T>, d.a<T>, k {
@@ -333,7 +333,7 @@ public final class UnicastSubject<T> extends d<T, T> {
                 return;
             }
         }
-        this.f72725f = state;
+        this.f72724f = state;
     }
 
     public static <T> UnicastSubject<T> F(int i2, a aVar) {
@@ -346,7 +346,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72725f.onCompleted();
+            this.f72724f.onCompleted();
         }
     }
 
@@ -354,7 +354,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f72725f.onError(th);
+            this.f72724f.onError(th);
         }
     }
 
@@ -362,7 +362,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f72725f.onNext(t);
+            this.f72724f.onNext(t);
         }
     }
 }

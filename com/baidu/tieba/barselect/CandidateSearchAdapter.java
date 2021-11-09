@@ -20,7 +20,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f47262a;
+    public List<a> f47261a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
                 return;
             }
         }
-        this.f47262a = new ArrayList();
+        this.f47261a = new ArrayList();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47262a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47261a.size() : invokeV.intValue;
     }
 
     public void setData(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f47262a.clear();
-            this.f47262a.addAll(list);
+            this.f47261a.clear();
+            this.f47261a.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -58,10 +58,10 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f47262a)) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f47261a)) {
             return;
         }
-        candidateSearchItemHolder.bindData(this.f47262a.get(i2));
+        candidateSearchItemHolder.bindData(this.f47261a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

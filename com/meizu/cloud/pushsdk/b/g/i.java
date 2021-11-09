@@ -7,13 +7,13 @@ import java.io.InputStream;
 public final class i implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f67392a;
+    public final b f67391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f67393b;
+    public final m f67392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f67394c;
+    public boolean f67393c;
 
     public i(m mVar) {
         this(mVar, new b());
@@ -23,8 +23,8 @@ public final class i implements d {
         if (mVar == null) {
             throw new IllegalArgumentException("source == null");
         }
-        this.f67392a = bVar;
-        this.f67393b = mVar;
+        this.f67391a = bVar;
+        this.f67392b = mVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.m
@@ -32,14 +32,14 @@ public final class i implements d {
         if (bVar != null) {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
-            } else if (this.f67394c) {
+            } else if (this.f67393c) {
                 throw new IllegalStateException("closed");
             } else {
-                b bVar2 = this.f67392a;
-                if (bVar2.f67376b == 0 && this.f67393b.b(bVar2, 2048L) == -1) {
+                b bVar2 = this.f67391a;
+                if (bVar2.f67375b == 0 && this.f67392b.b(bVar2, 2048L) == -1) {
                     return -1L;
                 }
-                return this.f67392a.b(bVar, Math.min(j, this.f67392a.f67376b));
+                return this.f67391a.b(bVar, Math.min(j, this.f67391a.f67375b));
             }
         }
         throw new IllegalArgumentException("sink == null");
@@ -47,12 +47,12 @@ public final class i implements d {
 
     @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f67394c) {
+        if (this.f67393c) {
             return;
         }
-        this.f67394c = true;
-        this.f67393b.close();
-        this.f67392a.j();
+        this.f67393c = true;
+        this.f67392b.close();
+        this.f67391a.j();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
@@ -60,10 +60,10 @@ public final class i implements d {
         return new InputStream() { // from class: com.meizu.cloud.pushsdk.b.g.i.1
             @Override // java.io.InputStream
             public int available() throws IOException {
-                if (i.this.f67394c) {
+                if (i.this.f67393c) {
                     throw new IOException("closed");
                 }
-                return (int) Math.min(i.this.f67392a.f67376b, 2147483647L);
+                return (int) Math.min(i.this.f67391a.f67375b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -73,29 +73,29 @@ public final class i implements d {
 
             @Override // java.io.InputStream
             public int read() throws IOException {
-                if (i.this.f67394c) {
+                if (i.this.f67393c) {
                     throw new IOException("closed");
                 }
                 i iVar = i.this;
-                b bVar = iVar.f67392a;
-                if (bVar.f67376b == 0 && iVar.f67393b.b(bVar, 2048L) == -1) {
+                b bVar = iVar.f67391a;
+                if (bVar.f67375b == 0 && iVar.f67392b.b(bVar, 2048L) == -1) {
                     return -1;
                 }
-                return i.this.f67392a.f() & 255;
+                return i.this.f67391a.f() & 255;
             }
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i2, int i3) throws IOException {
-                if (i.this.f67394c) {
+                if (i.this.f67393c) {
                     throw new IOException("closed");
                 }
                 o.a(bArr.length, i2, i3);
                 i iVar = i.this;
-                b bVar = iVar.f67392a;
-                if (bVar.f67376b == 0 && iVar.f67393b.b(bVar, 2048L) == -1) {
+                b bVar = iVar.f67391a;
+                if (bVar.f67375b == 0 && iVar.f67392b.b(bVar, 2048L) == -1) {
                     return -1;
                 }
-                return i.this.f67392a.a(bArr, i2, i3);
+                return i.this.f67391a.a(bArr, i2, i3);
             }
 
             public String toString() {
@@ -106,17 +106,17 @@ public final class i implements d {
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public String h() throws IOException {
-        this.f67392a.a(this.f67393b);
-        return this.f67392a.h();
+        this.f67391a.a(this.f67392b);
+        return this.f67391a.h();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public byte[] i() throws IOException {
-        this.f67392a.a(this.f67393b);
-        return this.f67392a.i();
+        this.f67391a.a(this.f67392b);
+        return this.f67391a.i();
     }
 
     public String toString() {
-        return "buffer(" + this.f67393b + SmallTailInfo.EMOTION_SUFFIX;
+        return "buffer(" + this.f67392b + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

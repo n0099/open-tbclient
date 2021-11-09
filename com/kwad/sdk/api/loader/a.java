@@ -22,22 +22,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f63923a;
+        public int f63922a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63924b;
+        public String f63923b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f63925c;
+        public String f63924c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f63926d;
+        public long f63925d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f63927e;
+        public String f63926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient File f63928f;
+        public transient File f63927f;
 
         public C1887a() {
             Interceptable interceptable = $ic;
@@ -58,23 +58,23 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f63923a = jSONObject.optInt("dynamicType");
-            this.f63924b = jSONObject.optString("dynamicUrl");
-            this.f63925c = jSONObject.optString(PackageTable.MD5);
-            this.f63926d = jSONObject.optLong("interval");
-            this.f63927e = jSONObject.optString(CommandMessage.SDK_VERSION);
+            this.f63922a = jSONObject.optInt("dynamicType");
+            this.f63923b = jSONObject.optString("dynamicUrl");
+            this.f63924c = jSONObject.optString(PackageTable.MD5);
+            this.f63925d = jSONObject.optLong("interval");
+            this.f63926e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63923a == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63922a == 1 : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63923a == -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63922a == -1 : invokeV.booleanValue;
         }
     }
 
@@ -84,13 +84,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f63929a;
+        public long f63928a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63930b;
+        public String f63929b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C1887a f63931c;
+        public C1887a f63930c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -111,17 +111,17 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f63929a = jSONObject.optLong("result");
-            this.f63930b = jSONObject.optString("errorMsg");
+            this.f63928a = jSONObject.optLong("result");
+            this.f63929b = jSONObject.optString("errorMsg");
             C1887a c1887a = new C1887a();
-            this.f63931c = c1887a;
+            this.f63930c = c1887a;
             c1887a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63929a == 1 && this.f63931c != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63928a == 1 && this.f63930c != null : invokeV.booleanValue;
         }
     }
 }

@@ -43,17 +43,17 @@ public class b5 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f33262e.removeCallbacks(this);
-            int ordinal = this.f33262e.f70533i.ordinal();
+            int ordinal = this.f33262e.f70532i.ordinal();
             if (ordinal == 0) {
                 circleProgressbar = this.f33262e;
-                i2 = circleProgressbar.f70532h + 1;
+                i2 = circleProgressbar.f70531h + 1;
             } else {
                 if (ordinal == 1) {
                     circleProgressbar = this.f33262e;
-                    i2 = circleProgressbar.f70532h - 1;
+                    i2 = circleProgressbar.f70531h - 1;
                 }
                 CircleProgressbar circleProgressbar2 = this.f33262e;
-                i3 = circleProgressbar2.f70532h;
+                i3 = circleProgressbar2.f70531h;
                 if (i3 < 0 && i3 <= 100) {
                     d6 d6Var = circleProgressbar2.l;
                     if (d6Var != null) {
@@ -65,17 +65,17 @@ public class b5 implements Runnable {
                     return;
                 }
                 CircleProgressbar circleProgressbar4 = this.f33262e;
-                int i4 = circleProgressbar4.f70532h;
-                circleProgressbar4.f70532h = i4 <= 100 ? i4 < 0 ? 0 : i4 : 100;
+                int i4 = circleProgressbar4.f70531h;
+                circleProgressbar4.f70531h = i4 <= 100 ? i4 < 0 ? 0 : i4 : 100;
             }
-            circleProgressbar.f70532h = i2;
+            circleProgressbar.f70531h = i2;
             CircleProgressbar circleProgressbar22 = this.f33262e;
-            i3 = circleProgressbar22.f70532h;
+            i3 = circleProgressbar22.f70531h;
             if (i3 < 0) {
             }
             CircleProgressbar circleProgressbar42 = this.f33262e;
-            int i42 = circleProgressbar42.f70532h;
-            circleProgressbar42.f70532h = i42 <= 100 ? i42 < 0 ? 0 : i42 : 100;
+            int i42 = circleProgressbar42.f70531h;
+            circleProgressbar42.f70531h = i42 <= 100 ? i42 < 0 ? 0 : i42 : 100;
         }
     }
 }

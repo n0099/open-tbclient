@@ -1,6 +1,7 @@
 package b.a.p0.h.u;
 
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +69,7 @@ public class c {
                             break;
                         }
                         break;
-                    case 3304:
+                    case SpeedStatsStampTable.AD_SDK_DO_SHOW_STAMP_KEY /* 3304 */:
                         if (B.equals("go")) {
                             c2 = 3;
                             break;

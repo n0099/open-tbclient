@@ -15,14 +15,14 @@ public class e implements a.InterfaceC1983a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68714a;
+    public long f68713a;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f68718a;
+        public static e f68717a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class e implements a.InterfaceC1983a {
                     return;
                 }
             }
-            f68718a = new e();
+            f68717a = new e();
         }
     }
 
@@ -46,7 +46,7 @@ public class e implements a.InterfaceC1983a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f68714a = System.currentTimeMillis();
+            this.f68713a = System.currentTimeMillis();
         }
     }
 
@@ -70,14 +70,14 @@ public class e implements a.InterfaceC1983a {
                 return;
             }
         }
-        this.f68714a = 0L;
+        this.f68713a = 0L;
         com.ss.android.socialbase.downloader.a.a.a().a(this);
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f68718a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f68717a : (e) invokeV.objValue;
     }
 
     public void b(d dVar) {
@@ -99,13 +99,13 @@ public class e implements a.InterfaceC1983a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68715a;
+            public final /* synthetic */ long f68714a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f68716b;
+            public final /* synthetic */ d f68715b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f68717c;
+            public final /* synthetic */ e f68716c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -122,19 +122,19 @@ public class e implements a.InterfaceC1983a {
                         return;
                     }
                 }
-                this.f68717c = this;
-                this.f68715a = j;
-                this.f68716b = dVar;
+                this.f68716c = this;
+                this.f68714a = j;
+                this.f68715b = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f68717c.f68714a > this.f68715a) {
-                        this.f68716b.a(false);
+                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f68716c.f68713a > this.f68714a) {
+                        this.f68715b.a(false);
                     } else {
-                        this.f68716b.a(true);
+                        this.f68715b.a(true);
                     }
                 }
             }

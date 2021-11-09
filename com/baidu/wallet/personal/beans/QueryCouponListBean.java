@@ -22,13 +22,13 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CouponStatus f60622a;
+    public CouponStatus f60621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60623b;
+    public String f60622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60624c;
+    public String f60623c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -119,22 +119,22 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
                 return;
             }
         }
-        this.f60622a = CouponStatus.UNUSE;
-        this.f60623b = "0";
-        this.f60624c = "";
+        this.f60621a = CouponStatus.UNUSE;
+        this.f60622b = "0";
+        this.f60623c = "";
     }
 
     public void a(CouponStatus couponStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, couponStatus) == null) {
-            this.f60622a = couponStatus;
+            this.f60621a = couponStatus;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f60623b = str;
+            this.f60622b = str;
         }
     }
 
@@ -151,12 +151,12 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f60623b)) {
+            if (TextUtils.isEmpty(this.f60622b)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f60623b));
-            arrayList.add(new RestNameValuePair("filter_status_new", this.f60622a.getVal()));
+            arrayList.add(new RestNameValuePair("page_index", this.f60622b));
+            arrayList.add(new RestNameValuePair("filter_status_new", this.f60621a.getVal()));
             return arrayList;
         }
         return (List) invokeV.objValue;

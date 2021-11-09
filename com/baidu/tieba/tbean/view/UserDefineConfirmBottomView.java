@@ -24,19 +24,19 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54355e;
+    public Context f54354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f54356f;
+    public RelativeLayout f54355f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f54357g;
+    public LinearLayout f54356g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54358h;
+    public TextView f54357h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54359i;
+    public TextView f54358i;
     public TextView j;
     public View.OnClickListener k;
     public String l;
@@ -65,15 +65,15 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f54355e = context;
+            this.f54354e = context;
             LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
             setOrientation(1);
-            this.f54356f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-            this.f54357g = (LinearLayout) findViewById(R.id.big_tbean_root);
-            this.f54358h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-            this.f54359i = (TextView) findViewById(R.id.big_tbean_jump_tv);
+            this.f54355f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+            this.f54356g = (LinearLayout) findViewById(R.id.big_tbean_root);
+            this.f54357h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+            this.f54358i = (TextView) findViewById(R.id.big_tbean_jump_tv);
             this.j = (TextView) findViewById(R.id.user_define_confirm_tv);
-            this.f54356f.setOnClickListener(null);
+            this.f54355f.setOnClickListener(null);
         }
     }
 
@@ -81,22 +81,22 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                SkinManager.setBackgroundColor(this.f54357g, R.color.CAM_X0110);
+                SkinManager.setBackgroundColor(this.f54356g, R.color.CAM_X0110);
             } else {
-                SkinManager.setBackgroundColor(this.f54357g, R.color.common_color_10333);
+                SkinManager.setBackgroundColor(this.f54356g, R.color.common_color_10333);
             }
-            SkinManager.setViewTextColor(this.f54358h, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f54359i, R.color.CAM_X0106);
-            SkinManager.setBackgroundColor(this.f54356f, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f54357h, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f54358i, R.color.CAM_X0106);
+            SkinManager.setBackgroundColor(this.f54355f, R.color.CAM_X0201);
         }
     }
 
     public void setBigTbeanToastText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String format = String.format(this.f54355e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
+            String format = String.format(this.f54354e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
             this.l = format;
-            this.f54358h.setText(format);
+            this.f54357h.setText(format);
         }
     }
 
@@ -104,7 +104,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.k = onClickListener;
-            this.f54359i.setOnClickListener(onClickListener);
+            this.f54358i.setOnClickListener(onClickListener);
             this.j.setOnClickListener(this.k);
         }
     }
@@ -113,20 +113,20 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f54358h.setText(this.l);
-                this.f54358h.setGravity(3);
+                this.f54357h.setText(this.l);
+                this.f54357h.setGravity(3);
                 showBitTBeanToastView(true);
                 this.j.setEnabled(true);
-                this.f54357g.setVisibility(0);
-                this.f54359i.setVisibility(0);
+                this.f54356g.setVisibility(0);
+                this.f54358i.setVisibility(0);
                 return;
             }
-            this.f54358h.setText(R.string.user_define_max_money);
-            this.f54358h.setGravity(17);
+            this.f54357h.setText(R.string.user_define_max_money);
+            this.f54357h.setGravity(17);
             this.j.setEnabled(false);
             showBitTBeanToastView(false);
-            this.f54357g.setVisibility(0);
-            this.f54359i.setVisibility(8);
+            this.f54356g.setVisibility(0);
+            this.f54358i.setVisibility(8);
         }
     }
 
@@ -134,9 +134,9 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.f54357g.setVisibility(0);
+                this.f54356g.setVisibility(0);
             } else {
-                this.f54357g.setVisibility(4);
+                this.f54356g.setVisibility(4);
             }
         }
     }

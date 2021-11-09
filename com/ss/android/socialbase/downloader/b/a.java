@@ -16,11 +16,11 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f69082a;
+    public static volatile a f69081a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69083b;
+    public boolean f69082b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -39,21 +39,21 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f69083b = false;
+        this.f69082b = false;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f69082a == null) {
+            if (f69081a == null) {
                 synchronized (a.class) {
-                    if (f69082a == null) {
-                        f69082a = new a();
+                    if (f69081a == null) {
+                        f69081a = new a();
                     }
                 }
             }
-            return f69082a;
+            return f69081a;
         }
         return (a) invokeV.objValue;
     }
@@ -64,14 +64,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-            if (!this.f69083b && N != null) {
+            if (!this.f69082b && N != null) {
                 try {
                     File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                     if (!file.exists()) {
                         file.mkdir();
                     }
                     super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                    this.f69083b = true;
+                    this.f69082b = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

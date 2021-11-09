@@ -40,13 +40,13 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f62552a;
+    public long f62551a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62553b;
+    public int f62552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62554c;
+    public String f62553c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseBean(Context context) {
@@ -66,8 +66,8 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                 return;
             }
         }
-        this.f62552a = 0L;
-        this.f62553b = -1;
+        this.f62551a = 0L;
+        this.f62552b = -1;
     }
 
     private <T> T a(String str, Class<T> cls) {
@@ -88,7 +88,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
-            this.f62552a = System.currentTimeMillis();
+            this.f62551a = System.currentTimeMillis();
             super.execBean(cls, cls2);
         }
     }
@@ -96,7 +96,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public String getHttpRealContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62554c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62553c : (String) invokeV.objValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.NetworkBean, com.dxmpay.apollon.beans.ApollonBean
@@ -144,7 +144,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                             }
                         }
                         String realResponseErrContent = beanResponseBase.getRealResponseErrContent();
-                        this.f62554c = realResponseErrContent;
+                        this.f62553c = realResponseErrContent;
                         if (!TextUtils.isEmpty(realResponseErrContent) && cls2 != 0) {
                             EventBus eventBus = EventBus.getInstance();
                             eventBus.getClass();
@@ -159,7 +159,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                         AccountManager.getInstance(this.mContext).setBfbToken(token);
                     }
                     String str2 = "execBean. ret       . rsp class = " + cls;
-                    this.f62554c = beanResponseBase.getRealResponseContent();
+                    this.f62553c = beanResponseBase.getRealResponseContent();
                     try {
                         str = new JSONObject(restResponseEntity.a()).getString(beanResponseBase.getNameOfRealResponseContent());
                         if ((needVerifySignature() || beanResponseBase.needVerifySignature()) && !VerSig.verify(beanResponseBase.signature, str, beanResponseBase.mdAlgorithm)) {
@@ -175,14 +175,14 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                         str = "";
                     }
                     if (beanResponseBase.needDecryption() && !TextUtils.isEmpty(str)) {
-                        this.f62554c = SecurePay.getInstance().decryptProxy(str);
+                        this.f62553c = SecurePay.getInstance().decryptProxy(str);
                     }
                     if (cls != null) {
                         if (JsonUtils.DataType.isString(cls)) {
-                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, this.f62554c);
+                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, this.f62553c);
                             return;
                         }
-                        T a2 = a(this.f62554c, cls);
+                        T a2 = a(this.f62553c, cls);
                         String str3 = "execBean. ret ok. real response = " + a2;
                         if (a2 != null) {
                             IBeanResponse iBeanResponse = (IBeanResponse) a2;
@@ -240,7 +240,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
             Context context = this.mContext;
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();
-            if (this.f62553b == 1) {
+            if (this.f62552b == 1) {
                 ebpayHttpRequestInterceptor = new CometHttpRequestInterceptor();
             } else {
                 ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
@@ -260,7 +260,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65539, this, i2, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f62552a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f62551a;
             try {
                 URL url = new URL(getUrl());
                 ArrayList arrayList = new ArrayList();
@@ -300,8 +300,8 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                 return;
             }
         }
-        this.f62552a = 0L;
-        this.f62553b = -1;
-        this.f62553b = i2;
+        this.f62551a = 0L;
+        this.f62552b = -1;
+        this.f62552b = i2;
     }
 }

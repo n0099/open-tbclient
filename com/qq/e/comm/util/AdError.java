@@ -12,10 +12,10 @@ public class AdError {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68074a;
+    public int f68073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68075b;
+    public String f68074b;
 
     public AdError() {
         Interceptable interceptable = $ic;
@@ -46,19 +46,19 @@ public class AdError {
                 return;
             }
         }
-        this.f68074a = i2;
-        this.f68075b = str;
+        this.f68073a = i2;
+        this.f68074b = str;
     }
 
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68074a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68073a : invokeV.intValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68075b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68074b : (String) invokeV.objValue;
     }
 }

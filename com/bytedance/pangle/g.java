@@ -57,7 +57,7 @@ public interface g extends IInterface {
         public static g b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1845a.f61422a : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1845a.f61421a : (g) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -100,11 +100,11 @@ public interface g extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static g f61422a;
+            public static g f61421a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f61423b;
+            public IBinder f61422b;
 
             public C1845a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public interface g extends IInterface {
                         return;
                     }
                 }
-                this.f61423b = iBinder;
+                this.f61422b = iBinder;
             }
 
             @Override // com.bytedance.pangle.g
@@ -139,7 +139,7 @@ public interface g extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(iBinder);
-                        if (!this.f61423b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f61422b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(componentName, iBinder);
                         } else {
                             obtain2.readException();
@@ -155,7 +155,7 @@ public interface g extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61423b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61422b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.pangle.g
@@ -167,7 +167,7 @@ public interface g extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.ServiceConnection");
-                        if (!this.f61423b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f61422b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();

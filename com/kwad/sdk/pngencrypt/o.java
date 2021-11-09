@@ -16,28 +16,28 @@ public class o implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f65992a;
+    public final k f65991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f65993b;
+    public final boolean f65992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f65994c;
+    public final c f65993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f65995d;
+    public final a f65994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ah f65996e;
+    public final ah f65995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65997f;
+    public int f65996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ErrorBehaviour f65998g;
+    public ErrorBehaviour f65997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i<? extends Object> f65999h;
+    public i<? extends Object> f65998h;
 
     public o(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
@@ -54,30 +54,30 @@ public class o implements Closeable {
                 return;
             }
         }
-        this.f65997f = -1;
-        this.f65998g = ErrorBehaviour.STRICT;
+        this.f65996f = -1;
+        this.f65997g = ErrorBehaviour.STRICT;
         a aVar = new a(inputStream);
-        this.f65995d = aVar;
+        this.f65994d = aVar;
         aVar.a(z);
         c f2 = f();
-        this.f65994c = f2;
+        this.f65993c = f2;
         try {
-            if (this.f65995d.b(f2, 36) != 36) {
+            if (this.f65994d.b(f2, 36) != 36) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.f65992a = this.f65994c.j();
-            this.f65993b = this.f65994c.k() != null;
+            this.f65991a = this.f65993c.j();
+            this.f65992b = this.f65993c.k() != null;
             b(5024024L);
             a(901001001L);
             c(2024024L);
-            this.f65994c.c("fdAT");
-            this.f65994c.c("fcTL");
-            this.f65996e = new ah(this.f65994c.f65892i);
+            this.f65993c.c("fdAT");
+            this.f65993c.c("fcTL");
+            this.f65995e = new ah(this.f65993c.f65891i);
             a(m.a());
-            this.f65997f = -1;
+            this.f65996f = -1;
         } catch (RuntimeException e2) {
-            this.f65995d.close();
-            this.f65994c.close();
+            this.f65994d.close();
+            this.f65993c.close();
             throw e2;
         }
     }
@@ -88,11 +88,11 @@ public class o implements Closeable {
             return;
         }
         while (true) {
-            c cVar = this.f65994c;
-            if (cVar.f65891h >= 4) {
+            c cVar = this.f65993c;
+            if (cVar.f65890h >= 4) {
                 return;
             }
-            if (this.f65995d.a(cVar) <= 0) {
+            if (this.f65994d.a(cVar) <= 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Premature ending reading first chunks"));
             }
         }
@@ -101,14 +101,14 @@ public class o implements Closeable {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f65994c.a(j);
+            this.f65993c.a(j);
         }
     }
 
     public void a(i<? extends Object> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.f65999h = iVar;
+            this.f65998h = iVar;
         }
     }
 
@@ -116,10 +116,10 @@ public class o implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f65994c.g()) {
+            if (this.f65993c.g()) {
                 a();
             }
-            return this.f65996e;
+            return this.f65995e;
         }
         return (ah) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class o implements Closeable {
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f65994c.c(j);
+            this.f65993c.c(j);
         }
     }
 
@@ -135,9 +135,9 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             e();
-            this.f65994c.c("IDAT");
-            this.f65994c.c("fdAT");
-            if (this.f65994c.g()) {
+            this.f65993c.c("IDAT");
+            this.f65993c.c("fdAT");
+            if (this.f65993c.g()) {
                 a();
             }
             d();
@@ -147,7 +147,7 @@ public class o implements Closeable {
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f65994c.b(j);
+            this.f65993c.b(j);
         }
     }
 
@@ -156,13 +156,13 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                if (this.f65994c != null) {
-                    this.f65994c.close();
+                if (this.f65993c != null) {
+                    this.f65993c.close();
                 }
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.e("PNG_ENCRYPT", "error closing chunk sequence:" + e2.getMessage());
             }
-            a aVar = this.f65995d;
+            a aVar = this.f65994d;
             if (aVar != null) {
                 aVar.close();
             }
@@ -173,13 +173,13 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (this.f65994c.g()) {
+                if (this.f65993c.g()) {
                     a();
                 }
-                if (this.f65994c.h() != null && !this.f65994c.h().d()) {
-                    this.f65994c.h().g();
+                if (this.f65993c.h() != null && !this.f65993c.h().d()) {
+                    this.f65993c.h().g();
                 }
-                while (!this.f65994c.b() && this.f65995d.a(this.f65994c) > 0) {
+                while (!this.f65993c.b() && this.f65994d.a(this.f65993c) > 0) {
                 }
             } finally {
                 close();
@@ -190,7 +190,7 @@ public class o implements Closeable {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f65994c.a(false);
+            this.f65993c.a(false);
         }
     }
 
@@ -204,7 +204,7 @@ public class o implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f65992a.toString() + " interlaced=" + this.f65993b;
+            return this.f65991a.toString() + " interlaced=" + this.f65992b;
         }
         return (String) invokeV.objValue;
     }

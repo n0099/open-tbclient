@@ -13,7 +13,7 @@ public final class cq {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70769a;
+    public int f70768a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f201a;
@@ -34,7 +34,7 @@ public final class cq {
             }
         }
         this.f201a = str;
-        this.f70769a = i2;
+        this.f70768a = i2;
     }
 
     public static cq a(String str, int i2) {
@@ -72,7 +72,7 @@ public final class cq {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70769a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70768a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -86,8 +86,8 @@ public final class cq {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f70769a > 0) {
-                return this.f201a + ":" + this.f70769a;
+            if (this.f70768a > 0) {
+                return this.f201a + ":" + this.f70768a;
             }
             return this.f201a;
         }

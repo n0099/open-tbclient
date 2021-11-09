@@ -17,10 +17,10 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g<A, ? extends B> f63143f;
+    public final g<A, ? extends B> f63142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final g<B, C> f63144g;
+    public final g<B, C> f63143g;
 
     public Functions$FunctionComposition(g<B, C> gVar, g<A, ? extends B> gVar2) {
         Interceptable interceptable = $ic;
@@ -38,16 +38,16 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
             }
         }
         n.p(gVar);
-        this.f63144g = gVar;
+        this.f63143g = gVar;
         n.p(gVar2);
-        this.f63143f = gVar2;
+        this.f63142f = gVar2;
     }
 
     @Override // b.i.d.a.g
     public C apply(A a2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.f63144g.apply(this.f63143f.apply(a2)) : (C) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.f63143g.apply(this.f63142f.apply(a2)) : (C) invokeL.objValue;
     }
 
     @Override // b.i.d.a.g
@@ -57,7 +57,7 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof Functions$FunctionComposition) {
                 Functions$FunctionComposition functions$FunctionComposition = (Functions$FunctionComposition) obj;
-                return this.f63143f.equals(functions$FunctionComposition.f63143f) && this.f63144g.equals(functions$FunctionComposition.f63144g);
+                return this.f63142f.equals(functions$FunctionComposition.f63142f) && this.f63143g.equals(functions$FunctionComposition.f63143g);
             }
             return false;
         }
@@ -67,14 +67,14 @@ public class Functions$FunctionComposition<A, B, C> implements g<A, C>, Serializ
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63143f.hashCode() ^ this.f63144g.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63142f.hashCode() ^ this.f63143g.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f63144g + "(" + this.f63143f + SmallTailInfo.EMOTION_SUFFIX;
+            return this.f63143g + "(" + this.f63142f + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

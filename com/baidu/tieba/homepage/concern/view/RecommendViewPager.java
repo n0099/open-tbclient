@@ -18,10 +18,10 @@ public class RecommendViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49457e;
+    public float f49456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f49458f;
+    public float f49457f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendViewPager(@NonNull Context context) {
@@ -41,8 +41,8 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f49457e = 0.0f;
-        this.f49458f = 0.0f;
+        this.f49456e = 0.0f;
+        this.f49457f = 0.0f;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
@@ -62,10 +62,10 @@ public class RecommendViewPager extends ViewPager {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        float abs = Math.abs(motionEvent.getX() - this.f49457e);
-                        float abs2 = Math.abs(motionEvent.getY() - this.f49458f);
-                        this.f49457e = motionEvent.getX();
-                        this.f49458f = motionEvent.getY();
+                        float abs = Math.abs(motionEvent.getX() - this.f49456e);
+                        float abs2 = Math.abs(motionEvent.getY() - this.f49457f);
+                        this.f49456e = motionEvent.getX();
+                        this.f49457f = motionEvent.getY();
                         if (abs2 / abs < 1.0f && z) {
                             requestParentInterceptTouchEvent(true);
                         } else {
@@ -75,8 +75,8 @@ public class RecommendViewPager extends ViewPager {
                 }
                 requestParentInterceptTouchEvent(false);
             } else {
-                this.f49457e = motionEvent.getX();
-                this.f49458f = motionEvent.getY();
+                this.f49456e = motionEvent.getX();
+                this.f49457f = motionEvent.getY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -110,7 +110,7 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f49457e = 0.0f;
-        this.f49458f = 0.0f;
+        this.f49456e = 0.0f;
+        this.f49457f = 0.0f;
     }
 }

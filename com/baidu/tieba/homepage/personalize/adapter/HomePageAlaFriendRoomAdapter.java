@@ -68,7 +68,7 @@ public class HomePageAlaFriendRoomAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaFriendRoomAdapter f49678b;
+        public final /* synthetic */ HomePageAlaFriendRoomAdapter f49677b;
 
         public a(HomePageAlaFriendRoomAdapter homePageAlaFriendRoomAdapter) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class HomePageAlaFriendRoomAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f49678b = homePageAlaFriendRoomAdapter;
+            this.f49677b = homePageAlaFriendRoomAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:16:0x0058, code lost:
-            if (r5.getId() == r4.f49678b.o.P().getId()) goto L6;
+            if (r5.getId() == r4.f49677b.o.P().getId()) goto L6;
          */
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
-            if (r5.getId() == r4.f49678b.o.Q().getId()) goto L6;
+            if (r5.getId() == r4.f49677b.o.Q().getId()) goto L6;
          */
         @Override // b.a.r0.b0.c0
         /* renamed from: d */
@@ -104,24 +104,24 @@ public class HomePageAlaFriendRoomAdapter extends b.a.e.l.e.a<j, HomePageAlaLive
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
                 int i2 = 2;
-                if (this.f49678b.o.A == view) {
+                if (this.f49677b.o.A == view) {
                     i2 = 1;
-                } else if (view == this.f49678b.o.p.getCommentContainer()) {
-                    this.f49678b.i0(jVar, view);
+                } else if (view == this.f49677b.o.p.getCommentContainer()) {
+                    this.f49677b.i0(jVar, view);
                     i2 = 5;
                 } else {
-                    if (view == this.f49678b.o.q.getCommentContainer()) {
-                        this.f49678b.i0(jVar, view);
+                    if (view == this.f49677b.o.q.getCommentContainer()) {
+                        this.f49677b.i0(jVar, view);
                     } else {
-                        if (this.f49678b.o.P() != null) {
+                        if (this.f49677b.o.P() != null) {
                         }
-                        if (this.f49678b.o.Q() != null) {
+                        if (this.f49677b.o.Q() != null) {
                         }
                     }
                     i2 = 0;
                 }
                 if (i2 != 0) {
-                    b.a.r0.h1.h.m.a.c(jVar.f14748e, this.f49678b.m, jVar.q(), i2);
+                    b.a.r0.h1.h.m.a.c(jVar.f14748e, this.f49677b.m, jVar.q(), i2);
                 }
             }
         }

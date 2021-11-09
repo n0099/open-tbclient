@@ -47,8 +47,8 @@ public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda impleme
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int, java.lang.Integer] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [java.lang.Integer, int] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         InterceptResult invokeV;

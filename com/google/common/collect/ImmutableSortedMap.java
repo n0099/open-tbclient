@@ -75,7 +75,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f63381e;
+        public final /* synthetic */ Comparator f63380e;
 
         public a(Comparator comparator) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
                     return;
                 }
             }
-            this.f63381e = comparator;
+            this.f63380e = comparator;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,7 +101,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         public int compare(Map.Entry<K, V> entry, Map.Entry<K, V> entry2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) ? this.f63381e.compare(entry.getKey(), entry2.getKey()) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) ? this.f63380e.compare(entry.getKey(), entry2.getKey()) : invokeLL.intValue;
         }
     }
 
@@ -111,13 +111,13 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Object[] f63382e;
+        public transient Object[] f63381e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Object[] f63383f;
+        public transient Object[] f63382f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Comparator<? super K> f63384g;
+        public final Comparator<? super K> f63383g;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b(Comparator<? super K> comparator) {
@@ -143,11 +143,11 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         private void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-                Object[] objArr = this.f63382e;
+                Object[] objArr = this.f63381e;
                 if (i2 > objArr.length) {
                     int e2 = ImmutableCollection.b.e(objArr.length, i2);
-                    this.f63382e = Arrays.copyOf(this.f63382e, e2);
-                    this.f63383f = Arrays.copyOf(this.f63383f, e2);
+                    this.f63381e = Arrays.copyOf(this.f63381e, e2);
+                    this.f63382f = Arrays.copyOf(this.f63382f, e2);
                 }
             }
         }
@@ -187,25 +187,25 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i3 = this.f63348c;
+                int i3 = this.f63347c;
                 if (i3 != 0) {
                     if (i3 == 1) {
-                        return ImmutableSortedMap.of(this.f63384g, this.f63382e[0], this.f63383f[0]);
+                        return ImmutableSortedMap.of(this.f63383g, this.f63381e[0], this.f63382f[0]);
                     }
-                    Object[] copyOf = Arrays.copyOf(this.f63382e, i3);
-                    Arrays.sort(copyOf, this.f63384g);
-                    Object[] objArr = new Object[this.f63348c];
-                    for (int i4 = 0; i4 < this.f63348c; i4++) {
+                    Object[] copyOf = Arrays.copyOf(this.f63381e, i3);
+                    Arrays.sort(copyOf, this.f63383g);
+                    Object[] objArr = new Object[this.f63347c];
+                    for (int i4 = 0; i4 < this.f63347c; i4++) {
                         if (i4 > 0) {
-                            if (this.f63384g.compare(copyOf[i4 - 1], copyOf[i4]) == 0) {
+                            if (this.f63383g.compare(copyOf[i4 - 1], copyOf[i4]) == 0) {
                                 throw new IllegalArgumentException("keys required to be distinct but compared as equal: " + copyOf[i2] + " and " + copyOf[i4]);
                             }
                         }
-                        objArr[Arrays.binarySearch(copyOf, this.f63382e[i4], this.f63384g)] = this.f63383f[i4];
+                        objArr[Arrays.binarySearch(copyOf, this.f63381e[i4], this.f63383g)] = this.f63382f[i4];
                     }
-                    return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.asImmutableList(copyOf), this.f63384g), ImmutableList.asImmutableList(objArr));
+                    return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.asImmutableList(copyOf), this.f63383g), ImmutableList.asImmutableList(objArr));
                 }
-                return ImmutableSortedMap.emptyMap(this.f63384g);
+                return ImmutableSortedMap.emptyMap(this.f63383g);
             }
             return (ImmutableSortedMap) invokeV.objValue;
         }
@@ -214,13 +214,13 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, k, v)) == null) {
-                b(this.f63348c + 1);
+                b(this.f63347c + 1);
                 m.a(k, v);
-                Object[] objArr = this.f63382e;
-                int i2 = this.f63348c;
+                Object[] objArr = this.f63381e;
+                int i2 = this.f63347c;
                 objArr[i2] = k;
-                this.f63383f[i2] = v;
-                this.f63348c = i2 + 1;
+                this.f63382f[i2] = v;
+                this.f63347c = i2 + 1;
                 return this;
             }
             return (b) invokeLL.objValue;
@@ -272,9 +272,9 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
                 }
             }
             n.p(comparator);
-            this.f63384g = comparator;
-            this.f63382e = new Object[i2];
-            this.f63383f = new Object[i2];
+            this.f63383g = comparator;
+            this.f63381e = new Object[i2];
+            this.f63382f = new Object[i2];
         }
     }
 

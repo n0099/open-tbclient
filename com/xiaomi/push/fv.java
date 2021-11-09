@@ -10,7 +10,7 @@ public class fv implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fs f70974a;
+    public final /* synthetic */ fs f70973a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f420a;
@@ -30,7 +30,7 @@ public class fv implements Runnable {
                 return;
             }
         }
-        this.f70974a = fsVar;
+        this.f70973a = fsVar;
         this.f420a = str;
     }
 

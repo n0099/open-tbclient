@@ -26,31 +26,31 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f65502a;
+    public static final Charset f65501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f65503b;
+    public static final Charset f65502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f65504c;
+    public static final BigInteger f65503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f65505d;
+    public static final BigInteger f65504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f65506e;
+    public static final BigInteger f65505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f65507f;
+    public static final BigInteger f65506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f65508g;
+    public static final BigInteger f65507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f65509h;
+    public static final BigInteger f65508h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f65510i;
+    public static final char f65509i;
     public static final BigInteger j;
     public static final BigInteger k;
     public static final File[] l;
@@ -72,27 +72,27 @@ public class g {
                 return;
             }
         }
-        f65502a = Charset.forName("US-ASCII");
-        f65503b = Charset.forName("UTF-8");
+        f65501a = Charset.forName("US-ASCII");
+        f65502b = Charset.forName("UTF-8");
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f65504c = valueOf;
+        f65503c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f65505d = multiply;
-        BigInteger multiply2 = f65504c.multiply(multiply);
-        f65506e = multiply2;
-        BigInteger multiply3 = f65504c.multiply(multiply2);
-        f65507f = multiply3;
-        BigInteger multiply4 = f65504c.multiply(multiply3);
-        f65508g = multiply4;
-        f65509h = f65504c.multiply(multiply4);
+        f65504d = multiply;
+        BigInteger multiply2 = f65503c.multiply(multiply);
+        f65505e = multiply2;
+        BigInteger multiply3 = f65503c.multiply(multiply2);
+        f65506f = multiply3;
+        BigInteger multiply4 = f65503c.multiply(multiply3);
+        f65507g = multiply4;
+        f65508h = f65503c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
         j = multiply5;
-        k = f65504c.multiply(multiply5);
+        k = f65503c.multiply(multiply5);
         l = new File[0];
         m = Character.toString('.');
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f65510i = a() ? '/' : '\\';
+        f65509i = a() ? '/' : '\\';
     }
 
     public static FileInputStream a(File file) {

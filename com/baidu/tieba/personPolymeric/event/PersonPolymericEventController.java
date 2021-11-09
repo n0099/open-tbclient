@@ -59,7 +59,7 @@ public class PersonPolymericEventController extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f53184e;
+    public g f53183e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericEventController(TbPageContext tbPageContext, g gVar) {
@@ -79,7 +79,7 @@ public class PersonPolymericEventController extends a {
                 return;
             }
         }
-        this.f53184e = gVar;
+        this.f53183e = gVar;
     }
 
     @Override // b.a.r0.p2.f.a, b.a.r0.c4.e
@@ -112,7 +112,7 @@ public class PersonPolymericEventController extends a {
                     oVar.h(true);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(oVar);
-                    this.f53184e.o().r(oVar, arrayList, 0);
+                    this.f53183e.o().r(oVar, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -134,12 +134,12 @@ public class PersonPolymericEventController extends a {
                     this.f22331a.getPageActivity().finish();
                     return;
                 case 9:
-                    g gVar = this.f53184e;
+                    g gVar = this.f53183e;
                     if (gVar == null || gVar.m() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
-                    this.f53184e.m().e();
+                    this.f53183e.m().e();
                     return;
                 case 10:
                     if (userData != null) {
@@ -326,8 +326,8 @@ public class PersonPolymericEventController extends a {
                     oVar2.h(false);
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.add(oVar2);
-                    if (this.f53184e.o() != null) {
-                        this.f53184e.o().s(oVar2, arrayList2, 0, true);
+                    if (this.f53183e.o() != null) {
+                        this.f53183e.o().s(oVar2, arrayList2, 0, true);
                         return;
                     }
                     return;

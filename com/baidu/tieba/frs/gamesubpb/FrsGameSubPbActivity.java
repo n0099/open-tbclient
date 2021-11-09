@@ -42,10 +42,10 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48646a;
+        public boolean f48645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f48647b;
+        public final /* synthetic */ FrsGameSubPbActivity f48646b;
 
         public a(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -62,16 +62,16 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f48647b = frsGameSubPbActivity;
-            this.f48646a = false;
+            this.f48646b = frsGameSubPbActivity;
+            this.f48645a = false;
         }
 
         @Override // b.a.r0.x0.g2.c.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48647b.mSubPbView.P(false);
-                this.f48646a = true;
+                this.f48646b.mSubPbView.P(false);
+                this.f48645a = true;
             }
         }
 
@@ -87,10 +87,10 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (!this.f48646a) {
-                    return this.f48647b.mSubPbView.y() != null && this.f48647b.mSubPbView.y().getTop() == 0;
+                if (!this.f48645a) {
+                    return this.f48646b.mSubPbView.y() != null && this.f48646b.mSubPbView.y().getTop() == 0;
                 }
-                this.f48646a = false;
+                this.f48645a = false;
                 return false;
             }
             return invokeV.booleanValue;
@@ -103,7 +103,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f48648e;
+        public final /* synthetic */ FrsGameSubPbActivity f48647e;
 
         public b(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -120,16 +120,16 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f48648e = frsGameSubPbActivity;
+            this.f48647e = frsGameSubPbActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48648e.mSubPbModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48647e.mSubPbModel == null) {
                 return;
             }
-            this.f48648e.mSubPbModel.h(true);
+            this.f48647e.mSubPbModel.h(true);
         }
     }
 
@@ -139,7 +139,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f48649a;
+        public final /* synthetic */ FrsGameSubPbActivity f48648a;
 
         public c(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -156,39 +156,39 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f48649a = frsGameSubPbActivity;
+            this.f48648a = frsGameSubPbActivity;
         }
 
         @Override // b.a.r0.x0.g2.d.a.d
         public void a(boolean z, int i2, String str, boolean z2, boolean z3, b.a.r0.x0.g2.d.b bVar, List<n> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Boolean.valueOf(z3), bVar, list}) == null) {
-                if (this.f48649a.mHalfToFullScreenController != null && this.f48649a.mHalfToFullScreenController.h()) {
-                    this.f48649a.mHalfToFullScreenController.k(R.color.cp_bg_line_k_alpha10_1);
+                if (this.f48648a.mHalfToFullScreenController != null && this.f48648a.mHalfToFullScreenController.h()) {
+                    this.f48648a.mHalfToFullScreenController.k(R.color.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
-                    FrsGameSubPbActivity frsGameSubPbActivity = this.f48649a;
+                    FrsGameSubPbActivity frsGameSubPbActivity = this.f48648a;
                     frsGameSubPbActivity.hideNetRefreshView(frsGameSubPbActivity.mSubPbView.x());
-                    this.f48649a.mSubPbView.O(z2, bVar, list);
+                    this.f48648a.mSubPbView.O(z2, bVar, list);
                     if (ListUtils.isEmpty(list)) {
                         return;
                     }
                     n nVar = list.get(list.size() - 1);
                     if (nVar instanceof b.a.r0.x0.g2.d.d) {
-                        this.f48649a.mSubPbModel.m(((b.a.r0.x0.g2.d.d) nVar).f25786e);
+                        this.f48648a.mSubPbModel.m(((b.a.r0.x0.g2.d.d) nVar).f25786e);
                     }
                 } else if (z3) {
                 } else {
-                    FrsGameSubPbActivity frsGameSubPbActivity2 = this.f48649a;
+                    FrsGameSubPbActivity frsGameSubPbActivity2 = this.f48648a;
                     frsGameSubPbActivity2.setNetRefreshViewTopMargin(frsGameSubPbActivity2.getResources().getDimensionPixelSize(R.dimen.ds120));
-                    FrsGameSubPbActivity frsGameSubPbActivity3 = this.f48649a;
+                    FrsGameSubPbActivity frsGameSubPbActivity3 = this.f48648a;
                     View x = frsGameSubPbActivity3.mSubPbView.x();
                     if (TextUtils.isEmpty(str)) {
-                        str = this.f48649a.getPageContext().getString(R.string.refresh_view_title_text);
+                        str = this.f48648a.getPageContext().getString(R.string.refresh_view_title_text);
                     }
                     frsGameSubPbActivity3.showNetRefreshView(x, str, false);
-                    if (this.f48649a.mHalfToFullScreenController != null) {
-                        this.f48649a.mHalfToFullScreenController.i();
+                    if (this.f48648a.mHalfToFullScreenController != null) {
+                        this.f48648a.mHalfToFullScreenController.i();
                     }
                 }
             }
@@ -198,9 +198,9 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public void b(boolean z, int i2, String str, b.a.r0.x0.g2.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, dVar}) == null) {
-                this.f48649a.mSubPbView.z(z, str, dVar);
+                this.f48648a.mSubPbView.z(z, str, dVar);
                 if (z) {
-                    this.f48649a.isAddComment = true;
+                    this.f48648a.isAddComment = true;
                 }
             }
         }
@@ -209,9 +209,9 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public void c(boolean z, int i2, String str, b.a.r0.x0.g2.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, dVar}) == null) {
-                this.f48649a.mSubPbView.A(z, str, dVar);
+                this.f48648a.mSubPbView.A(z, str, dVar);
                 if (z) {
-                    this.f48649a.isDelComment = true;
+                    this.f48648a.isDelComment = true;
                 }
             }
         }
@@ -223,7 +223,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f48650e;
+        public final /* synthetic */ FrsGameSubPbActivity f48649e;
 
         public d(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -240,18 +240,18 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f48650e = frsGameSubPbActivity;
+            this.f48649e = frsGameSubPbActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!(view == null && this.f48650e.mSubPbView == null) && view == this.f48650e.mSubPbView.w() && this.f48650e.checkUpIsLogin()) {
-                    if (this.f48650e.mHalfToFullScreenController != null) {
-                        this.f48650e.mHalfToFullScreenController.i();
+                if (!(view == null && this.f48649e.mSubPbView == null) && view == this.f48649e.mSubPbView.w() && this.f48649e.checkUpIsLogin()) {
+                    if (this.f48649e.mHalfToFullScreenController != null) {
+                        this.f48649e.mHalfToFullScreenController.i();
                     }
-                    this.f48650e.mSubPbView.t(null);
+                    this.f48649e.mSubPbView.t(null);
                 }
             }
         }

@@ -66,7 +66,7 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicActivity f55474a;
+        public final /* synthetic */ CloudMusicActivity f55473a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CloudMusicActivity cloudMusicActivity, int i2) {
@@ -86,15 +86,15 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
                     return;
                 }
             }
-            this.f55474a = cloudMusicActivity;
+            this.f55473a = cloudMusicActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z() && this.f55474a.mICloudMusicPresenter != null) {
-                this.f55474a.mICloudMusicPresenter.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z() && this.f55473a.mICloudMusicPresenter != null) {
+                this.f55473a.mICloudMusicPresenter.a();
             }
         }
     }
@@ -105,7 +105,7 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicActivity f55475a;
+        public final /* synthetic */ CloudMusicActivity f55474a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CloudMusicActivity cloudMusicActivity, FragmentManager fragmentManager) {
@@ -125,7 +125,7 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
                     return;
                 }
             }
-            this.f55475a = cloudMusicActivity;
+            this.f55474a = cloudMusicActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -133,10 +133,10 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f55475a.mFragments)) {
+                if (ListUtils.isEmpty(this.f55474a.mFragments)) {
                     return 0;
                 }
-                return this.f55475a.mFragments.size();
+                return this.f55474a.mFragments.size();
             }
             return invokeV.intValue;
         }
@@ -146,11 +146,11 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f55475a.mFragments) || this.f55475a.mFragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.f55474a.mFragments) || this.f55474a.mFragments.size() <= i2) {
                     return null;
                 }
-                CloudMusicListFragment cloudMusicListFragment = (CloudMusicListFragment) this.f55475a.mFragments.get(i2);
-                new b.a.r0.c4.k.a(new CloudMusicListModel(this.f55475a.getPageContext()), cloudMusicListFragment);
+                CloudMusicListFragment cloudMusicListFragment = (CloudMusicListFragment) this.f55474a.mFragments.get(i2);
+                new b.a.r0.c4.k.a(new CloudMusicListModel(this.f55474a.getPageContext()), cloudMusicListFragment);
                 return cloudMusicListFragment;
             }
             return (Fragment) invokeI.objValue;
@@ -160,7 +160,7 @@ public class CloudMusicActivity extends SuspendedActivity implements b.a.q0.x0.a
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f55475a.mTitles) ? "" : (CharSequence) this.f55475a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f55474a.mTitles) ? "" : (CharSequence) this.f55474a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 

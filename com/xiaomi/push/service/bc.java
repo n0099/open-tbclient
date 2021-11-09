@@ -17,7 +17,7 @@ public class bc {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static bc f71454a;
+    public static bc f71453a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -49,10 +49,10 @@ public class bc {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f71454a == null) {
-                f71454a = new bc(context);
+            if (f71453a == null) {
+                f71453a = new bc(context);
             }
-            return f71454a;
+            return f71453a;
         }
         return (bc) invokeL.objValue;
     }

@@ -13,19 +13,19 @@ public final class ae implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f70252a;
+    public final /* synthetic */ int f70251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f70253b;
+    public final /* synthetic */ List f70252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f70254c;
+    public final /* synthetic */ List f70253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f70255d;
+    public final /* synthetic */ String f70254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f70256e;
+    public final /* synthetic */ ac f70255e;
 
     public ae(ac acVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class ae implements Runnable {
                 return;
             }
         }
-        this.f70256e = acVar;
-        this.f70252a = i2;
-        this.f70253b = list;
-        this.f70254c = list2;
-        this.f70255d = str;
+        this.f70255e = acVar;
+        this.f70251a = i2;
+        this.f70252b = list;
+        this.f70253c = list2;
+        this.f70254d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,10 +54,10 @@ public final class ae implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ac acVar = this.f70256e;
-            PushMessageCallback pushMessageCallback = ((ab) acVar).f70246b;
-            context = acVar.f70428a;
-            pushMessageCallback.onSetAlias(context, this.f70252a, this.f70253b, this.f70254c, this.f70255d);
+            ac acVar = this.f70255e;
+            PushMessageCallback pushMessageCallback = ((ab) acVar).f70245b;
+            context = acVar.f70427a;
+            pushMessageCallback.onSetAlias(context, this.f70251a, this.f70252b, this.f70253c, this.f70254d);
         }
     }
 }

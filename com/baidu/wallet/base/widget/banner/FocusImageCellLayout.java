@@ -18,7 +18,7 @@ public class FocusImageCellLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f57745a;
+    public NetImageView f57744a;
 
     /* loaded from: classes10.dex */
     public interface FocusImageEvent {
@@ -57,22 +57,22 @@ public class FocusImageCellLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             NetImageView netImageView = new NetImageView(context);
-            this.f57745a = netImageView;
+            this.f57744a = netImageView;
             netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            addView(this.f57745a, new RelativeLayout.LayoutParams(-1, -1));
+            addView(this.f57744a, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public NetImageView getFocusView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57745a : (NetImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57744a : (NetImageView) invokeV.objValue;
     }
 
     public void updateImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f57745a.setBackgroundResource(i2);
+            this.f57744a.setBackgroundResource(i2);
         }
     }
 
@@ -101,7 +101,7 @@ public class FocusImageCellLayout extends RelativeLayout {
     public void updateImage(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            this.f57745a.setImageDrawable(drawable);
+            this.f57744a.setImageDrawable(drawable);
         }
     }
 }

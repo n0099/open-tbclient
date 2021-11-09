@@ -58,16 +58,16 @@ public class AlaLiveSdkStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51275a;
+    public static boolean f51274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f51276b;
+    public static CustomMessageListener f51275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f51277c;
+    public static CustomMessageListener f51276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f51278d;
+    public static CustomMessageListener f51277d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -257,7 +257,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51278d);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51277d);
             }
         }
     }
@@ -424,10 +424,10 @@ public class AlaLiveSdkStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f51279a;
+            public final /* synthetic */ TbPageContext f51278a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f51280b;
+            public final /* synthetic */ String f51279b;
 
             public b(f fVar, TbPageContext tbPageContext, String str) {
                 Interceptable interceptable = $ic;
@@ -444,8 +444,8 @@ public class AlaLiveSdkStatic {
                         return;
                     }
                 }
-                this.f51279a = tbPageContext;
-                this.f51280b = str;
+                this.f51278a = tbPageContext;
+                this.f51279b = str;
             }
 
             @Override // b.a.r0.t1.k.a
@@ -468,7 +468,7 @@ public class AlaLiveSdkStatic {
                         if (!TextUtils.isEmpty(optString4)) {
                             jSONObject2.put("transitionId", optString4);
                         }
-                        AlaLiveSdkStatic.m(this.f51279a, optInt, optString, jSONObject2, this.f51280b);
+                        AlaLiveSdkStatic.m(this.f51278a, optInt, optString, jSONObject2, this.f51279b);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -925,7 +925,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51277c);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51276c);
             }
         }
     }
@@ -953,7 +953,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51276b);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f51275b);
             }
         }
     }
@@ -1063,9 +1063,9 @@ public class AlaLiveSdkStatic {
         A();
         w();
         x();
-        f51276b = new p(2921406);
-        f51277c = new q(2001115);
-        f51278d = new b(2007002);
+        f51275b = new p(2921406);
+        f51276c = new q(2001115);
+        f51277d = new b(2007002);
     }
 
     public AlaLiveSdkStatic() {
@@ -1123,11 +1123,11 @@ public class AlaLiveSdkStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             try {
-                if (f51275a) {
+                if (f51274a) {
                     return;
                 }
                 new b.a.r0.t1.j.b().b("0");
-                f51275a = true;
+                f51274a = true;
             } catch (Throwable th) {
                 BdLog.e(th);
             }

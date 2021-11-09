@@ -16,11 +16,11 @@ public final class a implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h.n.a f72161f;
+    public static final h.n.a f72160f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<h.n.a> f72162e;
+    public final AtomicReference<h.n.a> f72161e;
 
     /* renamed from: h.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -63,7 +63,7 @@ public final class a implements k {
                 return;
             }
         }
-        f72161f = new C2069a();
+        f72160f = new C2069a();
     }
 
     public a() {
@@ -79,7 +79,7 @@ public final class a implements k {
                 return;
             }
         }
-        this.f72162e = new AtomicReference<>();
+        this.f72161e = new AtomicReference<>();
     }
 
     public static a a() {
@@ -98,7 +98,7 @@ public final class a implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72162e.get() == f72161f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72161e.get() == f72160f : invokeV.booleanValue;
     }
 
     @Override // h.k
@@ -106,9 +106,9 @@ public final class a implements k {
         h.n.a andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h.n.a aVar = this.f72162e.get();
-            h.n.a aVar2 = f72161f;
-            if (aVar == aVar2 || (andSet = this.f72162e.getAndSet(aVar2)) == null || andSet == f72161f) {
+            h.n.a aVar = this.f72161e.get();
+            h.n.a aVar2 = f72160f;
+            if (aVar == aVar2 || (andSet = this.f72161e.getAndSet(aVar2)) == null || andSet == f72160f) {
                 return;
             }
             andSet.call();
@@ -130,6 +130,6 @@ public final class a implements k {
                 return;
             }
         }
-        this.f72162e = new AtomicReference<>(aVar);
+        this.f72161e = new AtomicReference<>(aVar);
     }
 }

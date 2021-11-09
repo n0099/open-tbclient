@@ -15,7 +15,7 @@ public class DressUpViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f51517a;
+    public e f51516a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressUpViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,16 +35,16 @@ public class DressUpViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51517a = new e(view, baseFragmentActivity);
+        this.f51516a = new e(view, baseFragmentActivity);
     }
 
     public void fillView(i iVar) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null || (eVar = this.f51517a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null || (eVar = this.f51516a) == null) {
             return;
         }
         eVar.a(iVar);
-        this.f51517a.c();
+        this.f51516a.c();
     }
 }

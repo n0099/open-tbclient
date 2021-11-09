@@ -63,7 +63,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailActivity f51726a;
+        public final /* synthetic */ HotTopicDetailActivity f51725a;
 
         public a(HotTopicDetailActivity hotTopicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                     return;
                 }
             }
-            this.f51726a = hotTopicDetailActivity;
+            this.f51725a = hotTopicDetailActivity;
         }
 
         @Override // b.a.q0.a.g.b
@@ -91,7 +91,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f51726a.topicIdLong = b.a.e.e.m.b.g(str, -1L);
+                this.f51725a.topicIdLong = b.a.e.e.m.b.g(str, -1L);
             }
         }
     }

@@ -67,7 +67,7 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f47594e;
+        public final /* synthetic */ ForumTestActivity f47593e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
                     return;
                 }
             }
-            this.f47594e = forumTestActivity;
+            this.f47593e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f47594e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f47593e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
@@ -101,10 +101,10 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f47595e;
+        public final /* synthetic */ ShareItem f47594e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f47596f;
+        public final /* synthetic */ ForumTestActivity f47595f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -121,16 +121,16 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
                     return;
                 }
             }
-            this.f47596f = forumTestActivity;
-            this.f47595e = shareItem;
+            this.f47595f = forumTestActivity;
+            this.f47594e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.e.p.a.a(this.f47595e.t);
-                l.M(this.f47596f, view.getResources().getString(R.string.copy_pb_url_success));
+                b.a.e.e.p.a.a(this.f47594e.t);
+                l.M(this.f47595f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -141,9 +141,44 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f47597a;
+        public final /* synthetic */ ForumTestActivity f47596a;
 
         public c(ForumTestActivity forumTestActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumTestActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47596a = forumTestActivity;
+        }
+
+        @Override // b.a.q0.s.s.i.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f47596a.hideMoreDialog();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements i.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ForumTestActivity f47597a;
+
+        public d(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,48 +196,13 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
             this.f47597a = forumTestActivity;
         }
 
-        @Override // b.a.q0.s.s.i.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47597a.hideMoreDialog();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements i.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f47598a;
-
-        public d(ForumTestActivity forumTestActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumTestActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47598a = forumTestActivity;
-        }
-
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ForumTestActivity forumTestActivity = this.f47598a;
+                ForumTestActivity forumTestActivity = this.f47597a;
                 forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
-                this.f47598a.hideMoreDialog();
+                this.f47597a.hideMoreDialog();
             }
         }
     }
@@ -213,7 +213,7 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f47599a;
+        public final /* synthetic */ ForumTestActivity f47598a;
 
         public e(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class ForumTestActivity extends BaseActivity implements b.a.r0.o0.e.a.b {
                     return;
                 }
             }
-            this.f47599a = forumTestActivity;
+            this.f47598a = forumTestActivity;
         }
 
         @Override // b.a.q0.d1.t.a

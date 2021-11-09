@@ -130,9 +130,44 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f46647e;
+        public final /* synthetic */ AdBaseWebViewActivity f46646e;
 
         public a(AdBaseWebViewActivity adBaseWebViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {adBaseWebViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46646e = adBaseWebViewActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f46646e.refresh();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AdBaseWebViewActivity f46647e;
+
+        public b(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,22 +187,24 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
         @Override // java.lang.Runnable
         public void run() {
+            ShareItem createShareContent;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46647e.refresh();
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (createShareContent = this.f46647e.createShareContent(null, null, null, null)) == null) {
+                return;
             }
+            this.f46647e.mView.G(createShareContent);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements Runnable {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ AdBaseWebViewActivity f46648e;
 
-        public b(AdBaseWebViewActivity adBaseWebViewActivity) {
+        public c(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -185,26 +222,29 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             this.f46648e = adBaseWebViewActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            ShareItem createShareContent;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (createShareContent = this.f46648e.createShareContent(null, null, null, null)) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (!j.z()) {
+                    this.f46648e.showToast(R.string.neterror);
+                    return;
+                }
+                this.f46648e.mView.h();
+                this.f46648e.refresh();
             }
-            this.f46648e.mView.G(createShareContent);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements View.OnClickListener {
+    public class d extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ AdBaseWebViewActivity f46649e;
 
-        public c(AdBaseWebViewActivity adBaseWebViewActivity) {
+        public d(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,56 +262,16 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             this.f46649e = adBaseWebViewActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!j.z()) {
-                    this.f46649e.showToast(R.string.neterror);
-                    return;
-                }
-                this.f46649e.mView.h();
-                this.f46649e.refresh();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f46650e;
-
-        public d(AdBaseWebViewActivity adBaseWebViewActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adBaseWebViewActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46650e = adBaseWebViewActivity;
-        }
-
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Message message = new Message();
                 message.what = 555;
-                this.f46650e.mHandler.sendMessage(message);
-                if (this.f46650e.mTimer != null) {
-                    this.f46650e.mTimer.cancel();
-                    this.f46650e.mTimer.purge();
+                this.f46649e.mHandler.sendMessage(message);
+                if (this.f46649e.mTimer != null) {
+                    this.f46649e.mTimer.cancel();
+                    this.f46649e.mTimer.purge();
                 }
             }
         }

@@ -18,17 +18,17 @@ public class a extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f70052a;
+    public static final String f70051a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f70053b;
+    public Rect f70052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f70054c;
+    public boolean f70053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2025a f70055d;
+    public InterfaceC2025a f70054d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -51,7 +51,7 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        f70052a = a.class.getName();
+        f70051a = a.class.getName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,18 +72,18 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        this.f70053b = null;
-        this.f70054c = false;
-        this.f70055d = null;
+        this.f70052b = null;
+        this.f70053c = false;
+        this.f70054d = null;
         if (0 == 0) {
-            this.f70053b = new Rect();
+            this.f70052b = new Rect();
         }
     }
 
     public void a(InterfaceC2025a interfaceC2025a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2025a) == null) {
-            this.f70055d = interfaceC2025a;
+            this.f70054d = interfaceC2025a;
         }
     }
 
@@ -93,12 +93,12 @@ public class a extends RelativeLayout {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f70053b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f70053b.top) - size;
-            InterfaceC2025a interfaceC2025a = this.f70055d;
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f70052b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f70052b.top) - size;
+            InterfaceC2025a interfaceC2025a = this.f70054d;
             if (interfaceC2025a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC2025a.a((Math.abs(this.f70053b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC2025a.a((Math.abs(this.f70052b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
                     interfaceC2025a.a();
                 }

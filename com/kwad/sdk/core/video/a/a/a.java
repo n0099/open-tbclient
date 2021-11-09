@@ -16,10 +16,10 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f65069a;
+    public static a f65068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f65070b;
+    public static volatile boolean f65069b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 return;
             }
         }
-        f65069a = new a();
-        f65070b = false;
+        f65068a = new a();
+        f65069b = false;
     }
 
     public a() {
@@ -56,15 +56,15 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            f65069a.a(new g<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
+            f65068a.a(new g<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f65071a;
+                public final /* synthetic */ String f65070a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f65072b;
+                public final /* synthetic */ String f65071b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -81,8 +81,8 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                             return;
                         }
                     }
-                    this.f65071a = str;
-                    this.f65072b = str2;
+                    this.f65070a = str;
+                    this.f65071b = str2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 public c a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f65071a, this.f65072b) : (c) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f65070a, this.f65071b) : (c) invokeV.objValue;
                 }
             });
         }
@@ -100,17 +100,17 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f65069a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f65068a : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f65070b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f65069b) {
             return;
         }
         super.a(context);
-        f65070b = true;
+        f65069b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

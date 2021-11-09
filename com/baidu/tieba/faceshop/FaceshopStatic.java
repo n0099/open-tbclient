@@ -67,7 +67,7 @@ public class FaceshopStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f47956e;
+            public final /* synthetic */ int f47955e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
@@ -76,10 +76,10 @@ public class FaceshopStatic {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f47957e;
+                public final /* synthetic */ StringBuilder f47956e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ RunnableC1714a f47958f;
+                public final /* synthetic */ RunnableC1714a f47957f;
 
                 public RunnableC1715a(RunnableC1714a runnableC1714a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
@@ -96,15 +96,15 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.f47958f = runnableC1714a;
-                    this.f47957e = sb;
+                    this.f47957f = runnableC1714a;
+                    this.f47956e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f47958f.f47956e, this.f47957e.toString()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f47957f.f47955e, this.f47956e.toString()));
                     }
                 }
             }
@@ -124,7 +124,7 @@ public class FaceshopStatic {
                         return;
                     }
                 }
-                this.f47956e = i2;
+                this.f47955e = i2;
             }
 
             @Override // java.lang.Runnable

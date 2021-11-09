@@ -105,12 +105,12 @@ public class b implements b.a.q0.i0.d.a {
                 if (loadDataMode != 6) {
                     return;
                 }
-                this.f19068a.m(((ForumManageModel.g) obj).f54272c);
+                this.f19068a.m(((ForumManageModel.g) obj).f54271c);
                 return;
             }
             ForumManageModel.g gVar = (ForumManageModel.g) obj;
-            if (TextUtils.isEmpty(gVar.f54271b)) {
-                gVar.f54271b = this.f19068a.f19059a.getString(gVar.f54270a ? b.a.r0.k2.l.operation_success : b.a.r0.k2.l.operation_failed);
+            if (TextUtils.isEmpty(gVar.f54270b)) {
+                gVar.f54270b = this.f19068a.f19059a.getString(gVar.f54269a ? b.a.r0.k2.l.operation_success : b.a.r0.k2.l.operation_failed);
             }
             BarManageResultListener.sendMessage(this.f19068a.f19060b.N(this.f19068a.f19060b.getLoadDataMode(), gVar));
         }

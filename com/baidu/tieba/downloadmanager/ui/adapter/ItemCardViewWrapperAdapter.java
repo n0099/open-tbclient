@@ -45,19 +45,19 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ItemCardView f47518a;
+        public ItemCardView f47517a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f47519b;
+        public View f47518b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EMTextView f47520c;
+        public EMTextView f47519c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f47521d;
+        public View f47520d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ItemCardViewWrapperAdapter f47522e;
+        public final /* synthetic */ ItemCardViewWrapperAdapter f47521e;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -65,13 +65,13 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f47523e;
+            public final /* synthetic */ int f47522e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b.a.r0.j0.b.b f47524f;
+            public final /* synthetic */ b.a.r0.j0.b.b f47523f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ItemCardViewWrapperViewHolder f47525g;
+            public final /* synthetic */ ItemCardViewWrapperViewHolder f47524g;
 
             public a(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, int i2, b.a.r0.j0.b.b bVar) {
                 Interceptable interceptable = $ic;
@@ -88,18 +88,18 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                         return;
                     }
                 }
-                this.f47525g = itemCardViewWrapperViewHolder;
-                this.f47523e = i2;
-                this.f47524f = bVar;
+                this.f47524g = itemCardViewWrapperViewHolder;
+                this.f47522e = i2;
+                this.f47523f = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    int i2 = this.f47525g.f47522e.n;
-                    int i3 = this.f47523e;
-                    b.a.r0.j0.b.b bVar = this.f47524f;
+                    int i2 = this.f47524g.f47521e.n;
+                    int i3 = this.f47522e;
+                    b.a.r0.j0.b.b bVar = this.f47523f;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, new b.a.r0.j0.b.a(i2, i3, bVar.f18297f, bVar.f18296e.mTitle, view)));
                 }
             }
@@ -111,13 +111,13 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b.a.r0.j0.b.b f47526e;
+            public final /* synthetic */ b.a.r0.j0.b.b f47525e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f47527f;
+            public final /* synthetic */ int f47526f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ItemCardViewWrapperViewHolder f47528g;
+            public final /* synthetic */ ItemCardViewWrapperViewHolder f47527g;
 
             public b(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, b.a.r0.j0.b.b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -134,23 +134,23 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                         return;
                     }
                 }
-                this.f47528g = itemCardViewWrapperViewHolder;
-                this.f47526e = bVar;
-                this.f47527f = i2;
+                this.f47527g = itemCardViewWrapperViewHolder;
+                this.f47525e = bVar;
+                this.f47526f = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    ItemData itemData = this.f47526e.f18296e;
+                    ItemData itemData = this.f47525e.f18296e;
                     ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), -1, 15);
-                    if (3 == this.f47528g.f47522e.n) {
-                        int i2 = this.f47528g.f47522e.n;
-                        int i3 = this.f47527f;
-                        int buttonState = this.f47528g.f47518a.getButtonState(this.f47526e.f18296e);
-                        int i4 = this.f47526e.f18297f;
-                        ItemCardHelper.f(i2, i3, buttonState, 2, this.f47526e.f18296e.mTitle, false);
+                    if (3 == this.f47527g.f47521e.n) {
+                        int i2 = this.f47527g.f47521e.n;
+                        int i3 = this.f47526f;
+                        int buttonState = this.f47527g.f47517a.getButtonState(this.f47525e.f18296e);
+                        int i4 = this.f47525e.f18297f;
+                        ItemCardHelper.f(i2, i3, buttonState, 2, this.f47525e.f18296e.mTitle, false);
                     }
                 }
             }
@@ -174,26 +174,26 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                     return;
                 }
             }
-            this.f47522e = itemCardViewWrapperAdapter;
+            this.f47521e = itemCardViewWrapperAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
-            this.f47518a = (ItemCardView) viewGroup.getChildAt(0);
-            this.f47519b = viewGroup.getChildAt(2);
-            this.f47520c = (EMTextView) viewGroup.getChildAt(1);
-            this.f47521d = viewGroup.getChildAt(3);
+            this.f47517a = (ItemCardView) viewGroup.getChildAt(0);
+            this.f47518b = viewGroup.getChildAt(2);
+            this.f47519c = (EMTextView) viewGroup.getChildAt(1);
+            this.f47520d = viewGroup.getChildAt(3);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.d(this.f47521d).f(R.color.CAM_X0203);
-                this.f47518a.onChangeSkinType();
-                this.f47518a.setBackground(null);
-                SkinManager.setBackgroundColor(this.f47519b, R.color.CAM_X0204);
-                c d2 = c.d(this.f47520c);
+                c.d(this.f47520d).f(R.color.CAM_X0203);
+                this.f47517a.onChangeSkinType();
+                this.f47517a.setBackground(null);
+                SkinManager.setBackgroundColor(this.f47518b, R.color.CAM_X0204);
+                c d2 = c.d(this.f47519c);
                 d2.z(R.dimen.T_X06);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                this.f47520c.setBackground(null);
+                this.f47519c.setBackground(null);
             }
         }
 
@@ -201,50 +201,50 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                 if (!bVar.f18299h) {
-                    this.f47521d.setVisibility(8);
+                    this.f47520d.setVisibility(8);
                 } else {
-                    this.f47521d.setVisibility(0);
+                    this.f47520d.setVisibility(0);
                 }
                 if (bVar.f18296e == null) {
-                    this.f47522e.m = getLayoutPosition();
-                    this.f47518a.setVisibility(8);
-                    this.f47520c.setVisibility(0);
-                    this.f47519b.setVisibility(0);
+                    this.f47521e.m = getLayoutPosition();
+                    this.f47517a.setVisibility(8);
+                    this.f47519c.setVisibility(0);
+                    this.f47518b.setVisibility(0);
                     return;
                 }
                 int layoutPosition = getLayoutPosition();
-                if (this.f47522e.m == -1 || layoutPosition <= this.f47522e.m) {
+                if (this.f47521e.m == -1 || layoutPosition <= this.f47521e.m) {
                     layoutPosition++;
                 }
-                if (this.f47522e.p.getHeaderViewsCount() != 0 && layoutPosition > this.f47522e.m) {
+                if (this.f47521e.p.getHeaderViewsCount() != 0 && layoutPosition > this.f47521e.m) {
                     layoutPosition--;
                 }
-                if (layoutPosition == 1 && this.f47522e.p.getHeaderViewsCount() == 0) {
-                    this.f47519b.setVisibility(0);
-                    ((FrameLayout.LayoutParams) this.f47518a.getLayoutParams()).setMargins(0, l.g(this.f47522e.f2419e, R.dimen.tbds21), 0, 0);
+                if (layoutPosition == 1 && this.f47521e.p.getHeaderViewsCount() == 0) {
+                    this.f47518b.setVisibility(0);
+                    ((FrameLayout.LayoutParams) this.f47517a.getLayoutParams()).setMargins(0, l.g(this.f47521e.f2419e, R.dimen.tbds21), 0, 0);
                 } else {
-                    this.f47519b.setVisibility(8);
-                    ((FrameLayout.LayoutParams) this.f47518a.getLayoutParams()).setMargins(0, 0, 0, 0);
+                    this.f47518b.setVisibility(8);
+                    ((FrameLayout.LayoutParams) this.f47517a.getLayoutParams()).setMargins(0, 0, 0, 0);
                 }
-                this.f47520c.setVisibility(8);
-                this.f47518a.setVisibility(0);
+                this.f47519c.setVisibility(8);
+                this.f47517a.setVisibility(0);
                 int i2 = bVar.f18297f;
                 if (i2 == 1) {
-                    this.f47518a.setData(bVar.f18296e, 10, true, this.f47522e.n, layoutPosition);
+                    this.f47517a.setData(bVar.f18296e, 10, true, this.f47521e.n, layoutPosition);
                 } else if (i2 == 2) {
-                    this.f47518a.setData(bVar.f18296e, 10, true, bVar.f18298g, this.f47522e.n, layoutPosition);
+                    this.f47517a.setData(bVar.f18296e, 10, true, bVar.f18298g, this.f47521e.n, layoutPosition);
                 } else {
-                    this.f47518a.setData(bVar.f18296e, 10, true, this.f47522e.n, layoutPosition);
+                    this.f47517a.setData(bVar.f18296e, 10, true, this.f47521e.n, layoutPosition);
                 }
-                this.f47518a.setOnClickListenerOfRightBtn(new a(this, layoutPosition, bVar));
-                this.f47518a.setOnClickListener(new b(this, bVar, layoutPosition));
+                this.f47517a.setOnClickListenerOfRightBtn(new a(this, layoutPosition, bVar));
+                this.f47517a.setOnClickListener(new b(this, bVar, layoutPosition));
                 if (bVar.f18296e != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.addParam("obj_locate", this.f47522e.n);
-                    statisticItem.addParam("obj_source", this.f47522e.o);
+                    statisticItem.addParam("obj_locate", this.f47521e.n);
+                    statisticItem.addParam("obj_source", this.f47521e.o);
                     statisticItem.addParam("obj_name", bVar.f18296e.itemId);
-                    statisticItem.addParam("obj_type", this.f47518a.getButtonState(bVar.f18296e));
+                    statisticItem.addParam("obj_type", this.f47517a.getButtonState(bVar.f18296e));
                     TiebaStatic.log(statisticItem);
                 }
             }

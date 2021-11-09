@@ -34,31 +34,31 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JSONObject f68666a;
+    public static final JSONObject f68665a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f68667b;
+    public static Context f68666b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.download.api.config.f f68668c;
+    public static com.ss.android.download.api.config.f f68667c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static com.ss.android.download.api.config.c f68669d;
+    public static com.ss.android.download.api.config.c f68668d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static com.ss.android.download.api.config.k f68670e;
+    public static com.ss.android.download.api.config.k f68669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ss.android.download.api.config.g f68671f;
+    public static com.ss.android.download.api.config.g f68670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static com.ss.android.download.api.config.h f68672g;
+    public static com.ss.android.download.api.config.h f68671g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static com.ss.android.download.api.config.i f68673h;
+    public static com.ss.android.download.api.config.i f68672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static com.ss.android.download.api.model.a f68674i;
+    public static com.ss.android.download.api.model.a f68673i;
     public static com.ss.android.download.api.config.b j;
     public static com.ss.android.socialbase.appdownloader.c.h k;
     public static com.ss.android.download.api.config.d l;
@@ -87,14 +87,14 @@ public class j {
                 return;
             }
         }
-        f68666a = new JSONObject();
+        f68665a = new JSONObject();
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             if (context != null && context.getApplicationContext() != null) {
-                f68667b = context.getApplicationContext();
+                f68666b = context.getApplicationContext();
                 return;
             }
             throw new IllegalArgumentException("Context is null");
@@ -103,10 +103,10 @@ public class j {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, context) == null) || f68667b != null || context == null || context.getApplicationContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65550, null, context) == null) || f68666b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f68667b = context.getApplicationContext();
+        f68666b = context.getApplicationContext();
     }
 
     @NonNull
@@ -114,10 +114,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (f68670e == null) {
-                f68670e = new com.ss.android.download.api.a.a();
+            if (f68669e == null) {
+                f68669e = new com.ss.android.download.api.a.a();
             }
-            return f68670e;
+            return f68669e;
         }
         return (com.ss.android.download.api.config.k) invokeV.objValue;
     }
@@ -125,7 +125,7 @@ public class j {
     public static com.ss.android.download.api.config.g d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f68671f : (com.ss.android.download.api.config.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f68670f : (com.ss.android.download.api.config.g) invokeV.objValue;
     }
 
     @NonNull
@@ -133,10 +133,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (f68672g == null) {
-                f68672g = new com.ss.android.download.api.a.b();
+            if (f68671g == null) {
+                f68671g = new com.ss.android.download.api.a.b();
             }
-            return f68672g;
+            return f68671g;
         }
         return (com.ss.android.download.api.config.h) invokeV.objValue;
     }
@@ -187,7 +187,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            Context context = f68667b;
+            Context context = f68666b;
             if (context != null) {
                 return context;
             }
@@ -238,11 +238,11 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            com.ss.android.download.api.config.i iVar = f68673h;
+            com.ss.android.download.api.config.i iVar = f68672h;
             if (iVar != null && iVar.a() != null) {
-                return f68673h.a();
+                return f68672h.a();
             }
-            return f68666a;
+            return f68665a;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -398,7 +398,7 @@ public class j {
     public static boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? (f68668c == null || f68671f == null || f68673h == null || j == null || u == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? (f68667c == null || f68670f == null || f68672h == null || j == null || u == null) ? false : true : invokeV.booleanValue;
     }
 
     @NonNull
@@ -406,8 +406,8 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f68669d == null) {
-                f68669d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
+            if (f68668d == null) {
+                f68668d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -440,7 +440,7 @@ public class j {
                     }
                 };
             }
-            return f68669d;
+            return f68668d;
         }
         return (com.ss.android.download.api.config.c) invokeV.objValue;
     }
@@ -448,42 +448,42 @@ public class j {
     public static void a(@NonNull com.ss.android.download.api.config.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, fVar) == null) {
-            f68668c = fVar;
+            f68667c = fVar;
         }
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, kVar) == null) {
-            f68670e = kVar;
+            f68669e = kVar;
         }
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, gVar) == null) {
-            f68671f = gVar;
+            f68670f = gVar;
         }
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, hVar) == null) {
-            f68672g = hVar;
+            f68671g = hVar;
         }
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, iVar) == null) {
-            f68673h = iVar;
+            f68672h = iVar;
         }
     }
 
     public static void a(@NonNull com.ss.android.download.api.model.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, aVar) == null) {
-            f68674i = aVar;
+            f68673i = aVar;
         }
     }
 
@@ -497,7 +497,7 @@ public class j {
     public static com.ss.android.download.api.config.f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f68668c : (com.ss.android.download.api.config.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f68667c : (com.ss.android.download.api.config.f) invokeV.objValue;
     }
 
     public static void a(String str) {

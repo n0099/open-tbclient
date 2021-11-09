@@ -32,7 +32,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupActivity f54522a;
+        public final /* synthetic */ BackgroundGroupActivity f54521a;
 
         public a(BackgroundGroupActivity backgroundGroupActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     return;
                 }
             }
-            this.f54522a = backgroundGroupActivity;
+            this.f54521a = backgroundGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BackgroundGroupActivity backgroundGroupActivity = this.f54522a;
+                BackgroundGroupActivity backgroundGroupActivity = this.f54521a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
-                this.f54522a.mView.i();
+                this.f54521a.mView.i();
                 if (i2 == 0) {
-                    this.f54522a.mView.k(eVar, list, this.f54522a.mModel.F());
+                    this.f54521a.mView.k(eVar, list, this.f54521a.mModel.F());
                     return;
                 }
-                this.f54522a.showToast(str);
-                this.f54522a.mView.j();
+                this.f54521a.showToast(str);
+                this.f54521a.mView.j();
             }
         }
     }

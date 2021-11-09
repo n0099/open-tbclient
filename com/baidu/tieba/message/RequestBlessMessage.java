@@ -19,7 +19,7 @@ public class RequestBlessMessage extends NetMessage {
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f51622common;
+    public CommonReq f51621common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -51,7 +51,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f73100common = this.f51622common;
+            builder.f73099common = this.f51621common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
@@ -78,7 +78,7 @@ public class RequestBlessMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f51622common = commonReq;
+            this.f51621common = commonReq;
         }
     }
 

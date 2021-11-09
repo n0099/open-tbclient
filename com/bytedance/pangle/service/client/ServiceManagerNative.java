@@ -81,10 +81,10 @@ public class ServiceManagerNative {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ServiceConnection f61514a;
+                    public final /* synthetic */ ServiceConnection f61513a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f61515b;
+                    public final /* synthetic */ ServiceManagerNative f61514b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -101,15 +101,15 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f61515b = this;
-                        this.f61514a = serviceConnection;
+                        this.f61514b = this;
+                        this.f61513a = serviceConnection;
                     }
 
                     @Override // com.bytedance.pangle.g
                     public final void a(ComponentName componentName, IBinder iBinder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-                            this.f61514a.onServiceConnected(componentName, iBinder);
+                            this.f61513a.onServiceConnected(componentName, iBinder);
                         }
                     }
 
@@ -117,7 +117,7 @@ public class ServiceManagerNative {
                     public final int a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f61514a.hashCode() : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f61513a.hashCode() : invokeV.intValue;
                     }
                 });
             }

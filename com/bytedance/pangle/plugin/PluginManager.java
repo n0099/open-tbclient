@@ -210,9 +210,9 @@ public class PluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(i.a().f61439b.getInstallThreads());
+                this.mInstallThreadPool = e.a(i.a().f61438b.getInstallThreads());
             }
-            e.f61434a.execute(new d());
+            e.f61433a.execute(new d());
         }
     }
 

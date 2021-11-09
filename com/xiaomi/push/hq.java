@@ -18,28 +18,28 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f71131a;
+    public static final iy f71130a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f71132b;
+    public static final iy f71131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f71133c;
+    public static final iy f71132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f71134d;
+    public static final iy f71133d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f71135e;
+    public static final iy f71134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f71136f;
+    public static final iy f71135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f71137g;
+    public static final iy f71136g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -80,13 +80,13 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
             }
         }
         f515a = new jg("OnlineConfigItem");
-        f71131a = new iy("", (byte) 8, (short) 1);
-        f71132b = new iy("", (byte) 8, (short) 2);
-        f71133c = new iy("", (byte) 2, (short) 3);
-        f71134d = new iy("", (byte) 8, (short) 4);
-        f71135e = new iy("", (byte) 10, (short) 5);
-        f71136f = new iy("", (byte) 11, (short) 6);
-        f71137g = new iy("", (byte) 2, (short) 7);
+        f71130a = new iy("", (byte) 8, (short) 1);
+        f71131b = new iy("", (byte) 8, (short) 2);
+        f71132c = new iy("", (byte) 2, (short) 3);
+        f71133d = new iy("", (byte) 8, (short) 4);
+        f71134e = new iy("", (byte) 10, (short) 5);
+        f71135f = new iy("", (byte) 11, (short) 6);
+        f71136g = new iy("", (byte) 2, (short) 7);
     }
 
     public hq() {
@@ -212,7 +212,7 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f71329a;
+            byte b2 = m523a.f71328a;
             if (b2 == 0) {
                 jbVar.f();
                 m397a();
@@ -355,37 +355,37 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
             m397a();
             jbVar.a(f515a);
             if (m398a()) {
-                jbVar.a(f71131a);
+                jbVar.a(f71130a);
                 jbVar.a(this.f516a);
                 jbVar.b();
             }
             if (m400b()) {
-                jbVar.a(f71132b);
+                jbVar.a(f71131b);
                 jbVar.a(this.f521b);
                 jbVar.b();
             }
             if (m401c()) {
-                jbVar.a(f71133c);
+                jbVar.a(f71132c);
                 jbVar.a(this.f520a);
                 jbVar.b();
             }
             if (d()) {
-                jbVar.a(f71134d);
+                jbVar.a(f71133d);
                 jbVar.a(this.f523c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f71135e);
+                jbVar.a(f71134e);
                 jbVar.a(this.f517a);
                 jbVar.b();
             }
             if (this.f518a != null && f()) {
-                jbVar.a(f71136f);
+                jbVar.a(f71135f);
                 jbVar.a(this.f518a);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f71137g);
+                jbVar.a(f71136g);
                 jbVar.a(this.f522b);
                 jbVar.b();
             }

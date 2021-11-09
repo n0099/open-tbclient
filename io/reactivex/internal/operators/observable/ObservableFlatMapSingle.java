@@ -40,7 +40,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72532d;
+        public Disposable f72531d;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
@@ -150,7 +150,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f72532d.dispose();
+                this.f72531d.dispose();
                 this.set.dispose();
             }
         }
@@ -225,7 +225,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 this.set.delete(innerObserver);
                 if (this.errors.addThrowable(th)) {
                     if (!this.delayErrors) {
-                        this.f72532d.dispose();
+                        this.f72531d.dispose();
                         this.set.dispose();
                     }
                     this.active.decrementAndGet();
@@ -319,7 +319,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                     singleSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f72532d.dispose();
+                    this.f72531d.dispose();
                     onError(th);
                 }
             }
@@ -328,8 +328,8 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f72532d, disposable)) {
-                this.f72532d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f72531d, disposable)) {
+                this.f72531d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

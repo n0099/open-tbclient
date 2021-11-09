@@ -26,7 +26,7 @@ public final class MaxHeightGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f73220e;
+    public int f73219e;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -123,8 +123,8 @@ public final class MaxHeightGridView extends GridView {
             try {
                 try {
                     int size = View.MeasureSpec.getSize(i3);
-                    if (this.f73220e != -1) {
-                        size = this.f73220e;
+                    if (this.f73219e != -1) {
+                        size = this.f73219e;
                         i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
                     } else {
                         i3 = View.MeasureSpec.makeMeasureSpec(size, 0);
@@ -159,12 +159,12 @@ public final class MaxHeightGridView extends GridView {
                 return;
             }
         }
-        this.f73220e = -1;
+        this.f73219e = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(h.PayUi_NoScrollGridView_pay_ui_gv_max_height_dp, 536870911);
-        this.f73220e = integer;
+        this.f73219e = integer;
         if (integer != 536870911) {
-            this.f73220e = c.a(integer);
+            this.f73219e = c.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

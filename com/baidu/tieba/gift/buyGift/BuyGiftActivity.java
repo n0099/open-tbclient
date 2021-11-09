@@ -116,9 +116,44 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49240e;
+        public final /* synthetic */ BuyGiftActivity f49239e;
 
         public a(BuyGiftActivity buyGiftActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {buyGiftActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f49239e = buyGiftActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f49239e.sendGift();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BuyGiftActivity f49240e;
+
+        public b(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,20 +175,20 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49240e.sendGift();
+                this.f49240e.gift_num_layout.setVisibility(8);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
+    public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49241e;
 
-        public b(BuyGiftActivity buyGiftActivity) {
+        public c(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,24 +206,28 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.f49241e = buyGiftActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // b.a.q0.s.s.a.e
+        public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49241e.gift_num_layout.setVisibility(8);
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.f49241e.mPassword = "";
+                this.f49241e.mPwdText.clearFocus();
+                BuyGiftActivity buyGiftActivity = this.f49241e;
+                buyGiftActivity.HidenSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49241e.mPwdText);
+                this.f49241e.mPwdDialog.dismiss();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements a.e {
+    public class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49242e;
 
-        public c(BuyGiftActivity buyGiftActivity) {
+        public d(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,24 +249,37 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f49242e.mPassword = "";
-                this.f49242e.mPwdText.clearFocus();
+                this.f49242e.showWarningOrNot(false);
                 BuyGiftActivity buyGiftActivity = this.f49242e;
-                buyGiftActivity.HidenSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49242e.mPwdText);
-                this.f49242e.mPwdDialog.dismiss();
+                buyGiftActivity.mPassword = buyGiftActivity.mPwdText.getText().toString();
+                if (StringUtils.isValidPassWord(this.f49242e.mPassword)) {
+                    if (!StringUtils.isNull(this.f49242e.mPublicKey)) {
+                        try {
+                            b.a.w0.a.a a2 = b.a.w0.a.b.a(new b.a.w0.a.d.a(EncryptAlgorithm.RSA, this.f49242e.mPublicKey));
+                            this.f49242e.mPassword = a2.a(this.f49242e.mPassword);
+                        } catch (Exception e2) {
+                            this.f49242e.mPassword = "";
+                            e2.printStackTrace();
+                        }
+                    }
+                    this.f49242e.sendGift();
+                    this.f49242e.mPwdText.setText("");
+                    return;
+                }
+                this.f49242e.showWarningOrNot(true);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class d implements a.e {
+    public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49243e;
 
-        public d(BuyGiftActivity buyGiftActivity) {
+        public e(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,41 +297,24 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.f49243e = buyGiftActivity;
         }
 
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f49243e.showWarningOrNot(false);
-                BuyGiftActivity buyGiftActivity = this.f49243e;
-                buyGiftActivity.mPassword = buyGiftActivity.mPwdText.getText().toString();
-                if (StringUtils.isValidPassWord(this.f49243e.mPassword)) {
-                    if (!StringUtils.isNull(this.f49243e.mPublicKey)) {
-                        try {
-                            b.a.w0.a.a a2 = b.a.w0.a.b.a(new b.a.w0.a.d.a(EncryptAlgorithm.RSA, this.f49243e.mPublicKey));
-                            this.f49243e.mPassword = a2.a(this.f49243e.mPassword);
-                        } catch (Exception e2) {
-                            this.f49243e.mPassword = "";
-                            e2.printStackTrace();
-                        }
-                    }
-                    this.f49243e.sendGift();
-                    this.f49243e.mPwdText.setText("");
-                    return;
-                }
-                this.f49243e.showWarningOrNot(true);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f49243e.mPwdDialog.show();
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class e implements Runnable {
+    public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49244e;
 
-        public e(BuyGiftActivity buyGiftActivity) {
+        public f(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -301,43 +336,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49244e.mPwdDialog.show();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49245e;
-
-        public f(BuyGiftActivity buyGiftActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {buyGiftActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f49245e = buyGiftActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BuyGiftActivity buyGiftActivity = this.f49245e;
-                buyGiftActivity.ShowSoftKeyPad((InputMethodManager) buyGiftActivity.getSystemService("input_method"), this.f49245e.mPwdText);
+                BuyGiftActivity buyGiftActivity = this.f49244e;
+                buyGiftActivity.ShowSoftKeyPad((InputMethodManager) buyGiftActivity.getSystemService("input_method"), this.f49244e.mPwdText);
             }
         }
     }
@@ -348,10 +348,51 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49246a;
+        public final /* synthetic */ BuyGiftActivity f49245a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(BuyGiftActivity buyGiftActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {buyGiftActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f49245a = buyGiftActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetGiftCommonListHttpResponseMessage)) {
+                GetGiftCommonListHttpResponseMessage getGiftCommonListHttpResponseMessage = (GetGiftCommonListHttpResponseMessage) httpResponsedMessage;
+                this.f49245a.mGiftCommonList = getGiftCommonListHttpResponseMessage.getGiftInfo();
+                this.f49245a.handleGetGiftsResponse(getGiftCommonListHttpResponseMessage.getError(), getGiftCommonListHttpResponseMessage.getErrorString());
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class h extends b.a.e.c.g.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BuyGiftActivity f49246a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(BuyGiftActivity buyGiftActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -373,53 +414,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetGiftCommonListHttpResponseMessage)) {
-                GetGiftCommonListHttpResponseMessage getGiftCommonListHttpResponseMessage = (GetGiftCommonListHttpResponseMessage) httpResponsedMessage;
-                this.f49246a.mGiftCommonList = getGiftCommonListHttpResponseMessage.getGiftInfo();
-                this.f49246a.handleGetGiftsResponse(getGiftCommonListHttpResponseMessage.getError(), getGiftCommonListHttpResponseMessage.getErrorString());
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class h extends b.a.e.c.g.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49247a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(BuyGiftActivity buyGiftActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {buyGiftActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f49247a = buyGiftActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof GetGiftCommonListSocketResponseMessage)) {
                 GetGiftCommonListSocketResponseMessage getGiftCommonListSocketResponseMessage = (GetGiftCommonListSocketResponseMessage) socketResponsedMessage;
-                this.f49247a.mGiftCommonList = getGiftCommonListSocketResponseMessage.getGiftInfo();
-                this.f49247a.handleGetGiftsResponse(getGiftCommonListSocketResponseMessage.getError(), getGiftCommonListSocketResponseMessage.getErrorString());
+                this.f49246a.mGiftCommonList = getGiftCommonListSocketResponseMessage.getGiftInfo();
+                this.f49246a.handleGetGiftsResponse(getGiftCommonListSocketResponseMessage.getError(), getGiftCommonListSocketResponseMessage.getErrorString());
             }
         }
     }
@@ -430,7 +430,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49248a;
+        public final /* synthetic */ BuyGiftActivity f49247a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(BuyGiftActivity buyGiftActivity, int i2, int i3) {
@@ -451,7 +451,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49248a = buyGiftActivity;
+            this.f49247a = buyGiftActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -459,13 +459,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof SendGiftSocketResponseMessage) {
-                    this.f49248a.gift_button.setEnabled(true);
+                    this.f49247a.gift_button.setEnabled(true);
                     SendGiftSocketResponseMessage sendGiftSocketResponseMessage = (SendGiftSocketResponseMessage) responsedMessage;
-                    this.f49248a.handleSendGiftResponse(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
+                    this.f49247a.handleSendGiftResponse(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof SendGiftHttpResponseMessage) {
-                    this.f49248a.gift_button.setEnabled(true);
+                    this.f49247a.gift_button.setEnabled(true);
                     SendGiftHttpResponseMessage sendGiftHttpResponseMessage = (SendGiftHttpResponseMessage) responsedMessage;
-                    this.f49248a.handleSendGiftResponse(sendGiftHttpResponseMessage.getError(), sendGiftHttpResponseMessage.getErrorString(), sendGiftHttpResponseMessage.getResponseData());
+                    this.f49247a.handleSendGiftResponse(sendGiftHttpResponseMessage.getError(), sendGiftHttpResponseMessage.getErrorString(), sendGiftHttpResponseMessage.getResponseData());
                 }
             }
         }
@@ -477,7 +477,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49249a;
+        public final /* synthetic */ BuyGiftActivity f49248a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(BuyGiftActivity buyGiftActivity, int i2) {
@@ -497,7 +497,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49249a = buyGiftActivity;
+            this.f49248a = buyGiftActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -505,8 +505,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f49249a.mHasYinji = true;
-                this.f49249a.sendGift();
+                this.f49248a.mHasYinji = true;
+                this.f49248a.sendGift();
             }
         }
     }
@@ -517,7 +517,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49250a;
+        public final /* synthetic */ BuyGiftActivity f49249a;
 
         public k(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
@@ -534,15 +534,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49250a = buyGiftActivity;
+            this.f49249a = buyGiftActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f49250a.gift_list_layout.setVisibility(0);
-                this.f49250a.getGiftList();
+                this.f49249a.gift_list_layout.setVisibility(0);
+                this.f49249a.getGiftList();
             }
         }
 
@@ -567,7 +567,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49251a;
+        public final /* synthetic */ BuyGiftActivity f49250a;
 
         public l(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
@@ -584,14 +584,14 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49251a = buyGiftActivity;
+            this.f49250a = buyGiftActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f49251a.finish();
+                this.f49250a.finish();
             }
         }
 
@@ -616,9 +616,84 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49252e;
+        public final /* synthetic */ BuyGiftActivity f49251e;
 
         public m(BuyGiftActivity buyGiftActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {buyGiftActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f49251e = buyGiftActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (this.f49251e.gift_num_layout.getVisibility() == 0) {
+                    this.f49251e.gift_num_layout.setVisibility(8);
+                } else {
+                    this.f49251e.closeActivity();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class n implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BuyGiftActivity f49252e;
+
+        /* loaded from: classes9.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ n f49253e;
+
+            public a(n nVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {nVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f49253e = nVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f49253e.f49252e.changeEditTextFocusState(false);
+                    this.f49253e.f49252e.gift_num_layout.setVisibility(0);
+                }
+            }
+        }
+
+        public n(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -640,60 +715,22 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49252e.gift_num_layout.getVisibility() == 0) {
-                    this.f49252e.gift_num_layout.setVisibility(8);
-                } else {
-                    this.f49252e.closeActivity();
-                }
+                BuyGiftActivity buyGiftActivity = this.f49252e;
+                buyGiftActivity.HidenSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49252e.gift_count_input);
+                this.f49252e.mHandler.postDelayed(new a(this), 200L);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class n implements View.OnClickListener {
+    public class o implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49253e;
+        public final /* synthetic */ BuyGiftActivity f49254e;
 
-        /* loaded from: classes9.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ n f49254e;
-
-            public a(n nVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {nVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f49254e = nVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f49254e.f49253e.changeEditTextFocusState(false);
-                    this.f49254e.f49253e.gift_num_layout.setVisibility(0);
-                }
-            }
-        }
-
-        public n(BuyGiftActivity buyGiftActivity) {
+        public o(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -708,29 +745,33 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49253e = buyGiftActivity;
+            this.f49254e = buyGiftActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                BuyGiftActivity buyGiftActivity = this.f49253e;
-                buyGiftActivity.HidenSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49253e.gift_count_input);
-                this.f49253e.mHandler.postDelayed(new a(this), 200L);
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
+                if (z) {
+                    BuyGiftActivity buyGiftActivity = this.f49254e;
+                    buyGiftActivity.ShowSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49254e.gift_count_input);
+                    return;
+                }
+                BuyGiftActivity buyGiftActivity2 = this.f49254e;
+                buyGiftActivity2.HidenSoftKeyPad(buyGiftActivity2.mInputMethodManager, this.f49254e.gift_count_input);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class o implements View.OnFocusChangeListener {
+    public class p implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49255e;
 
-        public o(BuyGiftActivity buyGiftActivity) {
+        public p(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -748,30 +789,40 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.f49255e = buyGiftActivity;
         }
 
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (z) {
-                    BuyGiftActivity buyGiftActivity = this.f49255e;
-                    buyGiftActivity.ShowSoftKeyPad(buyGiftActivity.mInputMethodManager, this.f49255e.gift_count_input);
-                    return;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                BuyGiftActivity buyGiftActivity = this.f49255e;
+                buyGiftActivity.mSelectedPage = buyGiftActivity.mCurrentPage;
+                this.f49255e.mSelectedPosition = i2;
+                b.a.r0.b1.a.a aVar = (b.a.r0.b1.a.a) adapterView.getAdapter();
+                if (aVar != null) {
+                    GiftCommonList.GiftItem item = aVar.getItem(i2);
+                    if (item != null) {
+                        this.f49255e.mCurrentItem = item;
+                    }
+                    aVar.d(i2);
+                    aVar.notifyDataSetChanged();
                 }
-                BuyGiftActivity buyGiftActivity2 = this.f49255e;
-                buyGiftActivity2.HidenSoftKeyPad(buyGiftActivity2.mInputMethodManager, this.f49255e.gift_count_input);
+                this.f49255e.countTotalPrice(true);
             }
+        }
+
+        public /* synthetic */ p(BuyGiftActivity buyGiftActivity, g gVar) {
+            this(buyGiftActivity);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class p implements AdapterView.OnItemClickListener {
+    public class q implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49256e;
 
-        public p(BuyGiftActivity buyGiftActivity) {
+        public q(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -792,37 +843,40 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                BuyGiftActivity buyGiftActivity = this.f49256e;
-                buyGiftActivity.mSelectedPage = buyGiftActivity.mCurrentPage;
-                this.f49256e.mSelectedPosition = i2;
-                b.a.r0.b1.a.a aVar = (b.a.r0.b1.a.a) adapterView.getAdapter();
-                if (aVar != null) {
-                    GiftCommonList.GiftItem item = aVar.getItem(i2);
-                    if (item != null) {
-                        this.f49256e.mCurrentItem = item;
-                    }
-                    aVar.d(i2);
-                    aVar.notifyDataSetChanged();
-                }
-                this.f49256e.countTotalPrice(true);
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f49256e.mGiftCommonList == null || this.f49256e.mGiftCommonList.getGiftInfo() == null) {
+                return;
             }
+            List<GiftCommonList.NumInfo> numInfo = this.f49256e.mGiftCommonList.getGiftInfo().getNumInfo();
+            if (i2 == numInfo.size()) {
+                this.f49256e.changeEditTextFocusState(true);
+                Selection.selectAll(this.f49256e.gift_count_input.getText());
+            } else {
+                this.f49256e.gift_count_input.setCursorVisible(true);
+                this.f49256e.gift_count_input.setFocusable(true);
+                GiftCommonList.NumInfo numInfo2 = numInfo.get(i2);
+                if (numInfo2 != null) {
+                    EditText editText = this.f49256e.gift_count_input;
+                    editText.setText("" + numInfo2.getNum());
+                }
+            }
+            this.f49256e.gift_num_layout.setVisibility(8);
+            this.f49256e.countTotalPrice(true);
         }
 
-        public /* synthetic */ p(BuyGiftActivity buyGiftActivity, g gVar) {
+        public /* synthetic */ q(BuyGiftActivity buyGiftActivity, g gVar) {
             this(buyGiftActivity);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class q implements AdapterView.OnItemClickListener {
+    public class r implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BuyGiftActivity f49257e;
 
-        public q(BuyGiftActivity buyGiftActivity) {
+        public r(BuyGiftActivity buyGiftActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -840,73 +894,19 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.f49257e = buyGiftActivity;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f49257e.mGiftCommonList == null || this.f49257e.mGiftCommonList.getGiftInfo() == null) {
-                return;
-            }
-            List<GiftCommonList.NumInfo> numInfo = this.f49257e.mGiftCommonList.getGiftInfo().getNumInfo();
-            if (i2 == numInfo.size()) {
-                this.f49257e.changeEditTextFocusState(true);
-                Selection.selectAll(this.f49257e.gift_count_input.getText());
-            } else {
-                this.f49257e.gift_count_input.setCursorVisible(true);
-                this.f49257e.gift_count_input.setFocusable(true);
-                GiftCommonList.NumInfo numInfo2 = numInfo.get(i2);
-                if (numInfo2 != null) {
-                    EditText editText = this.f49257e.gift_count_input;
-                    editText.setText("" + numInfo2.getNum());
-                }
-            }
-            this.f49257e.gift_num_layout.setVisibility(8);
-            this.f49257e.countTotalPrice(true);
-        }
-
-        public /* synthetic */ q(BuyGiftActivity buyGiftActivity, g gVar) {
-            this(buyGiftActivity);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class r implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49258e;
-
-        public r(BuyGiftActivity buyGiftActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {buyGiftActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f49258e = buyGiftActivity;
-        }
-
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 int e2 = b.a.e.e.m.b.e(editable.toString(), 0);
                 if (editable.toString().length() == String.valueOf(e2).length()) {
-                    this.f49258e.countTotalPrice(true);
+                    this.f49257e.countTotalPrice(true);
                     return;
                 }
                 int i2 = e2 >= 0 ? e2 : 0;
-                EditText editText = this.f49258e.gift_count_input;
+                EditText editText = this.f49257e.gift_count_input;
                 editText.setText("" + i2);
-                this.f49258e.gift_count_input.setSelection(String.valueOf(i2).length());
+                this.f49257e.gift_count_input.setSelection(String.valueOf(i2).length());
             }
         }
 
@@ -935,10 +935,10 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49259e;
+        public int f49258e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BuyGiftActivity f49260f;
+        public final /* synthetic */ BuyGiftActivity f49259f;
 
         public s(BuyGiftActivity buyGiftActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -955,22 +955,22 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     return;
                 }
             }
-            this.f49260f = buyGiftActivity;
-            this.f49259e = i2;
+            this.f49259f = buyGiftActivity;
+            this.f49258e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int min = Math.min(this.f49259e, this.f49260f.mPageInfos.size());
+                int min = Math.min(this.f49258e, this.f49259f.mPageInfos.size());
                 int i2 = 0;
                 for (int i3 = 0; i3 < min; i3++) {
-                    i2 += this.f49260f.mPageInfos.get(i3);
+                    i2 += this.f49259f.mPageInfos.get(i3);
                 }
-                this.f49260f.mCurrentPage = i2;
-                this.f49260f.gift_viewpager.setCurrentItem(this.f49260f.mCurrentPage);
-                this.f49260f.updateIndicatorAndTabs();
+                this.f49259f.mCurrentPage = i2;
+                this.f49259f.gift_viewpager.setCurrentItem(this.f49259f.mCurrentPage);
+                this.f49259f.updateIndicatorAndTabs();
             }
         }
     }

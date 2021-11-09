@@ -139,6 +139,49 @@ public class NHCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ NHCreditItem f58489a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f58489a = this;
+                        }
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                this.f58489a.getWalletInterface().jump(this.f58489a.getData().getName(), this.f58489a.getData().getType(), this.f58489a.getData().getLinkAddr(), this.f58489a.getData().getPrevlogin());
+                            }
+                        }
+                    });
+                } else {
+                    this.mItemPress.setBackgroundDrawable(null);
+                }
+                HomeCfgResponse.DataButton dataButton = getData().buttons[0];
+                if (dataButton != null && !TextUtils.isEmpty(dataButton.name)) {
+                    this.mButton.setVisibility(0);
+                    boolean equals = "2".equals(dataButton.btn_type);
+                    this.mButton.setMaskText(dataButton.name);
+                    this.mButton.setBackgroundDrawable(ResUtils.getDrawable(getContext(), new String[]{"wallet_home_credit_background", "wallet_home_credit_background_solid"}[equals ? 1 : 0]));
+                    this.mButton.setTextColor(ResUtils.getColor(getContext(), new String[]{"wallet_home_nh_text7Color", "wallet_home_nh_whiteColor"}[equals ? 1 : 0]));
+                    this.mButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHCreditItem.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
                         public final /* synthetic */ NHCreditItem f58490a;
 
                         {
@@ -163,50 +206,7 @@ public class NHCreditItem extends BaseItemView {
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f58490a.getWalletInterface().jump(this.f58490a.getData().getName(), this.f58490a.getData().getType(), this.f58490a.getData().getLinkAddr(), this.f58490a.getData().getPrevlogin());
-                            }
-                        }
-                    });
-                } else {
-                    this.mItemPress.setBackgroundDrawable(null);
-                }
-                HomeCfgResponse.DataButton dataButton = getData().buttons[0];
-                if (dataButton != null && !TextUtils.isEmpty(dataButton.name)) {
-                    this.mButton.setVisibility(0);
-                    boolean equals = "2".equals(dataButton.btn_type);
-                    this.mButton.setMaskText(dataButton.name);
-                    this.mButton.setBackgroundDrawable(ResUtils.getDrawable(getContext(), new String[]{"wallet_home_credit_background", "wallet_home_credit_background_solid"}[equals ? 1 : 0]));
-                    this.mButton.setTextColor(ResUtils.getColor(getContext(), new String[]{"wallet_home_nh_text7Color", "wallet_home_nh_whiteColor"}[equals ? 1 : 0]));
-                    this.mButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHCreditItem.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHCreditItem f58491a;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.f58491a = this;
-                        }
-
-                        @Override // android.view.View.OnClickListener
-                        public void onClick(View view) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f58491a.getWalletInterface().jump(this.f58491a.getData().buttons[0].name, this.f58491a.getData().buttons[0].type, this.f58491a.getData().buttons[0].link_addr, this.f58491a.getData().getPrevlogin());
+                                this.f58490a.getWalletInterface().jump(this.f58490a.getData().buttons[0].name, this.f58490a.getData().buttons[0].type, this.f58490a.getData().buttons[0].link_addr, this.f58490a.getData().getPrevlogin());
                             }
                         }
                     });
@@ -261,7 +261,7 @@ public class NHCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHCreditItem f58492a;
+                        public final /* synthetic */ NHCreditItem f58491a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -278,14 +278,14 @@ public class NHCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f58492a = this;
+                            this.f58491a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f58492a.getWalletInterface().jump(this.f58492a.getData().buttons[1].name, this.f58492a.getData().buttons[1].type, this.f58492a.getData().buttons[1].link_addr, this.f58492a.getData().getPrevlogin());
+                                this.f58491a.getWalletInterface().jump(this.f58491a.getData().buttons[1].name, this.f58491a.getData().buttons[1].type, this.f58491a.getData().buttons[1].link_addr, this.f58491a.getData().getPrevlogin());
                             }
                         }
                     });

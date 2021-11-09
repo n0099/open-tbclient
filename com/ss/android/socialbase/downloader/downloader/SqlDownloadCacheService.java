@@ -19,7 +19,7 @@ public class SqlDownloadCacheService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69246a;
+    public static final String f69245a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class SqlDownloadCacheService extends Service {
                 return;
             }
         }
-        f69246a = SqlDownloadCacheService.class.getSimpleName();
+        f69245a = SqlDownloadCacheService.class.getSimpleName();
     }
 
     public SqlDownloadCacheService() {

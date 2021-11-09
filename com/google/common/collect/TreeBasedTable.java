@@ -101,13 +101,13 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public C f63590g;
+        public C f63589g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Iterator f63591h;
+        public final /* synthetic */ Iterator f63590h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Comparator f63592i;
+        public final /* synthetic */ Comparator f63591i;
 
         public b(TreeBasedTable treeBasedTable, Iterator it, Comparator comparator) {
             Interceptable interceptable = $ic;
@@ -124,8 +124,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     return;
                 }
             }
-            this.f63591h = it;
-            this.f63592i = comparator;
+            this.f63590h = it;
+            this.f63591i = comparator;
         }
 
         @Override // com.google.common.collect.AbstractIterator
@@ -134,10 +134,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                while (this.f63591h.hasNext()) {
-                    C c2 = (C) this.f63591h.next();
-                    C c3 = this.f63590g;
-                    if (c3 == null || this.f63592i.compare(c2, c3) != 0) {
+                while (this.f63590h.hasNext()) {
+                    C c2 = (C) this.f63590h.next();
+                    C c3 = this.f63589g;
+                    if (c3 == null || this.f63591i.compare(c2, c3) != 0) {
                         z = false;
                         continue;
                     } else {
@@ -145,11 +145,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                         continue;
                     }
                     if (!z) {
-                        this.f63590g = c2;
+                        this.f63589g = c2;
                         return c2;
                     }
                 }
-                this.f63590g = null;
+                this.f63589g = null;
                 return b();
             }
             return (C) invokeV.objValue;
@@ -162,10 +162,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f63593h;
+        public final C f63592h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final C f63594i;
+        public final C f63593i;
         public transient SortedMap<C, V> j;
         public final /* synthetic */ TreeBasedTable k;
 
@@ -208,9 +208,9 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public void d() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && k() != null && this.j.isEmpty()) {
-                this.k.backingMap.remove(this.f63573e);
+                this.k.backingMap.remove(this.f63572e);
                 this.j = null;
-                this.f63574f = null;
+                this.f63573f = null;
             }
         }
 
@@ -251,11 +251,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 SortedMap<C, V> k = k();
                 if (k != null) {
-                    C c2 = this.f63593h;
+                    C c2 = this.f63592h;
                     if (c2 != null) {
                         k = k.tailMap(c2);
                     }
-                    C c3 = this.f63594i;
+                    C c3 = this.f63593i;
                     return c3 != null ? k.headMap(c3) : k;
                 }
                 return null;
@@ -270,7 +270,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f63573e, this.f63593h, c2);
+                return new c(this.k, this.f63572e, this.f63592h, c2);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -289,7 +289,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             C c2;
             C c3;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f63593h) == null || g(c2, obj) <= 0) && ((c3 = this.f63594i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f63592h) == null || g(c2, obj) <= 0) && ((c3 = this.f63593i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
         }
 
         public SortedMap<C, V> k() {
@@ -297,8 +297,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 SortedMap<C, V> sortedMap = this.j;
-                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f63573e))) {
-                    this.j = (SortedMap) this.k.backingMap.get(this.f63573e);
+                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f63572e))) {
+                    this.j = (SortedMap) this.k.backingMap.get(this.f63572e);
                 }
                 return this.j;
             }
@@ -342,12 +342,12 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     if (j(c3)) {
                         z = true;
                         n.d(z);
-                        return new c(this.k, this.f63573e, c2, c3);
+                        return new c(this.k, this.f63572e, c2, c3);
                     }
                 }
                 z = false;
                 n.d(z);
-                return new c(this.k, this.f63573e, c2, c3);
+                return new c(this.k, this.f63572e, c2, c3);
             }
             return (SortedMap) invokeLL.objValue;
         }
@@ -359,7 +359,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f63573e, c2, this.f63594i);
+                return new c(this.k, this.f63572e, c2, this.f63593i);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -384,8 +384,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                 }
             }
             this.k = treeBasedTable;
-            this.f63593h = c2;
-            this.f63594i = c3;
+            this.f63592h = c2;
+            this.f63593i = c3;
             n.d(c2 == null || c3 == null || g(c2, c3) <= 0);
         }
     }

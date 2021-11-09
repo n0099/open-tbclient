@@ -13,32 +13,32 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f69195a;
+    public static final h f69194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f69196b;
+    public static final h f69195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f69197c;
+    public static final h f69196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f69198d;
+    public static final h f69197d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f69199e;
+    public static final h f69198e;
     @Deprecated
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f69200f;
+    public static final h f69199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f69201g;
+    public static final h f69200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f69202h;
+    public static final h f69201h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f69203i;
+    public static final h f69202i;
     public static final /* synthetic */ h[] j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,17 +55,17 @@ public final class h {
                 return;
             }
         }
-        f69195a = new h("RUN_STATUS_NONE", 0);
-        f69196b = new h("RUN_STATUS_PAUSE", 1);
-        f69197c = new h("RUN_STATUS_CANCELED", 2);
-        f69198d = new h("RUN_STATUS_ERROR", 3);
-        f69199e = new h("RUN_STATUS_END_RIGHT_NOW", 4);
-        f69200f = new h("RUN_STATUS_RETRY_DELAY", 5);
-        f69201g = new h("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
-        f69202h = new h("RUN_STATUS_END_FOR_FILE_EXIST", 7);
+        f69194a = new h("RUN_STATUS_NONE", 0);
+        f69195b = new h("RUN_STATUS_PAUSE", 1);
+        f69196c = new h("RUN_STATUS_CANCELED", 2);
+        f69197d = new h("RUN_STATUS_ERROR", 3);
+        f69198e = new h("RUN_STATUS_END_RIGHT_NOW", 4);
+        f69199f = new h("RUN_STATUS_RETRY_DELAY", 5);
+        f69200g = new h("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
+        f69201h = new h("RUN_STATUS_END_FOR_FILE_EXIST", 7);
         h hVar = new h("RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET", 8);
-        f69203i = hVar;
-        j = new h[]{f69195a, f69196b, f69197c, f69198d, f69199e, f69200f, f69201g, f69202h, hVar};
+        f69202i = hVar;
+        j = new h[]{f69194a, f69195b, f69196c, f69197d, f69198e, f69199f, f69200g, f69201h, hVar};
     }
 
     public h(String str, int i2) {

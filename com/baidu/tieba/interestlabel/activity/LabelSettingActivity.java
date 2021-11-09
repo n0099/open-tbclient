@@ -31,7 +31,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f50967a;
+        public static final /* synthetic */ int[] f50966a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f50967a = iArr;
+            f50966a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f50967a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f50966a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -78,7 +78,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-            int i3 = a.f50967a[labelRequestEnum.ordinal()];
+            int i3 = a.f50966a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
                     b.a.q0.s.e0.b.j().t("set_recommend_label", true);

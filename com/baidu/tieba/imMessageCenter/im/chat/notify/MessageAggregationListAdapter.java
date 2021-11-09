@@ -37,7 +37,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     public void O(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f50664i = tbPageContext;
+            this.f50663i = tbPageContext;
         }
     }
 

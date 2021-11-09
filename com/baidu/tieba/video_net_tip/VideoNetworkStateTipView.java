@@ -27,19 +27,19 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54868e;
+    public int f54867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54869f;
+    public TextView f54868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54870g;
+    public TextView f54869g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54871h;
+    public TextView f54870h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f54872i;
+    public Runnable f54871i;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -47,9 +47,44 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoNetworkStateTipView f54873e;
+        public final /* synthetic */ VideoNetworkStateTipView f54872e;
 
         public a(VideoNetworkStateTipView videoNetworkStateTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoNetworkStateTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54872e = videoNetworkStateTipView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f54872e.hide();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoNetworkStateTipView f54873e;
+
+        public b(VideoNetworkStateTipView videoNetworkStateTipView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,46 +102,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
             this.f54873e = videoNetworkStateTipView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54873e.hide();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoNetworkStateTipView f54874e;
-
-        public b(VideoNetworkStateTipView videoNetworkStateTipView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoNetworkStateTipView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54874e = videoNetworkStateTipView;
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.m.a.w(true, this.f54874e.getContext(), this.f54874e.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                b.a.q0.m.a.w(true, this.f54873e.getContext(), this.f54873e.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -129,8 +129,8 @@ public class VideoNetworkStateTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f54868e = 3;
-        this.f54872i = new a(this);
+        this.f54867e = 3;
+        this.f54871i = new a(this);
         a();
     }
 
@@ -138,11 +138,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.mid_video_network_state_tip, this);
-            this.f54869f = (TextView) findViewById(R.id.play);
+            this.f54868f = (TextView) findViewById(R.id.play);
             TextView textView = (TextView) findViewById(R.id.free_flow);
-            this.f54870g = textView;
+            this.f54869g = textView;
             textView.setOnClickListener(new b(this));
-            this.f54871h = (TextView) findViewById(R.id.play_tips);
+            this.f54870h = (TextView) findViewById(R.id.play_tips);
             onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -168,16 +168,16 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f54868e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f54867e == i2) {
             return;
         }
-        this.f54868e = i2;
-        SkinManager.setViewTextColor(this.f54869f, R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.f54869f, R.drawable.rectangle_background_alpha80);
-        SkinManager.setViewTextColor(this.f54870g, R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.f54870g, R.drawable.blue_rectangle_background);
-        SkinManager.setViewTextColor(this.f54871h, R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.f54871h, R.drawable.rectangle_background_alpha80);
+        this.f54867e = i2;
+        SkinManager.setViewTextColor(this.f54868f, R.color.CAM_X0101);
+        SkinManager.setBackgroundResource(this.f54868f, R.drawable.rectangle_background_alpha80);
+        SkinManager.setViewTextColor(this.f54869g, R.color.CAM_X0101);
+        SkinManager.setBackgroundResource(this.f54869g, R.drawable.blue_rectangle_background);
+        SkinManager.setViewTextColor(this.f54870h, R.color.CAM_X0101);
+        SkinManager.setBackgroundResource(this.f54870h, R.drawable.rectangle_background_alpha80);
     }
 
     public void setHasAgreeToPlay(boolean z) {
@@ -190,7 +190,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.f54869f.setOnClickListener(onClickListener);
+            this.f54868f.setOnClickListener(onClickListener);
         }
     }
 
@@ -198,9 +198,9 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(0);
-            this.f54869f.setVisibility(0);
-            this.f54870g.setVisibility(0);
-            this.f54871h.setVisibility(8);
+            this.f54868f.setVisibility(0);
+            this.f54869g.setVisibility(0);
+            this.f54870h.setVisibility(8);
         }
     }
 
@@ -208,11 +208,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setVisibility(0);
-            this.f54869f.setVisibility(8);
-            this.f54870g.setVisibility(8);
-            this.f54871h.setVisibility(0);
-            e.a().removeCallbacks(this.f54872i);
-            e.a().postDelayed(this.f54872i, 3000L);
+            this.f54868f.setVisibility(8);
+            this.f54869g.setVisibility(8);
+            this.f54870h.setVisibility(0);
+            e.a().removeCallbacks(this.f54871i);
+            e.a().postDelayed(this.f54871i, 3000L);
         }
     }
 
@@ -235,8 +235,8 @@ public class VideoNetworkStateTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f54868e = 3;
-        this.f54872i = new a(this);
+        this.f54867e = 3;
+        this.f54871i = new a(this);
         a();
     }
 
@@ -259,8 +259,8 @@ public class VideoNetworkStateTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f54868e = 3;
-        this.f54872i = new a(this);
+        this.f54867e = 3;
+        this.f54871i = new a(this);
         a();
     }
 }

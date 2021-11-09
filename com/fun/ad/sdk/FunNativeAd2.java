@@ -22,14 +22,14 @@ public interface FunNativeAd2 {
         public static final NativeType EXPRESS;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ NativeType[] f62739a;
+        public static final /* synthetic */ NativeType[] f62738a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f62740b;
+        public final boolean f62739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f62741c;
+        public final boolean f62740c;
 
         static {
             InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public interface FunNativeAd2 {
             EXPRESS = nativeType2;
             NativeType nativeType3 = new NativeType("BOTH", 2, true, true);
             BOTH = nativeType3;
-            f62739a = new NativeType[]{nativeType, nativeType2, nativeType3};
+            f62738a = new NativeType[]{nativeType, nativeType2, nativeType3};
         }
 
         public NativeType(String str, int i2, boolean z, boolean z2) {
@@ -71,8 +71,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f62740b = z;
-            this.f62741c = z2;
+            this.f62739b = z;
+            this.f62740c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -84,19 +84,19 @@ public interface FunNativeAd2 {
         public static NativeType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) f62739a.clone() : (NativeType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) f62738a.clone() : (NativeType[]) invokeV.objValue;
         }
 
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62740b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62739b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62741c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62740c : invokeV.booleanValue;
         }
     }
 

@@ -26,19 +26,19 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55582e;
+    public int f55581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55583f;
+    public int f55582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55584g;
+    public int f55583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55585h;
+    public int f55584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55586i;
+    public int f55585i;
     public int j;
     public int k;
     public Paint l;
@@ -61,7 +61,7 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordProgressBar f55587e;
+        public final /* synthetic */ RecordProgressBar f55586e;
 
         public a(RecordProgressBar recordProgressBar) {
             Interceptable interceptable = $ic;
@@ -78,27 +78,27 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
                     return;
                 }
             }
-            this.f55587e = recordProgressBar;
+            this.f55586e = recordProgressBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RecordProgressBar recordProgressBar = this.f55587e;
+                RecordProgressBar recordProgressBar = this.f55586e;
                 int i2 = recordProgressBar.t;
                 if (i2 <= 0) {
                     recordProgressBar.u = true;
                 } else if (i2 >= 255) {
                     recordProgressBar.u = false;
                 }
-                RecordProgressBar recordProgressBar2 = this.f55587e;
+                RecordProgressBar recordProgressBar2 = this.f55586e;
                 if (recordProgressBar2.u) {
                     recordProgressBar2.t += 50;
                 } else {
                     recordProgressBar2.t -= 50;
                 }
-                this.f55587e.invalidate();
+                this.f55586e.invalidate();
             }
         }
     }
@@ -226,9 +226,9 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
                     if (i2 >= this.r) {
                         break;
                     } else if (i2 == this.q) {
-                        this.n.setColor(this.f55586i);
+                        this.n.setColor(this.f55585i);
                         float f3 = width * i2;
-                        canvas.drawRect(f3, 0.0f, f3 + this.f55582e, getHeight(), this.n);
+                        canvas.drawRect(f3, 0.0f, f3 + this.f55581e, getHeight(), this.n);
                         this.n.setColor(this.k);
                         break;
                     } else {
@@ -238,10 +238,10 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
             }
             for (int i3 = 0; i3 < this.o.size(); i3++) {
                 if (this.s && i3 == this.o.size() - 1) {
-                    this.l.setColor(this.f55585h);
+                    this.l.setColor(this.f55584h);
                     a();
                 } else {
-                    this.l.setColor(this.f55584g);
+                    this.l.setColor(this.f55583g);
                 }
                 if (i3 != 0) {
                     float f4 = f2 * width;
@@ -258,11 +258,11 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
                 }
                 if (i3 == 0 && getProgress() >= 0.2f) {
                     float f7 = f2 * width;
-                    canvas.drawRect(f7 - this.f55583f, 0.0f, f7, getHeight(), this.l);
+                    canvas.drawRect(f7 - this.f55582f, 0.0f, f7, getHeight(), this.l);
                 }
                 if (i3 < this.o.size() - 1 || this.p == 0) {
                     float f8 = f2 * width;
-                    canvas.drawRect(f8 - this.f55583f, 0.0f, f8, getHeight(), this.m);
+                    canvas.drawRect(f8 - this.f55582f, 0.0f, f8, getHeight(), this.m);
                 }
             }
         }
@@ -415,13 +415,13 @@ public class RecordProgressBar extends View implements b.a.r0.c4.l.a, Runnable {
         this.t = 255;
         this.u = false;
         this.x = 0.0f;
-        this.f55584g = getContext().getResources().getColor(R.color.CAM_X0302);
-        this.f55585h = getContext().getResources().getColor(R.color.CAM_X0301);
+        this.f55583g = getContext().getResources().getColor(R.color.CAM_X0302);
+        this.f55584h = getContext().getResources().getColor(R.color.CAM_X0301);
         this.j = getContext().getResources().getColor(R.color.CAM_X0313);
         this.k = getContext().getResources().getColor(R.color.CAM_X0615);
-        this.f55586i = getContext().getResources().getColor(R.color.CAM_X0312);
-        this.f55582e = l.e(context, 2.0f);
-        this.f55583f = l.e(context, 2.0f);
+        this.f55585i = getContext().getResources().getColor(R.color.CAM_X0312);
+        this.f55581e = l.e(context, 2.0f);
+        this.f55582f = l.e(context, 2.0f);
         l.e(context, 6.0f);
         Paint paint = new Paint();
         this.n = paint;

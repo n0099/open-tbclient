@@ -51,7 +51,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistActivity f49994e;
+        public final /* synthetic */ HotRanklistActivity f49993e;
 
         public a(HotRanklistActivity hotRanklistActivity) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                     return;
                 }
             }
-            this.f49994e = hotRanklistActivity;
+            this.f49993e = hotRanklistActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f49994e.ranklistModel != null) {
-                j jVar = (j) this.f49994e.mHotTopicRanklistDataList.get(this.f49994e.ranklistMainView.h());
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f49993e.ranklistModel != null) {
+                j jVar = (j) this.f49993e.mHotTopicRanklistDataList.get(this.f49993e.ranklistMainView.h());
                 if (jVar == null || ListUtils.isEmpty(jVar.b())) {
-                    this.f49994e.ranklistMainView.k();
-                    this.f49994e.ranklistMainView.x();
-                    this.f49994e.loadHotTopicRanklistData();
+                    this.f49993e.ranklistMainView.k();
+                    this.f49993e.ranklistMainView.x();
+                    this.f49993e.loadHotTopicRanklistData();
                 }
             }
         }
@@ -91,7 +91,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistActivity f49995a;
+        public final /* synthetic */ HotRanklistActivity f49994a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotRanklistActivity hotRanklistActivity, int i2) {
@@ -111,7 +111,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                     return;
                 }
             }
-            this.f49995a = hotRanklistActivity;
+            this.f49994a = hotRanklistActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,9 +123,9 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof p) {
-                int j = this.f49995a.ranklistMainView.j((p) data);
+                int j = this.f49994a.ranklistMainView.j((p) data);
                 if (j >= 0) {
-                    this.f49995a.ranklistMainView.s(j);
+                    this.f49994a.ranklistMainView.s(j);
                 }
             }
         }

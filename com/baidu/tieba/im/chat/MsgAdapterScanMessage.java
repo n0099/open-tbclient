@@ -18,10 +18,10 @@ public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbPageContext<MsglistActivity<?>> f50188a;
+        public TbPageContext<MsglistActivity<?>> f50187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<MsgCommonItemAdapter> f50189b;
+        public List<MsgCommonItemAdapter> f50188b;
 
         public a() {
             Interceptable interceptable = $ic;

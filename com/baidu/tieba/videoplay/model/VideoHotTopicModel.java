@@ -27,22 +27,22 @@ public class VideoHotTopicModel extends BdBaseModel {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoHotTopicParams f55132e;
+    public VideoHotTopicParams f55131e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public b f55133f;
+    public b f55132f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.i0.c.a f55134g;
+    public b.a.q0.i0.c.a f55133g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Map<String, Object>> f55135h;
+    public List<Map<String, Object>> f55134h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55136i;
+    public int f55135i;
     public boolean j;
 
     /* loaded from: classes9.dex */
@@ -51,10 +51,10 @@ public class VideoHotTopicModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicParams f55137a;
+        public final /* synthetic */ VideoHotTopicParams f55136a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicModel f55138b;
+        public final /* synthetic */ VideoHotTopicModel f55137b;
 
         public a(VideoHotTopicModel videoHotTopicModel, VideoHotTopicParams videoHotTopicParams) {
             Interceptable interceptable = $ic;
@@ -71,22 +71,22 @@ public class VideoHotTopicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f55138b = videoHotTopicModel;
-            this.f55137a = videoHotTopicParams;
+            this.f55137b = videoHotTopicModel;
+            this.f55136a = videoHotTopicParams;
         }
 
         @Override // b.a.q0.i0.c.a.InterfaceC0665a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55138b.j = false;
+                this.f55137b.j = false;
             }
         }
 
         @Override // b.a.q0.i0.c.a.InterfaceC0665a
         public void b(@NonNull List<d2> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f55138b.f55133f == null || list.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f55137b.f55132f == null || list.isEmpty()) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -96,10 +96,10 @@ public class VideoHotTopicModel extends BdBaseModel {
                 arrayList.add(videoItemData);
             }
             if (map != null) {
-                this.f55138b.f55135h.add(map);
+                this.f55137b.f55134h.add(map);
             }
-            this.f55137a.setCurrentPn(this.f55138b.f55136i);
-            this.f55138b.f55133f.a(arrayList);
+            this.f55136a.setCurrentPn(this.f55137b.f55135i);
+            this.f55137b.f55132f.a(arrayList);
         }
     }
 
@@ -126,19 +126,19 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55134g = (b.a.q0.i0.c.a) ServiceManager.getService(b.a.q0.i0.c.a.f12639a);
-        this.f55135h = new ArrayList();
+        this.f55133g = (b.a.q0.i0.c.a) ServiceManager.getService(b.a.q0.i0.c.a.f12639a);
+        this.f55134h = new ArrayList();
         this.j = false;
-        this.f55132e = videoHotTopicParams;
-        this.f55134g.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
-        this.f55134g.c(new a(this, videoHotTopicParams));
+        this.f55131e = videoHotTopicParams;
+        this.f55133g.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
+        this.f55133g.c(new a(this, videoHotTopicParams));
     }
 
     @NonNull
     public List<Map<String, Object>> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55135h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55134h : (List) invokeV.objValue;
     }
 
     public void B(@NonNull Long l) {
@@ -147,16 +147,16 @@ public class VideoHotTopicModel extends BdBaseModel {
             return;
         }
         this.j = true;
-        this.f55136i = this.f55132e.getCurrentPn() + 1;
+        this.f55135i = this.f55131e.getCurrentPn() + 1;
         b1 b1Var = new b1();
-        b1Var.k(this.f55136i);
-        this.f55134g.b(this.f55132e.getSortType(), b1Var, l.longValue());
+        b1Var.k(this.f55135i);
+        this.f55133g.b(this.f55131e.getSortType(), b1Var, l.longValue());
     }
 
     public void C(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f55133f = bVar;
+            this.f55132f = bVar;
         }
     }
 

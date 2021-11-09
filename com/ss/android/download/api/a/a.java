@@ -58,41 +58,7 @@ public class a implements k {
             if (bVar == null) {
                 return null;
             }
-            AlertDialog show = new AlertDialog.Builder(bVar.f68340a).setTitle(bVar.f68341b).setMessage(bVar.f68342c).setPositiveButton(bVar.f68343d, new DialogInterface.OnClickListener(bVar) { // from class: com.ss.android.download.api.a.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.download.api.model.b f68309a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f68309a = bVar;
-                }
-
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i2) {
-                    b.InterfaceC1965b interfaceC1965b;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1965b = this.f68309a.f68347h) == null) {
-                        return;
-                    }
-                    interfaceC1965b.a(dialogInterface);
-                }
-            }).setNegativeButton(bVar.f68344e, new DialogInterface.OnClickListener(bVar) { // from class: com.ss.android.download.api.a.a.1
+            AlertDialog show = new AlertDialog.Builder(bVar.f68339a).setTitle(bVar.f68340b).setMessage(bVar.f68341c).setPositiveButton(bVar.f68342d, new DialogInterface.OnClickListener(bVar) { // from class: com.ss.android.download.api.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,19 +87,17 @@ public class a implements k {
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     b.InterfaceC1965b interfaceC1965b;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1965b = this.f68308a.f68347h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1965b = this.f68308a.f68346h) == null) {
                         return;
                     }
-                    interfaceC1965b.b(dialogInterface);
+                    interfaceC1965b.a(dialogInterface);
                 }
-            }).show();
-            show.setCanceledOnTouchOutside(bVar.f68345f);
-            show.setOnCancelListener(new DialogInterface.OnCancelListener(bVar) { // from class: com.ss.android.download.api.a.a.3
+            }).setNegativeButton(bVar.f68343e, new DialogInterface.OnClickListener(bVar) { // from class: com.ss.android.download.api.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.download.api.model.b f68310a;
+                public final /* synthetic */ com.ss.android.download.api.model.b f68307a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,20 +114,56 @@ public class a implements k {
                             return;
                         }
                     }
-                    this.f68310a = bVar;
+                    this.f68307a = bVar;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i2) {
+                    b.InterfaceC1965b interfaceC1965b;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1965b = this.f68307a.f68346h) == null) {
+                        return;
+                    }
+                    interfaceC1965b.b(dialogInterface);
+                }
+            }).show();
+            show.setCanceledOnTouchOutside(bVar.f68344f);
+            show.setOnCancelListener(new DialogInterface.OnCancelListener(bVar) { // from class: com.ss.android.download.api.a.a.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.ss.android.download.api.model.b f68309a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f68309a = bVar;
                 }
 
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     b.InterfaceC1965b interfaceC1965b;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1965b = this.f68310a.f68347h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1965b = this.f68309a.f68346h) == null) {
                         return;
                     }
                     interfaceC1965b.c(dialogInterface);
                 }
             });
-            Drawable drawable = bVar.f68346g;
+            Drawable drawable = bVar.f68345g;
             if (drawable != null) {
                 show.setIcon(drawable);
             }

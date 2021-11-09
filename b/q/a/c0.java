@@ -36,9 +36,9 @@ public class c0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             PProvider pProvider = this.f33267e;
-            pProvider.f70524a = pProvider.getContext();
+            pProvider.f70523a = pProvider.getContext();
             PProvider pProvider2 = this.f33267e;
-            if (pProvider2.f70524a == null) {
+            if (pProvider2.f70523a == null) {
                 return;
             }
             pProvider2.a();

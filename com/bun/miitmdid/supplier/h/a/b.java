@@ -24,31 +24,31 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f61199a;
+    public static Context f61198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61200b;
+    public static boolean f61199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f61201c;
+    public static b f61200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f61202d;
+    public static a f61201d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f61203e;
+    public static c f61202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f61204f;
+    public static c f61203f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f61205g;
+    public static c f61204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object f61206h;
+    public static Object f61205h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static HandlerThread f61207i;
+    public static HandlerThread f61206i;
     public static Handler j;
     public static String k;
     public static String l;
@@ -69,7 +69,7 @@ public class b {
                 return;
             }
         }
-        f61206h = new Object();
+        f61205h = new Object();
     }
 
     public b() {
@@ -90,14 +90,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f61201c == null) {
-                f61201c = new b();
-                f61199a = context;
+            if (f61200c == null) {
+                f61200c = new b();
+                f61198a = context;
                 f();
-                f61202d = new a(f61199a);
+                f61201d = new a(f61198a);
                 c();
             }
-            return f61201c;
+            return f61200c;
         }
         return (b) invokeL.objValue;
     }
@@ -128,22 +128,22 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, str) == null) {
             if (i2 == 0) {
-                f61203e = new c(f61201c, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f61203e);
+                f61202e = new c(f61200c, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f61202e);
                 return;
             }
             if (i2 == 1) {
-                f61204f = new c(f61201c, 1, str);
+                f61203f = new c(f61200c, 1, str);
                 contentResolver = context.getContentResolver();
                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
-                cVar = f61204f;
+                cVar = f61203f;
             } else if (i2 != 2) {
                 return;
             } else {
-                f61205g = new c(f61201c, 2, str);
+                f61204g = new c(f61200c, 2, str);
                 contentResolver = context.getContentResolver();
                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
-                cVar = f61205g;
+                cVar = f61204g;
             }
             contentResolver.registerContentObserver(parse, false, cVar);
         }
@@ -167,7 +167,7 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f61200b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+            f61199b = "1".equals(a("persist.sys.identifierid.supported", "0"));
         }
     }
 
@@ -175,9 +175,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-            f61207i = handlerThread;
+            f61206i = handlerThread;
             handlerThread.start();
-            j = new Handler(f61207i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
+            j = new Handler(f61206i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,13 +210,13 @@ public class b {
                             return;
                         }
                         try {
-                            String unused = b.k = b.f61202d.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                            String unused = b.k = b.f61201d.a(message.getData().getInt("type"), message.getData().getString("appid"));
                         } catch (Exception e2) {
                             String unused2 = b.k = "";
                             com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e2);
                         }
-                        synchronized (b.f61206h) {
-                            b.f61206h.notify();
+                        synchronized (b.f61205h) {
+                            b.f61205h.notify();
                         }
                     }
                 }
@@ -234,8 +234,8 @@ public class b {
                     return str2;
                 }
                 a(1, str);
-                if (f61204f == null && m != null) {
-                    a(f61199a, 1, str);
+                if (f61203f == null && m != null) {
+                    a(f61198a, 1, str);
                 }
                 return m;
             }
@@ -249,11 +249,11 @@ public class b {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            synchronized (f61206h) {
+            synchronized (f61205h) {
                 b(i2, str);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f61206h.wait(2000L);
+                    f61205h.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -288,7 +288,7 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f61200b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f61199b : invokeV.booleanValue;
     }
 
     public String b() {
@@ -301,8 +301,8 @@ public class b {
                     return str;
                 }
                 a(0, (String) null);
-                if (f61203e == null) {
-                    a(f61199a, 0, null);
+                if (f61202e == null) {
+                    a(f61198a, 0, null);
                 }
                 return l;
             }
@@ -321,8 +321,8 @@ public class b {
                     return str2;
                 }
                 a(2, str);
-                if (f61205g == null && n != null) {
-                    a(f61199a, 2, str);
+                if (f61204g == null && n != null) {
+                    a(f61198a, 2, str);
                 }
                 return n;
             }

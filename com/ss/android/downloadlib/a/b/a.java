@@ -29,32 +29,32 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f68412d = "";
+    public static String f68411d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f68413e = "";
+    public static String f68412e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f68414f = "";
+    public static String f68413f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f68415g;
+    public static volatile a f68414g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f68416a;
+    public c f68415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<InterfaceC1967a> f68417b;
+    public final List<InterfaceC1967a> f68416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f68418c;
+    public final Object f68417c;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68419h;
+    public boolean f68418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f68420i;
+    public boolean f68419i;
     public volatile boolean j;
     public Context k;
     public final List<Pair<b, d>> l;
@@ -97,17 +97,17 @@ public class a {
                 return;
             }
         }
-        this.f68419h = true;
-        this.f68420i = false;
+        this.f68418h = true;
+        this.f68419i = false;
         this.j = false;
         this.l = new ArrayList();
-        this.f68417b = new ArrayList();
+        this.f68416b = new ArrayList();
         this.m = new ServiceConnection(this) { // from class: com.ss.android.downloadlib.a.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f68421a;
+            public final /* synthetic */ a f68420a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -124,18 +124,18 @@ public class a {
                         return;
                     }
                 }
-                this.f68421a = this;
+                this.f68420a = this;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                    synchronized (this.f68421a.f68418c) {
-                        this.f68421a.a(false);
-                        this.f68421a.f68416a = c.a.a(iBinder);
-                        this.f68421a.c();
-                        for (InterfaceC1967a interfaceC1967a : this.f68421a.f68417b) {
+                    synchronized (this.f68420a.f68417c) {
+                        this.f68420a.a(false);
+                        this.f68420a.f68415a = c.a.a(iBinder);
+                        this.f68420a.c();
+                        for (InterfaceC1967a interfaceC1967a : this.f68420a.f68416b) {
                             interfaceC1967a.a();
                         }
                     }
@@ -146,10 +146,10 @@ public class a {
             public void onServiceDisconnected(ComponentName componentName) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                    synchronized (this.f68421a.f68418c) {
-                        this.f68421a.a(false);
-                        this.f68421a.f68416a = null;
-                        for (InterfaceC1967a interfaceC1967a : this.f68421a.f68417b) {
+                    synchronized (this.f68420a.f68417c) {
+                        this.f68420a.a(false);
+                        this.f68420a.f68415a = null;
+                        for (InterfaceC1967a interfaceC1967a : this.f68420a.f68416b) {
                             interfaceC1967a.b();
                         }
                     }
@@ -157,21 +157,21 @@ public class a {
             }
         };
         this.n = "";
-        this.f68418c = new Object();
+        this.f68417c = new Object();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68415g == null) {
+            if (f68414g == null) {
                 synchronized (a.class) {
-                    if (f68415g == null) {
-                        f68415g = new a();
+                    if (f68414g == null) {
+                        f68414g = new a();
                     }
                 }
             }
-            return f68415g;
+            return f68414g;
         }
         return (a) invokeV.objValue;
     }
@@ -179,11 +179,11 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f68416a != null) {
+            if (this.f68415a != null) {
                 this.k.unbindService(this.m);
-                this.f68416a = null;
+                this.f68415a = null;
             }
-            this.f68417b.clear();
+            this.f68416b.clear();
             this.l.clear();
         }
     }
@@ -193,7 +193,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             for (Pair<b, d> pair : this.l) {
                 try {
-                    this.f68416a.a((b) pair.first, (d) pair.second);
+                    this.f68415a.a((b) pair.first, (d) pair.second);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -212,20 +212,20 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, context, z)) == null) {
-            if (TextUtils.isEmpty(f68412d)) {
+            if (TextUtils.isEmpty(f68411d)) {
                 JSONObject i2 = j.i();
                 String optString = i2.optString("s");
-                f68412d = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString(IAdRequestParam.COST_NAME), optString);
-                f68413e = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("u"), optString);
-                f68414f = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("w"), optString);
+                f68411d = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString(IAdRequestParam.COST_NAME), optString);
+                f68412e = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("u"), optString);
+                f68413f = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("w"), optString);
             }
-            this.f68420i = z;
+            this.f68419i = z;
             if (context != null) {
                 this.k = context.getApplicationContext();
-                if (TextUtils.isEmpty(f68414f)) {
-                    f68414f = this.k.getPackageName();
+                if (TextUtils.isEmpty(f68413f)) {
+                    f68413f = this.k.getPackageName();
                 }
-                if (this.f68416a != null || d()) {
+                if (this.f68415a != null || d()) {
                     return true;
                 }
                 return this.k.bindService(a(context), this.m, 33);
@@ -240,7 +240,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Intent intent = new Intent();
-            intent.setAction(f68412d);
+            intent.setAction(f68411d);
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
             if (queryIntentServices == null || queryIntentServices.size() != 1) {
                 return null;
@@ -249,7 +249,7 @@ public class a {
                 ServiceInfo serviceInfo = resolveInfo.serviceInfo;
                 String str = serviceInfo.packageName;
                 String str2 = serviceInfo.name;
-                if (f68413e.equals(str)) {
+                if (f68412e.equals(str)) {
                     ComponentName componentName = new ComponentName(str, str2);
                     Intent intent2 = new Intent(intent);
                     intent2.setComponent(componentName);
@@ -264,18 +264,18 @@ public class a {
     public void a(b bVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
-            synchronized (this.f68418c) {
-                bVar.f68426e = f68414f;
-                if (TextUtils.isEmpty(bVar.f68427f)) {
-                    bVar.f68427f = this.n;
+            synchronized (this.f68417c) {
+                bVar.f68425e = f68413f;
+                if (TextUtils.isEmpty(bVar.f68426f)) {
+                    bVar.f68426f = this.n;
                 }
-                if (this.f68416a != null) {
+                if (this.f68415a != null) {
                     try {
-                        this.f68416a.a(bVar, dVar);
+                        this.f68415a.a(bVar, dVar);
                     } catch (RemoteException e2) {
                         e2.printStackTrace();
                     }
-                } else if (d() || a(this.k, this.f68420i)) {
+                } else if (d() || a(this.k, this.f68419i)) {
                     this.l.add(Pair.create(bVar, dVar));
                 }
             }

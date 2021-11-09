@@ -28,19 +28,19 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BackgroundListActivity f54539e;
+    public BackgroundListActivity f54538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f54540f;
+    public e f54539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<DressItemData> f54541g;
+    public List<DressItemData> f54540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<DressItemData> f54542h;
+    public List<DressItemData> f54541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DressItemData f54543i;
+    public DressItemData f54542i;
     public c j;
     public int k;
     public boolean l;
@@ -55,10 +55,84 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListModel f54544a;
+        public final /* synthetic */ BackgroundListModel f54543a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BackgroundListModel backgroundListModel, int i2, int i3) {
+            super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {backgroundListModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54543a = backgroundListModel;
+        }
+
+        @Override // b.a.e.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof BackgroundListHttpResponseMessage;
+            if (z || (responsedMessage instanceof BackgroundListSocketResponseMessage)) {
+                if (responsedMessage.getError() == 0) {
+                    if (z) {
+                        BackgroundListHttpResponseMessage backgroundListHttpResponseMessage = (BackgroundListHttpResponseMessage) responsedMessage;
+                        this.f54543a.f54539f = backgroundListHttpResponseMessage.getRecommand();
+                        this.f54543a.f54540g = backgroundListHttpResponseMessage.getBackgroundList();
+                        this.f54543a.l = backgroundListHttpResponseMessage.hasMore();
+                        this.f54543a.m = backgroundListHttpResponseMessage.getIsDefault();
+                    } else if (responsedMessage instanceof BackgroundListSocketResponseMessage) {
+                        BackgroundListSocketResponseMessage backgroundListSocketResponseMessage = (BackgroundListSocketResponseMessage) responsedMessage;
+                        this.f54543a.f54539f = backgroundListSocketResponseMessage.getRecommand();
+                        this.f54543a.f54540g = backgroundListSocketResponseMessage.getBackgroundList();
+                        this.f54543a.l = backgroundListSocketResponseMessage.hasMore();
+                        this.f54543a.m = backgroundListSocketResponseMessage.getIsDefault();
+                    }
+                    if (this.f54543a.f54541h == null) {
+                        this.f54543a.f54541h = new ArrayList();
+                        this.f54543a.f54541h.add(this.f54543a.f54542i);
+                    }
+                    if (this.f54543a.k == 1) {
+                        this.f54543a.f54541h.clear();
+                        this.f54543a.f54541h.add(this.f54543a.f54542i);
+                    }
+                    if (this.f54543a.f54540g != null) {
+                        this.f54543a.f54541h.addAll(this.f54543a.f54540g);
+                    }
+                } else {
+                    BackgroundListModel.y(this.f54543a);
+                }
+                if (this.f54543a.j != null) {
+                    this.f54543a.O();
+                    this.f54543a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54543a.f54539f, this.f54543a.f54541h);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b extends b.a.e.c.g.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BackgroundListModel f54544a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(BackgroundListModel backgroundListModel, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -81,80 +155,6 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof BackgroundListHttpResponseMessage;
-            if (z || (responsedMessage instanceof BackgroundListSocketResponseMessage)) {
-                if (responsedMessage.getError() == 0) {
-                    if (z) {
-                        BackgroundListHttpResponseMessage backgroundListHttpResponseMessage = (BackgroundListHttpResponseMessage) responsedMessage;
-                        this.f54544a.f54540f = backgroundListHttpResponseMessage.getRecommand();
-                        this.f54544a.f54541g = backgroundListHttpResponseMessage.getBackgroundList();
-                        this.f54544a.l = backgroundListHttpResponseMessage.hasMore();
-                        this.f54544a.m = backgroundListHttpResponseMessage.getIsDefault();
-                    } else if (responsedMessage instanceof BackgroundListSocketResponseMessage) {
-                        BackgroundListSocketResponseMessage backgroundListSocketResponseMessage = (BackgroundListSocketResponseMessage) responsedMessage;
-                        this.f54544a.f54540f = backgroundListSocketResponseMessage.getRecommand();
-                        this.f54544a.f54541g = backgroundListSocketResponseMessage.getBackgroundList();
-                        this.f54544a.l = backgroundListSocketResponseMessage.hasMore();
-                        this.f54544a.m = backgroundListSocketResponseMessage.getIsDefault();
-                    }
-                    if (this.f54544a.f54542h == null) {
-                        this.f54544a.f54542h = new ArrayList();
-                        this.f54544a.f54542h.add(this.f54544a.f54543i);
-                    }
-                    if (this.f54544a.k == 1) {
-                        this.f54544a.f54542h.clear();
-                        this.f54544a.f54542h.add(this.f54544a.f54543i);
-                    }
-                    if (this.f54544a.f54541g != null) {
-                        this.f54544a.f54542h.addAll(this.f54544a.f54541g);
-                    }
-                } else {
-                    BackgroundListModel.y(this.f54544a);
-                }
-                if (this.f54544a.j != null) {
-                    this.f54544a.O();
-                    this.f54544a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54544a.f54540f, this.f54544a.f54542h);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends b.a.e.c.g.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListModel f54545a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(BackgroundListModel backgroundListModel, int i2, int i3) {
-            super(i2, i3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {backgroundListModel, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54545a = backgroundListModel;
-        }
-
-        @Override // b.a.e.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
             DressItemData N;
             DressItemData N2;
             Interceptable interceptable = $ic;
@@ -165,13 +165,13 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == this.f54545a.f54539e.getPropId() && (N = this.f54545a.N(propId)) != null) {
+                    if (propId == this.f54544a.f54538e.getPropId() && (N = this.f54544a.N(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", N.getFreeUserLevel()));
                     }
                     b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
                     j.v("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
-                    this.f54545a.T(propId);
-                    this.f54545a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54545a.f54540f, this.f54545a.f54542h);
+                    this.f54544a.T(propId);
+                    this.f54544a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54544a.f54539f, this.f54544a.f54541h);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
                     int i2 = b.a.r0.r3.c.f23080b;
@@ -182,8 +182,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.f54545a.getUniqueId()) && propId == this.f54545a.f54539e.getPropId() && (N2 = this.f54545a.N(propId)) != null) {
-                        this.f54545a.S(i2, responsedMessage.getErrorString(), N2, fromDetail);
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.f54544a.getUniqueId()) && propId == this.f54544a.f54538e.getPropId() && (N2 = this.f54544a.N(propId)) != null) {
+                        this.f54544a.S(i2, responsedMessage.getErrorString(), N2, fromDetail);
                     }
                 }
             }
@@ -215,14 +215,14 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         this.m = false;
         this.o = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, 309021);
         this.p = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.f54539e = backgroundListActivity;
+        this.f54538e = backgroundListActivity;
         DressItemData dressItemData = new DressItemData();
-        this.f54543i = dressItemData;
+        this.f54542i = dressItemData;
         dressItemData.setPropsId(0);
-        this.f54543i.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
+        this.f54542i.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
         ArrayList arrayList = new ArrayList();
-        this.f54542h = arrayList;
-        arrayList.add(this.f54543i);
+        this.f54541h = arrayList;
+        arrayList.add(this.f54542i);
         this.n = backgroundListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.o);
@@ -240,9 +240,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<DressItemData> list = this.f54542h;
+            List<DressItemData> list = this.f54541h;
             if (list != null && list.size() > 0) {
-                for (DressItemData dressItemData : this.f54542h) {
+                for (DressItemData dressItemData : this.f54541h) {
                     if (dressItemData != null && dressItemData.getPropsId() == i2) {
                         return dressItemData;
                     }
@@ -290,9 +290,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 return;
             }
             if (i2 == b.a.r0.r3.c.f23079a) {
-                b.a.r0.r3.b.d(this.f54539e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+                b.a.r0.r3.b.d(this.f54538e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
             } else if (i2 == b.a.r0.r3.c.f23080b) {
-                b.a.r0.r3.b.c(this.f54539e.getPageContext(), z ? 4 : 2, str, i3);
+                b.a.r0.r3.b.c(this.f54538e.getPageContext(), z ? 4 : 2, str, i3);
             }
         }
     }
@@ -300,10 +300,10 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void T(int i2) {
         List<DressItemData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f54542h) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f54541h) == null || list.size() <= 0) {
             return;
         }
-        for (DressItemData dressItemData : this.f54542h) {
+        for (DressItemData dressItemData : this.f54541h) {
             if (dressItemData != null) {
                 if (dressItemData.getPropsId() == i2) {
                     dressItemData.setInUse(true);

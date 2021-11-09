@@ -17,31 +17,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68340a;
+    public Context f68339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68341b;
+    public String f68340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68342c;
+    public String f68341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68343d;
+    public String f68342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68344e;
+    public String f68343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68345f;
+    public boolean f68344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f68346g;
+    public Drawable f68345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1965b f68347h;
+    public InterfaceC1965b f68346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f68348i;
+    public View f68347i;
     public int j;
 
     /* renamed from: com.ss.android.download.api.model.b$1  reason: invalid class name */
@@ -57,31 +57,31 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f68349a;
+        public View f68348a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68350b;
+        public int f68349b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f68351c;
+        public Context f68350c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68352d;
+        public String f68351d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f68353e;
+        public String f68352e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f68354f;
+        public String f68353f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f68355g;
+        public String f68354g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f68356h;
+        public boolean f68355h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Drawable f68357i;
+        public Drawable f68356i;
         public InterfaceC1965b j;
 
         public a(Context context) {
@@ -99,14 +99,14 @@ public class b {
                     return;
                 }
             }
-            this.f68351c = context;
+            this.f68350c = context;
         }
 
         public a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f68352d = str;
+                this.f68351d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +116,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f68353e = str;
+                this.f68352e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -126,7 +126,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f68354f = str;
+                this.f68353f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -136,7 +136,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f68355g = str;
+                this.f68354g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,7 +146,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f68356h = z;
+                this.f68355h = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -156,7 +156,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f68357i = drawable;
+                this.f68356i = drawable;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -176,7 +176,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f68350b = i2;
+                this.f68349b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -218,16 +218,16 @@ public class b {
                 return;
             }
         }
-        this.f68345f = true;
-        this.f68340a = aVar.f68351c;
-        this.f68341b = aVar.f68352d;
-        this.f68342c = aVar.f68353e;
-        this.f68343d = aVar.f68354f;
-        this.f68344e = aVar.f68355g;
-        this.f68345f = aVar.f68356h;
-        this.f68346g = aVar.f68357i;
-        this.f68347h = aVar.j;
-        this.f68348i = aVar.f68349a;
-        this.j = aVar.f68350b;
+        this.f68344f = true;
+        this.f68339a = aVar.f68350c;
+        this.f68340b = aVar.f68351d;
+        this.f68341c = aVar.f68352e;
+        this.f68342d = aVar.f68353f;
+        this.f68343e = aVar.f68354g;
+        this.f68344f = aVar.f68355h;
+        this.f68345g = aVar.f68356i;
+        this.f68346h = aVar.j;
+        this.f68347i = aVar.f68348a;
+        this.j = aVar.f68349b;
     }
 }

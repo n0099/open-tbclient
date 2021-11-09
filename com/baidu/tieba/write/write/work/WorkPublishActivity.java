@@ -164,7 +164,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f56179e;
+        public final /* synthetic */ Ref.ObjectRef f56178e;
 
         public a(Ref.ObjectRef objectRef) {
             Interceptable interceptable = $ic;
@@ -181,14 +181,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56179e = objectRef;
+            this.f56178e = objectRef;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, (b.a.r0.k1.f) this.f56179e.element));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, (b.a.r0.k1.f) this.f56178e.element));
             }
         }
     }
@@ -199,7 +199,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56180a;
+        public final /* synthetic */ WorkPublishActivity f56179a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a0(WorkPublishActivity workPublishActivity, int i2) {
@@ -219,7 +219,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56180a = workPublishActivity;
+            this.f56179a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -232,7 +232,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 if (((Boolean) data).booleanValue()) {
-                    new BdTopToast(this.f56180a.getBaseContext()).setIcon(false).setContent(this.f56180a.getResources().getString(R.string.can_not_select_tag)).show(this.f56180a.getNavigationBar());
+                    new BdTopToast(this.f56179a.getBaseContext()).setIcon(false).setContent(this.f56179a.getResources().getString(R.string.can_not_select_tag)).show(this.f56179a.getNavigationBar());
                 }
             }
         }
@@ -244,7 +244,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56181e;
+        public final /* synthetic */ WorkPublishActivity f56180e;
 
         public b(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -261,17 +261,17 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56181e = workPublishActivity;
+            this.f56180e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (WorkPublishActivity.access$getTopicLayout$p(this.f56181e).isOpen()) {
-                    WorkPublishActivity.access$getTopicLayout$p(this.f56181e).close();
+                if (WorkPublishActivity.access$getTopicLayout$p(this.f56180e).isOpen()) {
+                    WorkPublishActivity.access$getTopicLayout$p(this.f56180e).close();
                 } else {
-                    this.f56181e.popupSaveDraftDialog();
+                    this.f56180e.popupSaveDraftDialog();
                 }
             }
         }
@@ -283,10 +283,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f56182e;
+        public String f56181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56183f;
+        public final /* synthetic */ WorkPublishActivity f56182f;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b0(WorkPublishActivity workPublishActivity) {
@@ -304,25 +304,25 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56183f = workPublishActivity;
-            this.f56182e = "";
+            this.f56182f = workPublishActivity;
+            this.f56181e = "";
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || this.f56183f.getEdtTitle() == null || this.f56183f.getEdtTitle().getText() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || this.f56182f.getEdtTitle() == null || this.f56182f.getEdtTitle().getText() == null) {
                 return;
             }
-            if (this.f56183f.mTitleTemp != null && Intrinsics.areEqual(this.f56183f.mTitleTemp, editable.toString())) {
-                this.f56183f.getEdtTitle().setSelection(this.f56183f.getEdtTitle().getSelectionEnd());
+            if (this.f56182f.mTitleTemp != null && Intrinsics.areEqual(this.f56182f.mTitleTemp, editable.toString())) {
+                this.f56182f.getEdtTitle().setSelection(this.f56182f.getEdtTitle().getSelectionEnd());
                 return;
             }
-            WorkPublishActivity workPublishActivity = this.f56183f;
+            WorkPublishActivity workPublishActivity = this.f56182f;
             workPublishActivity.mTitleTemp = String.valueOf(workPublishActivity.getEdtTitle().getText());
-            this.f56183f.findAndTransPlainTextVideoHotpic(0);
-            if (this.f56183f.mHighLightController != null) {
-                this.f56183f.mHighLightController.h(this.f56183f.getEdtTitle());
+            this.f56182f.findAndTransPlainTextVideoHotpic(0);
+            if (this.f56182f.mHighLightController != null) {
+                this.f56182f.mHighLightController.h(this.f56182f.getEdtTitle());
             }
         }
 
@@ -334,7 +334,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                 if (obj == null) {
                     obj = "";
                 }
-                this.f56182e = obj;
+                this.f56181e = obj;
             }
         }
 
@@ -342,13 +342,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                String str = this.f56182e;
+                String str = this.f56181e;
                 int length = str != null ? str.length() : 0;
                 String obj = charSequence.toString();
                 if ((obj != null ? Integer.valueOf(obj.length()) : null).intValue() > length) {
-                    this.f56183f.tryOpenSelectTopicLayout(charSequence, i2, i4);
+                    this.f56182f.tryOpenSelectTopicLayout(charSequence, i2, i4);
                 }
-                this.f56183f.updateTitleLimit(charSequence);
+                this.f56182f.updateTitleLimit(charSequence);
             }
         }
     }
@@ -359,7 +359,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56184e;
+        public final /* synthetic */ WorkPublishActivity f56183e;
 
         public c(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -376,18 +376,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56184e = workPublishActivity;
+            this.f56183e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (WorkPublishActivity.access$getTopicLayout$p(this.f56184e).isOpen()) {
-                    WorkPublishActivity.access$getTopicLayout$p(this.f56184e).close();
-                } else if (this.f56184e.getNavPost().getAlpha() == 1.0f) {
-                    this.f56184e.doPost();
-                    b.a.r0.k1.f fVar = this.f56184e.mVideoSelectData;
+                if (WorkPublishActivity.access$getTopicLayout$p(this.f56183e).isOpen()) {
+                    WorkPublishActivity.access$getTopicLayout$p(this.f56183e).close();
+                } else if (this.f56183e.getNavPost().getAlpha() == 1.0f) {
+                    this.f56183e.doPost();
+                    b.a.r0.k1.f fVar = this.f56183e.mVideoSelectData;
                     if (fVar == null || !fVar.i()) {
                         return;
                     }
@@ -397,14 +397,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     statisticItem.param("topic_id", b2.longValue());
                     statisticItem.param(IntentConfig.IS_VIDEO_TOPIC, "1");
                     TiebaStatic.log(statisticItem);
-                } else if (this.f56184e.getNavPost().getAlpha() == 0.33f) {
-                    WorkPublishActivity workPublishActivity = this.f56184e;
+                } else if (this.f56183e.getNavPost().getAlpha() == 0.33f) {
+                    WorkPublishActivity workPublishActivity = this.f56183e;
                     if (workPublishActivity.checkTitleSpanLength(String.valueOf(workPublishActivity.getEdtTitle().getText()).length()) < 5) {
-                        new BdTopToast(this.f56184e).setIcon(false).setContent(this.f56184e.getString(R.string.work_publish_title_too_short)).show(this.f56184e.getRootView());
+                        new BdTopToast(this.f56183e).setIcon(false).setContent(this.f56183e.getString(R.string.work_publish_title_too_short)).show(this.f56183e.getRootView());
                     }
-                    WorkPublishActivity workPublishActivity2 = this.f56184e;
-                    if (workPublishActivity2.checkTitleSpanLength(String.valueOf(workPublishActivity2.getEdtTitle().getText()).length()) > this.f56184e.EDIT_INPUT_TITILE_MAX_LENGTH) {
-                        new BdTopToast(this.f56184e).setIcon(false).setContent(this.f56184e.getString(R.string.work_publish_title_too_long)).show(this.f56184e.getRootView());
+                    WorkPublishActivity workPublishActivity2 = this.f56183e;
+                    if (workPublishActivity2.checkTitleSpanLength(String.valueOf(workPublishActivity2.getEdtTitle().getText()).length()) > this.f56183e.EDIT_INPUT_TITILE_MAX_LENGTH) {
+                        new BdTopToast(this.f56183e).setIcon(false).setContent(this.f56183e.getString(R.string.work_publish_title_too_long)).show(this.f56183e.getRootView());
                     }
                 }
             }
@@ -417,7 +417,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56185a;
+        public final /* synthetic */ WorkPublishActivity f56184a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c0(WorkPublishActivity workPublishActivity, int i2) {
@@ -437,7 +437,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56185a = workPublishActivity;
+            this.f56184a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -447,7 +447,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoInfo)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f56185a.getViewModel().updateVideo((VideoInfo) data);
+                    this.f56184a.getViewModel().updateVideo((VideoInfo) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.coreExtra.data.VideoInfo");
@@ -461,9 +461,44 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56186e;
+        public final /* synthetic */ WorkPublishActivity f56185e;
 
         public d(WorkPublishActivity workPublishActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56185e = workPublishActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && WorkPublishActivity.access$getTopicLayout$p(this.f56185e).isOpen()) {
+                WorkPublishActivity.access$getTopicLayout$p(this.f56185e).close();
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class d0 implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56186e;
+
+        public d0(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -481,53 +516,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56186e = workPublishActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && WorkPublishActivity.access$getTopicLayout$p(this.f56186e).isOpen()) {
-                WorkPublishActivity.access$getTopicLayout$p(this.f56186e).close();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class d0 implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56187e;
-
-        public d0(WorkPublishActivity workPublishActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56187e = workPublishActivity;
-        }
-
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                WorkPublishActivity workPublishActivity = this.f56187e;
+                WorkPublishActivity workPublishActivity = this.f56186e;
                 Intrinsics.checkExpressionValueIsNotNull(animation, "animation");
                 Object animatedValue = animation.getAnimatedValue();
                 if (animatedValue != null) {
                     workPublishActivity.curMixVideoViewHeight = ((Integer) animatedValue).intValue();
-                    this.f56187e.getMixVideoViewLayout().getLayoutParams().height = this.f56187e.curMixVideoViewHeight;
-                    this.f56187e.getMixVideoViewLayout().setPadding(0, this.f56187e.curMixVideoViewHeight - this.f56187e.mixVideoViewHeight, 0, 0);
-                    this.f56187e.getMixVideoViewLayout().requestLayout();
+                    this.f56186e.getMixVideoViewLayout().getLayoutParams().height = this.f56186e.curMixVideoViewHeight;
+                    this.f56186e.getMixVideoViewLayout().setPadding(0, this.f56186e.curMixVideoViewHeight - this.f56186e.mixVideoViewHeight, 0, 0);
+                    this.f56186e.getMixVideoViewLayout().requestLayout();
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.Int");
@@ -541,7 +541,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56188a;
+        public final /* synthetic */ WorkPublishActivity f56187a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public e(WorkPublishActivity workPublishActivity) {
@@ -559,14 +559,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56188a = workPublishActivity;
+            this.f56187a = workPublishActivity;
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.SelectTopicModel.b
         public void a(List<b.a.r0.k1.f> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                WorkPublishActivity.access$getTopicToolBar$p(this.f56188a).bindData(list);
+                WorkPublishActivity.access$getTopicToolBar$p(this.f56187a).bindData(list);
             }
         }
     }
@@ -577,7 +577,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56189e;
+        public final /* synthetic */ WorkPublishActivity f56188e;
 
         public e0(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -594,14 +594,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56189e = workPublishActivity;
+            this.f56188e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-                PopupDialog popupDialog = this.f56189e.saveDraftDialog;
+                PopupDialog popupDialog = this.f56188e.saveDraftDialog;
                 if (popupDialog == null) {
                     Intrinsics.throwNpe();
                 }
@@ -615,10 +615,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                         if (id == R.id.save_draft_dialog_not_save) {
                             if (booleanValue) {
                                 TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 2));
-                                this.f56189e.clearDraft();
+                                this.f56188e.clearDraft();
                             }
-                            this.f56189e.setResult(100);
-                            this.f56189e.finish();
+                            this.f56188e.setResult(100);
+                            this.f56188e.finish();
                             return;
                         } else if (id != R.id.save_draft_dialog_save) {
                             if (id == R.id.save_draft_dialog_cancle && booleanValue) {
@@ -628,9 +628,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                             return;
                         } else if (booleanValue) {
                             TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 1));
-                            this.f56189e.processSaveDraft();
-                            this.f56189e.setResult(100);
-                            this.f56189e.finish();
+                            this.f56188e.processSaveDraft();
+                            this.f56188e.setResult(100);
+                            this.f56188e.finish();
                             return;
                         } else {
                             return;
@@ -648,9 +648,49 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56190e;
+        public final /* synthetic */ WorkPublishActivity f56189e;
 
         public f(WorkPublishActivity workPublishActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56189e = workPublishActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.lifecycle.Observer
+        /* renamed from: a */
+        public final void onChanged(ArrayList<String> it) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
+                SelectTagView selectTagView = this.f56189e.getSelectTagView();
+                Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                selectTagView.bindData(it);
+                this.f56189e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class f0 implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56190e;
+
+        public f0(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -668,29 +708,29 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56190e = workPublishActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.lifecycle.Observer
-        /* renamed from: a */
-        public final void onChanged(ArrayList<String> it) {
+        @Override // b.a.q0.s.s.a.e
+        public final void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTagView selectTagView = this.f56190e.getSelectTagView();
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                selectTagView.bindData(it);
-                this.f56190e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                if (!b.a.e.e.p.j.z()) {
+                    this.f56190e.mOnLocationCallBack.a();
+                } else {
+                    WorkPublishActivity.access$getMLocationModel$p(this.f56190e).L();
+                }
+                aVar.dismiss();
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class f0 implements a.e {
+    public static final class g<T> implements Observer<ArrayList<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56191e;
 
-        public f0(WorkPublishActivity workPublishActivity) {
+        public g(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -708,53 +748,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56191e = workPublishActivity;
         }
 
-        @Override // b.a.q0.s.s.a.e
-        public final void onClick(b.a.q0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (!b.a.e.e.p.j.z()) {
-                    this.f56191e.mOnLocationCallBack.a();
-                } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f56191e).L();
-                }
-                aVar.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class g<T> implements Observer<ArrayList<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56192e;
-
-        public g(WorkPublishActivity workPublishActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56192e = workPublishActivity;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
         public final void onChanged(ArrayList<String> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTopicView selectTopicView = this.f56192e.getSelectTopicView();
+                SelectTopicView selectTopicView = this.f56191e.getSelectTopicView();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 selectTopicView.bindData(it);
             }
@@ -766,7 +766,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final g0 f56193e;
+        public static final g0 f56192e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -782,7 +782,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            f56193e = new g0();
+            f56192e = new g0();
         }
 
         public g0() {
@@ -814,9 +814,46 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56194e;
+        public final /* synthetic */ WorkPublishActivity f56193e;
 
         public h(WorkPublishActivity workPublishActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56193e = workPublishActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.lifecycle.Observer
+        /* renamed from: a */
+        public final void onChanged(ResponsedSelectLocation responsedSelectLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedSelectLocation) == null) {
+                this.f56193e.getSelectPosView().bindData(responsedSelectLocation);
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class i<T> implements Observer<VideoInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56194e;
+
+        public i(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -837,23 +874,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(ResponsedSelectLocation responsedSelectLocation) {
+        public final void onChanged(VideoInfo videoInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedSelectLocation) == null) {
-                this.f56194e.getSelectPosView().bindData(responsedSelectLocation);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) || videoInfo == null) {
+                return;
             }
+            this.f56194e.getMixVideoView().setVideoInfo(videoInfo, false);
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class i<T> implements Observer<VideoInfo> {
+    public static final class j implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56195e;
 
-        public i(WorkPublishActivity workPublishActivity) {
+        public j(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -871,27 +909,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56195e = workPublishActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.lifecycle.Observer
-        /* renamed from: a */
-        public final void onChanged(VideoInfo videoInfo) {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) || videoInfo == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f56195e.onLocViewClickedInInitState();
             }
-            this.f56195e.getMixVideoView().setVideoInfo(videoInfo, false);
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class j implements View.OnClickListener {
+    public static final class k implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56196e;
 
-        public j(WorkPublishActivity workPublishActivity) {
+        public k(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -913,20 +948,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56196e.onLocViewClickedInInitState();
+                b.a.e.e.p.l.K(TbadkCoreApplication.getInst(), this.f56196e.getEdtTitle());
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class k implements View.OnClickListener {
+    public static final class l implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56197e;
 
-        public k(WorkPublishActivity workPublishActivity) {
+        public l(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -944,24 +979,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56197e = workPublishActivity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.e.p.l.K(TbadkCoreApplication.getInst(), this.f56197e.getEdtTitle());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WorkPublishActivity.access$getTopicLayout$p(this.f56197e).setTitlePlaceholderHeight(this.f56197e.getNavigationBar().getHeight() + b.a.e.e.p.l.g(this.f56197e, R.dimen.tbds254));
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class l implements Runnable {
+    public static final class m implements SelectTopicLayout.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56198e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56198a;
 
-        public l(WorkPublishActivity workPublishActivity) {
+        public m(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -976,27 +1011,33 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56198e = workPublishActivity;
+            this.f56198a = workPublishActivity;
         }
 
-        @Override // java.lang.Runnable
-        public final void run() {
+        @Override // com.baidu.tieba.write.write.work.topic.SelectTopicLayout.f
+        public final void a(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WorkPublishActivity.access$getTopicLayout$p(this.f56198e).setTitlePlaceholderHeight(this.f56198e.getNavigationBar().getHeight() + b.a.e.e.p.l.g(this.f56198e, R.dimen.tbds254));
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                this.f56198a.onTitleEditModeChange();
+                if (z || !z2) {
+                    return;
+                }
+                this.f56198a.getEdtTitle().setFocusable(true);
+                this.f56198a.getEdtTitle().setFocusableInTouchMode(true);
+                this.f56198a.getEdtTitle().requestFocus();
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class m implements SelectTopicLayout.f {
+    public static final class n implements SelectTopicToolBar.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56199a;
 
-        public m(WorkPublishActivity workPublishActivity) {
+        public n(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1014,30 +1055,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             this.f56199a = workPublishActivity;
         }
 
-        @Override // com.baidu.tieba.write.write.work.topic.SelectTopicLayout.f
-        public final void a(boolean z, boolean z2) {
+        @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolBar.e
+        public final void onOpen() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f56199a.onTitleEditModeChange();
-                if (z || !z2) {
-                    return;
-                }
-                this.f56199a.getEdtTitle().setFocusable(true);
-                this.f56199a.getEdtTitle().setFocusableInTouchMode(true);
-                this.f56199a.getEdtTitle().requestFocus();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WorkPublishActivity.openSelectTopicLayout$default(this.f56199a, false, 1, null);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class n implements SelectTopicToolBar.e {
+    public static final class o<T> implements Observer<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56200a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56200e;
 
-        public n(WorkPublishActivity workPublishActivity) {
+        public o(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1052,27 +1087,35 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56200a = workPublishActivity;
+            this.f56200e = workPublishActivity;
         }
 
-        @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolBar.e
-        public final void onOpen() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.lifecycle.Observer
+        /* renamed from: a */
+        public final void onChanged(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WorkPublishActivity.openSelectTopicLayout$default(this.f56200a, false, 1, null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                if (Intrinsics.areEqual(this.f56200e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
+                    this.f56200e.getNavPost().setAlpha(0.33f);
+                    this.f56200e.getNavPost().setEnabled(true);
+                    return;
+                }
+                this.f56200e.getNavPost().setAlpha(1.0f);
+                this.f56200e.getNavPost().setEnabled(true);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class o<T> implements Observer<Boolean> {
+    public static final class p<T> implements Observer<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56201e;
 
-        public o(WorkPublishActivity workPublishActivity) {
+        public p(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1093,29 +1136,28 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(Boolean bool) {
+        public final void onChanged(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                if (Intrinsics.areEqual(this.f56201e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
-                    this.f56201e.getNavPost().setAlpha(0.33f);
-                    this.f56201e.getNavPost().setEnabled(true);
-                    return;
-                }
-                this.f56201e.getNavPost().setAlpha(1.0f);
-                this.f56201e.getNavPost().setEnabled(true);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(String.valueOf(this.f56201e.getEdtTitle().getText()))) {
+                return;
+            }
+            this.f56201e.getEdtTitle().setText(str);
+            Editable text = this.f56201e.getEdtTitle().getText();
+            if (text != null) {
+                this.f56201e.getEdtTitle().setSelection(text.length());
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class p<T> implements Observer<String> {
+    public static final class q<T> implements Observer<b.a.q0.u.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56202e;
 
-        public p(WorkPublishActivity workPublishActivity) {
+        public q(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1136,28 +1178,23 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(String str) {
+        public final void onChanged(b.a.q0.u.j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(String.valueOf(this.f56202e.getEdtTitle().getText()))) {
-                return;
-            }
-            this.f56202e.getEdtTitle().setText(str);
-            Editable text = this.f56202e.getEdtTitle().getText();
-            if (text != null) {
-                this.f56202e.getEdtTitle().setSelection(text.length());
+            if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
+                this.f56202e.getSelectBarView().bindData(jVar);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class q<T> implements Observer<b.a.q0.u.j> {
+    public static final class r<T> implements Observer<VideoCategoryClassData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ WorkPublishActivity f56203e;
 
-        public q(WorkPublishActivity workPublishActivity) {
+        public r(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1178,58 +1215,21 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(b.a.q0.u.j jVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f56203e.getSelectBarView().bindData(jVar);
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class r<T> implements Observer<VideoCategoryClassData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56204e;
-
-        public r(WorkPublishActivity workPublishActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56204e = workPublishActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.lifecycle.Observer
-        /* renamed from: a */
         public final void onChanged(VideoCategoryClassData it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                this.f56204e.getSelectClassView().bindData(it);
-                String firstClass = this.f56204e.getSelectTagView().getFirstClass();
+                this.f56203e.getSelectClassView().bindData(it);
+                String firstClass = this.f56203e.getSelectTagView().getFirstClass();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                if ((!Intrinsics.areEqual(firstClass, it.getFirstClass())) || (!Intrinsics.areEqual(this.f56204e.getSelectTagView().getSecondClass(), it.getSecondClass()))) {
-                    SelectTagView selectTagView = this.f56204e.getSelectTagView();
+                if ((!Intrinsics.areEqual(firstClass, it.getFirstClass())) || (!Intrinsics.areEqual(this.f56203e.getSelectTagView().getSecondClass(), it.getSecondClass()))) {
+                    SelectTagView selectTagView = this.f56203e.getSelectTagView();
                     String firstClass2 = it.getFirstClass();
                     Intrinsics.checkExpressionValueIsNotNull(firstClass2, "it.firstClass");
                     String secondClass = it.getSecondClass();
                     Intrinsics.checkExpressionValueIsNotNull(secondClass, "it.secondClass");
                     selectTagView.setClassData(firstClass2, secondClass);
-                    if (this.f56204e.isNeedCleanTag) {
-                        this.f56204e.getViewModel().getTagInfo().setValue(new ArrayList<>());
+                    if (this.f56203e.isNeedCleanTag) {
+                        this.f56203e.getViewModel().getTagInfo().setValue(new ArrayList<>());
                     }
                 }
             }
@@ -1242,10 +1242,68 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56205a;
+        public final /* synthetic */ WorkPublishActivity f56204a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public s(WorkPublishActivity workPublishActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56204a = workPublishActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof b.a.r0.k1.f) && this.f56204a.getEdtTitle() != null) {
+                int selectionStart = this.f56204a.getEdtTitle().getSelectionStart();
+                if (this.f56204a.mNeedDeleteLast && selectionStart > 0) {
+                    int i2 = selectionStart - 1;
+                    if (String.valueOf(this.f56204a.getEdtTitle().getText()).charAt(i2) == '#') {
+                        this.f56204a.getEdtTitle().getEditableText().delete(i2, selectionStart);
+                        this.f56204a.mNeedDeleteLast = false;
+                    }
+                }
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    b.a.r0.k1.f fVar = (b.a.r0.k1.f) data;
+                    if (fVar.i()) {
+                        this.f56204a.getEdtTitle().addVideoHotpicSpanGroup(fVar.d(), fVar.f() ? 0 : -1, fVar.e());
+                    } else {
+                        this.f56204a.getEdtTitle().getEditableText().insert(this.f56204a.getEdtTitle().getSelectionStart(), "#" + fVar.d() + "#");
+                    }
+                    WorkPublishActivity.access$getTopicLayout$p(this.f56204a).clearAllTopicText();
+                    return;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type com.baidu.tieba.hottopicselect.TopicListData");
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class t extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56205a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public t(WorkPublishActivity workPublishActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1269,71 +1327,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof b.a.r0.k1.f) && this.f56205a.getEdtTitle() != null) {
-                int selectionStart = this.f56205a.getEdtTitle().getSelectionStart();
-                if (this.f56205a.mNeedDeleteLast && selectionStart > 0) {
-                    int i2 = selectionStart - 1;
-                    if (String.valueOf(this.f56205a.getEdtTitle().getText()).charAt(i2) == '#') {
-                        this.f56205a.getEdtTitle().getEditableText().delete(i2, selectionStart);
-                        this.f56205a.mNeedDeleteLast = false;
-                    }
-                }
-                Object data = customResponsedMessage.getData();
-                if (data != null) {
-                    b.a.r0.k1.f fVar = (b.a.r0.k1.f) data;
-                    if (fVar.i()) {
-                        this.f56205a.getEdtTitle().addVideoHotpicSpanGroup(fVar.d(), fVar.f() ? 0 : -1, fVar.e());
-                    } else {
-                        this.f56205a.getEdtTitle().getEditableText().insert(this.f56205a.getEdtTitle().getSelectionStart(), "#" + fVar.d() + "#");
-                    }
-                    WorkPublishActivity.access$getTopicLayout$p(this.f56205a).clearAllTopicText();
-                    return;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type com.baidu.tieba.hottopicselect.TopicListData");
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class t extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56206a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public t(WorkPublishActivity workPublishActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56206a = workPublishActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Boolean)) {
                 Object data = customResponsedMessage.getData();
                 if (data == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 if (((Boolean) data).booleanValue()) {
-                    new BdTopToast(this.f56206a.getBaseContext()).setIcon(false).setContent(this.f56206a.getResources().getString(R.string.can_not_change_bar_name)).show(this.f56206a.getNavigationBar());
+                    new BdTopToast(this.f56205a.getBaseContext()).setIcon(false).setContent(this.f56205a.getResources().getString(R.string.can_not_change_bar_name)).show(this.f56205a.getNavigationBar());
                 }
             }
         }
@@ -1345,7 +1345,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56207a;
+        public final /* synthetic */ WorkPublishActivity f56206a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public u(WorkPublishActivity workPublishActivity) {
@@ -1363,14 +1363,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
                     return;
                 }
             }
-            this.f56207a = workPublishActivity;
+            this.f56206a = workPublishActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56207a.showToast(R.string.no_network_guide);
+                this.f56206a.showToast(R.string.no_network_guide);
             }
         }
 
@@ -1379,10 +1379,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
                 if (!StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f56207a.goToSelectLocationActivity();
+                    this.f56206a.goToSelectLocationActivity();
                     return;
                 }
-                WorkPublishActivity workPublishActivity = this.f56207a;
+                WorkPublishActivity workPublishActivity = this.f56206a;
                 workPublishActivity.showToast(workPublishActivity.getString(R.string.location_fail));
             }
         }
@@ -1391,9 +1391,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                WorkPublishActivity workPublishActivity = this.f56207a;
+                WorkPublishActivity workPublishActivity = this.f56206a;
                 if (StringUtils.isNull(str)) {
-                    str = this.f56207a.getString(R.string.location_fail);
+                    str = this.f56206a.getString(R.string.location_fail);
                 }
                 workPublishActivity.showToast(str);
             }
@@ -1406,10 +1406,56 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56208a;
+        public final /* synthetic */ WorkPublishActivity f56207a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(WorkPublishActivity workPublishActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {workPublishActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56207a = workPublishActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoCategoryClassData)) {
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    this.f56207a.isNeedCleanTag = true;
+                    this.f56207a.getViewModel().getClassInfo().setValue((VideoCategoryClassData) data);
+                    this.f56207a.getViewModel().checkIsAllLegal();
+                    return;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.VideoCategoryClassData");
+            }
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class w extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ WorkPublishActivity f56208a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public w(WorkPublishActivity workPublishActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1433,21 +1479,21 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoCategoryClassData)) {
-                Object data = customResponsedMessage.getData();
-                if (data != null) {
-                    this.f56208a.isNeedCleanTag = true;
-                    this.f56208a.getViewModel().getClassInfo().setValue((VideoCategoryClassData) data);
-                    this.f56208a.getViewModel().checkIsAllLegal();
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
+                ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+                if (responsedSelectLocation.isShowLocation()) {
+                    WorkPublishActivity.access$getMLocationModel$p(this.f56208a).N(false);
+                    WorkPublishActivity.access$getMLocationModel$p(this.f56208a).M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                } else {
+                    WorkPublishActivity.access$getMLocationModel$p(this.f56208a).N(true);
                 }
-                throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.VideoCategoryClassData");
+                this.f56208a.getViewModel().getPosInfo().setValue(customResponsedMessage);
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class w extends CustomMessageListener {
+    public static final class x extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1455,7 +1501,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public final /* synthetic */ WorkPublishActivity f56209a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public w(WorkPublishActivity workPublishActivity, int i2) {
+        public x(WorkPublishActivity workPublishActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1479,21 +1525,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
-                ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-                if (responsedSelectLocation.isShowLocation()) {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f56209a).N(false);
-                    WorkPublishActivity.access$getMLocationModel$p(this.f56209a).M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f56209a).N(true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    this.f56209a.getViewModel().getTagInfo().setValue((ArrayList) data);
+                    this.f56209a.getViewModel().checkIsAllLegal();
+                    return;
                 }
-                this.f56209a.getViewModel().getPosInfo().setValue(customResponsedMessage);
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
             }
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class x extends CustomMessageListener {
+    public static final class y extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1501,7 +1546,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public final /* synthetic */ WorkPublishActivity f56210a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public x(WorkPublishActivity workPublishActivity, int i2) {
+        public y(WorkPublishActivity workPublishActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1528,8 +1573,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f56210a.getViewModel().getTagInfo().setValue((ArrayList) data);
-                    this.f56210a.getViewModel().checkIsAllLegal();
+                    this.f56210a.getViewModel().getTopicInfo().setValue((ArrayList) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
@@ -1538,7 +1582,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
     }
 
     /* loaded from: classes10.dex */
-    public static final class y extends CustomMessageListener {
+    public static final class z extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1546,7 +1590,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         public final /* synthetic */ WorkPublishActivity f56211a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public y(WorkPublishActivity workPublishActivity, int i2) {
+        public z(WorkPublishActivity workPublishActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1570,54 +1614,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
-                Object data = customResponsedMessage.getData();
-                if (data != null) {
-                    this.f56211a.getViewModel().getTopicInfo().setValue((ArrayList) data);
-                    return;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
-            }
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static final class z extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f56212a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public z(WorkPublishActivity workPublishActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {workPublishActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56212a = workPublishActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof b.a.q0.u.j)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f56212a.getViewModel().getBarInfo().setValue((b.a.q0.u.j) data);
+                    this.f56211a.getViewModel().getBarInfo().setValue((b.a.q0.u.j) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.SelectForumData");
@@ -2227,7 +2227,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements b
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
             b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(pageContext.getPageActivity());
-            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new f0(this)).setNegativeButton(R.string.cancel, g0.f56193e).create(getPageContext());
+            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new f0(this)).setNegativeButton(R.string.cancel, g0.f56192e).create(getPageContext());
             aVar.show();
         }
     }

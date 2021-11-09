@@ -33,10 +33,10 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f50660a;
+    public MessageRedDotView f50659a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f50661b;
+    public CustomMessageListener f50660b;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -80,7 +80,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterDelegateStatic f50662a;
+        public final /* synthetic */ ImMessageCenterDelegateStatic f50661a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i2) {
@@ -100,7 +100,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f50662a = imMessageCenterDelegateStatic;
+            this.f50661a = imMessageCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
                 } catch (Exception unused2) {
                     i2 = 0;
                 }
-                this.f50662a.b(z, i2);
+                this.f50661a.b(z, i2);
             }
         }
     }
@@ -160,22 +160,22 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public final void b(boolean z, int i2) {
         MessageRedDotView messageRedDotView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f50660a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f50659a) == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f50660a.refresh(i2);
-            this.f50660a.setVisibility(0);
+            this.f50659a.refresh(i2);
+            this.f50659a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f50660a.getContext(), i2);
+                c(this.f50659a.getContext(), i2);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f50660a.getContext(), 0);
+            c(this.f50659a.getContext(), 0);
         }
     }
 
@@ -215,16 +215,16 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            this.f50660a = new MessageRedDotView(context);
+            this.f50659a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
             aVar.f45978f = tbFragmentTabIndicator;
-            aVar.f45973a = this.f50660a;
+            aVar.f45973a = this.f50659a;
             aVar.f45974b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
-            this.f50660a.setVisibility(4);
+            this.f50659a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f50660a.getContext(), 0);
+                c(this.f50659a.getContext(), 0);
             }
             return this.mIndicator;
         }
@@ -242,8 +242,8 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f50661b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f50661b);
+            this.f50660b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f50660b);
         }
     }
 
@@ -252,7 +252,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f50661b);
+            MessageManager.getInstance().unRegisterListener(this.f50660b);
         }
     }
 }

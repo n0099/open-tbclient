@@ -31,19 +31,19 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54510e;
+    public Context f54509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54511f;
+    public View f54510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadPendantView f54512g;
+    public HeadPendantView f54511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f54513h;
+    public TbImageView f54512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f54514i;
+    public ImageView f54513i;
     public TextView j;
     public DressItemData k;
     public c.a l;
@@ -54,7 +54,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantPerItemView f54515e;
+        public final /* synthetic */ AvatarPendantPerItemView f54514e;
 
         public a(AvatarPendantPerItemView avatarPendantPerItemView) {
             Interceptable interceptable = $ic;
@@ -71,19 +71,19 @@ public class AvatarPendantPerItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f54515e = avatarPendantPerItemView;
+            this.f54514e = avatarPendantPerItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54515e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54514e.l == null) {
                 return;
             }
-            if (this.f54515e.k != null && this.f54515e.k.getInUse() && TbadkCoreApplication.isLogin()) {
+            if (this.f54514e.k != null && this.f54514e.k.getInUse() && TbadkCoreApplication.isLogin()) {
                 return;
             }
-            this.f54515e.l.onItemClick(this.f54515e.k);
+            this.f54514e.l.onItemClick(this.f54514e.k);
         }
     }
 
@@ -105,30 +105,30 @@ public class AvatarPendantPerItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54510e = context;
+        this.f54509e = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f54510e).inflate(R.layout.avatar_pendant_per_item, this);
-            this.f54511f = inflate;
-            this.f54512g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
-            TbImageView tbImageView = (TbImageView) this.f54511f.findViewById(R.id.permission_icon);
-            this.f54513h = tbImageView;
+            View inflate = LayoutInflater.from(this.f54509e).inflate(R.layout.avatar_pendant_per_item, this);
+            this.f54510f = inflate;
+            this.f54511g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
+            TbImageView tbImageView = (TbImageView) this.f54510f.findViewById(R.id.permission_icon);
+            this.f54512h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f54513h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f54514i = (ImageView) this.f54511f.findViewById(R.id.choosed_icon);
-            this.j = (TextView) this.f54511f.findViewById(R.id.text_pendant_name);
-            this.f54512g.setHasPendantStyle();
-            if (this.f54512g.getHeadView() != null) {
-                this.f54512g.getHeadView().setIsRound(true);
-                this.f54512g.getHeadView().setDrawBorder(false);
+            this.f54512h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f54513i = (ImageView) this.f54510f.findViewById(R.id.choosed_icon);
+            this.j = (TextView) this.f54510f.findViewById(R.id.text_pendant_name);
+            this.f54511g.setHasPendantStyle();
+            if (this.f54511g.getHeadView() != null) {
+                this.f54511g.getHeadView().setIsRound(true);
+                this.f54511g.getHeadView().setDrawBorder(false);
             }
-            if (this.f54512g.getPendantView() != null) {
-                this.f54512g.getPendantView().setIsRound(true);
-                this.f54512g.getPendantView().setDrawBorder(false);
+            if (this.f54511g.getPendantView() != null) {
+                this.f54511g.getPendantView().setIsRound(true);
+                this.f54511g.getPendantView().setDrawBorder(false);
             }
         }
     }
@@ -142,11 +142,11 @@ public class AvatarPendantPerItemView extends LinearLayout {
         this.k = dressItemData;
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
-            if (this.f54512g.getHeadView() != null) {
-                this.f54512g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+            if (this.f54511g.getHeadView() != null) {
+                this.f54511g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
             }
-        } else if (this.f54512g.getHeadView() != null) {
-            this.f54512g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+        } else if (this.f54511g.getHeadView() != null) {
+            this.f54511g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
         }
         if (k.byteLength(dressItemData.getTitle()) > 8) {
             this.j.setText(k.cutString(dressItemData.getTitle(), 8));
@@ -154,25 +154,25 @@ public class AvatarPendantPerItemView extends LinearLayout {
             this.j.setText(dressItemData.getTitle());
         }
         if (inUse) {
-            this.f54514i.setVisibility(0);
-            SkinManager.setImageResource(this.f54514i, R.drawable.icon_shop_selected);
+            this.f54513i.setVisibility(0);
+            SkinManager.setImageResource(this.f54513i, R.drawable.icon_shop_selected);
         } else {
-            this.f54514i.setVisibility(8);
+            this.f54513i.setVisibility(8);
         }
-        this.f54513h.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f54512g.startLoadPendantUrl(dressItemData.getExampleImgUrl());
-        this.f54512g.setOnClickListener(new a(this));
-        SkinManager.setBackgroundColor(this.f54511f, R.color.CAM_X0201);
+        this.f54512h.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f54511g.startLoadPendantUrl(dressItemData.getExampleImgUrl());
+        this.f54511g.setOnClickListener(new a(this));
+        SkinManager.setBackgroundColor(this.f54510f, R.color.CAM_X0201);
     }
 
     public void onChangeSkinType() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f54510e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f54509e)) == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f54511f);
+        tbPageContext.getLayoutMode().j(this.f54510f);
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
@@ -201,7 +201,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54510e = context;
+        this.f54509e = context;
         c();
     }
 
@@ -224,7 +224,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54510e = context;
+        this.f54509e = context;
         c();
     }
 }

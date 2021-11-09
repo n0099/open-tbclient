@@ -44,7 +44,7 @@ public class SelectTagActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTagActivity f56234a;
+        public final /* synthetic */ SelectTagActivity f56233a;
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
@@ -53,7 +53,7 @@ public class SelectTagActivity extends SuspendedActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f56235e;
+            public final /* synthetic */ a f56234e;
 
             public View$OnClickListenerC1772a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -70,19 +70,19 @@ public class SelectTagActivity extends SuspendedActivity {
                         return;
                     }
                 }
-                this.f56235e = aVar;
+                this.f56234e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56235e.f56234a.mSelectClassTagsModel == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56234e.f56233a.mSelectClassTagsModel == null) {
                     return;
                 }
-                this.f56235e.f56234a.mSelectClassTagsModel.f();
-                SelectTagActivity selectTagActivity = this.f56235e.f56234a;
+                this.f56234e.f56233a.mSelectClassTagsModel.f();
+                SelectTagActivity selectTagActivity = this.f56234e.f56233a;
                 selectTagActivity.hideNetRefreshView(selectTagActivity.contentView);
-                SelectTagActivity selectTagActivity2 = this.f56235e.f56234a;
+                SelectTagActivity selectTagActivity2 = this.f56234e.f56233a;
                 selectTagActivity2.showLoadingView(selectTagActivity2.contentView);
             }
         }
@@ -106,7 +106,7 @@ public class SelectTagActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f56234a = selectTagActivity;
+            this.f56233a = selectTagActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -116,17 +116,17 @@ public class SelectTagActivity extends SuspendedActivity {
                 return;
             }
             if (responsedMessage.hasError()) {
-                SelectTagActivity selectTagActivity = this.f56234a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.f56234a.getString(R.string.data_load_fail), null, false, new View$OnClickListenerC1772a(this));
+                SelectTagActivity selectTagActivity = this.f56233a;
+                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.f56233a.getString(R.string.data_load_fail), null, false, new View$OnClickListenerC1772a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
-                this.f56234a.mSelectClassTagsModel.i(((GetSelectClassHttpResMessage) responsedMessage).getTags().get(0));
+                this.f56233a.mSelectClassTagsModel.i(((GetSelectClassHttpResMessage) responsedMessage).getTags().get(0));
             } else if (responsedMessage instanceof GetSelectClassSocketResMessage) {
-                this.f56234a.mSelectClassTagsModel.i(((GetSelectClassSocketResMessage) responsedMessage).getTags().get(0));
+                this.f56233a.mSelectClassTagsModel.i(((GetSelectClassSocketResMessage) responsedMessage).getTags().get(0));
             }
-            this.f56234a.updateTagData();
-            SelectTagActivity selectTagActivity2 = this.f56234a;
+            this.f56233a.updateTagData();
+            SelectTagActivity selectTagActivity2 = this.f56233a;
             selectTagActivity2.hideLoadingView(selectTagActivity2.contentView);
         }
     }
@@ -137,7 +137,7 @@ public class SelectTagActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagActivity f56236e;
+        public final /* synthetic */ SelectTagActivity f56235e;
 
         public b(SelectTagActivity selectTagActivity) {
             Interceptable interceptable = $ic;
@@ -154,15 +154,15 @@ public class SelectTagActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f56236e = selectTagActivity;
+            this.f56235e = selectTagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f56236e.selectTagListView.isCanSelectFinish()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.f56236e.selectTagListView.getHadSelectTagList()));
-                this.f56236e.close();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f56235e.selectTagListView.isCanSelectFinish()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.f56235e.selectTagListView.getHadSelectTagList()));
+                this.f56235e.close();
             }
         }
     }

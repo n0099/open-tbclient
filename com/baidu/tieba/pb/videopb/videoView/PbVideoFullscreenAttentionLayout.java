@@ -30,16 +30,16 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f52833e;
+    public HeadImageView f52832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbVideoFullscreenLikeBtn f52834f;
+    public PbVideoFullscreenLikeBtn f52833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public p0 f52835g;
+    public p0 f52834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f52836h;
+    public BdUniqueId f52835h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -66,13 +66,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             FrameLayout.inflate(context, j.pb_video_attention, this);
-            this.f52833e = (HeadImageView) findViewById(i.attention_img);
-            this.f52834f = (PbVideoFullscreenLikeBtn) findViewById(i.concern_video_info_item);
-            this.f52833e.setIsRound(true);
-            this.f52833e.setBorderWidth(l.g(context, g.tbds3));
-            this.f52833e.setBorderColor(context.getResources().getColor(f.CAM_X0402));
-            this.f52833e.setAutoChangeStyle(false);
-            this.f52834f.setConfig(new a());
+            this.f52832e = (HeadImageView) findViewById(i.attention_img);
+            this.f52833f = (PbVideoFullscreenLikeBtn) findViewById(i.concern_video_info_item);
+            this.f52832e.setIsRound(true);
+            this.f52832e.setBorderWidth(l.g(context, g.tbds3));
+            this.f52832e.setBorderColor(context.getResources().getColor(f.CAM_X0402));
+            this.f52832e.setAutoChangeStyle(false);
+            this.f52833f.setConfig(new a());
         }
     }
 
@@ -95,8 +95,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p0 p0Var = this.f52835g;
-            return (p0Var == null || p0Var.j() == null || !this.f52835g.j().getIsLike()) ? false : true;
+            p0 p0Var = this.f52834g;
+            return (p0Var == null || p0Var.j() == null || !this.f52834g.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -108,19 +108,19 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String str = d2Var.E;
         int threadForumType = getThreadForumType(d2Var);
-        if (this.f52835g == null) {
+        if (this.f52834g == null) {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            p0 p0Var = new p0(((AbsPbActivity) getContext()).getPageContext(), this.f52834f, -1);
-            this.f52835g = p0Var;
+            p0 p0Var = new p0(((AbsPbActivity) getContext()).getPageContext(), this.f52833f, -1);
+            this.f52834g = p0Var;
             p0Var.m("11");
-            this.f52835g.l(this.f52836h);
+            this.f52834g.l(this.f52835h);
         }
-        this.f52835g.n(d2Var.J());
-        this.f52835g.w(str);
-        this.f52835g.u(d2Var);
-        p0 p0Var2 = this.f52835g;
+        this.f52834g.n(d2Var.J());
+        this.f52834g.w(str);
+        this.f52834g.u(d2Var);
+        p0 p0Var2 = this.f52834g;
         p0Var2.s = true;
         p0Var2.v(threadForumType);
     }
@@ -132,27 +132,27 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(d2Var.J().getAvater());
         if (headPortraitFilter.startsWith("http")) {
-            this.f52833e.startLoad(headPortraitFilter, 10, false);
+            this.f52832e.startLoad(headPortraitFilter, 10, false);
         } else {
-            this.f52833e.startLoad(headPortraitFilter, 25, false);
+            this.f52832e.startLoad(headPortraitFilter, 25, false);
         }
-        this.f52833e.setBjhAuthIconRes(0);
-        this.f52833e.setIsBigV(d2Var.J().isBigV());
-        this.f52833e.setShowV(d2Var.J().isBigV());
+        this.f52832e.setBjhAuthIconRes(0);
+        this.f52832e.setIsBigV(d2Var.J().isBigV());
+        this.f52832e.setShowV(d2Var.J().isBigV());
         processUserLikePresenter(d2Var);
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f52834f.setOnclickEvent(onClickListener);
+            this.f52833f.setOnclickEvent(onClickListener);
         }
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f52836h = bdUniqueId;
+            this.f52835h = bdUniqueId;
         }
     }
 

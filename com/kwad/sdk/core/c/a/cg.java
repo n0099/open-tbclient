@@ -33,9 +33,9 @@ public class cg implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.e> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        eVar.f65254a = jSONObject.optBoolean("needPromopt");
-        eVar.f65255b = jSONObject.optBoolean("needReport");
-        eVar.f65256c = jSONObject.optInt("showTime");
+        eVar.f65253a = jSONObject.optBoolean("needPromopt");
+        eVar.f65254b = jSONObject.optBoolean("needReport");
+        eVar.f65255c = jSONObject.optInt("showTime");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,9 +47,9 @@ public class cg implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.e> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "needPromopt", eVar.f65254a);
-            com.kwad.sdk.utils.q.a(jSONObject, "needReport", eVar.f65255b);
-            com.kwad.sdk.utils.q.a(jSONObject, "showTime", eVar.f65256c);
+            com.kwad.sdk.utils.q.a(jSONObject, "needPromopt", eVar.f65253a);
+            com.kwad.sdk.utils.q.a(jSONObject, "needReport", eVar.f65254b);
+            com.kwad.sdk.utils.q.a(jSONObject, "showTime", eVar.f65255c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

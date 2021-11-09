@@ -13,7 +13,7 @@ public abstract class a extends AbsDownloadListener implements s {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69204a = "a";
+    public static final String f69203a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public abstract class a extends AbsDownloadListener implements s {
     public void a(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) && com.ss.android.socialbase.downloader.c.a.a() && downloadInfo != null) {
-            String str = f69204a;
+            String str = f69203a;
             com.ss.android.socialbase.downloader.c.a.b(str, " onWaitingDownloadCompleteHandler -- " + downloadInfo.getName());
         }
     }
